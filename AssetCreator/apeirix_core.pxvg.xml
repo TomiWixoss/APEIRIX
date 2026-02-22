@@ -1,0 +1,83 @@
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="a" hex="#000000FF" />
+    <color k="b" hex="#1A0A2EFF" />
+    <color k="c" hex="#2D0A4EFF" />
+    <color k="d" hex="#3C0A6EFF" />
+    <color k="e" hex="#5C12A8FF" />
+    <color k="f" hex="#7B2CBFFF" />
+    <color k="g" hex="#9D4EDDFF" />
+    <color k="h" hex="#00D4FFFF" />
+    <color k="i" hex="#00FFFFB0" />
+    <color k="j" hex="#FFFFFF" />
+  </palette>
+  <layer id="bg">
+    <rect x="0" y="0" w="16" h="16" c="a" />
+  </layer>
+  <layer id="border">
+    <rect x="1" y="1" w="14" h="14" c="b" />
+    <rect x="0" y="0" w="1" h="16" c="c" />
+    <rect x="15" y="0" w="1" h="16" c="c" />
+    <rect x="0" y="0" w="16" h="1" c="c" />
+    <rect x="0" y="15" w="16" h="1" c="c" />
+  </layer>
+  <layer id="swirl1">
+    <rect x="2" y="2" w="12" h="12" c="d" />
+    <dot x="3" y="3" c="f" />
+    <dot x="12" y="3" c="f" />
+    <dot x="3" y="12" c="f" />
+    <dot x="12" y="12" c="f" />
+  </layer>
+  <layer id="swirl2">
+    <rect x="3" y="3" w="10" h="10" c="e" />
+    <dot x="4" y="4" c="g" />
+    <dot x="11" y="4" c="g" />
+    <dot x="4" y="11" c="g" />
+    <dot x="11" y="11" c="g" />
+  </layer>
+  <layer id="ring">
+    <rect x="4" y="4" w="8" h="8" c="f" />
+  </layer>
+  <layer id="inner">
+    <rect x="5" y="5" w="6" h="6" c="g" />
+    <rect x="6" y="6" w="4" h="4" c="f" />
+    <rect x="7" y="7" w="2" h="2" c="e" />
+  </layer>
+  <layer id="core">
+    <rect x="7" y="7" w="2" h="2" c="h" />
+    <dot x="8" y="8" c="j" />
+  </layer>
+  <layer id="energy_lines">
+    <line x1="8" y1="4" x2="8" y2="6" c="h" />
+    <line x1="8" y1="10" x2="8" y2="12" c="h" />
+    <line x1="4" y1="8" x2="6" y2="8" c="h" />
+    <line x1="10" y1="8" x2="12" y2="8" c="h" />
+  </layer>
+  <layer id="glow">
+    <dot x="5" y="5" c="h" />
+    <dot x="10" y="5" c="h" />
+    <dot x="5" y="10" c="h" />
+    <dot x="10" y="10" c="h" />
+    <dot x="4" y="8" c="i" />
+    <dot x="11" y="8" c="i" />
+    <dot x="8" y="4" c="i" />
+    <dot x="8" y="11" c="i" />
+  </layer>
+  <layer id="highlights">
+    <dot x="3" y="8" c="i" />
+    <dot x="12" y="8" c="i" />
+    <dot x="8" y="3" c="i" />
+    <dot x="8" y="12" c="i" />
+    <dot x="2" y="6" c="j" />
+    <dot x="13" y="6" c="j" />
+    <dot x="2" y="10" c="j" />
+    <dot x="13" y="10" c="j" />
+    <dot x="6" y="2" c="j" />
+    <dot x="9" y="2" c="j" />
+    <dot x="6" y="13" c="j" />
+    <dot x="9" y="13" c="j" />
+  </layer>
+  <postprocess>
+    <outline sel-out="false" color="#00D4FFFF" thickness="1" />
+  </postprocess>
+</pxvg>
