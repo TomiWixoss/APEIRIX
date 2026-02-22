@@ -28,6 +28,28 @@ world.afterEvents.playerSpawn.subscribe((event) => {
     if (event.initialSpawn) {
         player.sendMessage("§a§lChào mừng đến với APEIRIX!");
         player.sendMessage("§7Sử dụng lệnh: §b/scriptevent apeirix:achievements §7để xem thành tựu");
+        
+        // Tặng sách thành tựu cho người chơi mới
+        system.runTimeout(() => {
+            try {
+                player.runCommand("give @s apeirix:achievement_book 1");
+                player.sendMessage("§e§lBạn đã nhận được Sách Thành Tựu APEIRIX!");
+            } catch (error) {
+                console.warn("Không thể tặng sách thành tựu:", error);
+            }
+        }, 20);
+    }
+});
+
+// Mở UI khi dùng sách thành tựu
+world.afterEvents.itemUse.subscribe((event) => {
+    const player = event.source;
+    const item = event.itemStack;
+    
+    if (item.typeId === "apeirix:achievement_book") {
+        system.run(() => {
+            AchievementUI.showMainMenu(player);
+        });
     }
 });
 

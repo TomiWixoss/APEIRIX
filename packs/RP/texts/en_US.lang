@@ -1,2 +1,5 @@
 pack.name=APEIRIX
 pack.description=Thêm mọi thứ vào trò chơi
+
+## Items
+item.apeirix.achievement_book.name=Sách Thành Tựu APEIRIX
