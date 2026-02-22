@@ -181,9 +181,12 @@ var init_AchievementManager = __esm({
        */
       static setProgress(player, achievementId, value) {
         try {
-          player.setDynamicProperty(this.PROGRESS_PREFIX + achievementId, value);
+          if (this.hasAchievement(player, achievementId)) return;
           const achievement = ACHIEVEMENTS.find((a) => a.id === achievementId);
-          if (achievement && value >= achievement.requirement && !this.hasAchievement(player, achievementId)) {
+          if (!achievement) return;
+          const clampedValue = Math.min(value, achievement.requirement);
+          player.setDynamicProperty(this.PROGRESS_PREFIX + achievementId, clampedValue);
+          if (clampedValue >= achievement.requirement) {
             this.unlockAchievement(player, achievementId);
           }
         } catch (error) {
@@ -194,6 +197,7 @@ var init_AchievementManager = __esm({
        * Increment progress for an achievement
        */
       static incrementProgress(player, achievementId, amount = 1) {
+        if (this.hasAchievement(player, achievementId)) return;
         const current = this.getProgress(player, achievementId);
         this.setProgress(player, achievementId, current + amount);
       }
@@ -288,6 +292,7 @@ var AchievementTracker = class {
 };
 
 // scripts/main.ts
+init_AchievementManager();
 init_AchievementUI();
 system2.afterEvents.scriptEventReceive.subscribe((event) => {
   if (event.id === "apeirix:init") {
@@ -303,15 +308,18 @@ world2.afterEvents.playerSpawn.subscribe((event) => {
   const player = event.player;
   if (event.initialSpawn) {
     player.sendMessage("\xA7a\xA7lCh\xE0o m\u1EEBng \u0111\u1EBFn v\u1EDBi APEIRIX!");
-    player.sendMessage("\xA77S\u1EED d\u1EE5ng l\u1EC7nh: \xA7b/scriptevent apeirix:achievements \xA77\u0111\u1EC3 xem th\xE0nh t\u1EF1u");
-    system2.runTimeout(() => {
-      try {
-        player.runCommand("give @s apeirix:achievement_book 1");
-        player.sendMessage("\xA7e\xA7lB\u1EA1n \u0111\xE3 nh\u1EADn \u0111\u01B0\u1EE3c S\xE1ch Th\xE0nh T\u1EF1u APEIRIX!");
-      } catch (error) {
-        console.warn("Kh\xF4ng th\u1EC3 t\u1EB7ng s\xE1ch th\xE0nh t\u1EF1u:", error);
-      }
-    }, 20);
+    const hasWelcomeAchievement = AchievementManager.hasAchievement(player, "welcome");
+    if (!hasWelcomeAchievement) {
+      system2.runTimeout(() => {
+        try {
+          player.runCommand("give @s apeirix:achievement_book 1");
+          player.sendMessage("\xA7e\xA7lB\u1EA1n \u0111\xE3 nh\u1EADn \u0111\u01B0\u1EE3c S\xE1ch Th\xE0nh T\u1EF1u APEIRIX!");
+          player.sendMessage("\xA77S\u1EED d\u1EE5ng s\xE1ch \u0111\u1EC3 xem ti\u1EBFn \u0111\u1ED9 th\xE0nh t\u1EF1u c\u1EE7a b\u1EA1n");
+        } catch (error) {
+          console.warn("Kh\xF4ng th\u1EC3 t\u1EB7ng s\xE1ch th\xE0nh t\u1EF1u:", error);
+        }
+      }, 20);
+    }
   }
 });
 world2.afterEvents.itemUse.subscribe((event) => {
@@ -320,6 +328,30 @@ world2.afterEvents.itemUse.subscribe((event) => {
   if (item.typeId === "apeirix:achievement_book") {
     system2.run(() => {
       AchievementUI.showMainMenu(player);
+    });
+  }
+});
+system2.afterEvents.scriptEventReceive.subscribe((event) => {
+  if (event.id === "apeirix:getbook") {
+    const entity = event.sourceEntity;
+    if (!entity) {
+      console.warn("Kh\xF4ng t\xECm th\u1EA5y entity cho l\u1EC7nh getbook");
+      return;
+    }
+    const players = world2.getAllPlayers();
+    const player = players.find((p) => p.id === entity.id) || players[0];
+    if (!player) {
+      console.warn("Kh\xF4ng t\xECm th\u1EA5y ng\u01B0\u1EDDi ch\u01A1i");
+      return;
+    }
+    system2.run(() => {
+      try {
+        player.runCommand("give @s apeirix:achievement_book 1");
+        player.sendMessage("\xA7a\xA7l\u0110\xE3 nh\u1EADn l\u1EA1i S\xE1ch Th\xE0nh T\u1EF1u APEIRIX!");
+      } catch (error) {
+        console.error("L\u1ED7i khi t\u1EB7ng s\xE1ch:", error);
+        player.sendMessage("\xA7cKh\xF4ng th\u1EC3 t\u1EB7ng s\xE1ch!");
+      }
     });
   }
 });

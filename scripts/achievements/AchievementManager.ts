@@ -2,7 +2,7 @@
  * Achievement Manager for APEIRIX
  */
 
-import { Player, world } from "@minecraft/server";
+import { Player } from "@minecraft/server";
 import { ACHIEVEMENTS, Achievement } from "./AchievementData";
 
 export class AchievementManager {
@@ -37,11 +37,18 @@ export class AchievementManager {
      */
     static setProgress(player: Player, achievementId: string, value: number): void {
         try {
-            player.setDynamicProperty(this.PROGRESS_PREFIX + achievementId, value);
+            // Nếu đã hoàn thành thì không cập nhật nữa
+            if (this.hasAchievement(player, achievementId)) return;
+            
+            const achievement = ACHIEVEMENTS.find(a => a.id === achievementId);
+            if (!achievement) return;
+            
+            // Giới hạn progress không vượt quá requirement
+            const clampedValue = Math.min(value, achievement.requirement);
+            player.setDynamicProperty(this.PROGRESS_PREFIX + achievementId, clampedValue);
             
             // Check if achievement should be unlocked
-            const achievement = ACHIEVEMENTS.find(a => a.id === achievementId);
-            if (achievement && value >= achievement.requirement && !this.hasAchievement(player, achievementId)) {
+            if (clampedValue >= achievement.requirement) {
                 this.unlockAchievement(player, achievementId);
             }
         } catch (error) {
@@ -53,6 +60,9 @@ export class AchievementManager {
      * Increment progress for an achievement
      */
     static incrementProgress(player: Player, achievementId: string, amount: number = 1): void {
+        // Nếu đã hoàn thành thì không tăng nữa
+        if (this.hasAchievement(player, achievementId)) return;
+        
         const current = this.getProgress(player, achievementId);
         this.setProgress(player, achievementId, current + amount);
     }
