@@ -2,44 +2,46 @@
 inclusion: always
 ---
 
-# APEIRIX Project Rules
+# Quy Tắc Dự Án APEIRIX
 
-## Project Overview
+## Tổng Quan Dự Án
 
-**APEIRIX** - Minecraft Bedrock Edition addon that adds everything to the game.
+**APEIRIX** - Addon Minecraft Bedrock Edition thêm mọi thứ vào game.
 
-## Key Information
+## Thông Tin Chính
 
-- **Type**: Minecraft Bedrock Addon
+- **Loại**: Minecraft Bedrock Addon
 - **Build System**: Regolith
-- **Language**: TypeScript → JavaScript
-- **Supported Languages**: English (en_US), Vietnamese (vi_VN)
+- **Ngôn ngữ**: TypeScript → JavaScript
+- **Ngôn ngữ hiển thị**: Tiếng Việt (trong file en_US.lang)
 - **Namespace**: `apeirix:`
 
-## Build Command
+## Lệnh Build
 
 ```bash
 regolith run
 ```
 
-This compiles TypeScript and deploys to Minecraft's development packs folder.
+Lệnh này compile TypeScript và deploy vào thư mục development packs của Minecraft.
 
-## Project Structure
+## Cấu Trúc Dự Án
 
 ```
 ├── packs/
 │   ├── BP/                    # Behavior Pack
-│   │   ├── scripts/main.js    # Auto-generated from scripts/main.ts
-│   │   └── texts/             # en_US.lang, vi_VN.lang
+│   │   ├── scripts/main.js    # Auto-generated từ scripts/main.ts
+│   │   └── texts/             # en_US.lang (nội dung tiếng Việt)
 │   └── RP/                    # Resource Pack
-│       └── texts/             # en_US.lang, vi_VN.lang
-├── scripts/main.ts            # TypeScript source (edit here)
+│       └── texts/             # en_US.lang (nội dung tiếng Việt)
+├── scripts/main.ts            # TypeScript source (edit ở đây)
 └── config.json                # Regolith config
 ```
 
-## Development Rules
+## Quy Tắc Phát Triển
 
-- Use `apeirix:` namespace for all custom content
-- Add translations to both `en_US.lang` and `vi_VN.lang` files
-- Edit TypeScript in `scripts/main.ts`, never edit `packs/BP/scripts/main.js`
-- Run `regolith run` after changes, then `/reload` in-game
+- Dùng namespace `apeirix:` cho tất cả custom content
+- File ngôn ngữ dùng `en_US.lang` nhưng nội dung là tiếng Việt
+- Tất cả string trong TypeScript code phải là tiếng Việt
+- Edit TypeScript trong `scripts/main.ts`, không edit `packs/BP/scripts/main.js`
+- Chạy `regolith run` sau khi thay đổi, sau đó `/reload` trong game
+
