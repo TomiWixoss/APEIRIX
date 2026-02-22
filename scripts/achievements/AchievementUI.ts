@@ -1,15 +1,15 @@
 /**
- * Achievement UI cho APEIRIX - Sử dụng DDUI Framework
+ * Achievement UI cho APEIRIX - Phiên bản ActionFormData
  */
 
 import { Player } from "@minecraft/server";
-import { CustomForm, Observable } from "@minecraft/server-ui";
+import { ActionFormData } from "@minecraft/server-ui";
 import { AchievementManager } from "./AchievementManager";
 import { ACHIEVEMENTS } from "./AchievementData";
 
 export class AchievementUI {
     /**
-     * Hiển thị menu thành tựu chính với DDUI
+     * Hiển thị menu thành tựu chính
      */
     static async showMainMenu(player: Player): Promise<void> {
         const achievements = AchievementManager.getAllAchievements(player);
@@ -17,45 +17,44 @@ export class AchievementUI {
         const unlockedCount = achievements.filter(a => a.unlocked).length;
         const progressPercent = Math.floor((unlockedCount / totalAchievements) * 100);
         
-        const form = CustomForm.create(player, "§l§6═══ THÀNH TỰU APEIRIX ═══");
-        
-        // Header với progress
-        form.label(`§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-        form.label(`§7Tiến độ hoàn thành: §e${unlockedCount}§7/§e${totalAchievements}`);
-        form.label(this.createProgressBar(progressPercent));
-        form.divider();
-        form.spacer();
-        form.label("§7§lChọn thành tựu để xem chi tiết:");
-        form.spacer();
+        const form = new ActionFormData()
+            .title("§l§6═══ THÀNH TỰU APEIRIX ═══")
+            .body(
+                `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+                `§7Tiến độ hoàn thành: §e${unlockedCount}§7/§e${totalAchievements}\n` +
+                `${this.createProgressBar(progressPercent)}\n` +
+                `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+                `§7Chọn thành tựu để xem chi tiết:`
+            );
 
-        // Thêm button cho mỗi thành tựu
+        // Thêm nút cho mỗi thành tựu
         achievements.forEach(({ achievement, unlocked, progress }) => {
             const status = unlocked ? "§a[✓]" : "§7[✗]";
             const progressPercent = Math.floor((progress / achievement.requirement) * 100);
             const progressColor = progressPercent >= 100 ? "§a" : progressPercent >= 50 ? "§e" : "§c";
-            
-            form.button(
-                `${status} §r§l${achievement.name}`,
-                () => this.showAchievementDetail(player, achievement, unlocked, progress),
-                {
-                    tooltip: `${progressColor}${progressPercent}% §7hoàn thành\n§8${achievement.desc}`
-                }
-            );
+            const buttonText = `${status} §r§l${achievement.name}\n§r§8${progressColor}${progressPercent}% §8hoàn thành`;
+            form.button(buttonText);
         });
 
-        form.spacer();
-        form.divider();
-        form.closeButton();
+        form.button("§l§c✖ Đóng");
 
         try {
-            await form.show();
+            const response = await form.show(player);
+            
+            if (response.canceled || response.selection === undefined) return;
+            
+            // Nếu không phải nút đóng
+            if (response.selection < achievements.length) {
+                const selected = achievements[response.selection];
+                await this.showAchievementDetail(player, selected.achievement, selected.unlocked, selected.progress);
+            }
         } catch (error) {
             console.error("Lỗi khi hiển thị menu thành tựu:", error);
         }
     }
 
     /**
-     * Hiển thị chi tiết thành tựu với DDUI
+     * Hiển thị chi tiết thành tựu
      */
     private static async showAchievementDetail(
         player: Player,
@@ -70,39 +69,30 @@ export class AchievementUI {
         const statusText = unlocked ? "§a§lĐÃ HOÀN THÀNH" : "§7§lCHƯA MỞ KHÓA";
         const progressText = `§e${Math.floor(progress)}§7/§e${achievement.requirement}`;
         
-        const form = CustomForm.create(player, `§l§6${achievement.name}`);
-        
-        form.label(`§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
-        form.label(`§7${achievement.desc}`);
-        form.divider();
-        form.spacer();
-        
-        form.label(`§7Trạng thái: ${statusIcon} ${statusText}`);
-        form.spacer();
-        
-        form.label(`§7Tiến độ: ${progressText}`);
-        form.label(progressBar);
-        form.spacer();
-        form.divider();
-        
-        if (unlocked) {
-            form.label("§a§l★ CHÚC MỪNG! ★");
-            form.label("§7Bạn đã hoàn thành thành tựu này!");
-        } else {
-            form.label("§e§l⚡ CỐ GẮNG LÊN! ⚡");
-            form.label("§7Bạn sắp hoàn thành rồi!");
-        }
-        
-        form.spacer();
-        form.button(
-            "§l§a← Quay lại Menu",
-            () => this.showMainMenu(player),
-            { tooltip: "Quay lại danh sách thành tựu" }
-        );
-        form.closeButton();
+        const body = 
+            `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `§7${achievement.desc}\n` +
+            `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
+            `§7Trạng thái: ${statusIcon} ${statusText}\n\n` +
+            `§7Tiến độ: ${progressText}\n` +
+            `${progressBar}\n\n` +
+            (unlocked 
+                ? "§a§l★ CHÚC MỪNG! ★\n§7Bạn đã hoàn thành thành tựu này!" 
+                : "§e§l⚡ CỐ GẮNG LÊN! ⚡\n§7Bạn sắp hoàn thành rồi!");
+
+        const form = new ActionFormData()
+            .title(`§l§6${achievement.name}`)
+            .body(body)
+            .button("§l§a← Quay lại Menu")
+            .button("§l§c✖ Đóng");
 
         try {
-            await form.show();
+            const response = await form.show(player);
+            
+            if (!response.canceled && response.selection === 0) {
+                // Hiển thị menu chính lại
+                await this.showMainMenu(player);
+            }
         } catch (error) {
             console.error("Lỗi khi hiển thị chi tiết thành tựu:", error);
         }
