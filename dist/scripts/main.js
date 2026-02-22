@@ -41,7 +41,7 @@ var AchievementUI_exports = {};
 __export(AchievementUI_exports, {
   AchievementUI: () => AchievementUI
 });
-import { ActionFormData } from "@minecraft/server-ui";
+import { CustomForm } from "@minecraft/server-ui";
 var AchievementUI;
 var init_AchievementUI = __esm({
   "scripts/achievements/AchievementUI.ts"() {
@@ -50,57 +50,79 @@ var init_AchievementUI = __esm({
     init_AchievementData();
     AchievementUI = class {
       /**
-       * Hiển thị menu thành tựu chính
+       * Hiển thị menu thành tựu chính với DDUI
        */
       static async showMainMenu(player) {
         const achievements = AchievementManager.getAllAchievements(player);
         const totalAchievements = ACHIEVEMENTS.length;
         const unlockedCount = achievements.filter((a) => a.unlocked).length;
-        const form = new ActionFormData().title("\xA7l\xA76Th\xE0nh T\u1EF1u APEIRIX").body(
-          `\xA77Ti\u1EBFn \u0111\u1ED9: \xA7e${unlockedCount}\xA77/\xA7e${totalAchievements} \xA77(\xA7a${Math.floor(unlockedCount / totalAchievements * 100)}%\xA77)
-
-\xA77Nh\u1EA5n v\xE0o th\xE0nh t\u1EF1u \u0111\u1EC3 xem chi ti\u1EBFt:`
-        );
+        const progressPercent = Math.floor(unlockedCount / totalAchievements * 100);
+        const form = CustomForm.create(player, "\xA7l\xA76\u2550\u2550\u2550 TH\xC0NH T\u1EF0U APEIRIX \u2550\u2550\u2550");
+        form.label(`\xA78\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501`);
+        form.label(`\xA77Ti\u1EBFn \u0111\u1ED9 ho\xE0n th\xE0nh: \xA7e${unlockedCount}\xA77/\xA7e${totalAchievements}`);
+        form.label(this.createProgressBar(progressPercent));
+        form.divider();
+        form.spacer();
+        form.label("\xA77\xA7lCh\u1ECDn th\xE0nh t\u1EF1u \u0111\u1EC3 xem chi ti\u1EBFt:");
+        form.spacer();
         achievements.forEach(({ achievement, unlocked, progress }) => {
-          const status = unlocked ? "\xA7a\u2713" : "\xA77\u2717";
-          const progressPercent = Math.floor(progress / achievement.requirement * 100);
-          const buttonText = `${status} ${achievement.name}
-\xA7r\xA77${progressPercent}%`;
-          form.button(buttonText);
+          const status = unlocked ? "\xA7a[\u2713]" : "\xA77[\u2717]";
+          const progressPercent2 = Math.floor(progress / achievement.requirement * 100);
+          const progressColor = progressPercent2 >= 100 ? "\xA7a" : progressPercent2 >= 50 ? "\xA7e" : "\xA7c";
+          form.button(
+            `${status} \xA7r\xA7l${achievement.name}`,
+            () => this.showAchievementDetail(player, achievement, unlocked, progress),
+            {
+              tooltip: `${progressColor}${progressPercent2}% \xA77ho\xE0n th\xE0nh
+\xA78${achievement.desc}`
+            }
+          );
         });
-        form.button("\xA7c\u0110\xF3ng");
+        form.spacer();
+        form.divider();
+        form.closeButton();
         try {
-          const response = await form.show(player);
-          if (response.canceled || response.selection === void 0) return;
-          if (response.selection < achievements.length) {
-            const selected = achievements[response.selection];
-            await this.showAchievementDetail(player, selected.achievement, selected.unlocked, selected.progress);
-          }
+          await form.show();
         } catch (error) {
           console.error("L\u1ED7i khi hi\u1EC3n th\u1ECB menu th\xE0nh t\u1EF1u:", error);
         }
       }
       /**
-       * Hiển thị chi tiết thành tựu
+       * Hiển thị chi tiết thành tựu với DDUI
        */
       static async showAchievementDetail(player, achievement, unlocked, progress) {
         const progressPercent = Math.floor(progress / achievement.requirement * 100);
         const progressBar = this.createProgressBar(progressPercent);
-        const statusText = unlocked ? "\xA7a\u2713 Ho\xE0n th\xE0nh" : "\xA77\u2717 Ch\u01B0a m\u1EDF kh\xF3a";
+        const statusIcon = unlocked ? "\xA7a\u2713" : "\xA77\u2717";
+        const statusText = unlocked ? "\xA7a\xA7l\u0110\xC3 HO\xC0N TH\xC0NH" : "\xA77\xA7lCH\u01AFA M\u1EDE KH\xD3A";
         const progressText = `\xA7e${Math.floor(progress)}\xA77/\xA7e${achievement.requirement}`;
-        const body = `\xA77${achievement.desc}
-
-\xA77Tr\u1EA1ng th\xE1i: ${statusText}
-\xA77Ti\u1EBFn \u0111\u1ED9: ${progressText}
-${progressBar}
-
-` + (unlocked ? "\xA7a\xA7l\u0110\xC3 HO\xC0N TH\xC0NH!" : "\xA77C\u1ED1 g\u1EAFng l\xEAn!");
-        const form = new ActionFormData().title(`\xA76${achievement.name}`).body(body).button("\xA7aQuay l\u1EA1i").button("\xA7c\u0110\xF3ng");
+        const form = CustomForm.create(player, `\xA7l\xA76${achievement.name}`);
+        form.label(`\xA78\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501\u2501`);
+        form.label(`\xA77${achievement.desc}`);
+        form.divider();
+        form.spacer();
+        form.label(`\xA77Tr\u1EA1ng th\xE1i: ${statusIcon} ${statusText}`);
+        form.spacer();
+        form.label(`\xA77Ti\u1EBFn \u0111\u1ED9: ${progressText}`);
+        form.label(progressBar);
+        form.spacer();
+        form.divider();
+        if (unlocked) {
+          form.label("\xA7a\xA7l\u2605 CH\xDAC M\u1EEANG! \u2605");
+          form.label("\xA77B\u1EA1n \u0111\xE3 ho\xE0n th\xE0nh th\xE0nh t\u1EF1u n\xE0y!");
+        } else {
+          form.label("\xA7e\xA7l\u26A1 C\u1ED0 G\u1EAENG L\xCAN! \u26A1");
+          form.label("\xA77B\u1EA1n s\u1EAFp ho\xE0n th\xE0nh r\u1ED3i!");
+        }
+        form.spacer();
+        form.button(
+          "\xA7l\xA7a\u2190 Quay l\u1EA1i Menu",
+          () => this.showMainMenu(player),
+          { tooltip: "Quay l\u1EA1i danh s\xE1ch th\xE0nh t\u1EF1u" }
+        );
+        form.closeButton();
         try {
-          const response = await form.show(player);
-          if (!response.canceled && response.selection === 0) {
-            await this.showMainMenu(player);
-          }
+          await form.show();
         } catch (error) {
           console.error("L\u1ED7i khi hi\u1EC3n th\u1ECB chi ti\u1EBFt th\xE0nh t\u1EF1u:", error);
         }
@@ -112,9 +134,13 @@ ${progressBar}
         const barLength = 20;
         const filled = Math.floor(percent / 100 * barLength);
         const empty = barLength - filled;
-        const filledBar = "\xA7a|".repeat(filled);
-        const emptyBar = "\xA77|".repeat(empty);
-        return `[${filledBar}${emptyBar}] \xA7e${percent}%`;
+        let barColor = "\xA7c";
+        if (percent >= 75) barColor = "\xA7a";
+        else if (percent >= 50) barColor = "\xA7e";
+        else if (percent >= 25) barColor = "\xA76";
+        const filledBar = barColor + "\u2588".repeat(filled);
+        const emptyBar = "\xA78\u2588".repeat(empty);
+        return `\xA78[${filledBar}${emptyBar}\xA78] \xA7e${percent}%`;
       }
       /**
        * Hiển thị thông báo mở khóa thành tựu
@@ -122,8 +148,8 @@ ${progressBar}
       static showUnlockNotification(player, achievementId) {
         const achievement = ACHIEVEMENTS.find((a) => a.id === achievementId);
         if (!achievement) return;
-        player.onScreenDisplay.setTitle(`\xA76\xA7lM\u1EDF Kh\xF3a Th\xE0nh T\u1EF1u!`);
-        player.onScreenDisplay.updateSubtitle(`\xA7e${achievement.name}`);
+        player.onScreenDisplay.setTitle(`\xA76\xA7l\u2605 M\u1EDE KH\xD3A TH\xC0NH T\u1EF0U! \u2605`);
+        player.onScreenDisplay.updateSubtitle(`\xA7e\xA7l${achievement.name}`);
       }
     };
   }
