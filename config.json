@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.7.json",
-	"author": "Your Name",
-	"name": "My First Addon",
+	"author": "APEIRIX Team",
+	"name": "APEIRIX",
 	"packs": {
 		"behaviorPack": "./packs/BP",
 		"resourcePack": "./packs/RP"
