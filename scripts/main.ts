@@ -42,6 +42,9 @@ world.afterEvents.playerSpawn.subscribe((event) => {
                     console.warn("Không thể tặng sách thành tựu:", error);
                 }
             }, 20);
+        } else {
+            // Đã nhận sách rồi, hiện hướng dẫn lấy lại nếu mất
+            player.sendMessage("§7Nếu làm mất sách, gõ: §b/scriptevent apeirix:getbook");
         }
     }
 });
