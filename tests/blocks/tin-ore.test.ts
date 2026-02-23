@@ -157,10 +157,14 @@ register("apeirix", "tin_ore_silk_touch", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
-    // Give pickaxe with Silk Touch
-    player.runCommand('give @s diamond_pickaxe 1 0 {"minecraft:enchantments":{"enchantments":[{"id":"silk_touch","level":1}]}}');
     
-    test.runAfterDelay(10, () => {
+    // Give pickaxe first, then enchant (Bedrock way)
+    player.runCommand("give @s diamond_pickaxe 1");
+    test.runAfterDelay(5, () => {
+        player.runCommand("enchant @s silk_touch 1");
+    });
+    
+    test.runAfterDelay(15, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     
@@ -182,9 +186,13 @@ register("apeirix", "tin_ore_fortune_1", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
-    player.runCommand('give @s diamond_pickaxe 1 0 {"minecraft:enchantments":{"enchantments":[{"id":"fortune","level":1}]}}');
     
-    test.runAfterDelay(10, () => {
+    player.runCommand("give @s diamond_pickaxe 1");
+    test.runAfterDelay(5, () => {
+        player.runCommand("enchant @s fortune 1");
+    });
+    
+    test.runAfterDelay(15, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     
@@ -207,9 +215,13 @@ register("apeirix", "tin_ore_fortune_2", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
-    player.runCommand('give @s diamond_pickaxe 1 0 {"minecraft:enchantments":{"enchantments":[{"id":"fortune","level":2}]}}');
     
-    test.runAfterDelay(10, () => {
+    player.runCommand("give @s diamond_pickaxe 1");
+    test.runAfterDelay(5, () => {
+        player.runCommand("enchant @s fortune 2");
+    });
+    
+    test.runAfterDelay(15, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     
@@ -231,9 +243,13 @@ register("apeirix", "tin_ore_fortune_3", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
-    player.runCommand('give @s diamond_pickaxe 1 0 {"minecraft:enchantments":{"enchantments":[{"id":"fortune","level":3}]}}');
     
-    test.runAfterDelay(10, () => {
+    player.runCommand("give @s diamond_pickaxe 1");
+    test.runAfterDelay(5, () => {
+        player.runCommand("enchant @s fortune 3");
+    });
+    
+    test.runAfterDelay(15, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     
@@ -255,9 +271,13 @@ register("apeirix", "tin_ore_fortune_bronze", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
-    player.runCommand('give @s apeirix:bronze_pickaxe 1 0 {"minecraft:enchantments":{"enchantments":[{"id":"fortune","level":3}]}}');
     
-    test.runAfterDelay(10, () => {
+    player.runCommand("give @s apeirix:bronze_pickaxe 1");
+    test.runAfterDelay(5, () => {
+        player.runCommand("enchant @s fortune 3");
+    });
+    
+    test.runAfterDelay(15, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     
