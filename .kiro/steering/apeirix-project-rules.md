@@ -18,11 +18,25 @@ inclusion: always
 
 ## Lệnh Build
 
+### Build và Deploy sang Preview
+```bash
+.\build-and-deploy.ps1
+```
+
+Lệnh này sẽ:
+1. Compile TypeScript với Regolith
+2. Copy packs sang Minecraft Preview
+3. Sẵn sàng test với `/reload` trong game
+
+### Chỉ Build (không deploy)
 ```bash
 regolith run
 ```
 
-Lệnh này compile TypeScript và deploy vào thư mục development packs của Minecraft.
+### Chỉ Deploy (sau khi đã build)
+```bash
+.\deploy-preview.ps1
+```
 
 ## Cấu Trúc Dự Án
 

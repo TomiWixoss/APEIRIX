@@ -9,6 +9,7 @@ packs/BP/scripts/*.js.map
 # Build outputs
 dist/
 lib/
+build/
 
 # Samples và docs không cần
 bedrock-samples-v1.26.0.2-full/
