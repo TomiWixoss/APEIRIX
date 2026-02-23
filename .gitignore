@@ -15,6 +15,10 @@ build/
 bedrock-samples-v1.26.0.2-full/
 minecraft-scripting-samples-main/
 
+# Reference addons từ người khác (chỉ để tham khảo local)
+reference_addons/*
+!reference_addons/README.md
+
 # IDE
 .vscode/
 .idea/

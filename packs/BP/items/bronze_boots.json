@@ -28,18 +28,21 @@
       "minecraft:repairable": {
         "repair_items": [
           {
-            "items": ["apeirix:bronze_ingot"],
-            "repair_amount": "query.max_durability * 0.25"
-          },
-          {
             "items": ["apeirix:bronze_boots"],
             "repair_amount": "context.other->query.remaining_durability + 0.12 * context.other->query.max_durability"
+          },
+          {
+            "items": ["apeirix:bronze_ingot"],
+            "repair_amount": "context.other->query.remaining_durability * 0.25"
           }
         ]
       },
       "minecraft:wearable": {
         "slot": "slot.armor.feet",
         "protection": 1
+      },
+      "minecraft:tags": {
+        "tags": ["minecraft:trimmable_armors"]
       }
     }
   }
