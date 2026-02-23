@@ -9,7 +9,8 @@ import { AchievementSystem } from "../systems/achievements/AchievementSystem";
 import { ItemSystem } from "../systems/items/ItemSystem";
 import { LangManager } from "../lang/LangManager";
 import { FortuneSystem } from "../systems/blocks/FortuneSystem";
-import { BronzeToolSystem } from "../systems/items/BronzeToolSystem";
+import { CustomToolSystem } from "../systems/items/CustomToolSystem";
+import { GameData } from "../data/GameData";
 
 // Import achievements
 import { WelcomeAchievement } from "../data/achievements/categories/starter/WelcomeAchievement";
@@ -25,6 +26,7 @@ export class GameManager {
 
         console.warn("Initializing APEIRIX...");
 
+        GameData.initialize();
         this.registerCategories();
         this.registerAchievements();
         this.initializeSystems();
@@ -59,7 +61,7 @@ export class GameManager {
         // AchievementTracker removed - each achievement handles its own tracking
         ItemSystem.initialize();
         FortuneSystem.getInstance();
-        BronzeToolSystem.getInstance();
+        CustomToolSystem.getInstance();
     }
 
     private static setupEventListeners(): void {

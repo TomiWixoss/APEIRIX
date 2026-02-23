@@ -1,4 +1,5 @@
 import { world, ItemStack, Player, Block, EquipmentSlot } from "@minecraft/server";
+import { OreRegistry } from "../../data/blocks/OreRegistry";
 
 /**
  * System xử lý Fortune enchantment cho custom ore blocks
@@ -32,11 +33,13 @@ export class FortuneSystem {
     const { player, block, brokenBlockPermutation } = event;
     const blockId = brokenBlockPermutation.type.id;
 
-    // Chỉ xử lý tin ore blocks
-    if (
-      blockId !== "apeirix:tin_ore" &&
-      blockId !== "apeirix:deepslate_tin_ore"
-    ) {
+    // Kiểm tra xem có phải ore được đăng ký không
+    if (!OreRegistry.isOre(blockId)) {
+      return;
+    }
+
+    const ore = OreRegistry.getOre(blockId);
+    if (!ore || !ore.fortuneEnabled) {
       return;
     }
 
@@ -63,7 +66,7 @@ export class FortuneSystem {
     const bonusDrops = this.calculateBonusDrops(fortuneLevel);
 
     if (bonusDrops > 0) {
-      // Spawn thêm raw tin
+      // Spawn thêm items
       const dropLocation = {
         x: block.location.x + 0.5,
         y: block.location.y + 0.5,
@@ -71,7 +74,7 @@ export class FortuneSystem {
       };
 
       block.dimension.spawnItem(
-        new ItemStack("apeirix:raw_tin", bonusDrops),
+        new ItemStack(ore.dropItem, bonusDrops * ore.dropCount),
         dropLocation
       );
     }

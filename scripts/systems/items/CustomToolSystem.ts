@@ -1,20 +1,22 @@
 import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent, ItemUseBeforeEvent } from "@minecraft/server";
+import { ToolRegistry } from "../../data/tools/ToolRegistry";
+import { TillableRegistry } from "../../data/blocks/TillableRegistry";
 
 /**
- * System xử lý Bronze tools durability và hoe tillage
+ * System xử lý custom tools durability và hoe tillage
  */
-export class BronzeToolSystem {
-  private static instance: BronzeToolSystem;
+export class CustomToolSystem {
+  private static instance: CustomToolSystem;
 
   private constructor() {
     this.initialize();
   }
 
-  public static getInstance(): BronzeToolSystem {
-    if (!BronzeToolSystem.instance) {
-      BronzeToolSystem.instance = new BronzeToolSystem();
+  public static getInstance(): CustomToolSystem {
+    if (!CustomToolSystem.instance) {
+      CustomToolSystem.instance = new CustomToolSystem();
     }
-    return BronzeToolSystem.instance;
+    return CustomToolSystem.instance;
   }
 
   private initialize(): void {
@@ -39,8 +41,8 @@ export class BronzeToolSystem {
 
     const toolId = tool.typeId;
     
-    // Check if bronze tool
-    if (this.isBronzeTool(toolId)) {
+    // Check if custom tool
+    if (ToolRegistry.isTool(toolId)) {
       this.damageTool(player, tool, 1);
     }
   }
@@ -49,7 +51,11 @@ export class BronzeToolSystem {
     const player = event.source as Player;
     const item = event.itemStack;
 
-    if (!item || item.typeId !== "apeirix:bronze_hoe") return;
+    if (!item) return;
+
+    // Check if it's a hoe
+    const toolDef = ToolRegistry.getTool(item.typeId);
+    if (!toolDef || toolDef.type !== "hoe") return;
 
     // Get block player is looking at
     const blockRaycast = player.getBlockFromViewDirection({ maxDistance: 5 });
@@ -59,21 +65,19 @@ export class BronzeToolSystem {
     const blockId = block.typeId;
 
     // Check if block can be tilled
-    const tillableBlocks = [
-      "minecraft:dirt",
-      "minecraft:grass_block",
-      "minecraft:dirt_path",
-      "minecraft:coarse_dirt"
-    ];
+    if (TillableRegistry.isTillable(blockId)) {
+      const tillable = TillableRegistry.getTillable(blockId);
+      if (!tillable) return;
 
-    if (tillableBlocks.includes(blockId)) {
       // Convert to farmland
       block.dimension.runCommand(
-        `setblock ${block.location.x} ${block.location.y} ${block.location.z} farmland`
+        `setblock ${block.location.x} ${block.location.y} ${block.location.z} ${tillable.resultBlock}`
       );
 
       // Play sound
-      block.dimension.playSound("use.grass", block.location);
+      if (tillable.sound) {
+        block.dimension.playSound(tillable.sound, block.location);
+      }
 
       // Damage hoe
       const equipment = player.getComponent("minecraft:equippable");
@@ -84,15 +88,6 @@ export class BronzeToolSystem {
         }
       }
     }
-  }
-
-  private isBronzeTool(toolId: string): boolean {
-    return [
-      "apeirix:bronze_pickaxe",
-      "apeirix:bronze_axe",
-      "apeirix:bronze_shovel",
-      "apeirix:bronze_hoe"
-    ].includes(toolId);
   }
 
   private damageTool(player: Player, tool: ItemStack, amount: number): void {
