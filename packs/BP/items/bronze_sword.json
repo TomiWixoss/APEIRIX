@@ -29,6 +29,19 @@
           }
         ]
       },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": "minecraft:cobweb",
+            "speed": 15
+          },
+          {
+            "block": "minecraft:bamboo",
+            "speed": 6
+          }
+        ]
+      },
       "minecraft:damage": 6
     }
   }

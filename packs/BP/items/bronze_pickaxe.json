@@ -34,7 +34,7 @@
         "destroy_speeds": [
           {
             "block": {
-              "tags": "q.any_tag('stone', 'metal', 'diamond_pick_diggable', 'iron_pick_diggable')"
+              "tags": "q.any_tag('stone', 'metal', 'rock', 'diamond_pick_diggable', 'iron_pick_diggable', 'stone_pick_diggable')"
             },
             "speed": 6
           }

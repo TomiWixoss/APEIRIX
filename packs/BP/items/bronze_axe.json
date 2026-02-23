@@ -34,7 +34,7 @@
         "destroy_speeds": [
           {
             "block": {
-              "tags": "q.any_tag('wood', 'log')"
+              "tags": "q.any_tag('wood', 'log', 'pumpkin', 'plant_stem')"
             },
             "speed": 6
           }

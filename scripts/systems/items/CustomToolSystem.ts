@@ -1,4 +1,4 @@
-import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent } from "@minecraft/server";
+import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent, system } from "@minecraft/server";
 import { ToolRegistry } from "../../data/tools/ToolRegistry";
 import { TillableRegistry } from "../../data/blocks/TillableRegistry";
 
@@ -25,9 +25,9 @@ export class CustomToolSystem {
       this.handleBlockBreak(event);
     });
 
-    // Hoe tillage
-    world.afterEvents.itemUse.subscribe((event) => {
-      this.handleItemUse(event);
+    // Hoe tillage - use beforeEvents to intercept
+    world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+      this.handlePlayerInteract(event);
     });
   }
 
@@ -47,48 +47,58 @@ export class CustomToolSystem {
     }
   }
 
-  private handleItemUse(event: { source: Player; itemStack?: ItemStack }): void {
-    const player = event.source;
-    const item = event.itemStack;
+  private handlePlayerInteract(event: any): void {
+    const player = event.player;
+    const block = event.block;
+    const itemStack = event.itemStack;
 
-    if (!item) return;
+    if (!itemStack) return;
 
-    // Check if it's a hoe
-    const toolDef = ToolRegistry.getTool(item.typeId);
+    // Check if it's a CUSTOM hoe
+    const toolDef = ToolRegistry.getTool(itemStack.typeId);
     if (!toolDef || toolDef.type !== "hoe") return;
 
-    // Get block player is looking at
-    const blockRaycast = player.getBlockFromViewDirection({ maxDistance: 5 });
-    if (!blockRaycast) return;
-
-    const block = blockRaycast.block;
     const blockId = block.typeId;
 
-    // Check if block can be tilled
-    if (TillableRegistry.isTillable(blockId)) {
-      const tillable = TillableRegistry.getTillable(blockId);
-      if (!tillable) return;
+    // Check if block is tillable (only dirt, grass, dirt_path, coarse_dirt)
+    if (!TillableRegistry.isTillable(blockId)) return;
 
-      // Convert to farmland using setType
-      const farmland = block.dimension.getBlock(block.location);
-      if (!farmland) return;
+    const blockLocation = { ...block.location };
+    const playerId = player.id;
+    const hoeTypeId = itemStack.typeId;
+    
+    // Schedule effects in unrestricted context
+    system.run(() => {
+      const currentPlayer = world.getAllPlayers().find(p => p.id === playerId);
+      if (!currentPlayer) return;
 
-      farmland.setType(tillable.resultBlock);
+      // Verify block was actually tilled (check if it's now farmland)
+      const currentBlock = currentPlayer.dimension.getBlock(blockLocation);
+      if (!currentBlock || currentBlock.typeId !== "minecraft:farmland") {
+        // Block wasn't tilled, don't apply effects
+        return;
+      }
 
-      // Play sound
-      if (tillable.sound) {
-        block.dimension.playSound(tillable.sound, block.location);
+      console.warn(`[CustomToolSystem] Farmland created, applying effects`);
+      
+      // Play tillage sound
+      try {
+        currentPlayer.dimension.playSound("use.grass", blockLocation);
+        console.warn(`[CustomToolSystem] Sound played`);
+      } catch (error) {
+        console.error(`[CustomToolSystem] Failed to play sound: ${error}`);
       }
 
       // Damage hoe
-      const equipment = player.getComponent("minecraft:equippable");
+      const equipment = currentPlayer.getComponent("minecraft:equippable");
       if (equipment) {
         const hoe = equipment.getEquipment(EquipmentSlot.Mainhand);
-        if (hoe) {
-          this.damageTool(player, hoe, 1);
+        if (hoe && hoe.typeId === hoeTypeId) {
+          this.damageTool(currentPlayer, hoe, 1);
+          console.warn(`[CustomToolSystem] Hoe damaged`);
         }
       }
-    }
+    });
   }
 
   private damageTool(player: Player, tool: ItemStack, amount: number): void {

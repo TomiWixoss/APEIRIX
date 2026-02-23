@@ -29,12 +29,17 @@
           }
         ]
       },
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_hoe"
+        ]
+      },
       "minecraft:digger": {
         "use_efficiency": true,
         "destroy_speeds": [
           {
             "block": {
-              "tags": "q.any_tag('plant', 'crop')"
+              "tags": "q.any_tag('plant', 'crop', 'leaves', 'hay_block', 'sponge', 'sculk', 'nether_wart_block', 'warped_wart_block', 'shroomlight', 'target')"
             },
             "speed": 6
           }
