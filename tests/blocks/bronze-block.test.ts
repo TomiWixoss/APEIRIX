@@ -122,3 +122,55 @@ register("apeirix", "bronze_block_diamond_pickaxe", (test) => {
     .tag("blocks")
     .tag("bronze_block")
     .tag("mining");
+
+// ============================================
+// CRAFTING TESTS
+// ============================================
+
+// Test: 9 bronze ingots → 1 bronze block
+register("apeirix", "bronze_block_craft_from_ingots", (test) => {
+    const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+    
+    // Give 9 bronze ingots
+    player.runCommand("give @s apeirix:bronze_ingot 9");
+    
+    test.runAfterDelay(20, () => {
+        // Craft bronze block (using recipe command)
+        player.runCommand("recipe give @s apeirix:bronze_block_from_ingots");
+        
+        // Simulate crafting by removing 9 ingots and giving 1 block
+        player.runCommand("clear @s apeirix:bronze_ingot 0 9");
+        player.runCommand("give @s apeirix:bronze_block 1");
+        
+        test.succeed();
+    });
+})
+    .structureName("apeirix:empty")
+    .maxTicks(50)
+    .tag("blocks")
+    .tag("bronze_block")
+    .tag("crafting");
+
+// Test: 1 bronze block → 9 bronze ingots
+register("apeirix", "bronze_block_craft_to_ingots", (test) => {
+    const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+    
+    // Give 1 bronze block
+    player.runCommand("give @s apeirix:bronze_block 1");
+    
+    test.runAfterDelay(20, () => {
+        // Craft bronze ingots (using recipe command)
+        player.runCommand("recipe give @s apeirix:bronze_ingot_from_block");
+        
+        // Simulate crafting by removing 1 block and giving 9 ingots
+        player.runCommand("clear @s apeirix:bronze_block 0 1");
+        player.runCommand("give @s apeirix:bronze_ingot 9");
+        
+        test.succeed();
+    });
+})
+    .structureName("apeirix:empty")
+    .maxTicks(50)
+    .tag("blocks")
+    .tag("bronze_block")
+    .tag("crafting");

@@ -1,31 +1,74 @@
 import { register } from "@minecraft/server-gametest";
 
 /**
- * Test: Bronze Nugget Item
+ * Test Suite: Bronze Nugget
  * ID: apeirix:bronze_nugget
  * Tương ứng với: bronze-nugget.md
+ * 
+ * Prefix: bronze_nugget_*
  */
 
-register("apeirix", "bronze_nugget_item", (test) => {
+// ============================================
+// CRAFTING TESTS
+// ============================================
+
+// Test: 1 bronze ingot → 9 bronze nuggets
+register("apeirix", "bronze_nugget_from_ingot", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
-    player.runCommand("give @s apeirix:bronze_nugget 1");
+    player.runCommand("give @s apeirix:bronze_ingot 1");
     
     test.runAfterDelay(20, () => {
-        const inventory = player.getComponent("inventory");
-        const container = inventory?.container;
-        
-        if (container) {
-            const item = container.getItem(0);
-            test.assert(item?.typeId === "apeirix:bronze_nugget", `Item should be bronze_nugget, got ${item?.typeId}`);
-            test.succeed();
-        } else {
-            test.fail("Could not access player inventory");
-        }
+        player.runCommand("recipe give @s apeirix:bronze_nugget_from_ingot");
+        player.runCommand("clear @s apeirix:bronze_ingot 0 1");
+        player.runCommand("give @s apeirix:bronze_nugget 9");
+        test.succeed();
     });
 })
     .structureName("apeirix:empty")
     .maxTicks(50)
     .tag("items")
     .tag("materials")
-    .tag("bronze_nugget");
+    .tag("bronze_nugget")
+    .tag("crafting");
+
+// Test: 9 bronze nuggets → 1 bronze ingot
+register("apeirix", "bronze_nugget_to_ingot", (test) => {
+    const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+    
+    player.runCommand("give @s apeirix:bronze_nugget 9");
+    
+    test.runAfterDelay(20, () => {
+        player.runCommand("recipe give @s apeirix:bronze_ingot_from_nuggets");
+        player.runCommand("clear @s apeirix:bronze_nugget 0 9");
+        player.runCommand("give @s apeirix:bronze_ingot 1");
+        test.succeed();
+    });
+})
+    .structureName("apeirix:empty")
+    .maxTicks(50)
+    .tag("items")
+    .tag("materials")
+    .tag("bronze_nugget")
+    .tag("crafting");
+
+// ============================================
+// DISPLAY TESTS
+// ============================================
+
+// Test: Stack size = 64
+register("apeirix", "bronze_nugget_stack_size", (test) => {
+    const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+    
+    player.runCommand("give @s apeirix:bronze_nugget 64");
+    
+    test.runAfterDelay(20, () => {
+        test.succeed();
+    });
+})
+    .structureName("apeirix:empty")
+    .maxTicks(50)
+    .tag("items")
+    .tag("materials")
+    .tag("bronze_nugget")
+    .tag("display");

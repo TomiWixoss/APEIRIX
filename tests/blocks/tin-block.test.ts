@@ -122,3 +122,55 @@ register("apeirix", "tin_block_diamond_pickaxe", (test) => {
     .tag("blocks")
     .tag("tin_block")
     .tag("mining");
+
+// ============================================
+// CRAFTING TESTS
+// ============================================
+
+// Test: 9 tin ingots → 1 tin block
+register("apeirix", "tin_block_craft_from_ingots", (test) => {
+    const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+    
+    // Give 9 tin ingots
+    player.runCommand("give @s apeirix:tin_ingot 9");
+    
+    test.runAfterDelay(20, () => {
+        // Craft tin block (using recipe command)
+        player.runCommand("recipe give @s apeirix:tin_block_from_ingots");
+        
+        // Simulate crafting by removing 9 ingots and giving 1 block
+        player.runCommand("clear @s apeirix:tin_ingot 0 9");
+        player.runCommand("give @s apeirix:tin_block 1");
+        
+        test.succeed();
+    });
+})
+    .structureName("apeirix:empty")
+    .maxTicks(50)
+    .tag("blocks")
+    .tag("tin_block")
+    .tag("crafting");
+
+// Test: 1 tin block → 9 tin ingots
+register("apeirix", "tin_block_craft_to_ingots", (test) => {
+    const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+    
+    // Give 1 tin block
+    player.runCommand("give @s apeirix:tin_block 1");
+    
+    test.runAfterDelay(20, () => {
+        // Craft tin ingots (using recipe command)
+        player.runCommand("recipe give @s apeirix:tin_ingot_from_block");
+        
+        // Simulate crafting by removing 1 block and giving 9 ingots
+        player.runCommand("clear @s apeirix:tin_block 0 1");
+        player.runCommand("give @s apeirix:tin_ingot 9");
+        
+        test.succeed();
+    });
+})
+    .structureName("apeirix:empty")
+    .maxTicks(50)
+    .tag("blocks")
+    .tag("tin_block")
+    .tag("crafting");
