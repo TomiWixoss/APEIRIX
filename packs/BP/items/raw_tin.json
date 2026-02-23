@@ -9,6 +9,9 @@
     },
     "components": {
       "minecraft:icon": "raw_tin",
+      "minecraft:display_name": {
+        "value": "item.apeirix.raw_tin.name"
+      },
       "minecraft:max_stack_size": 64
     }
   }

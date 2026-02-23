@@ -1,0 +1,11 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_furnace": {
+    "description": {
+      "identifier": "apeirix:tin_ingot_from_deepslate_ore_smelting"
+    },
+    "tags": ["furnace"],
+    "input": "apeirix:deepslate_tin_ore",
+    "output": "apeirix:tin_ingot"
+  }
+}

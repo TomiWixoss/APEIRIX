@@ -9,6 +9,9 @@
     },
     "components": {
       "minecraft:icon": "tin_ingot",
+      "minecraft:display_name": {
+        "value": "item.apeirix.tin_ingot.name"
+      },
       "minecraft:max_stack_size": 64
     }
   }
