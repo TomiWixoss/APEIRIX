@@ -8,11 +8,11 @@ export interface Achievement {
     requirement: number;
     category: string;
     icon: string; // Vanilla texture path
-    reward?: {
+    rewards?: Array<{
         item: string;
         amount: number;
         icon: string;
-    };
+    }>;
 }
 
 export const ACHIEVEMENT_CATEGORIES = {
@@ -28,32 +28,38 @@ export const ACHIEVEMENTS: Achievement[] = [
         requirement: 1,
         category: "starter",
         icon: "textures/items/book_writable",
-        reward: {
-            item: "minecraft:diamond",
-            amount: 1,
-            icon: "textures/items/diamond"
-        }
+        rewards: [
+            {
+                item: "minecraft:diamond",
+                amount: 1,
+                icon: "textures/items/diamond"
+            }
+        ]
     },
     {
         id: "first_steps",
         requirement: 100,
         category: "starter",
         icon: "textures/items/leather_boots",
-        reward: {
-            item: "minecraft:iron_ingot",
-            amount: 5,
-            icon: "textures/items/iron_ingot"
-        }
+        rewards: [
+            {
+                item: "minecraft:iron_ingot",
+                amount: 5,
+                icon: "textures/items/iron_ingot"
+            }
+        ]
     },
     {
         id: "breaker",
         requirement: 10,
         category: "starter",
         icon: "textures/items/iron_pickaxe",
-        reward: {
-            item: "minecraft:coal",
-            amount: 16,
-            icon: "textures/items/coal"
-        }
+        rewards: [
+            {
+                item: "minecraft:coal",
+                amount: 16,
+                icon: "textures/items/coal"
+            }
+        ]
     }
 ];

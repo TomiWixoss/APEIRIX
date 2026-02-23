@@ -8,6 +8,7 @@ import { ACHIEVEMENTS, Achievement } from "./AchievementData";
 export class AchievementManager {
     private static readonly PROPERTY_PREFIX = "apeirix:achievement_";
     private static readonly PROGRESS_PREFIX = "apeirix:progress_";
+    private static readonly REWARD_PREFIX = "apeirix:reward_";
 
     /**
      * Check if player has unlocked an achievement
@@ -17,6 +18,28 @@ export class AchievementManager {
             return player.getDynamicProperty(this.PROPERTY_PREFIX + achievementId) === true;
         } catch {
             return false;
+        }
+    }
+
+    /**
+     * Check if player has claimed a specific reward
+     */
+    static hasClaimedReward(player: Player, achievementId: string, rewardIndex: number): boolean {
+        try {
+            return player.getDynamicProperty(`${this.REWARD_PREFIX}${achievementId}_${rewardIndex}`) === true;
+        } catch {
+            return false;
+        }
+    }
+
+    /**
+     * Mark reward as claimed
+     */
+    static claimReward(player: Player, achievementId: string, rewardIndex: number): void {
+        try {
+            player.setDynamicProperty(`${this.REWARD_PREFIX}${achievementId}_${rewardIndex}`, true);
+        } catch (error) {
+            console.warn(`Failed to claim reward ${achievementId}_${rewardIndex}:`, error);
         }
     }
 

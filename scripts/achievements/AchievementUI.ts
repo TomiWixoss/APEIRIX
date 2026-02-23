@@ -28,7 +28,7 @@ export class AchievementUI {
             const completedText = LangManager.get("achievements.completed");
             
             form.button(
-                `§l${categoryName}\n§r§7${unlockedCount}§8/§7${categoryAchievements.length} §8${completedText}`,
+                `§l${categoryName}\n§r§3${unlockedCount}§0/§3${categoryAchievements.length} §0${completedText}`,
                 category.icon
             );
         });
@@ -77,20 +77,20 @@ export class AchievementUI {
             .body(
                 `§7${categoryDesc}\n\n` +
                 `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                `${progressText} §e${unlockedCount}§7/§e${achievements.length}\n` +
+                `${progressText} §3${unlockedCount}§8/§3${achievements.length}\n` +
                 `${this.createProgressBar(progressPercent)}\n` +
                 `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
             );
 
         // Thêm nút cho mỗi thành tựu
         achievementsData.forEach(({ achievement, unlocked, progress }) => {
-            const status = unlocked ? "§a[✓]" : "§7[✗]";
+            const status = unlocked ? "§2[✓]" : "§8[✗]";
             const progressPercent = Math.floor((progress / achievement.requirement) * 100);
-            const progressColor = progressPercent >= 100 ? "§a" : progressPercent >= 50 ? "§e" : "§c";
+            const progressColor = progressPercent >= 100 ? "§2" : progressPercent >= 50 ? "§6" : "§c";
             const achievementName = LangManager.getAchievementName(achievement.id);
             
             form.button(
-                `${status} §r§l${achievementName}\n§r§8${progressColor}${progressPercent}% §8${completedText}`,
+                `${status} §r§l${achievementName}\n§r${progressColor}${progressPercent}% §0${completedText}`,
                 achievement.icon
             );
         });
@@ -127,29 +127,16 @@ export class AchievementUI {
         const progressPercent = Math.floor((progress / achievement.requirement) * 100);
         const progressBar = this.createProgressBar(progressPercent);
         
-        const statusIcon = unlocked ? "§a✓" : "§7✗";
+        const statusIcon = unlocked ? "§2✓" : "§8✗";
         const statusText = unlocked 
             ? LangManager.get("achievements.statusCompleted")
             : LangManager.get("achievements.statusLocked");
-        const progressText = `§e${Math.floor(progress)}§7/§e${achievement.requirement}`;
+        const progressText = `§3${Math.floor(progress)}§8/§3${achievement.requirement}`;
         
         const achievementName = LangManager.getAchievementName(achievement.id);
         const achievementDesc = LangManager.getAchievementDesc(achievement.id);
         const statusLabel = LangManager.get("achievements.status");
         const progressLabel = LangManager.get("achievements.progress");
-        
-        let rewardText = "";
-        if (achievement.reward) {
-            const rewardLabel = LangManager.get("achievements.reward");
-            const rewardStatus = unlocked 
-                ? LangManager.get("achievements.rewardReceived")
-                : LangManager.get("achievements.rewardPending");
-            
-            rewardText = `\n§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                `${rewardLabel}\n` +
-                `§7${achievement.reward.item} §ex${achievement.reward.amount}\n` +
-                rewardStatus;
-        }
         
         const endMessage = unlocked 
             ? LangManager.get("achievements.congratulations")
@@ -161,22 +148,77 @@ export class AchievementUI {
             `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
             `${statusLabel} ${statusIcon} ${statusText}\n\n` +
             `${progressLabel} ${progressText}\n` +
-            `${progressBar}` +
-            rewardText +
-            `\n\n` +
+            `${progressBar}\n\n` +
             endMessage;
 
         const form = new ActionFormData()
             .title(`§l§6${achievementName}`)
-            .body(body)
-            .button(LangManager.get("ui.backToList"), "textures/ui/arrow_left")
-            .button(LangManager.get("ui.close"));
+            .body(body);
+        
+        // Nút quay lại
+        form.button(LangManager.get("ui.backToList"), "textures/ui/arrow_left");
+        
+        // Thêm nút cho từng reward
+        if (achievement.rewards && achievement.rewards.length > 0) {
+            achievement.rewards.forEach((reward: any, index: number) => {
+                const claimed = AchievementManager.hasClaimedReward(player, achievement.id, index);
+                let buttonText = "";
+                
+                if (claimed) {
+                    buttonText = `§2✓ Đã nhận\n§8x${reward.amount}`;
+                } else if (unlocked) {
+                    buttonText = `§6Nhận\n§0x${reward.amount}`;
+                } else {
+                    buttonText = `§8✗ Chưa mở khóa\n§8x${reward.amount}`;
+                }
+                
+                form.button(buttonText, reward.icon);
+            });
+        }
+        
+        // Nút đóng
+        form.button(LangManager.get("ui.close"));
 
         try {
             const response = await form.show(player);
             
-            if (!response.canceled && response.selection === 0) {
+            if (response.canceled || response.selection === undefined) return;
+            
+            // Nút quay lại
+            if (response.selection === 0) {
                 await this.showCategoryMenu(player, categoryId);
+                return;
+            }
+            
+            // Xử lý nhận reward
+            if (achievement.rewards && achievement.rewards.length > 0) {
+                const rewardIndex = response.selection - 1; // -1 vì nút đầu là quay lại
+                const closeButtonIndex = 1 + achievement.rewards.length; // quay lại + rewards
+                
+                if (rewardIndex >= 0 && rewardIndex < achievement.rewards.length && response.selection !== closeButtonIndex) {
+                    const reward = achievement.rewards[rewardIndex];
+                    const claimed = AchievementManager.hasClaimedReward(player, achievement.id, rewardIndex);
+                    
+                    if (!claimed && unlocked) {
+                        // Tặng reward
+                        try {
+                            player.runCommand(`give @s ${reward.item} ${reward.amount}`);
+                            AchievementManager.claimReward(player, achievement.id, rewardIndex);
+                            player.sendMessage(`${LangManager.get("achievements.received")} §e${reward.item} x${reward.amount}`);
+                            player.playSound("random.orb");
+                            
+                            // Hiển thị lại UI để cập nhật trạng thái
+                            await this.showAchievementDetail(player, achievement, unlocked, progress, categoryId);
+                        } catch (error) {
+                            console.warn("Không thể tặng phần thưởng:", error);
+                            player.sendMessage("§cKhông thể nhận phần thưởng!");
+                        }
+                    } else if (!unlocked) {
+                        player.sendMessage("§cBạn cần hoàn thành thành tựu trước!");
+                    } else {
+                        player.sendMessage("§cBạn đã nhận phần thưởng này rồi!");
+                    }
+                }
             }
         } catch (error) {
             console.error("Lỗi khi hiển thị chi tiết thành tựu:", error);
@@ -192,14 +234,14 @@ export class AchievementUI {
         const empty = barLength - filled;
         
         let barColor = "§c";
-        if (percent >= 75) barColor = "§a";
+        if (percent >= 75) barColor = "§2";
         else if (percent >= 50) barColor = "§e";
         else if (percent >= 25) barColor = "§6";
         
         const filledBar = barColor + "█".repeat(filled);
         const emptyBar = "§8█".repeat(empty);
         
-        return `§8[${filledBar}${emptyBar}§8] §e${percent}%`;
+        return `§8[${filledBar}${emptyBar}§8] §3${percent}%`;
     }
 
     /**
@@ -214,16 +256,5 @@ export class AchievementUI {
         
         player.onScreenDisplay.setTitle(unlockedTitle);
         player.onScreenDisplay.updateSubtitle(`§e§l${achievementName}`);
-        
-        // Tặng phần thưởng nếu có
-        if (achievement.reward) {
-            try {
-                player.runCommand(`give @s ${achievement.reward.item} ${achievement.reward.amount}`);
-                const receivedText = LangManager.get("achievements.received");
-                player.sendMessage(`${receivedText} §e${achievement.reward.item} x${achievement.reward.amount}`);
-            } catch (error) {
-                console.warn("Không thể tặng phần thưởng:", error);
-            }
-        }
     }
 }
