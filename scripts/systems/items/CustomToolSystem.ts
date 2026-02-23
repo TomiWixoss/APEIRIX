@@ -63,6 +63,13 @@ export class CustomToolSystem {
     // Check if block is tillable (only dirt, grass, dirt_path, coarse_dirt)
     if (!TillableRegistry.isTillable(blockId)) return;
 
+    // Check if block above is air (required for tilling)
+    const blockAbove = block.above();
+    if (blockAbove && blockAbove.typeId !== "minecraft:air") {
+      console.warn(`[CustomToolSystem] Block above is not air (${blockAbove.typeId}), cannot till`);
+      return;
+    }
+
     const blockLocation = { ...block.location };
     const playerId = player.id;
     const hoeTypeId = itemStack.typeId;
@@ -76,6 +83,7 @@ export class CustomToolSystem {
       const currentBlock = currentPlayer.dimension.getBlock(blockLocation);
       if (!currentBlock || currentBlock.typeId !== "minecraft:farmland") {
         // Block wasn't tilled, don't apply effects
+        console.warn(`[CustomToolSystem] Block was not tilled (still ${currentBlock?.typeId})`);
         return;
       }
 
