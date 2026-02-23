@@ -166,36 +166,69 @@ regolith run
 ```
 tests/
 ├── README.md                    # Hướng dẫn testing
+├── index.test.ts                # Import tất cả automated tests
 ├── _templates/                  # Templates cho test files
 │   ├── block-test-template.md
 │   ├── item-test-template.md
 │   ├── tool-test-template.md
 │   └── system-test-template.md
 ├── blocks/                      # Test cho từng block riêng
-│   ├── tin-ore.md
+│   ├── tin-ore.md               # Manual test checklist
+│   ├── tin-ore.test.ts          # Automated GameTest
 │   ├── deepslate-tin-ore.md
+│   ├── deepslate-tin-ore.test.ts
 │   ├── tin-block.md
-│   └── bronze-block.md
+│   ├── tin-block.test.ts
+│   ├── bronze-block.md
+│   └── bronze-block.test.ts
 ├── items/                       # Test cho từng item riêng
 │   ├── materials/
 │   │   ├── raw-tin.md
+│   │   ├── raw-tin.test.ts
 │   │   ├── tin-ingot.md
+│   │   ├── tin-ingot.test.ts
 │   │   ├── tin-nugget.md
+│   │   ├── tin-nugget.test.ts
 │   │   ├── bronze-ingot.md
-│   │   └── bronze-nugget.md
+│   │   ├── bronze-ingot.test.ts
+│   │   ├── bronze-nugget.md
+│   │   └── bronze-nugget.test.ts
 │   └── tools/
 │       ├── bronze-pickaxe.md
+│       ├── bronze-pickaxe.test.ts
 │       ├── bronze-axe.md
+│       ├── bronze-axe.test.ts
 │       ├── bronze-shovel.md
+│       ├── bronze-shovel.test.ts
 │       ├── bronze-hoe.md
-│       └── bronze-sword.md
+│       ├── bronze-hoe.test.ts
+│       ├── bronze-sword.md
+│       └── bronze-sword.test.ts
 ├── systems/                     # Test cho từng system riêng
 │   ├── fortune-enchantment.md
+│   ├── fortune-enchantment.test.ts
 │   ├── custom-tool-durability.md
+│   ├── custom-tool-durability.test.ts
 │   └── achievement-system.md
 └── world-gen/                   # Test cho world generation
     └── tin-ore-generation.md
 ```
+
+### Automated Tests (GameTest Framework)
+
+#### Chạy Tests
+```
+# Trong game:
+/gametest run apeirix:tin_ore_mining
+/gametest runset blocks
+/gametest runall
+```
+
+#### Test Structure
+- Mỗi `.md` file có `.test.ts` tương ứng
+- Dùng `@minecraft/server-gametest` với `SimulatedPlayer`
+- Import tất cả trong `tests/index.test.ts`
+- Enable/disable trong `scripts/main.ts`
 
 ### Nguyên tắc Testing
 
@@ -230,30 +263,34 @@ tests/
 #### Thêm Block Test
 1. Copy `tests/_templates/block-test-template.md`
 2. Đổi tên thành `tests/blocks/[block-name].md`
-3. Điền thông tin block
-4. Test và tick checkbox
-5. Update status trong `tests/README.md`
+3. Tạo `tests/blocks/[block-name].test.ts` với GameTest code
+4. Import trong `tests/index.test.ts`
+5. Test và tick checkbox
+6. Update status trong `tests/README.md`
 
 #### Thêm Item Test
 1. Copy `tests/_templates/item-test-template.md`
 2. Đổi tên thành `tests/items/[category]/[item-name].md`
-3. Điền thông tin item
-4. Test và tick checkbox
-5. Update status trong `tests/README.md`
+3. Tạo `tests/items/[category]/[item-name].test.ts`
+4. Import trong `tests/index.test.ts`
+5. Test và tick checkbox
+6. Update status trong `tests/README.md`
 
 #### Thêm Tool Test
 1. Copy `tests/_templates/tool-test-template.md`
 2. Đổi tên thành `tests/items/tools/[tool-name].md`
-3. Điền thông tin tool (stats, mining, durability, etc.)
-4. Test và tick checkbox
-5. Update status trong `tests/README.md`
+3. Tạo `tests/items/tools/[tool-name].test.ts`
+4. Import trong `tests/index.test.ts`
+5. Test và tick checkbox
+6. Update status trong `tests/README.md`
 
 #### Thêm System Test
 1. Copy `tests/_templates/system-test-template.md`
 2. Đổi tên thành `tests/systems/[system-name].md`
-3. Điền thông tin system (purpose, dependencies, features)
-4. Test và tick checkbox
-5. Update status trong `tests/README.md`
+3. Tạo `tests/systems/[system-name].test.ts`
+4. Import trong `tests/index.test.ts`
+5. Test và tick checkbox
+6. Update status trong `tests/README.md`
 
 ### Quy tắc Test
 

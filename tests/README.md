@@ -1,42 +1,91 @@
 # APEIRIX Testing Documentation
 
-Thư mục này chứa các checklist test cho từng tính năng của addon.
+Thư mục này chứa manual test checklists (.md) và automated tests (.test.ts) cho từng tính năng của addon.
 
-## Cấu trúc mới (Modular)
+## Cấu trúc Test
 
 ```
 tests/
 ├── README.md                    # File này
+├── index.test.ts                # Import tất cả automated tests
 ├── _templates/                  # Templates cho test files
 │   ├── block-test-template.md
 │   ├── item-test-template.md
 │   ├── tool-test-template.md
 │   └── system-test-template.md
 ├── blocks/                      # Test cho từng block riêng
-│   ├── tin-ore.md
+│   ├── tin-ore.md               # Manual test checklist
+│   ├── tin-ore.test.ts          # Automated GameTest
 │   ├── deepslate-tin-ore.md
-│   └── tin-block.md
+│   ├── deepslate-tin-ore.test.ts
+│   ├── tin-block.md
+│   ├── tin-block.test.ts
+│   ├── bronze-block.md
+│   └── bronze-block.test.ts
 ├── items/                       # Test cho từng item riêng
 │   ├── materials/
 │   │   ├── raw-tin.md
+│   │   ├── raw-tin.test.ts
 │   │   ├── tin-ingot.md
+│   │   ├── tin-ingot.test.ts
 │   │   ├── tin-nugget.md
+│   │   ├── tin-nugget.test.ts
 │   │   ├── bronze-ingot.md
+│   │   ├── bronze-ingot.test.ts
 │   │   ├── bronze-nugget.md
-│   │   └── bronze-block.md
+│   │   └── bronze-nugget.test.ts
 │   └── tools/
 │       ├── bronze-pickaxe.md
+│       ├── bronze-pickaxe.test.ts
 │       ├── bronze-axe.md
+│       ├── bronze-axe.test.ts
 │       ├── bronze-shovel.md
+│       ├── bronze-shovel.test.ts
 │       ├── bronze-hoe.md
-│       └── bronze-sword.md
+│       ├── bronze-hoe.test.ts
+│       ├── bronze-sword.md
+│       └── bronze-sword.test.ts
 ├── systems/                     # Test cho từng system riêng
-│   ├── fortune-system.md
-│   ├── durability-system.md
-│   ├── hoe-tillage-system.md
+│   ├── fortune-enchantment.md
+│   ├── fortune-enchantment.test.ts
+│   ├── custom-tool-durability.md
+│   ├── custom-tool-durability.test.ts
 │   └── achievement-system.md
 └── world-gen/                   # Test cho world generation
     └── tin-ore-generation.md
+```
+
+## Automated Tests (GameTest)
+
+### Chạy Tests
+```
+# Trong game, chạy một test cụ thể:
+/gametest run apeirix:tin_ore_mining
+
+# Chạy tất cả tests với tag:
+/gametest runset blocks
+
+# Chạy tất cả tests:
+/gametest runall
+```
+
+### Test Tags
+- `blocks` - Tất cả block tests
+- `items` - Tất cả item tests
+- `tools` - Tất cả tool tests
+- `materials` - Tất cả material tests
+- `systems` - Tất cả system tests
+
+### Cấu trúc Test File (.test.ts)
+```typescript
+import { register } from "@minecraft/server-gametest";
+
+register("apeirix", "test_name", (test) => {
+    // Test logic here
+})
+    .structureName("apeirix:empty")
+    .maxTicks(200)
+    .tag("category");
 ```
 
 ## Nguyên tắc

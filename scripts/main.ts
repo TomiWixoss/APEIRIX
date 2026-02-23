@@ -10,7 +10,7 @@ import { GameManager } from "./core/GameManager";
 // AUTOMATED TESTS (Comment out khi không cần)
 // ============================================
 // Uncomment dòng dưới để enable automated tests
-import "../tests/automated/scripts/index";
+import "../tests/index.test";
 // ============================================
 
 // Initialize game on world load
