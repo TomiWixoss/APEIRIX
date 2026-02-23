@@ -5,3 +5,22 @@ packs/BP/scripts/*.js.map
 *.mcworld
 *.mcpack
 .DS_Store
+
+# Build outputs
+dist/
+lib/
+
+# Samples và docs không cần
+bedrock-samples-v1.26.0.2-full/
+minecraft-scripting-samples-main/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+Thumbs.db
