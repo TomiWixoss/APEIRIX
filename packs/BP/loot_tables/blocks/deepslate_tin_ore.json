@@ -22,7 +22,8 @@
       "entries": [
         {
           "type": "item",
-          "name": "apeirix:raw_tin"
+          "name": "apeirix:raw_tin",
+          "weight": 1
         }
       ]
     }

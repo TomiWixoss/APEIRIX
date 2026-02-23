@@ -8,6 +8,7 @@ import { AchievementRegistry } from "../systems/achievements/AchievementRegistry
 import { AchievementSystem } from "../systems/achievements/AchievementSystem";
 import { ItemSystem } from "../systems/items/ItemSystem";
 import { LangManager } from "../lang/LangManager";
+import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 
 // Import achievements
 import { WelcomeAchievement } from "../data/achievements/categories/starter/WelcomeAchievement";
@@ -56,6 +57,7 @@ export class GameManager {
     private static initializeSystems(): void {
         // AchievementTracker removed - each achievement handles its own tracking
         ItemSystem.initialize();
+        FortuneSystem.getInstance();
     }
 
     private static setupEventListeners(): void {
