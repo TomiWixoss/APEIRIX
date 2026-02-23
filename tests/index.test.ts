@@ -26,6 +26,12 @@ import "./items/tools/bronze-shovel.test";
 import "./items/tools/bronze-hoe.test";
 import "./items/tools/bronze-sword.test";
 
+// Items - Armor
+import "./items/armor/bronze-helmet.test";
+import "./items/armor/bronze-chestplate.test";
+import "./items/armor/bronze-leggings.test";
+import "./items/armor/bronze-boots.test";
+
 // Systems
 import "./systems/fortune-enchantment.test";
 import "./systems/custom-tool-durability.test";
