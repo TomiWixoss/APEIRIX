@@ -162,11 +162,11 @@ export class AchievementUI {
                 let buttonText = "";
                 
                 if (claimed) {
-                    buttonText = `§2✓ Đã nhận\n§8${reward.name} §7x${reward.amount}`;
+                    buttonText = `§2✓ Đã nhận\n§8${reward.name} §8x${reward.amount}`;
                 } else if (unlocked) {
                     buttonText = `§6Nhận\n§0${reward.name} §0x${reward.amount}`;
                 } else {
-                    buttonText = `§8✗ Chưa mở khóa\n§8${reward.name} §7x${reward.amount}`;
+                    buttonText = `§8✗ Chưa mở khóa\n§8${reward.name} §8x${reward.amount}`;
                 }
                 
                 form.button(buttonText, reward.icon);

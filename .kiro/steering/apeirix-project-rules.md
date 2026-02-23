@@ -55,3 +55,8 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 - Script UI lang: `scripts/lang/vi_VN.ts` (UI text, chat)
 - Dùng `LangManager.get()` thay vì hardcode text trong TypeScript
 
+## Quy Tắc Màu Sắc UI
+
+- UI body (ngoài nút): Dùng màu sáng để dễ đọc
+- Trong nút: Dùng màu tối để tương phản với nền trắng của nút
+
