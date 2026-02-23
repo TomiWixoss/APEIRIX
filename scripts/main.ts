@@ -6,6 +6,13 @@
 import { system } from "@minecraft/server";
 import { GameManager } from "./core/GameManager";
 
+// ============================================
+// AUTOMATED TESTS (Comment out khi không cần)
+// ============================================
+// Uncomment dòng dưới để enable automated tests
+import "../tests/automated/scripts/index";
+// ============================================
+
 // Initialize game on world load
 system.runTimeout(() => {
     GameManager.initialize();
