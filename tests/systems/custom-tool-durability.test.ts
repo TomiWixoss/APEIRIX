@@ -1,4 +1,5 @@
 import { register } from "@minecraft/server-gametest";
+import { EquipmentSlot } from "@minecraft/server";
 
 /**
  * Test Suite: Custom Tool Durability System
@@ -35,8 +36,23 @@ register("apeirix", "durability_bronze_pickaxe", (test) => {
     });
     
     test.runAfterDelay(70, () => {
-        // Tool should still exist (durability: 375 - 3 = 372)
-        test.succeed();
+        // Check durability has decreased
+        const equipment = player.getComponent("equippable");
+        const tool = equipment?.getEquipment(EquipmentSlot.Mainhand as any);
+        
+        if (tool) {
+            const durability = tool.getComponent("minecraft:durability");
+            if (durability) {
+                // Tool should have lost some durability (max 375, should be < 375)
+                test.assert(durability.damage > 0, `Durability should have decreased, damage: ${durability.damage}`);
+                test.assert(durability.damage <= 3, `Should have lost max 3 durability, got: ${durability.damage}`);
+                test.succeed();
+            } else {
+                test.fail("Durability component not found");
+            }
+        } else {
+            test.fail("Tool not found in mainhand");
+        }
     });
 })
     .structureName("apeirix:empty")
@@ -63,7 +79,21 @@ register("apeirix", "durability_bronze_axe", (test) => {
     });
     
     test.runAfterDelay(50, () => {
-        test.succeed();
+        const equipment = player.getComponent("equippable");
+        const tool = equipment?.getEquipment(EquipmentSlot.Mainhand as any);
+        
+        if (tool) {
+            const durability = tool.getComponent("minecraft:durability");
+            if (durability) {
+                test.assert(durability.damage > 0, `Durability should have decreased`);
+                test.assert(durability.damage <= 2, `Should have lost max 2 durability`);
+                test.succeed();
+            } else {
+                test.fail("Durability component not found");
+            }
+        } else {
+            test.fail("Tool not found");
+        }
     });
 })
     .structureName("apeirix:empty")
@@ -90,7 +120,21 @@ register("apeirix", "durability_bronze_shovel", (test) => {
     });
     
     test.runAfterDelay(50, () => {
-        test.succeed();
+        const equipment = player.getComponent("equippable");
+        const tool = equipment?.getEquipment(EquipmentSlot.Mainhand as any);
+        
+        if (tool) {
+            const durability = tool.getComponent("minecraft:durability");
+            if (durability) {
+                test.assert(durability.damage > 0, `Durability should have decreased`);
+                test.assert(durability.damage <= 2, `Should have lost max 2 durability`);
+                test.succeed();
+            } else {
+                test.fail("Durability component not found");
+            }
+        } else {
+            test.fail("Tool not found");
+        }
     });
 })
     .structureName("apeirix:empty")
@@ -117,7 +161,21 @@ register("apeirix", "durability_bronze_sword", (test) => {
     });
     
     test.runAfterDelay(50, () => {
-        test.succeed();
+        const equipment = player.getComponent("equippable");
+        const tool = equipment?.getEquipment(EquipmentSlot.Mainhand as any);
+        
+        if (tool) {
+            const durability = tool.getComponent("minecraft:durability");
+            if (durability) {
+                test.assert(durability.damage > 0, `Durability should have decreased`);
+                test.assert(durability.damage <= 2, `Should have lost max 2 durability`);
+                test.succeed();
+            } else {
+                test.fail("Durability component not found");
+            }
+        } else {
+            test.fail("Tool not found");
+        }
     });
 })
     .structureName("apeirix:empty")
