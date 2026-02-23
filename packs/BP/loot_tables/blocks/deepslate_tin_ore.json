@@ -26,6 +26,22 @@
           "weight": 1
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "item": "apeirix:bronze_pickaxe"
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "apeirix:raw_tin",
+          "weight": 1
+        }
+      ]
     }
   ]
 }

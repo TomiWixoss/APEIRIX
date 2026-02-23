@@ -16,6 +16,10 @@
               "tags": "q.any_tag('minecraft:is_pickaxe') && q.any_tag('minecraft:stone_tier', 'minecraft:copper_tier', 'minecraft:iron_tier', 'minecraft:diamond_tier', 'minecraft:netherite_tier')"
             },
             "destroy_speed": 4.5
+          },
+          {
+            "item": "apeirix:bronze_pickaxe",
+            "destroy_speed": 4.5
           }
         ]
       },

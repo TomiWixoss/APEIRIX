@@ -13,6 +13,27 @@
 		},
 		"tin_nugget": {
 			"textures": "textures/items/tin_nugget"
+		},
+		"bronze_ingot": {
+			"textures": "textures/items/bronze_ingot"
+		},
+		"bronze_nugget": {
+			"textures": "textures/items/bronze_nugget"
+		},
+		"bronze_sword": {
+			"textures": "textures/items/bronze_sword"
+		},
+		"bronze_pickaxe": {
+			"textures": "textures/items/bronze_pickaxe"
+		},
+		"bronze_axe": {
+			"textures": "textures/items/bronze_axe"
+		},
+		"bronze_shovel": {
+			"textures": "textures/items/bronze_shovel"
+		},
+		"bronze_hoe": {
+			"textures": "textures/items/bronze_hoe"
 		}
 	}
 }

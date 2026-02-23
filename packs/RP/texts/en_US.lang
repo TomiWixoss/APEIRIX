@@ -6,8 +6,16 @@ item.apeirix.achievement_book.name=Sách Thành Tựu APEIRIX
 item.apeirix.raw_tin.name=Thiếc Thô
 item.apeirix.tin_ingot.name=Thỏi Thiếc
 item.apeirix.tin_nugget.name=Mảnh Thiếc
+item.apeirix.bronze_ingot.name=Thỏi Đồng Thanh
+item.apeirix.bronze_nugget.name=Hạt Đồng Thanh
+item.apeirix.bronze_sword.name=Kiếm Đồng Thanh
+item.apeirix.bronze_pickaxe.name=Cúp Đồng Thanh
+item.apeirix.bronze_axe.name=Rìu Đồng Thanh
+item.apeirix.bronze_shovel.name=Xẻng Đồng Thanh
+item.apeirix.bronze_hoe.name=Cuốc Đồng Thanh
 
 ## Blocks
 tile.apeirix:tin_ore.name=Quặng Thiếc
 tile.apeirix:deepslate_tin_ore.name=Quặng Thiếc Deepslate
 tile.apeirix:tin_block.name=Khối Thiếc
+tile.apeirix:bronze_block.name=Khối Đồng Thanh

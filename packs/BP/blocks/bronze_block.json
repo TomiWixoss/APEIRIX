@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "apeirix:bronze_block",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:loot": "loot_tables/blocks/bronze_block.json",
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 5.0
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6.0
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:map_color": "#cd7f32",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "bronze_block",
+          "render_method": "opaque"
+        }
+      }
+    }
+  }
+}

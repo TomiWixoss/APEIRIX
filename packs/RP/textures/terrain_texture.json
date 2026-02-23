@@ -12,6 +12,9 @@
     },
     "tin_block": {
       "textures": "textures/blocks/tin_block"
+    },
+    "bronze_block": {
+      "textures": "textures/blocks/bronze_block"
     }
   }
 }

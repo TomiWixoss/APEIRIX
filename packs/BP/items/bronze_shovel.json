@@ -1,0 +1,59 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "apeirix:bronze_shovel",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.shovel"
+      }
+    },
+    "components": {
+      "minecraft:icon": "bronze_shovel",
+      "minecraft:display_name": {
+        "value": "item.apeirix.bronze_shovel.name"
+      },
+      "minecraft:max_stack_size": 1,
+      "minecraft:durability": {
+        "max_durability": 375
+      },
+      "minecraft:enchantable": {
+        "slot": "shovel",
+        "value": 18
+      },
+      "minecraft:repairable": {
+        "repair_items": [
+          {
+            "items": ["apeirix:bronze_ingot"],
+            "repair_amount": "query.max_durability * 0.25"
+          }
+        ]
+      },
+      "minecraft:digger": {
+        "use_efficiency": true,
+        "destroy_speeds": [
+          {
+            "block": {
+              "tags": "q.any_tag('dirt', 'sand', 'gravel', 'snow')"
+            },
+            "speed": 6
+          }
+        ],
+        "on_dig": {
+          "event": "damaged_block",
+          "target": "self"
+        }
+      },
+      "minecraft:damage": 3
+    },
+    "events": {
+      "damaged_block": {
+        "damage": {
+          "type": "durability",
+          "amount": 1,
+          "target": "self"
+        }
+      }
+    }
+  }
+}
