@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "apeirix:tin_ingot_from_block"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "apeirix:tin_block"
+      }
+    ],
+    "result": {
+      "item": "apeirix:tin_ingot",
+      "count": 9
+    },
+    "unlock": [
+      {
+        "item": "apeirix:tin_block"
+      }
+    ]
+  }
+}

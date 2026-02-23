@@ -5,7 +5,9 @@ pack.description=Thêm mọi thứ vào trò chơi
 item.apeirix.achievement_book.name=Sách Thành Tựu APEIRIX
 item.apeirix.raw_tin.name=Thiếc Thô
 item.apeirix.tin_ingot.name=Thỏi Thiếc
+item.apeirix.tin_nugget.name=Mảnh Thiếc
 
 ## Blocks
 tile.apeirix:tin_ore.name=Quặng Thiếc
 tile.apeirix:deepslate_tin_ore.name=Quặng Thiếc Deepslate
+tile.apeirix:tin_block.name=Khối Thiếc

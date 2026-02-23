@@ -10,6 +10,9 @@
 		},
 		"tin_ingot": {
 			"textures": "textures/items/tin_ingot"
+		},
+		"tin_nugget": {
+			"textures": "textures/items/tin_nugget"
 		}
 	}
 }

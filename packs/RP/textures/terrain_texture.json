@@ -9,6 +9,9 @@
     },
     "deepslate_tin_ore": {
       "textures": "textures/blocks/deepslate_tin_ore"
+    },
+    "tin_block": {
+      "textures": "textures/blocks/tin_block"
     }
   }
 }
