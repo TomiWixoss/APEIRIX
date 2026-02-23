@@ -29,9 +29,21 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 ```
 ├── packs/
 │   ├── BP/                    # Behavior Pack
+│   │   ├── blocks/            # Block definitions
+│   │   ├── items/             # Item definitions
+│   │   ├── recipes/           # Crafting recipes
+│   │   ├── loot_tables/       # Loot tables
+│   │   ├── features/          # World generation features
+│   │   ├── feature_rules/     # Feature placement rules
+│   │   ├── functions/         # Commands
 │   │   ├── scripts/main.js    # Auto-generated từ scripts/main.ts
 │   │   └── texts/             # en_US.lang (nội dung tiếng Việt)
 │   └── RP/                    # Resource Pack
+│       ├── textures/          # Texture files
+│       │   ├── blocks/        # Block textures
+│       │   ├── items/         # Item textures
+│       │   ├── terrain_texture.json
+│       │   └── item_texture.json
 │       └── texts/             # en_US.lang (nội dung tiếng Việt)
 ├── scripts/
 │   ├── main.ts                # Entry point
@@ -48,11 +60,15 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 │   │   │       ├── MainMenuUI.ts
 │   │   │       ├── CategoryMenuUI.ts
 │   │   │       └── DetailUI.ts
-│   │   └── items/
-│   │       ├── ItemSystem.ts
-│   │       └── handlers/
-│   │           └── AchievementBookHandler.ts
-│   ├── data/                  # Data definitions
+│   │   ├── items/
+│   │   │   ├── ItemSystem.ts
+│   │   │   ├── CustomToolSystem.ts     # Custom tool durability & hoe tillage
+│   │   │   └── handlers/
+│   │   │       └── AchievementBookHandler.ts
+│   │   └── blocks/
+│   │       └── FortuneSystem.ts        # Fortune enchantment for ores
+│   ├── data/                  # Data definitions & registries
+│   │   ├── GameData.ts        # Central data registration
 │   │   ├── achievements/
 │   │   │   ├── BaseAchievement.ts      # Abstract base class
 │   │   │   ├── AchievementCategory.ts
@@ -61,6 +77,11 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 │   │   │           ├── WelcomeAchievement.ts
 │   │   │           ├── FirstStepsAchievement.ts
 │   │   │           └── BreakerAchievement.ts
+│   │   ├── blocks/
+│   │   │   ├── OreRegistry.ts          # Ore definitions
+│   │   │   └── TillableRegistry.ts     # Tillable block definitions
+│   │   ├── tools/
+│   │   │   └── ToolRegistry.ts         # Tool definitions
 │   │   └── rewards/
 │   │       └── RewardDefinition.ts
 │   └── lang/                  # Language system
@@ -95,4 +116,33 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 
 - UI body (ngoài nút): Dùng màu sáng để dễ đọc
 - Trong nút: Dùng màu tối để tương phản với nền trắng của nút
+
+## Thêm Content Mới
+
+### Thêm Ore Mới
+1. Tạo block JSON trong `packs/BP/blocks/`
+2. Tạo loot table trong `packs/BP/loot_tables/blocks/`
+3. Tạo feature & feature_rule trong `packs/BP/features/` và `packs/BP/feature_rules/`
+4. Thêm texture vào `packs/RP/textures/blocks/`
+5. Đăng ký trong `terrain_texture.json`
+6. Thêm tên vào `en_US.lang` (cả BP và RP)
+7. **Đăng ký trong `scripts/data/GameData.ts` → `registerOres()`**
+
+### Thêm Tool/Weapon Mới
+1. Tạo item JSON trong `packs/BP/items/`
+2. Tạo recipes trong `packs/BP/recipes/`
+3. Thêm texture vào `packs/RP/textures/items/`
+4. Đăng ký trong `item_texture.json`
+5. Thêm tên vào `en_US.lang` (cả BP và RP)
+6. **Đăng ký trong `scripts/data/GameData.ts` → `registerTools()`**
+
+### Thêm Tillable Block Mới
+1. **Đăng ký trong `scripts/data/GameData.ts` → `registerTillables()`**
+2. Chỉ định `blockId`, `resultBlock`, và `sound`
+
+### Registry Pattern
+- **OreRegistry**: Quản lý ores với Fortune support
+- **ToolRegistry**: Quản lý custom tools với durability
+- **TillableRegistry**: Quản lý blocks có thể cuốc
+- **GameData**: Central registration point cho tất cả content
 
