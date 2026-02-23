@@ -15,7 +15,11 @@
       },
       "minecraft:max_stack_size": 1,
       "minecraft:durability": {
-        "max_durability": 320
+        "max_durability": 320,
+        "damage_chance": {
+          "min": 60,
+          "max": 100
+        }
       },
       "minecraft:enchantable": {
         "slot": "armor_torso",
@@ -26,6 +30,10 @@
           {
             "items": ["apeirix:bronze_ingot"],
             "repair_amount": "query.max_durability * 0.25"
+          },
+          {
+            "items": ["apeirix:bronze_chestplate"],
+            "repair_amount": "context.other->query.remaining_durability + 0.12 * context.other->query.max_durability"
           }
         ]
       },
