@@ -6,9 +6,9 @@ export const LANG_VI = {
     // UI General
     ui: {
         close: "§l§c✖ Đóng",
-        back: "§l§a← Quay lại",
-        backToList: "§l§a← Quay lại Danh sách",
-        backToMenu: "§l§a← Quay lại Menu"
+        back: "§l§0← Quay lại",
+        backToList: "§l§0← Quay lại Danh sách",
+        backToMenu: "§l§0← Quay lại Menu"
     },
 
     // Achievement System
