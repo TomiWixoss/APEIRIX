@@ -34,11 +34,38 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 │   └── RP/                    # Resource Pack
 │       └── texts/             # en_US.lang (nội dung tiếng Việt)
 ├── scripts/
-│   ├── main.ts                # TypeScript source chính
-│   ├── lang/                  # Hệ thống ngôn ngữ cho script UI
-│   │   ├── LangManager.ts     # Quản lý ngôn ngữ
-│   │   └── vi_VN.ts           # File ngôn ngữ tiếng Việt
-│   └── achievements/          # Hệ thống thành tựu
+│   ├── main.ts                # Entry point
+│   ├── core/                  # Core systems
+│   │   ├── GameManager.ts     # Main initialization
+│   │   ├── EventBus.ts        # Event system (Observer pattern)
+│   │   └── Registry.ts        # Registry pattern
+│   ├── systems/               # Game systems
+│   │   ├── achievements/
+│   │   │   ├── AchievementSystem.ts    # Main logic
+│   │   │   ├── AchievementRegistry.ts  # Achievement registry
+│   │   │   ├── AchievementStorage.ts   # Dynamic properties
+│   │   │   └── ui/
+│   │   │       ├── MainMenuUI.ts
+│   │   │       ├── CategoryMenuUI.ts
+│   │   │       └── DetailUI.ts
+│   │   └── items/
+│   │       ├── ItemSystem.ts
+│   │       └── handlers/
+│   │           └── AchievementBookHandler.ts
+│   ├── data/                  # Data definitions
+│   │   ├── achievements/
+│   │   │   ├── BaseAchievement.ts      # Abstract base class
+│   │   │   ├── AchievementCategory.ts
+│   │   │   └── categories/
+│   │   │       └── starter/
+│   │   │           ├── WelcomeAchievement.ts
+│   │   │           ├── FirstStepsAchievement.ts
+│   │   │           └── BreakerAchievement.ts
+│   │   └── rewards/
+│   │       └── RewardDefinition.ts
+│   └── lang/                  # Language system
+│       ├── LangManager.ts
+│       └── vi_VN.ts
 └── config.json                # Regolith config
 ```
 
@@ -48,6 +75,15 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 - File ngôn ngữ dùng `en_US.lang` nhưng nội dung là tiếng Việt
 - Edit TypeScript trong `scripts/`, không edit `packs/BP/scripts/main.js`
 - Chạy `regolith run` sau khi thay đổi, sau đó `/reload` trong game
+
+## Kiến Trúc & Design Patterns
+
+- **OOP**: Inheritance, Encapsulation, Polymorphism, Composition
+- **Registry Pattern**: Quản lý achievements, categories
+- **Observer Pattern**: EventBus cho decoupling
+- **Strategy Pattern**: Mỗi achievement có tracking logic riêng
+- **Single Responsibility**: Mỗi file 1 trách nhiệm
+- **Open/Closed**: Thêm achievement mới không chỉnh code cũ
 
 ## Hệ Thống Ngôn Ngữ
 
