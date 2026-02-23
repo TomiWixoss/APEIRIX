@@ -146,3 +146,106 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 - **TillableRegistry**: Quản lý blocks có thể cuốc
 - **GameData**: Central registration point cho tất cả content
 
+## Testing Structure
+
+### Cấu trúc Test
+```
+tests/
+├── README.md                    # Hướng dẫn testing
+├── _templates/                  # Templates cho test files
+│   ├── block-test-template.md
+│   ├── item-test-template.md
+│   ├── tool-test-template.md
+│   └── system-test-template.md
+├── blocks/                      # Test cho từng block riêng
+│   ├── tin-ore.md
+│   ├── deepslate-tin-ore.md
+│   ├── tin-block.md
+│   └── bronze-block.md
+├── items/                       # Test cho từng item riêng
+│   ├── materials/
+│   │   ├── raw-tin.md
+│   │   ├── tin-ingot.md
+│   │   ├── tin-nugget.md
+│   │   ├── bronze-ingot.md
+│   │   └── bronze-nugget.md
+│   └── tools/
+│       ├── bronze-pickaxe.md
+│       ├── bronze-axe.md
+│       ├── bronze-shovel.md
+│       ├── bronze-hoe.md
+│       └── bronze-sword.md
+├── systems/                     # Test cho từng system riêng
+│   ├── fortune-enchantment.md
+│   ├── custom-tool-durability.md
+│   └── achievement-system.md
+└── world-gen/                   # Test cho world generation
+    └── tin-ore-generation.md
+```
+
+### Nguyên tắc Testing
+
+1. **Mỗi item/block/system = 1 file test**
+   - Dễ tìm kiếm và cập nhật
+   - Không ảnh hưởng test khác
+   - Scalable khi thêm content mới
+
+2. **Sử dụng templates**
+   - Copy template tương ứng từ `_templates/`
+   - Đổi tên file theo format: `[name].md` (lowercase với dashes)
+   - Điền thông tin cụ thể
+   - Giữ format nhất quán
+
+3. **Naming convention**
+   - Lowercase với dashes: `bronze-pickaxe.md`
+   - Tên file = tên item/block
+   - Dễ đọc, dễ sort
+
+4. **Metadata bắt buộc**
+   ```markdown
+   **Item/Block**: [Tên hiển thị]
+   **ID**: `apeirix:[id]`
+   **Version**: [version]
+   **Ngày test**: [date]
+   **Tester**: [name]
+   **Status**: [ ] Not Tested | [ ] Pass | [ ] Fail
+   ```
+
+### Thêm Test Mới
+
+#### Thêm Block Test
+1. Copy `tests/_templates/block-test-template.md`
+2. Đổi tên thành `tests/blocks/[block-name].md`
+3. Điền thông tin block
+4. Test và tick checkbox
+5. Update status trong `tests/README.md`
+
+#### Thêm Item Test
+1. Copy `tests/_templates/item-test-template.md`
+2. Đổi tên thành `tests/items/[category]/[item-name].md`
+3. Điền thông tin item
+4. Test và tick checkbox
+5. Update status trong `tests/README.md`
+
+#### Thêm Tool Test
+1. Copy `tests/_templates/tool-test-template.md`
+2. Đổi tên thành `tests/items/tools/[tool-name].md`
+3. Điền thông tin tool (stats, mining, durability, etc.)
+4. Test và tick checkbox
+5. Update status trong `tests/README.md`
+
+#### Thêm System Test
+1. Copy `tests/_templates/system-test-template.md`
+2. Đổi tên thành `tests/systems/[system-name].md`
+3. Điền thông tin system (purpose, dependencies, features)
+4. Test và tick checkbox
+5. Update status trong `tests/README.md`
+
+### Quy tắc Test
+
+- Test trong Creative và Survival mode
+- Ghi rõ version Minecraft đã test
+- Đánh dấu ✅ cho pass, ❌ cho fail
+- Ghi chú lỗi chi tiết nếu fail
+- Update status trong `tests/README.md` sau khi test
+
