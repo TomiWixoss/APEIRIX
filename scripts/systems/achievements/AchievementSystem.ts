@@ -35,11 +35,6 @@ export class AchievementSystem {
         const clampedValue = Math.min(value, achievement.requirement);
         AchievementStorage.setProgress(player, achievementId, clampedValue);
 
-        // Custom tracking logic
-        if (achievement.onTrack) {
-            achievement.onTrack(player, clampedValue);
-        }
-
         // Check unlock
         if (clampedValue >= achievement.requirement) {
             this.unlockAchievement(player, achievementId);

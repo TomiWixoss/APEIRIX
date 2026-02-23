@@ -1,8 +1,10 @@
 /**
- * Breaker Achievement
+ * Breaker Achievement - Track block breaking
  */
 
 import { Achievement } from "../../BaseAchievement";
+import { world } from "@minecraft/server";
+import { AchievementSystem } from "../../../../systems/achievements/AchievementSystem";
 
 export class BreakerAchievement extends Achievement {
     id = "breaker";
@@ -17,4 +19,13 @@ export class BreakerAchievement extends Achievement {
             name: "Than Đá"
         }
     ];
+
+    /**
+     * Track block breaking events
+     */
+    setupTracking(): void {
+        world.afterEvents.playerBreakBlock.subscribe((event) => {
+            AchievementSystem.incrementProgress(event.player, this.id, 1);
+        });
+    }
 }

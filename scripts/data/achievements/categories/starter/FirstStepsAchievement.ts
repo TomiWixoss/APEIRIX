@@ -1,8 +1,10 @@
 /**
- * First Steps Achievement
+ * First Steps Achievement - Track player movement
  */
 
 import { Achievement } from "../../BaseAchievement";
+import { world, system } from "@minecraft/server";
+import { AchievementSystem } from "../../../../systems/achievements/AchievementSystem";
 
 export class FirstStepsAchievement extends Achievement {
     id = "first_steps";
@@ -17,4 +19,23 @@ export class FirstStepsAchievement extends Achievement {
             name: "Thỏi Sắt"
         }
     ];
+
+    /**
+     * Track player movement every second
+     */
+    setupTracking(): void {
+        system.runInterval(() => {
+            for (const player of world.getAllPlayers()) {
+                // Skip if already unlocked
+                if (AchievementSystem.hasAchievement(player, this.id)) continue;
+
+                const velocity = player.getVelocity();
+                const speed = Math.sqrt(velocity.x ** 2 + velocity.z ** 2);
+
+                if (speed > 0.01) {
+                    AchievementSystem.incrementProgress(player, this.id, speed);
+                }
+            }
+        }, 20);
+    }
 }

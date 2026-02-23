@@ -6,7 +6,6 @@ import { world, system } from "@minecraft/server";
 import { EventBus } from "./EventBus";
 import { AchievementRegistry } from "../systems/achievements/AchievementRegistry";
 import { AchievementSystem } from "../systems/achievements/AchievementSystem";
-import { AchievementTracker } from "../systems/achievements/AchievementTracker";
 import { ItemSystem } from "../systems/items/ItemSystem";
 import { LangManager } from "../lang/LangManager";
 
@@ -40,13 +39,22 @@ export class GameManager {
     }
 
     private static registerAchievements(): void {
-        AchievementRegistry.registerAchievement(new WelcomeAchievement());
-        AchievementRegistry.registerAchievement(new FirstStepsAchievement());
-        AchievementRegistry.registerAchievement(new BreakerAchievement());
+        const welcomeAchievement = new WelcomeAchievement();
+        const firstStepsAchievement = new FirstStepsAchievement();
+        const breakerAchievement = new BreakerAchievement();
+
+        AchievementRegistry.registerAchievement(welcomeAchievement);
+        AchievementRegistry.registerAchievement(firstStepsAchievement);
+        AchievementRegistry.registerAchievement(breakerAchievement);
+
+        // Setup tracking for each achievement
+        welcomeAchievement.setupTracking();
+        firstStepsAchievement.setupTracking();
+        breakerAchievement.setupTracking();
     }
 
     private static initializeSystems(): void {
-        AchievementTracker.initialize();
+        // AchievementTracker removed - each achievement handles its own tracking
         ItemSystem.initialize();
     }
 

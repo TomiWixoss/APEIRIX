@@ -20,9 +20,10 @@ export abstract class Achievement implements BaseAchievement {
     abstract rewards?: RewardDefinition[];
 
     /**
-     * Optional: Custom tracking logic
+     * Setup tracking for this achievement
+     * Each achievement implements its own tracking logic
      */
-    onTrack?(player: any, progress: number): void;
+    abstract setupTracking(): void;
 
     /**
      * Optional: Custom unlock logic
