@@ -5,12 +5,13 @@ Nơi tìm các ảnh mẫu từ MineCraft: C:\Users\tomis\Downloads\bedrock-samp
 ## Cấu trúc thư mục
 ```
 AssetCreator/
-├── icons/        # Ảnh PNG 16x16 (dùng trong game)
-├── pxvg/         # File PXVG nguồn (chỉnh sửa được)
-├── preview/      # Ảnh preview scale lớn để xem
-├── reference/    # Ảnh tham khảo gốc
-├── docs/         # Tài liệu hướng dẫn LLMs
-└── pixci-cli.exe # Công cụ chuyển đổi
+├── icons/         # Ảnh PNG 16x16 (dùng trong game)
+├── pxvg/          # File PXVG nguồn (chỉnh sửa được)
+├── preview/       # Ảnh preview scale lớn để xem
+├── reference/     # Ảnh tham khảo gốc
+├── armor_layers/  # Armor layer textures (64x32)
+├── docs/          # Tài liệu hướng dẫn LLMs
+└── pixci-cli.exe  # Công cụ chuyển đổi
 ```
 
 ## Cách chạy lệnh pixci-cli.exe (QUAN TRỌNG)
@@ -83,6 +84,14 @@ powershell -Command "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; S
 - `bronze_shovel.png` - Xẻng bronze
 - `bronze_hoe.png` - Cuốc bronze
 - `bronze_spear.png` - Giáo bronze
+
+### Bronze Armor (Giáp Đồng thanh)
+- `bronze_helmet.png` - Mũ giáp bronze (16x16)
+- `bronze_chestplate.png` - Áo giáp bronze (16x16)
+- `bronze_leggings.png` - Quần giáp bronze (16x16)
+- `bronze_boots.png` - Giày giáp bronze (16x16)
+- `bronze_layer_1.png` - Layer 1: helmet, chestplate, boots (64x32)
+- `bronze_layer_2.png` - Layer 2: leggings (64x32)
 
 ### Ore (Quặng)
 - `copper_*.png`, `iron_*.png`, `gold_*.png`, `tin_*.png`
