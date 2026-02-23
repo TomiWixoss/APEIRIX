@@ -3,3 +3,10 @@ pack.description=Thêm mọi thứ vào trò chơi
 
 ## Items
 item.apeirix.achievement_book.name=Sách Thành Tựu APEIRIX
+
+
+## Tin Ore System
+tile.apeirix:tin_ore.name=Quặng Thiếc
+tile.apeirix:deepslate_tin_ore.name=Quặng Thiếc Deepslate
+item.apeirix:raw_tin.name=Thiếc Thô
+item.apeirix:tin_ingot.name=Thỏi Thiếc

@@ -4,6 +4,12 @@
 	"texture_data": {
 		"book_apeirix": {
 			"textures": "textures/items/book_apeirix"
+		},
+		"raw_tin": {
+			"textures": "textures/items/raw_tin"
+		},
+		"tin_ingot": {
+			"textures": "textures/items/tin_ingot"
 		}
 	}
 }

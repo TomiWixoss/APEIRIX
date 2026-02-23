@@ -1,0 +1,14 @@
+{
+  "resource_pack_name": "APEIRIX",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "tin_ore": {
+      "textures": "textures/blocks/tin_ore"
+    },
+    "deepslate_tin_ore": {
+      "textures": "textures/blocks/deepslate_tin_ore"
+    }
+  }
+}

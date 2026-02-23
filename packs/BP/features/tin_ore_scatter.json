@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "apeirix:tin_ore_scatter"
+    },
+    "count": 9,
+    "replace_rules": [
+      {
+        "places_block": "apeirix:tin_ore",
+        "may_replace": [
+          "minecraft:stone"
+        ]
+      },
+      {
+        "places_block": "apeirix:deepslate_tin_ore",
+        "may_replace": [
+          "minecraft:deepslate"
+        ]
+      }
+    ]
+  }
+}
