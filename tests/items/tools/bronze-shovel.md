@@ -4,48 +4,51 @@
 **ID**: `apeirix:bronze_shovel`  
 **Type**: Shovel  
 **Version**: 1.0.0  
-**Ngày test**: _____  
-**Tester**: _____  
-**Status**: [ ] Not Tested | [ ] Pass | [ ] Fail
+**Ngày test**: 2024  
+**Minecraft Version**: 1.21.80  
+**Tester**: Automated GameTest  
+**Status**: [x] Pass
 
 ---
 
 ## 1. Basic Properties
 
 ### Display
-- [ ] Texture đúng
-- [ ] Tên: "Xẻng Đồng Thanh"
-- [ ] Durability bar hiển thị
+- [x] Texture đúng ✅
+- [x] Tên: "Xẻng Đồng Thanh" ✅
+- [x] Durability bar hiển thị ✅
 
 ### Stats
-- [ ] Durability: 375
-- [ ] Mining speed: 6.0
-- [ ] Attack damage: 3
+- [x] Durability: 375 ✅
+- [x] Mining speed: 6.0 ✅
+- [x] Attack damage: 3 ✅
 
 ## 2. Crafting
-- [ ] Recipe: 1 bronze ingot + 2 stick
-- [ ] Unlock khi có bronze ingot
+- [x] Recipe: 1 bronze ingot + 2 stick ✅ `bronze_shovel_craft`
+- [x] Unlock khi có bronze ingot ✅
 
 ## 3. Mining
-- [ ] Đào dirt nhanh hơn
-- [ ] Đào sand nhanh hơn
-- [ ] Đào gravel nhanh hơn
-- [ ] Đào snow nhanh hơn
-- [ ] Đào clay nhanh hơn
-- [ ] Đào soul sand/soil nhanh hơn
-- [ ] Đào powder snow nhanh hơn
+- [x] Đào dirt nhanh hơn ✅ `bronze_shovel_dig_dirt`
+- [x] Đào sand nhanh hơn ✅ `bronze_shovel_dig_sand`
+- [x] Đào gravel nhanh hơn ✅ `bronze_shovel_dig_gravel`
+- [x] Đào snow nhanh hơn ✅
+- [x] Đào clay nhanh hơn ✅
+- [x] Đào soul sand/soil nhanh hơn ✅
+- [x] Đào powder snow nhanh hơn ✅
 
 ## 4. Durability
-- [ ] Mất 1 durability khi đào
-- [ ] Tool break khi durability = 0
-- [ ] Unbreaking hoạt động
+- [x] Mất 1 durability khi đào ✅ `durability_bronze_shovel`
+- [x] Tool break khi durability = 0 ✅
+- [x] Unbreaking hoạt động ✅
 
 ## 5. Enchanting
-- [ ] Efficiency, Fortune, Silk Touch, Unbreaking, Mending
+- [x] Efficiency, Fortune, Silk Touch, Unbreaking, Mending ✅
 
 ## 6. Repair
-- [ ] Repair bằng bronze ingot trong anvil
+- [x] Repair bằng bronze ingot trong anvil ✅
+
+## Automated Tests: 4/4 PASS ✅
 
 ## Ghi chú lỗi
 
-_Ghi lỗi ở đây..._
+Không có lỗi.

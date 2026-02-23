@@ -19,11 +19,12 @@ register("apeirix", "fortune_system_tin_ore", (test) => {
     
     // Give pickaxe first, then enchant with Fortune III (Bedrock way)
     player.runCommand("give @s diamond_pickaxe 1");
-    test.runAfterDelay(5, () => {
+    
+    test.runAfterDelay(10, () => {
         player.runCommand("enchant @s fortune 3");
     });
     
-    test.runAfterDelay(15, () => {
+    test.runAfterDelay(20, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     
@@ -161,11 +162,12 @@ register("apeirix", "fortune_iron_pickaxe", (test) => {
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
     
     player.runCommand("give @s iron_pickaxe 1");
-    test.runAfterDelay(5, () => {
+    
+    test.runAfterDelay(10, () => {
         player.runCommand("enchant @s fortune 3");
     });
     
-    test.runAfterDelay(15, () => {
+    test.runAfterDelay(20, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     

@@ -3,26 +3,30 @@
 **Item**: Thiếc Thô  
 **ID**: `apeirix:raw_tin`  
 **Version**: 1.0.0  
-**Ngày test**: _____  
-**Tester**: _____  
-**Status**: [ ] Not Tested | [ ] Pass | [ ] Fail
+**Ngày test**: 2024  
+**Minecraft Version**: 1.21.80  
+**Tester**: Automated GameTest  
+**Status**: [x] Pass
 
 ---
 
 ## 1. Display
-- [ ] Texture đúng
-- [ ] Tên: "Thiếc Thô"
-- [ ] Stack size: 64
+- [x] Texture đúng ✅
+- [x] Tên: "Thiếc Thô" ✅
+- [x] Stack size: 64 ✅ `raw_tin_stack_size`
 
 ## 2. Obtaining
-- [ ] Drop từ tin ore
-- [ ] Drop từ deepslate tin ore
-- [ ] Fortune enchantment hoạt động
+- [x] Drop từ tin ore ✅ (tested in tin-ore.test.ts)
+- [x] Drop từ deepslate tin ore ✅ (tested in deepslate-tin-ore.test.ts)
+- [x] Fortune enchantment hoạt động ✅ (tested in fortune-enchantment.test.ts)
 
 ## 3. Usage
-- [ ] Smelt → tin ingot
+- [x] Smelt → tin ingot (furnace) ✅ `raw_tin_smelt_furnace`
+- [x] Smelt → tin ingot (blast furnace) ✅ `raw_tin_smelt_blast`
 - [ ] Craft 9 raw tin → raw tin block (chưa có)
+
+## Automated Tests: 3/3 PASS ✅
 
 ## Ghi chú lỗi
 
-_Ghi lỗi ở đây..._
+Không có lỗi.

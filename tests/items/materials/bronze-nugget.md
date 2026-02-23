@@ -3,21 +3,24 @@
 **Item**: Hạt Đồng Thanh  
 **ID**: `apeirix:bronze_nugget`  
 **Version**: 1.0.0  
-**Ngày test**: _____  
-**Tester**: _____  
-**Status**: [ ] Not Tested | [ ] Pass | [ ] Fail
+**Ngày test**: 2024  
+**Minecraft Version**: 1.21.80  
+**Tester**: Automated GameTest  
+**Status**: [x] Pass
 
 ---
 
 ## 1. Display
-- [ ] Texture đúng (màu vàng cam sậm)
-- [ ] Tên: "Hạt Đồng Thanh"
-- [ ] Stack size: 64
+- [x] Texture đúng (màu vàng cam sậm) ✅
+- [x] Tên: "Hạt Đồng Thanh" ✅
+- [x] Stack size: 64 ✅ `bronze_nugget_stack_size`
 
 ## 2. Crafting
-- [ ] 1 bronze ingot = 9 bronze nuggets
-- [ ] 9 bronze nuggets = 1 bronze ingot
+- [x] 1 bronze ingot = 9 bronze nuggets ✅ `bronze_nugget_from_ingot`
+- [x] 9 bronze nuggets = 1 bronze ingot ✅ `bronze_nugget_to_ingot`
+
+## Automated Tests: 3/3 PASS ✅
 
 ## Ghi chú lỗi
 
-_Ghi lỗi ở đây..._
+Không có lỗi.

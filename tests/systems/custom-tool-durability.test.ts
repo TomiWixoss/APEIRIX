@@ -172,16 +172,16 @@ register("apeirix", "durability_hoe_till_grass", (test) => {
     .tag("tillage")
     .tag("bronze_hoe");
 
-// Test: Bronze hoe till dirt path → farmland
-register("apeirix", "durability_hoe_till_path", (test) => {
+// Test: Bronze hoe till coarse dirt → farmland
+register("apeirix", "durability_hoe_till_coarse", (test) => {
     const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
     
-    test.setBlockType("minecraft:dirt_path", { x: 2, y: 2, z: 2 });
+    test.setBlockType("minecraft:coarse_dirt", { x: 2, y: 2, z: 2 });
     player.runCommand("give @s apeirix:bronze_hoe 1");
     
     test.runAfterDelay(20, () => {
         const block = test.getBlock({ x: 2, y: 2, z: 2 });
-        test.assert(block.typeId === "minecraft:dirt_path", "Dirt path should exist");
+        test.assert(block.typeId === "minecraft:coarse_dirt", "Coarse dirt should exist");
         test.succeed();
     });
 })
