@@ -1,0 +1,6 @@
+{
+	"bridge:test": {
+		"sound": "stone",
+		"textures": "bridge_test"
+	}
+}

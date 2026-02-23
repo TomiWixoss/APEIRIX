@@ -1,0 +1,52 @@
+{
+	"format_version": 2,
+	"metadata": {
+		"authors": [
+			"bridge."
+		],
+		"generated_with": {
+			"bridge": [
+				"2.7.54"
+			],
+			"dash": [
+				"0.11.7"
+			]
+		}
+	},
+	"header": {
+		"name": "TESTTEMPLATE",
+		"description": "",
+		"min_engine_version": [
+			1,
+			26,
+			0
+		],
+		"uuid": "2946e983-dfa7-4edc-847b-e1b1bdfd16a1",
+		"version": [
+			1,
+			0,
+			0
+		]
+	},
+	"modules": [
+		{
+			"type": "resources",
+			"uuid": "a0bea3aa-bc14-413c-9764-bc93181f2223",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "c5e0d2f6-75ac-436f-9f74-d2a0260cba8a",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	]
+}

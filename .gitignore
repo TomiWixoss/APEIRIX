@@ -19,6 +19,10 @@ minecraft-scripting-samples-main/
 .vscode/
 .idea/
 
+# Bridge v2 - Keep config and extensions, ignore cache
+.bridge/.cache/
+.bridge/compiler/
+
 # Logs
 *.log
 npm-debug.log*
