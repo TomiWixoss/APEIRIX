@@ -155,26 +155,26 @@ export class AchievementUI {
             .title(`§l§6${achievementName}`)
             .body(body);
         
-        // Nút quay lại
-        form.button(LangManager.get("ui.backToList"), "textures/ui/arrow_left");
-        
-        // Thêm nút cho từng reward
+        // Thêm nút cho từng reward (đặt trước nút quay lại)
         if (achievement.rewards && achievement.rewards.length > 0) {
             achievement.rewards.forEach((reward: any, index: number) => {
                 const claimed = AchievementManager.hasClaimedReward(player, achievement.id, index);
                 let buttonText = "";
                 
                 if (claimed) {
-                    buttonText = `§2✓ Đã nhận\n§8x${reward.amount}`;
+                    buttonText = `§2✓ Đã nhận\n§8${reward.name} §7x${reward.amount}`;
                 } else if (unlocked) {
-                    buttonText = `§6Nhận\n§0x${reward.amount}`;
+                    buttonText = `§6Nhận\n§0${reward.name} §0x${reward.amount}`;
                 } else {
-                    buttonText = `§8✗ Chưa mở khóa\n§8x${reward.amount}`;
+                    buttonText = `§8✗ Chưa mở khóa\n§8${reward.name} §7x${reward.amount}`;
                 }
                 
                 form.button(buttonText, reward.icon);
             });
         }
+        
+        // Nút quay lại
+        form.button(LangManager.get("ui.backToList"), "textures/ui/arrow_left");
         
         // Nút đóng
         form.button(LangManager.get("ui.close"));
@@ -184,18 +184,26 @@ export class AchievementUI {
             
             if (response.canceled || response.selection === undefined) return;
             
+            const rewardCount = achievement.rewards ? achievement.rewards.length : 0;
+            const backButtonIndex = rewardCount; // Nút quay lại sau các reward
+            const closeButtonIndex = rewardCount + 1; // Nút đóng cuối cùng
+            
             // Nút quay lại
-            if (response.selection === 0) {
+            if (response.selection === backButtonIndex) {
                 await this.showCategoryMenu(player, categoryId);
+                return;
+            }
+            
+            // Nút đóng
+            if (response.selection === closeButtonIndex) {
                 return;
             }
             
             // Xử lý nhận reward
             if (achievement.rewards && achievement.rewards.length > 0) {
-                const rewardIndex = response.selection - 1; // -1 vì nút đầu là quay lại
-                const closeButtonIndex = 1 + achievement.rewards.length; // quay lại + rewards
+                const rewardIndex = response.selection; // Reward buttons ở đầu
                 
-                if (rewardIndex >= 0 && rewardIndex < achievement.rewards.length && response.selection !== closeButtonIndex) {
+                if (rewardIndex >= 0 && rewardIndex < achievement.rewards.length) {
                     const reward = achievement.rewards[rewardIndex];
                     const claimed = AchievementManager.hasClaimedReward(player, achievement.id, rewardIndex);
                     
@@ -204,7 +212,7 @@ export class AchievementUI {
                         try {
                             player.runCommand(`give @s ${reward.item} ${reward.amount}`);
                             AchievementManager.claimReward(player, achievement.id, rewardIndex);
-                            player.sendMessage(`${LangManager.get("achievements.received")} §e${reward.item} x${reward.amount}`);
+                            player.sendMessage(`${LangManager.get("achievements.received")} §e${reward.name} x${reward.amount}`);
                             player.playSound("random.orb");
                             
                             // Hiển thị lại UI để cập nhật trạng thái

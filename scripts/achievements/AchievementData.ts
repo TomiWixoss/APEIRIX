@@ -12,6 +12,7 @@ export interface Achievement {
         item: string;
         amount: number;
         icon: string;
+        name: string; // Tên hiển thị của item
     }>;
 }
 
@@ -32,7 +33,8 @@ export const ACHIEVEMENTS: Achievement[] = [
             {
                 item: "minecraft:diamond",
                 amount: 1,
-                icon: "textures/items/diamond"
+                icon: "textures/items/diamond",
+                name: "Kim Cương"
             }
         ]
     },
@@ -45,7 +47,8 @@ export const ACHIEVEMENTS: Achievement[] = [
             {
                 item: "minecraft:iron_ingot",
                 amount: 5,
-                icon: "textures/items/iron_ingot"
+                icon: "textures/items/iron_ingot",
+                name: "Thỏi Sắt"
             }
         ]
     },
@@ -58,7 +61,8 @@ export const ACHIEVEMENTS: Achievement[] = [
             {
                 item: "minecraft:coal",
                 amount: 16,
-                icon: "textures/items/coal"
+                icon: "textures/items/coal",
+                name: "Than Đá"
             }
         ]
     }
