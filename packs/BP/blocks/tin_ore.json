@@ -21,9 +21,8 @@
           "texture": "tin_ore",
           "render_method": "opaque"
         }
-      },
-      "tag:minecraft:mineable/pickaxe": {},
-      "tag:minecraft:needs_stone_tool": {}
-    }
+      }
+    },
+    "tags": ["stone", "metal_ore"]
   }
 }
