@@ -1,4 +1,4 @@
-import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent, ItemUseBeforeEvent } from "@minecraft/server";
+import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent } from "@minecraft/server";
 import { ToolRegistry } from "../../data/tools/ToolRegistry";
 import { TillableRegistry } from "../../data/blocks/TillableRegistry";
 
@@ -26,7 +26,7 @@ export class CustomToolSystem {
     });
 
     // Hoe tillage
-    world.beforeEvents.itemUse.subscribe((event) => {
+    world.afterEvents.itemUse.subscribe((event) => {
       this.handleItemUse(event);
     });
   }
@@ -47,8 +47,8 @@ export class CustomToolSystem {
     }
   }
 
-  private handleItemUse(event: ItemUseBeforeEvent): void {
-    const player = event.source as Player;
+  private handleItemUse(event: { source: Player; itemStack?: ItemStack }): void {
+    const player = event.source;
     const item = event.itemStack;
 
     if (!item) return;
@@ -69,10 +69,11 @@ export class CustomToolSystem {
       const tillable = TillableRegistry.getTillable(blockId);
       if (!tillable) return;
 
-      // Convert to farmland
-      block.dimension.runCommand(
-        `setblock ${block.location.x} ${block.location.y} ${block.location.z} ${tillable.resultBlock}`
-      );
+      // Convert to farmland using setType
+      const farmland = block.dimension.getBlock(block.location);
+      if (!farmland) return;
+
+      farmland.setType(tillable.resultBlock);
 
       // Play sound
       if (tillable.sound) {
