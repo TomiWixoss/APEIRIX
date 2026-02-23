@@ -33,7 +33,12 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 │   │   └── texts/             # en_US.lang (nội dung tiếng Việt)
 │   └── RP/                    # Resource Pack
 │       └── texts/             # en_US.lang (nội dung tiếng Việt)
-├── scripts/main.ts            # TypeScript source (edit ở đây)
+├── scripts/
+│   ├── main.ts                # TypeScript source chính
+│   ├── lang/                  # Hệ thống ngôn ngữ cho script UI
+│   │   ├── LangManager.ts     # Quản lý ngôn ngữ
+│   │   └── vi_VN.ts           # File ngôn ngữ tiếng Việt
+│   └── achievements/          # Hệ thống thành tựu
 └── config.json                # Regolith config
 ```
 
@@ -41,7 +46,12 @@ Lệnh này compile TypeScript và deploy vào thư mục development packs củ
 
 - Dùng namespace `apeirix:` cho tất cả custom content
 - File ngôn ngữ dùng `en_US.lang` nhưng nội dung là tiếng Việt
-- Tất cả string trong TypeScript code phải là tiếng Việt
-- Edit TypeScript trong `scripts/main.ts`, không edit `packs/BP/scripts/main.js`
+- Edit TypeScript trong `scripts/`, không edit `packs/BP/scripts/main.js`
 - Chạy `regolith run` sau khi thay đổi, sau đó `/reload` trong game
+
+## Hệ Thống Ngôn Ngữ
+
+- Pack lang: `packs/BP/texts/en_US.lang` (tên item/entity/block)
+- Script UI lang: `scripts/lang/vi_VN.ts` (UI text, chat)
+- Dùng `LangManager.get()` thay vì hardcode text trong TypeScript
 

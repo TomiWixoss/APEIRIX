@@ -3,10 +3,11 @@
  * Thêm mọi thứ vào game
  */
 
-import { world, system, Player } from "@minecraft/server";
+import { world, system } from "@minecraft/server";
 import { AchievementTracker } from "./achievements/AchievementTracker";
 import { AchievementManager } from "./achievements/AchievementManager";
 import { AchievementUI } from "./achievements/AchievementUI";
+import { LangManager } from "./lang/LangManager";
 
 // Khởi tạo hệ thống thành tựu
 system.afterEvents.scriptEventReceive.subscribe((event) => {
@@ -26,7 +27,7 @@ system.runTimeout(() => {
 world.afterEvents.playerSpawn.subscribe((event) => {
     const player = event.player;
     if (event.initialSpawn) {
-        player.sendMessage("§a§lChào mừng đến với APEIRIX!");
+        player.sendMessage(LangManager.get("welcome.title"));
         
         // Kiểm tra xem đã nhận sách chưa (dựa vào thành tựu welcome)
         const hasWelcomeAchievement = AchievementManager.hasAchievement(player, "welcome");
@@ -36,15 +37,14 @@ world.afterEvents.playerSpawn.subscribe((event) => {
             system.runTimeout(() => {
                 try {
                     player.runCommand("give @s apeirix:achievement_book 1");
-                    player.sendMessage("§e§lBạn đã nhận được Sách Thành Tựu APEIRIX!");
-                    player.sendMessage("§7Sử dụng sách để xem tiến độ thành tựu của bạn");
+                    player.sendMessage(LangManager.get("welcome.firstTime"));
                 } catch (error) {
                     console.warn("Không thể tặng sách thành tựu:", error);
                 }
             }, 20);
         } else {
             // Đã nhận sách rồi, hiện hướng dẫn lấy lại nếu mất
-            player.sendMessage("§7Nếu làm mất sách, gõ: §b/scriptevent apeirix:getbook");
+            player.sendMessage(LangManager.get("welcome.returning"));
         }
     }
 });
@@ -82,7 +82,7 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
         system.run(() => {
             try {
                 player.runCommand("give @s apeirix:achievement_book 1");
-                player.sendMessage("§a§lĐã nhận lại Sách Thành Tựu APEIRIX!");
+                player.sendMessage(LangManager.get("welcome.bookReceived"));
             } catch (error) {
                 console.error("Lỗi khi tặng sách:", error);
                 player.sendMessage("§cKhông thể tặng sách!");

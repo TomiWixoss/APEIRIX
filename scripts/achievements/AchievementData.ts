@@ -1,31 +1,59 @@
 /**
  * Achievement definitions for APEIRIX
+ * Text content is managed by LangManager
  */
 
 export interface Achievement {
     id: string;
-    name: string;
-    desc: string;
     requirement: number;
+    category: string;
+    icon: string; // Vanilla texture path
+    reward?: {
+        item: string;
+        amount: number;
+        icon: string;
+    };
 }
+
+export const ACHIEVEMENT_CATEGORIES = {
+    starter: {
+        id: "starter",
+        icon: "textures/items/book_normal"
+    }
+};
 
 export const ACHIEVEMENTS: Achievement[] = [
     {
         id: "welcome",
-        name: "Chào mừng đến APEIRIX",
-        desc: "Tham gia thế giới lần đầu tiên",
-        requirement: 1
+        requirement: 1,
+        category: "starter",
+        icon: "textures/items/book_writable",
+        reward: {
+            item: "minecraft:diamond",
+            amount: 1,
+            icon: "textures/items/diamond"
+        }
     },
     {
         id: "first_steps",
-        name: "Bước Đầu Tiên",
-        desc: "Đi bộ 100 blocks",
-        requirement: 100
+        requirement: 100,
+        category: "starter",
+        icon: "textures/items/leather_boots",
+        reward: {
+            item: "minecraft:iron_ingot",
+            amount: 5,
+            icon: "textures/items/iron_ingot"
+        }
     },
     {
         id: "breaker",
-        name: "Người Phá Hủy",
-        desc: "Phá 10 blocks",
-        requirement: 10
+        requirement: 10,
+        category: "starter",
+        icon: "textures/items/iron_pickaxe",
+        reward: {
+            item: "minecraft:coal",
+            amount: 16,
+            icon: "textures/items/coal"
+        }
     }
 ];
