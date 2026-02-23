@@ -24,6 +24,44 @@ regolith run
 
 Lệnh này compile TypeScript và deploy vào thư mục development packs của Minecraft.
 
+## Development Tools
+
+### Bedrock Development CLI
+Tool CLI/API để generate và modify files trong addon development.
+
+**Cài đặt**: Đã cài như dev dependency (v3.2.0)
+**Config**: `bedrock.config.json` với namespace `apeirix`
+
+**Commands hữu ích**:
+```bash
+# Tạo files mới
+npx bed new item <name> --bpath packs/BP --rpath packs/RP
+npx bed new block <name> --bpath packs/BP --rpath packs/RP
+npx bed new entity <name> --bpath packs/BP --rpath packs/RP
+npx bed new function <name> --bpath packs/BP
+
+# Modify entities
+npx bed entity component --bpath packs/BP
+npx bed entity property <name> --bpath packs/BP
+npx bed entity anim <name> --bpath packs/BP
+
+# Project management
+npx bed project install --bpath packs/BP --rpath packs/RP
+npx bed format addon apeirix --bpath packs/BP --rpath packs/RP
+
+# Xem help
+npx bed --help
+npx bed new --help
+npx bed entity --help
+```
+
+**Lưu ý**: 
+- Tool tự động thêm namespace `apeirix:` từ config
+- Luôn chỉ định `--bpath packs/BP --rpath packs/RP`
+- Sau khi tạo file, cần chạy `regolith run` để build
+
+**API Documentation**: [bedrock-development docs](https://www.npmjs.com/package/bedrock-development)
+
 ## Cấu Trúc Dự Án
 
 ```
