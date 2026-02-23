@@ -34,6 +34,18 @@
 		},
 		"bronze_hoe": {
 			"textures": "textures/items/bronze_hoe"
+		},
+		"bronze_helmet": {
+			"textures": "textures/items/bronze_helmet"
+		},
+		"bronze_chestplate": {
+			"textures": "textures/items/bronze_chestplate"
+		},
+		"bronze_leggings": {
+			"textures": "textures/items/bronze_leggings"
+		},
+		"bronze_boots": {
+			"textures": "textures/items/bronze_boots"
 		}
 	}
 }

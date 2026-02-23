@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "apeirix:bronze_helmet"
+    },
+    "tags": ["crafting_table"],
+    "pattern": [
+      "###",
+      "# #"
+    ],
+    "key": {
+      "#": {
+        "item": "apeirix:bronze_ingot"
+      }
+    },
+    "result": {
+      "item": "apeirix:bronze_helmet"
+    },
+    "unlock": [
+      {
+        "item": "apeirix:bronze_ingot"
+      }
+    ]
+  }
+}

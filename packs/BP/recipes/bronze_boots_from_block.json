@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "apeirix:bronze_boots_from_block"
+    },
+    "tags": ["crafting_table"],
+    "ingredients": [
+      {
+        "item": "apeirix:bronze_block"
+      }
+    ],
+    "result": {
+      "item": "apeirix:bronze_boots",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "apeirix:bronze_ingot"
+      }
+    ]
+  }
+}

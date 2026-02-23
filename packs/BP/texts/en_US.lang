@@ -13,6 +13,10 @@ item.apeirix.bronze_pickaxe.name=Cúp Đồng Thanh
 item.apeirix.bronze_axe.name=Rìu Đồng Thanh
 item.apeirix.bronze_shovel.name=Xẻng Đồng Thanh
 item.apeirix.bronze_hoe.name=Cuốc Đồng Thanh
+item.apeirix.bronze_helmet.name=Mũ Đồng Thanh
+item.apeirix.bronze_chestplate.name=Áo Giáp Đồng Thanh
+item.apeirix.bronze_leggings.name=Quần Giáp Đồng Thanh
+item.apeirix.bronze_boots.name=Giày Đồng Thanh
 
 ## Blocks
 tile.apeirix:tin_ore.name=Quặng Thiếc
