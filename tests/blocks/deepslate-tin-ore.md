@@ -21,25 +21,25 @@
 ## 2. Mining
 
 ### Tool Requirements
-- [ ] Yêu cầu stone pickaxe trở lên
-- [ ] Drop raw tin (giống tin ore)
+- [x] Yêu cầu stone pickaxe trở lên ✅ `deepslate_tin_ore_hand_mining`, `deepslate_tin_ore_wooden_pickaxe`
+- [x] Drop raw tin (giống tin ore) ✅ `deepslate_tin_ore_stone_pickaxe`
 
 ### Mining Speed
 - [ ] Hardness: 4.5 (cao hơn tin ore)
 - [ ] Đào chậm hơn tin ore
 
 ### Drops
-- [ ] Drop 1 raw tin (no enchantment)
+- [x] Drop 1 raw tin (no enchantment) ✅ Tested via mining tests
 
 ## 3. Enchantments
 
 ### Fortune
-- [ ] Fortune I → 1-2 raw tin
-- [ ] Fortune II → 1-3 raw tin
-- [ ] Fortune III → 1-4 raw tin
+- [x] Fortune I → 1-2 raw tin ✅ `deepslate_tin_ore_fortune_1`
+- [x] Fortune II → 1-3 raw tin ✅ `deepslate_tin_ore_fortune_2`
+- [x] Fortune III → 1-4 raw tin ✅ `deepslate_tin_ore_fortune_3`
 
 ### Silk Touch
-- [ ] Silk Touch → drop deepslate tin ore block
+- [x] Silk Touch → drop deepslate tin ore block ✅ `deepslate_tin_ore_silk_touch`
 
 ## 4. World Generation
 
@@ -50,8 +50,9 @@
 
 ## 5. Compatibility
 
-- [ ] FortuneSystem hoạt động
-- [ ] OreRegistry đăng ký đúng
+- [x] FortuneSystem hoạt động ✅ Tested via fortune tests
+- [x] OreRegistry đăng ký đúng ✅
+- [x] Loot table với Silk Touch pool ✅
 
 ## Ghi chú lỗi
 

@@ -12,10 +12,13 @@ register("apeirix", "fortune_system_tin_ore", (test) => {
     
     test.setBlockType("apeirix:tin_ore", { x: 2, y: 2, z: 2 });
     
-    // Give pickaxe with Fortune III
-    player.runCommand("give @s diamond_pickaxe 1 0 {\"minecraft:enchantments\":{\"enchantments\":[{\"id\":\"fortune\",\"level\":3}]}}");
+    // Give pickaxe first, then enchant with Fortune III (Bedrock way)
+    player.runCommand("give @s diamond_pickaxe 1");
+    test.runAfterDelay(5, () => {
+        player.runCommand("enchant @s fortune 3");
+    });
     
-    test.runAfterDelay(10, () => {
+    test.runAfterDelay(15, () => {
         player.breakBlock({ x: 2, y: 2, z: 2 });
     });
     

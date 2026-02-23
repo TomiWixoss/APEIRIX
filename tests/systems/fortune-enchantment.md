@@ -26,45 +26,45 @@ Implement Fortune enchantment cho custom ores (tin ore, deepslate tin ore).
 ## 3. Fortune Levels
 
 ### Fortune I
-- [ ] Tin ore → 1-2 raw tin
-- [ ] Deepslate tin ore → 1-2 raw tin
+- [x] Tin ore → 1-2 raw tin ✅ `tin_ore_fortune_1`
+- [x] Deepslate tin ore → 1-2 raw tin ✅ `deepslate_tin_ore_fortune_1`
 - [ ] Average ~1.5 drops (test 20 lần)
 
 ### Fortune II
-- [ ] Tin ore → 1-3 raw tin
-- [ ] Deepslate tin ore → 1-3 raw tin
+- [x] Tin ore → 1-3 raw tin ✅ `tin_ore_fortune_2`
+- [x] Deepslate tin ore → 1-3 raw tin ✅ `deepslate_tin_ore_fortune_2`
 - [ ] Average ~2.0 drops (test 20 lần)
 
 ### Fortune III
-- [ ] Tin ore → 1-4 raw tin
-- [ ] Deepslate tin ore → 1-4 raw tin
+- [x] Tin ore → 1-4 raw tin ✅ `tin_ore_fortune_3`, `fortune_system_tin_ore`
+- [x] Deepslate tin ore → 1-4 raw tin ✅ `deepslate_tin_ore_fortune_3`
 - [ ] Average ~2.5 drops (test 20 lần)
 
 ## 4. Bonus Drop Mechanics
 
 ### Drop Spawning
-- [ ] Bonus drops spawn đúng vị trí
+- [x] Bonus drops spawn đúng vị trí ✅ Tested via fortune tests
 - [ ] Drops không bay quá xa
 - [ ] Drops có thể pick up
 - [ ] Drops stack với nhau
 
 ## 5. Silk Touch Priority
-- [ ] Silk Touch + Fortune → drop ore block
-- [ ] Silk Touch override Fortune
-- [ ] No bonus drops với Silk Touch
+- [x] Silk Touch + Fortune → drop ore block ✅ `tin_ore_silk_touch`, `deepslate_tin_ore_silk_touch`
+- [x] Silk Touch override Fortune ✅ Loot table priority
+- [x] No bonus drops với Silk Touch ✅
 
 ## 6. Tool Compatibility
-- [ ] Fortune hoạt động với bronze pickaxe
-- [ ] Fortune hoạt động với iron pickaxe
-- [ ] Fortune hoạt động với diamond pickaxe
+- [x] Fortune hoạt động với bronze pickaxe ✅ `tin_ore_fortune_bronze`
+- [x] Fortune hoạt động với iron pickaxe ✅ Tested
+- [x] Fortune hoạt động với diamond pickaxe ✅ Tested
 - [ ] Fortune hoạt động với netherite pickaxe
 
 ## 7. Registry Integration
 
 ### OreRegistry
-- [ ] Tin ore đăng ký với fortuneEnabled: true
-- [ ] Deepslate tin ore đăng ký với fortuneEnabled: true
-- [ ] getOre() return đúng
+- [x] Tin ore đăng ký với fortuneEnabled: true ✅
+- [x] Deepslate tin ore đăng ký với fortuneEnabled: true ✅
+- [x] getOre() return đúng ✅
 
 ## 8. Edge Cases
 - [ ] No Fortune → drop 1 raw tin

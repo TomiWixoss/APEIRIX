@@ -27,12 +27,12 @@
 ## 2. Mining
 
 ### Tool Requirements
-- [ ] Không thể đào bằng tay (không drop)
-- [ ] Không thể đào bằng wooden pickaxe (không drop)
-- [ ] Đào được bằng stone pickaxe → drop raw tin
-- [ ] Đào được bằng iron pickaxe → drop raw tin
-- [ ] Đào được bằng diamond pickaxe → drop raw tin
-- [ ] Đào được bằng bronze pickaxe → drop raw tin
+- [x] Không thể đào bằng tay (không drop) ✅ `tin_ore_hand_mining`
+- [x] Không thể đào bằng wooden pickaxe (không drop) ✅ `tin_ore_wooden_pickaxe`
+- [x] Đào được bằng stone pickaxe → drop raw tin ✅ `tin_ore_stone_pickaxe`
+- [x] Đào được bằng iron pickaxe → drop raw tin ✅ `tin_ore_iron_pickaxe`
+- [x] Đào được bằng diamond pickaxe → drop raw tin ✅ `tin_ore_diamond_pickaxe`
+- [x] Đào được bằng bronze pickaxe → drop raw tin ✅ `tin_ore_bronze_pickaxe`
 
 ### Mining Speed
 - [ ] Hardness: 3.0
@@ -40,31 +40,32 @@
 - [ ] Efficiency enchantment KHÔNG hoạt động (Bedrock limitation)
 
 ### Drops
-- [ ] Drop 1 raw tin (no enchantment)
+- [x] Drop 1 raw tin (no enchantment) ✅ Tested via mining tests
 - [ ] Drop đúng vị trí (không bay xa)
 - [ ] XP drop (nếu có)
 
 ## 3. Enchantments
 
 ### Silk Touch
-- [ ] Silk Touch → drop tin ore block
+- [x] Silk Touch → drop tin ore block ✅ `tin_ore_silk_touch`
 - [ ] Có thể place lại tin ore block
 - [ ] Texture đúng khi place lại
 
 ### Fortune
-- [ ] Fortune I → drop 1-2 raw tin
-- [ ] Fortune II → drop 1-3 raw tin
-- [ ] Fortune III → drop 1-4 raw tin
-- [ ] Fortune hoạt động với bronze pickaxe
+- [x] Fortune I → drop 1-2 raw tin ✅ `tin_ore_fortune_1`
+- [x] Fortune II → drop 1-3 raw tin ✅ `tin_ore_fortune_2`
+- [x] Fortune III → drop 1-4 raw tin ✅ `tin_ore_fortune_3`
+- [x] Fortune hoạt động với bronze pickaxe ✅ `tin_ore_fortune_bronze`
 - [ ] Silk Touch override Fortune
 
 ## 4. Loot Table
 
 ### Configuration
-- [ ] Loot table: `loot_tables/blocks/tin_ore.json`
-- [ ] Format đúng
-- [ ] Conditions: requires stone pickaxe+
-- [ ] Drop: raw tin
+- [x] Loot table: `loot_tables/blocks/tin_ore.json` ✅
+- [x] Format đúng ✅
+- [x] Conditions: requires stone pickaxe+ ✅
+- [x] Drop: raw tin ✅
+- [x] Silk Touch pool added ✅
 
 ## 5. World Generation
 
@@ -99,8 +100,8 @@
 - [ ] Không conflict với vanilla ores
 
 ### Custom Systems
-- [ ] FortuneSystem hoạt động
-- [ ] OreRegistry đăng ký đúng
+- [x] FortuneSystem hoạt động ✅ `fortune_system_tin_ore`
+- [x] OreRegistry đăng ký đúng ✅
 - [ ] World generation hoạt động
 
 ## Ghi chú lỗi
