@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#7F520CFF" />
+    <color k="B" hex="#F8D26AFF" />
+    <color k="C" hex="#F9F969FF" />
+    <color k="D" hex="#6E470BFF" />
+    <color k="E" hex="#FFFFFFFF" />
+    <color k="F" hex="#E9B115FF" />
+    <color k="G" hex="#DC9613FF" />
+  </palette>
+  <layer id="main">
+    <rect x="5" y="5" w="1" h="4" c="A" />
+    <rect x="10" y="6" w="1" h="4" c="D" />
+    <row y="4" x1="6" x2="8" c="A" />
+    <row y="6" x1="6" x2="8" c="C" />
+    <row y="7" x1="6" x2="7" c="C" />
+    <row y="8" x1="6" x2="7" c="E" />
+    <row y="9" x1="8" x2="9" c="G" />
+    <dots c="A" pts="6,9 6,10 7,11" />
+    <dots c="B" pts="6,5 8,5 7,9 7,10" />
+    <dots c="C" pts="7,5" />
+    <dots c="D" pts="9,5 9,10 8,11" />
+    <dots c="E" pts="9,6 8,7" />
+    <dots c="F" pts="9,7 8,8" />
+    <dots c="G" pts="9,8 8,10" />
+  </layer>
+</pxvg>
