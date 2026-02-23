@@ -1,0 +1,16 @@
+{
+	"texture_data": {
+		"bridge_test_helmet": {
+			"textures": "textures/items/test_helmet"
+		},
+		"bridge_test_chestplate": {
+			"textures": "textures/items/test_chestplate"
+		},
+		"bridge_test_leggings": {
+			"textures": "textures/items/test_leggings"
+		},
+		"bridge_test_boots": {
+			"textures": "textures/items/test_boots"
+		}
+	}
+}
