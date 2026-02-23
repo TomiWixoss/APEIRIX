@@ -8,9 +8,7 @@
       }
     },
     "components": {
-      "minecraft:icon": {
-        "texture": "raw_tin"
-      },
+      "minecraft:icon": "raw_tin",
       "minecraft:max_stack_size": 64
     }
   }

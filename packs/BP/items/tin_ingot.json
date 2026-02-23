@@ -8,9 +8,7 @@
       }
     },
     "components": {
-      "minecraft:icon": {
-        "texture": "tin_ingot"
-      },
+      "minecraft:icon": "tin_ingot",
       "minecraft:max_stack_size": 64
     }
   }

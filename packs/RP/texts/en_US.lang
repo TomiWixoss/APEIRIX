@@ -2,9 +2,9 @@ pack.name=APEIRIX
 pack.description=Thêm mọi thứ vào trò chơi
 
 ## Items
-item.apeirix:achievement_book.name=Sách Thành Tựu APEIRIX
-item.apeirix:raw_tin.name=Thiếc Thô
-item.apeirix:tin_ingot.name=Thỏi Thiếc
+item.apeirix.achievement_book.name=Sách Thành Tựu APEIRIX
+item.apeirix.raw_tin.name=Thiếc Thô
+item.apeirix.tin_ingot.name=Thỏi Thiếc
 
 ## Blocks
 tile.apeirix:tin_ore.name=Quặng Thiếc
