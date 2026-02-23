@@ -33,7 +33,7 @@
         "use_efficiency": true,
         "destroy_speeds": [
           {
-            "block": "minecraft:cobweb",
+            "block": "minecraft:web",
             "speed": 15
           },
           {

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.0",
+  "format_version": "1.21.80",
   "minecraft:ore_feature": {
     "description": {
       "identifier": "apeirix:tin_ore_scatter"
@@ -7,15 +7,47 @@
     "count": 9,
     "replace_rules": [
       {
-        "places_block": "apeirix:tin_ore",
+        "places_block": {
+          "name": "apeirix:tin_ore",
+          "states": {}
+        },
         "may_replace": [
-          "minecraft:stone"
+          {
+            "name": "minecraft:stone",
+            "states": {
+              "stone_type": "stone"
+            }
+          },
+          {
+            "name": "minecraft:stone",
+            "states": {
+              "stone_type": "andesite"
+            }
+          },
+          {
+            "name": "minecraft:stone",
+            "states": {
+              "stone_type": "granite"
+            }
+          },
+          {
+            "name": "minecraft:stone",
+            "states": {
+              "stone_type": "diorite"
+            }
+          }
         ]
       },
       {
-        "places_block": "apeirix:deepslate_tin_ore",
+        "places_block": {
+          "name": "apeirix:deepslate_tin_ore",
+          "states": {}
+        },
         "may_replace": [
-          "minecraft:deepslate"
+          {
+            "name": "minecraft:deepslate",
+            "states": {}
+          }
         ]
       }
     ]

@@ -1,5 +1,5 @@
 {
-  "format_version": "1.21.50",
+  "format_version": "1.21.80",
   "minecraft:block": {
     "description": {
       "identifier": "apeirix:bronze_block",
