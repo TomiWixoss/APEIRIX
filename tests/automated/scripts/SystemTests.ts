@@ -46,6 +46,7 @@ register("apeirix", "fortune_i_tin_ore", (test) => {
     test.succeed();
   });
 })
+.padding(5)
 .maxTicks(100)
 .tag("systems")
 .tag("fortune")
@@ -86,6 +87,7 @@ register("apeirix", "fortune_iii_tin_ore", (test) => {
     test.succeed();
   });
 })
+.padding(5)
 .maxTicks(100)
 .tag("systems")
 .tag("fortune")
@@ -113,6 +115,7 @@ register("apeirix", "silk_touch_tin_ore", (test) => {
     test.succeed();
   });
 })
+.padding(5)
 .maxTicks(100)
 .tag("systems")
 .tag("silk_touch");
@@ -149,6 +152,7 @@ register("apeirix", "bronze_pickaxe_durability", (test) => {
     })
     .thenSucceed();
 })
+.padding(5)
 .maxTicks(200)
 .tag("systems")
 .tag("durability")

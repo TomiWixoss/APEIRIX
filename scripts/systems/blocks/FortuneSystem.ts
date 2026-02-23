@@ -43,6 +43,15 @@ export class FortuneSystem {
       return;
     }
 
+    // Validate player is still valid
+    try {
+      if (!player.isValid) {
+        return;
+      }
+    } catch {
+      return; // Player entity removed
+    }
+
     // Get tool in hand
     const equipment = player.getComponent("minecraft:equippable");
     if (!equipment) return;
