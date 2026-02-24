@@ -21,7 +21,7 @@
         "effects": [
           {
             "name": "fire_resistance",
-            "duration": 15,
+            "duration": 300,
             "amplifier": 0,
             "chance": 1
           }

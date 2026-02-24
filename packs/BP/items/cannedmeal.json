@@ -21,7 +21,7 @@
         "effects": [
           {
             "name": "regeneration",
-            "duration": 5,
+            "duration": 100,
             "amplifier": 1,
             "chance": 1
           }

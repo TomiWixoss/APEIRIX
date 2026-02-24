@@ -87,7 +87,7 @@ export class ItemGenerator {
       if (config.effects && config.effects.length > 0) {
         itemData['minecraft:item'].components['minecraft:food'].effects = config.effects.map(effect => ({
           name: effect.name,
-          duration: effect.duration,
+          duration: effect.duration * 20, // Convert seconds to ticks (1 second = 20 ticks)
           amplifier: effect.amplifier || 0,
           chance: effect.chance || 1.0
         }));

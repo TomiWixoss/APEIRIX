@@ -21,7 +21,7 @@
         "effects": [
           {
             "name": "nausea",
-            "duration": 10,
+            "duration": 200,
             "amplifier": 0,
             "chance": 1
           }

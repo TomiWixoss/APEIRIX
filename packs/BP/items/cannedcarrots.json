@@ -21,7 +21,7 @@
         "effects": [
           {
             "name": "night_vision",
-            "duration": 15,
+            "duration": 300,
             "amplifier": 0,
             "chance": 1
           }
