@@ -19,6 +19,7 @@
       },
       "minecraft:tags": {
         "tags": [
+          "minecraft:bronze_tier",
           "minecraft:is_spear"
         ]
       },

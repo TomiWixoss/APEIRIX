@@ -40,7 +40,11 @@ export class SpearGenerator {
       format_version: "1.21.100",
       "minecraft:item": {
         description: {
-          identifier: `apeirix:${config.id}`
+          identifier: `apeirix:${config.id}`,
+          menu_category: {
+            category: "equipment",
+            group: "itemGroup.name.weapon"
+          }
         },
         components: {
           "minecraft:icon": {
@@ -50,10 +54,6 @@ export class SpearGenerator {
           },
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
-          },
-          "minecraft:item_category": {
-            category: "equipment",
-            group: "itemGroup.name.weapon"
           },
           "minecraft:tags": {
             tags: tags

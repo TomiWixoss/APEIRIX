@@ -59,12 +59,13 @@ export interface ToolConfig {
   id: string;
   name: string;
   texture: string;
-  type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword';
+  type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword' | 'spear';
   materialId: string;
   durability?: number;
   damage?: number;
   efficiency?: number;
   enchantability?: number;
+  tier?: string;
 }
 
 export interface ArmorSetConfig {

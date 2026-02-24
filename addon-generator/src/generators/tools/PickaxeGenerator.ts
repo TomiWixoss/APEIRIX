@@ -13,6 +13,7 @@ export interface PickaxeConfig {
   damage?: number;
   efficiency?: number;
   enchantability?: number;
+  tier?: string;
   
   // Block tags để mine
   blockTags?: string;
@@ -31,6 +32,12 @@ export class PickaxeGenerator {
     const enchantability = config.enchantability || 14;
     const blockTags = config.blockTags || "q.any_tag('stone', 'metal', 'rock', 'diamond_pick_diggable', 'iron_pick_diggable', 'stone_pick_diggable')";
 
+    // Build tags array
+    const tags = ["minecraft:is_pickaxe"];
+    if (config.tier) {
+      tags.unshift(`minecraft:${config.tier}`);
+    }
+
     const itemData = {
       format_version: "1.21.0",
       "minecraft:item": {
@@ -45,6 +52,9 @@ export class PickaxeGenerator {
           "minecraft:icon": config.id,
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
+          },
+          "minecraft:tags": {
+            tags: tags
           },
           "minecraft:max_stack_size": 1,
           "minecraft:durability": {

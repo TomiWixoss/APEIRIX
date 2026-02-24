@@ -172,6 +172,7 @@ export class BatchCommand {
             damage: tool.damage?.toString(),
             efficiency: tool.efficiency?.toString(),
             enchantability: tool.enchantability?.toString(),
+            tier: tool.tier,
             project: options.project,
             dryRun: false,
             skipHistory: true

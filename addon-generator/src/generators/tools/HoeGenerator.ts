@@ -13,6 +13,7 @@ export interface HoeConfig {
   damage?: number;
   efficiency?: number;
   enchantability?: number;
+  tier?: string;
   
   // Block tags để hoe
   blockTags?: string;
@@ -31,6 +32,12 @@ export class HoeGenerator {
     const enchantability = config.enchantability || 14;
     const blockTags = config.blockTags || "q.any_tag('plant', 'crop', 'leaves', 'hay_block', 'sponge', 'sculk', 'nether_wart_block', 'warped_wart_block', 'shroomlight', 'target')";
 
+    // Build tags array
+    const tags = ["minecraft:is_hoe"];
+    if (config.tier) {
+      tags.unshift(`minecraft:${config.tier}`);
+    }
+
     const itemData = {
       format_version: "1.21.0",
       "minecraft:item": {
@@ -45,6 +52,9 @@ export class HoeGenerator {
           "minecraft:icon": config.id,
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
+          },
+          "minecraft:tags": {
+            tags: tags
           },
           "minecraft:max_stack_size": 1,
           "minecraft:durability": {
@@ -69,9 +79,6 @@ export class HoeGenerator {
                 repair_amount: "context.other->query.remaining_durability * 0.25"
               }
             ]
-          },
-          "minecraft:tags": {
-            tags: ["minecraft:is_hoe"]
           },
           "minecraft:digger": {
             use_efficiency: true,

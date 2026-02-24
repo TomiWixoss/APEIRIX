@@ -13,6 +13,7 @@ export interface ShovelConfig {
   damage?: number;
   efficiency?: number;
   enchantability?: number;
+  tier?: string;
   
   // Block tags để dig
   blockTags?: string;
@@ -31,6 +32,12 @@ export class ShovelGenerator {
     const enchantability = config.enchantability || 14;
     const blockTags = config.blockTags || "q.any_tag('dirt', 'sand', 'gravel', 'snow', 'clay', 'soul_sand', 'soul_soil', 'powder_snow')";
 
+    // Build tags array
+    const tags = ["minecraft:is_shovel"];
+    if (config.tier) {
+      tags.unshift(`minecraft:${config.tier}`);
+    }
+
     const itemData = {
       format_version: "1.21.0",
       "minecraft:item": {
@@ -45,6 +52,9 @@ export class ShovelGenerator {
           "minecraft:icon": config.id,
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
+          },
+          "minecraft:tags": {
+            tags: tags
           },
           "minecraft:max_stack_size": 1,
           "minecraft:durability": {
@@ -69,9 +79,6 @@ export class ShovelGenerator {
                 repair_amount: "context.other->query.remaining_durability * 0.25"
               }
             ]
-          },
-          "minecraft:tags": {
-            tags: ["minecraft:is_shovel"]
           },
           "minecraft:digger": {
             use_efficiency: true,

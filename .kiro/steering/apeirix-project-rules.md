@@ -94,6 +94,53 @@ APEIRIX/
 - Edit TypeScript trong `scripts/`, không edit `packs/BP/scripts/main.js`
 - Chạy `regolith run` sau khi thay đổi, sau đó `/reload` trong game
 
+## ⚠️ QUY TẮC CLI-FIRST WORKFLOW (CỰC KỲ QUAN TRỌNG)
+
+**LUÔN LUÔN SỬ DỤNG CLI ĐỂ TẠO/SỬA JSON FILES**
+
+### Nguyên tắc bắt buộc:
+
+1. **KHÔNG BAO GIỜ** trực tiếp thêm/xóa/sửa file JSON trong `packs/BP/` hoặc `packs/RP/`
+2. **LUÔN LUÔN** sử dụng CLI tool (`addon-generator`) để tạo content
+3. **NẾU CÓ LỖI/SAI/THIẾU/CẦN THÊM** → Cập nhật CLI Generator, KHÔNG sửa JSON trực tiếp
+
+### Workflow đúng:
+
+```bash
+# ✅ ĐÚNG: Sửa generator
+1. Phát hiện lỗi trong JSON (ví dụ: thiếu category, thiếu unlock, sai format)
+2. Cập nhật generator tương ứng trong addon-generator/src/generators/
+3. Chạy lại CLI để regenerate: bun run dev batch configs/[config-name].yaml
+4. Verify kết quả
+
+# ❌ SAI: Sửa JSON trực tiếp
+1. Phát hiện lỗi trong packs/BP/items/bronze_spear.json
+2. Mở file và sửa trực tiếp
+3. ❌ KHÔNG LÀM NHƯ VẬY!
+```
+
+### Lý do:
+
+- **Consistency**: Tất cả content được tạo theo cùng 1 chuẩn
+- **Maintainability**: Sửa 1 lần trong generator, áp dụng cho tất cả items
+- **Reproducibility**: Có thể regenerate bất cứ lúc nào từ config
+- **History**: CLI có history và undo/rollback
+- **Automation**: Tự động update GameData.ts, textures, lang files
+
+### Khi nào được sửa JSON trực tiếp:
+
+- **KHÔNG BAO GIỜ** (trừ khi đang debug CLI tool)
+- Nếu cần thay đổi, luôn update generator trước
+
+### Generators cần update thường xuyên:
+
+- `addon-generator/src/generators/tools/` - Tool generators
+- `addon-generator/src/generators/ItemGenerator.ts` - Item generator
+- `addon-generator/src/generators/BlockGenerator.ts` - Block generator
+- `addon-generator/src/generators/RecipeGenerator.ts` - Recipe generator
+- `addon-generator/src/generators/ArmorGenerator.ts` - Armor generator
+- `addon-generator/src/generators/FoodGenerator.ts` - Food generator
+
 ## Kiến Trúc & Design Patterns
 
 - **OOP**: Inheritance, Encapsulation, Polymorphism, Composition

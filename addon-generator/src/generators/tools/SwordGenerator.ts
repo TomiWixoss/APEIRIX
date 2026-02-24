@@ -12,6 +12,7 @@ export interface SwordConfig {
   durability?: number;
   damage?: number;
   enchantability?: number;
+  tier?: string;
 }
 
 /**
@@ -24,6 +25,12 @@ export class SwordGenerator {
     const durability = config.durability || 250;
     const damage = config.damage || 6;
     const enchantability = config.enchantability || 14;
+
+    // Build tags array
+    const tags = ["minecraft:is_sword"];
+    if (config.tier) {
+      tags.unshift(`minecraft:${config.tier}`);
+    }
 
     const itemData = {
       format_version: "1.21.0",
@@ -39,6 +46,9 @@ export class SwordGenerator {
           "minecraft:icon": config.id,
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
+          },
+          "minecraft:tags": {
+            tags: tags
           },
           "minecraft:max_stack_size": 1,
           "minecraft:durability": {
@@ -63,9 +73,6 @@ export class SwordGenerator {
                 repair_amount: "context.other->query.remaining_durability * 0.25"
               }
             ]
-          },
-          "minecraft:tags": {
-            tags: ["minecraft:is_sword"]
           },
           "minecraft:digger": {
             use_efficiency: true,

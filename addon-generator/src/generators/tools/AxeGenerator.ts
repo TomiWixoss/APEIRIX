@@ -13,6 +13,7 @@ export interface AxeConfig {
   damage?: number;
   efficiency?: number;
   enchantability?: number;
+  tier?: string;
   
   // Block tags để chop
   blockTags?: string;
@@ -31,6 +32,12 @@ export class AxeGenerator {
     const enchantability = config.enchantability || 14;
     const blockTags = config.blockTags || "q.any_tag('wood', 'log', 'pumpkin', 'plant_stem')";
 
+    // Build tags array
+    const tags = ["minecraft:is_axe"];
+    if (config.tier) {
+      tags.unshift(`minecraft:${config.tier}`);
+    }
+
     const itemData = {
       format_version: "1.21.0",
       "minecraft:item": {
@@ -45,6 +52,9 @@ export class AxeGenerator {
           "minecraft:icon": config.id,
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
+          },
+          "minecraft:tags": {
+            tags: tags
           },
           "minecraft:max_stack_size": 1,
           "minecraft:durability": {
