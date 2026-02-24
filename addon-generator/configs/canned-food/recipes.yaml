@@ -10,7 +10,6 @@ recipes:
     result: canempty
     resultCount: 4
     unlock: [tin_ingot]
-    generateTest: true
 
   # ===== LƯƠNG THỰC CƠ BẢN =====
 
@@ -20,7 +19,6 @@ recipes:
     ingredients: [canempty, minecraft:mushroom_stew]
     result: cannedmushroomsoup
     unlock: [canempty, minecraft:mushroom_stew]
-    generateTest: true
 
   # Súp củ dền hộp
   - type: shapeless
