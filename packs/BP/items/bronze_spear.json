@@ -2,7 +2,11 @@
   "format_version": "1.21.100",
   "minecraft:item": {
     "description": {
-      "identifier": "apeirix:bronze_spear"
+      "identifier": "apeirix:bronze_spear",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.weapon"
+      }
     },
     "components": {
       "minecraft:icon": {
@@ -12,10 +16,6 @@
       },
       "minecraft:display_name": {
         "value": "item.apeirix.bronze_spear.name"
-      },
-      "minecraft:item_category": {
-        "category": "equipment",
-        "group": "itemGroup.name.weapon"
       },
       "minecraft:tags": {
         "tags": [
