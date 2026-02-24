@@ -20,9 +20,7 @@
 				"export": {
 					"build": "standard",
 					"readOnly": false,
-					"target": "local",
-					"rpPath": "./build/APEIRIX_rp",
-					"bpPath": "./build/APEIRIX_bp"
+					"target": "development"
 				},
 				"filters": [
 					{

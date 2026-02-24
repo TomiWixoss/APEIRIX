@@ -81,17 +81,20 @@ export class FoodGenerator {
 
     // Add effects via custom component (format 1.20+)
     if (config.effects && config.effects.length > 0) {
-      itemData['minecraft:item'].components['apeirix:food_effects'] = config.effects.map(effect => ({
-        name: effect.name,
-        duration: effect.duration * 20, // Convert seconds to ticks
-        amplifier: effect.amplifier ?? 0,
-        chance: effect.chance ?? 1.0
-      }));
+      // Custom component params MUST be an object, not array
+      itemData['minecraft:item'].components['apeirix:food_effects'] = {
+        effects: config.effects.map(effect => ({
+          name: effect.name,
+          duration: effect.duration * 20, // Convert seconds to ticks
+          amplifier: effect.amplifier ?? 0,
+          chance: effect.chance ?? 1.0
+        }))
+      };
     }
 
     // Add remove_effects via custom component
     if (config.removeEffects) {
-      itemData['minecraft:item'].components['apeirix:remove_effects'] = true;
+      itemData['minecraft:item'].components['apeirix:remove_effects'] = {};
     }
 
     FileManager.writeJSON(itemPath, itemData);

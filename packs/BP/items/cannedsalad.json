@@ -29,7 +29,7 @@
         "use_duration": 1.6,
         "movement_modifier": 0.33
       },
-      "apeirix:remove_effects": true
+      "apeirix:remove_effects": {}
     }
   }
 }

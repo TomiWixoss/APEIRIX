@@ -1,7 +1,7 @@
-import { system, ItemComponentConsumeEvent } from '@minecraft/server';
+import { system } from '@minecraft/server';
 
 /**
- * Food Custom Components
+ * Food Custom Components (Version 2)
  * 
  * File này chứa các custom components cho food items.
  * Được import trực tiếp trong main.ts vì custom components
@@ -13,46 +13,92 @@ import { system, ItemComponentConsumeEvent } from '@minecraft/server';
  */
 
 /**
+ * Type definition cho effect parameters
+ */
+type FoodEffectParams = {
+  effects: Array<{
+    name: string;
+    duration: number;
+    amplifier: number;
+    chance?: number;
+  }>;
+};
+
+/**
  * Custom Component: apeirix:food_effects
- * Apply effects khi ăn food (format 1.20+)
+ * Apply effects khi ăn food (Custom Components Version 2)
+ * 
+ * Component value trong JSON là OBJECT (không phải array):
+ * "apeirix:food_effects": {
+ *   "effects": [
+ *     { "name": "night_vision", "duration": 300, "amplifier": 0 }
+ *   ]
+ * }
  */
 const FoodEffectsComponent = {
-  onConsume(event: ItemComponentConsumeEvent) {
-    const { source, itemStack } = event;
+  onConsume(event: any, componentData: any) {
+    console.warn('[FoodEffects] ===== onConsume CALLED =====');
+    console.warn('[FoodEffects] event:', event);
+    console.warn('[FoodEffects] componentData:', componentData);
+    console.warn('[FoodEffects] componentData.params:', componentData?.params);
     
-    // Get custom component value directly from itemStack
-    const components = itemStack.getComponents();
-    let effectsData: any[] | undefined;
+    const { source } = event;
     
-    // Find the custom component
-    for (const component of components) {
-      if (component.typeId === 'apeirix:food_effects') {
-        effectsData = (component as any).value;
-        break;
-      }
+    // Try to access params
+    const params = componentData?.params;
+    
+    console.warn('[FoodEffects] params type:', typeof params);
+    console.warn('[FoodEffects] params:', JSON.stringify(params));
+    
+    if (!params) {
+      console.warn('[FoodEffects] ERROR: params is null/undefined');
+      return;
     }
     
-    if (!effectsData || !Array.isArray(effectsData)) return;
+    // Try direct access to effects
+    const effects = params.effects;
+    console.warn('[FoodEffects] effects:', effects);
+    
+    if (!effects || !Array.isArray(effects)) {
+      console.warn('[FoodEffects] ERROR: effects is not an array:', effects);
+      // Try to apply a test effect anyway
+      try {
+        console.warn('[FoodEffects] Trying to apply test effect: speed');
+        source.addEffect('speed', 200, { amplifier: 1, showParticles: true });
+        console.warn('[FoodEffects] Test effect applied successfully!');
+      } catch (error) {
+        console.warn('[FoodEffects] Test effect failed:', error);
+      }
+      return;
+    }
+    
+    console.warn(`[FoodEffects] Found ${effects.length} effects to apply`);
     
     // Apply each effect
-    for (const effect of effectsData) {
+    for (const effect of effects) {
       const { name, duration, amplifier, chance } = effect;
       
+      console.warn(`[FoodEffects] Applying: ${name}, duration: ${duration}, amplifier: ${amplifier}`);
+      
       // Check chance
-      if (chance < 1.0 && Math.random() > chance) {
+      if (chance !== undefined && chance < 1.0 && Math.random() > chance) {
+        console.warn(`[FoodEffects] Skipped ${name} due to chance`);
         continue;
       }
       
-      // Add effect to player
+      // Add effect
       try {
         source.addEffect(name, duration, {
           amplifier: amplifier ?? 0,
           showParticles: true
         });
+        console.warn(`[FoodEffects] SUCCESS: Applied ${name}`);
       } catch (error) {
-        console.warn(`Failed to apply effect ${name}:`, error);
+        console.warn(`[FoodEffects] FAILED: ${name}:`, error);
       }
     }
+    
+    console.warn('[FoodEffects] ===== onConsume FINISHED =====');
   }
 };
 
@@ -61,18 +107,21 @@ const FoodEffectsComponent = {
  * Remove tất cả effects khi ăn (như milk)
  */
 const RemoveEffectsComponent = {
-  onConsume(event: ItemComponentConsumeEvent) {
-    const { source } = event;
+  onConsume({ source }: any) {
+    console.warn('[RemoveEffects] onConsume triggered!');
     
     // Get all active effects
     const effects = source.getEffects();
+    
+    console.warn(`[RemoveEffects] Removing ${effects.length} effects`);
     
     // Remove each effect
     for (const effect of effects) {
       try {
         source.removeEffect(effect.typeId);
+        console.warn(`[RemoveEffects] Removed ${effect.typeId}`);
       } catch (error) {
-        console.warn(`Failed to remove effect ${effect.typeId}:`, error);
+        console.warn(`[RemoveEffects] Failed to remove effect ${effect.typeId}:`, error);
       }
     }
   }
@@ -94,5 +143,5 @@ system.beforeEvents.startup.subscribe(({ itemComponentRegistry }) => {
     RemoveEffectsComponent
   );
   
-  console.warn('[FoodEffects] Custom components registered');
+  console.warn('[FoodComponents] Custom components registered successfully (Version 2)');
 });
