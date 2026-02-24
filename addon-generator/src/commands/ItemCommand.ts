@@ -15,6 +15,20 @@ export interface ItemCommandOptions {
   stackSize?: string;
   project: string;
   dryRun?: boolean;
+  skipHistory?: boolean; // Để BatchCommand tự quản lý history
+  
+  // Food properties
+  nutrition?: number;
+  saturation?: number;
+  canAlwaysEat?: boolean;
+  usingConvertsTo?: string;
+  effects?: Array<{
+    name: string;
+    duration: number;
+    amplifier?: number;
+    chance?: number;
+  }>;
+  removeEffects?: boolean;
   
   // Recipe options
   recipeShaped?: string;
@@ -45,8 +59,10 @@ export class ItemCommand {
       DryRunManager.enable();
     }
 
-    const history = new HistoryManager(options.project);
-    history.startOperation(`item -i ${itemId} -n "${options.name}"`);
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`item -i ${itemId} -n "${options.name}"`);
+    }
 
     console.log(`\n🚀 Đang tạo item: ${itemId}...\n`);
 
@@ -57,11 +73,13 @@ export class ItemCommand {
     const testGen = new TestGenerator(options.project);
 
     // Track files
-    history.trackCreate(`packs/BP/items/${itemId}.json`);
-    history.trackCreate(`packs/RP/textures/items/${itemId}.png`);
-    history.trackModify('packs/RP/textures/item_texture.json');
-    history.trackModify('packs/BP/texts/en_US.lang');
-    history.trackModify('packs/RP/texts/en_US.lang');
+    if (history) {
+      history.trackCreate(`packs/BP/items/${itemId}.json`);
+      history.trackCreate(`packs/RP/textures/items/${itemId}.png`);
+      history.trackModify('packs/RP/textures/item_texture.json');
+      history.trackModify('packs/BP/texts/en_US.lang');
+      history.trackModify('packs/RP/texts/en_US.lang');
+    }
 
     if (!DryRunManager.isEnabled()) {
       // 1. Generate item
@@ -70,7 +88,13 @@ export class ItemCommand {
         name: options.name,
         texturePath: options.texture,
         category: options.category,
-        stackSize: options.stackSize ? parseInt(options.stackSize) : undefined
+        stackSize: options.stackSize ? parseInt(options.stackSize) : undefined,
+        nutrition: options.nutrition,
+        saturation: options.saturation,
+        canAlwaysEat: options.canAlwaysEat,
+        usingConvertsTo: options.usingConvertsTo,
+        effects: options.effects,
+        removeEffects: options.removeEffects
       });
 
       textureGen.copyTexture(itemId, options.texture);
@@ -103,7 +127,9 @@ export class ItemCommand {
         recipeCount++;
       }
 
-      history.commitOperation();
+      if (history) {
+        history.commitOperation();
+      }
       console.log(`\n✨ Hoàn thành! Item "${options.name}" đã được tạo${recipeCount > 0 ? ` với ${recipeCount} recipe(s)` : ''}.\n`);
     } else {
       DryRunManager.log(`Tạo BP item: packs/BP/items/${itemId}.json`);
@@ -115,7 +141,9 @@ export class ItemCommand {
       
       DryRunManager.showSummary();
       DryRunManager.disable();
-      history.cancelOperation();
+      if (history) {
+        history.cancelOperation();
+      }
     }
   }
 }

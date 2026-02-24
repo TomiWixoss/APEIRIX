@@ -8,6 +8,19 @@ export interface ItemConfig {
   texturePath: string;
   category?: string;
   stackSize?: number;
+  
+  // Food properties (optional)
+  nutrition?: number;
+  saturation?: number;
+  canAlwaysEat?: boolean;
+  usingConvertsTo?: string;
+  effects?: Array<{
+    name: string;
+    duration: number;
+    amplifier?: number;
+    chance?: number;
+  }>;
+  removeEffects?: boolean;
 }
 
 /**
@@ -29,7 +42,7 @@ export class ItemGenerator {
       throw new Error(`Texture không tồn tại: "${config.texturePath}"`);
     }
 
-    const itemData = {
+    const itemData: any = {
       format_version: "1.21.0",
       "minecraft:item": {
         description: {
@@ -47,6 +60,38 @@ export class ItemGenerator {
         }
       }
     };
+
+    // Add food components if nutrition is provided
+    if (config.nutrition !== undefined) {
+      itemData['minecraft:item'].components['minecraft:food'] = {
+        nutrition: config.nutrition,
+        saturation_modifier: config.saturation ? config.saturation / config.nutrition : 0.6,
+        can_always_eat: config.canAlwaysEat || false
+      };
+      
+      itemData['minecraft:item'].components['minecraft:use_duration'] = 32;
+      itemData['minecraft:item'].components['minecraft:use_animation'] = 'eat';
+
+      // Add using_converts_to
+      if (config.usingConvertsTo) {
+        itemData['minecraft:item'].components['minecraft:food'].using_converts_to = config.usingConvertsTo;
+      }
+
+      // Add effects
+      if (config.effects && config.effects.length > 0) {
+        itemData['minecraft:item'].components['minecraft:food'].effects = config.effects.map(effect => ({
+          name: effect.name,
+          duration: effect.duration,
+          amplifier: effect.amplifier || 0,
+          chance: effect.chance || 1.0
+        }));
+      }
+
+      // Add remove_effects
+      if (config.removeEffects) {
+        itemData['minecraft:item'].components['minecraft:food'].remove_effects = true;
+      }
+    }
 
     const outputPath = join(this.projectRoot, `packs/BP/items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);

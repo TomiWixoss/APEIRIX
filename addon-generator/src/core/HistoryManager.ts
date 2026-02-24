@@ -52,6 +52,11 @@ export class HistoryManager {
   trackModify(filePath: string): void {
     if (!this.currentEntry) return;
     
+    // Chỉ backup lần đầu tiên, không backup lại nếu đã có
+    if (this.currentEntry.backups[filePath]) {
+      return;
+    }
+    
     const fullPath = join(this.projectRoot, filePath);
     if (existsSync(fullPath)) {
       const content = FileManager.readText(fullPath);

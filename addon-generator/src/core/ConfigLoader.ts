@@ -16,6 +16,19 @@ export interface ItemConfig {
   texture: string;
   category?: string;
   stackSize?: number;
+  
+  // Food properties
+  nutrition?: number;
+  saturation?: number;
+  canAlwaysEat?: boolean;
+  usingConvertsTo?: string;
+  effects?: Array<{
+    name: string;
+    duration: number;
+    amplifier?: number;
+    chance?: number;
+  }>;
+  removeEffects?: boolean;
 }
 
 export interface BlockConfig {

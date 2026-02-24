@@ -17,6 +17,7 @@ export interface BlockCommandOptions {
   toolTier?: string;
   project: string;
   dryRun?: boolean;
+  skipHistory?: boolean;
 }
 
 /**
@@ -42,8 +43,10 @@ export class BlockCommand {
       DryRunManager.enable();
     }
 
-    const history = new HistoryManager(options.project);
-    history.startOperation(`block -i ${blockId} -n "${options.name}"`);
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`block -i ${blockId} -n "${options.name}"`);
+    }
 
     console.log(`\n🚀 Đang tạo block: ${blockId}...\n`);
 
@@ -52,12 +55,14 @@ export class BlockCommand {
     const langGen = new LangGenerator(options.project);
 
     // Track files
-    history.trackCreate(`packs/BP/blocks/${blockId}.json`);
-    history.trackCreate(`packs/BP/loot_tables/blocks/${blockId}.json`);
-    history.trackCreate(`packs/RP/textures/blocks/${blockId}.png`);
-    history.trackModify('packs/RP/textures/terrain_texture.json');
-    history.trackModify('packs/BP/texts/en_US.lang');
-    history.trackModify('packs/RP/texts/en_US.lang');
+    if (history) {
+      history.trackCreate(`packs/BP/blocks/${blockId}.json`);
+      history.trackCreate(`packs/BP/loot_tables/blocks/${blockId}.json`);
+      history.trackCreate(`packs/RP/textures/blocks/${blockId}.png`);
+      history.trackModify('packs/RP/textures/terrain_texture.json');
+      history.trackModify('packs/BP/texts/en_US.lang');
+      history.trackModify('packs/RP/texts/en_US.lang');
+    }
 
     if (!DryRunManager.isEnabled()) {
       blockGen.generate({
@@ -81,7 +86,9 @@ export class BlockCommand {
       const testGen = new TestGenerator(options.project);
       testGen.generateBlockTest(blockId, options.name);
 
-      history.commitOperation();
+      if (history) {
+        history.commitOperation();
+      }
       console.log(`\n✨ Hoàn thành! Block "${options.name}" đã được tạo.\n`);
     } else {
       DryRunManager.log(`Tạo BP block: packs/BP/blocks/${blockId}.json`);
@@ -93,7 +100,9 @@ export class BlockCommand {
       
       DryRunManager.showSummary();
       DryRunManager.disable();
-      history.cancelOperation();
+      if (history) {
+        history.cancelOperation();
+      }
     }
   }
 }

@@ -19,6 +19,7 @@ export interface OreCommandOptions {
   toolTier?: string;
   project: string;
   dryRun?: boolean;
+  skipHistory?: boolean;
 }
 
 export class OreCommand {
@@ -45,8 +46,10 @@ export class OreCommand {
       DryRunManager.enable();
     }
 
-    const history = new HistoryManager(options.project);
-    history.startOperation(`ore -i ${oreId} -n "${options.name}"`);
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`ore -i ${oreId} -n "${options.name}"`);
+    }
 
     console.log(`\n🚀 Đang tạo ore: ${oreId}...\n`);
 
@@ -55,22 +58,24 @@ export class OreCommand {
     const langGen = new LangGenerator(options.project);
 
     // Track files
-    history.trackCreate(`packs/BP/blocks/${oreId}.json`);
-    history.trackCreate(`packs/BP/loot_tables/blocks/${oreId}.json`);
-    history.trackCreate(`packs/BP/features/${oreId}_scatter.json`);
-    history.trackCreate(`packs/BP/feature_rules/${oreId}_feature.json`);
-    history.trackCreate(`packs/RP/textures/blocks/${oreId}.png`);
-    
-    if (options.deepslateTexture) {
-      history.trackCreate(`packs/BP/blocks/deepslate_${oreId}.json`);
-      history.trackCreate(`packs/BP/loot_tables/blocks/deepslate_${oreId}.json`);
-      history.trackCreate(`packs/RP/textures/blocks/deepslate_${oreId}.png`);
+    if (history) {
+      history.trackCreate(`packs/BP/blocks/${oreId}.json`);
+      history.trackCreate(`packs/BP/loot_tables/blocks/${oreId}.json`);
+      history.trackCreate(`packs/BP/features/${oreId}_scatter.json`);
+      history.trackCreate(`packs/BP/feature_rules/${oreId}_feature.json`);
+      history.trackCreate(`packs/RP/textures/blocks/${oreId}.png`);
+      
+      if (options.deepslateTexture) {
+        history.trackCreate(`packs/BP/blocks/deepslate_${oreId}.json`);
+        history.trackCreate(`packs/BP/loot_tables/blocks/deepslate_${oreId}.json`);
+        history.trackCreate(`packs/RP/textures/blocks/deepslate_${oreId}.png`);
+      }
+      
+      history.trackModify('packs/RP/textures/terrain_texture.json');
+      history.trackModify('packs/BP/texts/en_US.lang');
+      history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackModify('scripts/data/blocks/OreRegistry.ts');
     }
-    
-    history.trackModify('packs/RP/textures/terrain_texture.json');
-    history.trackModify('packs/BP/texts/en_US.lang');
-    history.trackModify('packs/RP/texts/en_US.lang');
-    history.trackModify('scripts/data/blocks/OreRegistry.ts');
 
     if (!DryRunManager.isEnabled()) {
       oreGen.generate({
@@ -105,7 +110,9 @@ export class OreCommand {
       const testGen = new TestGenerator(options.project);
       testGen.generateOreTest(oreId, options.name, !!options.deepslateTexture);
 
-      history.commitOperation();
+      if (history) {
+        history.commitOperation();
+      }
       console.log(`\n✨ Hoàn thành! Ore "${options.name}" đã được tạo với world generation.\n`);
     } else {
       DryRunManager.log(`Tạo ore block: packs/BP/blocks/${oreId}.json`);
@@ -126,7 +133,9 @@ export class OreCommand {
       
       DryRunManager.showSummary();
       DryRunManager.disable();
-      history.cancelOperation();
+      if (history) {
+        history.cancelOperation();
+      }
     }
   }
 }

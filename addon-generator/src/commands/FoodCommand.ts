@@ -10,21 +10,28 @@ export interface FoodCommandOptions {
   id: string;
   name: string;
   texture: string;
-  nutrition?: string;
-  saturation?: string;
-  useDuration?: string;
-  canAlwaysEat?: boolean;
   category?: string;
+  stackSize?: string;
+  nutrition: string;
+  saturation: string;
+  canAlwaysEat?: boolean;
+  usingConvertsTo?: string;
+  effects?: string; // JSON string
+  removeEffects?: boolean;
   project: string;
   dryRun?: boolean;
+  skipHistory?: boolean;
 }
 
+/**
+ * Command handler cho food generation
+ */
 export class FoodCommand {
   execute(options: FoodCommandOptions): void {
-    const foodId = Validator.sanitizeItemId(options.id);
+    const itemId = Validator.sanitizeItemId(options.id);
     
-    if (!Validator.validateItemId(foodId)) {
-      throw new Error(`Food ID không hợp lệ: "${options.id}"`);
+    if (!Validator.validateItemId(itemId)) {
+      throw new Error(`Item ID không hợp lệ: "${options.id}"`);
     }
 
     if (!Validator.validateDisplayName(options.name)) {
@@ -39,50 +46,71 @@ export class FoodCommand {
       DryRunManager.enable();
     }
 
-    const history = new HistoryManager(options.project);
-    history.startOperation(`food -i ${foodId} -n "${options.name}"`);
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`food -i ${itemId} -n "${options.name}"`);
+    }
 
-    console.log(`\n🚀 Đang tạo food: ${foodId}...\n`);
+    console.log(`\n🍖 Đang tạo food item: ${itemId}...\n`);
 
     const foodGen = new FoodGenerator(options.project);
     const textureGen = new TextureGenerator(options.project);
     const langGen = new LangGenerator(options.project);
+    const testGen = new TestGenerator(options.project);
 
     // Track files
-    history.trackCreate(`packs/BP/items/${foodId}.json`);
-    history.trackCreate(`packs/RP/textures/items/${foodId}.png`);
-    history.trackModify('packs/RP/textures/item_texture.json');
-    history.trackModify('packs/BP/texts/en_US.lang');
-    history.trackModify('packs/RP/texts/en_US.lang');
+    if (history) {
+      history.trackCreate(`packs/BP/items/${itemId}.json`);
+      history.trackCreate(`packs/RP/textures/items/${itemId}.png`);
+      history.trackModify('packs/RP/textures/item_texture.json');
+      history.trackModify('packs/BP/texts/en_US.lang');
+      history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackCreate(`tests/items/food/${itemId}.md`);
+      history.trackCreate(`tests/items/food/${itemId}.test.ts`);
+    }
 
     if (!DryRunManager.isEnabled()) {
+      // Parse effects if provided
+      let effects = undefined;
+      if (options.effects) {
+        try {
+          effects = JSON.parse(options.effects);
+        } catch (error) {
+          throw new Error(`Effects JSON không hợp lệ: ${error}`);
+        }
+      }
+
+      // Generate food item
       foodGen.generate({
-        id: foodId,
+        id: itemId,
         name: options.name,
         texturePath: options.texture,
-        nutrition: options.nutrition ? parseInt(options.nutrition) : undefined,
-        saturation: options.saturation ? parseFloat(options.saturation) : undefined,
-        useDuration: options.useDuration ? parseFloat(options.useDuration) : undefined,
+        category: options.category,
+        stackSize: options.stackSize ? parseInt(options.stackSize) : undefined,
+        nutrition: parseInt(options.nutrition),
+        saturation: parseFloat(options.saturation),
         canAlwaysEat: options.canAlwaysEat,
-        category: options.category as any
+        usingConvertsTo: options.usingConvertsTo,
+        effects: effects,
+        removeEffects: options.removeEffects
       });
 
-      textureGen.copyTexture(foodId, options.texture, 'items');
-      textureGen.updateItemTextureRegistry(foodId);
+      textureGen.copyTexture(itemId, options.texture);
+      textureGen.updateItemTextureRegistry(itemId);
 
-      langGen.updateLangFile(foodId, options.name, 'BP', 'item');
-      langGen.updateLangFile(foodId, options.name, 'RP', 'item');
+      langGen.updateLangFile(itemId, options.name, 'BP');
+      langGen.updateLangFile(itemId, options.name, 'RP');
 
-      // Tạo test files
-      const testGen = new TestGenerator(options.project);
-      testGen.generateFoodTest(foodId, options.name);
+      // Generate test files
+      testGen.generateFoodTest(itemId, options.name);
 
-      history.commitOperation();
-      console.log(`\n✨ Hoàn thành! Food "${options.name}" đã được tạo.\n`);
-      console.log(`💡 Tạo recipe riêng bằng: bun run dev recipe:shaped/shapeless\n`);
+      if (history) {
+        history.commitOperation();
+      }
+      console.log(`\n✨ Hoàn thành! Food item "${options.name}" đã được tạo.\n`);
     } else {
-      DryRunManager.log(`Tạo food item: packs/BP/items/${foodId}.json`);
-      DryRunManager.log(`Copy texture: packs/RP/textures/items/${foodId}.png`);
+      DryRunManager.log(`Tạo BP food item: packs/BP/items/${itemId}.json`);
+      DryRunManager.log(`Copy texture: packs/RP/textures/items/${itemId}.png`);
       DryRunManager.log(`Update item_texture.json`);
       DryRunManager.log(`Update BP/texts/en_US.lang`);
       DryRunManager.log(`Update RP/texts/en_US.lang`);
@@ -90,7 +118,9 @@ export class FoodCommand {
       
       DryRunManager.showSummary();
       DryRunManager.disable();
-      history.cancelOperation();
+      if (history) {
+        history.cancelOperation();
+      }
     }
   }
 }

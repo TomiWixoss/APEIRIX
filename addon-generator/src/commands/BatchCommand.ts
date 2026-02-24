@@ -37,14 +37,30 @@ export class BatchCommand {
       console.log(`\n📦 Tạo ${config.items.length} items...\n`);
       config.items.forEach(item => {
         try {
+          // Track files trước khi tạo
+          history.trackCreate(`packs/BP/items/${item.id}.json`);
+          history.trackCreate(`packs/RP/textures/items/${item.id}.png`);
+          history.trackModify('packs/RP/textures/item_texture.json');
+          history.trackModify('packs/BP/texts/en_US.lang');
+          history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`tests/items/materials/${item.id}.md`);
+          history.trackCreate(`tests/items/materials/${item.id}.test.ts`);
+          
           new ItemCommand().execute({
             id: item.id,
             name: item.name,
             texture: item.texture,
             category: item.category,
             stackSize: item.stackSize?.toString(),
+            nutrition: item.nutrition,
+            saturation: item.saturation,
+            canAlwaysEat: item.canAlwaysEat,
+            usingConvertsTo: item.usingConvertsTo,
+            effects: item.effects,
+            removeEffects: item.removeEffects,
             project: options.project,
-            dryRun: false // Đã enable ở trên
+            dryRun: false,
+            skipHistory: true // Batch tự quản lý history
           });
           totalCreated++;
         } catch (error) {
@@ -58,6 +74,16 @@ export class BatchCommand {
       console.log(`\n🧱 Tạo ${config.blocks.length} blocks...\n`);
       config.blocks.forEach(block => {
         try {
+          // Track files
+          history.trackCreate(`packs/BP/blocks/${block.id}.json`);
+          history.trackCreate(`packs/BP/loot_tables/blocks/${block.id}.json`);
+          history.trackCreate(`packs/RP/textures/blocks/${block.id}.png`);
+          history.trackModify('packs/RP/textures/terrain_texture.json');
+          history.trackModify('packs/BP/texts/en_US.lang');
+          history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`tests/blocks/${block.id}.md`);
+          history.trackCreate(`tests/blocks/${block.id}.test.ts`);
+          
           new BlockCommand().execute({
             id: block.id,
             name: block.name,
@@ -68,7 +94,8 @@ export class BatchCommand {
             requiresTool: block.requiresTool,
             toolTier: block.toolTier,
             project: options.project,
-            dryRun: false
+            dryRun: false,
+            skipHistory: true
           });
           totalCreated++;
         } catch (error) {
@@ -82,6 +109,23 @@ export class BatchCommand {
       console.log(`\n⛏️  Tạo ${config.ores.length} ores...\n`);
       config.ores.forEach(ore => {
         try {
+          // Track files
+          history.trackCreate(`packs/BP/blocks/${ore.id}.json`);
+          history.trackCreate(`packs/BP/loot_tables/blocks/${ore.id}.json`);
+          history.trackCreate(`packs/BP/features/${ore.id}_scatter.json`);
+          history.trackCreate(`packs/BP/feature_rules/${ore.id}_feature.json`);
+          history.trackCreate(`packs/RP/textures/blocks/${ore.id}.png`);
+          if (ore.deepslateTexture) {
+            history.trackCreate(`packs/BP/blocks/deepslate_${ore.id}.json`);
+            history.trackCreate(`packs/BP/loot_tables/blocks/deepslate_${ore.id}.json`);
+            history.trackCreate(`packs/RP/textures/blocks/deepslate_${ore.id}.png`);
+          }
+          history.trackModify('packs/RP/textures/terrain_texture.json');
+          history.trackModify('packs/BP/texts/en_US.lang');
+          history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`tests/blocks/${ore.id}.md`);
+          history.trackCreate(`tests/blocks/${ore.id}.test.ts`);
+          
           new OreCommand().execute({
             id: ore.id,
             name: ore.name,
@@ -94,7 +138,8 @@ export class BatchCommand {
             veinsPerChunk: ore.veinsPerChunk?.toString(),
             toolTier: ore.toolTier,
             project: options.project,
-            dryRun: false
+            dryRun: false,
+            skipHistory: true
           });
           totalCreated++;
         } catch (error) {
@@ -108,6 +153,15 @@ export class BatchCommand {
       console.log(`\n🔨 Tạo ${config.tools.length} tools...\n`);
       config.tools.forEach(tool => {
         try {
+          // Track files
+          history.trackCreate(`packs/BP/items/${tool.id}.json`);
+          history.trackCreate(`packs/RP/textures/items/${tool.id}.png`);
+          history.trackModify('packs/RP/textures/item_texture.json');
+          history.trackModify('packs/BP/texts/en_US.lang');
+          history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`tests/items/tools/${tool.id}.md`);
+          history.trackCreate(`tests/items/tools/${tool.id}.test.ts`);
+          
           new ToolCommand().execute({
             id: tool.id,
             name: tool.name,
@@ -118,7 +172,8 @@ export class BatchCommand {
             damage: tool.damage?.toString(),
             efficiency: tool.efficiency?.toString(),
             project: options.project,
-            dryRun: false
+            dryRun: false,
+            skipHistory: true
           });
           totalCreated++;
         } catch (error) {
@@ -132,6 +187,21 @@ export class BatchCommand {
       console.log(`\n🛡️  Tạo ${config.armor.length} armor sets...\n`);
       config.armor.forEach(armor => {
         try {
+          // Track files
+          const pieces = ['helmet', 'chestplate', 'leggings', 'boots'];
+          pieces.forEach(piece => {
+            history.trackCreate(`packs/BP/items/${armor.baseName}_${piece}.json`);
+            history.trackCreate(`packs/RP/attachables/${armor.baseName}_${piece}.json`);
+            history.trackCreate(`packs/RP/textures/items/${armor.baseName}_${piece}.png`);
+            history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.md`);
+            history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.test.ts`);
+          });
+          history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_1.png`);
+          history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_2.png`);
+          history.trackModify('packs/RP/textures/item_texture.json');
+          history.trackModify('packs/BP/texts/en_US.lang');
+          history.trackModify('packs/RP/texts/en_US.lang');
+          
           new ArmorCommand().execute({
             baseName: armor.baseName,
             displayName: armor.displayNamePrefix,
@@ -142,7 +212,8 @@ export class BatchCommand {
             durabilityMultiplier: armor.durabilityMultiplier?.toString(),
             protectionMultiplier: armor.protectionMultiplier?.toString(),
             project: options.project,
-            dryRun: false
+            dryRun: false,
+            skipHistory: true
           });
           totalCreated++;
         } catch (error) {
@@ -156,6 +227,9 @@ export class BatchCommand {
       console.log(`\n📜 Tạo ${config.recipes.length} recipes...\n`);
       config.recipes.forEach(recipe => {
         try {
+          // Track recipe file
+          history.trackCreate(`packs/BP/recipes/${recipe.id}.json`);
+          
           const recipeCmd = new RecipeCommand();
           
           if (recipe.type === 'shaped') {

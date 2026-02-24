@@ -20,6 +20,7 @@ export interface ArmorCommandOptions {
   enchantability?: string;
   project: string;
   dryRun?: boolean;
+  skipHistory?: boolean;
 }
 
 export class ArmorCommand {
@@ -52,8 +53,10 @@ export class ArmorCommand {
       DryRunManager.enable();
     }
 
-    const history = new HistoryManager(options.project);
-    history.startOperation(`armor --base-name ${baseName} --display-name "${options.displayName}"`);
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`armor --base-name ${baseName} --display-name "${options.displayName}"`);
+    }
 
     console.log(`\n🚀 Đang tạo armor set: ${baseName}...\n`);
 
@@ -64,17 +67,19 @@ export class ArmorCommand {
     const pieces = ['helmet', 'chestplate', 'leggings', 'boots'];
 
     // Track files
-    pieces.forEach(piece => {
-      history.trackCreate(`packs/BP/items/${baseName}_${piece}.json`);
-      history.trackCreate(`packs/RP/attachables/${baseName}_${piece}.json`);
-      history.trackCreate(`packs/RP/textures/items/${baseName}_${piece}.png`);
-    });
-    
-    history.trackCreate(`packs/RP/textures/models/armor/${baseName}_layer_1.png`);
-    history.trackCreate(`packs/RP/textures/models/armor/${baseName}_layer_2.png`);
-    history.trackModify('packs/RP/textures/item_texture.json');
-    history.trackModify('packs/BP/texts/en_US.lang');
-    history.trackModify('packs/RP/texts/en_US.lang');
+    if (history) {
+      pieces.forEach(piece => {
+        history.trackCreate(`packs/BP/items/${baseName}_${piece}.json`);
+        history.trackCreate(`packs/RP/attachables/${baseName}_${piece}.json`);
+        history.trackCreate(`packs/RP/textures/items/${baseName}_${piece}.png`);
+      });
+      
+      history.trackCreate(`packs/RP/textures/models/armor/${baseName}_layer_1.png`);
+      history.trackCreate(`packs/RP/textures/models/armor/${baseName}_layer_2.png`);
+      history.trackModify('packs/RP/textures/item_texture.json');
+      history.trackModify('packs/BP/texts/en_US.lang');
+      history.trackModify('packs/RP/texts/en_US.lang');
+    }
 
     if (!DryRunManager.isEnabled()) {
       armorGen.generateFullSet({
@@ -114,7 +119,9 @@ export class ArmorCommand {
         testGen.generateArmorTest(`${baseName}_${piece}`, `${options.displayName} ${this.capitalize(piece)}`, piece);
       });
 
-      history.commitOperation();
+      if (history) {
+        history.commitOperation();
+      }
       console.log(`\n✨ Hoàn thành! Armor set "${options.displayName}" (4 pieces) đã được tạo.\n`);
       console.log(`💡 Tạo recipes riêng bằng: bun run dev recipe:shaped\n`);
     } else {
@@ -131,7 +138,9 @@ export class ArmorCommand {
       
       DryRunManager.showSummary();
       DryRunManager.disable();
-      history.cancelOperation();
+      if (history) {
+        history.cancelOperation();
+      }
     }
   }
 

@@ -22,6 +22,7 @@ export interface ToolCommandOptions {
   enchantability?: string;
   project: string;
   dryRun?: boolean;
+  skipHistory?: boolean;
 }
 
 export class ToolCommand {
@@ -44,8 +45,10 @@ export class ToolCommand {
       DryRunManager.enable();
     }
 
-    const history = new HistoryManager(options.project);
-    history.startOperation(`tool:${options.type} -i ${toolId} -n "${options.name}"`);
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`tool:${options.type} -i ${toolId} -n "${options.name}"`);
+    }
 
     console.log(`\n🚀 Đang tạo ${options.type}: ${toolId}...\n`);
 
@@ -53,12 +56,14 @@ export class ToolCommand {
     const langGen = new LangGenerator(options.project);
 
     // Track files
-    history.trackCreate(`packs/BP/items/${toolId}.json`);
-    history.trackCreate(`packs/RP/textures/items/${toolId}.png`);
-    history.trackModify('packs/RP/textures/item_texture.json');
-    history.trackModify('packs/BP/texts/en_US.lang');
-    history.trackModify('packs/RP/texts/en_US.lang');
-    history.trackModify('scripts/data/tools/ToolRegistry.ts');
+    if (history) {
+      history.trackCreate(`packs/BP/items/${toolId}.json`);
+      history.trackCreate(`packs/RP/textures/items/${toolId}.png`);
+      history.trackModify('packs/RP/textures/item_texture.json');
+      history.trackModify('packs/BP/texts/en_US.lang');
+      history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackModify('scripts/data/tools/ToolRegistry.ts');
+    }
 
     if (!DryRunManager.isEnabled()) {
       const config = {
@@ -101,7 +106,9 @@ export class ToolCommand {
       const testGen = new TestGenerator(options.project);
       testGen.generateToolTest(toolId, options.name, options.type);
 
-      history.commitOperation();
+      if (history) {
+        history.commitOperation();
+      }
       console.log(`\n✨ Hoàn thành! ${options.type} "${options.name}" đã được tạo.\n`);
       console.log(`💡 Tạo recipe riêng bằng: bun run dev recipe:shaped/shapeless\n`);
     } else {
@@ -113,7 +120,9 @@ export class ToolCommand {
       
       DryRunManager.showSummary();
       DryRunManager.disable();
-      history.cancelOperation();
+      if (history) {
+        history.cancelOperation();
+      }
     }
   }
 }
