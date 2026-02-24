@@ -120,6 +120,7 @@ export interface RecipeConfig {
   ingredients?: string[];
   result: string;
   resultCount?: number;
+  resultExtra?: string[]; // Trả về thêm items (như bucket)
   unlock?: string[];
   input?: string;
   output?: string;

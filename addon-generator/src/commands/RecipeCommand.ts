@@ -19,6 +19,7 @@ export interface ShapelessOptions {
   ingredients: string;
   result: string;
   resultCount?: string;
+  resultExtra?: string; // Trả về thêm items (như bucket)
   unlock?: string;
   generateTest?: boolean;
   project: string;
@@ -112,12 +113,14 @@ export class RecipeCommand {
     
     const ingredients = options.ingredients.split(',').map(s => s.trim());
     const unlock = options.unlock ? options.unlock.split(',').map(s => s.trim()) : undefined;
+    const resultExtra = options.resultExtra ? options.resultExtra.split(',').map(s => s.trim()) : undefined;
 
     generator.createShapeless({
       id: options.id,
       ingredients,
       result: options.result,
       resultCount: options.resultCount ? parseInt(options.resultCount) : undefined,
+      resultExtra,
       unlock
     });
 

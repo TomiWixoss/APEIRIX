@@ -16,6 +16,7 @@ recipes:
     id: candirty_to_canempty
     ingredients: [candirty, minecraft:water_bucket]
     result: canempty
+    resultExtra: [minecraft:bucket]
     unlock: [candirty]
 
   # ===== LƯƠNG THỰC CƠ BẢN =====

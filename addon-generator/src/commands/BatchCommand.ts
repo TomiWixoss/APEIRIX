@@ -363,6 +363,7 @@ export class BatchCommand {
               ingredients: recipe.ingredients!.join(','),
               result: recipe.result,
               resultCount: recipe.resultCount?.toString(),
+              resultExtra: recipe.resultExtra?.join(','),
               unlock: recipe.unlock?.join(','),
               generateTest: recipe.generateTest,
               project: options.project,

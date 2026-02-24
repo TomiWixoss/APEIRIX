@@ -15,9 +15,14 @@
         "item": "minecraft:water_bucket"
       }
     ],
-    "result": {
-      "item": "apeirix:canempty"
-    },
+    "result": [
+      {
+        "item": "apeirix:canempty"
+      },
+      {
+        "item": "minecraft:bucket"
+      }
+    ],
     "unlock": [
       {
         "item": "apeirix:candirty"

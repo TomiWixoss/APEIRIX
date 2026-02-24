@@ -1,95 +1,74 @@
 /**
  * Can Washing System - Rửa vỏ đồ hộp bẩn thành sạch
- * Chuột phải vào water block hoặc cauldron với candirty
+ * Khi candirty chạm nước (water block hoặc cauldron) thì tự động chuyển thành canempty
  */
 
-import { world, system, ItemStack, Player } from "@minecraft/server";
+import { world, system, ItemStack, EntityInventoryComponent } from "@minecraft/server";
 
 export class CanWashingSystem {
+    private static readonly CHECK_INTERVAL = 10; // Check mỗi 10 ticks (0.5 giây)
+
     static initialize(): void {
         this.registerWashingHandler();
     }
 
     private static registerWashingHandler(): void {
-        // Xử lý khi player chuột phải vào block với item
-        world.afterEvents.playerInteractWithBlock.subscribe((event) => {
-            const player = event.player;
-            const item = event.itemStack;
-            const block = event.block;
-
-            // Chỉ xử lý lần đầu tiên (không xử lý khi giữ chuột)
-            if (!event.isFirstEvent) {
-                return;
+        // Check định kỳ tất cả items trên ground
+        system.runInterval(() => {
+            for (const dimension of [world.getDimension("overworld"), world.getDimension("nether"), world.getDimension("the_end")]) {
+                // Lấy tất cả item entities
+                const items = dimension.getEntities({ type: "minecraft:item" });
+                
+                for (const itemEntity of items) {
+                    try {
+                        // Lấy ItemStack từ entity
+                        const inventory = itemEntity.getComponent("item") as any;
+                        if (!inventory || !inventory.itemStack) continue;
+                        
+                        const itemStack = inventory.itemStack as ItemStack;
+                        
+                        // Kiểm tra nếu là candirty
+                        if (itemStack.typeId !== "apeirix:candirty") continue;
+                        
+                        // Kiểm tra block dưới chân item
+                        const location = itemEntity.location;
+                        const blockBelow = dimension.getBlock({
+                            x: Math.floor(location.x),
+                            y: Math.floor(location.y),
+                            z: Math.floor(location.z)
+                        });
+                        
+                        if (!blockBelow) continue;
+                        
+                        const blockTypeId = blockBelow.typeId;
+                        const isWater = blockTypeId === "minecraft:water" || 
+                                       blockTypeId === "minecraft:flowing_water";
+                        const isCauldronWithWater = blockTypeId === "minecraft:water_cauldron";
+                        
+                        if (isWater || isCauldronWithWater) {
+                            // Chuyển candirty thành canempty
+                            const amount = itemStack.amount;
+                            
+                            // Xóa item cũ
+                            itemEntity.remove();
+                            
+                            // Spawn item mới (canempty)
+                            const cleanCan = new ItemStack("apeirix:canempty", amount);
+                            dimension.spawnItem(cleanCan, location);
+                            
+                            // Play sound và particle
+                            dimension.playSound("cauldron.takewater", location, { volume: 0.5 });
+                            dimension.spawnParticle("minecraft:water_splash_particle", {
+                                x: location.x,
+                                y: location.y + 0.2,
+                                z: location.z
+                            });
+                        }
+                    } catch (error) {
+                        // Ignore errors (item might have been picked up)
+                    }
+                }
             }
-
-            // Kiểm tra nếu đang cầm candirty
-            if (!item || item.typeId !== "apeirix:candirty") {
-                return;
-            }
-
-            // Kiểm tra nếu block là water hoặc cauldron có nước
-            const blockTypeId = block.typeId;
-            const isWaterBlock = blockTypeId === "minecraft:water" || 
-                                blockTypeId === "minecraft:flowing_water";
-            const isCauldronWithWater = blockTypeId === "minecraft:water_cauldron";
-
-            if (!isWaterBlock && !isCauldronWithWater) {
-                return;
-            }
-
-            // Chạy sau 1 tick để tránh race condition
-            system.run(() => {
-                this.washCan(player, item);
-            });
-        });
-    }
-
-    private static washCan(player: Player, dirtyCanItem: ItemStack): void {
-        const inventory = player.getComponent("inventory");
-        if (!inventory) return;
-
-        const container = inventory.container;
-        if (!container) return;
-
-        // Tìm slot đang cầm candirty
-        const selectedSlot = player.selectedSlotIndex;
-        const slotItem = container.getItem(selectedSlot);
-
-        if (!slotItem || slotItem.typeId !== "apeirix:candirty") {
-            return;
-        }
-
-        // Giảm 1 candirty
-        const amount = slotItem.amount;
-        if (amount > 1) {
-            slotItem.amount = amount - 1;
-            container.setItem(selectedSlot, slotItem);
-        } else {
-            container.setItem(selectedSlot, undefined);
-        }
-
-        // Thêm 1 canempty vào inventory
-        const cleanCan = new ItemStack("apeirix:canempty", 1);
-        
-        // Thử thêm vào inventory
-        const remainingItem = container.addItem(cleanCan);
-        
-        // Nếu inventory đầy, drop ra ngoài
-        if (remainingItem) {
-            player.dimension.spawnItem(remainingItem, player.location);
-        }
-
-        // Play sound effect
-        player.playSound("cauldron.takewater", { volume: 1.0 });
-        
-        // Particle effect (water splash)
-        player.dimension.spawnParticle(
-            "minecraft:water_splash_particle",
-            {
-                x: player.location.x,
-                y: player.location.y + 1,
-                z: player.location.z
-            }
-        );
+        }, this.CHECK_INTERVAL);
     }
 }
