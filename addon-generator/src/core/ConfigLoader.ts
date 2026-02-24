@@ -14,6 +14,9 @@ export interface ContentConfig {
   importItems?: string;      // Path to items YAML
   importRecipes?: string;    // Path to recipes YAML
   importTests?: string;      // Path to test functions YAML
+  
+  // Recipe bulk test
+  generateBulkRecipeTest?: boolean | string; // true = "all_recipes", string = custom name
 }
 
 export interface ItemConfig {
@@ -105,6 +108,7 @@ export interface RecipeConfig {
   input?: string;
   output?: string;
   tags?: string[];
+  generateTest?: boolean; // Tự động tạo test function
 }
 
 /**

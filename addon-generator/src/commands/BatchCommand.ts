@@ -5,6 +5,7 @@ import { OreCommand } from './OreCommand.js';
 import { ToolCommand } from './ToolCommand.js';
 import { ArmorCommand } from './ArmorCommand.js';
 import { RecipeCommand } from './RecipeCommand.js';
+import { RecipeTestFunctionGenerator } from '../generators/RecipeTestFunctionGenerator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
 
@@ -241,14 +242,39 @@ export class BatchCommand {
     // Process recipes
     if (config.recipes && config.recipes.length > 0) {
       console.log(`\n📜 Tạo ${config.recipes.length} recipes...\n`);
+      
+      // Collect recipe test configs for bulk test
+      const recipeTestConfigs: any[] = [];
+      
       config.recipes.forEach(recipe => {
         try {
           // Track recipe file
           history.trackCreate(`packs/BP/recipes/${recipe.id}.json`);
+          if (recipe.generateTest) {
+            history.trackCreate(`packs/BP/functions/tests/recipes/${recipe.id}.mcfunction`);
+          }
           
           const recipeCmd = new RecipeCommand();
           
           if (recipe.type === 'shaped') {
+            // Extract ingredients for bulk test
+            const ingredients: string[] = [];
+            recipe.pattern!.forEach((row: string) => {
+              row.split('').forEach((char: string) => {
+                if (char !== ' ' && recipe.key![char]) {
+                  ingredients.push(recipe.key![char]);
+                }
+              });
+            });
+            
+            recipeTestConfigs.push({
+              id: recipe.id,
+              type: 'shaped',
+              ingredients,
+              result: recipe.result,
+              resultCount: recipe.resultCount
+            });
+            
             recipeCmd.executeShaped({
               id: recipe.id,
               pattern: JSON.stringify(recipe.pattern),
@@ -256,24 +282,45 @@ export class BatchCommand {
               result: recipe.result,
               resultCount: recipe.resultCount?.toString(),
               unlock: recipe.unlock?.join(','),
-              project: options.project
+              generateTest: recipe.generateTest,
+              project: options.project,
+              skipHistory: true
             });
           } else if (recipe.type === 'shapeless') {
+            recipeTestConfigs.push({
+              id: recipe.id,
+              type: 'shapeless',
+              ingredients: recipe.ingredients!,
+              result: recipe.result,
+              resultCount: recipe.resultCount
+            });
+            
             recipeCmd.executeShapeless({
               id: recipe.id,
               ingredients: recipe.ingredients!.join(','),
               result: recipe.result,
               resultCount: recipe.resultCount?.toString(),
               unlock: recipe.unlock?.join(','),
-              project: options.project
+              generateTest: recipe.generateTest,
+              project: options.project,
+              skipHistory: true
             });
           } else if (recipe.type === 'smelting') {
+            recipeTestConfigs.push({
+              id: recipe.id,
+              type: 'smelting',
+              ingredients: [recipe.input!],
+              result: recipe.output!
+            });
+            
             recipeCmd.executeSmelting({
               id: recipe.id,
               input: recipe.input!,
               output: recipe.output!,
               tags: recipe.tags?.join(','),
-              project: options.project
+              generateTest: recipe.generateTest,
+              project: options.project,
+              skipHistory: true
             });
           }
           
@@ -282,6 +329,18 @@ export class BatchCommand {
           console.error(`❌ Lỗi tạo recipe ${recipe.id}: ${error}`);
         }
       });
+      
+      // Generate bulk test if requested
+      if (config.generateBulkRecipeTest && recipeTestConfigs.length > 0) {
+        const fileName = typeof config.generateBulkRecipeTest === 'string' 
+          ? config.generateBulkRecipeTest 
+          : 'all_recipes';
+        
+        history.trackCreate(`packs/BP/functions/tests/recipes/${fileName}.mcfunction`);
+        
+        const testGen = new RecipeTestFunctionGenerator(options.project);
+        testGen.generateBulkTest(recipeTestConfigs, fileName);
+      }
     }
 
     if (!DryRunManager.isEnabled()) {

@@ -5,4 +5,9 @@
 importItems: items.yaml
 importRecipes: recipes.yaml
 importTests: tests.yaml
+
+# Tạo 1 test function tổng hợp cho TẤT CẢ recipes
+generateBulkRecipeTest: canned_food_recipes # Tên file: canned_food_recipes.mcfunction
+# Hoặc dùng: generateBulkRecipeTest: true  # Tên mặc định: all_recipes.mcfunction
+
 # Có thể override hoặc thêm items/recipes trực tiếp ở đây nếu cần

@@ -1,4 +1,6 @@
 import { RecipeGenerator } from '../generators/RecipeGenerator.js';
+import { RecipeTestFunctionGenerator } from '../generators/RecipeTestFunctionGenerator.js';
+import { HistoryManager } from '../core/HistoryManager.js';
 
 export interface ShapedOptions {
   id: string;
@@ -7,7 +9,9 @@ export interface ShapedOptions {
   result: string;
   resultCount?: string;
   unlock?: string;
+  generateTest?: boolean;
   project: string;
+  skipHistory?: boolean;
 }
 
 export interface ShapelessOptions {
@@ -16,7 +20,9 @@ export interface ShapelessOptions {
   result: string;
   resultCount?: string;
   unlock?: string;
+  generateTest?: boolean;
   project: string;
+  skipHistory?: boolean;
 }
 
 export interface SmeltingOptions {
@@ -24,7 +30,9 @@ export interface SmeltingOptions {
   input: string;
   output: string;
   tags?: string;
+  generateTest?: boolean;
   project: string;
+  skipHistory?: boolean;
 }
 
 /**
@@ -33,6 +41,15 @@ export interface SmeltingOptions {
 export class RecipeCommand {
   executeShaped(options: ShapedOptions): void {
     console.log(`\n🚀 Đang tạo shaped recipe: ${options.id}...\n`);
+
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`recipe:shaped ${options.id}`);
+      history.trackCreate(`packs/BP/recipes/${options.id}.json`);
+      if (options.generateTest) {
+        history.trackCreate(`packs/BP/functions/tests/recipes/${options.id}.mcfunction`);
+      }
+    }
 
     const generator = new RecipeGenerator(options.project);
     
@@ -50,11 +67,46 @@ export class RecipeCommand {
       unlock
     });
 
+    // Generate test function if requested
+    if (options.generateTest) {
+      const testGen = new RecipeTestFunctionGenerator(options.project);
+      
+      // Extract all ingredients from key
+      const ingredients: string[] = [];
+      pattern.forEach((row: string) => {
+        row.split('').forEach((char: string) => {
+          if (char !== ' ' && key[char]) {
+            ingredients.push(key[char]);
+          }
+        });
+      });
+      
+      testGen.generate({
+        id: options.id,
+        type: 'shaped',
+        ingredients,
+        result: options.result,
+        resultCount: options.resultCount ? parseInt(options.resultCount) : undefined
+      });
+    }
+
+    if (history) {
+      history.commitOperation();
+    }
     console.log(`\n✨ Hoàn thành!\n`);
   }
 
   executeShapeless(options: ShapelessOptions): void {
     console.log(`\n🚀 Đang tạo shapeless recipe: ${options.id}...\n`);
+
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`recipe:shapeless ${options.id}`);
+      history.trackCreate(`packs/BP/recipes/${options.id}.json`);
+      if (options.generateTest) {
+        history.trackCreate(`packs/BP/functions/tests/recipes/${options.id}.mcfunction`);
+      }
+    }
 
     const generator = new RecipeGenerator(options.project);
     
@@ -69,11 +121,35 @@ export class RecipeCommand {
       unlock
     });
 
+    // Generate test function if requested
+    if (options.generateTest) {
+      const testGen = new RecipeTestFunctionGenerator(options.project);
+      testGen.generate({
+        id: options.id,
+        type: 'shapeless',
+        ingredients,
+        result: options.result,
+        resultCount: options.resultCount ? parseInt(options.resultCount) : undefined
+      });
+    }
+
+    if (history) {
+      history.commitOperation();
+    }
     console.log(`\n✨ Hoàn thành!\n`);
   }
 
   executeSmelting(options: SmeltingOptions): void {
     console.log(`\n🚀 Đang tạo smelting recipe: ${options.id}...\n`);
+
+    const history = options.skipHistory ? null : new HistoryManager(options.project);
+    if (history) {
+      history.startOperation(`recipe:smelting ${options.id}`);
+      history.trackCreate(`packs/BP/recipes/${options.id}.json`);
+      if (options.generateTest) {
+        history.trackCreate(`packs/BP/functions/tests/recipes/${options.id}.mcfunction`);
+      }
+    }
 
     const generator = new RecipeGenerator(options.project);
     
@@ -86,6 +162,20 @@ export class RecipeCommand {
       tags
     });
 
+    // Generate test function if requested
+    if (options.generateTest) {
+      const testGen = new RecipeTestFunctionGenerator(options.project);
+      testGen.generate({
+        id: options.id,
+        type: 'smelting',
+        ingredients: [options.input],
+        result: options.output
+      });
+    }
+
+    if (history) {
+      history.commitOperation();
+    }
     console.log(`\n✨ Hoàn thành!\n`);
   }
 }

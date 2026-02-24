@@ -15,6 +15,11 @@ importItems: items.yaml # File chứa items
 importRecipes: recipes.yaml # File chứa recipes
 importTests: tests.yaml # File chứa test functions
 
+# Tạo 1 test function tổng hợp cho TẤT CẢ recipes
+generateBulkRecipeTest: my_system_recipes # Custom name
+# Hoặc: generateBulkRecipeTest: true  # Tên mặc định: all_recipes.mcfunction
+# Kết quả: /function tests/recipes/my_system_recipes (give tất cả ingredients)
+
 # ===== SỬ DỤNG =====
 # bun run dev batch -f configs/my-system/main.yaml
 
