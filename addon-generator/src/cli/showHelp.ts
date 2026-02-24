@@ -8,6 +8,7 @@ export function showHelp(): void {
   console.log(chalk.yellow('  apeirix ore -i <id> -n <name> -t <texture> --raw-item <id>'));
   console.log(chalk.yellow('  apeirix tool:pickaxe -i <id> -n <name> -t <texture> --material <id>'));
   console.log(chalk.yellow('  apeirix armor --base-name <name> --display-name <name> --material <id> --icons <path> --layer1 <path> --layer2 <path>'));
+  console.log(chalk.yellow('  apeirix food -i <id> -n <name> -t <texture>'));
   console.log(chalk.yellow('  apeirix batch -f <config.yaml>'));
   console.log(chalk.yellow('  apeirix recipe:shaped --id <id> --pattern <json> --key <json> --result <item>'));
   console.log(chalk.yellow('  apeirix recipe:shapeless --id <id> --ingredients <items> --result <item>'));
@@ -27,6 +28,9 @@ export function showHelp(): void {
   
   console.log(chalk.gray('  # Tạo armor set'));
   console.log(chalk.gray('  apeirix armor --base-name copper --display-name "Giáp Đồng" --material copper_ingot --icons ./armor/ --layer1 ./layer1.png --layer2 ./layer2.png\n'));
+  
+  console.log(chalk.gray('  # Tạo food'));
+  console.log(chalk.gray('  apeirix food -i apple_pie -n "Bánh Táo" -t ./pie.png --nutrition 6 --saturation 1.2\n'));
   
   console.log(chalk.gray('  # Batch từ config'));
   console.log(chalk.gray('  apeirix batch -f content.yaml\n'));

@@ -28,7 +28,8 @@ export async function setupTestProject() {
     'tests/blocks',
     'tests/items/tools',
     'tests/items/armor',
-    'tests/items/materials'
+    'tests/items/materials',
+    'tests/items/food'
   ];
 
   dirs.forEach(dir => {

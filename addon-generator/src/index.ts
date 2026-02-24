@@ -6,6 +6,7 @@ import { registerBlockCommands } from './cli/registerBlockCommands.js';
 import { registerOreCommands } from './cli/registerOreCommands.js';
 import { registerToolCommands } from './cli/registerToolCommands.js';
 import { registerArmorCommands } from './cli/registerArmorCommands.js';
+import { registerFoodCommands } from './cli/registerFoodCommands.js';
 import { registerRecipeCommands } from './cli/registerRecipeCommands.js';
 import { registerUtilityCommands } from './cli/registerUtilityCommands.js';
 import { showHelp } from './cli/showHelp.js';
@@ -23,6 +24,7 @@ registerBlockCommands(program);
 registerOreCommands(program);
 registerToolCommands(program);
 registerArmorCommands(program);
+registerFoodCommands(program);
 registerRecipeCommands(program);
 registerUtilityCommands(program);
 

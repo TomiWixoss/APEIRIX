@@ -262,4 +262,65 @@ test("${itemId}_basic", async (test) => {
 
     console.log(`✅ Đã tạo test files: tests/items/materials/${itemId}.md & .test.ts`);
   }
+
+  /**
+   * Tạo test cho food
+   */
+  generateFoodTest(foodId: string, displayName: string): void {
+    const testMd = `# Test: ${displayName}
+
+**Food**: ${displayName}
+**ID**: \`apeirix:${foodId}\`
+**Version**: 1.0.0
+**Ngày test**: ${new Date().toLocaleDateString('vi-VN')}
+**Tester**: 
+**Status**: [ ] Not Tested | [ ] Pass | [ ] Fail
+
+## Test Cases
+
+### 1. Food Properties
+- [ ] Food có trong creative inventory
+- [ ] Texture hiển thị đúng
+- [ ] Stack size đúng
+
+### 2. Food Functionality
+- [ ] Có thể ăn được
+- [ ] Eating animation hoạt động đúng
+- [ ] Restore hunger đúng
+- [ ] Saturation đúng
+- [ ] Can always eat (nếu có)
+
+### 3. Effects
+- [ ] Food effects hoạt động đúng (nếu có)
+- [ ] Duration đúng
+
+## Notes
+
+`;
+
+    const testTs = `import { test } from "@minecraft/server-gametest";
+
+test("${foodId}_eating", async (test) => {
+  const player = test.spawnSimulatedPlayer({ x: 1, y: 2, z: 1 }, "TestPlayer");
+  
+  // TODO: Implement test
+  // Give food to player
+  // Test eating
+  // Check hunger/saturation
+  
+  test.succeed();
+})
+  .maxTicks(200)
+  .tag("food")
+  .tag("${foodId}");
+`;
+
+    const mdPath = join(this.projectRoot, `tests/items/food/${foodId}.md`);
+    const tsPath = join(this.projectRoot, `tests/items/food/${foodId}.test.ts`);
+
+    FileManager.writeText(mdPath, testMd);
+    FileManager.writeText(tsPath, testTs);
+
+    console.log(`✅ Đã tạo test files: tests/items/food/${foodId}.md & .test.ts`);
+  }
 }
