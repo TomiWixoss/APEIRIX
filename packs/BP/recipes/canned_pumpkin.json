@@ -1,0 +1,33 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "apeirix:canned_pumpkin"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "apeirix:canempty"
+      },
+      {
+        "item": "minecraft:pumpkin"
+      },
+      {
+        "item": "minecraft:sugar"
+      }
+    ],
+    "result": {
+      "item": "apeirix:canned_pumpkin"
+    },
+    "unlock": [
+      {
+        "item": "apeirix:canempty"
+      },
+      {
+        "item": "minecraft:pumpkin"
+      }
+    ]
+  }
+}

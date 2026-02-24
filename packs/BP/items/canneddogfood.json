@@ -1,0 +1,34 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "apeirix:canneddogfood",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "canneddogfood",
+      "minecraft:display_name": {
+        "value": "item.apeirix.canneddogfood.name"
+      },
+      "minecraft:max_stack_size": 64,
+      "minecraft:food": {
+        "nutrition": 2,
+        "saturation_modifier": 0.2,
+        "can_always_eat": false,
+        "using_converts_to": "canempty",
+        "effects": [
+          {
+            "name": "nausea",
+            "duration": 10,
+            "amplifier": 0,
+            "chance": 1
+          }
+        ]
+      },
+      "minecraft:use_duration": 32,
+      "minecraft:use_animation": "eat"
+    }
+  }
+}

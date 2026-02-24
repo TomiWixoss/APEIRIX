@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "apeirix:canempty",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:icon": "canempty",
+      "minecraft:display_name": {
+        "value": "item.apeirix.canempty.name"
+      },
+      "minecraft:max_stack_size": 64
+    }
+  }
+}

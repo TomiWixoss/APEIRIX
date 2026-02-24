@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "apeirix:canempty"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "T T",
+      " T "
+    ],
+    "key": {
+      "T": {
+        "item": "apeirix:tin_ingot"
+      }
+    },
+    "result": {
+      "item": "apeirix:canempty",
+      "count": 4
+    },
+    "unlock": [
+      {
+        "item": "apeirix:tin_ingot"
+      }
+    ]
+  }
+}

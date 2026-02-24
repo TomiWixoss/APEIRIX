@@ -49,6 +49,8 @@ APEIRIX/
 │   │   ├── commands/         # Command handlers
 │   │   ├── core/             # Core utilities
 │   │   └── generators/       # Content generators
+│   ├── templates/            # Mẫu tham khảo, ví dụ generic
+│   ├── configs/              # Config files sẵn sàng chạy
 │   ├── tests/                # CLI tool tests
 │   └── package.json
 ├── packs/

@@ -1,0 +1,33 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "apeirix:cannedfish"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "apeirix:canempty"
+      },
+      {
+        "item": "minecraft:cooked_cod"
+      },
+      {
+        "item": "minecraft:cooked_cod"
+      }
+    ],
+    "result": {
+      "item": "apeirix:cannedfish"
+    },
+    "unlock": [
+      {
+        "item": "apeirix:canempty"
+      },
+      {
+        "item": "minecraft:cooked_cod"
+      }
+    ]
+  }
+}

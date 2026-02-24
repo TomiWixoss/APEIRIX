@@ -227,7 +227,25 @@ addon-generator/
 │       ├── TextureGenerator.ts     # Texture handling
 │       ├── LangGenerator.ts        # Lang files
 │       └── RecipeGenerator.ts      # Recipe generation (100% động)
+├── templates/                      # Mẫu tham khảo, ví dụ generic
+├── configs/                        # Config files sẵn sàng chạy
 └── package.json
+```
+
+## 📂 Templates vs Configs
+
+- **`templates/`** - Mẫu tham khảo, ví dụ generic để học cách dùng
+- **`configs/`** - Config files thực tế, sẵn sàng chạy với dữ liệu cụ thể
+
+**Ví dụ:**
+```bash
+# Dùng config có sẵn
+bun run dev batch -f configs/canned-food-system.yaml -p ..
+
+# Tạo config mới từ template
+cp templates/complete-material-set-template.yaml configs/my-material.yaml
+# Edit configs/my-material.yaml
+bun run dev batch -f configs/my-material.yaml -p ..
 ```
 
 ## Đặc Điểm

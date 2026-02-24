@@ -17,6 +17,17 @@ item.apeirix.bronze_helmet.name=Mũ Đồng Thanh
 item.apeirix.bronze_chestplate.name=Áo Giáp Đồng Thanh
 item.apeirix.bronze_leggings.name=Quần Giáp Đồng Thanh
 item.apeirix.bronze_boots.name=Giày Đồng Thanh
+item.apeirix.canempty.name=Vỏ Đồ Hộp Rỗng
+item.apeirix.cannedmushroomsoup.name=Súp Nấm Hộp
+item.apeirix.cannedbeets.name=Súp Củ Dền Hộp
+item.apeirix.canned_food.name=Thịt Hộp Hầm
+item.apeirix.cannedbread.name=Bánh Mì Đóng Hộp
+item.apeirix.cannedcarrots.name=Cà Rốt Đóng Hộp
+item.apeirix.canned_pumpkin.name=Bí Ngô Nghiền Hộp
+item.apeirix.cannedfish.name=Cá Mòi Đóng Hộp
+item.apeirix.cannedsalad.name=Salad Đóng Hộp
+item.apeirix.cannedmeal.name=Khẩu Phần Ăn Chiến Đấu
+item.apeirix.canneddogfood.name=Thức Ăn Cho Chó
 
 ## Blocks
 tile.apeirix:tin_ore.name=Quặng Thiếc
