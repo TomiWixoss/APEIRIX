@@ -17,7 +17,7 @@
         "nutrition": 12,
         "saturation_modifier": 1.3333333333333333,
         "can_always_eat": false,
-        "using_converts_to": "canempty",
+        "using_converts_to": "apeirix:canempty",
         "effects": [
           {
             "name": "regeneration",
@@ -27,8 +27,11 @@
           }
         ]
       },
-      "minecraft:use_duration": 32,
-      "minecraft:use_animation": "eat"
+      "minecraft:use_animation": "eat",
+      "minecraft:use_modifiers": {
+        "use_duration": 1.6,
+        "movement_modifier": 0.33
+      }
     }
   }
 }

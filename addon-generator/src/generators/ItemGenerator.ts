@@ -69,12 +69,18 @@ export class ItemGenerator {
         can_always_eat: config.canAlwaysEat || false
       };
       
-      itemData['minecraft:item'].components['minecraft:use_duration'] = 32;
       itemData['minecraft:item'].components['minecraft:use_animation'] = 'eat';
+      itemData['minecraft:item'].components['minecraft:use_modifiers'] = {
+        use_duration: 1.6,
+        movement_modifier: 0.33
+      };
 
       // Add using_converts_to
       if (config.usingConvertsTo) {
-        itemData['minecraft:item'].components['minecraft:food'].using_converts_to = config.usingConvertsTo;
+        const convertsTo = config.usingConvertsTo.startsWith('minecraft:') || config.usingConvertsTo.startsWith('apeirix:')
+          ? config.usingConvertsTo
+          : `apeirix:${config.usingConvertsTo}`;
+        itemData['minecraft:item'].components['minecraft:food'].using_converts_to = convertsTo;
       }
 
       // Add effects
