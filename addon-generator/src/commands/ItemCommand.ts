@@ -16,20 +16,7 @@ export interface ItemCommandOptions {
   stackSize?: string;
   project: string;
   dryRun?: boolean;
-  skipHistory?: boolean; // Để BatchCommand tự quản lý history
-  
-  // Food properties
-  nutrition?: number;
-  saturation?: number;
-  canAlwaysEat?: boolean;
-  usingConvertsTo?: string;
-  effects?: Array<{
-    name: string;
-    duration: number;
-    amplifier?: number;
-    chance?: number;
-  }>;
-  removeEffects?: boolean;
+  skipHistory?: boolean;
   
   // Test function commands
   testCommands?: string[];
@@ -41,7 +28,7 @@ export interface ItemCommandOptions {
 }
 
 /**
- * Command handler cho item generation (có thể kèm recipes)
+ * Command handler cho item generation (CHỈ item thường, KHÔNG phải food)
  */
 export class ItemCommand {
   execute(options: ItemCommandOptions): void {
@@ -78,14 +65,13 @@ export class ItemCommand {
     const testFuncGen = new TestFunctionGenerator(options.project);
 
     // Track files
-    const category = options.nutrition ? 'food' : 'items';
     if (history) {
       history.trackCreate(`packs/BP/items/${itemId}.json`);
       history.trackCreate(`packs/RP/textures/items/${itemId}.png`);
       history.trackModify('packs/RP/textures/item_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
-      history.trackCreate(`packs/BP/functions/tests/${category}/${itemId}.mcfunction`);
+      history.trackCreate(`packs/BP/functions/tests/items/${itemId}.mcfunction`);
     }
 
     if (!DryRunManager.isEnabled()) {
@@ -95,13 +81,7 @@ export class ItemCommand {
         name: options.name,
         texturePath: options.texture,
         category: options.category,
-        stackSize: options.stackSize ? parseInt(options.stackSize) : undefined,
-        nutrition: options.nutrition,
-        saturation: options.saturation,
-        canAlwaysEat: options.canAlwaysEat,
-        usingConvertsTo: options.usingConvertsTo,
-        effects: options.effects,
-        removeEffects: options.removeEffects
+        stackSize: options.stackSize ? parseInt(options.stackSize) : undefined
       });
 
       textureGen.copyTexture(itemId, options.texture);
@@ -118,7 +98,7 @@ export class ItemCommand {
         id: itemId,
         displayName: options.name,
         commands: options.testCommands
-      }, category);
+      }, 'items');
 
       // 4. Generate recipes if provided
       let recipeCount = 0;

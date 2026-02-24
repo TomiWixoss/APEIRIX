@@ -1,15 +1,16 @@
-# Canned Food Items
+# Canned Food System
 
+# ===== ITEMS (không phải food) =====
 items:
-  # ===== 1. VỎ ĐỒ HỘP (Cốt lõi hệ thống) =====
   - id: canempty
     name: "Vỏ Đồ Hộp Rỗng"
     texture: ../AssetCreator/old/icons/canempty.png
     category: items
     stackSize: 64
 
-  # ===== 2. LƯƠNG THỰC CƠ BẢN =====
-
+# ===== FOODS (có nutrition) =====
+foods:
+  # LƯƠNG THỰC CƠ BẢN
   - id: cannedmushroomsoup
     name: "Súp Nấm Hộp"
     texture: ../AssetCreator/old/icons/cannedmushroomsoup.png
@@ -50,8 +51,7 @@ items:
     canAlwaysEat: false
     usingConvertsTo: canempty
 
-  # ===== 3. ĐỒ HỘP ĐẶC BIỆT =====
-
+  # ĐỒ HỘP ĐẶC BIỆT
   - id: cannedcarrots
     name: "Cà Rốt Đóng Hộp"
     texture: ../AssetCreator/old/icons/cannedcarrots.png
@@ -108,8 +108,7 @@ items:
     usingConvertsTo: canempty
     removeEffects: true
 
-  # ===== 4. HÀNG TUYỆT PHẨM =====
-
+  # HÀNG TUYỆT PHẨM
   - id: cannedmeal
     name: "Khẩu Phần Ăn Chiến Đấu"
     texture: ../AssetCreator/old/icons/cannedmeal.png

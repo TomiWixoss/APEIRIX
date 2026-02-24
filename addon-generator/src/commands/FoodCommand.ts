@@ -13,13 +13,18 @@ export interface FoodCommandOptions {
   texture: string;
   category?: string;
   stackSize?: string;
-  nutrition: string;
-  saturation: string;
+  nutrition: number;
+  saturation: number;
   canAlwaysEat?: boolean;
   usingConvertsTo?: string;
-  effects?: string; // JSON string
+  effects?: Array<{
+    name: string;
+    duration: number;
+    amplifier?: number;
+    chance?: number;
+  }>;
   removeEffects?: boolean;
-  testCommands?: string[]; // Custom test commands
+  testCommands?: string[];
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -74,16 +79,6 @@ export class FoodCommand {
     }
 
     if (!DryRunManager.isEnabled()) {
-      // Parse effects if provided
-      let effects = undefined;
-      if (options.effects) {
-        try {
-          effects = JSON.parse(options.effects);
-        } catch (error) {
-          throw new Error(`Effects JSON không hợp lệ: ${error}`);
-        }
-      }
-
       // Generate food item
       foodGen.generate({
         id: itemId,
@@ -91,11 +86,11 @@ export class FoodCommand {
         texturePath: options.texture,
         category: options.category,
         stackSize: options.stackSize ? parseInt(options.stackSize) : undefined,
-        nutrition: parseInt(options.nutrition),
-        saturation: parseFloat(options.saturation),
+        nutrition: options.nutrition,
+        saturation: options.saturation,
         canAlwaysEat: options.canAlwaysEat,
         usingConvertsTo: options.usingConvertsTo,
-        effects: effects,
+        effects: options.effects,
         removeEffects: options.removeEffects
       });
 

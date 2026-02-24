@@ -1,5 +1,6 @@
 import { ConfigLoader } from '../core/ConfigLoader.js';
 import { ItemCommand } from './ItemCommand.js';
+import { FoodCommand } from './FoodCommand.js';
 import { BlockCommand } from './BlockCommand.js';
 import { OreCommand } from './OreCommand.js';
 import { ToolCommand } from './ToolCommand.js';
@@ -33,13 +34,12 @@ export class BatchCommand {
 
     let totalCreated = 0;
 
-    // Process items
+    // Process items (CHỈ item thường, KHÔNG phải food)
     if (config.items && config.items.length > 0) {
       console.log(`\n📦 Tạo ${config.items.length} items...\n`);
       config.items.forEach(item => {
         try {
           // Track files trước khi tạo
-          const category = item.nutrition ? 'food' : 'items';
           history.trackCreate(`packs/BP/items/${item.id}.json`);
           history.trackCreate(`packs/RP/textures/items/${item.id}.png`);
           history.trackModify('packs/RP/textures/item_texture.json');
@@ -47,7 +47,7 @@ export class BatchCommand {
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackCreate(`tests/items/materials/${item.id}.md`);
           history.trackCreate(`tests/items/materials/${item.id}.test.ts`);
-          history.trackCreate(`packs/BP/functions/tests/${category}/${item.id}.mcfunction`);
+          history.trackCreate(`packs/BP/functions/tests/items/${item.id}.mcfunction`);
           
           new ItemCommand().execute({
             id: item.id,
@@ -55,20 +55,53 @@ export class BatchCommand {
             texture: item.texture,
             category: item.category,
             stackSize: item.stackSize?.toString(),
-            nutrition: item.nutrition,
-            saturation: item.saturation,
-            canAlwaysEat: item.canAlwaysEat,
-            usingConvertsTo: item.usingConvertsTo,
-            effects: item.effects,
-            removeEffects: item.removeEffects,
             testCommands: item.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true // Batch tự quản lý history
+            skipHistory: true
           });
           totalCreated++;
         } catch (error) {
           console.error(`❌ Lỗi tạo item ${item.id}: ${error}`);
+        }
+      });
+    }
+
+    // Process foods (CHỈ food items)
+    if (config.foods && config.foods.length > 0) {
+      console.log(`\n🍎 Tạo ${config.foods.length} foods...\n`);
+      config.foods.forEach(food => {
+        try {
+          // Track files
+          history.trackCreate(`packs/BP/items/${food.id}.json`);
+          history.trackCreate(`packs/RP/textures/items/${food.id}.png`);
+          history.trackModify('packs/RP/textures/item_texture.json');
+          history.trackModify('packs/BP/texts/en_US.lang');
+          history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`tests/items/materials/${food.id}.md`);
+          history.trackCreate(`tests/items/materials/${food.id}.test.ts`);
+          history.trackCreate(`packs/BP/functions/tests/food/${food.id}.mcfunction`);
+          
+          new FoodCommand().execute({
+            id: food.id,
+            name: food.name,
+            texture: food.texture,
+            category: food.category,
+            stackSize: food.stackSize?.toString(),
+            nutrition: food.nutrition,
+            saturation: food.saturation,
+            canAlwaysEat: food.canAlwaysEat,
+            usingConvertsTo: food.usingConvertsTo,
+            effects: food.effects,
+            removeEffects: food.removeEffects,
+            testCommands: food.testCommands,
+            project: options.project,
+            dryRun: false,
+            skipHistory: true
+          });
+          totalCreated++;
+        } catch (error) {
+          console.error(`❌ Lỗi tạo food ${food.id}: ${error}`);
         }
       });
     }

@@ -1,13 +1,7 @@
 # Test Function: Cà Rốt Đóng Hộp
 # ID: apeirix:cannedcarrots
 
-# Test: Cà Rốt Đóng Hộp - Night Vision
 clear @s
 give @s apeirix:cannedcarrots 64
-effect @s saturation 1 255 true
-effect @s instant_damage 1 10 true
-tellraw @s {"text":"=== Test: Cà Rốt Đóng Hộp ===","color":"gold"}
-tellraw @s {"text":"Nutrition: 4 | Saturation: 4.8","color":"aqua"}
-tellraw @s {"text":"Effect: Night Vision 15s","color":"yellow"}
-tellraw @s {"text":"Ăn để test Night Vision!","color":"white"}
+tellraw @s {"text":"Test: Cà Rốt Đóng Hộp","color":"gold"}
 playsound random.levelup @s

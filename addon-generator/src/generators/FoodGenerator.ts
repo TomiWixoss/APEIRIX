@@ -53,30 +53,39 @@ export class FoodGenerator {
           'minecraft:display_name': {
             value: `item.apeirix.${config.id}.name`
           },
+          'minecraft:tags': {
+            tags: ['minecraft:is_food']
+          },
           'minecraft:max_stack_size': config.stackSize || 64,
           'minecraft:food': {
             nutrition: config.nutrition,
             saturation_modifier: config.saturation / config.nutrition,
-            can_always_eat: config.canAlwaysEat || false
+            can_always_eat: config.canAlwaysEat ?? false
           },
-          'minecraft:use_duration': 32,
-          'minecraft:use_animation': 'eat'
+          'minecraft:use_animation': 'eat',
+          'minecraft:use_modifiers': {
+            use_duration: 1.6,
+            movement_modifier: 0.33
+          }
         }
       }
     };
 
     // Add using_converts_to (trả lại item sau khi ăn)
     if (config.usingConvertsTo) {
-      itemData['minecraft:item'].components['minecraft:food'].using_converts_to = config.usingConvertsTo;
+      const convertsTo = config.usingConvertsTo.includes(':') 
+        ? config.usingConvertsTo 
+        : `apeirix:${config.usingConvertsTo}`;
+      itemData['minecraft:item'].components['minecraft:food'].using_converts_to = convertsTo;
     }
 
     // Add effects
     if (config.effects && config.effects.length > 0) {
       itemData['minecraft:item'].components['minecraft:food'].effects = config.effects.map(effect => ({
         name: effect.name,
-        duration: effect.duration,
-        amplifier: effect.amplifier || 0,
-        chance: effect.chance || 1.0
+        duration: effect.duration * 20, // Convert seconds to ticks
+        amplifier: effect.amplifier ?? 0,
+        chance: effect.chance ?? 1.0
       }));
     }
 

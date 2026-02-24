@@ -1,12 +1,7 @@
 # Test Function: Súp Củ Dền Hộp
 # ID: apeirix:cannedbeets
 
-# Test: Súp Củ Dền Hộp
 clear @s
 give @s apeirix:cannedbeets 64
-effect @s saturation 1 255 true
-effect @s instant_damage 1 10 true
-tellraw @s {"text":"=== Test: Súp Củ Dền Hộp ===","color":"gold"}
-tellraw @s {"text":"Nutrition: 6 | Saturation: 7.2","color":"aqua"}
-tellraw @s {"text":"Súp củ dền giờ có thể stack 64!","color":"white"}
+tellraw @s {"text":"Test: Súp Củ Dền Hộp","color":"gold"}
 playsound random.levelup @s

@@ -1,13 +1,7 @@
 # Test Function: Bí Ngô Nghiền Hộp
 # ID: apeirix:canned_pumpkin
 
-# Test: Bí Ngô Nghiền Hộp - Fire Resistance
 clear @s
 give @s apeirix:canned_pumpkin 64
-effect @s saturation 1 255 true
-effect @s instant_damage 1 10 true
-tellraw @s {"text":"=== Test: Bí Ngô Nghiền Hộp ===","color":"gold"}
-tellraw @s {"text":"Nutrition: 4 | Saturation: 4.8","color":"aqua"}
-tellraw @s {"text":"Effect: Fire Resistance 15s","color":"yellow"}
-tellraw @s {"text":"Ăn để test Fire Resistance!","color":"white"}
+tellraw @s {"text":"Test: Bí Ngô Nghiền Hộp","color":"gold"}
 playsound random.levelup @s
