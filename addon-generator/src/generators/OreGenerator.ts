@@ -43,8 +43,8 @@ export class OreGenerator {
     // 3. Tạo world generation
     this.generateWorldGen(config);
     
-    // 4. Thêm vào Fortune registry
-    this.addToFortuneRegistry(config);
+    // Auto-registration disabled - using GeneratedGameData.ts instead
+    // this.addToFortuneRegistry(config);
   }
 
   private generateOreBlock(config: OreConfig, isDeepslate: boolean): void {

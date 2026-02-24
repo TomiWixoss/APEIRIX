@@ -9,16 +9,21 @@
 #>
 
 Write-Host "📦 Compiling APEIRIX configs..." -ForegroundColor Cyan
+Write-Host ("-" * 60) -ForegroundColor DarkGray
+Write-Host ""
 
 Set-Location addon-generator
-bun run dev compile configs/addon.yaml
+& bun run dev compile configs/addon.yaml --clean
+$exitCode = $LASTEXITCODE
 Set-Location ..
 
-if ($LASTEXITCODE -eq 0) {
-    Write-Host "`n✅ Compilation completed!" -ForegroundColor Green
+if ($exitCode -eq 0) {
+    Write-Host ""
+    Write-Host "✅ Compilation completed!" -ForegroundColor Green
     Write-Host "📁 Output: addon-generator/build/" -ForegroundColor Cyan
     Write-Host "💡 Run 'regolith run' to deploy" -ForegroundColor Yellow
 } else {
-    Write-Host "`n❌ Compilation failed!" -ForegroundColor Red
+    Write-Host ""
+    Write-Host "❌ Compilation failed!" -ForegroundColor Red
     exit 1
 }

@@ -100,7 +100,7 @@ export class PickaxeGenerator {
     FileManager.writeJSON(outputPath, itemData);
     console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
 
-    // Thêm vào GameData.ts
-    ToolRegistryHelper.addToGameData(this.projectRoot, config.id, 'pickaxe', durability);
+    // Auto-registration disabled - using GeneratedGameData.ts instead
+    // ToolRegistryHelper.addToGameData(this.projectRoot, config.id, 'pickaxe', durability);
   }
 }
