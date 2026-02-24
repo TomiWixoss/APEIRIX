@@ -6,6 +6,7 @@ import { TextureGenerator } from '../generators/TextureGenerator.js';
 export interface RPConfig {
   items?: any[];
   blocks?: any[];
+  ores?: any[];
   armor?: any[];
   tools?: any[];
   foods?: any[];
@@ -92,15 +93,33 @@ export class RPCompiler {
       })));
     }
 
+    // Collect all blocks (blocks + ores + deepslate ores)
+    const allBlocks = [
+      ...(config.blocks || []),
+      ...(config.ores || [])
+    ];
+    
+    // Add deepslate variants for ores that have deepslateTexturePath
+    if (config.ores) {
+      for (const ore of config.ores) {
+        if (ore.deepslateTexturePath || ore.deepslateTexture) {
+          allBlocks.push({
+            id: `deepslate_${ore.id}`,
+            name: ore.deepslateName || `Deepslate ${ore.name}`
+          });
+        }
+      }
+    }
+
     // Generate block textures
-    if (config.blocks && config.blocks.length > 0) {
-      generator.generateTerrainTextureJson(config.blocks.map(block => ({
+    if (allBlocks.length > 0) {
+      generator.generateTerrainTextureJson(allBlocks.map(block => ({
         id: block.id,
         texturePath: `textures/blocks/${block.id}`
       })));
     }
 
-    return allItems.length + (config.blocks?.length || 0);
+    return allItems.length + allBlocks.length;
   }
 
   /**
@@ -156,6 +175,19 @@ export class RPCompiler {
       for (const block of config.blocks) {
         if (block.name) {
           entries[`tile.apeirix:${block.id}.name`] = block.name;
+        }
+      }
+    }
+
+    if (config.ores) {
+      for (const ore of config.ores) {
+        if (ore.name) {
+          entries[`tile.apeirix:${ore.id}.name`] = ore.name;
+        }
+        // Add deepslate variant if exists
+        if (ore.deepslateTexturePath || ore.deepslateTexture) {
+          const deepslateName = ore.deepslateName || `Deepslate ${ore.name}`;
+          entries[`tile.apeirix:deepslate_${ore.id}.name`] = deepslateName;
         }
       }
     }
