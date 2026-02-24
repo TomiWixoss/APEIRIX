@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "productName": "APEIRIX",
   "description": "APEIRIX - Adds everything to the game",
+  "author": "TomiSakae",
   "private": true,
   "devDependencies": {
     "@minecraft/core-build-tasks": "^5.5.0",

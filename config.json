@@ -1,10 +1,10 @@
 {
 	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.7.json",
-	"author": "APEIRIX Team",
+	"author": "TomiSakae",
 	"name": "APEIRIX",
 	"packs": {
-		"behaviorPack": "./packs/BP",
-		"resourcePack": "./packs/RP"
+		"behaviorPack": "./addon-generator/build/BP",
+		"resourcePack": "./addon-generator/build/RP"
 	},
 	"regolith": {
 		"dataPath": "./packs/data",

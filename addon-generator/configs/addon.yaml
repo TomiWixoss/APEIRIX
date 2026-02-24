@@ -1,6 +1,7 @@
 addon:
   name: APEIRIX
   description: Addon Minecraft Bedrock Edition thêm mọi thứ vào game
+  author: TomiSakae
   version:
     - 1
     - 0
