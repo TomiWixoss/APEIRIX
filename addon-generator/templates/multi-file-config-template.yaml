@@ -15,6 +15,9 @@ importItems: items.yaml # File chứa items VÀ foods
 importRecipes: recipes.yaml # File chứa recipes
 importTests: tests.yaml # File chứa test functions
 
+# Tắt tự động tạo test files (optional)
+skipTestGeneration: true # Không tạo .md, .test.ts, .mcfunction files
+
 # Tạo 1 test function tổng hợp cho TẤT CẢ recipes
 generateBulkRecipeTest: my_system_recipes # Custom name
 # Hoặc: generateBulkRecipeTest: true  # Tên mặc định: all_recipes.mcfunction
@@ -45,6 +48,7 @@ foods:
 # - Có thể reuse recipes/tests cho projects khác
 # - Import system tự động merge configs
 # - Giảm conflict khi nhiều người làm việc cùng lúc
+# - skipTestGeneration: true để tắt tự động tạo test files
 
 # ===== XEM VÍ DỤ ĐẦY ĐỦ =====
 # Xem: configs/canned-food/ để biết cách sử dụng thực tế

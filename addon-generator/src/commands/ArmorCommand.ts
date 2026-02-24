@@ -23,6 +23,7 @@ export interface ArmorCommandOptions {
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
+  skipTests?: boolean;
 }
 
 export class ArmorCommand {
@@ -74,9 +75,11 @@ export class ArmorCommand {
         history.trackCreate(`packs/BP/items/${baseName}_${piece}.json`);
         history.trackCreate(`packs/RP/attachables/${baseName}_${piece}.json`);
         history.trackCreate(`packs/RP/textures/items/${baseName}_${piece}.png`);
-        history.trackCreate(`tests/items/armor/${baseName}_${piece}.md`);
-        history.trackCreate(`tests/items/armor/${baseName}_${piece}.test.ts`);
-        history.trackCreate(`packs/BP/functions/tests/armor/${baseName}_${piece}.mcfunction`);
+        if (!options.skipTests) {
+          history.trackCreate(`tests/items/armor/${baseName}_${piece}.md`);
+          history.trackCreate(`tests/items/armor/${baseName}_${piece}.test.ts`);
+          history.trackCreate(`packs/BP/functions/tests/armor/${baseName}_${piece}.mcfunction`);
+        }
       });
       
       history.trackCreate(`packs/RP/textures/models/armor/${baseName}_layer_1.png`);
@@ -119,19 +122,21 @@ export class ArmorCommand {
       textureGen.copyTexture(`models/armor/${layer2Name}`, options.layer2, 'textures');
 
       // Tạo test files cho từng piece
-      const testGen = new TestGenerator(options.project);
-      const testFuncGen = new TestFunctionGenerator(options.project);
-      
-      pieces.forEach(piece => {
-        testGen.generateArmorTest(`${baseName}_${piece}`, `${options.displayName} ${this.capitalize(piece)}`, piece);
+      if (!options.skipTests) {
+        const testGen = new TestGenerator(options.project);
+        const testFuncGen = new TestFunctionGenerator(options.project);
         
-        // Tạo test function cho từng piece
-        testFuncGen.generate({
-          id: `${baseName}_${piece}`,
-          displayName: `${options.displayName} ${this.capitalize(piece)}`,
-          commands: options.testCommands
-        }, 'armor');
-      });
+        pieces.forEach(piece => {
+          testGen.generateArmorTest(`${baseName}_${piece}`, `${options.displayName} ${this.capitalize(piece)}`, piece);
+          
+          // Tạo test function cho từng piece
+          testFuncGen.generate({
+            id: `${baseName}_${piece}`,
+            displayName: `${options.displayName} ${this.capitalize(piece)}`,
+            commands: options.testCommands
+          }, 'armor');
+        });
+      }
 
       if (history) {
         history.commitOperation();

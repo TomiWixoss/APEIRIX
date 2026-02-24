@@ -17,6 +17,7 @@ export interface ItemCommandOptions {
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
+  skipTests?: boolean; // Skip tạo test files
   
   // Test function commands
   testCommands?: string[];
@@ -90,15 +91,17 @@ export class ItemCommand {
       langGen.updateLangFile(itemId, options.name, 'BP');
       langGen.updateLangFile(itemId, options.name, 'RP');
 
-      // 2. Generate test files
-      testGen.generateItemTest(itemId, options.name);
+      // 2. Generate test files (if not skipped)
+      if (!options.skipTests) {
+        testGen.generateItemTest(itemId, options.name);
 
-      // 3. Generate test function
-      testFuncGen.generate({
-        id: itemId,
-        displayName: options.name,
-        commands: options.testCommands
-      }, 'items');
+        // 3. Generate test function
+        testFuncGen.generate({
+          id: itemId,
+          displayName: options.name,
+          commands: options.testCommands
+        }, 'items');
+      }
 
       // 4. Generate recipes if provided
       let recipeCount = 0;

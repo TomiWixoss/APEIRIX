@@ -33,6 +33,12 @@ export class BatchCommand {
     history.startOperation(`batch -f ${options.file}`);
 
     let totalCreated = 0;
+    
+    // Check if test generation is disabled
+    const skipTests = config.skipTestGeneration ?? false;
+    if (skipTests) {
+      console.log('⚠️  Test generation disabled (skipTestGeneration: true)\n');
+    }
 
     // Process items (CHỈ item thường, KHÔNG phải food)
     if (config.items && config.items.length > 0) {
@@ -45,9 +51,12 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/item_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
-          history.trackCreate(`tests/items/materials/${item.id}.md`);
-          history.trackCreate(`tests/items/materials/${item.id}.test.ts`);
-          history.trackCreate(`packs/BP/functions/tests/items/${item.id}.mcfunction`);
+          
+          if (!skipTests) {
+            history.trackCreate(`tests/items/materials/${item.id}.md`);
+            history.trackCreate(`tests/items/materials/${item.id}.test.ts`);
+            history.trackCreate(`packs/BP/functions/tests/items/${item.id}.mcfunction`);
+          }
           
           new ItemCommand().execute({
             id: item.id,
@@ -58,7 +67,8 @@ export class BatchCommand {
             testCommands: item.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true
+            skipHistory: true,
+            skipTests: skipTests
           });
           totalCreated++;
         } catch (error) {
@@ -78,9 +88,12 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/item_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
-          history.trackCreate(`tests/items/materials/${food.id}.md`);
-          history.trackCreate(`tests/items/materials/${food.id}.test.ts`);
-          history.trackCreate(`packs/BP/functions/tests/food/${food.id}.mcfunction`);
+          
+          if (!skipTests) {
+            history.trackCreate(`tests/items/materials/${food.id}.md`);
+            history.trackCreate(`tests/items/materials/${food.id}.test.ts`);
+            history.trackCreate(`packs/BP/functions/tests/food/${food.id}.mcfunction`);
+          }
           
           new FoodCommand().execute({
             id: food.id,
@@ -97,7 +110,8 @@ export class BatchCommand {
             testCommands: food.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true
+            skipHistory: true,
+            skipTests: skipTests
           });
           totalCreated++;
         } catch (error) {
@@ -118,9 +132,12 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/terrain_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
-          history.trackCreate(`tests/blocks/${block.id}.md`);
-          history.trackCreate(`tests/blocks/${block.id}.test.ts`);
-          history.trackCreate(`packs/BP/functions/tests/blocks/${block.id}.mcfunction`);
+          
+          if (!skipTests) {
+            history.trackCreate(`tests/blocks/${block.id}.md`);
+            history.trackCreate(`tests/blocks/${block.id}.test.ts`);
+            history.trackCreate(`packs/BP/functions/tests/blocks/${block.id}.mcfunction`);
+          }
           
           new BlockCommand().execute({
             id: block.id,
@@ -134,7 +151,8 @@ export class BatchCommand {
             testCommands: block.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true
+            skipHistory: true,
+            skipTests: skipTests
           });
           totalCreated++;
         } catch (error) {
@@ -163,9 +181,12 @@ export class BatchCommand {
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackModify('scripts/data/GameData.ts');
-          history.trackCreate(`tests/blocks/${ore.id}.md`);
-          history.trackCreate(`tests/blocks/${ore.id}.test.ts`);
-          history.trackCreate(`packs/BP/functions/tests/ores/${ore.id}.mcfunction`);
+          
+          if (!skipTests) {
+            history.trackCreate(`tests/blocks/${ore.id}.md`);
+            history.trackCreate(`tests/blocks/${ore.id}.test.ts`);
+            history.trackCreate(`packs/BP/functions/tests/ores/${ore.id}.mcfunction`);
+          }
           
           new OreCommand().execute({
             id: ore.id,
@@ -181,7 +202,8 @@ export class BatchCommand {
             testCommands: ore.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true
+            skipHistory: true,
+            skipTests: skipTests
           });
           totalCreated++;
         } catch (error) {
@@ -202,9 +224,12 @@ export class BatchCommand {
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackModify('scripts/data/GameData.ts');
-          history.trackCreate(`tests/items/tools/${tool.id}.md`);
-          history.trackCreate(`tests/items/tools/${tool.id}.test.ts`);
-          history.trackCreate(`packs/BP/functions/tests/tools/${tool.id}.mcfunction`);
+          
+          if (!skipTests) {
+            history.trackCreate(`tests/items/tools/${tool.id}.md`);
+            history.trackCreate(`tests/items/tools/${tool.id}.test.ts`);
+            history.trackCreate(`packs/BP/functions/tests/tools/${tool.id}.mcfunction`);
+          }
           
           new ToolCommand().execute({
             id: tool.id,
@@ -220,7 +245,8 @@ export class BatchCommand {
             testCommands: tool.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true
+            skipHistory: true,
+            skipTests: skipTests
           });
           totalCreated++;
         } catch (error) {
@@ -240,9 +266,12 @@ export class BatchCommand {
             history.trackCreate(`packs/BP/items/${armor.baseName}_${piece}.json`);
             history.trackCreate(`packs/RP/attachables/${armor.baseName}_${piece}.json`);
             history.trackCreate(`packs/RP/textures/items/${armor.baseName}_${piece}.png`);
-            history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.md`);
-            history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.test.ts`);
-            history.trackCreate(`packs/BP/functions/tests/armor/${armor.baseName}_${piece}.mcfunction`);
+            
+            if (!skipTests) {
+              history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.md`);
+              history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.test.ts`);
+              history.trackCreate(`packs/BP/functions/tests/armor/${armor.baseName}_${piece}.mcfunction`);
+            }
           });
           history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_1.png`);
           history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_2.png`);
@@ -263,7 +292,8 @@ export class BatchCommand {
             testCommands: armor.testCommands,
             project: options.project,
             dryRun: false,
-            skipHistory: true
+            skipHistory: true,
+            skipTests: skipTests
           });
           totalCreated++;
         } catch (error) {
@@ -283,7 +313,7 @@ export class BatchCommand {
         try {
           // Track recipe file
           history.trackCreate(`packs/BP/recipes/${recipe.id}.json`);
-          if (recipe.generateTest) {
+          if (!skipTests && recipe.generateTest) {
             history.trackCreate(`packs/BP/functions/tests/recipes/${recipe.id}.mcfunction`);
           }
           
@@ -364,7 +394,7 @@ export class BatchCommand {
       });
       
       // Generate bulk test if requested
-      if (config.generateBulkRecipeTest && recipeTestConfigs.length > 0) {
+      if (!skipTests && config.generateBulkRecipeTest && recipeTestConfigs.length > 0) {
         const fileName = typeof config.generateBulkRecipeTest === 'string' 
           ? config.generateBulkRecipeTest 
           : 'all_recipes';

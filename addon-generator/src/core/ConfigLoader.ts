@@ -19,6 +19,9 @@ export interface ContentConfig {
   
   // Recipe bulk test
   generateBulkRecipeTest?: boolean | string; // true = "all_recipes", string = custom name
+  
+  // Test generation options
+  skipTestGeneration?: boolean; // Skip tạo test files (.md & .test.ts) trong tests/
 }
 
 export interface ItemConfig {

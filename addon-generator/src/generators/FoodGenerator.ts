@@ -79,9 +79,9 @@ export class FoodGenerator {
       itemData['minecraft:item'].components['minecraft:food'].using_converts_to = convertsTo;
     }
 
-    // Add effects
+    // Add effects via custom component (format 1.20+)
     if (config.effects && config.effects.length > 0) {
-      itemData['minecraft:item'].components['minecraft:food'].effects = config.effects.map(effect => ({
+      itemData['minecraft:item'].components['apeirix:food_effects'] = config.effects.map(effect => ({
         name: effect.name,
         duration: effect.duration * 20, // Convert seconds to ticks
         amplifier: effect.amplifier ?? 0,
@@ -89,9 +89,9 @@ export class FoodGenerator {
       }));
     }
 
-    // Add remove_effects (như milk bucket)
+    // Add remove_effects via custom component
     if (config.removeEffects) {
-      itemData['minecraft:item'].components['minecraft:food'].remove_effects = true;
+      itemData['minecraft:item'].components['apeirix:remove_effects'] = true;
     }
 
     FileManager.writeJSON(itemPath, itemData);

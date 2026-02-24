@@ -28,6 +28,7 @@ export interface FoodCommandOptions {
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
+  skipTests?: boolean; // Skip tạo test files
 }
 
 /**
@@ -100,15 +101,17 @@ export class FoodCommand {
       langGen.updateLangFile(itemId, options.name, 'BP');
       langGen.updateLangFile(itemId, options.name, 'RP');
 
-      // Generate test files
-      testGen.generateFoodTest(itemId, options.name);
+      // Generate test files (if not skipped)
+      if (!options.skipTests) {
+        testGen.generateFoodTest(itemId, options.name);
 
-      // Generate test function với custom commands từ config
-      testFuncGen.generate({
-        id: itemId,
-        displayName: options.name,
-        commands: options.testCommands
-      }, 'food');
+        // Generate test function với custom commands từ config
+        testFuncGen.generate({
+          id: itemId,
+          displayName: options.name,
+          commands: options.testCommands
+        }, 'food');
+      }
 
       if (history) {
         history.commitOperation();
