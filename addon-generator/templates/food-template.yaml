@@ -1,8 +1,8 @@
 # Template: Food Items
 # Tạo food items với nutrition, saturation, effects
-# Food items được tạo thông qua items config với food properties
+# Food items PHẢI được đặt trong section "foods", KHÔNG phải "items"
 
-items:
+foods:
   # Simple Food
   - id: example_food
     name: "Đồ Ăn Example"
@@ -10,9 +10,9 @@ items:
     category: items # Menu category
     stackSize: 64 # Stack size (default: 64)
 
-    # Food Properties (REQUIRED for food items)
+    # Food Properties (REQUIRED)
     nutrition: 4 # Nutrition value (số hunger bars restore)
-    saturation: 1.0 # Saturation modifier (tính: saturation / nutrition)
+    saturation: 4.8 # Saturation value (thường = nutrition * 1.2)
     canAlwaysEat: false # Có thể ăn khi đã no (default: false)
 
   # Food with Effects
@@ -20,15 +20,15 @@ items:
     name: "Đồ Ăn Vàng"
     texture: ./path/to/golden_food.png
     nutrition: 8
-    saturation: 1.5
+    saturation: 9.6
     canAlwaysEat: true
     effects: # Effects khi ăn (optional)
       - name: regeneration # Effect name
-        duration: 100 # Duration (ticks)
+        duration: 5 # Duration (GIÂY, sẽ tự convert sang ticks)
         amplifier: 1 # Amplifier (level - 1)
         chance: 1.0 # Chance (0.0 - 1.0)
       - name: absorption
-        duration: 2400
+        duration: 120 # 120 giây = 2400 ticks
         amplifier: 0
         chance: 1.0
 
@@ -37,8 +37,8 @@ items:
     name: "Súp"
     texture: ./path/to/soup.png
     nutrition: 6
-    saturation: 1.2
-    usingConvertsTo: minecraft:bowl # Trả lại item sau khi ăn
+    saturation: 7.2
+    usingConvertsTo: bowl # Trả lại item sau khi ăn (tự động thêm namespace)
 
   # Food that removes effects (như milk)
   - id: cleansing_drink
@@ -49,8 +49,11 @@ items:
     removeEffects: true # Xóa tất cả effects
 
 # Lưu ý:
-# - Food items được tạo qua items config, KHÔNG có section riêng
-# - Nếu có nutrition property thì sẽ tự động thành food item
+# - Food items PHẢI trong section "foods", KHÔNG phải "items"
+# - Items thường (không ăn được) dùng section "items"
+# - Duration trong effects tính bằng GIÂY (tự động × 20 thành ticks)
+# - Food tự động có tag "minecraft:is_food"
 # - Food KHÔNG tự động tạo recipes
-# - Tạo recipes riêng bằng recipe:shaped/shapeless command
-# - Effects có thể có nhiều loại (regeneration, speed, strength, etc.)
+# - Tạo recipes riêng trong section "recipes" hoặc file recipes.yaml
+# - Effects: regeneration, speed, strength, resistance, fire_resistance, water_breathing, night_vision, etc.
+
