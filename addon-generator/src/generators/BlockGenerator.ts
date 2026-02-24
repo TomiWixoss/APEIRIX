@@ -48,7 +48,7 @@ export class BlockGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `BP/blocks/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `blocks/${config.id}.json`);
     FileManager.writeJSON(outputPath, blockData);
     console.log(`✅ Đã tạo: BP/blocks/${config.id}.json`);
 
@@ -104,7 +104,7 @@ export class BlockGenerator {
       ]
     };
 
-    const outputPath = join(this.projectRoot, `BP/loot_tables/blocks/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `loot_tables/blocks/${config.id}.json`);
     FileManager.writeJSON(outputPath, lootTable);
     console.log(`✅ Đã tạo: BP/loot_tables/blocks/${config.id}.json`);
   }

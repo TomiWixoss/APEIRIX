@@ -116,7 +116,7 @@ export class RPCompiler {
    * Generate lang file using LangGenerator
    */
   private static async generateLangFile(config: RPConfig, rpPath: string): Promise<number> {
-    const generator = new LangGenerator(path.dirname(rpPath));
+    const generator = new LangGenerator(rpPath);
     const entries: Record<string, string> = {};
 
     // Collect all lang entries (same as BP)
@@ -170,7 +170,7 @@ export class RPCompiler {
    * Generate languages.json
    */
   private static generateLanguagesJson(rpPath: string): void {
-    const generator = new LangGenerator(path.dirname(rpPath));
+    const generator = new LangGenerator(rpPath);
     generator.generateLanguagesJson('RP');
   }
 }

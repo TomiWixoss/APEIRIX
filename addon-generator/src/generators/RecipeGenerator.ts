@@ -69,7 +69,7 @@ export class RecipeGenerator {
       ];
     }
 
-    const path = join(this.projectRoot, `BP/recipes/${config.id}.json`);
+    const path = join(this.projectRoot, `recipes/${config.id}.json`);
     FileManager.writeJSON(path, recipeData);
     console.log(`✅ Đã tạo shaped recipe: ${config.id}`);
   }
@@ -102,7 +102,7 @@ export class RecipeGenerator {
       ];
     }
 
-    const path = join(this.projectRoot, `BP/recipes/${config.id}.json`);
+    const path = join(this.projectRoot, `recipes/${config.id}.json`);
     FileManager.writeJSON(path, recipeData);
     console.log(`✅ Đã tạo shapeless recipe: ${config.id}`);
   }
@@ -123,7 +123,7 @@ export class RecipeGenerator {
       }
     };
 
-    const path = join(this.projectRoot, `BP/recipes/${config.id}.json`);
+    const path = join(this.projectRoot, `recipes/${config.id}.json`);
     FileManager.writeJSON(path, recipe);
     console.log(`✅ Đã tạo smelting recipe: ${config.id}`);
   }

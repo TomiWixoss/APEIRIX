@@ -106,7 +106,7 @@ export class ArmorGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `BP/items/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
     console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }

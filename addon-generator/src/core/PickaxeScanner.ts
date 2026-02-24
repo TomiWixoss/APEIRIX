@@ -12,7 +12,7 @@ export class PickaxeScanner {
    * Scan all pickaxes from BP/items folder
    */
   scanPickaxes(): Array<{ id: string; tier: string }> {
-    const itemsPath = join(this.projectRoot, 'packs/BP/items');
+    const itemsPath = join(this.projectRoot, 'items');
     
     if (!existsSync(itemsPath)) {
       return [];

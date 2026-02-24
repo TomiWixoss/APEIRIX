@@ -35,7 +35,7 @@ export class FoodGenerator {
   generate(config: FoodConfig): void {
     const itemPath = join(
       this.projectRoot,
-      'BP/items',
+      'items',
       `${config.id}.json`
     );
 

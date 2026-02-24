@@ -6,8 +6,7 @@ import { ItemGenerator } from '../../generators/ItemGenerator.js';
  */
 export class ItemBPGenerator {
   static async generate(items: any[], bpPath: string): Promise<number> {
-    const projectRoot = path.dirname(bpPath);
-    const generator = new ItemGenerator(projectRoot);
+    const generator = new ItemGenerator(bpPath);
     let count = 0;
     
     for (const item of items) {

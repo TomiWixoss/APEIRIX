@@ -8,7 +8,7 @@ export class LangGenerator {
   constructor(private projectRoot: string) {}
 
   updateLangFile(itemId: string, displayName: string, packType: 'BP' | 'RP', prefix: 'item' | 'tile' = 'item'): void {
-    const filePath = join(this.projectRoot, `${packType}/texts/en_US.lang`);
+    const filePath = join(this.projectRoot, `texts/en_US.lang`);
     const lines = FileManager.readLines(filePath);
     
     const langKey = `${prefix}.apeirix.${itemId}.name=${displayName}`;
@@ -40,7 +40,7 @@ export class LangGenerator {
    * Generate complete lang file from entries
    */
   generate(entries: Record<string, string>, packType: 'BP' | 'RP'): void {
-    const filePath = join(this.projectRoot, `${packType}/texts/en_US.lang`);
+    const filePath = join(this.projectRoot, `texts/en_US.lang`);
     const lines: string[] = [];
 
     // Header
@@ -81,7 +81,7 @@ export class LangGenerator {
    * Generate languages.json
    */
   generateLanguagesJson(packType: 'BP' | 'RP'): void {
-    const filePath = join(this.projectRoot, `${packType}/texts/languages.json`);
+    const filePath = join(this.projectRoot, `texts/languages.json`);
     const languages = ['en_US'];
     FileManager.writeJSON(filePath, languages);
   }

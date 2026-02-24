@@ -11,7 +11,6 @@ import { SpearGenerator } from '../../generators/tools/SpearGenerator.js';
  */
 export class ToolBPGenerator {
   static async generate(tools: any[], bpPath: string): Promise<number> {
-    const projectRoot = path.dirname(bpPath);
     let count = 0;
     
     for (const tool of tools) {
@@ -29,22 +28,22 @@ export class ToolBPGenerator {
 
         switch (tool.type) {
           case 'pickaxe':
-            new PickaxeGenerator(projectRoot).generate(toolConfig);
+            new PickaxeGenerator(bpPath).generate(toolConfig);
             break;
           case 'axe':
-            new AxeGenerator(projectRoot).generate(toolConfig);
+            new AxeGenerator(bpPath).generate(toolConfig);
             break;
           case 'shovel':
-            new ShovelGenerator(projectRoot).generate(toolConfig);
+            new ShovelGenerator(bpPath).generate(toolConfig);
             break;
           case 'hoe':
-            new HoeGenerator(projectRoot).generate(toolConfig);
+            new HoeGenerator(bpPath).generate(toolConfig);
             break;
           case 'sword':
-            new SwordGenerator(projectRoot).generate(toolConfig);
+            new SwordGenerator(bpPath).generate(toolConfig);
             break;
           case 'spear':
-            new SpearGenerator(projectRoot).generate(toolConfig);
+            new SpearGenerator(bpPath).generate(toolConfig);
             break;
           default:
             console.warn(`  ⚠ Unknown tool type: ${tool.type}`);

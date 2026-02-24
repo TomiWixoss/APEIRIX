@@ -37,7 +37,7 @@ export class TestFunctionGenerator {
     }
     
     const content = commands.join('\n');
-    const outputPath = join(this.projectRoot, `BP/functions/tests/${category}/${config.id}.mcfunction`);
+    const outputPath = join(this.projectRoot, `functions/tests/${category}/${config.id}.mcfunction`);
     
     FileManager.writeText(outputPath, content);
     console.log(`✅ Đã tạo test function: BP/functions/tests/${category}/${config.id}.mcfunction`);
@@ -65,7 +65,7 @@ export class TestFunctionGenerator {
     commands.push(`tellraw @a {"text":"=== All ${category} tests completed ===","color":"green","bold":true}`);
     
     const content = commands.join('\n');
-    const outputPath = join(this.projectRoot, `BP/functions/tests/run_all_${category}.mcfunction`);
+    const outputPath = join(this.projectRoot, `functions/tests/run_all_${category}.mcfunction`);
     
     FileManager.writeText(outputPath, content);
     console.log(`✅ Đã tạo master test: BP/functions/tests/run_all_${category}.mcfunction`);

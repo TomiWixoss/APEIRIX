@@ -100,7 +100,7 @@ export class OreGenerator {
       }
     };
 
-    const blockPath = join(this.projectRoot, `BP/blocks/${id}.json`);
+    const blockPath = join(this.projectRoot, `blocks/${id}.json`);
     FileManager.writeJSON(blockPath, blockData);
     console.log(`✅ Đã tạo: BP/blocks/${id}.json`);
 
@@ -163,7 +163,7 @@ export class OreGenerator {
 
     const lootTable = { pools };
 
-    const lootPath = join(this.projectRoot, `BP/loot_tables/blocks/${oreId}.json`);
+    const lootPath = join(this.projectRoot, `loot_tables/blocks/${oreId}.json`);
     FileManager.writeJSON(lootPath, lootTable);
     console.log(`✅ Đã tạo: BP/loot_tables/blocks/${oreId}.json`);
   }
@@ -210,7 +210,7 @@ export class OreGenerator {
       });
     }
 
-    const featurePath = join(this.projectRoot, `BP/features/${featureId}.json`);
+    const featurePath = join(this.projectRoot, `features/${featureId}.json`);
     FileManager.writeJSON(featurePath, feature);
     console.log(`✅ Đã tạo: BP/features/${featureId}.json`);
 
@@ -247,7 +247,7 @@ export class OreGenerator {
       }
     };
 
-    const rulePath = join(this.projectRoot, `BP/feature_rules/${ruleId}.json`);
+    const rulePath = join(this.projectRoot, `feature_rules/${ruleId}.json`);
     FileManager.writeJSON(rulePath, featureRule);
     console.log(`✅ Đã tạo: BP/feature_rules/${ruleId}.json`);
   }
