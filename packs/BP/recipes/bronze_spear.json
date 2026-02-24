@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "apeirix:bronze_spear"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "  I",
+      " S ",
+      "S  "
+    ],
+    "key": {
+      "I": {
+        "item": "apeirix:bronze_ingot"
+      },
+      "S": {
+        "item": "apeirix:stick"
+      }
+    },
+    "result": {
+      "item": "apeirix:bronze_spear"
+    },
+    "unlock": []
+  }
+}

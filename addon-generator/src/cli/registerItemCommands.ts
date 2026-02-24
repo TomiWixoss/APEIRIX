@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 import chalk from 'chalk';
 import { ItemCommand } from '../commands/ItemCommand.js';
 
@@ -11,7 +12,7 @@ export function registerItemCommands(program: Command): void {
     .requiredOption('-t, --texture <path>', 'Texture PNG')
     .option('-c, --category <category>', 'Menu category', 'items')
     .option('-s, --stack-size <size>', 'Max stack size', '64')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .option('--dry-run', 'Preview changes without creating files')
     .option('--recipe-shaped <json>', 'Tạo shaped recipe (JSON: {id,pattern,key,result,resultCount?,unlock?})')
     .option('--recipe-shapeless <json>', 'Tạo shapeless recipe (JSON: {id,ingredients,result,resultCount?,unlock?})')

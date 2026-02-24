@@ -3,6 +3,7 @@ import { AxeGenerator } from '../generators/tools/AxeGenerator.js';
 import { ShovelGenerator } from '../generators/tools/ShovelGenerator.js';
 import { HoeGenerator } from '../generators/tools/HoeGenerator.js';
 import { SwordGenerator } from '../generators/tools/SwordGenerator.js';
+import { SpearGenerator } from '../generators/tools/SpearGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
@@ -14,12 +15,13 @@ export interface ToolCommandOptions {
   id: string;
   name: string;
   texture: string;
-  type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword';
+  type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword' | 'spear';
   material: string;
   durability?: string;
   damage?: string;
   efficiency?: string;
   enchantability?: string;
+  tier?: string; // Material tier for spear (e.g., "iron_tier", "diamond_tier")
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -74,7 +76,8 @@ export class ToolCommand {
         durability: options.durability ? parseInt(options.durability) : undefined,
         damage: options.damage ? parseInt(options.damage) : undefined,
         efficiency: options.efficiency ? parseInt(options.efficiency) : undefined,
-        enchantability: options.enchantability ? parseInt(options.enchantability) : undefined
+        enchantability: options.enchantability ? parseInt(options.enchantability) : undefined,
+        tier: options.tier
       };
 
       // Generate based on type
@@ -93,6 +96,9 @@ export class ToolCommand {
           break;
         case 'sword':
           new SwordGenerator(options.project).generate(config);
+          break;
+        case 'spear':
+          new SpearGenerator(options.project).generate(config);
           break;
       }
 

@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 import chalk from 'chalk';
 import { BlockCommand } from '../commands/BlockCommand.js';
 
@@ -14,7 +15,7 @@ export function registerBlockCommands(program: Command): void {
     .option('--explosion-resistance <value>', 'Explosion resistance', '6.0')
     .option('--requires-tool', 'Requires tool to mine')
     .option('--tool-tier <tier>', 'Minimum tool tier (stone/copper/iron/diamond/netherite)', 'stone')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .option('--dry-run', 'Preview changes without creating files')
     .action((options) => {
       try {

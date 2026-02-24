@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 import chalk from 'chalk';
 import { ArmorCommand } from '../commands/ArmorCommand.js';
 
@@ -15,7 +16,7 @@ export function registerArmorCommands(program: Command): void {
     .option('--durability-multiplier <value>', 'Durability multiplier', '1')
     .option('--protection-multiplier <value>', 'Protection multiplier', '1')
     .option('--enchantability <value>', 'Enchantability', '18')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .option('--dry-run', 'Preview changes without creating files')
     .action((options) => {
       try {

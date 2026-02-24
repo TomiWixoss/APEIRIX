@@ -79,6 +79,9 @@
     },
     "canneddogfood": {
       "textures": "textures/items/canneddogfood"
+    },
+    "bronze_spear": {
+      "textures": "textures/items/bronze_spear"
     }
   }
 }

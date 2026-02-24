@@ -1,12 +1,13 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { ToolCommand } from '../commands/ToolCommand.js';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 
 export function registerToolCommands(program: Command): void {
-  const toolTypes = ['pickaxe', 'axe', 'shovel', 'hoe', 'sword'];
+  const toolTypes = ['pickaxe', 'axe', 'shovel', 'hoe', 'sword', 'spear'];
   
   toolTypes.forEach(type => {
-    program
+    const cmd = program
       .command(`tool:${type}`)
       .description(`Tạo ${type} mới (KHÔNG tạo recipe)`)
       .requiredOption('-i, --id <id>', `${type} ID`)
@@ -17,9 +18,15 @@ export function registerToolCommands(program: Command): void {
       .option('--damage <value>', 'Damage')
       .option('--efficiency <value>', 'Efficiency', '6')
       .option('--enchantability <value>', 'Enchantability', '14')
-      .option('-p, --project <path>', 'Project root', process.cwd())
-      .option('--dry-run', 'Preview changes without creating files')
-      .action((options) => {
+      .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
+      .option('--dry-run', 'Preview changes without creating files');
+    
+    // Add tier option only for spear
+    if (type === 'spear') {
+      cmd.option('--tier <tier>', 'Material tier tag (e.g., iron_tier, diamond_tier)');
+    }
+    
+    cmd.action((options) => {
         try {
           const command = new ToolCommand();
           command.execute({ ...options, type });

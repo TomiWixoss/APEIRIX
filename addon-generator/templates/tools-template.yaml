@@ -55,6 +55,17 @@ tools:
     durability: 250
     damage: 6 # Sword có damage cao nhất
     enchantability: 14
+
+  # Spear - Weapon với tầm đánh xa
+  - id: example_spear
+    name: "Giáo Example"
+    type: spear
+    texture: ./path/to/spear.png
+    materialId: example_ingot
+    durability: 250
+    damage: 3 # Spear có damage thấp hơn sword
+    enchantability: 14
+    tier: iron_tier # Optional: Material tier tag (iron_tier, diamond_tier, etc.)
 # Ví dụ thực tế từ dự án (Bronze Tools):
 # tools:
 #   - id: bronze_pickaxe

@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { RecipeCommand } from '../commands/RecipeCommand.js';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 
 export function registerRecipeCommands(program: Command): void {
   // Shaped recipe
@@ -13,7 +14,7 @@ export function registerRecipeCommands(program: Command): void {
     .requiredOption('--result <item>', 'Result item ID')
     .option('--result-count <count>', 'Result count', '1')
     .option('--unlock <items>', 'Unlock items (comma separated)')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .action((options) => {
       try {
         const command = new RecipeCommand();
@@ -34,7 +35,7 @@ export function registerRecipeCommands(program: Command): void {
     .requiredOption('--result <item>', 'Result item ID')
     .option('--result-count <count>', 'Result count', '1')
     .option('--unlock <items>', 'Unlock items (comma separated)')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .action((options) => {
       try {
         const command = new RecipeCommand();
@@ -54,7 +55,7 @@ export function registerRecipeCommands(program: Command): void {
     .requiredOption('--input <item>', 'Input item ID')
     .requiredOption('--output <item>', 'Output item ID')
     .option('--tags <tags>', 'Tags (comma separated)', 'furnace,blast_furnace')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .action((options) => {
       try {
         const command = new RecipeCommand();

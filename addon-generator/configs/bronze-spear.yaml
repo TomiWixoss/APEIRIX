@@ -1,0 +1,31 @@
+# Bronze Spear - Giáo Đồng Thanh
+# Damage như iron (3) nhưng durability cao hơn (375)
+
+tools:
+  - id: bronze_spear
+    name: "Giáo Đồng Thanh"
+    type: spear
+    texture: ../AssetCreator/old/icons/bronze_spear.png
+    materialId: bronze_ingot
+    durability: 375
+    damage: 3
+    enchantability: 18
+    tier: bronze_tier
+
+recipes:
+  # Recipe hình chéo: 2 stick + bronze ingot
+  # Pattern:
+  #   I
+  #  S
+  # S
+  - id: bronze_spear
+    type: shaped
+    result: bronze_spear
+    count: 1
+    pattern:
+      - "  I"
+      - " S "
+      - "S  "
+    key:
+      I: bronze_ingot
+      S: stick

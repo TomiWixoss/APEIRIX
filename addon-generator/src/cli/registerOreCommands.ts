@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 import chalk from 'chalk';
 import { OreCommand } from '../commands/OreCommand.js';
 
@@ -16,7 +17,7 @@ export function registerOreCommands(program: Command): void {
     .option('--vein-size <size>', 'Vein size', '9')
     .option('--veins-per-chunk <count>', 'Veins per chunk', '20')
     .option('--tool-tier <tier>', 'Minimum tool tier', 'stone')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .option('--dry-run', 'Preview changes without creating files')
     .action((options) => {
       try {

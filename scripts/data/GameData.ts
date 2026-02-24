@@ -64,6 +64,12 @@ export class GameData {
       durability: 375
     });
 
+        ToolRegistry.register({
+      id: "apeirix:bronze_spear",
+      type: "spear",
+      durability: 375
+    });
+
     // Thêm tool mới ở đây...
   }
 

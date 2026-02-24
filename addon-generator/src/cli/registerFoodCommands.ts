@@ -1,4 +1,5 @@
 import { Command } from 'commander';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 import { FoodCommand } from '../commands/FoodCommand.js';
 
 export function registerFoodCommands(program: Command): void {
@@ -13,7 +14,7 @@ export function registerFoodCommands(program: Command): void {
     .option('--use-duration <number>', 'Use duration in seconds (default: 1.6)')
     .option('--can-always-eat', 'Có thể ăn khi đã no')
     .option('-c, --category <category>', 'Menu category (nature/equipment/items/construction)')
-    .option('-p, --project <path>', 'Đường dẫn project root', process.cwd())
+    .option('-p, --project <path>', 'Đường dẫn project root', DEFAULT_PROJECT_ROOT)
     .option('--dry-run', 'Preview changes without writing files')
     .action((options) => {
       try {

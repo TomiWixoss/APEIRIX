@@ -1,5 +1,6 @@
 import { FileManager } from '../../core/FileManager.js';
 import { join } from 'path';
+import { ToolRegistryHelper } from './ToolRegistryHelper.js';
 
 export interface PickaxeConfig {
   id: string;
@@ -89,38 +90,7 @@ export class PickaxeGenerator {
     FileManager.writeJSON(outputPath, itemData);
     console.log(`✅ Đã tạo: packs/BP/items/${config.id}.json`);
 
-    // Thêm vào ToolRegistry
-    this.addToToolRegistry(config, durability);
-  }
-
-  private addToToolRegistry(config: PickaxeConfig, durability: number): void {
-    const registryPath = join(this.projectRoot, 'scripts/data/tools/ToolRegistry.ts');
-    const content = FileManager.readText(registryPath);
-    
-    if (!content) {
-      console.log(`⚠️  Không tìm thấy ToolRegistry.ts`);
-      return;
-    }
-
-    const registerCode = `    ToolRegistry.register({
-      id: "apeirix:${config.id}",
-      type: "pickaxe",
-      durability: ${durability}
-    });`;
-
-    // Tìm vị trí insert
-    const insertMarker = 'static registerTools(): void {';
-    const insertIndex = content.indexOf(insertMarker);
-    
-    if (insertIndex === -1) {
-      console.log(`⚠️  Không tìm thấy registerTools() trong ToolRegistry.ts`);
-      return;
-    }
-
-    const insertPos = content.indexOf('\n', insertIndex) + 1;
-    const newContent = content.slice(0, insertPos) + registerCode + '\n' + content.slice(insertPos);
-    
-    FileManager.writeText(registryPath, newContent);
-    console.log(`✅ Đã thêm "${config.id}" vào ToolRegistry.ts`);
+    // Thêm vào GameData.ts
+    ToolRegistryHelper.addToGameData(this.projectRoot, config.id, 'pickaxe', durability);
   }
 }

@@ -2,6 +2,7 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import { BatchCommand } from '../commands/BatchCommand.js';
 import { HistoryManager } from '../core/HistoryManager.js';
+import { DEFAULT_PROJECT_ROOT } from './constants.js';
 
 export function registerUtilityCommands(program: Command): void {
   // Batch command
@@ -9,7 +10,7 @@ export function registerUtilityCommands(program: Command): void {
     .command('batch')
     .description('Tạo nhiều content từ config file (YAML/JSON)')
     .requiredOption('-f, --file <path>', 'Config file path')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .option('--dry-run', 'Preview changes without creating files')
     .action((options) => {
       try {
@@ -26,7 +27,7 @@ export function registerUtilityCommands(program: Command): void {
   program
     .command('undo')
     .description('Hoàn tác operation cuối cùng')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .action((options) => {
       try {
         const history = new HistoryManager(options.project);
@@ -44,7 +45,7 @@ export function registerUtilityCommands(program: Command): void {
     .description('Xem lịch sử operations')
     .option('-l, --limit <number>', 'Số lượng entries hiển thị', '10')
     .option('--clear', 'Xóa toàn bộ lịch sử')
-    .option('-p, --project <path>', 'Project root', process.cwd())
+    .option('-p, --project <path>', 'Project root', DEFAULT_PROJECT_ROOT)
     .action((options) => {
       try {
         const history = new HistoryManager(options.project);
