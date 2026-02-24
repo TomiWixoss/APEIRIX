@@ -64,6 +64,7 @@ export interface ToolConfig {
   durability?: number;
   damage?: number;
   efficiency?: number;
+  enchantability?: number;
 }
 
 export interface ArmorSetConfig {
@@ -75,6 +76,7 @@ export interface ArmorSetConfig {
   armorLayer2: string;
   durabilityMultiplier?: number;
   protectionMultiplier?: number;
+  enchantability?: number;
 }
 
 export interface RecipeConfig {
@@ -88,6 +90,7 @@ export interface RecipeConfig {
   unlock?: string[];
   input?: string;
   output?: string;
+  tags?: string[];
 }
 
 /**

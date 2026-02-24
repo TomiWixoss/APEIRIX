@@ -1,119 +1,274 @@
 # APEIRIX Addon Generator - Example Config
+# Ví dụ dựa trên dự án thực tế (Tin & Bronze)
 # Sử dụng: bun run dev batch -f example-config.yaml -p ..
 
-# Items
+# ===== ITEMS =====
 items:
-  - id: magic_stone
-    name: "Đá Ma Thuật"
-    texture: ./textures/magic_stone.png
+  # Raw Materials
+  - id: raw_tin
+    name: "Thiếc Thô"
+    texture: ./textures/raw_tin.png
     category: items
     stackSize: 64
 
-  - id: magic_dust
-    name: "Bụi Ma Thuật"
-    texture: ./textures/magic_dust.png
+  # Processed Materials
+  - id: tin_ingot
+    name: "Thỏi Thiếc"
+    texture: ./textures/tin_ingot.png
     category: items
     stackSize: 64
 
-# Blocks
-blocks:
-  - id: magic_block
-    name: "Khối Ma Thuật"
-    texture: ./textures/magic_block.png
-    category: construction
-    destroyTime: 5.0
-    explosionResistance: 6.0
-    requiresTool: true
-    toolTier: stone
+  - id: tin_nugget
+    name: "Mảnh Thiếc"
+    texture: ./textures/tin_nugget.png
+    category: items
+    stackSize: 64
 
-# Ores (với world generation)
+  - id: bronze_ingot
+    name: "Thỏi Đồng Thanh"
+    texture: ./textures/bronze_ingot.png
+    category: items
+    stackSize: 64
+
+  - id: bronze_nugget
+    name: "Hạt Đồng Thanh"
+    texture: ./textures/bronze_nugget.png
+    category: items
+    stackSize: 64
+
+# ===== ORES WITH WORLD GEN =====
 ores:
-  - id: copper_ore
-    name: "Quặng Đồng"
-    texture: ./textures/copper_ore.png
-    deepslateTexture: ./textures/deepslate_copper_ore.png
-    rawItemId: raw_copper
+  - id: tin_ore
+    name: "Quặng Thiếc"
+    texture: ./textures/tin_ore.png
+    deepslateTexture: ./textures/deepslate_tin_ore.png
+    rawItemId: raw_tin
     minY: 0
     maxY: 64
     veinSize: 9
     veinsPerChunk: 20
     toolTier: stone
 
-# Tools (KHÔNG tạo recipe)
+# ===== BLOCKS =====
+blocks:
+  - id: tin_block
+    name: "Khối Thiếc"
+    texture: ./textures/tin_block.png
+    category: construction
+    destroyTime: 16.65
+    explosionResistance: 6.0
+    requiresTool: true
+    toolTier: stone
+
+  - id: bronze_block
+    name: "Khối Đồng Thanh"
+    texture: ./textures/bronze_block.png
+    category: construction
+    destroyTime: 16.65
+    explosionResistance: 6.0
+    requiresTool: true
+    toolTier: stone
+
+# ===== TOOLS (KHÔNG tạo recipes) =====
 tools:
-  - id: copper_pickaxe
-    name: "Cuốc Đồng"
+  - id: bronze_pickaxe
+    name: "Cúp Đồng Thanh"
     type: pickaxe
-    texture: ./textures/copper_pickaxe.png
-    materialId: copper_ingot
-    durability: 250
+    texture: ./textures/bronze_pickaxe.png
+    materialId: bronze_ingot
+    durability: 375
     damage: 4
     efficiency: 6
+    enchantability: 18
 
-  - id: copper_axe
-    name: "Rìu Đồng"
+  - id: bronze_axe
+    name: "Rìu Đồng Thanh"
     type: axe
-    texture: ./textures/copper_axe.png
-    materialId: copper_ingot
-    durability: 250
+    texture: ./textures/bronze_axe.png
+    materialId: bronze_ingot
+    durability: 375
     damage: 5
     efficiency: 6
+    enchantability: 18
 
-  - id: copper_sword
-    name: "Kiếm Đồng"
+  - id: bronze_shovel
+    name: "Xẻng Đồng Thanh"
+    type: shovel
+    texture: ./textures/bronze_shovel.png
+    materialId: bronze_ingot
+    durability: 375
+    damage: 3
+    efficiency: 6
+    enchantability: 18
+
+  - id: bronze_hoe
+    name: "Cuốc Đồng Thanh"
+    type: hoe
+    texture: ./textures/bronze_hoe.png
+    materialId: bronze_ingot
+    durability: 375
+    damage: 4
+    efficiency: 6
+    enchantability: 18
+
+  - id: bronze_sword
+    name: "Kiếm Đồng Thanh"
     type: sword
-    texture: ./textures/copper_sword.png
-    materialId: copper_ingot
-    durability: 250
+    texture: ./textures/bronze_sword.png
+    materialId: bronze_ingot
+    durability: 375
     damage: 6
+    enchantability: 18
 
-# Armor Sets (KHÔNG tạo recipes)
+# ===== ARMOR (KHÔNG tạo recipes) =====
 armor:
-  - baseName: copper
-    displayNamePrefix: "Giáp Đồng"
-    materialId: copper_ingot
+  - baseName: bronze
+    displayNamePrefix: "Đồng Thanh"
+    materialId: bronze_ingot
     iconTexturesPath: ./textures/armor/
-    armorLayer1: ./textures/armor/copper_layer_1.png
-    armorLayer2: ./textures/armor/copper_layer_2.png
+    armorLayer1: ./textures/armor/bronze_layer_1.png
+    armorLayer2: ./textures/armor/bronze_layer_2.png
     durabilityMultiplier: 1.0
     protectionMultiplier: 1.0
+    enchantability: 18
 
-# Recipes
+# ===== RECIPES =====
 recipes:
-  # Shaped recipes
-  - type: shaped
-    id: copper_ingot_from_nuggets
-    pattern: ["###", "###", "###"]
-    key:
-      "#": copper_nugget
-    result: copper_ingot
-    unlock: [copper_nugget]
-
-  - type: shaped
-    id: copper_block_from_ingots
-    pattern: ["###", "###", "###"]
-    key:
-      "#": copper_ingot
-    result: copper_block
-    unlock: [copper_ingot]
-
-  # Shapeless recipes
-  - type: shapeless
-    id: copper_nugget_from_ingot
-    ingredients: [copper_ingot]
-    result: copper_nugget
-    resultCount: 9
-    unlock: [copper_ingot]
-
-  - type: shapeless
-    id: copper_ingot_from_block
-    ingredients: [copper_block]
-    result: copper_ingot
-    resultCount: 9
-    unlock: [copper_block]
-
-  # Smelting recipes
+  # Smelting - Raw Tin -> Tin Ingot
   - type: smelting
-    id: copper_ingot_from_smelting
-    input: raw_copper
-    output: copper_ingot
+    id: tin_ingot_from_smelting
+    input: raw_tin
+    output: tin_ingot
+    tags: [furnace, blast_furnace]
+
+  # Tin: Nugget <-> Ingot
+  - type: shaped
+    id: tin_ingot_from_nuggets
+    pattern: ["###", "###", "###"]
+    key: { "#": "tin_nugget" }
+    result: tin_ingot
+    unlock: [tin_nugget]
+
+  - type: shapeless
+    id: tin_nugget_from_ingot
+    ingredients: [tin_ingot]
+    result: tin_nugget
+    resultCount: 9
+    unlock: [tin_ingot]
+
+  # Tin: Ingot <-> Block
+  - type: shaped
+    id: tin_block_from_ingots
+    pattern: ["###", "###", "###"]
+    key: { "#": "tin_ingot" }
+    result: tin_block
+    unlock: [tin_ingot]
+
+  - type: shapeless
+    id: tin_ingot_from_block
+    ingredients: [tin_block]
+    result: tin_ingot
+    resultCount: 9
+    unlock: [tin_block]
+
+  # Bronze: Alloy Recipe (Copper + Tin -> Bronze)
+  - type: shapeless
+    id: bronze_ingot_from_copper_tin
+    ingredients: [minecraft:copper_ingot, tin_ingot]
+    result: bronze_ingot
+    unlock: [minecraft:copper_ingot, tin_ingot]
+
+  # Bronze: Nugget <-> Ingot
+  - type: shaped
+    id: bronze_ingot_from_nuggets
+    pattern: ["###", "###", "###"]
+    key: { "#": "bronze_nugget" }
+    result: bronze_ingot
+    unlock: [bronze_nugget]
+
+  - type: shapeless
+    id: bronze_nugget_from_ingot
+    ingredients: [bronze_ingot]
+    result: bronze_nugget
+    resultCount: 9
+    unlock: [bronze_ingot]
+
+  # Bronze: Ingot <-> Block
+  - type: shaped
+    id: bronze_block_from_ingots
+    pattern: ["###", "###", "###"]
+    key: { "#": "bronze_ingot" }
+    result: bronze_block
+    unlock: [bronze_ingot]
+
+  - type: shapeless
+    id: bronze_ingot_from_block
+    ingredients: [bronze_block]
+    result: bronze_ingot
+    resultCount: 9
+    unlock: [bronze_block]
+
+  # Bronze Tools
+  - type: shaped
+    id: bronze_pickaxe
+    pattern: ["###", " S ", " S "]
+    key: { "#": "bronze_ingot", "S": "minecraft:stick" }
+    result: bronze_pickaxe
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_axe
+    pattern: ["## ", "#S ", " S "]
+    key: { "#": "bronze_ingot", "S": "minecraft:stick" }
+    result: bronze_axe
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_shovel
+    pattern: [" # ", " S ", " S "]
+    key: { "#": "bronze_ingot", "S": "minecraft:stick" }
+    result: bronze_shovel
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_hoe
+    pattern: ["## ", " S ", " S "]
+    key: { "#": "bronze_ingot", "S": "minecraft:stick" }
+    result: bronze_hoe
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_sword
+    pattern: [" # ", " # ", " S "]
+    key: { "#": "bronze_ingot", "S": "minecraft:stick" }
+    result: bronze_sword
+    unlock: [bronze_ingot]
+
+  # Bronze Armor
+  - type: shaped
+    id: bronze_helmet
+    pattern: ["###", "# #", "   "]
+    key: { "#": "bronze_ingot" }
+    result: bronze_helmet
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_chestplate
+    pattern: ["# #", "###", "###"]
+    key: { "#": "bronze_ingot" }
+    result: bronze_chestplate
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_leggings
+    pattern: ["###", "# #", "# #"]
+    key: { "#": "bronze_ingot" }
+    result: bronze_leggings
+    unlock: [bronze_ingot]
+
+  - type: shaped
+    id: bronze_boots
+    pattern: ["   ", "# #", "# #"]
+    key: { "#": "bronze_ingot" }
+    result: bronze_boots
+    unlock: [bronze_ingot]

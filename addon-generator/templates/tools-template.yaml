@@ -1,0 +1,112 @@
+# Template: Tools (Pickaxe, Axe, Shovel, Hoe, Sword)
+# Tạo tools KHÔNG tạo recipes (tạo recipes riêng)
+
+tools:
+  # Pickaxe - Đào stone, metal, rock
+  - id: example_pickaxe
+    name: "Cuốc Example"
+    type: pickaxe
+    texture: ./path/to/pickaxe.png
+    materialId: example_ingot # Material để repair
+    durability: 250 # Durability (default: 250)
+    damage: 4 # Attack damage (default: 4)
+    efficiency: 6 # Mining speed (default: 6)
+    enchantability: 14 # Enchantability (default: 14)
+
+  # Axe - Chặt wood, log, pumpkin
+  - id: example_axe
+    name: "Rìu Example"
+    type: axe
+    texture: ./path/to/axe.png
+    materialId: example_ingot
+    durability: 250
+    damage: 5 # Axe có damage cao hơn
+    efficiency: 6
+    enchantability: 14
+
+  # Shovel - Đào dirt, sand, gravel
+  - id: example_shovel
+    name: "Xẻng Example"
+    type: shovel
+    texture: ./path/to/shovel.png
+    materialId: example_ingot
+    durability: 250
+    damage: 3 # Shovel có damage thấp
+    efficiency: 6
+    enchantability: 14
+
+  # Hoe - Đào plant, crop, leaves
+  - id: example_hoe
+    name: "Cuốc Example"
+    type: hoe
+    texture: ./path/to/hoe.png
+    materialId: example_ingot
+    durability: 250
+    damage: 4
+    efficiency: 6
+    enchantability: 14
+
+  # Sword - Weapon
+  - id: example_sword
+    name: "Kiếm Example"
+    type: sword
+    texture: ./path/to/sword.png
+    materialId: example_ingot
+    durability: 250
+    damage: 6 # Sword có damage cao nhất
+    enchantability: 14
+# Ví dụ thực tế từ dự án (Bronze Tools):
+# tools:
+#   - id: bronze_pickaxe
+#     name: "Cúp Đồng Thanh"
+#     type: pickaxe
+#     texture: ./textures/bronze_pickaxe.png
+#     materialId: bronze_ingot
+#     durability: 375
+#     damage: 4
+#     efficiency: 6
+#     enchantability: 18
+#
+#   - id: bronze_axe
+#     name: "Rìu Đồng Thanh"
+#     type: axe
+#     texture: ./textures/bronze_axe.png
+#     materialId: bronze_ingot
+#     durability: 375
+#     damage: 5
+#     efficiency: 6
+#     enchantability: 18
+#
+#   - id: bronze_shovel
+#     name: "Xẻng Đồng Thanh"
+#     type: shovel
+#     texture: ./textures/bronze_shovel.png
+#     materialId: bronze_ingot
+#     durability: 375
+#     damage: 3
+#     efficiency: 6
+#     enchantability: 18
+#
+#   - id: bronze_hoe
+#     name: "Cuốc Đồng Thanh"
+#     type: hoe
+#     texture: ./textures/bronze_hoe.png
+#     materialId: bronze_ingot
+#     durability: 375
+#     damage: 4
+#     efficiency: 6
+#     enchantability: 18
+#
+#   - id: bronze_sword
+#     name: "Kiếm Đồng Thanh"
+#     type: sword
+#     texture: ./textures/bronze_sword.png
+#     materialId: bronze_ingot
+#     durability: 375
+#     damage: 6
+#     enchantability: 18
+
+# Lưu ý:
+# - Tools KHÔNG tự động tạo recipes
+# - Tạo recipes riêng bằng recipe:shaped command
+# - Tools tự động đăng ký vào ToolRegistry.ts cho durability tracking

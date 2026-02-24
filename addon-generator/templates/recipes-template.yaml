@@ -1,0 +1,164 @@
+# Template: Recipes (Shaped, Shapeless, Smelting)
+
+recipes:
+  # ===== SHAPED RECIPES (có pattern) =====
+
+  # 9 nuggets -> 1 ingot
+  - type: shaped
+    id: example_ingot_from_nuggets
+    pattern: ["###", "###", "###"]
+    key:
+      "#": example_nugget
+    result: example_ingot
+    unlock: [example_nugget]
+
+  # 9 ingots -> 1 block
+  - type: shaped
+    id: example_block_from_ingots
+    pattern: ["###", "###", "###"]
+    key:
+      "#": example_ingot
+    result: example_block
+    unlock: [example_ingot]
+
+  # Pickaxe recipe
+  - type: shaped
+    id: example_pickaxe
+    pattern: ["###", " S ", " S "]
+    key:
+      "#": example_ingot
+      "S": minecraft:stick
+    result: example_pickaxe
+    unlock: [example_ingot]
+
+  # Axe recipe
+  - type: shaped
+    id: example_axe
+    pattern: ["## ", "#S ", " S "]
+    key:
+      "#": example_ingot
+      "S": minecraft:stick
+    result: example_axe
+    unlock: [example_ingot]
+
+  # Shovel recipe
+  - type: shaped
+    id: example_shovel
+    pattern: [" # ", " S ", " S "]
+    key:
+      "#": example_ingot
+      "S": minecraft:stick
+    result: example_shovel
+    unlock: [example_ingot]
+
+  # Hoe recipe
+  - type: shaped
+    id: example_hoe
+    pattern: ["## ", " S ", " S "]
+    key:
+      "#": example_ingot
+      "S": minecraft:stick
+    result: example_hoe
+    unlock: [example_ingot]
+
+  # Sword recipe
+  - type: shaped
+    id: example_sword
+    pattern: [" # ", " # ", " S "]
+    key:
+      "#": example_ingot
+      "S": minecraft:stick
+    result: example_sword
+    unlock: [example_ingot]
+
+  # Helmet recipe
+  - type: shaped
+    id: example_helmet
+    pattern: ["###", "# #", "   "]
+    key:
+      "#": example_ingot
+    result: example_helmet
+    unlock: [example_ingot]
+
+  # Chestplate recipe
+  - type: shaped
+    id: example_chestplate
+    pattern: ["# #", "###", "###"]
+    key:
+      "#": example_ingot
+    result: example_chestplate
+    unlock: [example_ingot]
+
+  # Leggings recipe
+  - type: shaped
+    id: example_leggings
+    pattern: ["###", "# #", "# #"]
+    key:
+      "#": example_ingot
+    result: example_leggings
+    unlock: [example_ingot]
+
+  # Boots recipe
+  - type: shaped
+    id: example_boots
+    pattern: ["   ", "# #", "# #"]
+    key:
+      "#": example_ingot
+    result: example_boots
+    unlock: [example_ingot]
+
+  # ===== SHAPELESS RECIPES (không có pattern) =====
+
+  # 1 ingot -> 9 nuggets
+  - type: shapeless
+    id: example_nugget_from_ingot
+    ingredients: [example_ingot]
+    result: example_nugget
+    resultCount: 9
+    unlock: [example_ingot]
+
+  # 1 block -> 9 ingots
+  - type: shapeless
+    id: example_ingot_from_block
+    ingredients: [example_block]
+    result: example_ingot
+    resultCount: 9
+    unlock: [example_block]
+
+  # Alloy recipe (2 materials -> 1 result)
+  - type: shapeless
+    id: bronze_ingot_from_copper_tin
+    ingredients: [minecraft:copper_ingot, example_ingot]
+    result: bronze_ingot
+    unlock: [minecraft:copper_ingot, example_ingot]
+
+  # ===== SMELTING RECIPES =====
+
+  # Raw ore -> Ingot (furnace + blast furnace)
+  - type: smelting
+    id: example_ingot_from_smelting
+    input: raw_example
+    output: example_ingot
+    tags: [furnace, blast_furnace]
+
+  # Ore block -> Ingot (furnace)
+  - type: smelting
+    id: example_ingot_from_ore_smelting
+    input: example_ore
+    output: example_ingot
+    tags: [furnace]
+
+  # Deepslate ore -> Ingot (furnace)
+  - type: smelting
+    id: example_ingot_from_deepslate_ore_smelting
+    input: deepslate_example_ore
+    output: example_ingot
+    tags: [furnace]
+# Ví dụ thực tế từ dự án:
+# Xem packs/BP/recipes/ để biết thêm chi tiết
+
+# Lưu ý:
+# - Pattern dùng 3 dòng, mỗi dòng 3 ký tự
+# - Key map ký tự trong pattern với item ID
+# - Unlock là danh sách items để unlock recipe trong recipe book
+# - Tags cho smelting: furnace, blast_furnace, smoker, campfire, soul_campfire

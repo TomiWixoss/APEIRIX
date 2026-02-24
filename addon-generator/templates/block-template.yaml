@@ -1,0 +1,32 @@
+# Template: Block
+# Tạo block với loot table
+
+blocks:
+  - id: example_block # ID của block (lowercase, underscore)
+    name: "Tên Block" # Tên hiển thị
+    texture: ./path/to/texture.png # Đường dẫn texture PNG
+    category: construction # Menu category: construction, nature, equipment, items
+    destroyTime: 16.65 # Thời gian phá (default: 16.65)
+    explosionResistance: 6.0 # Explosion resistance (default: 6.0)
+    requiresTool: true # Có cần tool để mine không
+    toolTier: stone # Tool tier tối thiểu: stone, copper, iron, diamond, netherite
+
+# Ví dụ thực tế từ dự án:
+# blocks:
+#   - id: tin_block
+#     name: "Khối Thiếc"
+#     texture: ./textures/tin_block.png
+#     category: construction
+#     destroyTime: 16.65
+#     explosionResistance: 6.0
+#     requiresTool: true
+#     toolTier: stone
+#
+#   - id: bronze_block
+#     name: "Khối Đồng Thanh"
+#     texture: ./textures/bronze_block.png
+#     category: construction
+#     destroyTime: 16.65
+#     explosionResistance: 6.0
+#     requiresTool: true
+#     toolTier: stone

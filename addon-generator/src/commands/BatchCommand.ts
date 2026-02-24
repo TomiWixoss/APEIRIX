@@ -1,4 +1,4 @@
-import { ConfigLoader, ContentConfig } from '../core/ConfigLoader.js';
+import { ConfigLoader } from '../core/ConfigLoader.js';
 import { ItemCommand } from './ItemCommand.js';
 import { BlockCommand } from './BlockCommand.js';
 import { OreCommand } from './OreCommand.js';
@@ -171,6 +171,7 @@ export class BatchCommand {
             durability: tool.durability?.toString(),
             damage: tool.damage?.toString(),
             efficiency: tool.efficiency?.toString(),
+            enchantability: tool.enchantability?.toString(),
             project: options.project,
             dryRun: false,
             skipHistory: true
@@ -211,6 +212,7 @@ export class BatchCommand {
             layer2: armor.armorLayer2,
             durabilityMultiplier: armor.durabilityMultiplier?.toString(),
             protectionMultiplier: armor.protectionMultiplier?.toString(),
+            enchantability: armor.enchantability?.toString(),
             project: options.project,
             dryRun: false,
             skipHistory: true
@@ -256,6 +258,7 @@ export class BatchCommand {
               id: recipe.id,
               input: recipe.input!,
               output: recipe.output!,
+              tags: recipe.tags?.join(','),
               project: options.project
             });
           }

@@ -1,0 +1,36 @@
+# Template: Ore với World Generation
+# Tạo ore block + deepslate variant + world gen + Fortune support
+
+ores:
+  - id: example_ore # ID của ore (lowercase, underscore)
+    name: "Quặng Example" # Tên hiển thị
+    texture: ./path/to/ore.png # Texture cho normal ore
+    deepslateTexture: ./path/to/deepslate.png # Texture cho deepslate ore (optional)
+    rawItemId: raw_example # ID của raw item drop từ ore
+
+    # World Generation Settings
+    minY: 0 # Y level tối thiểu (default: 0)
+    maxY: 64 # Y level tối đa (default: 64)
+    veinSize: 9 # Số block trong 1 vein (default: 9)
+    veinsPerChunk: 20 # Số vein mỗi chunk (default: 20)
+
+    # Mining Settings
+    toolTier: stone # Tool tier tối thiểu: stone, copper, iron, diamond, netherite
+
+# Ví dụ thực tế từ dự án:
+# ores:
+#   - id: tin_ore
+#     name: "Quặng Thiếc"
+#     texture: ./textures/tin_ore.png
+#     deepslateTexture: ./textures/deepslate_tin_ore.png
+#     rawItemId: raw_tin
+#     minY: 0
+#     maxY: 64
+#     veinSize: 9
+#     veinsPerChunk: 20
+#     toolTier: stone
+
+# Lưu ý:
+# - Ore tự động tạo feature và feature_rule cho world generation
+# - Ore tự động đăng ký vào OreRegistry.ts cho Fortune enchantment support
+# - Deepslate variant tự động tạo nếu có deepslateTexture

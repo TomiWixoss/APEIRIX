@@ -1,0 +1,43 @@
+# Template: Armor Set (4 pieces)
+# Tạo full armor set KHÔNG tạo recipes (tạo recipes riêng)
+
+armor:
+  - baseName: example # Base name (e.g., bronze, copper, iron)
+    displayNamePrefix: "Giáp Example" # Display name prefix (e.g., "Giáp Đồng Thanh")
+    materialId: example_ingot # Material để repair
+
+    # Textures
+    iconTexturesPath: ./textures/armor/ # Folder chứa 4 icon textures
+    # Cần có 4 files: example_helmet.png, example_chestplate.png, example_leggings.png, example_boots.png
+
+    armorLayer1: ./textures/armor/example_layer_1.png # Layer 1 (helmet, chestplate, boots)
+    armorLayer2: ./textures/armor/example_layer_2.png # Layer 2 (leggings)
+
+    # Stats (optional)
+    durabilityMultiplier: 1.0 # Durability multiplier (default: 1.0)
+    protectionMultiplier: 1.0 # Protection multiplier (default: 1.0)
+    enchantability: 18 # Enchantability (default: 18)
+
+# Ví dụ thực tế từ dự án (Bronze Armor):
+# armor:
+#   - baseName: bronze
+#     displayNamePrefix: "Giáp Đồng Thanh"
+#     materialId: bronze_ingot
+#     iconTexturesPath: ./textures/armor/
+#     armorLayer1: ./textures/armor/bronze_layer_1.png
+#     armorLayer2: ./textures/armor/bronze_layer_2.png
+#     durabilityMultiplier: 1.0
+#     protectionMultiplier: 1.0
+#     enchantability: 18
+
+# Armor Stats (default):
+# - Helmet:     durability=220, protection=2
+# - Chestplate: durability=320, protection=5
+# - Leggings:   durability=300, protection=4
+# - Boots:      durability=260, protection=1
+
+# Lưu ý:
+# - Armor KHÔNG tự động tạo recipes
+# - Tạo recipes riêng bằng recipe:shaped command
+# - Armor tự động tạo attachables cho rendering
+# - Armor có thể trim và enchant

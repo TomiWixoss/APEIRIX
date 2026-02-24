@@ -1,0 +1,217 @@
+# Template: Complete Material Set
+# Tạo toàn bộ material set từ ore đến tools/armor
+
+# ===== ITEMS =====
+items:
+  # Raw Material
+  - id: raw_example
+    name: "Example Thô"
+    texture: ./textures/raw_example.png
+    category: items
+    stackSize: 64
+
+  # Processed Materials
+  - id: example_ingot
+    name: "Thỏi Example"
+    texture: ./textures/example_ingot.png
+    category: items
+    stackSize: 64
+
+  - id: example_nugget
+    name: "Mảnh Example"
+    texture: ./textures/example_nugget.png
+    category: items
+    stackSize: 64
+
+# ===== ORES WITH WORLD GEN =====
+ores:
+  - id: example_ore
+    name: "Quặng Example"
+    texture: ./textures/example_ore.png
+    deepslateTexture: ./textures/deepslate_example_ore.png
+    rawItemId: raw_example
+    minY: 0
+    maxY: 64
+    veinSize: 9
+    veinsPerChunk: 20
+    toolTier: stone
+
+# ===== BLOCKS =====
+blocks:
+  - id: example_block
+    name: "Khối Example"
+    texture: ./textures/example_block.png
+    category: construction
+    destroyTime: 16.65
+    explosionResistance: 6.0
+    requiresTool: true
+    toolTier: stone
+
+# ===== TOOLS =====
+tools:
+  - id: example_pickaxe
+    name: "Cuốc Example"
+    type: pickaxe
+    texture: ./textures/example_pickaxe.png
+    materialId: example_ingot
+    durability: 250
+    damage: 4
+    efficiency: 6
+    enchantability: 14
+
+  - id: example_axe
+    name: "Rìu Example"
+    type: axe
+    texture: ./textures/example_axe.png
+    materialId: example_ingot
+    durability: 250
+    damage: 5
+    efficiency: 6
+    enchantability: 14
+
+  - id: example_shovel
+    name: "Xẻng Example"
+    type: shovel
+    texture: ./textures/example_shovel.png
+    materialId: example_ingot
+    durability: 250
+    damage: 3
+    efficiency: 6
+    enchantability: 14
+
+  - id: example_hoe
+    name: "Cuốc Example"
+    type: hoe
+    texture: ./textures/example_hoe.png
+    materialId: example_ingot
+    durability: 250
+    damage: 4
+    efficiency: 6
+    enchantability: 14
+
+  - id: example_sword
+    name: "Kiếm Example"
+    type: sword
+    texture: ./textures/example_sword.png
+    materialId: example_ingot
+    durability: 250
+    damage: 6
+    enchantability: 14
+
+# ===== ARMOR =====
+armor:
+  - baseName: example
+    displayNamePrefix: "Giáp Example"
+    materialId: example_ingot
+    iconTexturesPath: ./textures/armor/
+    armorLayer1: ./textures/armor/example_layer_1.png
+    armorLayer2: ./textures/armor/example_layer_2.png
+    durabilityMultiplier: 1.0
+    protectionMultiplier: 1.0
+    enchantability: 18
+
+# ===== RECIPES =====
+recipes:
+  # Smelting
+  - type: smelting
+    id: example_ingot_from_smelting
+    input: raw_example
+    output: example_ingot
+    tags: [furnace, blast_furnace]
+
+  # Nugget <-> Ingot
+  - type: shaped
+    id: example_ingot_from_nuggets
+    pattern: ["###", "###", "###"]
+    key: { "#": "example_nugget" }
+    result: example_ingot
+    unlock: [example_nugget]
+
+  - type: shapeless
+    id: example_nugget_from_ingot
+    ingredients: [example_ingot]
+    result: example_nugget
+    resultCount: 9
+    unlock: [example_ingot]
+
+  # Ingot <-> Block
+  - type: shaped
+    id: example_block_from_ingots
+    pattern: ["###", "###", "###"]
+    key: { "#": "example_ingot" }
+    result: example_block
+    unlock: [example_ingot]
+
+  - type: shapeless
+    id: example_ingot_from_block
+    ingredients: [example_block]
+    result: example_ingot
+    resultCount: 9
+    unlock: [example_block]
+
+  # Tools
+  - type: shaped
+    id: example_pickaxe
+    pattern: ["###", " S ", " S "]
+    key: { "#": "example_ingot", "S": "minecraft:stick" }
+    result: example_pickaxe
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_axe
+    pattern: ["## ", "#S ", " S "]
+    key: { "#": "example_ingot", "S": "minecraft:stick" }
+    result: example_axe
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_shovel
+    pattern: [" # ", " S ", " S "]
+    key: { "#": "example_ingot", "S": "minecraft:stick" }
+    result: example_shovel
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_hoe
+    pattern: ["## ", " S ", " S "]
+    key: { "#": "example_ingot", "S": "minecraft:stick" }
+    result: example_hoe
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_sword
+    pattern: [" # ", " # ", " S "]
+    key: { "#": "example_ingot", "S": "minecraft:stick" }
+    result: example_sword
+    unlock: [example_ingot]
+
+  # Armor
+  - type: shaped
+    id: example_helmet
+    pattern: ["###", "# #", "   "]
+    key: { "#": "example_ingot" }
+    result: example_helmet
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_chestplate
+    pattern: ["# #", "###", "###"]
+    key: { "#": "example_ingot" }
+    result: example_chestplate
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_leggings
+    pattern: ["###", "# #", "# #"]
+    key: { "#": "example_ingot" }
+    result: example_leggings
+    unlock: [example_ingot]
+
+  - type: shaped
+    id: example_boots
+    pattern: ["   ", "# #", "# #"]
+    key: { "#": "example_ingot" }
+    result: example_boots
+    unlock: [example_ingot]
+# Sử dụng:
+# bun run dev batch -f complete-material-set-template.yaml -p ..
