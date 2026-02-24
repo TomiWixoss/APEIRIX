@@ -12,6 +12,7 @@ export interface ShapedRecipeConfig {
   key: Record<string, string>;
   result: string;
   resultCount?: number;
+  resultExtra?: string[]; // Trả về thêm items (như bucket)
   unlock?: string[];
 }
 
@@ -43,7 +44,7 @@ export class RecipeGenerator {
       key[symbol] = { item: this.formatItem(item) };
     }
 
-    const recipe = {
+    const recipeData: any = {
       format_version: "1.21.0",
       "minecraft:recipe_shaped": {
         description: {
@@ -60,8 +61,16 @@ export class RecipeGenerator {
       }
     };
 
+    // Thêm resultExtra nếu có (trả về thêm items như bucket)
+    if (config.resultExtra && config.resultExtra.length > 0) {
+      recipeData["minecraft:recipe_shaped"].result = [
+        recipeData["minecraft:recipe_shaped"].result,
+        ...config.resultExtra.map(item => ({ item: this.formatItem(item) }))
+      ];
+    }
+
     const path = join(this.projectRoot, `packs/BP/recipes/${config.id}.json`);
-    FileManager.writeJSON(path, recipe);
+    FileManager.writeJSON(path, recipeData);
     console.log(`✅ Đã tạo shaped recipe: ${config.id}`);
   }
 

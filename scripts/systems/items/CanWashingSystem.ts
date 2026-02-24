@@ -3,7 +3,7 @@
  * Khi candirty chạm nước (water block hoặc cauldron) thì tự động chuyển thành canempty
  */
 
-import { world, system, ItemStack, EntityInventoryComponent } from "@minecraft/server";
+import { world, system, ItemStack } from "@minecraft/server";
 
 export class CanWashingSystem {
     private static readonly CHECK_INTERVAL = 10; // Check mỗi 10 ticks (0.5 giây)
@@ -41,9 +41,26 @@ export class CanWashingSystem {
                         if (!blockBelow) continue;
                         
                         const blockTypeId = blockBelow.typeId;
+                        
+                        // Check water blocks
                         const isWater = blockTypeId === "minecraft:water" || 
                                        blockTypeId === "minecraft:flowing_water";
-                        const isCauldronWithWater = blockTypeId === "minecraft:water_cauldron";
+                        
+                        // Check cauldron - cần check cả typeId và permutation
+                        let isCauldronWithWater = false;
+                        if (blockTypeId === "minecraft:water_cauldron") {
+                            isCauldronWithWater = true;
+                        } else if (blockTypeId === "minecraft:cauldron") {
+                            // Check permutation states
+                            const permutation = blockBelow.permutation;
+                            const fillLevel = permutation.getState("fill_level");
+                            const cauldronLiquid = permutation.getState("cauldron_liquid");
+                            
+                            // Cauldron có nước nếu fill_level > 0 và liquid là water
+                            if (fillLevel && fillLevel > 0 && cauldronLiquid === "water") {
+                                isCauldronWithWater = true;
+                            }
+                        }
                         
                         if (isWater || isCauldronWithWater) {
                             // Chuyển candirty thành canempty
@@ -56,13 +73,19 @@ export class CanWashingSystem {
                             const cleanCan = new ItemStack("apeirix:canempty", amount);
                             dimension.spawnItem(cleanCan, location);
                             
-                            // Play sound và particle
+                            // Play sound
                             dimension.playSound("cauldron.takewater", location, { volume: 0.5 });
-                            dimension.spawnParticle("minecraft:water_splash_particle", {
-                                x: location.x,
-                                y: location.y + 0.2,
-                                z: location.z
-                            });
+                            
+                            // Spawn particle - dùng bubble thay vì water_splash
+                            try {
+                                dimension.spawnParticle("minecraft:water_evaporation_bucket_emitter", {
+                                    x: location.x,
+                                    y: location.y + 0.2,
+                                    z: location.z
+                                });
+                            } catch {
+                                // Fallback nếu particle không tồn tại
+                            }
                         }
                     } catch (error) {
                         // Ignore errors (item might have been picked up)

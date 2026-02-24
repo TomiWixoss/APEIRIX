@@ -11,10 +11,13 @@ recipes:
     resultCount: 4
     unlock: [tin_ingot]
 
-  # Rửa vỏ đồ hộp bẩn (với water bucket)
-  - type: shapeless
+  # Rửa vỏ đồ hộp bẩn (với water bucket) - SHAPED để trả về bucket
+  - type: shaped
     id: candirty_to_canempty
-    ingredients: [candirty, minecraft:water_bucket]
+    pattern: ["C", "W"]
+    key:
+      C: candirty
+      W: minecraft:water_bucket
     result: canempty
     resultExtra: [minecraft:bucket]
     unlock: [candirty]

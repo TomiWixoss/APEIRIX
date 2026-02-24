@@ -1,20 +1,24 @@
 {
   "format_version": "1.21.0",
-  "minecraft:recipe_shapeless": {
+  "minecraft:recipe_shaped": {
     "description": {
       "identifier": "apeirix:candirty_to_canempty"
     },
     "tags": [
       "crafting_table"
     ],
-    "ingredients": [
-      {
+    "pattern": [
+      "C",
+      "W"
+    ],
+    "key": {
+      "C": {
         "item": "apeirix:candirty"
       },
-      {
+      "W": {
         "item": "minecraft:water_bucket"
       }
-    ],
+    },
     "result": [
       {
         "item": "apeirix:canempty"

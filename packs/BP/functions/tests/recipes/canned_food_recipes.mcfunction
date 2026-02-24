@@ -25,7 +25,7 @@ give @s minecraft:bone 1
 
 # Recipe List:
 # 1. canempty (shaped) -> canempty x4
-# 2. candirty_to_canempty (shapeless) -> canempty
+# 2. candirty_to_canempty (shaped) -> canempty
 # 3. cannedmushroomsoup (shapeless) -> cannedmushroomsoup
 # 4. cannedbeets (shapeless) -> cannedbeets
 # 5. canned_food (shapeless) -> canned_food

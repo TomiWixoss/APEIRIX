@@ -8,6 +8,7 @@ export interface ShapedOptions {
   key: string;
   result: string;
   resultCount?: string;
+  resultExtra?: string; // Trả về thêm items (như bucket)
   unlock?: string;
   generateTest?: boolean;
   project: string;
@@ -58,6 +59,7 @@ export class RecipeCommand {
     const pattern = JSON.parse(options.pattern);
     const key = JSON.parse(options.key);
     const unlock = options.unlock ? options.unlock.split(',').map(s => s.trim()) : undefined;
+    const resultExtra = options.resultExtra ? options.resultExtra.split(',').map(s => s.trim()) : undefined;
 
     generator.createShaped({
       id: options.id,
@@ -65,6 +67,7 @@ export class RecipeCommand {
       key,
       result: options.result,
       resultCount: options.resultCount ? parseInt(options.resultCount) : undefined,
+      resultExtra,
       unlock
     });
 
