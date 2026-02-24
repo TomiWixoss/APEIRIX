@@ -1,6 +1,7 @@
 import { ArmorGenerator } from '../generators/ArmorGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
+import { TestGenerator } from '../generators/TestGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -106,6 +107,12 @@ export class ArmorCommand {
       
       textureGen.copyTexture(`models/armor/${layer1Name}`, options.layer1, 'textures');
       textureGen.copyTexture(`models/armor/${layer2Name}`, options.layer2, 'textures');
+
+      // Tạo test files cho từng piece
+      const testGen = new TestGenerator(options.project);
+      pieces.forEach(piece => {
+        testGen.generateArmorTest(`${baseName}_${piece}`, `${options.displayName} ${this.capitalize(piece)}`, piece);
+      });
 
       history.commitOperation();
       console.log(`\n✨ Hoàn thành! Armor set "${options.displayName}" (4 pieces) đã được tạo.\n`);

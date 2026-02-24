@@ -1,6 +1,7 @@
 import { BlockGenerator } from '../generators/BlockGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
+import { TestGenerator } from '../generators/TestGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -75,6 +76,10 @@ export class BlockCommand {
 
       langGen.updateLangFile(blockId, options.name, 'BP', 'tile');
       langGen.updateLangFile(blockId, options.name, 'RP', 'tile');
+
+      // Tạo test files
+      const testGen = new TestGenerator(options.project);
+      testGen.generateBlockTest(blockId, options.name);
 
       history.commitOperation();
       console.log(`\n✨ Hoàn thành! Block "${options.name}" đã được tạo.\n`);

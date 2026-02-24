@@ -1,4 +1,5 @@
 import { FileManager } from '../core/FileManager.js';
+import { PickaxeScanner } from '../core/PickaxeScanner.js';
 import { join } from 'path';
 
 export interface BlockConfig {
@@ -69,6 +70,10 @@ export class BlockGenerator {
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
+    // Quét custom pickaxes
+    const scanner = new PickaxeScanner(this.projectRoot);
+    const customPickaxeEntries = scanner.generatePickaxeEntries(destroySpeed);
+
     return {
       seconds_to_destroy: destroyTime * 3.33,
       item_specific_speeds: [
@@ -78,10 +83,7 @@ export class BlockGenerator {
           },
           destroy_speed: destroySpeed
         },
-        {
-          item: "apeirix:bronze_pickaxe",
-          destroy_speed: destroySpeed
-        }
+        ...customPickaxeEntries
       ]
     };
   }

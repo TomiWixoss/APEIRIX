@@ -1,4 +1,5 @@
 import { FileManager } from '../core/FileManager.js';
+import { PickaxeScanner } from '../core/PickaxeScanner.js';
 import { join } from 'path';
 
 export interface OreConfig {
@@ -57,6 +58,10 @@ export class OreGenerator {
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
+    // Quét custom pickaxes
+    const scanner = new PickaxeScanner(this.projectRoot);
+    const customPickaxeEntries = scanner.generatePickaxeEntries(destroySpeed);
+
     const blockData = {
       format_version: "1.21.80",
       "minecraft:block": {
@@ -76,10 +81,7 @@ export class OreGenerator {
                 },
                 destroy_speed: destroySpeed
               },
-              {
-                item: "apeirix:bronze_pickaxe",
-                destroy_speed: destroySpeed
-              }
+              ...customPickaxeEntries
             ]
           },
           "minecraft:destructible_by_explosion": {
@@ -111,47 +113,55 @@ export class OreGenerator {
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
-    const lootTable = {
-      pools: [
-        {
-          rolls: 1,
-          conditions: [
-            {
-              condition: "match_tool",
-              count: 1,
-              "minecraft:match_tool_filter_all": [
-                "minecraft:is_tool",
-                "minecraft:is_pickaxe"
-              ],
-              "minecraft:match_tool_filter_any": allowedTiers.map(t => `minecraft:${t}_tier`)
-            }
-          ],
-          entries: [
-            {
-              type: "item",
-              name: `apeirix:${config.rawItemId}`,
-              weight: 1
-            }
-          ]
-        },
-        {
-          rolls: 1,
-          conditions: [
-            {
-              condition: "match_tool",
-              item: "apeirix:bronze_pickaxe"
-            }
-          ],
-          entries: [
-            {
-              type: "item",
-              name: `apeirix:${config.rawItemId}`,
-              weight: 1
-            }
-          ]
-        }
-      ]
-    };
+    // Quét custom pickaxes
+    const scanner = new PickaxeScanner(this.projectRoot);
+    const customPickaxes = scanner.scanPickaxes();
+
+    const pools: any[] = [
+      {
+        rolls: 1,
+        conditions: [
+          {
+            condition: "match_tool",
+            count: 1,
+            "minecraft:match_tool_filter_all": [
+              "minecraft:is_tool",
+              "minecraft:is_pickaxe"
+            ],
+            "minecraft:match_tool_filter_any": allowedTiers.map(t => `minecraft:${t}_tier`)
+          }
+        ],
+        entries: [
+          {
+            type: "item",
+            name: `apeirix:${config.rawItemId}`,
+            weight: 1
+          }
+        ]
+      }
+    ];
+
+    // Thêm pool cho mỗi custom pickaxe
+    customPickaxes.forEach(pickaxe => {
+      pools.push({
+        rolls: 1,
+        conditions: [
+          {
+            condition: "match_tool",
+            item: pickaxe
+          }
+        ],
+        entries: [
+          {
+            type: "item",
+            name: `apeirix:${config.rawItemId}`,
+            weight: 1
+          }
+        ]
+      });
+    });
+
+    const lootTable = { pools };
 
     const lootPath = join(this.projectRoot, `packs/BP/loot_tables/blocks/${oreId}.json`);
     FileManager.writeJSON(lootPath, lootTable);

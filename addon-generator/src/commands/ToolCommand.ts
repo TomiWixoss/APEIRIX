@@ -5,6 +5,7 @@ import { HoeGenerator } from '../generators/tools/HoeGenerator.js';
 import { SwordGenerator } from '../generators/tools/SwordGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
+import { TestGenerator } from '../generators/TestGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -95,6 +96,10 @@ export class ToolCommand {
 
       langGen.updateLangFile(toolId, options.name, 'BP', 'item');
       langGen.updateLangFile(toolId, options.name, 'RP', 'item');
+
+      // Tạo test files
+      const testGen = new TestGenerator(options.project);
+      testGen.generateToolTest(toolId, options.name, options.type);
 
       history.commitOperation();
       console.log(`\n✨ Hoàn thành! ${options.type} "${options.name}" đã được tạo.\n`);

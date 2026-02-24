@@ -1,6 +1,7 @@
 import { OreGenerator } from '../generators/OreGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
+import { TestGenerator } from '../generators/TestGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -99,6 +100,10 @@ export class OreCommand {
         langGen.updateLangFile(`deepslate_${oreId}`, `Deepslate ${options.name}`, 'BP', 'tile');
         langGen.updateLangFile(`deepslate_${oreId}`, `Deepslate ${options.name}`, 'RP', 'tile');
       }
+
+      // Tạo test files
+      const testGen = new TestGenerator(options.project);
+      testGen.generateOreTest(oreId, options.name, !!options.deepslateTexture);
 
       history.commitOperation();
       console.log(`\n✨ Hoàn thành! Ore "${options.name}" đã được tạo với world generation.\n`);
