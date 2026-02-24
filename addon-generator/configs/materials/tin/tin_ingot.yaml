@@ -47,7 +47,7 @@ recipes:
     unlock:
       - apeirix:tin_nugget
   - type: shapeless
-    id: tin_ingot_from_block
+    id: apeirix:tin_ingot_from_block
     ingredients:
       - apeirix:tin_block
     result: apeirix:tin_ingot

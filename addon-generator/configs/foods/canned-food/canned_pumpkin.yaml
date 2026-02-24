@@ -19,7 +19,7 @@ recipe:
     - canempty
     - minecraft:pumpkin
     - minecraft:sugar
-  result: canned_pumpkin
+  result: apeirix:canned_pumpkin
   unlock:
     - canempty
     - minecraft:pumpkin

@@ -19,7 +19,7 @@ recipe:
     - canempty
     - minecraft:cooked_cod
     - minecraft:cooked_cod
-  result: cannedfish
+  result: apeirix:cannedfish
   unlock:
     - canempty
     - minecraft:cooked_cod

@@ -75,7 +75,7 @@ export class HoeGenerator {
                 repair_amount: "context.other->query.remaining_durability + 0.12 * context.other->query.max_durability"
               },
               {
-                items: [`apeirix:${config.materialId}`],
+                items: [config.materialId],
                 repair_amount: "context.other->query.remaining_durability * 0.25"
               }
             ]

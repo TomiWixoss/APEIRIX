@@ -13,7 +13,7 @@ recipe:
   ingredients:
     - canempty
     - minecraft:mushroom_stew
-  result: cannedmushroomsoup
+  result: apeirix:cannedmushroomsoup
   unlock:
     - canempty
     - minecraft:mushroom_stew

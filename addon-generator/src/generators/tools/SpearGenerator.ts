@@ -73,7 +73,7 @@ export class SpearGenerator {
                 repair_amount: "context.other->query.remaining_durability"
               },
               {
-                items: [`apeirix:${config.materialId}`],
+                items: [config.materialId],
                 repair_amount: "query.max_durability * 0.25"
               }
             ]

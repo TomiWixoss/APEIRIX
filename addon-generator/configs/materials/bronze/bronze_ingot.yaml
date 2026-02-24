@@ -16,7 +16,7 @@ recipes:
     unlock:
       - apeirix:tin_ingot
   - type: shaped
-    id: bronze_ingot_from_nuggets
+    id: apeirix:bronze_ingot_from_nuggets
     pattern:
       - "###"
       - "###"
@@ -28,7 +28,7 @@ recipes:
     unlock:
       - apeirix:bronze_nugget
   - type: shapeless
-    id: bronze_ingot_from_block
+    id: apeirix:bronze_ingot_from_block
     ingredients:
       - apeirix:bronze_block
     result: apeirix:bronze_ingot

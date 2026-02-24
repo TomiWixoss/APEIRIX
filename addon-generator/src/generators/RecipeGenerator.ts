@@ -129,6 +129,7 @@ export class RecipeGenerator {
   }
 
   private formatItem(item: string): string {
-    return item.startsWith('minecraft:') ? item : `apeirix:${item}`;
+    // Pass through - không thêm prefix, YAML đã có sẵn
+    return item;
   }
 }

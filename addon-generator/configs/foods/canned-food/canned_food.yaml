@@ -14,7 +14,7 @@ recipe:
     - canempty
     - minecraft:cooked_beef
     - minecraft:cooked_porkchop
-  result: canned_food
+  result: apeirix:canned_food
   unlock:
     - canempty
     - minecraft:cooked_beef

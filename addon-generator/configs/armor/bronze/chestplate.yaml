@@ -27,7 +27,7 @@ recipes:
     unlock:
       - apeirix:bronze_ingot
   - type: shapeless
-    id: bronze_chestplate_from_block
+    id: apeirix:bronze_chestplate_from_block
     ingredients:
       - apeirix:bronze_block
     result: apeirix:bronze_chestplate

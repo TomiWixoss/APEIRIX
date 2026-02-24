@@ -17,20 +17,20 @@ recipes:
       - T T
       - " T "
     key:
-      T: tin_ingot
-    result: canempty
+      T: apeirix:tin_ingot
+    result: apeirix:canempty
     resultCount: 4
     unlock:
       - tin_ingot
   - type: shaped
-    id: candirty_to_canempty
+    id: apeirix:candirty_to_canempty
     pattern:
       - C
       - W
     key:
-      C: candirty
+      C: apeirix:candirty
       W: minecraft:water_bucket
-    result: canempty
+    result: apeirix:canempty
     resultExtra:
       - minecraft:bucket
     unlock:

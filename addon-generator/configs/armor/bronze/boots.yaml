@@ -26,7 +26,7 @@ recipes:
     unlock:
       - apeirix:bronze_ingot
   - type: shapeless
-    id: bronze_boots_from_block
+    id: apeirix:bronze_boots_from_block
     ingredients:
       - apeirix:bronze_block
     result: apeirix:bronze_boots

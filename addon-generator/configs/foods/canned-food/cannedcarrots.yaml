@@ -20,7 +20,7 @@ recipe:
     - minecraft:carrot
     - minecraft:carrot
     - minecraft:carrot
-  result: cannedcarrots
+  result: apeirix:cannedcarrots
   unlock:
     - canempty
     - minecraft:carrot

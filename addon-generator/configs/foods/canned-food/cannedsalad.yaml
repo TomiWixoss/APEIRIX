@@ -16,7 +16,7 @@ recipe:
     - minecraft:apple
     - minecraft:sweet_berries
     - minecraft:oak_leaves
-  result: cannedsalad
+  result: apeirix:cannedsalad
   unlock:
     - canempty
     - minecraft:apple

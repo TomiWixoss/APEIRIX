@@ -20,7 +20,7 @@ recipe:
     - minecraft:bread
     - minecraft:cooked_beef
     - minecraft:carrot
-  result: cannedmeal
+  result: apeirix:cannedmeal
   unlock:
     - canempty
     - minecraft:bread

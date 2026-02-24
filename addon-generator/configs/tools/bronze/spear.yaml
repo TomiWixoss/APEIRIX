@@ -2,7 +2,7 @@ id: bronze_spear
 name: Giáo Đồng Thanh
 type: spear
 texture: ../../../../assets/tools/bronze_spear.png
-materialId: bronze_ingot
+materialId: apeirix:bronze_ingot
 durability: 375
 damage: 3
 enchantability: 18
@@ -18,14 +18,14 @@ testCommands:
 recipe:
   id: bronze_spear
   type: shaped
-  result: bronze_spear
+  result: apeirix:bronze_spear
   count: 1
   pattern:
     - "  I"
     - " S "
     - "S  "
   key:
-    I: bronze_ingot
+    I: apeirix:bronze_ingot
     S: minecraft:stick
   unlock:
     - bronze_ingot

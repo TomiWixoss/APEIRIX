@@ -20,7 +20,7 @@ recipe:
     - minecraft:rotten_flesh
     - minecraft:rotten_flesh
     - minecraft:bone
-  result: canneddogfood
+  result: apeirix:canneddogfood
   unlock:
     - canempty
     - minecraft:rotten_flesh

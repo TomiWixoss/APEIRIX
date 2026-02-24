@@ -13,7 +13,7 @@ recipe:
   ingredients:
     - canempty
     - minecraft:beetroot_soup
-  result: cannedbeets
+  result: apeirix:cannedbeets
   unlock:
     - canempty
     - minecraft:beetroot_soup

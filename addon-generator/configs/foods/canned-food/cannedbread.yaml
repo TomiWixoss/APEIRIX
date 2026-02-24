@@ -13,7 +13,7 @@ recipe:
   ingredients:
     - canempty
     - minecraft:bread
-  result: cannedbread
+  result: apeirix:cannedbread
   unlock:
     - canempty
     - minecraft:bread
