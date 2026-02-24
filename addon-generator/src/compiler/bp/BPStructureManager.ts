@@ -17,6 +17,7 @@ export class BPStructureManager {
       'functions/tests/tools',
       'functions/tests/foods',
       'functions/tests/recipes',
+      'scripts/data',
       'texts'
     ];
 

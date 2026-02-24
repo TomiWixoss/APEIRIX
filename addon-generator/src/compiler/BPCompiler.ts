@@ -9,6 +9,7 @@ import { OreBPGenerator } from './bp/OreBPGenerator.js';
 import { RecipeBPGenerator } from './bp/RecipeBPGenerator.js';
 import { TestFunctionBPGenerator } from './bp/TestFunctionBPGenerator.js';
 import { LangBPGenerator } from './bp/LangBPGenerator.js';
+import { GameDataBPGenerator } from './bp/GameDataBPGenerator.js';
 
 export interface BPConfig {
   items?: any[];
@@ -86,6 +87,9 @@ export class BPCompiler {
 
     // Generate lang file
     stats.langEntries = await LangBPGenerator.generate(config, bpPath);
+
+    // Generate GameData file (output to root scripts folder)
+    await GameDataBPGenerator.generate(config, outputDir);
 
     console.log(`✓ BP compiled: ${stats.items} items, ${stats.blocks} blocks, ${stats.recipes} recipes`);
   }
