@@ -26,12 +26,10 @@ export class ManifestGenerator {
   /**
    * Generate BP manifest
    */
-  static generateBP(metadata: AddonMetadata, outputDir: string): { bpUuid: string; rpUuid: string } {
+  static generateBP(metadata: AddonMetadata, bpUuid: string, rpUuid: string, outputDir: string): void {
     const templatePath = path.join(__dirname, '../templates/bp-manifest.json');
     const template = readFileSync(templatePath, 'utf-8');
 
-    const bpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.bp);
-    const rpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.rp);
     const moduleUuid = UUIDGenerator.generate();
     const scriptUuid = UUIDGenerator.generate();
 
@@ -56,17 +54,15 @@ export class ManifestGenerator {
     FileManager.writeJSON(manifestPath, manifestObj);
 
     console.log(`✓ Generated BP manifest: ${manifestPath}`);
-    return { bpUuid, rpUuid };
   }
 
   /**
    * Generate RP manifest
    */
-  static generateRP(metadata: AddonMetadata, bpUuid: string, outputDir: string): string {
+  static generateRP(metadata: AddonMetadata, rpUuid: string, bpUuid: string, outputDir: string): void {
     const templatePath = path.join(__dirname, '../templates/rp-manifest.json');
     const template = readFileSync(templatePath, 'utf-8');
 
-    const rpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.rp);
     const moduleUuid = UUIDGenerator.generate();
 
     const manifest = template
@@ -88,6 +84,5 @@ export class ManifestGenerator {
     FileManager.writeJSON(manifestPath, manifestObj);
 
     console.log(`✓ Generated RP manifest: ${manifestPath}`);
-    return rpUuid;
   }
 }

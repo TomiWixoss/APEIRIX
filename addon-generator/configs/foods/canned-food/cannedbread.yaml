@@ -11,11 +11,11 @@ recipe:
   type: shapeless
   id: cannedbread
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:bread
   result: apeirix:cannedbread
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:bread
 testCommands:
   - "# Test: Bánh Mì Đóng Hộp"

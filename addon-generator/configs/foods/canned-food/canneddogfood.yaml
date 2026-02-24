@@ -16,13 +16,13 @@ recipe:
   type: shapeless
   id: canneddogfood
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:rotten_flesh
     - minecraft:rotten_flesh
     - minecraft:bone
   result: apeirix:canneddogfood
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:rotten_flesh
 testCommands:
   - "# Test: Thức Ăn Cho Chó - Nausea"

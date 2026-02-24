@@ -2,9 +2,9 @@
 Set-Location ../..
 npm run build
 
-# Copy compiled scripts vào packs/BP/scripts
+# Copy compiled scripts vào addon-generator/build/BP/scripts
 $sourcePath = "./dist/scripts"
-$destPath = "./packs/BP/scripts"
+$destPath = "./addon-generator/build/BP/scripts"
 
 if (Test-Path $sourcePath) {
     # Xóa thư mục cũ nếu có

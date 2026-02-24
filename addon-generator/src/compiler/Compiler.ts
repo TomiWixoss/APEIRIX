@@ -6,6 +6,7 @@ import { ManifestGenerator, AddonMetadata } from './ManifestGenerator.js';
 import { BPCompiler } from './BPCompiler.js';
 import { RPCompiler } from './RPCompiler.js';
 import { AssetCopier } from './AssetCopier.js';
+import { UUIDGenerator } from '../utils/UUIDGenerator.js';
 
 export interface CompileOptions {
   config?: string;
@@ -184,8 +185,13 @@ export class Compiler {
       uuids: config.addon.uuids || {}
     };
 
-    const { bpUuid } = ManifestGenerator.generateBP(metadata, this.outputDir);
-    ManifestGenerator.generateRP(metadata, bpUuid, this.outputDir);
+    // Generate both UUIDs first
+    const rpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.rp);
+    const bpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.bp);
+    
+    // Generate manifests with consistent UUIDs
+    ManifestGenerator.generateBP(metadata, bpUuid, rpUuid, this.outputDir);
+    ManifestGenerator.generateRP(metadata, rpUuid, bpUuid, this.outputDir);
 
     console.log('✓ Manifests generated\n');
   }

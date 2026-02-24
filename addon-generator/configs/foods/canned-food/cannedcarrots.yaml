@@ -16,13 +16,13 @@ recipe:
   type: shapeless
   id: cannedcarrots
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:carrot
     - minecraft:carrot
     - minecraft:carrot
   result: apeirix:cannedcarrots
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:carrot
 testCommands:
   - "# Test: Cà Rốt Đóng Hộp - Night Vision"

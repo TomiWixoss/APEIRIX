@@ -11,11 +11,11 @@ recipe:
   type: shapeless
   id: cannedmushroomsoup
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:mushroom_stew
   result: apeirix:cannedmushroomsoup
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:mushroom_stew
 testCommands:
   - "# Test: Súp Nấm Hộp"

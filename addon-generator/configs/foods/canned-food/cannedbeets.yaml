@@ -11,11 +11,11 @@ recipe:
   type: shapeless
   id: cannedbeets
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:beetroot_soup
   result: apeirix:cannedbeets
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:beetroot_soup
 testCommands:
   - "# Test: Súp Củ Dền Hộp"

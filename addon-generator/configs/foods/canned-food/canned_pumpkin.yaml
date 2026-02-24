@@ -16,12 +16,12 @@ recipe:
   type: shapeless
   id: canned_pumpkin
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:pumpkin
     - minecraft:sugar
   result: apeirix:canned_pumpkin
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:pumpkin
 testCommands:
   - "# Test: Bí Ngô Nghiền Hộp - Fire Resistance"

@@ -16,13 +16,13 @@ recipe:
   type: shapeless
   id: cannedmeal
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:bread
     - minecraft:cooked_beef
     - minecraft:carrot
   result: apeirix:cannedmeal
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:bread
 testCommands:
   - "# Test: Khẩu Phần Ăn Chiến Đấu - Regeneration II"

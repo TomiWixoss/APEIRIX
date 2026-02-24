@@ -21,7 +21,7 @@ recipes:
     result: apeirix:canempty
     resultCount: 4
     unlock:
-      - tin_ingot
+      - apeirix:tin_ingot
   - type: shaped
     id: apeirix:candirty_to_canempty
     pattern:
@@ -34,4 +34,4 @@ recipes:
     resultExtra:
       - minecraft:bucket
     unlock:
-      - candirty
+      - apeirix:candirty

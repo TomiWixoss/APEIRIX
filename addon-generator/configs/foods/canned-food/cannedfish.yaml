@@ -16,12 +16,12 @@ recipe:
   type: shapeless
   id: cannedfish
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:cooked_cod
     - minecraft:cooked_cod
   result: apeirix:cannedfish
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:cooked_cod
 testCommands:
   - "# Test: Cá Mòi Đóng Hộp - Water Breathing"

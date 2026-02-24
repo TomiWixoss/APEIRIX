@@ -11,12 +11,12 @@ recipe:
   type: shapeless
   id: canned_food
   ingredients:
-    - canempty
+    - apeirix:canempty
     - minecraft:cooked_beef
     - minecraft:cooked_porkchop
   result: apeirix:canned_food
   unlock:
-    - canempty
+    - apeirix:canempty
     - minecraft:cooked_beef
 testCommands:
   - "# Test: Thịt Hộp Hầm"

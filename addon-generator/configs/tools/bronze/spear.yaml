@@ -28,4 +28,4 @@ recipe:
     I: apeirix:bronze_ingot
     S: minecraft:stick
   unlock:
-    - bronze_ingot
+    - apeirix:bronze_ingot
