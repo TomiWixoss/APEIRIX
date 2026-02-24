@@ -13,6 +13,10 @@
       "minecraft:display_name": {
         "value": "item.apeirix.bronze_spear.name"
       },
+      "minecraft:item_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.weapon"
+      },
       "minecraft:tags": {
         "tags": [
           "minecraft:is_spear"

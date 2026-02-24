@@ -51,6 +51,10 @@ export class SpearGenerator {
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
           },
+          "minecraft:item_category": {
+            category: "equipment",
+            group: "itemGroup.name.weapon"
+          },
           "minecraft:tags": {
             tags: tags
           },

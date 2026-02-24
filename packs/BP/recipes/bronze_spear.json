@@ -23,6 +23,10 @@
     "result": {
       "item": "apeirix:bronze_spear"
     },
-    "unlock": []
+    "unlock": [
+      {
+        "item": "apeirix:bronze_ingot"
+      }
+    ]
   }
 }

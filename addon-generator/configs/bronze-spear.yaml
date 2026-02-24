@@ -29,3 +29,4 @@ recipes:
     key:
       I: bronze_ingot
       S: minecraft:stick
+    unlock: [bronze_ingot]
