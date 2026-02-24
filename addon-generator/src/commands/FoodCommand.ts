@@ -2,6 +2,7 @@ import { FoodGenerator } from '../generators/FoodGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
+import { TestFunctionGenerator } from '../generators/TestFunctionGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -18,6 +19,7 @@ export interface FoodCommandOptions {
   usingConvertsTo?: string;
   effects?: string; // JSON string
   removeEffects?: boolean;
+  testCommands?: string[]; // Custom test commands
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -57,6 +59,7 @@ export class FoodCommand {
     const textureGen = new TextureGenerator(options.project);
     const langGen = new LangGenerator(options.project);
     const testGen = new TestGenerator(options.project);
+    const testFuncGen = new TestFunctionGenerator(options.project);
 
     // Track files
     if (history) {
@@ -103,6 +106,13 @@ export class FoodCommand {
 
       // Generate test files
       testGen.generateFoodTest(itemId, options.name);
+
+      // Generate test function với custom commands từ config
+      testFuncGen.generate({
+        id: itemId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'food');
 
       if (history) {
         history.commitOperation();

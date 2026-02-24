@@ -1,0 +1,29 @@
+# Template: Multi-File Config System
+# Tách config thành nhiều files để dễ quản lý
+
+# ===== CẤU TRÚC THƯ MỤC ĐỀ XUẤT =====
+# configs/
+# ├── my-system/
+# │   ├── main.yaml      # File chính với imports
+# │   ├── items.yaml     # Tất cả items
+# │   ├── recipes.yaml   # Tất cả recipes
+# │   └── tests.yaml     # Test functions
+
+# ===== FILE CHÍNH (main.yaml) =====
+# Import từ các files khác
+importItems: items.yaml # File chứa items
+importRecipes: recipes.yaml # File chứa recipes
+importTests: tests.yaml # File chứa test functions
+
+# ===== SỬ DỤNG =====
+# bun run dev batch -f configs/my-system/main.yaml
+
+# ===== LỢI ÍCH =====
+# - Tách biệt concerns (items/recipes/tests)
+# - Dễ maintain và update
+# - Có thể reuse recipes/tests cho projects khác
+# - Import system tự động merge configs
+# - Giảm conflict khi nhiều người làm việc cùng lúc
+
+# ===== XEM VÍ DỤ ĐẦY ĐỦ =====
+# Xem: configs/canned-food/ để biết cách sử dụng thực tế

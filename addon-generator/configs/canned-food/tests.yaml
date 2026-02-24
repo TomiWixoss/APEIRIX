@@ -1,0 +1,147 @@
+# Canned Food Test Functions - ĐẦY ĐỦ TẤT CẢ TESTS
+
+items:
+  # ===== VỎ ĐỒ HỘP =====
+  - id: canempty
+    testCommands:
+      - "# Test: Vỏ Đồ Hộp Rỗng"
+      - "clear @s"
+      - "give @s apeirix:canempty 64"
+      - 'tellraw @s {"text":"=== Test: Vỏ Đồ Hộp Rỗng ===","color":"gold"}'
+      - 'tellraw @s {"text":"Material cơ bản cho hệ thống đồ hộp","color":"gray"}'
+      - "playsound random.levelup @s"
+
+  # ===== LƯƠNG THỰC CƠ BẢN =====
+
+  - id: cannedmushroomsoup
+    testCommands:
+      - "# Test: Súp Nấm Hộp"
+      - "clear @s"
+      - "give @s apeirix:cannedmushroomsoup 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Súp Nấm Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 6 | Saturation: 7.2","color":"aqua"}'
+      - 'tellraw @s {"text":"Biến món súp vô dụng thành hành trang mine!","color":"white"}'
+      - "playsound random.levelup @s"
+
+  - id: cannedbeets
+    testCommands:
+      - "# Test: Súp Củ Dền Hộp"
+      - "clear @s"
+      - "give @s apeirix:cannedbeets 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Súp Củ Dền Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 6 | Saturation: 7.2","color":"aqua"}'
+      - 'tellraw @s {"text":"Súp củ dền giờ có thể stack 64!","color":"white"}'
+      - "playsound random.levelup @s"
+
+  - id: canned_food
+    testCommands:
+      - "# Test: Thịt Hộp Hầm"
+      - "clear @s"
+      - "give @s apeirix:canned_food 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Thịt Hộp Hầm ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 10 | Saturation: 12.8","color":"aqua"}'
+      - 'tellraw @s {"text":"Hồi 5 đùi gà với saturation cực cao!","color":"green"}'
+      - "playsound random.levelup @s"
+
+  - id: cannedbread
+    testCommands:
+      - "# Test: Bánh Mì Đóng Hộp"
+      - "clear @s"
+      - "give @s apeirix:cannedbread 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Bánh Mì Đóng Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 5 | Saturation: 6.0","color":"aqua"}'
+      - 'tellraw @s {"text":"Easter Egg: Spongebob reference!","color":"yellow"}'
+      - "playsound random.levelup @s"
+
+  # ===== ĐỒ HỘP ĐẶC BIỆT =====
+
+  - id: cannedcarrots
+    testCommands:
+      - "# Test: Cà Rốt Đóng Hộp - Night Vision"
+      - "clear @s"
+      - "give @s apeirix:cannedcarrots 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Cà Rốt Đóng Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 4 | Saturation: 4.8","color":"aqua"}'
+      - 'tellraw @s {"text":"Effect: Night Vision 15s","color":"yellow"}'
+      - 'tellraw @s {"text":"Ăn để test Night Vision!","color":"white"}'
+      - "playsound random.levelup @s"
+
+  - id: canned_pumpkin
+    testCommands:
+      - "# Test: Bí Ngô Nghiền Hộp - Fire Resistance"
+      - "clear @s"
+      - "give @s apeirix:canned_pumpkin 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Bí Ngô Nghiền Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 4 | Saturation: 4.8","color":"aqua"}'
+      - 'tellraw @s {"text":"Effect: Fire Resistance 15s","color":"yellow"}'
+      - 'tellraw @s {"text":"Ăn để test Fire Resistance!","color":"white"}'
+      - "playsound random.levelup @s"
+
+  - id: cannedfish
+    testCommands:
+      - "# Test: Cá Mòi Đóng Hộp - Water Breathing"
+      - "clear @s"
+      - "give @s apeirix:cannedfish 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Cá Mòi Đóng Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 5 | Saturation: 6.0","color":"aqua"}'
+      - 'tellraw @s {"text":"Effect: Water Breathing 30s","color":"yellow"}'
+      - 'tellraw @s {"text":"Ăn để test Water Breathing!","color":"white"}'
+      - "playsound random.levelup @s"
+
+  - id: cannedsalad
+    testCommands:
+      - "# Test: Salad Đóng Hộp - Remove Effects"
+      - "clear @s"
+      - "give @s apeirix:cannedsalad 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - "effect @s poison 30 0 false"
+      - "effect @s wither 30 0 false"
+      - 'tellraw @s {"text":"=== Test: Salad Đóng Hộp ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 3 | Saturation: 3.6","color":"aqua"}'
+      - 'tellraw @s {"text":"Special: Xóa TẤT CẢ hiệu ứng xấu!","color":"light_purple"}'
+      - 'tellraw @s {"text":"Đã cho Poison + Wither, ăn để test!","color":"red"}'
+      - "playsound random.levelup @s"
+
+  # ===== HÀNG TUYỆT PHẨM =====
+
+  - id: cannedmeal
+    testCommands:
+      - "# Test: Khẩu Phần Ăn Chiến Đấu - Regeneration II"
+      - "clear @s"
+      - "give @s apeirix:cannedmeal 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Khẩu Phần Ăn Chiến Đấu ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 12 | Saturation: 16.0","color":"aqua"}'
+      - 'tellraw @s {"text":"Effect: Regeneration II 5s","color":"yellow"}'
+      - 'tellraw @s {"text":"Đầy thanh ăn + hồi máu nhanh!","color":"green"}'
+      - "playsound random.levelup @s"
+
+  - id: canneddogfood
+    testCommands:
+      - "# Test: Thức Ăn Cho Chó - Nausea"
+      - "clear @s"
+      - "give @s apeirix:canneddogfood 64"
+      - "effect @s saturation 1 255 true"
+      - "effect @s instant_damage 1 10 true"
+      - 'tellraw @s {"text":"=== Test: Thức Ăn Cho Chó ===","color":"gold"}'
+      - 'tellraw @s {"text":"Nutrition: 2 | Saturation: 0.4","color":"aqua"}'
+      - 'tellraw @s {"text":"Effect: Nausea 10s","color":"red"}'
+      - 'tellraw @s {"text":"WARNING: Người ăn bị Nausea!","color":"dark_red"}'
+      - 'tellraw @s {"text":"Dành cho Sói/Chó ăn hồi 100% máu","color":"yellow"}'
+      - "playsound random.levelup @s"

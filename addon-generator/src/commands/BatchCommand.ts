@@ -58,6 +58,7 @@ export class BatchCommand {
             usingConvertsTo: item.usingConvertsTo,
             effects: item.effects,
             removeEffects: item.removeEffects,
+            testCommands: item.testCommands,
             project: options.project,
             dryRun: false,
             skipHistory: true // Batch tự quản lý history

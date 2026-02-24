@@ -169,6 +169,8 @@ CLI tool tự động tạo content cho addon với đầy đủ tính năng:
 - Items, Blocks, Ores (với world gen), Tools, Armor
 - Recipes (shaped/shapeless/smelting)
 - Batch generation từ YAML/JSON config
+- **Multi-file config system** (tách items/recipes/tests)
+- **Test function generation** (custom commands trong YAML)
 - Dry-run mode và Undo/Rollback
 - Tự động tạo test files
 - Tự động quét custom pickaxes
@@ -177,6 +179,89 @@ CLI tool tự động tạo content cho addon với đầy đủ tính năng:
 cd addon-generator
 bun install
 bun run dev --help
+```
+
+### Multi-File Config System
+
+Tách config thành nhiều files để dễ quản lý:
+
+```
+configs/
+├── my-system/
+│   ├── main.yaml      # File chính với imports
+│   ├── items.yaml     # Tất cả items
+│   ├── recipes.yaml   # Tất cả recipes
+│   └── tests.yaml     # Test functions
+```
+
+**main.yaml:**
+```yaml
+importItems: items.yaml
+importRecipes: recipes.yaml
+importTests: tests.yaml
+```
+
+**items.yaml:**
+```yaml
+items:
+  - id: my_item
+    name: "My Item"
+    texture: ./path/to/texture.png
+    nutrition: 4
+    saturation: 4.8
+```
+
+**recipes.yaml:**
+```yaml
+recipes:
+  - type: shapeless
+    id: my_item
+    ingredients: [item1, item2]
+    result: my_item
+    unlock: [item1]
+```
+
+**tests.yaml:**
+```yaml
+items:
+  - id: my_item
+    testCommands:
+      - "clear @s"
+      - "give @s apeirix:my_item 64"
+      - 'tellraw @s {"text":"Test!","color":"gold"}'
+```
+
+**Chạy:**
+```bash
+bun run dev batch -f configs/my-system/main.yaml
+```
+
+**Lợi ích:**
+- Tách biệt concerns (items/recipes/tests)
+- Dễ maintain và update
+- Có thể reuse recipes/tests
+- Giảm conflict khi nhiều người làm việc
+
+### Test Functions
+
+CLI tự động tạo `.mcfunction` files trong `packs/BP/functions/tests/`:
+
+```yaml
+# tests.yaml
+items:
+  - id: my_food
+    testCommands:
+      - "# Test: My Food"
+      - "clear @s"
+      - "give @s apeirix:my_food 64"
+      - "effect @s saturation 1 255 true"
+      - 'tellraw @s {"text":"Test info","color":"gold"}'
+      - "playsound random.levelup @s"
+```
+
+**Trong game:**
+```
+/function tests/food/my_food
 ```
 
 #### Thêm Ore Mới

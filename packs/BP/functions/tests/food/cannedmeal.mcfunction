@@ -1,0 +1,13 @@
+# Test Function: Khẩu Phần Ăn Chiến Đấu
+# ID: apeirix:cannedmeal
+
+# Test: Khẩu Phần Ăn Chiến Đấu - Regeneration II
+clear @s
+give @s apeirix:cannedmeal 64
+effect @s saturation 1 255 true
+effect @s instant_damage 1 10 true
+tellraw @s {"text":"=== Test: Khẩu Phần Ăn Chiến Đấu ===","color":"gold"}
+tellraw @s {"text":"Nutrition: 12 | Saturation: 16.0","color":"aqua"}
+tellraw @s {"text":"Effect: Regeneration II 5s","color":"yellow"}
+tellraw @s {"text":"Đầy thanh ăn + hồi máu nhanh!","color":"green"}
+playsound random.levelup @s

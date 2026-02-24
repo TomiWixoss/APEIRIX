@@ -1,0 +1,8 @@
+# Hệ Thống Đồ Hộp (Canned Food System) - Main Config
+# Import items, recipes, và tests từ files riêng
+
+# Link to other config files
+importItems: items.yaml
+importRecipes: recipes.yaml
+importTests: tests.yaml
+# Có thể override hoặc thêm items/recipes trực tiếp ở đây nếu cần

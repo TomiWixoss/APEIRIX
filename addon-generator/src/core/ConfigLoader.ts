@@ -1,5 +1,6 @@
 import { FileManager } from './FileManager.js';
 import { parse as parseYaml } from 'yaml';
+import { join } from 'path';
 
 export interface ContentConfig {
   items?: ItemConfig[];
@@ -8,6 +9,11 @@ export interface ContentConfig {
   tools?: ToolConfig[];
   armor?: ArmorSetConfig[];
   recipes?: RecipeConfig[];
+  
+  // YAML linking - import từ files khác
+  importItems?: string;      // Path to items YAML
+  importRecipes?: string;    // Path to recipes YAML
+  importTests?: string;      // Path to test functions YAML
 }
 
 export interface ItemConfig {
@@ -29,6 +35,9 @@ export interface ItemConfig {
     chance?: number;
   }>;
   removeEffects?: boolean;
+  
+  // Test function commands (optional)
+  testCommands?: string[];
 }
 
 export interface BlockConfig {
@@ -101,13 +110,61 @@ export class ConfigLoader {
   static load(filePath: string): ContentConfig {
     const ext = filePath.toLowerCase();
     
+    let config: ContentConfig;
     if (ext.endsWith('.yaml') || ext.endsWith('.yml')) {
-      return this.loadYaml(filePath);
+      config = this.loadYaml(filePath);
     } else if (ext.endsWith('.json')) {
-      return this.loadJson(filePath);
+      config = this.loadJson(filePath);
     } else {
       throw new Error(`Unsupported config format: ${filePath}`);
     }
+    
+    // Load imported files nếu có
+    config = this.loadImports(config, filePath);
+    
+    return config;
+  }
+
+  /**
+   * Load imported YAML files và merge vào config
+   */
+  private static loadImports(config: ContentConfig, basePath: string): ContentConfig {
+    const baseDir = basePath.substring(0, basePath.lastIndexOf('/'));
+    
+    // Import items
+    if (config.importItems) {
+      const itemsPath = join(baseDir, config.importItems);
+      const itemsConfig = this.load(itemsPath);
+      if (itemsConfig.items) {
+        config.items = [...(config.items || []), ...itemsConfig.items];
+      }
+    }
+    
+    // Import recipes
+    if (config.importRecipes) {
+      const recipesPath = join(baseDir, config.importRecipes);
+      const recipesConfig = this.load(recipesPath);
+      if (recipesConfig.recipes) {
+        config.recipes = [...(config.recipes || []), ...recipesConfig.recipes];
+      }
+    }
+    
+    // Import tests - merge testCommands vào items
+    if (config.importTests) {
+      const testsPath = join(baseDir, config.importTests);
+      const testsConfig = this.load(testsPath);
+      if (testsConfig.items && config.items) {
+        // Merge testCommands từ test file vào items
+        testsConfig.items.forEach(testItem => {
+          const item = config.items!.find(i => i.id === testItem.id);
+          if (item && testItem.testCommands) {
+            item.testCommands = testItem.testCommands;
+          }
+        });
+      }
+    }
+    
+    return config;
   }
 
   private static loadYaml(filePath: string): ContentConfig {

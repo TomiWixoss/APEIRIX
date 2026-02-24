@@ -3,6 +3,7 @@ import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { RecipeGenerator } from '../generators/RecipeGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
+import { TestFunctionGenerator } from '../generators/TestFunctionGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -29,6 +30,9 @@ export interface ItemCommandOptions {
     chance?: number;
   }>;
   removeEffects?: boolean;
+  
+  // Test function commands
+  testCommands?: string[];
   
   // Recipe options
   recipeShaped?: string;
@@ -71,6 +75,7 @@ export class ItemCommand {
     const langGen = new LangGenerator(options.project);
     const recipeGen = new RecipeGenerator(options.project);
     const testGen = new TestGenerator(options.project);
+    const testFuncGen = new TestFunctionGenerator(options.project);
 
     // Track files
     if (history) {
@@ -106,7 +111,15 @@ export class ItemCommand {
       // 2. Generate test files
       testGen.generateItemTest(itemId, options.name);
 
-      // 3. Generate recipes if provided
+      // 3. Generate test function
+      const category = options.nutrition ? 'food' : 'items';
+      testFuncGen.generate({
+        id: itemId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, category);
+
+      // 4. Generate recipes if provided
       let recipeCount = 0;
 
       if (options.recipeShaped) {

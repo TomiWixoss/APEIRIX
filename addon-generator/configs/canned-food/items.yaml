@@ -1,0 +1,141 @@
+# Canned Food Items
+
+items:
+  # ===== 1. VỎ ĐỒ HỘP (Cốt lõi hệ thống) =====
+  - id: canempty
+    name: "Vỏ Đồ Hộp Rỗng"
+    texture: ../AssetCreator/old/icons/canempty.png
+    category: items
+    stackSize: 64
+
+  # ===== 2. LƯƠNG THỰC CƠ BẢN =====
+
+  - id: cannedmushroomsoup
+    name: "Súp Nấm Hộp"
+    texture: ../AssetCreator/old/icons/cannedmushroomsoup.png
+    category: items
+    stackSize: 64
+    nutrition: 6
+    saturation: 7.2
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+
+  - id: cannedbeets
+    name: "Súp Củ Dền Hộp"
+    texture: ../AssetCreator/old/icons/cannedbeets.png
+    category: items
+    stackSize: 64
+    nutrition: 6
+    saturation: 7.2
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+
+  - id: canned_food
+    name: "Thịt Hộp Hầm"
+    texture: ../AssetCreator/old/icons/canned_food.png
+    category: items
+    stackSize: 64
+    nutrition: 10
+    saturation: 12.8
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+
+  - id: cannedbread
+    name: "Bánh Mì Đóng Hộp"
+    texture: ../AssetCreator/old/icons/cannedbread.png
+    category: items
+    stackSize: 64
+    nutrition: 5
+    saturation: 6.0
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+
+  # ===== 3. ĐỒ HỘP ĐẶC BIỆT =====
+
+  - id: cannedcarrots
+    name: "Cà Rốt Đóng Hộp"
+    texture: ../AssetCreator/old/icons/cannedcarrots.png
+    category: items
+    stackSize: 64
+    nutrition: 4
+    saturation: 4.8
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+    effects:
+      - name: night_vision
+        duration: 15
+        amplifier: 0
+        chance: 1.0
+
+  - id: canned_pumpkin
+    name: "Bí Ngô Nghiền Hộp"
+    texture: ../AssetCreator/old/icons/canned_pumpkin.png
+    category: items
+    stackSize: 64
+    nutrition: 4
+    saturation: 4.8
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+    effects:
+      - name: fire_resistance
+        duration: 15
+        amplifier: 0
+        chance: 1.0
+
+  - id: cannedfish
+    name: "Cá Mòi Đóng Hộp"
+    texture: ../AssetCreator/old/icons/cannedfish.png
+    category: items
+    stackSize: 64
+    nutrition: 5
+    saturation: 6.0
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+    effects:
+      - name: water_breathing
+        duration: 30
+        amplifier: 0
+        chance: 1.0
+
+  - id: cannedsalad
+    name: "Salad Đóng Hộp"
+    texture: ../AssetCreator/old/icons/cannedsalad.png
+    category: items
+    stackSize: 64
+    nutrition: 3
+    saturation: 3.6
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+    removeEffects: true
+
+  # ===== 4. HÀNG TUYỆT PHẨM =====
+
+  - id: cannedmeal
+    name: "Khẩu Phần Ăn Chiến Đấu"
+    texture: ../AssetCreator/old/icons/cannedmeal.png
+    category: items
+    stackSize: 64
+    nutrition: 12
+    saturation: 16.0
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+    effects:
+      - name: regeneration
+        duration: 5
+        amplifier: 1
+        chance: 1.0
+
+  - id: canneddogfood
+    name: "Thức Ăn Cho Chó"
+    texture: ../AssetCreator/old/icons/canneddogfood.png
+    category: items
+    stackSize: 64
+    nutrition: 2
+    saturation: 0.4
+    canAlwaysEat: false
+    usingConvertsTo: canempty
+    effects:
+      - name: nausea
+        duration: 10
+        amplifier: 0
+        chance: 1.0
