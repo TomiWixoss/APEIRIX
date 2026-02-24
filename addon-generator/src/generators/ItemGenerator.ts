@@ -25,9 +25,8 @@ export class ItemGenerator {
       throw new Error('Display name không được rỗng');
     }
 
-    if (!Validator.validateTexturePath(config.texturePath)) {
-      throw new Error(`Texture không tồn tại: "${config.texturePath}"`);
-    }
+    // Note: Texture validation is done by AssetCopier, not here
+    // because texturePath is relative to config file, not to projectRoot
 
     const itemData: any = {
       format_version: "1.21.0",
@@ -48,8 +47,8 @@ export class ItemGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `packs/BP/items/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `BP/items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
-    console.log(`✅ Đã tạo: packs/BP/items/${config.id}.json`);
+    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
 }

@@ -1,0 +1,37 @@
+type: helmet
+id: bronze_helmet
+name: Mũ Đồng Thanh
+texture: ../../../../assets/armor/items/bronze_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: bronze_layer_1
+armorLayerTexturePath: ../../../../assets/armor/layers/bronze_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: bronze_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:bronze_ingot
+    result: apeirix:bronze_helmet
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+  - type: shapeless
+    id: bronze_helmet_from_block
+    ingredients:
+      - apeirix:bronze_block
+    result: apeirix:bronze_helmet
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+materialId: apeirix:bronze_ingot
+enchantability: 18

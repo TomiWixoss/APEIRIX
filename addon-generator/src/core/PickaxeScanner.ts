@@ -1,66 +1,72 @@
-import { FileManager } from './FileManager.js';
+import { readdirSync, existsSync } from 'fs';
 import { join } from 'path';
-import { readdirSync } from 'fs';
+import { FileManager } from './FileManager.js';
 
 /**
- * Pickaxe Scanner - Quét tất cả custom pickaxes trong dự án
+ * PickaxeScanner - Quét custom pickaxes từ BP/items
  */
 export class PickaxeScanner {
   constructor(private projectRoot: string) {}
 
   /**
-   * Quét tất cả custom pickaxes
+   * Scan all pickaxes from BP/items folder
    */
-  scanPickaxes(): string[] {
-    const itemsDir = join(this.projectRoot, 'packs/BP/items');
-    const pickaxes: string[] = [];
+  scanPickaxes(): Array<{ id: string; tier: string }> {
+    const itemsPath = join(this.projectRoot, 'packs/BP/items');
+    
+    if (!existsSync(itemsPath)) {
+      return [];
+    }
 
-    try {
-      const files = readdirSync(itemsDir);
+    const pickaxes: Array<{ id: string; tier: string }> = [];
+    const files = readdirSync(itemsPath);
+
+    for (const file of files) {
+      if (!file.endsWith('.json')) continue;
       
-      for (const file of files) {
-        if (!file.endsWith('.json')) continue;
+      const filePath = join(itemsPath, file);
+      try {
+        const data = FileManager.readJSON(filePath);
+        const item = data['minecraft:item'];
         
-        const filePath = join(itemsDir, file);
-        const content = FileManager.readJSON<any>(filePath);
+        if (!item) continue;
         
-        if (!content || !content['minecraft:item']) continue;
-        
-        const item = content['minecraft:item'];
         const identifier = item.description?.identifier;
+        const tags = item.components?.['minecraft:tags']?.tags || [];
         
-        // Check if it's a pickaxe (has minecraft:digger with stone/metal tags)
-        const hasDigger = item.components?.['minecraft:digger'];
-        const destroySpeeds = hasDigger?.destroy_speeds || [];
-        
-        const isPickaxe = destroySpeeds.some((speed: any) => {
-          const tags = speed.block?.tags || '';
-          return typeof tags === 'string' && (
-            tags.includes('stone') || 
-            tags.includes('metal') ||
-            tags.includes('rock')
-          );
-        });
-        
-        if (isPickaxe && identifier && identifier.startsWith('apeirix:')) {
-          pickaxes.push(identifier);
+        // Check if it's a pickaxe
+        if (tags.includes('minecraft:is_pickaxe') || identifier?.includes('pickaxe')) {
+          // Extract tier from tags or identifier
+          let tier = 'stone';
+          for (const tag of tags) {
+            if (tag.includes('_tier')) {
+              tier = tag.replace('minecraft:', '').replace('_tier', '');
+              break;
+            }
+          }
+          
+          pickaxes.push({
+            id: identifier,
+            tier: tier
+          });
         }
+      } catch (error) {
+        // Skip invalid files
+        continue;
       }
-    } catch (error) {
-      console.log(`⚠️  Không thể quét pickaxes: ${error}`);
     }
 
     return pickaxes;
   }
 
   /**
-   * Tạo item_specific_speeds entries cho custom pickaxes
+   * Generate pickaxe entries for destructible_by_mining
    */
-  generatePickaxeEntries(destroySpeed: number): Array<{ item: string; destroy_speed: number }> {
+  generatePickaxeEntries(destroySpeed: number): any[] {
     const pickaxes = this.scanPickaxes();
     
     return pickaxes.map(pickaxe => ({
-      item: pickaxe,
+      item: pickaxe.id,
       destroy_speed: destroySpeed
     }));
   }

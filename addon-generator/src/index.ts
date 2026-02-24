@@ -1,37 +1,37 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { registerItemCommands } from './cli/registerItemCommands.js';
-import { registerBlockCommands } from './cli/registerBlockCommands.js';
-import { registerOreCommands } from './cli/registerOreCommands.js';
-import { registerToolCommands } from './cli/registerToolCommands.js';
-import { registerArmorCommands } from './cli/registerArmorCommands.js';
-import { registerFoodCommands } from './cli/registerFoodCommands.js';
-import { registerRecipeCommands } from './cli/registerRecipeCommands.js';
-import { registerUtilityCommands } from './cli/registerUtilityCommands.js';
-import { showHelp } from './cli/showHelp.js';
+import { Compiler } from './compiler/Compiler.js';
 
 const program = new Command();
 
 program
-  .name('apeirix')
-  .description('CLI tool tự động sinh file JSON cho APEIRIX addon')
+  .name('apeirix-compiler')
+  .description('APEIRIX Addon Compiler - Compile YAML configs to Minecraft Bedrock addon')
   .version('2.0.0');
 
-// Register all commands
-registerItemCommands(program);
-registerBlockCommands(program);
-registerOreCommands(program);
-registerToolCommands(program);
-registerArmorCommands(program);
-registerFoodCommands(program);
-registerRecipeCommands(program);
-registerUtilityCommands(program);
+// Compile command
+program
+  .command('compile')
+  .description('Compile YAML config to addon')
+  .option('-c, --config <path>', 'Path to config file', 'configs/addon.yaml')
+  .option('-o, --output <path>', 'Output directory', 'build')
+  .option('--clean', 'Clean output directory before compile', false)
+  .option('-v, --verbose', 'Verbose output', false)
+  .action(async (options) => {
+    try {
+      const compiler = new Compiler(options);
+      await compiler.compile(options);
+    } catch (error) {
+      console.error('Compilation failed:', error);
+      process.exit(1);
+    }
+  });
 
 // Parse arguments
 program.parse();
 
 // Show help if no arguments
 if (!process.argv.slice(2).length) {
-  showHelp();
+  program.help();
 }

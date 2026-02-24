@@ -1,0 +1,14 @@
+id: tin_nugget
+name: Mảnh Thiếc
+texture: ../../../../assets/items/tin_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: tin_nugget_from_ingot
+    ingredients:
+      - apeirix:tin_ingot
+    result: apeirix:tin_nugget
+    count: 9
+    unlock:
+      - apeirix:tin_ingot

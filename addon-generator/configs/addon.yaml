@@ -1,0 +1,46 @@
+addon:
+  name: APEIRIX
+  description: Addon Minecraft Bedrock Edition thêm mọi thứ vào game
+  version:
+    - 1
+    - 0
+    - 0
+  minEngineVersion:
+    - 1
+    - 21
+    - 50
+  icons:
+    bp: ../assets/icons/pack_icon_bp.png
+    rp: ../assets/icons/pack_icon_rp.png
+import:
+  - materials/tin/raw_tin.yaml
+  - materials/tin/tin_ingot.yaml
+  - materials/tin/tin_nugget.yaml
+  - materials/tin/tin_block.yaml
+  - materials/tin/tin_ore.yaml
+  - materials/bronze/bronze_ingot.yaml
+  - materials/bronze/bronze_nugget.yaml
+  - materials/bronze/bronze_block.yaml
+  - tools/bronze/pickaxe.yaml
+  - tools/bronze/axe.yaml
+  - tools/bronze/shovel.yaml
+  - tools/bronze/hoe.yaml
+  - tools/bronze/sword.yaml
+  - tools/bronze/spear.yaml
+  - armor/bronze/helmet.yaml
+  - armor/bronze/chestplate.yaml
+  - armor/bronze/leggings.yaml
+  - armor/bronze/boots.yaml
+  - foods/canned-food/canempty.yaml
+  - foods/canned-food/candirty.yaml
+  - foods/canned-food/cannedmushroomsoup.yaml
+  - foods/canned-food/cannedbeets.yaml
+  - foods/canned-food/canned_food.yaml
+  - foods/canned-food/cannedbread.yaml
+  - foods/canned-food/cannedcarrots.yaml
+  - foods/canned-food/canned_pumpkin.yaml
+  - foods/canned-food/cannedfish.yaml
+  - foods/canned-food/cannedsalad.yaml
+  - foods/canned-food/cannedmeal.yaml
+  - foods/canned-food/canneddogfood.yaml
+  - special/achievement-book.yaml

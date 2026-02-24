@@ -1,0 +1,36 @@
+id: cannedfish
+name: Cá Mòi Đóng Hộp
+texture: ../../../../assets/foods/cannedfish.png
+category: items
+stackSize: 64
+nutrition: 5
+saturation: 6
+canAlwaysEat: false
+usingConvertsTo: candirty
+effects:
+  - name: water_breathing
+    duration: 30
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: cannedfish
+  ingredients:
+    - canempty
+    - minecraft:cooked_cod
+    - minecraft:cooked_cod
+  result: cannedfish
+  unlock:
+    - canempty
+    - minecraft:cooked_cod
+testCommands:
+  - "# Test: Cá Mòi Đóng Hộp - Water Breathing"
+  - clear @s
+  - give @s apeirix:cannedfish 64
+  - effect @s saturation 1 255 true
+  - effect @s instant_damage 1 10 true
+  - 'tellraw @s {"text":"=== Test: Cá Mòi Đóng Hộp ===","color":"gold"}'
+  - 'tellraw @s {"text":"Nutrition: 5 | Saturation: 6.0","color":"aqua"}'
+  - 'tellraw @s {"text":"Effect: Water Breathing 30s","color":"yellow"}'
+  - tellraw @s {"text":"Ăn để test Water Breathing!","color":"white"}
+  - playsound random.levelup @s

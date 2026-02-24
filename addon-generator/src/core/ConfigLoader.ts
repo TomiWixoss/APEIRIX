@@ -3,6 +3,30 @@ import { parse as parseYaml } from 'yaml';
 import { join } from 'path';
 
 export interface ContentConfig {
+  // Addon metadata (for compiler)
+  addon?: {
+    name: string;
+    description: string;
+    version?: [number, number, number];
+    minEngineVersion?: [number, number, number];
+    author?: string;
+    license?: string;
+    uuids?: {
+      bp?: string;
+      rp?: string;
+    };
+    icons?: {
+      bp?: string;
+      rp?: string;
+    };
+  };
+  
+  // Icons at root level (for backward compatibility)
+  icons?: {
+    bp?: string;
+    rp?: string;
+  };
+
   items?: ItemConfig[];
   foods?: FoodConfig[];
   blocks?: BlockConfig[];
@@ -12,10 +36,12 @@ export interface ContentConfig {
   recipes?: RecipeConfig[];
   
   // YAML linking - import từ files khác
-  importItems?: string;      // Path to items YAML
-  importFoods?: string;      // Path to foods YAML (merged into foods array)
-  importRecipes?: string;    // Path to recipes YAML
-  importTests?: string;      // Path to test functions YAML
+  import?: string[];           // Array of config files to import (NEW)
+  importConfig?: string;       // Single config file to import (NEW)
+  importItems?: string;        // Path to items YAML
+  importFoods?: string;        // Path to foods YAML (merged into foods array)
+  importRecipes?: string;      // Path to recipes YAML
+  importTests?: string;        // Path to test functions YAML
   
   // Recipe bulk test
   generateBulkRecipeTest?: boolean | string; // true = "all_recipes", string = custom name
@@ -154,7 +180,37 @@ export class ConfigLoader {
    * Load imported YAML files và merge vào config
    */
   private static loadImports(config: ContentConfig, basePath: string): ContentConfig {
-    const baseDir = basePath.substring(0, basePath.lastIndexOf('/'));
+    // Normalize path separators to forward slashes
+    const normalizedPath = basePath.replace(/\\/g, '/');
+    const baseDir = normalizedPath.substring(0, normalizedPath.lastIndexOf('/'));
+    
+    // Preserve addon metadata and icons from root config
+    const rootAddon = config.addon;
+    const rootIcons = config.icons;
+    
+    // NEW: Support import array (import multiple files)
+    if (config.import && Array.isArray(config.import)) {
+      for (const importPath of config.import) {
+        const fullPath = join(baseDir, importPath);
+        const importedConfig = this.load(fullPath);
+        
+        // Merge all content from imported config
+        config = this.mergeConfigs(config, importedConfig);
+      }
+    }
+    
+    // Restore root addon and icons (don't let imports override)
+    if (rootAddon) config.addon = rootAddon;
+    if (rootIcons) config.icons = rootIcons;
+    
+    // NEW: Support importConfig (single file import)
+    if (config.importConfig) {
+      const fullPath = join(baseDir, config.importConfig);
+      const importedConfig = this.load(fullPath);
+      
+      // Merge all content from imported config
+      config = this.mergeConfigs(config, importedConfig);
+    }
     
     // Import items
     if (config.importItems) {
@@ -214,6 +270,90 @@ export class ConfigLoader {
     }
     
     return config;
+  }
+
+  /**
+   * Merge two configs together
+   * Auto-detect single entity files và convert thành array
+   */
+  private static mergeConfigs(base: ContentConfig, imported: ContentConfig): ContentConfig {
+    // Auto-detect single entity files (không có array, chỉ có properties trực tiếp)
+    const importedNormalized = this.normalizeSingleEntity(imported);
+    
+    return {
+      ...base,
+      addon: base.addon || importedNormalized.addon,
+      icons: base.icons || importedNormalized.icons,
+      items: [...(base.items || []), ...(importedNormalized.items || [])],
+      foods: [...(base.foods || []), ...(importedNormalized.foods || [])],
+      blocks: [...(base.blocks || []), ...(importedNormalized.blocks || [])],
+      ores: [...(base.ores || []), ...(importedNormalized.ores || [])],
+      tools: [...(base.tools || []), ...(importedNormalized.tools || [])],
+      armor: [...(base.armor || []), ...(importedNormalized.armor || [])],
+      recipes: [...(base.recipes || []), ...(importedNormalized.recipes || [])]
+    };
+  }
+
+  /**
+   * Normalize single entity file thành array format
+   * Detect nếu file chỉ chứa 1 entity (có id field) thay vì array
+   */
+  private static normalizeSingleEntity(config: any): ContentConfig {
+    const normalized: ContentConfig = {};
+    
+    // Nếu có 'id' field ở root level → đây là single entity file
+    if (config.id) {
+      // Detect entity type dựa vào fields
+      if (config.nutrition !== undefined) {
+        // Food entity
+        normalized.foods = [config];
+      } else if (config.type && ['pickaxe', 'axe', 'shovel', 'hoe', 'sword', 'spear'].includes(config.type)) {
+        // Tool entity
+        normalized.tools = [config];
+      } else if (config.type && ['helmet', 'chestplate', 'leggings', 'boots'].includes(config.type)) {
+        // Armor entity
+        normalized.armor = [config];
+      } else if (config.texturePath || config.deepslateTexturePath) {
+        // Ore entity (có texturePath thay vì texture)
+        normalized.ores = [config];
+      } else if (config.destroyTime !== undefined || config.explosionResistance !== undefined) {
+        // Block entity
+        normalized.blocks = [config];
+      } else {
+        // Default: Item entity
+        normalized.items = [config];
+      }
+      
+      // Fix texture paths: ../../../../assets/ → ../assets/
+      // (vì AssetCopier resolve từ main config location)
+      if (config.texture) {
+        config.texture = config.texture.replace(/^(\.\.\/)+assets\//, '../assets/');
+      }
+      if (config.texturePath) {
+        config.texturePath = config.texturePath.replace(/^(\.\.\/)+assets\//, '../assets/');
+      }
+      if (config.deepslateTexturePath) {
+        config.deepslateTexturePath = config.deepslateTexturePath.replace(/^(\.\.\/)+assets\//, '../assets/');
+      }
+      if (config.armorLayerTexturePath) {
+        config.armorLayerTexturePath = config.armorLayerTexturePath.replace(/^(\.\.\/)+assets\//, '../assets/');
+      }
+      
+      // Extract recipe nếu có (single recipe in entity file)
+      if (config.recipe) {
+        normalized.recipes = [config.recipe];
+      }
+      
+      // Extract recipes nếu có (multiple recipes in entity file)
+      if (config.recipes && Array.isArray(config.recipes)) {
+        normalized.recipes = [...(normalized.recipes || []), ...config.recipes];
+      }
+    } else {
+      // Normal array format, return as-is
+      return config as ContentConfig;
+    }
+    
+    return normalized;
   }
 
   private static loadYaml(filePath: string): ContentConfig {

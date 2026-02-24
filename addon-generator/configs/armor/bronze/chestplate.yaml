@@ -1,0 +1,38 @@
+type: chestplate
+id: bronze_chestplate
+name: Áo Giáp Đồng Thanh
+texture: ../../../../assets/armor/items/bronze_chestplate.png
+durability: 320
+protection: 5
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: bronze_layer_1
+armorLayerTexturePath: ../../../../assets/armor/layers/bronze_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: bronze_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:bronze_ingot
+    result: apeirix:bronze_chestplate
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+  - type: shapeless
+    id: bronze_chestplate_from_block
+    ingredients:
+      - apeirix:bronze_block
+    result: apeirix:bronze_chestplate
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+materialId: apeirix:bronze_ingot
+enchantability: 18

@@ -58,7 +58,7 @@ export class OreGenerator {
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
-    // Quét custom pickaxes
+    // Auto-scan custom pickaxes from BP/items
     const scanner = new PickaxeScanner(this.projectRoot);
     const customPickaxeEntries = scanner.generatePickaxeEntries(destroySpeed);
 
@@ -100,9 +100,9 @@ export class OreGenerator {
       }
     };
 
-    const blockPath = join(this.projectRoot, `packs/BP/blocks/${id}.json`);
+    const blockPath = join(this.projectRoot, `BP/blocks/${id}.json`);
     FileManager.writeJSON(blockPath, blockData);
-    console.log(`✅ Đã tạo: packs/BP/blocks/${id}.json`);
+    console.log(`✅ Đã tạo: BP/blocks/${id}.json`);
 
     // Tạo loot table
     this.generateOreLootTable(config, id);
@@ -113,7 +113,7 @@ export class OreGenerator {
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
-    // Quét custom pickaxes
+    // Auto-scan custom pickaxes from BP/items
     const scanner = new PickaxeScanner(this.projectRoot);
     const customPickaxes = scanner.scanPickaxes();
 
@@ -142,13 +142,13 @@ export class OreGenerator {
     ];
 
     // Thêm pool cho mỗi custom pickaxe
-    customPickaxes.forEach(pickaxe => {
+    customPickaxes.forEach((pickaxe: any) => {
       pools.push({
         rolls: 1,
         conditions: [
           {
             condition: "match_tool",
-            item: pickaxe
+            item: pickaxe.id
           }
         ],
         entries: [
@@ -163,9 +163,9 @@ export class OreGenerator {
 
     const lootTable = { pools };
 
-    const lootPath = join(this.projectRoot, `packs/BP/loot_tables/blocks/${oreId}.json`);
+    const lootPath = join(this.projectRoot, `BP/loot_tables/blocks/${oreId}.json`);
     FileManager.writeJSON(lootPath, lootTable);
-    console.log(`✅ Đã tạo: packs/BP/loot_tables/blocks/${oreId}.json`);
+    console.log(`✅ Đã tạo: BP/loot_tables/blocks/${oreId}.json`);
   }
 
   private generateWorldGen(config: OreConfig): void {
@@ -210,9 +210,9 @@ export class OreGenerator {
       });
     }
 
-    const featurePath = join(this.projectRoot, `packs/BP/features/${featureId}.json`);
+    const featurePath = join(this.projectRoot, `BP/features/${featureId}.json`);
     FileManager.writeJSON(featurePath, feature);
-    console.log(`✅ Đã tạo: packs/BP/features/${featureId}.json`);
+    console.log(`✅ Đã tạo: BP/features/${featureId}.json`);
 
     // Feature Rule
     const minY = config.minY || 0;
@@ -247,9 +247,9 @@ export class OreGenerator {
       }
     };
 
-    const rulePath = join(this.projectRoot, `packs/BP/feature_rules/${ruleId}.json`);
+    const rulePath = join(this.projectRoot, `BP/feature_rules/${ruleId}.json`);
     FileManager.writeJSON(rulePath, featureRule);
-    console.log(`✅ Đã tạo: packs/BP/feature_rules/${ruleId}.json`);
+    console.log(`✅ Đã tạo: BP/feature_rules/${ruleId}.json`);
   }
 
   private addToFortuneRegistry(config: OreConfig): void {
@@ -286,7 +286,7 @@ export class OreGenerator {
   }
 
   updateTerrainTextureRegistry(oreId: string, hasDeepslate: boolean): void {
-    const filePath = join(this.projectRoot, 'packs/RP/textures/terrain_texture.json');
+    const filePath = join(this.projectRoot, 'RP/textures/terrain_texture.json');
     const data = FileManager.readJSON(filePath) || {
       resource_pack_name: 'APEIRIX',
       texture_name: 'atlas.terrain',

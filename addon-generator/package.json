@@ -8,6 +8,10 @@
   },
   "scripts": {
     "dev": "bun run src/index.ts",
+    "compile": "bun run src/index.ts compile",
+    "compile:clean": "bun run src/index.ts compile --clean",
+    "validate": "bun run src/index.ts validate",
+    "init": "bun run src/index.ts init",
     "build": "bun build src/index.ts --outdir dist --target node",
     "start": "node dist/index.js",
     "test": "node --test tests/*.test.js"

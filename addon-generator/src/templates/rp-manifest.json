@@ -1,0 +1,27 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "{{name}} [RP]",
+    "description": "{{description}}",
+    "uuid": "{{uuid}}",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 20, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "{{moduleUuid}}",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "{{bpUuid}}",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["{{author}}"],
+    "product_type": "addon"
+  }
+}

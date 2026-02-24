@@ -1,0 +1,56 @@
+id: tin_ingot
+name: Thỏi Thiếc
+texture: ../../../../assets/items/tin_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: tin_ingot_from_ore_smelting
+    input: apeirix:tin_ore
+    output: apeirix:tin_ingot
+    count: 1
+  - type: blasting
+    id: tin_ingot_from_ore_blasting
+    input: apeirix:tin_ore
+    output: apeirix:tin_ingot
+    count: 1
+  - type: smelting
+    id: tin_ingot_from_deepslate_ore_smelting
+    input: apeirix:deepslate_tin_ore
+    output: apeirix:tin_ingot
+    count: 1
+  - type: blasting
+    id: tin_ingot_from_deepslate_ore_blasting
+    input: apeirix:deepslate_tin_ore
+    output: apeirix:tin_ingot
+    count: 1
+  - type: smelting
+    id: tin_ingot_from_smelting
+    input: apeirix:raw_tin
+    output: apeirix:tin_ingot
+    count: 1
+  - type: blasting
+    id: tin_ingot_from_blasting
+    input: apeirix:raw_tin
+    output: apeirix:tin_ingot
+    count: 1
+  - type: shaped
+    id: tin_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:tin_nugget
+    result: apeirix:tin_ingot
+    count: 1
+    unlock:
+      - apeirix:tin_nugget
+  - type: shapeless
+    id: tin_ingot_from_block
+    ingredients:
+      - apeirix:tin_block
+    result: apeirix:tin_ingot
+    count: 9
+    unlock:
+      - apeirix:tin_block

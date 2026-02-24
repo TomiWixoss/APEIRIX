@@ -48,9 +48,9 @@ export class BlockGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `packs/BP/blocks/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `BP/blocks/${config.id}.json`);
     FileManager.writeJSON(outputPath, blockData);
-    console.log(`✅ Đã tạo: packs/BP/blocks/${config.id}.json`);
+    console.log(`✅ Đã tạo: BP/blocks/${config.id}.json`);
 
     // Tạo loot table
     this.generateLootTable(config);
@@ -104,13 +104,13 @@ export class BlockGenerator {
       ]
     };
 
-    const outputPath = join(this.projectRoot, `packs/BP/loot_tables/blocks/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `BP/loot_tables/blocks/${config.id}.json`);
     FileManager.writeJSON(outputPath, lootTable);
-    console.log(`✅ Đã tạo: packs/BP/loot_tables/blocks/${config.id}.json`);
+    console.log(`✅ Đã tạo: BP/loot_tables/blocks/${config.id}.json`);
   }
 
   updateTerrainTextureRegistry(blockId: string): void {
-    const filePath = join(this.projectRoot, 'packs/RP/textures/terrain_texture.json');
+    const filePath = join(this.projectRoot, 'RP/textures/terrain_texture.json');
     const data = FileManager.readJSON(filePath) || {
       resource_pack_name: 'APEIRIX',
       texture_name: 'atlas.terrain',

@@ -35,7 +35,7 @@ export class FoodGenerator {
   generate(config: FoodConfig): void {
     const itemPath = join(
       this.projectRoot,
-      'packs/BP/items',
+      'BP/items',
       `${config.id}.json`
     );
 
@@ -84,6 +84,6 @@ export class FoodGenerator {
     // Effects sẽ được tự động thêm vào scripts/data/GameData.ts
 
     FileManager.writeJSON(itemPath, itemData);
-    console.log(`✅ Đã tạo: packs/BP/items/${config.id}.json`);
+    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
 }

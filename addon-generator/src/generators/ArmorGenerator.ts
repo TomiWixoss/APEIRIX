@@ -11,10 +11,24 @@ export interface ArmorPieceConfig {
   // Piece type
   piece: 'helmet' | 'chestplate' | 'leggings' | 'boots';
   
+  // Slots
+  slot?: string; // e.g., "slot.armor.head"
+  enchantSlot?: string; // e.g., "armor_head"
+  
+  // Geometry
+  geometry?: string; // e.g., "geometry.humanoid.armor.helmet"
+  
   // Stats
   durability?: number;
   protection?: number;
   enchantability?: number;
+  
+  // Menu
+  category?: string;
+  group?: string;
+  
+  // Tags
+  tags?: string[];
 }
 
 /**
@@ -36,6 +50,11 @@ export class ArmorGenerator {
     const durability = config.durability || stats.durability;
     const protection = config.protection || stats.protection;
     const enchantability = config.enchantability || 18;
+    const enchantSlot = config.enchantSlot || stats.enchantSlot;
+    const wearableSlot = config.slot || stats.wearableSlot;
+    const category = config.category || "equipment";
+    const group = config.group || `itemGroup.name.${config.piece}`;
+    const tags = config.tags || ["minecraft:trimmable_armors"];
 
     const itemData = {
       format_version: "1.21.0",
@@ -43,8 +62,8 @@ export class ArmorGenerator {
         description: {
           identifier: `apeirix:${config.id}`,
           menu_category: {
-            category: "equipment",
-            group: `minecraft:itemGroup.name.${config.piece}`
+            category: category,
+            group: group
           }
         },
         components: {
@@ -61,7 +80,7 @@ export class ArmorGenerator {
             }
           },
           "minecraft:enchantable": {
-            slot: stats.enchantSlot,
+            slot: enchantSlot,
             value: enchantability
           },
           "minecraft:repairable": {
@@ -77,19 +96,19 @@ export class ArmorGenerator {
             ]
           },
           "minecraft:wearable": {
-            slot: stats.wearableSlot,
+            slot: wearableSlot,
             protection: protection
           },
           "minecraft:tags": {
-            tags: ["minecraft:trimmable_armors"]
+            tags: tags
           }
         }
       }
     };
 
-    const outputPath = join(this.projectRoot, `packs/BP/items/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `BP/items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
-    console.log(`✅ Đã tạo: packs/BP/items/${config.id}.json`);
+    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
 
   private generateAttachable(config: ArmorPieceConfig): void {
@@ -123,9 +142,9 @@ export class ArmorGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `packs/RP/attachables/${config.id}.json`);
+    const outputPath = join(this.projectRoot, `RP/attachables/${config.id}.json`);
     FileManager.writeJSON(outputPath, attachableData);
-    console.log(`✅ Đã tạo: packs/RP/attachables/${config.id}.json`);
+    console.log(`✅ Đã tạo: RP/attachables/${config.id}.json`);
   }
 
   private getArmorStats(piece: string) {

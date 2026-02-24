@@ -1,0 +1,29 @@
+id: cannedbeets
+name: Súp Củ Dền Hộp
+texture: ../../../../assets/foods/cannedbeets.png
+category: items
+stackSize: 64
+nutrition: 6
+saturation: 7.2
+canAlwaysEat: false
+usingConvertsTo: candirty
+recipe:
+  type: shapeless
+  id: cannedbeets
+  ingredients:
+    - canempty
+    - minecraft:beetroot_soup
+  result: cannedbeets
+  unlock:
+    - canempty
+    - minecraft:beetroot_soup
+testCommands:
+  - "# Test: Súp Củ Dền Hộp"
+  - clear @s
+  - give @s apeirix:cannedbeets 64
+  - effect @s saturation 1 255 true
+  - effect @s instant_damage 1 10 true
+  - 'tellraw @s {"text":"=== Test: Súp Củ Dền Hộp ===","color":"gold"}'
+  - 'tellraw @s {"text":"Nutrition: 6 | Saturation: 7.2","color":"aqua"}'
+  - tellraw @s {"text":"Súp củ dền giờ có thể stack 64!","color":"white"}
+  - playsound random.levelup @s

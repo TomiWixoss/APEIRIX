@@ -1,0 +1,36 @@
+id: canned_pumpkin
+name: Bí Ngô Nghiền Hộp
+texture: ../../../../assets/foods/canned_pumpkin.png
+category: items
+stackSize: 64
+nutrition: 4
+saturation: 4.8
+canAlwaysEat: false
+usingConvertsTo: candirty
+effects:
+  - name: fire_resistance
+    duration: 15
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: canned_pumpkin
+  ingredients:
+    - canempty
+    - minecraft:pumpkin
+    - minecraft:sugar
+  result: canned_pumpkin
+  unlock:
+    - canempty
+    - minecraft:pumpkin
+testCommands:
+  - "# Test: Bí Ngô Nghiền Hộp - Fire Resistance"
+  - clear @s
+  - give @s apeirix:canned_pumpkin 64
+  - effect @s saturation 1 255 true
+  - effect @s instant_damage 1 10 true
+  - 'tellraw @s {"text":"=== Test: Bí Ngô Nghiền Hộp ===","color":"gold"}'
+  - 'tellraw @s {"text":"Nutrition: 4 | Saturation: 4.8","color":"aqua"}'
+  - 'tellraw @s {"text":"Effect: Fire Resistance 15s","color":"yellow"}'
+  - tellraw @s {"text":"Ăn để test Fire Resistance!","color":"white"}
+  - playsound random.levelup @s

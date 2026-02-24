@@ -1,0 +1,31 @@
+type: pickaxe
+id: bronze_pickaxe
+name: Cúp Đồng Thanh
+texture: ../../../../assets/tools/bronze_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - stone
+  - metal
+  - rock
+  - diamond_pick_diggable
+  - iron_pick_diggable
+  - stone_pick_diggable
+recipe:
+  type: shaped
+  id: bronze_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:bronze_ingot
+    S: minecraft:stick
+  result: apeirix:bronze_pickaxe
+  count: 1
+  unlock:
+    - apeirix:bronze_ingot
+materialId: apeirix:bronze_ingot
+durability: 375
+enchantability: 18

@@ -1,0 +1,30 @@
+id: canned_food
+name: Thịt Hộp Hầm
+texture: ../../../../assets/foods/canned_food.png
+category: items
+stackSize: 64
+nutrition: 10
+saturation: 12.8
+canAlwaysEat: false
+usingConvertsTo: candirty
+recipe:
+  type: shapeless
+  id: canned_food
+  ingredients:
+    - canempty
+    - minecraft:cooked_beef
+    - minecraft:cooked_porkchop
+  result: canned_food
+  unlock:
+    - canempty
+    - minecraft:cooked_beef
+testCommands:
+  - "# Test: Thịt Hộp Hầm"
+  - clear @s
+  - give @s apeirix:canned_food 64
+  - effect @s saturation 1 255 true
+  - effect @s instant_damage 1 10 true
+  - 'tellraw @s {"text":"=== Test: Thịt Hộp Hầm ===","color":"gold"}'
+  - 'tellraw @s {"text":"Nutrition: 10 | Saturation: 12.8","color":"aqua"}'
+  - tellraw @s {"text":"Hồi 5 đùi gà với saturation cực cao!","color":"green"}
+  - playsound random.levelup @s

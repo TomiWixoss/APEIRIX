@@ -1,0 +1,37 @@
+id: bronze_ingot
+name: Thỏi Đồng Thanh
+texture: ../../../../assets/items/bronze_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: bronze_ingot_from_copper_tin
+    ingredients:
+      - minecraft:copper_ingot
+      - minecraft:copper_ingot
+      - minecraft:copper_ingot
+      - apeirix:tin_ingot
+    result: apeirix:bronze_ingot
+    count: 4
+    unlock:
+      - apeirix:tin_ingot
+  - type: shaped
+    id: bronze_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:bronze_nugget
+    result: apeirix:bronze_ingot
+    count: 1
+    unlock:
+      - apeirix:bronze_nugget
+  - type: shapeless
+    id: bronze_ingot_from_block
+    ingredients:
+      - apeirix:bronze_block
+    result: apeirix:bronze_ingot
+    count: 9
+    unlock:
+      - apeirix:bronze_block

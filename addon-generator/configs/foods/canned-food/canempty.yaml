@@ -1,0 +1,37 @@
+id: canempty
+name: Vỏ Đồ Hộp Rỗng
+texture: ../../../../assets/foods/canempty.png
+category: items
+stackSize: 64
+testCommands:
+  - "# Test: Vỏ Đồ Hộp Rỗng"
+  - clear @s
+  - give @s apeirix:canempty 64
+  - 'tellraw @s {"text":"=== Test: Vỏ Đồ Hộp Rỗng ===","color":"gold"}'
+  - tellraw @s {"text":"Material cơ bản cho hệ thống đồ hộp","color":"gray"}
+  - playsound random.levelup @s
+recipes:
+  - type: shaped
+    id: canempty
+    pattern:
+      - T T
+      - " T "
+    key:
+      T: tin_ingot
+    result: canempty
+    resultCount: 4
+    unlock:
+      - tin_ingot
+  - type: shaped
+    id: candirty_to_canempty
+    pattern:
+      - C
+      - W
+    key:
+      C: candirty
+      W: minecraft:water_bucket
+    result: canempty
+    resultExtra:
+      - minecraft:bucket
+    unlock:
+      - candirty

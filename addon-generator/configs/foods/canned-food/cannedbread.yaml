@@ -1,0 +1,29 @@
+id: cannedbread
+name: Bánh Mì Đóng Hộp
+texture: ../../../../assets/foods/cannedbread.png
+category: items
+stackSize: 64
+nutrition: 5
+saturation: 6
+canAlwaysEat: false
+usingConvertsTo: candirty
+recipe:
+  type: shapeless
+  id: cannedbread
+  ingredients:
+    - canempty
+    - minecraft:bread
+  result: cannedbread
+  unlock:
+    - canempty
+    - minecraft:bread
+testCommands:
+  - "# Test: Bánh Mì Đóng Hộp"
+  - clear @s
+  - give @s apeirix:cannedbread 64
+  - effect @s saturation 1 255 true
+  - effect @s instant_damage 1 10 true
+  - 'tellraw @s {"text":"=== Test: Bánh Mì Đóng Hộp ===","color":"gold"}'
+  - 'tellraw @s {"text":"Nutrition: 5 | Saturation: 6.0","color":"aqua"}'
+  - 'tellraw @s {"text":"Easter Egg: Spongebob reference!","color":"yellow"}'
+  - playsound random.levelup @s

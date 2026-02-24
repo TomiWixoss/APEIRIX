@@ -1,0 +1,42 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "{{name}}",
+    "description": "{{description}}",
+    "uuid": "{{uuid}}",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "{{moduleUuid}}",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "{{scriptUuid}}",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "2.5.0"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "2.0.0"
+    },
+    {
+      "uuid": "{{rpUuid}}",
+      "version": [1, 0, 0]
+    }
+  ],
+  "metadata": {
+    "authors": ["{{author}}"],
+    "product_type": "addon"
+  }
+}

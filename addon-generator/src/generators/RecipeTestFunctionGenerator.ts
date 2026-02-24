@@ -22,12 +22,12 @@ export class RecipeTestFunctionGenerator {
   generate(config: RecipeTestConfig): void {
     const functionPath = join(
       this.projectRoot,
-      'packs/BP/functions/tests/recipes',
+      'BP/functions/tests/recipes',
       `${config.id}.mcfunction`
     );
 
     // Tạo folder nếu chưa có
-    FileManager.ensureDir(join(this.projectRoot, 'packs/BP/functions/tests/recipes'));
+    FileManager.ensureDir(join(this.projectRoot, 'BP/functions/tests/recipes'));
 
     const commands: string[] = [];
     
@@ -75,7 +75,7 @@ export class RecipeTestFunctionGenerator {
     const content = commands.join('\n') + '\n';
     FileManager.writeText(functionPath, content);
     
-    console.log(`✅ Đã tạo recipe test function: packs/BP/functions/tests/recipes/${config.id}.mcfunction`);
+    console.log(`✅ Đã tạo recipe test function: BP/functions/tests/recipes/${config.id}.mcfunction`);
   }
 
   /**
@@ -84,12 +84,12 @@ export class RecipeTestFunctionGenerator {
   generateBulkTest(recipes: RecipeTestConfig[], fileName: string = 'all_recipes'): void {
     const functionPath = join(
       this.projectRoot,
-      'packs/BP/functions/tests/recipes',
+      'BP/functions/tests/recipes',
       `${fileName}.mcfunction`
     );
 
     // Tạo folder nếu chưa có
-    FileManager.ensureDir(join(this.projectRoot, 'packs/BP/functions/tests/recipes'));
+    FileManager.ensureDir(join(this.projectRoot, 'BP/functions/tests/recipes'));
 
     const commands: string[] = [];
     
@@ -137,7 +137,7 @@ export class RecipeTestFunctionGenerator {
     const content = commands.join('\n') + '\n';
     FileManager.writeText(functionPath, content);
     
-    console.log(`✅ Đã tạo bulk recipe test function: packs/BP/functions/tests/recipes/${fileName}.mcfunction`);
+    console.log(`✅ Đã tạo bulk recipe test function: BP/functions/tests/recipes/${fileName}.mcfunction`);
   }
 
   /**

@@ -8,7 +8,7 @@ export class LangGenerator {
   constructor(private projectRoot: string) {}
 
   updateLangFile(itemId: string, displayName: string, packType: 'BP' | 'RP', prefix: 'item' | 'tile' = 'item'): void {
-    const filePath = join(this.projectRoot, `packs/${packType}/texts/en_US.lang`);
+    const filePath = join(this.projectRoot, `${packType}/texts/en_US.lang`);
     const lines = FileManager.readLines(filePath);
     
     const langKey = `${prefix}.apeirix.${itemId}.name=${displayName}`;
@@ -34,5 +34,55 @@ export class LangGenerator {
     } else {
       console.log(`⚠️  ${prefix === 'item' ? 'Item' : 'Block'} "${itemId}" đã tồn tại trong ${packType}/texts/en_US.lang`);
     }
+  }
+
+  /**
+   * Generate complete lang file from entries
+   */
+  generate(entries: Record<string, string>, packType: 'BP' | 'RP'): void {
+    const filePath = join(this.projectRoot, `${packType}/texts/en_US.lang`);
+    const lines: string[] = [];
+
+    // Header
+    lines.push(`## APEIRIX Addon - Language File (${packType})`);
+    lines.push('');
+
+    // Separate items and blocks
+    const itemEntries: string[] = [];
+    const blockEntries: string[] = [];
+
+    for (const [key, value] of Object.entries(entries)) {
+      if (key.startsWith('item.')) {
+        itemEntries.push(`${key}=${value}`);
+      } else if (key.startsWith('tile.')) {
+        blockEntries.push(`${key}=${value}`);
+      }
+    }
+
+    // Items section
+    if (itemEntries.length > 0) {
+      lines.push('## Items');
+      lines.push(...itemEntries);
+      lines.push('');
+    }
+
+    // Blocks section
+    if (blockEntries.length > 0) {
+      lines.push('## Blocks');
+      lines.push(...blockEntries);
+      lines.push('');
+    }
+
+    FileManager.writeLines(filePath, lines);
+    console.log(`✅ Đã tạo ${packType}/texts/en_US.lang với ${Object.keys(entries).length} entries`);
+  }
+
+  /**
+   * Generate languages.json
+   */
+  generateLanguagesJson(packType: 'BP' | 'RP'): void {
+    const filePath = join(this.projectRoot, `${packType}/texts/languages.json`);
+    const languages = ['en_US'];
+    FileManager.writeJSON(filePath, languages);
   }
 }
