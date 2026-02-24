@@ -26,17 +26,26 @@ if (-not (Test-Path $ExportDir)) { New-Item -ItemType Directory -Path $ExportDir
 if (Test-Path $TempDir) { Remove-Item -Recurse -Force $TempDir }
 New-Item -ItemType Directory -Path $TempDir | Out-Null
 
-# Step 4: Create mcpacks
+# Step 4: Create mcpacks using .NET
 Write-Host "[4/6] Creating mcpacks..." -ForegroundColor Yellow
-Compress-Archive -Path ".\build\APEIRIX_bp\*" -DestinationPath ".\temp_mcaddon\BP.zip" -Force
-Rename-Item ".\temp_mcaddon\BP.zip" "BP.mcpack"
-Compress-Archive -Path ".\build\APEIRIX_rp\*" -DestinationPath ".\temp_mcaddon\RP.zip" -Force
-Rename-Item ".\temp_mcaddon\RP.zip" "RP.mcpack"
+Add-Type -AssemblyName System.IO.Compression.FileSystem
+
+# BP mcpack
+$BPSource = (Resolve-Path ".\build\APEIRIX_bp").Path
+$BPPack = Join-Path (Resolve-Path $TempDir).Path "BP.mcpack"
+[System.IO.Compression.ZipFile]::CreateFromDirectory($BPSource, $BPPack)
+Write-Host "    ✓ Behavior Pack" -ForegroundColor Gray
+
+# RP mcpack
+$RPSource = (Resolve-Path ".\build\APEIRIX_rp").Path
+$RPPack = Join-Path (Resolve-Path $TempDir).Path "RP.mcpack"
+[System.IO.Compression.ZipFile]::CreateFromDirectory($RPSource, $RPPack)
+Write-Host "    ✓ Resource Pack" -ForegroundColor Gray
 
 # Step 5: Create mcaddon
 Write-Host "[5/6] Creating mcaddon..." -ForegroundColor Yellow
-Compress-Archive -Path ".\temp_mcaddon\*.mcpack" -DestinationPath ".\temp.zip" -Force
-Move-Item ".\temp.zip" ".\exports\$FinalFile" -Force
+$McaddonPath = Join-Path (Resolve-Path $ExportDir).Path $FinalFile
+[System.IO.Compression.ZipFile]::CreateFromDirectory((Resolve-Path $TempDir).Path, $McaddonPath)
 
 # Step 6: Cleanup
 Write-Host "[6/6] Cleanup..." -ForegroundColor Yellow
