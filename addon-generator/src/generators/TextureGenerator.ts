@@ -7,10 +7,18 @@ import { join } from 'path';
 export class TextureGenerator {
   constructor(private projectRoot: string) {}
 
-  copyTexture(itemId: string, sourcePath: string): void {
-    const destPath = join(this.projectRoot, `packs/RP/textures/items/${itemId}.png`);
+  copyTexture(itemId: string, sourcePath: string, type: 'items' | 'blocks' | 'textures' = 'items'): void {
+    // Nếu itemId có path (e.g., "models/armor/bronze_layer_1"), giữ nguyên
+    const destPath = itemId.includes('/') 
+      ? join(this.projectRoot, `packs/RP/${type}/${itemId}.png`)
+      : join(this.projectRoot, `packs/RP/textures/${type}/${itemId}.png`);
+    
     FileManager.copyFile(sourcePath, destPath);
-    console.log(`✅ Đã copy texture: packs/RP/textures/items/${itemId}.png`);
+    
+    const displayPath = itemId.includes('/')
+      ? `packs/RP/${type}/${itemId}.png`
+      : `packs/RP/textures/${type}/${itemId}.png`;
+    console.log(`✅ Đã copy texture: ${displayPath}`);
   }
 
   updateItemTextureRegistry(itemId: string): void {

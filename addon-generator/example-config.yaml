@@ -1,0 +1,119 @@
+# APEIRIX Addon Generator - Example Config
+# Sử dụng: bun run dev batch -f example-config.yaml -p ..
+
+# Items
+items:
+  - id: magic_stone
+    name: "Đá Ma Thuật"
+    texture: ./textures/magic_stone.png
+    category: items
+    stackSize: 64
+
+  - id: magic_dust
+    name: "Bụi Ma Thuật"
+    texture: ./textures/magic_dust.png
+    category: items
+    stackSize: 64
+
+# Blocks
+blocks:
+  - id: magic_block
+    name: "Khối Ma Thuật"
+    texture: ./textures/magic_block.png
+    category: construction
+    destroyTime: 5.0
+    explosionResistance: 6.0
+    requiresTool: true
+    toolTier: stone
+
+# Ores (với world generation)
+ores:
+  - id: copper_ore
+    name: "Quặng Đồng"
+    texture: ./textures/copper_ore.png
+    deepslateTexture: ./textures/deepslate_copper_ore.png
+    rawItemId: raw_copper
+    minY: 0
+    maxY: 64
+    veinSize: 9
+    veinsPerChunk: 20
+    toolTier: stone
+
+# Tools (KHÔNG tạo recipe)
+tools:
+  - id: copper_pickaxe
+    name: "Cuốc Đồng"
+    type: pickaxe
+    texture: ./textures/copper_pickaxe.png
+    materialId: copper_ingot
+    durability: 250
+    damage: 4
+    efficiency: 6
+
+  - id: copper_axe
+    name: "Rìu Đồng"
+    type: axe
+    texture: ./textures/copper_axe.png
+    materialId: copper_ingot
+    durability: 250
+    damage: 5
+    efficiency: 6
+
+  - id: copper_sword
+    name: "Kiếm Đồng"
+    type: sword
+    texture: ./textures/copper_sword.png
+    materialId: copper_ingot
+    durability: 250
+    damage: 6
+
+# Armor Sets (KHÔNG tạo recipes)
+armor:
+  - baseName: copper
+    displayNamePrefix: "Giáp Đồng"
+    materialId: copper_ingot
+    iconTexturesPath: ./textures/armor/
+    armorLayer1: ./textures/armor/copper_layer_1.png
+    armorLayer2: ./textures/armor/copper_layer_2.png
+    durabilityMultiplier: 1.0
+    protectionMultiplier: 1.0
+
+# Recipes
+recipes:
+  # Shaped recipes
+  - type: shaped
+    id: copper_ingot_from_nuggets
+    pattern: ["###", "###", "###"]
+    key:
+      "#": copper_nugget
+    result: copper_ingot
+    unlock: [copper_nugget]
+
+  - type: shaped
+    id: copper_block_from_ingots
+    pattern: ["###", "###", "###"]
+    key:
+      "#": copper_ingot
+    result: copper_block
+    unlock: [copper_ingot]
+
+  # Shapeless recipes
+  - type: shapeless
+    id: copper_nugget_from_ingot
+    ingredients: [copper_ingot]
+    result: copper_nugget
+    resultCount: 9
+    unlock: [copper_ingot]
+
+  - type: shapeless
+    id: copper_ingot_from_block
+    ingredients: [copper_block]
+    result: copper_ingot
+    resultCount: 9
+    unlock: [copper_block]
+
+  # Smelting recipes
+  - type: smelting
+    id: copper_ingot_from_smelting
+    input: raw_copper
+    output: copper_ingot

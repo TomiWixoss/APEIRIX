@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync } from 'fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync, copyFileSync, unlinkSync } from 'fs';
 import { dirname } from 'path';
 
 /**
@@ -49,5 +49,11 @@ export class FileManager {
 
   static writeLines(filePath: string, lines: string[]): void {
     this.writeText(filePath, lines.join('\n'));
+  }
+
+  static deleteFile(filePath: string): void {
+    if (existsSync(filePath)) {
+      unlinkSync(filePath);
+    }
   }
 }

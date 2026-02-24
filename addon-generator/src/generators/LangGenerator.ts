@@ -7,19 +7,20 @@ import { join } from 'path';
 export class LangGenerator {
   constructor(private projectRoot: string) {}
 
-  updateLangFile(itemId: string, displayName: string, packType: 'BP' | 'RP'): void {
+  updateLangFile(itemId: string, displayName: string, packType: 'BP' | 'RP', prefix: 'item' | 'tile' = 'item'): void {
     const filePath = join(this.projectRoot, `packs/${packType}/texts/en_US.lang`);
     const lines = FileManager.readLines(filePath);
     
-    const langKey = `item.apeirix.${itemId}.name=${displayName}`;
+    const langKey = `${prefix}.apeirix.${itemId}.name=${displayName}`;
     
-    if (!lines.some(line => line.startsWith(`item.apeirix.${itemId}.name=`))) {
-      // Tìm vị trí insert sau ## Items
+    if (!lines.some(line => line.startsWith(`${prefix}.apeirix.${itemId}.name=`))) {
+      // Tìm vị trí insert sau ## Items hoặc ## Blocks
+      const sectionName = prefix === 'item' ? '## Items' : '## Blocks';
       let insertIndex = lines.length;
-      const itemsIndex = lines.findIndex(line => line.includes('## Items'));
+      const sectionIndex = lines.findIndex(line => line.includes(sectionName));
       
-      if (itemsIndex !== -1) {
-        for (let i = itemsIndex + 1; i < lines.length; i++) {
+      if (sectionIndex !== -1) {
+        for (let i = sectionIndex + 1; i < lines.length; i++) {
           if (lines[i].trim() === '' || lines[i].startsWith('##')) {
             insertIndex = i;
             break;
@@ -31,7 +32,7 @@ export class LangGenerator {
       FileManager.writeLines(filePath, lines);
       console.log(`✅ Đã thêm "${displayName}" vào ${packType}/texts/en_US.lang`);
     } else {
-      console.log(`⚠️  Item "${itemId}" đã tồn tại trong ${packType}/texts/en_US.lang`);
+      console.log(`⚠️  ${prefix === 'item' ? 'Item' : 'Block'} "${itemId}" đã tồn tại trong ${packType}/texts/en_US.lang`);
     }
   }
 }

@@ -11,6 +11,7 @@ export interface ItemCommandOptions {
   category?: string;
   stackSize?: string;
   project: string;
+  dryRun?: boolean;
   
   // Recipe options
   recipeShaped?: string;

@@ -41,6 +41,21 @@ regolith run
 ## Cấu Trúc Dự Án
 
 ```
+├── addon-generator/           # CLI Tool (ƯU TIÊN SỬ DỤNG)
+│   ├── src/
+│   │   ├── index.ts           # CLI entry point
+│   │   ├── commands/          # Command handlers
+│   │   │   ├── ItemCommand.ts
+│   │   │   └── RecipeCommand.ts
+│   │   ├── core/              # Core utilities
+│   │   │   ├── FileManager.ts
+│   │   │   └── Validator.ts
+│   │   └── generators/        # Generators
+│   │       ├── ItemGenerator.ts
+│   │       ├── TextureGenerator.ts
+│   │       ├── LangGenerator.ts
+│   │       └── RecipeGenerator.ts
+│   └── package.json
 ├── packs/
 │   ├── BP/                    # Behavior Pack
 │   │   ├── blocks/            # Block definitions
@@ -133,7 +148,67 @@ regolith run
 
 ## Thêm Content Mới
 
-### Thêm Ore Mới
+### ⚡ CLI Tool (Ưu Tiên)
+
+**Sử dụng CLI tool trong `addon-generator/` để tạo content tự động:**
+
+#### Tạo Item + Recipes
+```bash
+cd addon-generator
+
+# Tạo item đơn giản
+bun run dev item -i <id> -n "<name>" -t <texture_path> -p ..
+
+# Tạo item + recipes cùng lúc
+bun run dev item \
+  -i copper_ingot \
+  -n "Thỏi Đồng" \
+  -t ./texture.png \
+  --recipe-shaped '{"id":"copper_ingot_from_nuggets","pattern":["###","###","###"],"key":{"#":"copper_nugget"},"result":"copper_ingot","unlock":["copper_nugget"]}' \
+  --recipe-shapeless '{"id":"copper_nugget_from_ingot","ingredients":["copper_ingot"],"result":"copper_nugget","resultCount":9,"unlock":["copper_ingot"]}' \
+  -p ..
+```
+
+#### Tạo Recipe riêng
+```bash
+# Shaped recipe
+bun run dev recipe:shaped \
+  --id <recipe_id> \
+  --pattern '["###","###","###"]' \
+  --key '{"#":"<item>"}' \
+  --result <item> \
+  --unlock <item> \
+  -p ..
+
+# Shapeless recipe
+bun run dev recipe:shapeless \
+  --id <recipe_id> \
+  --ingredients <item1,item2> \
+  --result <item> \
+  --result-count <number> \
+  --unlock <item> \
+  -p ..
+
+# Smelting recipe
+bun run dev recipe:smelting \
+  --id <recipe_id> \
+  --input <item> \
+  --output <item> \
+  -p ..
+```
+
+**Lợi ích CLI tool:**
+- ✅ Tự động tạo BP item JSON
+- ✅ Tự động copy texture vào RP
+- ✅ Tự động update `item_texture.json`
+- ✅ Tự động update `en_US.lang` (BP và RP)
+- ✅ Tự động tạo recipes (shaped/shapeless/smelting)
+- ✅ 100% động - không có template cứng
+- ✅ Validate input trước khi tạo
+
+### 📝 Manual (Khi CLI chưa hỗ trợ)
+
+#### Thêm Ore Mới
 1. Tạo block JSON trong `packs/BP/blocks/`
 2. Tạo loot table trong `packs/BP/loot_tables/blocks/`
 3. Tạo feature & feature_rule trong `packs/BP/features/` và `packs/BP/feature_rules/`
@@ -142,7 +217,7 @@ regolith run
 6. Thêm tên vào `en_US.lang` (cả BP và RP)
 7. **Đăng ký trong `scripts/data/GameData.ts` → `registerOres()`**
 
-### Thêm Tool/Weapon Mới
+#### Thêm Tool/Weapon Mới
 1. Tạo item JSON trong `packs/BP/items/`
 2. Tạo recipes trong `packs/BP/recipes/`
 3. Thêm texture vào `packs/RP/textures/items/`
@@ -150,7 +225,7 @@ regolith run
 5. Thêm tên vào `en_US.lang` (cả BP và RP)
 6. **Đăng ký trong `scripts/data/GameData.ts` → `registerTools()`**
 
-### Thêm Tillable Block Mới
+#### Thêm Tillable Block Mới
 1. **Đăng ký trong `scripts/data/GameData.ts` → `registerTillables()`**
 2. Chỉ định `blockId`, `resultBlock`, và `sound`
 
