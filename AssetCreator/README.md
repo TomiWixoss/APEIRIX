@@ -5,14 +5,59 @@ Nơi tìm các ảnh mẫu từ MineCraft: C:\Users\tomis\Downloads\bedrock-samp
 ## Cấu trúc thư mục
 ```
 AssetCreator/
-├── icons/         # Ảnh PNG 16x16 (dùng trong game)
-├── pxvg/          # File PXVG nguồn (chỉnh sửa được)
-├── preview/       # Ảnh preview scale lớn để xem
-├── reference/     # Ảnh tham khảo gốc
+├── versions/        # Các phiên bản asset riêng biệt
+│   └── YYYY-MM-DD_tenmoi/
+│       ├── icons/      # Ảnh PNG 16x16 (dùng trong game)
+│       ├── pxvg/       # File PXVG nguồn (chỉnh sửa được)
+│       ├── preview/    # Ảnh preview scale lớn để xem
+│       └── reference/ # Ảnh tham khảo gốc
+├── icons/           # Assets chính (bronze, tin, copper...)
+├── pxvg/            # PXVG nguồn chính
+├── preview/        # Preview assets chính
+├── reference/     # Reference assets chính
 ├── armor_layers/  # Armor layer textures (64x32)
 ├── docs/          # Tài liệu hướng dẫn LLMs
+├── create-version.ps1  # Script tạo version mới
 └── pixci-cli.exe  # Công cụ chuyển đổi
 ```
+
+## QUY TRÌNH LÀM VIỆC CHO AI (QUAN TRỌNG)
+
+### Bước 1: Tạo thư mục version mới
+```powershell
+# Chạy script với tên mô tả
+.\create-version.ps1 -VersionName "cannedfood_tin"
+# Tạo: versions/2026-02-24_cannedfood_tin/
+```
+
+### Bước 2: Copy ảnh mẫu vào reference của version
+```powershell
+# Copy vào thư mục version mới
+$version = "versions/2026-02-24_cannedfood_tin"
+Copy-Item "duong_dan_nguon.png" -Destination "$version/reference/"
+```
+
+### Bước 3: Encode/Edit/Decode trong thư mục version
+```powershell
+Set-Location "versions/2026-02-24_cannedfood_tin"
+
+# Encode
+..\..\pixci-cli.exe encode reference/ten.png -o pxvg/ten.pxvg.xml -f pxvg
+
+# Decode preview (scale 10)
+..\..\pixci-cli.exe decode pxvg/ten.pxvg.xml -o preview/ten.png --scale 10
+
+# Decode icon (scale 1)
+..\..\pixci-cli.exe decode pxvg/ten.pxvg.xml -o icons/ten.png --scale 1
+```
+
+### Bước 4: Sau khi hoàn thành, xóa thư mục gốc nếu cần
+- Giữ assets chính trong thư mục gốc (bronze, tin, copper...)
+- Các version hoàn chỉnh nằm trong `versions/`
+
+---
+
+## Hướng dẫn cũ (áp dụng cho assets chính)
 
 ## Cách chạy lệnh pixci-cli.exe (QUAN TRỌNG)
 

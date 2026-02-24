@@ -8,10 +8,12 @@ CLI tool 100% ĐỘNG với hỗ trợ đầy đủ blocks, ores, tools, armor, 
 - ✅ **Ore Generator** - Tạo ores với world generation (features + feature_rules) + Fortune support
 - ✅ **Tool Generators** - Tách riêng từng loại (pickaxe, axe, shovel, hoe, sword) - KHÔNG hardcode recipe
 - ✅ **Armor Generator** - Tạo full set (4 pieces) với attachables - KHÔNG hardcode recipe
+- ✅ **Food Generator** - Tạo food items với nutrition, saturation, effects
 - ✅ **Config File Support** - Batch generation từ YAML/JSON
 - ✅ **Dry-Run Mode** - Preview trước khi thực hiện
 - ✅ **Undo/Rollback** - Hoàn tác operations
 - ✅ **History Tracking** - Xem lịch sử thay đổi
+- ✅ **Auto Test Generation** - Tự động tạo test files (.md + .test.ts)
 
 ## Cài Đặt
 
@@ -365,7 +367,51 @@ bun run dev armor \
 
 **Lưu ý:** Armor KHÔNG tự động tạo recipes. Tạo recipes riêng bằng `recipe:shaped`.
 
-### 9. Batch từ Config File
+### 9. Tạo Food
+
+```bash
+apeirix food -i <id> -n <name> -t <texture> [options]
+```
+
+**Options:**
+- `--nutrition <number>` - Nutrition value (default: 4)
+- `--saturation <number>` - Saturation modifier (default: 1)
+- `--use-duration <number>` - Use duration in seconds (default: 1.6)
+- `--can-always-eat` - Có thể ăn khi đã no
+- `-c, --category <category>` - Menu category (nature/equipment/items/construction)
+
+**Ví dụ đơn giản:**
+```bash
+bun run dev food \
+  -i apple_pie \
+  -n "Bánh Táo" \
+  -t ./apple_pie.png \
+  -p ..
+```
+
+**Ví dụ với custom values:**
+```bash
+bun run dev food \
+  -i golden_apple_pie \
+  -n "Bánh Táo Vàng" \
+  -t ./golden_apple_pie.png \
+  --nutrition 8 \
+  --saturation 1.5 \
+  --use-duration 2.0 \
+  --can-always-eat \
+  -p ..
+```
+
+**Tự động tạo:**
+- BP food item với minecraft:food component
+- Copy texture
+- Update item_texture.json
+- Update lang files
+- Tạo test files
+
+**Lưu ý:** Food KHÔNG tự động tạo recipe. Tạo recipe riêng bằng `recipe:shaped/shapeless`.
+
+### 10. Batch từ Config File
 
 ```bash
 apeirix batch -f <config.yaml> [-p <project>]

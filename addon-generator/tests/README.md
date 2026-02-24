@@ -35,12 +35,13 @@ tests/
 - ✅ Ore generation với world gen và pickaxe scanner
 - ✅ Tool generation (pickaxe, axe, shovel, hoe, sword)
 - ✅ Armor generation (full set với attachables)
+- ✅ Food generation với nutrition và saturation
 - ✅ Recipe generation (shaped, shapeless, smelting)
 - ✅ Batch config loading (YAML)
 - ✅ History & Undo/rollback
 - ✅ PickaxeScanner functionality
 
-**Test Results**: 18/18 tests passing ✅
+**Test Results**: 20/20 tests passing ✅
 
 ## Test Project
 
