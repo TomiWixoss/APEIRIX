@@ -78,10 +78,11 @@ export class OreCommand {
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
       history.trackModify('scripts/data/GameData.ts');
+      history.trackCreate(`packs/BP/functions/tests/ores/${oreId}.mcfunction`);
+      
       if (!options.skipTests) {
         history.trackCreate(`tests/blocks/${oreId}.md`);
         history.trackCreate(`tests/blocks/${oreId}.test.ts`);
-        history.trackCreate(`packs/BP/functions/tests/ores/${oreId}.mcfunction`);
       }
     }
 
@@ -118,15 +119,15 @@ export class OreCommand {
       if (!options.skipTests) {
         const testGen = new TestGenerator(options.project);
         testGen.generateOreTest(oreId, options.name, !!options.deepslateTexture);
-
-        // Tạo test function
-        const testFuncGen = new TestFunctionGenerator(options.project);
-        testFuncGen.generate({
-          id: oreId,
-          displayName: options.name,
-          commands: options.testCommands
-        }, 'ores');
       }
+
+      // Always generate test function (mcfunction)
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      testFuncGen.generate({
+        id: oreId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'ores');
 
       if (history) {
         history.commitOperation();

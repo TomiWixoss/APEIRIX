@@ -65,10 +65,11 @@ export class BlockCommand {
       history.trackModify('packs/RP/textures/terrain_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackCreate(`packs/BP/functions/tests/blocks/${blockId}.mcfunction`);
+      
       if (!options.skipTests) {
         history.trackCreate(`tests/blocks/${blockId}.md`);
         history.trackCreate(`tests/blocks/${blockId}.test.ts`);
-        history.trackCreate(`packs/BP/functions/tests/blocks/${blockId}.mcfunction`);
       }
     }
 
@@ -94,15 +95,15 @@ export class BlockCommand {
       if (!options.skipTests) {
         const testGen = new TestGenerator(options.project);
         testGen.generateBlockTest(blockId, options.name);
-
-        // Tạo test function
-        const testFuncGen = new TestFunctionGenerator(options.project);
-        testFuncGen.generate({
-          id: blockId,
-          displayName: options.name,
-          commands: options.testCommands
-        }, 'blocks');
       }
+
+      // Always generate test function (mcfunction)
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      testFuncGen.generate({
+        id: blockId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'blocks');
 
       if (history) {
         history.commitOperation();

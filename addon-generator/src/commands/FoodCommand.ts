@@ -74,9 +74,12 @@ export class FoodCommand {
       history.trackModify('packs/RP/textures/item_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
-      history.trackCreate(`tests/items/food/${itemId}.md`);
-      history.trackCreate(`tests/items/food/${itemId}.test.ts`);
       history.trackCreate(`packs/BP/functions/tests/food/${itemId}.mcfunction`);
+      
+      if (!options.skipTests) {
+        history.trackCreate(`tests/items/food/${itemId}.md`);
+        history.trackCreate(`tests/items/food/${itemId}.test.ts`);
+      }
     }
 
     if (!DryRunManager.isEnabled()) {
@@ -104,14 +107,14 @@ export class FoodCommand {
       // Generate test files (if not skipped)
       if (!options.skipTests) {
         testGen.generateFoodTest(itemId, options.name);
-
-        // Generate test function với custom commands từ config
-        testFuncGen.generate({
-          id: itemId,
-          displayName: options.name,
-          commands: options.testCommands
-        }, 'food');
       }
+
+      // Always generate test function (mcfunction)
+      testFuncGen.generate({
+        id: itemId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'food');
 
       if (history) {
         history.commitOperation();

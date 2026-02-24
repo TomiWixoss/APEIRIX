@@ -68,10 +68,11 @@ export class ToolCommand {
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
       history.trackModify('scripts/data/GameData.ts');
+      history.trackCreate(`packs/BP/functions/tests/tools/${toolId}.mcfunction`);
+      
       if (!options.skipTests) {
         history.trackCreate(`tests/items/tools/${toolId}.md`);
         history.trackCreate(`tests/items/tools/${toolId}.test.ts`);
-        history.trackCreate(`packs/BP/functions/tests/tools/${toolId}.mcfunction`);
       }
     }
 
@@ -120,15 +121,15 @@ export class ToolCommand {
       if (!options.skipTests) {
         const testGen = new TestGenerator(options.project);
         testGen.generateToolTest(toolId, options.name, options.type);
-
-        // Tạo test function
-        const testFuncGen = new TestFunctionGenerator(options.project);
-        testFuncGen.generate({
-          id: toolId,
-          displayName: options.name,
-          commands: options.testCommands
-        }, 'tools');
       }
+
+      // Always generate test function (mcfunction)
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      testFuncGen.generate({
+        id: toolId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'tools');
 
       if (history) {
         history.commitOperation();

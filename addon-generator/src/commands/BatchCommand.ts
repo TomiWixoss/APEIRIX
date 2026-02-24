@@ -51,11 +51,11 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/item_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`packs/BP/functions/tests/items/${item.id}.mcfunction`);
           
           if (!skipTests) {
             history.trackCreate(`tests/items/materials/${item.id}.md`);
             history.trackCreate(`tests/items/materials/${item.id}.test.ts`);
-            history.trackCreate(`packs/BP/functions/tests/items/${item.id}.mcfunction`);
           }
           
           new ItemCommand().execute({
@@ -88,11 +88,11 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/item_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`packs/BP/functions/tests/food/${food.id}.mcfunction`);
           
           if (!skipTests) {
             history.trackCreate(`tests/items/materials/${food.id}.md`);
             history.trackCreate(`tests/items/materials/${food.id}.test.ts`);
-            history.trackCreate(`packs/BP/functions/tests/food/${food.id}.mcfunction`);
           }
           
           new FoodCommand().execute({
@@ -132,11 +132,11 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/terrain_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackCreate(`packs/BP/functions/tests/blocks/${block.id}.mcfunction`);
           
           if (!skipTests) {
             history.trackCreate(`tests/blocks/${block.id}.md`);
             history.trackCreate(`tests/blocks/${block.id}.test.ts`);
-            history.trackCreate(`packs/BP/functions/tests/blocks/${block.id}.mcfunction`);
           }
           
           new BlockCommand().execute({
@@ -181,11 +181,11 @@ export class BatchCommand {
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackModify('scripts/data/GameData.ts');
+          history.trackCreate(`packs/BP/functions/tests/ores/${ore.id}.mcfunction`);
           
           if (!skipTests) {
             history.trackCreate(`tests/blocks/${ore.id}.md`);
             history.trackCreate(`tests/blocks/${ore.id}.test.ts`);
-            history.trackCreate(`packs/BP/functions/tests/ores/${ore.id}.mcfunction`);
           }
           
           new OreCommand().execute({
@@ -224,11 +224,11 @@ export class BatchCommand {
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackModify('scripts/data/GameData.ts');
+          history.trackCreate(`packs/BP/functions/tests/tools/${tool.id}.mcfunction`);
           
           if (!skipTests) {
             history.trackCreate(`tests/items/tools/${tool.id}.md`);
             history.trackCreate(`tests/items/tools/${tool.id}.test.ts`);
-            history.trackCreate(`packs/BP/functions/tests/tools/${tool.id}.mcfunction`);
           }
           
           new ToolCommand().execute({
@@ -266,11 +266,11 @@ export class BatchCommand {
             history.trackCreate(`packs/BP/items/${armor.baseName}_${piece}.json`);
             history.trackCreate(`packs/RP/attachables/${armor.baseName}_${piece}.json`);
             history.trackCreate(`packs/RP/textures/items/${armor.baseName}_${piece}.png`);
+            history.trackCreate(`packs/BP/functions/tests/armor/${armor.baseName}_${piece}.mcfunction`);
             
             if (!skipTests) {
               history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.md`);
               history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.test.ts`);
-              history.trackCreate(`packs/BP/functions/tests/armor/${armor.baseName}_${piece}.mcfunction`);
             }
           });
           history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_1.png`);
