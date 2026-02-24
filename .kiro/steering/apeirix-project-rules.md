@@ -117,16 +117,27 @@ APEIRIX/
 ### Workflow đúng:
 
 ```bash
-# ✅ ĐÚNG: Sửa generator
+# ✅ ĐÚNG: Sửa generator và regenerate
 1. Phát hiện lỗi trong JSON (ví dụ: thiếu category, thiếu unlock, sai format)
 2. Cập nhật generator tương ứng trong addon-generator/src/generators/
-3. Chạy lại CLI để regenerate: bun run dev batch configs/[config-name].yaml
-4. Verify kết quả
+3. Chạy lại CLI để regenerate: bun run dev compile configs/addon.yaml
+4. Verify kết quả trong build/
 
 # ❌ SAI: Sửa JSON trực tiếp
 1. Phát hiện lỗi trong packs/BP/items/bronze_spear.json
 2. Mở file và sửa trực tiếp
 3. ❌ KHÔNG LÀM NHƯ VẬY!
+
+# ✅ ĐÚNG: Thêm entity mới
+1. Tạo entity file mới: configs/materials/copper/copper_ingot.yaml
+2. Thêm recipes vào trong file đó
+3. Thêm vào import list trong configs/addon.yaml
+4. Compile: bun run dev compile configs/addon.yaml
+
+# ✅ ĐÚNG: Sửa entity hiện có
+1. Edit file entity: configs/materials/tin/tin_ingot.yaml
+2. Sửa properties hoặc recipes trong file đó
+3. Compile lại: bun run dev compile configs/addon.yaml
 ```
 
 ### Lý do:
@@ -176,120 +187,235 @@ APEIRIX/
 **Xem chi tiết:** [addon-generator/README.md](addon-generator/README.md)
 
 CLI tool tự động tạo content cho addon với đầy đủ tính năng:
-- Items, Blocks, Ores (với world gen), Tools, Armor
-- Recipes (shaped/shapeless/smelting)
-- Batch generation từ YAML/JSON config
-- **Multi-file config system** (tách items/recipes/tests)
+- Items, Blocks, Ores (với world gen), Tools, Armor, Foods
+- Recipes (shaped/shapeless/smelting) - embedded trong entity files
+- Batch generation từ YAML config
+- **Single-entity config system** (1 file = 1 entity + recipes)
 - **Test function generation** (custom commands trong YAML)
-- Dry-run mode và Undo/Rollback
-- Tự động tạo test files
-- Tự động quét custom pickaxes
+- **Auto texture copying** từ assets/ directory
+- **Pack icon management**
+- Type-safe với TypeScript
 
 ```bash
 cd addon-generator
 bun install
-bun run dev --help
+bun run dev compile configs/addon.yaml
 ```
 
-### Multi-File Config System
+### Config Structure (Sau Tái Cấu Trúc)
 
-Tách config thành nhiều files để dễ quản lý:
+**Nguyên tắc: 1 file = 1 entity + recipes của nó**
 
 ```
-configs/
-├── my-system/
-│   ├── main.yaml      # File chính với imports
-│   ├── items.yaml     # Tất cả items
-│   ├── recipes.yaml   # Tất cả recipes
-│   └── tests.yaml     # Test functions
+addon-generator/
+├── configs/
+│   ├── addon.yaml              # Main config (chỉ cần compile file này)
+│   ├── README.md
+│   ├── materials/
+│   │   ├── tin/
+│   │   │   ├── raw_tin.yaml    # Entity + recipes
+│   │   │   ├── tin_ingot.yaml  # Entity + recipes
+│   │   │   ├── tin_nugget.yaml # Entity + recipes
+│   │   │   ├── tin_block.yaml  # Entity + recipes
+│   │   │   └── tin_ore.yaml    # Entity + recipes + world gen
+│   │   └── bronze/
+│   │       ├── bronze_ingot.yaml
+│   │       ├── bronze_nugget.yaml
+│   │       └── bronze_block.yaml
+│   ├── tools/bronze/
+│   │   ├── pickaxe.yaml        # Tool + recipe
+│   │   ├── axe.yaml
+│   │   ├── shovel.yaml
+│   │   ├── hoe.yaml
+│   │   ├── sword.yaml
+│   │   └── spear.yaml
+│   ├── armor/bronze/
+│   │   ├── helmet.yaml         # Armor piece + recipes
+│   │   ├── chestplate.yaml
+│   │   ├── leggings.yaml
+│   │   └── boots.yaml
+│   ├── foods/canned-food/
+│   │   ├── canempty.yaml       # Food + recipe + test
+│   │   ├── candirty.yaml
+│   │   ├── cannedmushroomsoup.yaml
+│   │   └── ... (12 files total)
+│   └── special/
+│       └── achievement-book.yaml
+└── assets/
+    ├── icons/
+    │   ├── pack_icon_bp.png
+    │   └── pack_icon_rp.png
+    ├── items/
+    ├── blocks/
+    ├── tools/
+    ├── armor/
+    │   ├── items/
+    │   └── layers/
+    └── foods/
 ```
 
-**main.yaml:**
+### Entity File Format
+
+**Mỗi entity file chứa:**
+1. Entity definition (id, name, texture, properties)
+2. Recipes của entity đó (nếu có)
+3. Test commands (optional)
+
+**Ví dụ - tin_ingot.yaml:**
 ```yaml
-importItems: items.yaml
-importRecipes: recipes.yaml
-importTests: tests.yaml
-```
-
-**items.yaml:**
-```yaml
-items:
-  - id: my_item
-    name: "My Item"
-    texture: ./path/to/texture.png
-    nutrition: 4
-    saturation: 4.8
-```
-
-**recipes.yaml:**
-```yaml
+id: tin_ingot
+name: Thỏi Thiếc
+texture: ../../../../assets/items/tin_ingot.png
+category: items
+maxStackSize: 64
 recipes:
-  - type: shapeless
-    id: my_item
-    ingredients: [item1, item2]
-    result: my_item
-    unlock: [item1]
+  - type: smelting
+    id: tin_ingot_from_ore_smelting
+    input: apeirix:tin_ore
+    output: apeirix:tin_ingot
+    count: 1
+  - type: shaped
+    id: tin_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:tin_nugget
+    result: apeirix:tin_ingot
+    count: 1
+    unlock:
+      - apeirix:tin_nugget
 ```
 
-**tests.yaml:**
+**Ví dụ - pickaxe.yaml:**
 ```yaml
-items:
-  - id: my_item
-    testCommands:
-      - "clear @s"
-      - "give @s apeirix:my_item 64"
-      - 'tellraw @s {"text":"Test!","color":"gold"}'
+id: bronze_pickaxe
+name: Cuốc Đồng Thanh
+type: pickaxe
+texture: ../../../../assets/tools/bronze_pickaxe.png
+materialId: apeirix:bronze_ingot
+durability: 250
+damage: 4
+efficiency: 6
+enchantability: 14
+tier: stone
+recipe:
+  type: shaped
+  id: bronze_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:bronze_ingot
+    S: minecraft:stick
+  result: apeirix:bronze_pickaxe
+  unlock:
+    - apeirix:bronze_ingot
 ```
 
-**Chạy:**
+### Main Config (addon.yaml)
+
+File duy nhất cần compile, import tất cả entity files:
+
+```yaml
+addon:
+  name: APEIRIX
+  description: Addon Minecraft Bedrock Edition thêm mọi thứ vào game
+  version: [1, 0, 0]
+  minEngineVersion: [1, 21, 50]
+  icons:
+    bp: ../assets/icons/pack_icon_bp.png
+    rp: ../assets/icons/pack_icon_rp.png
+import:
+  - materials/tin/raw_tin.yaml
+  - materials/tin/tin_ingot.yaml
+  - materials/tin/tin_nugget.yaml
+  - materials/tin/tin_block.yaml
+  - materials/tin/tin_ore.yaml
+  - materials/bronze/bronze_ingot.yaml
+  - materials/bronze/bronze_nugget.yaml
+  - materials/bronze/bronze_block.yaml
+  - tools/bronze/pickaxe.yaml
+  - tools/bronze/axe.yaml
+  # ... (tất cả entity files)
+```
+
+### Compile Command
+
 ```bash
-bun run dev batch -f configs/my-system/main.yaml
+# Compile tất cả từ main config
+bun run dev compile configs/addon.yaml
+
+# Output: build/BP/ và build/RP/
+# - 28 items
+# - 4 blocks (2 blocks + 2 ores)
+# - 49 recipes (extracted từ entity files)
+# - 13 test functions
+# - 34 textures (copied từ assets/)
+# - 4 attachables (armor)
+# - 2 pack icons
 ```
 
-**Lợi ích:**
-- Tách biệt concerns (items/recipes/tests)
-- Dễ maintain và update
-- Có thể reuse recipes/tests
-- Giảm conflict khi nhiều người làm việc
+### Lợi Ích Của Cấu Trúc Mới
+
+1. **1 file = 1 responsibility**: Mỗi entity có file riêng với recipes đi kèm
+2. **Không còn recipes.yaml riêng**: Recipes luôn đi kèm entity, không bị thất lạc
+3. **Dễ thêm/xóa/sửa**: Chỉ cần edit 1 file duy nhất
+4. **Texture organization**: Tất cả textures trong assets/ với cấu trúc rõ ràng
+5. **Auto texture path fixing**: CLI tự động fix relative paths
+6. **Type-safe**: Full TypeScript support, 0 type errors
+7. **Pack icons**: Tự động copy từ assets/icons/
 
 ### Test Functions
 
-CLI tự động tạo `.mcfunction` files trong `packs/BP/functions/tests/`:
+CLI tự động tạo `.mcfunction` files trong `build/BP/functions/tests/`:
 
 ```yaml
-# tests.yaml
-items:
-  - id: my_food
-    testCommands:
-      - "# Test: My Food"
-      - "clear @s"
-      - "give @s apeirix:my_food 64"
-      - "effect @s saturation 1 255 true"
-      - 'tellraw @s {"text":"Test info","color":"gold"}'
-      - "playsound random.levelup @s"
+# Trong entity file
+testCommands:
+  - "# Test: Thỏi Thiếc"
+  - "clear @s"
+  - "give @s apeirix:tin_ingot 64"
+  - 'tellraw @s {"text":"Test complete!","color":"gold"}'
 ```
 
 **Trong game:**
 ```
-/function tests/food/my_food
+/function tests/items/tin_ingot
 ```
 
 #### Thêm Ore Mới
-1. Tạo block JSON trong `packs/BP/blocks/`
-2. Tạo loot table trong `packs/BP/loot_tables/blocks/`
-3. Tạo feature & feature_rule trong `packs/BP/features/` và `packs/BP/feature_rules/`
-4. Thêm texture vào `packs/RP/textures/blocks/`
-5. Đăng ký trong `terrain_texture.json`
-6. Thêm tên vào `en_US.lang` (cả BP và RP)
-7. **Đăng ký trong `scripts/data/GameData.ts` → `registerOres()`**
+1. Tạo ore entity file: `configs/materials/[material]/[ore_name].yaml`
+2. Định nghĩa ore properties, textures, world gen settings
+3. Thêm smelting recipes vào trong file đó
+4. Thêm vào import list trong `configs/addon.yaml`
+5. Compile: `bun run dev compile configs/addon.yaml`
+6. **Đăng ký trong `scripts/data/GameData.ts` → `registerOres()`**
 
 #### Thêm Tool/Weapon Mới
-1. Tạo item JSON trong `packs/BP/items/`
-2. Tạo recipes trong `packs/BP/recipes/`
-3. Thêm texture vào `packs/RP/textures/items/`
-4. Đăng ký trong `item_texture.json`
-5. Thêm tên vào `en_US.lang` (cả BP và RP)
+1. Tạo tool entity file: `configs/tools/[material]/[tool_type].yaml`
+2. Định nghĩa tool properties, texture, stats
+3. Thêm crafting recipe vào trong file đó
+4. Thêm vào import list trong `configs/addon.yaml`
+5. Compile: `bun run dev compile configs/addon.yaml`
 6. **Đăng ký trong `scripts/data/GameData.ts` → `registerTools()`**
+
+#### Thêm Item/Material Mới
+1. Tạo item entity file: `configs/materials/[material]/[item_name].yaml`
+2. Định nghĩa item properties, texture
+3. Thêm recipes (crafting, smelting) vào trong file đó
+4. Thêm vào import list trong `configs/addon.yaml`
+5. Compile: `bun run dev compile configs/addon.yaml`
+
+#### Thêm Food Mới
+1. Tạo food entity file: `configs/foods/[category]/[food_name].yaml`
+2. Định nghĩa nutrition, saturation, texture
+3. Thêm recipe vào trong file đó
+4. Thêm testCommands (optional)
+5. Thêm vào import list trong `configs/addon.yaml`
+6. Compile: `bun run dev compile configs/addon.yaml`
 
 #### Thêm Tillable Block Mới
 1. **Đăng ký trong `scripts/data/GameData.ts` → `registerTillables()`**
