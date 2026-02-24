@@ -45,7 +45,7 @@ export class HoeGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: "minecraft:itemGroup.name.hoe"
+            group: "itemGroup.name.hoe"
           }
         },
         components: {

@@ -88,7 +88,7 @@ export class RecipeGenerator {
         ingredients: config.ingredients.map(item => ({ item: this.formatItem(item) })),
         result: {
           item: this.formatItem(config.result),
-          ...(config.resultCount && config.resultCount > 1 ? { count: config.resultCount } : {})
+          count: config.resultCount || 1
         },
         unlock: config.unlock ? config.unlock.map(item => ({ item: this.formatItem(item) })) : []
       }

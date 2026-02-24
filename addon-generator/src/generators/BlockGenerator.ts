@@ -96,8 +96,7 @@ export class BlockGenerator {
           entries: [
             {
               type: "item",
-              name: `apeirix:${config.id}`,
-              weight: 1
+              name: `apeirix:${config.id}`
             }
           ]
         }

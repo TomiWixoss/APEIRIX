@@ -173,7 +173,7 @@ export class OreGenerator {
     const ruleId = `${config.id}_feature`;
 
     // Feature
-    const feature = {
+    const feature: any = {
       format_version: "1.21.80",
       "minecraft:ore_feature": {
         description: {
@@ -205,7 +205,7 @@ export class OreGenerator {
           states: {}
         },
         may_replace: [
-          { name: "minecraft:deepslate", states: { stone_type: "deepslate" } }
+          { name: "minecraft:deepslate", states: {} }
         ]
       });
     }
