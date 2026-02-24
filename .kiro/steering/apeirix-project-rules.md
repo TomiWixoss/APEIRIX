@@ -41,82 +41,48 @@ regolith run
 ## Cấu Trúc Dự Án
 
 ```
-├── addon-generator/           # CLI Tool (ƯU TIÊN SỬ DỤNG)
+APEIRIX/
+├── addon-generator/           # CLI Tool (xem addon-generator/README.md)
 │   ├── src/
-│   │   ├── index.ts           # CLI entry point
-│   │   ├── commands/          # Command handlers
-│   │   │   ├── ItemCommand.ts
-│   │   │   └── RecipeCommand.ts
-│   │   ├── core/              # Core utilities
-│   │   │   ├── FileManager.ts
-│   │   │   └── Validator.ts
-│   │   └── generators/        # Generators
-│   │       ├── ItemGenerator.ts
-│   │       ├── TextureGenerator.ts
-│   │       ├── LangGenerator.ts
-│   │       └── RecipeGenerator.ts
+│   │   ├── index.ts
+│   │   ├── cli/              # Command registrations
+│   │   ├── commands/         # Command handlers
+│   │   ├── core/             # Core utilities
+│   │   └── generators/       # Content generators
+│   ├── tests/                # CLI tool tests
 │   └── package.json
 ├── packs/
-│   ├── BP/                    # Behavior Pack
-│   │   ├── blocks/            # Block definitions
-│   │   ├── items/             # Item definitions
-│   │   ├── recipes/           # Crafting recipes
-│   │   ├── loot_tables/       # Loot tables
-│   │   ├── features/          # World generation features
-│   │   ├── feature_rules/     # Feature placement rules
-│   │   ├── functions/         # Commands
-│   │   ├── scripts/main.js    # Auto-generated từ scripts/main.ts
-│   │   └── texts/             # en_US.lang (nội dung tiếng Việt)
-│   └── RP/                    # Resource Pack
-│       ├── textures/          # Texture files
-│       │   ├── blocks/        # Block textures
-│       │   ├── items/         # Item textures
+│   ├── BP/                   # Behavior Pack
+│   │   ├── blocks/
+│   │   ├── items/
+│   │   ├── recipes/
+│   │   ├── loot_tables/
+│   │   ├── features/
+│   │   ├── feature_rules/
+│   │   ├── functions/
+│   │   ├── scripts/main.js   # Auto-generated
+│   │   └── texts/en_US.lang
+│   └── RP/                   # Resource Pack
+│       ├── textures/
+│       │   ├── blocks/
+│       │   ├── items/
+│       │   ├── models/armor/
 │       │   ├── terrain_texture.json
 │       │   └── item_texture.json
-│       └── texts/             # en_US.lang (nội dung tiếng Việt)
-├── scripts/
-│   ├── main.ts                # Entry point
-│   ├── core/                  # Core systems
-│   │   ├── GameManager.ts     # Main initialization
-│   │   ├── EventBus.ts        # Event system (Observer pattern)
-│   │   └── Registry.ts        # Registry pattern
-│   ├── systems/               # Game systems
-│   │   ├── achievements/
-│   │   │   ├── AchievementSystem.ts    # Main logic
-│   │   │   ├── AchievementRegistry.ts  # Achievement registry
-│   │   │   ├── AchievementStorage.ts   # Dynamic properties
-│   │   │   └── ui/
-│   │   │       ├── MainMenuUI.ts
-│   │   │       ├── CategoryMenuUI.ts
-│   │   │       └── DetailUI.ts
-│   │   ├── items/
-│   │   │   ├── ItemSystem.ts
-│   │   │   ├── CustomToolSystem.ts     # Custom tool durability & hoe tillage
-│   │   │   └── handlers/
-│   │   │       └── AchievementBookHandler.ts
-│   │   └── blocks/
-│   │       └── FortuneSystem.ts        # Fortune enchantment for ores
-│   ├── data/                  # Data definitions & registries
-│   │   ├── GameData.ts        # Central data registration
-│   │   ├── achievements/
-│   │   │   ├── BaseAchievement.ts      # Abstract base class
-│   │   │   ├── AchievementCategory.ts
-│   │   │   └── categories/
-│   │   │       └── starter/
-│   │   │           ├── WelcomeAchievement.ts
-│   │   │           ├── FirstStepsAchievement.ts
-│   │   │           └── BreakerAchievement.ts
-│   │   ├── blocks/
-│   │   │   ├── OreRegistry.ts          # Ore definitions
-│   │   │   └── TillableRegistry.ts     # Tillable block definitions
-│   │   ├── tools/
-│   │   │   └── ToolRegistry.ts         # Tool definitions
-│   │   └── rewards/
-│   │       └── RewardDefinition.ts
-│   └── lang/                  # Language system
-│       ├── LangManager.ts
-│       └── vi_VN.ts
-└── config.json                # Regolith config
+│       ├── attachables/
+│       └── texts/en_US.lang
+├── scripts/                  # TypeScript source
+│   ├── main.ts
+│   ├── core/
+│   ├── systems/
+│   ├── data/
+│   └── lang/
+├── tests/                    # Game tests
+│   ├── blocks/
+│   ├── items/
+│   ├── systems/
+│   └── index.test.ts
+└── config.json              # Regolith config
 ```
 
 ## Quy Tắc Phát Triển
@@ -146,67 +112,23 @@ regolith run
 - UI body (ngoài nút): Dùng màu sáng để dễ đọc
 - Trong nút: Dùng màu tối để tương phản với nền trắng của nút
 
-## Thêm Content Mới
+## CLI Tool (addon-generator)
 
-### ⚡ CLI Tool (Ưu Tiên)
+**Xem chi tiết:** [addon-generator/README.md](addon-generator/README.md)
 
-**Sử dụng CLI tool trong `addon-generator/` để tạo content tự động:**
+CLI tool tự động tạo content cho addon với đầy đủ tính năng:
+- Items, Blocks, Ores (với world gen), Tools, Armor
+- Recipes (shaped/shapeless/smelting)
+- Batch generation từ YAML/JSON config
+- Dry-run mode và Undo/Rollback
+- Tự động tạo test files
+- Tự động quét custom pickaxes
 
-#### Tạo Item + Recipes
 ```bash
 cd addon-generator
-
-# Tạo item đơn giản
-bun run dev item -i <id> -n "<name>" -t <texture_path> -p ..
-
-# Tạo item + recipes cùng lúc
-bun run dev item \
-  -i copper_ingot \
-  -n "Thỏi Đồng" \
-  -t ./texture.png \
-  --recipe-shaped '{"id":"copper_ingot_from_nuggets","pattern":["###","###","###"],"key":{"#":"copper_nugget"},"result":"copper_ingot","unlock":["copper_nugget"]}' \
-  --recipe-shapeless '{"id":"copper_nugget_from_ingot","ingredients":["copper_ingot"],"result":"copper_nugget","resultCount":9,"unlock":["copper_ingot"]}' \
-  -p ..
+bun install
+bun run dev --help
 ```
-
-#### Tạo Recipe riêng
-```bash
-# Shaped recipe
-bun run dev recipe:shaped \
-  --id <recipe_id> \
-  --pattern '["###","###","###"]' \
-  --key '{"#":"<item>"}' \
-  --result <item> \
-  --unlock <item> \
-  -p ..
-
-# Shapeless recipe
-bun run dev recipe:shapeless \
-  --id <recipe_id> \
-  --ingredients <item1,item2> \
-  --result <item> \
-  --result-count <number> \
-  --unlock <item> \
-  -p ..
-
-# Smelting recipe
-bun run dev recipe:smelting \
-  --id <recipe_id> \
-  --input <item> \
-  --output <item> \
-  -p ..
-```
-
-**Lợi ích CLI tool:**
-- ✅ Tự động tạo BP item JSON
-- ✅ Tự động copy texture vào RP
-- ✅ Tự động update `item_texture.json`
-- ✅ Tự động update `en_US.lang` (BP và RP)
-- ✅ Tự động tạo recipes (shaped/shapeless/smelting)
-- ✅ 100% động - không có template cứng
-- ✅ Validate input trước khi tạo
-
-### 📝 Manual (Khi CLI chưa hỗ trợ)
 
 #### Thêm Ore Mới
 1. Tạo block JSON trong `packs/BP/blocks/`

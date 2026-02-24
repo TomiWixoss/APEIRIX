@@ -2,7 +2,10 @@ import { ItemGenerator } from '../generators/ItemGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { RecipeGenerator } from '../generators/RecipeGenerator.js';
+import { TestGenerator } from '../generators/TestGenerator.js';
 import { Validator } from '../core/Validator.js';
+import { HistoryManager } from '../core/HistoryManager.js';
+import { DryRunManager } from '../core/DryRunManager.js';
 
 export interface ItemCommandOptions {
   id: string;
@@ -38,49 +41,81 @@ export class ItemCommand {
       throw new Error(`Texture không tồn tại: "${options.texture}"`);
     }
 
+    if (options.dryRun) {
+      DryRunManager.enable();
+    }
+
+    const history = new HistoryManager(options.project);
+    history.startOperation(`item -i ${itemId} -n "${options.name}"`);
+
     console.log(`\n🚀 Đang tạo item: ${itemId}...\n`);
 
     const itemGen = new ItemGenerator(options.project);
     const textureGen = new TextureGenerator(options.project);
     const langGen = new LangGenerator(options.project);
     const recipeGen = new RecipeGenerator(options.project);
+    const testGen = new TestGenerator(options.project);
 
-    // 1. Generate item
-    itemGen.generate({
-      id: itemId,
-      name: options.name,
-      texturePath: options.texture,
-      category: options.category,
-      stackSize: options.stackSize ? parseInt(options.stackSize) : undefined
-    });
+    // Track files
+    history.trackCreate(`packs/BP/items/${itemId}.json`);
+    history.trackCreate(`packs/RP/textures/items/${itemId}.png`);
+    history.trackModify('packs/RP/textures/item_texture.json');
+    history.trackModify('packs/BP/texts/en_US.lang');
+    history.trackModify('packs/RP/texts/en_US.lang');
 
-    textureGen.copyTexture(itemId, options.texture);
-    textureGen.updateItemTextureRegistry(itemId);
+    if (!DryRunManager.isEnabled()) {
+      // 1. Generate item
+      itemGen.generate({
+        id: itemId,
+        name: options.name,
+        texturePath: options.texture,
+        category: options.category,
+        stackSize: options.stackSize ? parseInt(options.stackSize) : undefined
+      });
 
-    langGen.updateLangFile(itemId, options.name, 'BP');
-    langGen.updateLangFile(itemId, options.name, 'RP');
+      textureGen.copyTexture(itemId, options.texture);
+      textureGen.updateItemTextureRegistry(itemId);
 
-    // 2. Generate recipes if provided
-    let recipeCount = 0;
+      langGen.updateLangFile(itemId, options.name, 'BP');
+      langGen.updateLangFile(itemId, options.name, 'RP');
 
-    if (options.recipeShaped) {
-      const config = JSON.parse(options.recipeShaped);
-      recipeGen.createShaped(config);
-      recipeCount++;
+      // 2. Generate test files
+      testGen.generateItemTest(itemId, options.name);
+
+      // 3. Generate recipes if provided
+      let recipeCount = 0;
+
+      if (options.recipeShaped) {
+        const config = JSON.parse(options.recipeShaped);
+        recipeGen.createShaped(config);
+        recipeCount++;
+      }
+
+      if (options.recipeShapeless) {
+        const config = JSON.parse(options.recipeShapeless);
+        recipeGen.createShapeless(config);
+        recipeCount++;
+      }
+
+      if (options.recipeSmelting) {
+        const config = JSON.parse(options.recipeSmelting);
+        recipeGen.createSmelting(config);
+        recipeCount++;
+      }
+
+      history.commitOperation();
+      console.log(`\n✨ Hoàn thành! Item "${options.name}" đã được tạo${recipeCount > 0 ? ` với ${recipeCount} recipe(s)` : ''}.\n`);
+    } else {
+      DryRunManager.log(`Tạo BP item: packs/BP/items/${itemId}.json`);
+      DryRunManager.log(`Copy texture: packs/RP/textures/items/${itemId}.png`);
+      DryRunManager.log(`Update item_texture.json`);
+      DryRunManager.log(`Update BP/texts/en_US.lang`);
+      DryRunManager.log(`Update RP/texts/en_US.lang`);
+      DryRunManager.log(`Tạo test files`);
+      
+      DryRunManager.showSummary();
+      DryRunManager.disable();
+      history.cancelOperation();
     }
-
-    if (options.recipeShapeless) {
-      const config = JSON.parse(options.recipeShapeless);
-      recipeGen.createShapeless(config);
-      recipeCount++;
-    }
-
-    if (options.recipeSmelting) {
-      const config = JSON.parse(options.recipeSmelting);
-      recipeGen.createSmelting(config);
-      recipeCount++;
-    }
-
-    console.log(`\n✨ Hoàn thành! Item "${options.name}" đã được tạo${recipeCount > 0 ? ` với ${recipeCount} recipe(s)` : ''}.\n`);
   }
 }
