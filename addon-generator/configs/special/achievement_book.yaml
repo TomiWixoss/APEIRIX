@@ -1,0 +1,6 @@
+id: achievement_book
+name: Sách Thành Tựu APEIRIX
+texture: ../../../assets/items/achievement_book.png
+category: items
+group: itemGroup.name.book
+maxStackSize: 1
