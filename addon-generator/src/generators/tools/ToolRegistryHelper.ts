@@ -45,12 +45,13 @@ export class ToolRegistryHelper {
       return;
     }
 
-    const registerCode = `    ToolRegistry.register({
+    const registerCode = `ToolRegistry.register({
       id: "apeirix:${toolId}",
       type: "${toolType}",
       durability: ${durability}
     });
-`;
+
+    `;
 
     const insertMarker = '// Thêm tool mới ở đây...';
     const insertIndex = content.indexOf(insertMarker);
@@ -60,7 +61,7 @@ export class ToolRegistryHelper {
       return;
     }
 
-    const newContent = content.slice(0, insertIndex) + registerCode + '\n    ' + content.slice(insertIndex);
+    const newContent = content.slice(0, insertIndex) + '    ' + registerCode + content.slice(insertIndex);
     
     FileManager.writeText(registryPath, newContent);
     console.log(`✅ Đã thêm "${toolId}" vào GameData.ts`);

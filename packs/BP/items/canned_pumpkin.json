@@ -28,16 +28,6 @@
       "minecraft:use_modifiers": {
         "use_duration": 1.6,
         "movement_modifier": 0.33
-      },
-      "apeirix:food_effects": {
-        "effects": [
-          {
-            "name": "fire_resistance",
-            "duration": 300,
-            "amplifier": 0,
-            "chance": 1
-          }
-        ]
       }
     }
   }

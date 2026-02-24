@@ -10,6 +10,7 @@ import { ItemSystem } from "../systems/items/ItemSystem";
 import { LangManager } from "../lang/LangManager";
 import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 import { CustomToolSystem } from "../systems/items/CustomToolSystem";
+import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { GameData } from "../data/GameData";
 
 // Import achievements
@@ -62,6 +63,7 @@ export class GameManager {
         ItemSystem.initialize();
         FortuneSystem.getInstance();
         CustomToolSystem.getInstance();
+        FoodEffectsSystem.getInstance();
     }
 
     private static setupEventListeners(): void {

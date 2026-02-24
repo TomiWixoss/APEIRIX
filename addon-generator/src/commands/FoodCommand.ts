@@ -1,4 +1,5 @@
 import { FoodGenerator } from '../generators/FoodGenerator.js';
+import { FoodRegistryHelper } from '../generators/FoodRegistryHelper.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
@@ -74,6 +75,7 @@ export class FoodCommand {
       history.trackModify('packs/RP/textures/item_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackModify('scripts/data/GameData.ts'); // Track GameData.ts
       history.trackCreate(`packs/BP/functions/tests/food/${itemId}.mcfunction`);
       
       if (!options.skipTests) {
@@ -84,7 +86,7 @@ export class FoodCommand {
 
     if (!DryRunManager.isEnabled()) {
       // Generate food item
-      foodGen.generate({
+      const foodConfig = {
         id: itemId,
         name: options.name,
         texturePath: options.texture,
@@ -96,7 +98,14 @@ export class FoodCommand {
         usingConvertsTo: options.usingConvertsTo,
         effects: options.effects,
         removeEffects: options.removeEffects
-      });
+      };
+      
+      foodGen.generate(foodConfig);
+
+      // Add to GameData.ts (if has effects or removeEffects)
+      if ((options.effects && options.effects.length > 0) || options.removeEffects) {
+        FoodRegistryHelper.addToGameData(options.project, foodConfig);
+      }
 
       textureGen.copyTexture(itemId, options.texture);
       textureGen.updateItemTextureRegistry(itemId);

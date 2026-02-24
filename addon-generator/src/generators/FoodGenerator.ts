@@ -79,23 +79,9 @@ export class FoodGenerator {
       itemData['minecraft:item'].components['minecraft:food'].using_converts_to = convertsTo;
     }
 
-    // Add effects via custom component (format 1.20+)
-    if (config.effects && config.effects.length > 0) {
-      // Custom component params MUST be an object, not array
-      itemData['minecraft:item'].components['apeirix:food_effects'] = {
-        effects: config.effects.map(effect => ({
-          name: effect.name,
-          duration: effect.duration * 20, // Convert seconds to ticks
-          amplifier: effect.amplifier ?? 0,
-          chance: effect.chance ?? 1.0
-        }))
-      };
-    }
-
-    // Add remove_effects via custom component
-    if (config.removeEffects) {
-      itemData['minecraft:item'].components['apeirix:remove_effects'] = {};
-    }
+    // NOTE: Effects được xử lý bởi FoodEffectsSystem trong scripts/
+    // KHÔNG cần custom components trong JSON
+    // Effects sẽ được tự động thêm vào scripts/data/GameData.ts
 
     FileManager.writeJSON(itemPath, itemData);
     console.log(`✅ Đã tạo: packs/BP/items/${config.id}.json`);

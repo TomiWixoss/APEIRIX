@@ -1,6 +1,7 @@
 import { OreRegistry } from "./blocks/OreRegistry";
 import { TillableRegistry } from "./blocks/TillableRegistry";
 import { ToolRegistry } from "./tools/ToolRegistry";
+import { FoodRegistry } from "./foods/FoodRegistry";
 
 /**
  * GameData - Đăng ký tất cả game data
@@ -10,6 +11,7 @@ export class GameData {
     this.registerOres();
     this.registerTools();
     this.registerTillables();
+    this.registerFoods();
   }
 
   private static registerOres(): void {
@@ -78,5 +80,49 @@ export class GameData {
     TillableRegistry.registerVanillaTillables();
 
     // Thêm custom tillable blocks ở đây...
+  }
+
+  private static registerFoods(): void {
+    FoodRegistry.register({
+      itemId: "apeirix:cannedcarrots",
+      effects: [
+        { name: "night_vision", duration: 15 * 20, amplifier: 0, chance: 1 }
+      ]
+    });
+
+    FoodRegistry.register({
+      itemId: "apeirix:canned_pumpkin",
+      effects: [
+        { name: "fire_resistance", duration: 15 * 20, amplifier: 0, chance: 1 }
+      ]
+    });
+
+    FoodRegistry.register({
+      itemId: "apeirix:cannedfish",
+      effects: [
+        { name: "water_breathing", duration: 30 * 20, amplifier: 0, chance: 1 }
+      ]
+    });
+
+    FoodRegistry.register({
+      itemId: "apeirix:cannedsalad",
+      removeEffects: true
+    });
+
+    FoodRegistry.register({
+      itemId: "apeirix:cannedmeal",
+      effects: [
+        { name: "regeneration", duration: 5 * 20, amplifier: 1, chance: 1 }
+      ]
+    });
+
+    FoodRegistry.register({
+      itemId: "apeirix:canneddogfood",
+      effects: [
+        { name: "nausea", duration: 10 * 20, amplifier: 0, chance: 1 }
+      ]
+    });
+
+    // Thêm food mới ở đây...
   }
 }

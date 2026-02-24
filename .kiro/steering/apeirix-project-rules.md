@@ -18,7 +18,17 @@ inclusion: always
 
 ## Lệnh Build
 
-### Build và Deploy sang Preview
+### Chỉ Build (KHÔNG deploy - dùng Minecraft thường, không phải Preview)
+```bash
+regolith run
+```
+
+Lệnh này sẽ:
+1. Compile TypeScript với Regolith
+2. Export trực tiếp sang `development_behavior_packs` và `development_resource_packs` của Minecraft Bedrock thường
+3. Sẵn sàng test với `/reload` trong game
+
+### Build và Deploy sang Preview (CHỈ KHI CẦN)
 ```bash
 .\build-and-deploy.ps1
 ```
