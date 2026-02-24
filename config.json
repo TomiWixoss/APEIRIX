@@ -27,6 +27,18 @@
 						"filter": "typescript_build"
 					}
 				]
+			},
+			"release": {
+				"export": {
+					"build": "standard",
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"filter": "typescript_build"
+					}
+				]
 			}
 		}
 	}

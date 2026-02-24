@@ -4,12 +4,15 @@ packs/BP/scripts/*.js.map
 .regolith/
 *.mcworld
 *.mcpack
+*.mcaddon
 .DS_Store
 
 # Build outputs
 dist/
 lib/
 build/
+exports/
+temp_mcaddon/
 
 # Samples và docs không cần
 bedrock-samples-v1.26.0.2-full/
