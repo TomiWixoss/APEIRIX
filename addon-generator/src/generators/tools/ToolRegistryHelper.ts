@@ -38,6 +38,13 @@ export class ToolRegistryHelper {
       return;
     }
 
+    // Check xem tool đã tồn tại chưa
+    const toolIdPattern = `id: "apeirix:${toolId}"`;
+    if (content.includes(toolIdPattern)) {
+      console.log(`ℹ️  Tool "${toolId}" đã tồn tại trong GameData.ts, bỏ qua`);
+      return;
+    }
+
     const registerCode = `    ToolRegistry.register({
       id: "apeirix:${toolId}",
       type: "${toolType}",

@@ -28,4 +28,4 @@ recipes:
       - "S  "
     key:
       I: bronze_ingot
-      S: stick
+      S: minecraft:stick
