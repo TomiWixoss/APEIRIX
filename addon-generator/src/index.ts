@@ -2,77 +2,116 @@
 
 import { Command } from 'commander';
 import chalk from 'chalk';
-import { ItemGenerator } from './commands/item.js';
-import { Validator } from './utils/validator.js';
+import { ItemCommand } from './commands/ItemCommand.js';
+import { RecipeCommand } from './commands/RecipeCommand.js';
 
 const program = new Command();
 
 program
   .name('apeirix')
-  .description('CLI tool để tự động sinh file JSON cho APEIRIX addon')
+  .description('CLI tool tự động sinh file JSON cho APEIRIX addon')
   .version('1.0.0');
 
 // Command: item
 program
   .command('item')
-  .description('Tạo empty item mới')
-  .requiredOption('-i, --id <id>', 'Item ID (lowercase, underscore)')
-  .requiredOption('-n, --name <name>', 'Display name (tiếng Việt)')
-  .requiredOption('-t, --texture <path>', 'Đường dẫn đến texture PNG')
+  .description('Tạo item mới (có thể kèm recipes)')
+  .requiredOption('-i, --id <id>', 'Item ID')
+  .requiredOption('-n, --name <name>', 'Display name')
+  .requiredOption('-t, --texture <path>', 'Texture PNG')
   .option('-c, --category <category>', 'Menu category', 'items')
   .option('-s, --stack-size <size>', 'Max stack size', '64')
-  .option('-p, --project <path>', 'Project root path', process.cwd())
+  .option('-p, --project <path>', 'Project root', process.cwd())
+  // Recipe options
+  .option('--recipe-shaped <json>', 'Tạo shaped recipe (JSON: {id,pattern,key,result,resultCount?,unlock?})')
+  .option('--recipe-shapeless <json>', 'Tạo shapeless recipe (JSON: {id,ingredients,result,resultCount?,unlock?})')
+  .option('--recipe-smelting <json>', 'Tạo smelting recipe (JSON: {id,input,output,tags?})')
   .action((options) => {
     try {
-      // Validate ngay lập tức
-      const itemId = Validator.sanitizeItemId(options.id);
-      
-      if (!Validator.validateItemId(itemId)) {
-        throw new Error(`Item ID không hợp lệ: "${options.id}". Chỉ được dùng a-z, 0-9, underscore`);
-      }
-
-      if (!Validator.validateDisplayName(options.name)) {
-        throw new Error('Display name không được rỗng');
-      }
-
-      if (!Validator.validateTexturePath(options.texture)) {
-        throw new Error(`Texture file không tồn tại hoặc không phải PNG: "${options.texture}"`);
-      }
-
-      // Generate item
-      const generator = new ItemGenerator(options.project);
-      generator.generate({
-        id: itemId,
-        name: options.name,
-        texturePath: options.texture,
-        category: options.category,
-        stackSize: parseInt(options.stackSize)
-      });
-
+      const command = new ItemCommand();
+      command.execute(options);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
-      console.error(chalk.red(`\n❌ Lỗi: ${errorMessage}\n`));
-      console.log(chalk.yellow('Sử dụng: apeirix item -i <id> -n <name> -t <texture> [options]\n'));
+      const msg = error instanceof Error ? error.message : String(error);
+      console.error(chalk.red(`\n❌ ${msg}\n`));
+      process.exit(1);
+    }
+  });
+
+// Command: recipe shaped
+program
+  .command('recipe:shaped')
+  .description('Tạo shaped recipe (có pattern)')
+  .requiredOption('--id <id>', 'Recipe ID')
+  .requiredOption('--pattern <pattern>', 'Pattern (JSON array: ["###","# #","###"])')
+  .requiredOption('--key <key>', 'Key mapping (JSON: {"#":"item_id"})')
+  .requiredOption('--result <item>', 'Result item ID')
+  .option('--result-count <count>', 'Result count', '1')
+  .option('--unlock <items>', 'Unlock items (comma separated)')
+  .option('-p, --project <path>', 'Project root', process.cwd())
+  .action((options) => {
+    try {
+      const command = new RecipeCommand();
+      command.executeShaped(options);
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      console.error(chalk.red(`\n❌ ${msg}\n`));
+      process.exit(1);
+    }
+  });
+
+// Command: recipe shapeless
+program
+  .command('recipe:shapeless')
+  .description('Tạo shapeless recipe')
+  .requiredOption('--id <id>', 'Recipe ID')
+  .requiredOption('--ingredients <items>', 'Ingredients (comma separated)')
+  .requiredOption('--result <item>', 'Result item ID')
+  .option('--result-count <count>', 'Result count', '1')
+  .option('--unlock <items>', 'Unlock items (comma separated)')
+  .option('-p, --project <path>', 'Project root', process.cwd())
+  .action((options) => {
+    try {
+      const command = new RecipeCommand();
+      command.executeShapeless(options);
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      console.error(chalk.red(`\n❌ ${msg}\n`));
+      process.exit(1);
+    }
+  });
+
+// Command: recipe smelting
+program
+  .command('recipe:smelting')
+  .description('Tạo smelting recipe')
+  .requiredOption('--id <id>', 'Recipe ID')
+  .requiredOption('--input <item>', 'Input item ID')
+  .requiredOption('--output <item>', 'Output item ID')
+  .option('--tags <tags>', 'Tags (comma separated)', 'furnace,blast_furnace')
+  .option('-p, --project <path>', 'Project root', process.cwd())
+  .action((options) => {
+    try {
+      const command = new RecipeCommand();
+      command.executeSmelting(options);
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error);
+      console.error(chalk.red(`\n❌ ${msg}\n`));
       process.exit(1);
     }
   });
 
 program.parse();
 
-// Show help if no command
 if (!process.argv.slice(2).length) {
   console.log(chalk.cyan('\n📚 APEIRIX Addon Generator\n'));
-  console.log('Tạo empty item:');
-  console.log(chalk.yellow('  apeirix item -i <id> -n <name> -t <texture> [options]\n'));
+  console.log('Commands:');
+  console.log(chalk.yellow('  apeirix item -i <id> -n <name> -t <texture>'));
+  console.log(chalk.yellow('  apeirix recipe:shaped --id <id> --pattern <json> --key <json> --result <item>'));
+  console.log(chalk.yellow('  apeirix recipe:shapeless --id <id> --ingredients <items> --result <item>'));
+  console.log(chalk.yellow('  apeirix recipe:smelting --id <id> --input <item> --output <item>\n'));
   console.log('Ví dụ:');
   console.log(chalk.gray('  apeirix item -i magic_stone -n "Đá Ma Thuật" -t ./texture.png'));
-  console.log(chalk.gray('  apeirix item -i rare_gem -n "Ngọc Quý" -t ./gem.png -c equipment -s 16\n'));
-  console.log('Options:');
-  console.log('  -i, --id <id>              Item ID (BẮT BUỘC)');
-  console.log('  -n, --name <name>          Display name (BẮT BUỘC)');
-  console.log('  -t, --texture <path>       Texture PNG path (BẮT BUỘC)');
-  console.log('  -c, --category <category>  Menu category (default: items)');
-  console.log('  -s, --stack-size <size>    Max stack size (default: 64)');
-  console.log('  -p, --project <path>       Project root path (default: current dir)\n');
-  console.log('Để xem chi tiết: apeirix item --help\n');
+  console.log(chalk.gray('  apeirix recipe:shaped --id ingot_from_nuggets --pattern \'["###","###","###"]\' --key \'{"#":"nugget"}\' --result ingot --unlock nugget'));
+  console.log(chalk.gray('  apeirix recipe:shapeless --id nugget_from_ingot --ingredients ingot --result nugget --result-count 9 --unlock ingot'));
+  console.log(chalk.gray('  apeirix recipe:smelting --id ingot_from_ore --input raw_ore --output ingot\n'));
 }
