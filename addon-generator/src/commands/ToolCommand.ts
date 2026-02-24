@@ -7,6 +7,7 @@ import { SpearGenerator } from '../generators/tools/SpearGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
+import { TestFunctionGenerator } from '../generators/TestFunctionGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -22,6 +23,7 @@ export interface ToolCommandOptions {
   efficiency?: string;
   enchantability?: string;
   tier?: string; // Material tier for spear (e.g., "iron_tier", "diamond_tier")
+  testCommands?: string[];
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -64,7 +66,10 @@ export class ToolCommand {
       history.trackModify('packs/RP/textures/item_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
-      history.trackModify('scripts/data/tools/ToolRegistry.ts');
+      history.trackModify('scripts/data/GameData.ts');
+      history.trackCreate(`tests/items/tools/${toolId}.md`);
+      history.trackCreate(`tests/items/tools/${toolId}.test.ts`);
+      history.trackCreate(`packs/BP/functions/tests/tools/${toolId}.mcfunction`);
     }
 
     if (!DryRunManager.isEnabled()) {
@@ -111,6 +116,14 @@ export class ToolCommand {
       // Tạo test files
       const testGen = new TestGenerator(options.project);
       testGen.generateToolTest(toolId, options.name, options.type);
+
+      // Tạo test function
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      testFuncGen.generate({
+        id: toolId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'tools');
 
       if (history) {
         history.commitOperation();

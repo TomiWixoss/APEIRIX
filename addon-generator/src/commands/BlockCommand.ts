@@ -2,6 +2,7 @@ import { BlockGenerator } from '../generators/BlockGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
+import { TestFunctionGenerator } from '../generators/TestFunctionGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -15,6 +16,7 @@ export interface BlockCommandOptions {
   explosionResistance?: string;
   requiresTool?: boolean;
   toolTier?: string;
+  testCommands?: string[];
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -62,6 +64,9 @@ export class BlockCommand {
       history.trackModify('packs/RP/textures/terrain_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackCreate(`tests/blocks/${blockId}.md`);
+      history.trackCreate(`tests/blocks/${blockId}.test.ts`);
+      history.trackCreate(`packs/BP/functions/tests/blocks/${blockId}.mcfunction`);
     }
 
     if (!DryRunManager.isEnabled()) {
@@ -85,6 +90,14 @@ export class BlockCommand {
       // Tạo test files
       const testGen = new TestGenerator(options.project);
       testGen.generateBlockTest(blockId, options.name);
+
+      // Tạo test function
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      testFuncGen.generate({
+        id: blockId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'blocks');
 
       if (history) {
         history.commitOperation();

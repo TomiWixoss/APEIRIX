@@ -2,6 +2,7 @@ import { OreGenerator } from '../generators/OreGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
+import { TestFunctionGenerator } from '../generators/TestFunctionGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -17,6 +18,7 @@ export interface OreCommandOptions {
   veinSize?: string;
   veinsPerChunk?: string;
   toolTier?: string;
+  testCommands?: string[];
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -74,7 +76,10 @@ export class OreCommand {
       history.trackModify('packs/RP/textures/terrain_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
-      history.trackModify('scripts/data/blocks/OreRegistry.ts');
+      history.trackModify('scripts/data/GameData.ts');
+      history.trackCreate(`tests/blocks/${oreId}.md`);
+      history.trackCreate(`tests/blocks/${oreId}.test.ts`);
+      history.trackCreate(`packs/BP/functions/tests/ores/${oreId}.mcfunction`);
     }
 
     if (!DryRunManager.isEnabled()) {
@@ -109,6 +114,14 @@ export class OreCommand {
       // Tạo test files
       const testGen = new TestGenerator(options.project);
       testGen.generateOreTest(oreId, options.name, !!options.deepslateTexture);
+
+      // Tạo test function
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      testFuncGen.generate({
+        id: oreId,
+        displayName: options.name,
+        commands: options.testCommands
+      }, 'ores');
 
       if (history) {
         history.commitOperation();

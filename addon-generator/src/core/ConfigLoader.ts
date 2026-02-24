@@ -49,6 +49,7 @@ export interface BlockConfig {
   explosionResistance?: number;
   requiresTool?: boolean;
   toolTier?: string;
+  testCommands?: string[];
 }
 
 export interface OreConfig {
@@ -62,6 +63,7 @@ export interface OreConfig {
   veinSize?: number;
   veinsPerChunk?: number;
   toolTier?: string;
+  testCommands?: string[];
 }
 
 export interface ToolConfig {
@@ -75,6 +77,7 @@ export interface ToolConfig {
   efficiency?: number;
   enchantability?: number;
   tier?: string;
+  testCommands?: string[];
 }
 
 export interface ArmorSetConfig {
@@ -87,6 +90,7 @@ export interface ArmorSetConfig {
   durabilityMultiplier?: number;
   protectionMultiplier?: number;
   enchantability?: number;
+  testCommands?: string[];
 }
 
 export interface RecipeConfig {

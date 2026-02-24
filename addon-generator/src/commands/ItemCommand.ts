@@ -78,12 +78,14 @@ export class ItemCommand {
     const testFuncGen = new TestFunctionGenerator(options.project);
 
     // Track files
+    const category = options.nutrition ? 'food' : 'items';
     if (history) {
       history.trackCreate(`packs/BP/items/${itemId}.json`);
       history.trackCreate(`packs/RP/textures/items/${itemId}.png`);
       history.trackModify('packs/RP/textures/item_texture.json');
       history.trackModify('packs/BP/texts/en_US.lang');
       history.trackModify('packs/RP/texts/en_US.lang');
+      history.trackCreate(`packs/BP/functions/tests/${category}/${itemId}.mcfunction`);
     }
 
     if (!DryRunManager.isEnabled()) {
@@ -112,7 +114,6 @@ export class ItemCommand {
       testGen.generateItemTest(itemId, options.name);
 
       // 3. Generate test function
-      const category = options.nutrition ? 'food' : 'items';
       testFuncGen.generate({
         id: itemId,
         displayName: options.name,

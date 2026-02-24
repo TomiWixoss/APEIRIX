@@ -38,6 +38,7 @@ export class BatchCommand {
       config.items.forEach(item => {
         try {
           // Track files trước khi tạo
+          const category = item.nutrition ? 'food' : 'items';
           history.trackCreate(`packs/BP/items/${item.id}.json`);
           history.trackCreate(`packs/RP/textures/items/${item.id}.png`);
           history.trackModify('packs/RP/textures/item_texture.json');
@@ -45,6 +46,7 @@ export class BatchCommand {
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackCreate(`tests/items/materials/${item.id}.md`);
           history.trackCreate(`tests/items/materials/${item.id}.test.ts`);
+          history.trackCreate(`packs/BP/functions/tests/${category}/${item.id}.mcfunction`);
           
           new ItemCommand().execute({
             id: item.id,
@@ -84,6 +86,7 @@ export class BatchCommand {
           history.trackModify('packs/RP/texts/en_US.lang');
           history.trackCreate(`tests/blocks/${block.id}.md`);
           history.trackCreate(`tests/blocks/${block.id}.test.ts`);
+          history.trackCreate(`packs/BP/functions/tests/blocks/${block.id}.mcfunction`);
           
           new BlockCommand().execute({
             id: block.id,
@@ -94,6 +97,7 @@ export class BatchCommand {
             explosionResistance: block.explosionResistance?.toString(),
             requiresTool: block.requiresTool,
             toolTier: block.toolTier,
+            testCommands: block.testCommands,
             project: options.project,
             dryRun: false,
             skipHistory: true
@@ -124,8 +128,10 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/terrain_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackModify('scripts/data/GameData.ts');
           history.trackCreate(`tests/blocks/${ore.id}.md`);
           history.trackCreate(`tests/blocks/${ore.id}.test.ts`);
+          history.trackCreate(`packs/BP/functions/tests/ores/${ore.id}.mcfunction`);
           
           new OreCommand().execute({
             id: ore.id,
@@ -138,6 +144,7 @@ export class BatchCommand {
             veinSize: ore.veinSize?.toString(),
             veinsPerChunk: ore.veinsPerChunk?.toString(),
             toolTier: ore.toolTier,
+            testCommands: ore.testCommands,
             project: options.project,
             dryRun: false,
             skipHistory: true
@@ -160,8 +167,10 @@ export class BatchCommand {
           history.trackModify('packs/RP/textures/item_texture.json');
           history.trackModify('packs/BP/texts/en_US.lang');
           history.trackModify('packs/RP/texts/en_US.lang');
+          history.trackModify('scripts/data/GameData.ts');
           history.trackCreate(`tests/items/tools/${tool.id}.md`);
           history.trackCreate(`tests/items/tools/${tool.id}.test.ts`);
+          history.trackCreate(`packs/BP/functions/tests/tools/${tool.id}.mcfunction`);
           
           new ToolCommand().execute({
             id: tool.id,
@@ -174,6 +183,7 @@ export class BatchCommand {
             efficiency: tool.efficiency?.toString(),
             enchantability: tool.enchantability?.toString(),
             tier: tool.tier,
+            testCommands: tool.testCommands,
             project: options.project,
             dryRun: false,
             skipHistory: true
@@ -198,6 +208,7 @@ export class BatchCommand {
             history.trackCreate(`packs/RP/textures/items/${armor.baseName}_${piece}.png`);
             history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.md`);
             history.trackCreate(`tests/items/armor/${armor.baseName}_${piece}.test.ts`);
+            history.trackCreate(`packs/BP/functions/tests/armor/${armor.baseName}_${piece}.mcfunction`);
           });
           history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_1.png`);
           history.trackCreate(`packs/RP/textures/models/armor/${armor.baseName}_layer_2.png`);
@@ -215,6 +226,7 @@ export class BatchCommand {
             durabilityMultiplier: armor.durabilityMultiplier?.toString(),
             protectionMultiplier: armor.protectionMultiplier?.toString(),
             enchantability: armor.enchantability?.toString(),
+            testCommands: armor.testCommands,
             project: options.project,
             dryRun: false,
             skipHistory: true

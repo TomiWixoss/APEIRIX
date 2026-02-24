@@ -70,6 +70,7 @@ export class FoodCommand {
       history.trackModify('packs/RP/texts/en_US.lang');
       history.trackCreate(`tests/items/food/${itemId}.md`);
       history.trackCreate(`tests/items/food/${itemId}.test.ts`);
+      history.trackCreate(`packs/BP/functions/tests/food/${itemId}.mcfunction`);
     }
 
     if (!DryRunManager.isEnabled()) {

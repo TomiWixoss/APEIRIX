@@ -11,8 +11,33 @@ bun run dev batch -f configs/[config-file].yaml -p ..
 
 ## Available Configs
 
-### 1. `canned-food-system.yaml`
-**Hệ thống Đồ Hộp (Canned Food System)**
+### 1. `canned-food/` (Multi-File Config System) ⭐ MỚI
+**Hệ thống Đồ Hộp (Canned Food System) - Tách Files**
+
+Ví dụ hoàn chỉnh về multi-file config system với 11 loại đồ hộp:
+
+**Cấu trúc:**
+```
+canned-food/
+├── main.yaml      # File chính với imports
+├── items.yaml     # 11 items với đầy đủ properties
+├── recipes.yaml   # 11 recipes với unlock
+└── tests.yaml     # 11 test functions với custom commands
+```
+
+**Chạy:**
+```bash
+bun run dev batch -f configs/canned-food/main.yaml
+```
+
+**Lợi ích:**
+- Tách biệt items/recipes/tests
+- Dễ maintain và update
+- Có thể reuse cho projects khác
+- Import system tự động merge configs
+
+### 2. `canned-food-system.yaml` (Legacy - Single File)
+**Hệ thống Đồ Hộp (Canned Food System) - File Đơn**
 
 Thêm 11 loại đồ hộp vào game với đầy đủ tính năng:
 

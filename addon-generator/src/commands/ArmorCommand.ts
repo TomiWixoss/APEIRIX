@@ -2,6 +2,7 @@ import { ArmorGenerator } from '../generators/ArmorGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TestGenerator } from '../generators/TestGenerator.js';
+import { TestFunctionGenerator } from '../generators/TestFunctionGenerator.js';
 import { Validator } from '../core/Validator.js';
 import { HistoryManager } from '../core/HistoryManager.js';
 import { DryRunManager } from '../core/DryRunManager.js';
@@ -18,6 +19,7 @@ export interface ArmorCommandOptions {
   durabilityMultiplier?: string;
   protectionMultiplier?: string;
   enchantability?: string;
+  testCommands?: string[];
   project: string;
   dryRun?: boolean;
   skipHistory?: boolean;
@@ -72,6 +74,9 @@ export class ArmorCommand {
         history.trackCreate(`packs/BP/items/${baseName}_${piece}.json`);
         history.trackCreate(`packs/RP/attachables/${baseName}_${piece}.json`);
         history.trackCreate(`packs/RP/textures/items/${baseName}_${piece}.png`);
+        history.trackCreate(`tests/items/armor/${baseName}_${piece}.md`);
+        history.trackCreate(`tests/items/armor/${baseName}_${piece}.test.ts`);
+        history.trackCreate(`packs/BP/functions/tests/armor/${baseName}_${piece}.mcfunction`);
       });
       
       history.trackCreate(`packs/RP/textures/models/armor/${baseName}_layer_1.png`);
@@ -115,8 +120,17 @@ export class ArmorCommand {
 
       // Tạo test files cho từng piece
       const testGen = new TestGenerator(options.project);
+      const testFuncGen = new TestFunctionGenerator(options.project);
+      
       pieces.forEach(piece => {
         testGen.generateArmorTest(`${baseName}_${piece}`, `${options.displayName} ${this.capitalize(piece)}`, piece);
+        
+        // Tạo test function cho từng piece
+        testFuncGen.generate({
+          id: `${baseName}_${piece}`,
+          displayName: `${options.displayName} ${this.capitalize(piece)}`,
+          commands: options.testCommands
+        }, 'armor');
       });
 
       if (history) {
