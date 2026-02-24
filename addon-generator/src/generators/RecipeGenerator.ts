@@ -69,7 +69,16 @@ export class RecipeGenerator {
       ];
     }
 
-    const path = join(this.projectRoot, `recipes/${config.id}.json`);
+    // Strip "apeirix:" prefix từ ID để tạo filename hợp lệ
+    const filename = config.id.replace(/^apeirix:/, '');
+    
+    // Validate filename không rỗng
+    if (!filename || filename.trim() === '') {
+      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      return;
+    }
+    
+    const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipeData);
     console.log(`✅ Đã tạo shaped recipe: ${config.id}`);
   }
@@ -102,7 +111,16 @@ export class RecipeGenerator {
       ];
     }
 
-    const path = join(this.projectRoot, `recipes/${config.id}.json`);
+    // Strip "apeirix:" prefix từ ID để tạo filename hợp lệ
+    const filename = config.id.replace(/^apeirix:/, '');
+    
+    // Validate filename không rỗng
+    if (!filename || filename.trim() === '') {
+      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      return;
+    }
+    
+    const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipeData);
     console.log(`✅ Đã tạo shapeless recipe: ${config.id}`);
   }
@@ -123,7 +141,16 @@ export class RecipeGenerator {
       }
     };
 
-    const path = join(this.projectRoot, `recipes/${config.id}.json`);
+    // Strip "apeirix:" prefix từ ID để tạo filename hợp lệ
+    const filename = config.id.replace(/^apeirix:/, '');
+    
+    // Validate filename không rỗng
+    if (!filename || filename.trim() === '') {
+      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      return;
+    }
+    
+    const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipe);
     console.log(`✅ Đã tạo smelting recipe: ${config.id}`);
   }

@@ -6,7 +6,7 @@ import { ArmorGenerator } from '../../generators/ArmorGenerator.js';
  */
 export class ArmorBPGenerator {
   static async generate(armor: any[], bpPath: string, rpPath: string): Promise<number> {
-    const generator = new ArmorGenerator(bpPath);
+    const generator = new ArmorGenerator(bpPath, rpPath);
     let count = 0;
     
     for (const armorPiece of armor) {

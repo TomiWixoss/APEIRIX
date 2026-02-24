@@ -35,7 +35,12 @@ export interface ArmorPieceConfig {
  * Generator cho Armor - CHỈ tạo item + attachable, KHÔNG tạo recipe
  */
 export class ArmorGenerator {
-  constructor(private projectRoot: string) {}
+  constructor(private bpPath: string, private rpPath?: string) {
+    // Nếu không có rpPath, tự động tính từ bpPath
+    if (!this.rpPath) {
+      this.rpPath = this.bpPath.replace(/BP\/?$/, 'RP');
+    }
+  }
 
   generate(config: ArmorPieceConfig): void {
     // 1. Tạo BP item
@@ -106,7 +111,7 @@ export class ArmorGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `items/${config.id}.json`);
+    const outputPath = join(this.bpPath, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
     console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
@@ -142,7 +147,7 @@ export class ArmorGenerator {
       }
     };
 
-    const outputPath = join(this.projectRoot, `RP/attachables/${config.id}.json`);
+    const outputPath = join(this.rpPath!, `attachables/${config.id}.json`);
     FileManager.writeJSON(outputPath, attachableData);
     console.log(`✅ Đã tạo: RP/attachables/${config.id}.json`);
   }

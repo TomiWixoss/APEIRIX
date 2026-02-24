@@ -7,13 +7,13 @@ $sourcePath = "./dist/scripts"
 $destPath = "./addon-generator/build/BP/scripts"
 
 if (Test-Path $sourcePath) {
-    # Xóa thư mục cũ nếu có
-    if (Test-Path $destPath) {
-        Remove-Item -Path $destPath -Recurse -Force
+    # Tạo thư mục đích nếu chưa có
+    if (-not (Test-Path $destPath)) {
+        New-Item -Path $destPath -ItemType Directory -Force | Out-Null
     }
     
-    # Copy thư mục scripts
-    Copy-Item -Path $sourcePath -Destination $destPath -Recurse -Force
+    # Copy NỘI DUNG bên trong thư mục scripts (không copy folder scripts itself)
+    Copy-Item -Path "$sourcePath\*" -Destination $destPath -Recurse -Force
     Write-Host "Scripts copied successfully from $sourcePath to $destPath"
 } else {
     Write-Error "Source path $sourcePath not found!"
