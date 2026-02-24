@@ -1,0 +1,17 @@
+{
+  "format_version": "1.21.50",
+  "minecraft_item": {
+    "description": {
+      "identifier": "apeirix:{{id}}",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft_icon": {
+        "texture": "{{id}}"
+      },
+      "minecraft_max_stack_size": 64
+    }
+  }
+}
