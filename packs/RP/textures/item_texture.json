@@ -82,6 +82,9 @@
     },
     "bronze_spear": {
       "textures": "textures/items/bronze_spear"
+    },
+    "candirty": {
+      "textures": "textures/items/candirty"
     }
   }
 }

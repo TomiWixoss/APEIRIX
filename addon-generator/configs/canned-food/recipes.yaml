@@ -11,6 +11,13 @@ recipes:
     resultCount: 4
     unlock: [tin_ingot]
 
+  # Rửa vỏ đồ hộp bẩn (với water bucket)
+  - type: shapeless
+    id: candirty_to_canempty
+    ingredients: [candirty, minecraft:water_bucket]
+    result: canempty
+    unlock: [candirty]
+
   # ===== LƯƠNG THỰC CƠ BẢN =====
 
   # Súp nấm hộp
