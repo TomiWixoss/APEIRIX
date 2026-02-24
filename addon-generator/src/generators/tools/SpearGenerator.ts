@@ -43,7 +43,7 @@ export class SpearGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: "itemGroup.name.weapon"
+            group: "minecraft:itemGroup.name.weapon"
           }
         },
         components: {

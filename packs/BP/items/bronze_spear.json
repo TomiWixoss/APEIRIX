@@ -5,7 +5,7 @@
       "identifier": "apeirix:bronze_spear",
       "menu_category": {
         "category": "equipment",
-        "group": "itemGroup.name.weapon"
+        "group": "minecraft:itemGroup.name.weapon"
       }
     },
     "components": {
