@@ -45,7 +45,7 @@ export class AxeGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: "itemGroup.name.axe"
+            group: "minecraft:itemGroup.name.axe"
           }
         },
         components: {

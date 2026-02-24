@@ -45,7 +45,7 @@ export class ShovelGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: "itemGroup.name.shovel"
+            group: "minecraft:itemGroup.name.shovel"
           }
         },
         components: {

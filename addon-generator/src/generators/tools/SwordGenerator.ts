@@ -39,7 +39,7 @@ export class SwordGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: "itemGroup.name.sword"
+            group: "minecraft:itemGroup.name.sword"
           }
         },
         components: {

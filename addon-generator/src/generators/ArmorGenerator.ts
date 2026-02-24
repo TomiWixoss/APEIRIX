@@ -44,7 +44,7 @@ export class ArmorGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: `itemGroup.name.${config.piece}`
+            group: `minecraft:itemGroup.name.${config.piece}`
           }
         },
         components: {

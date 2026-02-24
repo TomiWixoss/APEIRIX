@@ -45,7 +45,7 @@ export class PickaxeGenerator {
           identifier: `apeirix:${config.id}`,
           menu_category: {
             category: "equipment",
-            group: "itemGroup.name.pickaxe"
+            group: "minecraft:itemGroup.name.pickaxe"
           }
         },
         components: {
