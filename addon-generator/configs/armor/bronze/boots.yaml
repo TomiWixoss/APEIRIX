@@ -1,7 +1,7 @@
 type: boots
 id: bronze_boots
 name: lang:armor.bronze_boots
-texture: ../../../../assets/armor/items/bronze_boots.png
+texture: ../../../assets/armor/items/bronze_boots.png
 durability: 260
 protection: 1
 category: equipment
@@ -10,7 +10,7 @@ slot: slot.armor.feet
 enchantSlot: armor_feet
 geometry: geometry.humanoid.armor.boots
 armorLayer: bronze_layer_1
-armorLayerTexturePath: ../../../../assets/armor/layers/bronze_layer_1.png
+armorLayerTexturePath: ../../../assets/armor/layers/bronze_layer_1.png
 tags:
   - minecraft:trimmable_armors
 recipes:

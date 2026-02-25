@@ -1,6 +1,6 @@
 id: bronze_nugget
 name: lang:materials.bronze_nugget
-texture: ../../../../assets/items/bronze_nugget.png
+texture: ../../../assets/items/bronze_nugget.png
 category: items
 maxStackSize: 64
 recipes:

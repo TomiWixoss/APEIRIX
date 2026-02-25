@@ -1,6 +1,6 @@
 id: wiki_book
 name: lang:special.wiki_book
-texture: ../../../assets/items/wiki_book.png
+texture: ../../assets/items/wiki_book.png
 category: items
 group: itemGroup.name.book
 maxStackSize: 1

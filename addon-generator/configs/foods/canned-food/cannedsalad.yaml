@@ -1,6 +1,6 @@
 id: cannedsalad
 name: lang:foods.cannedsalad
-texture: ../../../../assets/foods/cannedsalad.png
+texture: ../../../assets/foods/cannedsalad.png
 category: items
 stackSize: 64
 nutrition: 3

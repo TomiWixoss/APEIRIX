@@ -1,7 +1,7 @@
 type: axe
 id: bronze_axe
 name: lang:tools.bronze_axe
-texture: ../../../../assets/tools/bronze_axe.png
+texture: ../../../assets/tools/bronze_axe.png
 damage: 5
 category: equipment
 group: itemGroup.name.axe

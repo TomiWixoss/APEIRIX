@@ -1,7 +1,7 @@
 type: chestplate
 id: bronze_chestplate
 name: lang:armor.bronze_chestplate
-texture: ../../../../assets/armor/items/bronze_chestplate.png
+texture: ../../../assets/armor/items/bronze_chestplate.png
 durability: 320
 protection: 5
 category: equipment
@@ -10,7 +10,7 @@ slot: slot.armor.chest
 enchantSlot: armor_torso
 geometry: geometry.humanoid.armor.chestplate
 armorLayer: bronze_layer_1
-armorLayerTexturePath: ../../../../assets/armor/layers/bronze_layer_1.png
+armorLayerTexturePath: ../../../assets/armor/layers/bronze_layer_1.png
 tags:
   - minecraft:trimmable_armors
 recipes:

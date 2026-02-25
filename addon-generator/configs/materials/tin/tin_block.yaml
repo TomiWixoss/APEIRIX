@@ -1,6 +1,6 @@
 id: tin_block
 name: lang:materials.tin_block
-texture: ../../../../assets/blocks/tin_block.png
+texture: ../../../assets/blocks/tin_block.png
 category: construction
 destroyTime: 16.65
 explosionResistance: 6

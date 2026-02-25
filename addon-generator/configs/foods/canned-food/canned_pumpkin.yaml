@@ -1,6 +1,6 @@
 id: canned_pumpkin
 name: lang:foods.canned_pumpkin
-texture: ../../../../assets/foods/canned_pumpkin.png
+texture: ../../../assets/foods/canned_pumpkin.png
 category: items
 stackSize: 64
 nutrition: 4

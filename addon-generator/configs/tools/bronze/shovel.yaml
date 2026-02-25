@@ -1,7 +1,7 @@
 type: shovel
 id: bronze_shovel
 name: lang:tools.bronze_shovel
-texture: ../../../../assets/tools/bronze_shovel.png
+texture: ../../../assets/tools/bronze_shovel.png
 damage: 3
 category: equipment
 group: itemGroup.name.shovel

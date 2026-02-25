@@ -1,7 +1,7 @@
 id: bronze_spear
 name: lang:tools.bronze_spear
 type: spear
-texture: ../../../../assets/tools/bronze_spear.png
+texture: ../../../assets/tools/bronze_spear.png
 materialId: apeirix:bronze_ingot
 durability: 375
 damage: 3

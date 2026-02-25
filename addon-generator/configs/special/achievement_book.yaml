@@ -1,6 +1,6 @@
 id: achievement_book
 name: lang:special.achievement_book
-texture: ../../../assets/items/achievement_book.png
+texture: ../../assets/items/achievement_book.png
 category: items
 group: itemGroup.name.book
 maxStackSize: 1

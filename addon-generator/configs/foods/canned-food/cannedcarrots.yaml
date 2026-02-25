@@ -1,6 +1,6 @@
 id: cannedcarrots
 name: lang:foods.cannedcarrots
-texture: ../../../../assets/foods/cannedcarrots.png
+texture: ../../../assets/foods/cannedcarrots.png
 category: items
 stackSize: 64
 nutrition: 4

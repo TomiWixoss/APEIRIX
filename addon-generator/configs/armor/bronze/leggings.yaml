@@ -1,7 +1,7 @@
 type: leggings
 id: bronze_leggings
 name: lang:armor.bronze_leggings
-texture: ../../../../assets/armor/items/bronze_leggings.png
+texture: ../../../assets/armor/items/bronze_leggings.png
 durability: 300
 protection: 4
 category: equipment
@@ -10,7 +10,7 @@ slot: slot.armor.legs
 enchantSlot: armor_legs
 geometry: geometry.humanoid.armor.leggings
 armorLayer: bronze_layer_2
-armorLayerTexturePath: ../../../../assets/armor/layers/bronze_layer_2.png
+armorLayerTexturePath: ../../../assets/armor/layers/bronze_layer_2.png
 tags:
   - minecraft:trimmable_armors
 recipes:

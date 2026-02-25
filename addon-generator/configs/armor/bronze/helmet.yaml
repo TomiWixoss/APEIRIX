@@ -1,7 +1,7 @@
 type: helmet
 id: bronze_helmet
 name: lang:armor.bronze_helmet
-texture: ../../../../assets/armor/items/bronze_helmet.png
+texture: ../../../assets/armor/items/bronze_helmet.png
 durability: 220
 protection: 2
 category: equipment
@@ -10,7 +10,7 @@ slot: slot.armor.head
 enchantSlot: armor_head
 geometry: geometry.humanoid.armor.helmet
 armorLayer: bronze_layer_1
-armorLayerTexturePath: ../../../../assets/armor/layers/bronze_layer_1.png
+armorLayerTexturePath: ../../../assets/armor/layers/bronze_layer_1.png
 tags:
   - minecraft:trimmable_armors
 recipes:

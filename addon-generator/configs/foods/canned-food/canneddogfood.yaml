@@ -1,6 +1,6 @@
 id: canneddogfood
 name: lang:foods.canneddogfood
-texture: ../../../../assets/foods/canneddogfood.png
+texture: ../../../assets/foods/canneddogfood.png
 category: items
 stackSize: 64
 nutrition: 2

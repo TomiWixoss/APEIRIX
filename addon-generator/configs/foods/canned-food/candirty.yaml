@@ -1,5 +1,5 @@
 id: candirty
 name: lang:foods.candirty
-texture: ../../../../assets/foods/candirty.png
+texture: ../../../assets/foods/candirty.png
 category: items
 stackSize: 64
