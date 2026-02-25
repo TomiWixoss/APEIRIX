@@ -1,4 +1,4 @@
-{
+﻿{
   "namespace": "server_form",
   "long_form": {
     "type": "panel",
@@ -551,7 +551,6 @@
     "layer": 1,
     "anchor_from": "center",
     "anchor_to": "center",
-    "$button_texture|default": "textures/apeirix/ui/style_book",
     "controls": [
       {
         "scrolling_panel@common.scrolling_panel": {
@@ -1152,7 +1151,6 @@
                   {
                     "button_panel@server_form.book_button_panel_main": {
                       "$body_text_color": [0.2, 0.2, 0.2],
-                      "$button_texture": "textures/apeirix/ui/style_book",
                       "$scrolling_content": "global_custom_form.custom_form_panel"
                     }
                   },
