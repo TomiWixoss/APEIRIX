@@ -22,11 +22,27 @@ export class WikiUI {
         const items = this.scanInventory(player);
 
         if (items.length === 0) {
-            player.sendMessage(LangManager.get("wiki.noItemsFound"));
+            await this.showEmptyWiki(player);
             return;
         }
 
         await this.showItemList(player, items);
+    }
+
+    /**
+     * Show wiki UI when inventory is empty
+     */
+    private static async showEmptyWiki(player: Player): Promise<void> {
+        const form = new ActionFormData()
+            .title(LangManager.get("wiki.emptyTitle"))
+            .body(LangManager.get("wiki.emptyMessage"))
+            .button(LangManager.get("wiki.emptyButton"));
+
+        try {
+            await form.show(player);
+        } catch (error) {
+            console.error("Error showing empty wiki:", error);
+        }
     }
 
     /**

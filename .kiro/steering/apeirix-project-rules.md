@@ -2,6 +2,8 @@
 description: "APEIRIX project rules and development guidelines"
 ---
 
+ALLWAYS RESPOND AS VIETNAMESE!
+
 # APEIRIX - Development Rules
 
 ## ⚠️ CRITICAL PRINCIPLE
