@@ -1,0 +1,14 @@
+import:
+  - canempty.yaml
+  - candirty.yaml
+  - canned_food.yaml
+  - canned_pumpkin.yaml
+  - cannedbeets.yaml
+  - cannedbread.yaml
+  - cannedcarrots.yaml
+  - canneddogfood.yaml
+  - cannedfish.yaml
+  - cannedmeal.yaml
+  - cannedmushroomsoup.yaml
+  - cannedsalad.yaml
+  - index.test.yaml

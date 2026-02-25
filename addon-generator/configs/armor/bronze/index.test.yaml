@@ -1,0 +1,5 @@
+import:
+  - helmet.test.yaml
+  - chestplate.test.yaml
+  - leggings.test.yaml
+  - boots.test.yaml

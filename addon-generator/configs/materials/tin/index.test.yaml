@@ -1,0 +1,6 @@
+import:
+  - raw_tin.test.yaml
+  - tin_ingot.test.yaml
+  - tin_nugget.test.yaml
+  - tin_block.test.yaml
+  - tin_ore.test.yaml

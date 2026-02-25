@@ -1,0 +1,4 @@
+import:
+  - bronze_ingot.test.yaml
+  - bronze_nugget.test.yaml
+  - bronze_block.test.yaml
