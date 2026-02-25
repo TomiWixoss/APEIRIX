@@ -1,20 +1,9 @@
 id: bronze_ingot
 name: lang:materials.bronze_ingot
-texture: ../../../../assets/items/bronze_ingot.png
+texture: ../../../assets/items/bronze_ingot.png
 category: items
 maxStackSize: 64
 recipes:
-  - type: shapeless
-    id: bronze_ingot_from_copper_tin
-    ingredients:
-      - minecraft:copper_ingot
-      - minecraft:copper_ingot
-      - minecraft:copper_ingot
-      - apeirix:tin_ingot
-    result: apeirix:bronze_ingot
-    count: 4
-    unlock:
-      - apeirix:tin_ingot
   - type: shaped
     id: apeirix:bronze_ingot_from_nuggets
     pattern:

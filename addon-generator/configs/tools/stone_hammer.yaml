@@ -1,0 +1,24 @@
+type: tool
+id: stone_hammer
+name: lang:tools.stone_hammer
+texture: ../../assets/tools/stone_hammer.png
+damage: 2
+category: equipment
+group: itemGroup.name.tool
+recipe:
+  type: shaped
+  id: stone_hammer
+  pattern:
+    - " # "
+    - " S#"
+    - "S  "
+  ingredients:
+    "#": minecraft:cobblestone
+    S: minecraft:stick
+  result: apeirix:stone_hammer
+  count: 1
+  unlock:
+    - minecraft:cobblestone
+materialId: minecraft:cobblestone
+durability: 131
+enchantability: 5

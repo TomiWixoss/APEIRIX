@@ -6,12 +6,22 @@ export interface BlockConfig {
   id: string;
   name: string;
   texturePath: string;
+  textureTop?: string;
+  textureSide?: string;
+  textureFront?: string;
   category?: 'construction' | 'nature' | 'equipment' | 'items';
   destroyTime?: number;
   explosionResistance?: number;
   mapColor?: string;
   requiresTool?: boolean;
   toolTier?: 'stone' | 'copper' | 'iron' | 'diamond' | 'netherite';
+  // Crafting table component (optional)
+  craftingTable?: {
+    gridSize?: 3 | 2;
+    craftingTags?: string[];
+    customDescription?: string;
+    tableName?: string;
+  };
 }
 
 /**
@@ -21,6 +31,68 @@ export class BlockGenerator {
   constructor(private projectRoot: string) {}
 
   generate(config: BlockConfig): void {
+    // Determine material instances based on available textures
+    let materialInstances: any;
+    
+    if (config.textureTop || config.textureSide || config.textureFront) {
+      // Multi-face textures
+      materialInstances = {
+        "up": {
+          texture: config.textureTop ? `${config.id}_top` : config.id,
+          render_method: "opaque"
+        },
+        "down": {
+          texture: config.textureTop ? `${config.id}_top` : config.id,
+          render_method: "opaque"
+        },
+        "north": {
+          texture: config.textureFront ? `${config.id}_front` : config.id,
+          render_method: "opaque"
+        },
+        "south": {
+          texture: config.textureFront ? `${config.id}_front` : config.id,
+          render_method: "opaque"
+        },
+        "east": {
+          texture: config.textureSide ? `${config.id}_side` : config.id,
+          render_method: "opaque"
+        },
+        "west": {
+          texture: config.textureSide ? `${config.id}_side` : config.id,
+          render_method: "opaque"
+        }
+      };
+    } else {
+      // Single texture for all faces
+      materialInstances = {
+        "*": {
+          texture: config.id,
+          render_method: "opaque"
+        }
+      };
+    }
+
+    const components: any = {
+      "minecraft:loot": `loot_tables/blocks/${config.id}.json`,
+      "minecraft:destructible_by_mining": this.getMiningComponent(config),
+      "minecraft:destructible_by_explosion": {
+        explosion_resistance: config.explosionResistance || 6.0
+      },
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:map_color": config.mapColor || "#d4d4d4",
+      "minecraft:material_instances": materialInstances
+    };
+
+    // Add crafting table component if specified
+    if (config.craftingTable) {
+      components["minecraft:crafting_table"] = {
+        grid_size: config.craftingTable.gridSize || 3,
+        custom_description: config.craftingTable.customDescription || config.name,
+        crafting_tags: config.craftingTable.craftingTags || [`${config.id}_crafting`],
+        table_name: config.craftingTable.tableName || config.name
+      };
+    }
+
     const blockData = {
       format_version: "1.21.50",
       "minecraft:block": {
@@ -30,21 +102,7 @@ export class BlockGenerator {
             category: config.category || "construction"
           }
         },
-        components: {
-          "minecraft:loot": `loot_tables/blocks/${config.id}.json`,
-          "minecraft:destructible_by_mining": this.getMiningComponent(config),
-          "minecraft:destructible_by_explosion": {
-            explosion_resistance: config.explosionResistance || 6.0
-          },
-          "minecraft:geometry": "minecraft:geometry.full_block",
-          "minecraft:map_color": config.mapColor || "#d4d4d4",
-          "minecraft:material_instances": {
-            "*": {
-              texture: config.id,
-              render_method: "opaque"
-            }
-          }
-        }
+        components
       }
     };
 

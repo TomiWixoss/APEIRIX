@@ -19,7 +19,8 @@ export class RecipeBPGenerator {
               result: recipe.result,
               resultCount: recipe.resultCount || recipe.count,
               resultExtra: recipe.resultExtra,
-              unlock: recipe.unlock
+              unlock: recipe.unlock,
+              craftingTags: recipe.craftingTags
             });
             break;
           case 'shapeless':
@@ -29,7 +30,8 @@ export class RecipeBPGenerator {
               result: recipe.result,
               resultCount: recipe.resultCount || recipe.count,
               resultExtra: recipe.resultExtra,
-              unlock: recipe.unlock
+              unlock: recipe.unlock,
+              craftingTags: recipe.craftingTags
             });
             break;
           case 'smelting':

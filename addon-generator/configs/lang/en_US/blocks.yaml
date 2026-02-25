@@ -1,0 +1,12 @@
+# English Language - Blocks
+blocks:
+  # Tin
+  tin_block: Block of Tin
+  tin_ore: Tin Ore
+  deepslate_tin_ore: Deepslate Tin Ore
+
+  # Bronze
+  bronze_block: Block of Bronze
+
+  # Crafting Blocks
+  alloy_mixing_table: Alloy Mixing Table

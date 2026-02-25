@@ -2,3 +2,5 @@ import:
   - bronze_ingot.test.yaml
   - bronze_nugget.test.yaml
   - bronze_block.test.yaml
+  - bronze_mixture.test.yaml
+  - alloy_mixing_table.test.yaml

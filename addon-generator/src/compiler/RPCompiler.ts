@@ -99,7 +99,7 @@ export class RPCompiler {
       })));
     }
 
-    // Collect all blocks (blocks + ores + deepslate ores)
+    // Collect all blocks (blocks + ores + deepslate ores + crafting blocks)
     const allBlocks = [
       ...(config.blocks || []),
       ...(config.ores || [])
@@ -112,6 +112,30 @@ export class RPCompiler {
           allBlocks.push({
             id: `deepslate_${ore.id}`,
             name: ore.deepslateName || `Deepslate ${ore.name}`
+          });
+        }
+      }
+    }
+
+    // Add separate texture entries for blocks with multi-face textures
+    if (config.blocks) {
+      for (const block of config.blocks) {
+        if (block.textureTop) {
+          allBlocks.push({
+            id: `${block.id}_top`,
+            name: `${block.name} Top`
+          });
+        }
+        if (block.textureSide) {
+          allBlocks.push({
+            id: `${block.id}_side`,
+            name: `${block.name} Side`
+          });
+        }
+        if (block.textureFront) {
+          allBlocks.push({
+            id: `${block.id}_front`,
+            name: `${block.name} Front`
           });
         }
       }
@@ -189,6 +213,8 @@ export class RPCompiler {
         }
       }
     }
+
+    // Note: craftingTable blocks are just regular blocks with extra component
 
     if (config.ores) {
       for (const ore of config.ores) {

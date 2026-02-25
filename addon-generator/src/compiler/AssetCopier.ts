@@ -9,7 +9,12 @@ export interface AssetConfig {
     rp?: string;
   };
   items?: Array<{ texture?: string }>;
-  blocks?: Array<{ texture?: string }>;
+  blocks?: Array<{ 
+    texture?: string;
+    textureTop?: string;
+    textureSide?: string;
+    textureFront?: string;
+  }>;
   tools?: Array<{ texture?: string; texturePath?: string }>;
   foods?: Array<{ texture?: string }>;
   ores?: Array<{ texturePath?: string; deepslateTexturePath?: string }>;
@@ -37,8 +42,9 @@ export class AssetCopier {
     // Copy item textures
     if (config.items) {
       for (const item of config.items) {
+        const itemConfigPath = (item as any)._sourcePath || config.configPath;
         if (item.texture) {
-          this.copyTexture(config.configPath, item.texture, path.join(outputDir, 'RP', 'textures', 'items'));
+          this.copyTexture(itemConfigPath, item.texture, path.join(outputDir, 'RP', 'textures', 'items'));
         }
       }
     }
@@ -46,9 +52,10 @@ export class AssetCopier {
     // Copy tool textures
     if (config.tools) {
       for (const tool of config.tools) {
+        const toolConfigPath = (tool as any)._sourcePath || config.configPath;
         const texturePath = tool.texturePath || tool.texture;
         if (texturePath) {
-          this.copyTexture(config.configPath, texturePath, path.join(outputDir, 'RP', 'textures', 'items'));
+          this.copyTexture(toolConfigPath, texturePath, path.join(outputDir, 'RP', 'textures', 'items'));
         }
       }
     }
@@ -56,8 +63,9 @@ export class AssetCopier {
     // Copy food textures
     if (config.foods) {
       for (const food of config.foods) {
+        const foodConfigPath = (food as any)._sourcePath || config.configPath;
         if (food.texture) {
-          this.copyTexture(config.configPath, food.texture, path.join(outputDir, 'RP', 'textures', 'items'));
+          this.copyTexture(foodConfigPath, food.texture, path.join(outputDir, 'RP', 'textures', 'items'));
         }
       }
     }
@@ -65,8 +73,19 @@ export class AssetCopier {
     // Copy block textures
     if (config.blocks) {
       for (const block of config.blocks) {
+        const blockConfigPath = (block as any)._sourcePath || config.configPath;
         if (block.texture) {
-          this.copyTexture(config.configPath, block.texture, path.join(outputDir, 'RP', 'textures', 'blocks'));
+          this.copyTexture(blockConfigPath, block.texture, path.join(outputDir, 'RP', 'textures', 'blocks'));
+        }
+        // Copy multi-face textures
+        if (block.textureTop) {
+          this.copyTexture(blockConfigPath, block.textureTop, path.join(outputDir, 'RP', 'textures', 'blocks'));
+        }
+        if (block.textureSide) {
+          this.copyTexture(blockConfigPath, block.textureSide, path.join(outputDir, 'RP', 'textures', 'blocks'));
+        }
+        if (block.textureFront) {
+          this.copyTexture(blockConfigPath, block.textureFront, path.join(outputDir, 'RP', 'textures', 'blocks'));
         }
       }
     }
@@ -74,11 +93,12 @@ export class AssetCopier {
     // Copy ore textures
     if (config.ores) {
       for (const ore of config.ores) {
+        const oreConfigPath = (ore as any)._sourcePath || config.configPath;
         if (ore.texturePath) {
-          this.copyTexture(config.configPath, ore.texturePath, path.join(outputDir, 'RP', 'textures', 'blocks'));
+          this.copyTexture(oreConfigPath, ore.texturePath, path.join(outputDir, 'RP', 'textures', 'blocks'));
         }
         if (ore.deepslateTexturePath) {
-          this.copyTexture(config.configPath, ore.deepslateTexturePath, path.join(outputDir, 'RP', 'textures', 'blocks'));
+          this.copyTexture(oreConfigPath, ore.deepslateTexturePath, path.join(outputDir, 'RP', 'textures', 'blocks'));
         }
       }
     }
@@ -86,16 +106,17 @@ export class AssetCopier {
     // Copy armor textures
     if (config.armor) {
       for (const armor of config.armor) {
+        const armorConfigPath = (armor as any)._sourcePath || config.configPath;
         // Copy armor item texture
         if (armor.texture) {
-          this.copyTexture(config.configPath, armor.texture, path.join(outputDir, 'RP', 'textures', 'items'));
+          this.copyTexture(armorConfigPath, armor.texture, path.join(outputDir, 'RP', 'textures', 'items'));
         }
         // Copy armor layer textures
         if (armor.armorLayerTexturePath) {
-          this.copyArmorLayerTexture(config.configPath, armor.armorLayerTexturePath, outputDir);
+          this.copyArmorLayerTexture(armorConfigPath, armor.armorLayerTexturePath, outputDir);
         }
         if (armor.textures) {
-          this.copyArmorTextures(config.configPath, armor.textures, outputDir);
+          this.copyArmorTextures(armorConfigPath, armor.textures, outputDir);
         }
       }
     }
@@ -133,6 +154,8 @@ export class AssetCopier {
     
     if (!existsSync(sourcePath)) {
       console.warn(`⚠ Texture not found: ${sourcePath}`);
+      console.warn(`  Config path: ${configPath}`);
+      console.warn(`  Texture path: ${texturePath}`);
       return;
     }
 

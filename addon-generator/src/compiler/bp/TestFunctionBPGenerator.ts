@@ -14,12 +14,12 @@ export class TestFunctionBPGenerator {
     // Track entities by sub-category for nested group tests
     const subCategoryGroups: Record<string, Array<{id: string, name: string, commands: string[]}>> = {};
 
-    // Helper function to get sub-category path from entity's _sourcePath
+    // Helper function to get sub-category path from entity's _sourceDir
     const getSubCategoryPath = (entity: any, category: string): string | null => {
-      if (!entity._sourcePath) return null;
+      if (!entity._sourceDir) return null;
       
-      // _sourcePath format: "materials/tin", "tools/bronze", "foods/canned-food", etc.
-      const sourcePath = entity._sourcePath;
+      // _sourceDir format: "materials/tin", "tools/bronze", "foods/canned-food", etc.
+      const sourcePath = entity._sourceDir;
       
       // If sourcePath is not empty, use it as sub-category
       if (sourcePath && sourcePath.trim() !== '') {

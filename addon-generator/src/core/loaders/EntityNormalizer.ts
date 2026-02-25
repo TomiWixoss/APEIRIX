@@ -50,10 +50,6 @@ export class EntityNormalizer {
         normalized.items = [config];
       }
       
-      // Fix texture paths: ../../../../assets/ → ../assets/
-      // (vì AssetCopier resolve từ main config location)
-      this.fixTexturePaths(config);
-      
       // Extract recipe nếu có (single recipe in entity file)
       if (config.recipe) {
         normalized.recipes = [config.recipe];
@@ -69,23 +65,5 @@ export class EntityNormalizer {
     }
     
     return normalized;
-  }
-
-  /**
-   * Fix texture paths for entity
-   */
-  private static fixTexturePaths(entity: any): void {
-    if (entity.texture) {
-      entity.texture = entity.texture.replace(/^(\.\.\/)+assets\//, '../assets/');
-    }
-    if (entity.texturePath) {
-      entity.texturePath = entity.texturePath.replace(/^(\.\.\/)+assets\//, '../assets/');
-    }
-    if (entity.deepslateTexturePath) {
-      entity.deepslateTexturePath = entity.deepslateTexturePath.replace(/^(\.\.\/)+assets\//, '../assets/');
-    }
-    if (entity.armorLayerTexturePath) {
-      entity.armorLayerTexturePath = entity.armorLayerTexturePath.replace(/^(\.\.\/)+assets\//, '../assets/');
-    }
   }
 }

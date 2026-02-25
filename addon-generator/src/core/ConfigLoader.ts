@@ -1,4 +1,4 @@
-import { join, dirname } from 'path';
+import { join, dirname, resolve } from 'path';
 import { ContentConfig } from './types/ConfigTypes.js';
 import { YamlLoader } from './loaders/YamlLoader.js';
 import { JsonLoader } from './loaders/JsonLoader.js';
@@ -182,9 +182,9 @@ export class ConfigLoader {
    */
   private static addSourcePathMetadata(config: ContentConfig, sourcePath: string, accumulatedPath: string = ''): void {
     // Use accumulated path directly if provided, otherwise extract from sourcePath
-    let fullPath = accumulatedPath;
+    let relativePath = accumulatedPath;
     
-    if (!fullPath) {
+    if (!relativePath) {
       // Extract directory path from source (remove filename and index.yaml)
       // Example: "materials/tin/index.yaml" -> "materials/tin"
       // Example: "tools/bronze/pickaxe.yaml" -> "tools/bronze"
@@ -197,20 +197,29 @@ export class ConfigLoader {
         dirPath = dirPath.substring(0, dirPath.lastIndexOf('/'));
       }
       
-      fullPath = dirPath;
+      relativePath = dirPath;
     }
     
     // Clean up path (remove leading/trailing slashes and duplicate slashes)
-    fullPath = fullPath.replace(/\/+/g, '/').replace(/^\/|\/$/g, '');
+    relativePath = relativePath.replace(/\/+/g, '/').replace(/^\/|\/$/g, '');
     
-    // Add _sourcePath to all entity types
+    // Convert to absolute path for texture resolution
+    // relativePath is like "materials/bronze", sourcePath is like "alloy_mixing_table.yaml"
+    // We need full absolute path to the directory containing the entity YAML
+    const fullPath = relativePath ? `configs/${relativePath}` : `configs/${dirname(sourcePath)}`;
+    const absolutePath = resolve(fullPath);
+    
+    // Add _sourcePath (absolute) and _sourceDir (relative) to all entity types
     const addToArray = (arr: any[] | undefined) => {
       if (arr) {
         arr.forEach(entity => {
           if (entity && typeof entity === 'object') {
-            // Only set _sourcePath if not already set (from nested imports)
+            // Only set if not already set (from nested imports)
             if (!entity._sourcePath) {
-              entity._sourcePath = fullPath;
+              entity._sourcePath = absolutePath; // Absolute path for AssetCopier
+            }
+            if (!entity._sourceDir) {
+              entity._sourceDir = relativePath; // Relative path for other uses
             }
           }
         });

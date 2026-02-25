@@ -10,7 +10,21 @@ export class BlockBPGenerator {
 
     for (const block of blocks) {
       try {
-        generator.generate(block);
+        generator.generate({
+          id: block.id,
+          name: block.name,
+          texturePath: block.texture || block.texturePath,
+          textureTop: block.textureTop,
+          textureSide: block.textureSide,
+          textureFront: block.textureFront,
+          category: block.category,
+          destroyTime: block.destroyTime,
+          explosionResistance: block.explosionResistance,
+          mapColor: block.mapColor,
+          requiresTool: block.requiresTool,
+          toolTier: block.toolTier,
+          craftingTable: block.craftingTable
+        });
         count++;
       } catch (error) {
         console.error(`  ✗ Failed to generate block ${block.id}: ${error}`);

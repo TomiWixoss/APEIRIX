@@ -1,0 +1,30 @@
+id: bronze_mixture
+name: lang:materials.bronze_mixture
+texture: ../../../assets/items/bronze_mixture.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: bronze_mixture_from_copper_tin
+    ingredients:
+      - minecraft:copper_ingot
+      - minecraft:copper_ingot
+      - minecraft:copper_ingot
+      - apeirix:tin_ingot
+    result: apeirix:bronze_mixture
+    count: 4
+    unlock:
+      - apeirix:tin_ingot
+      - apeirix:stone_hammer
+    craftingTags:
+      - alloy_mixing_crafting
+  - type: smelting
+    id: bronze_ingot_from_mixture_smelting
+    input: apeirix:bronze_mixture
+    output: apeirix:bronze_ingot
+    count: 1
+  - type: blasting
+    id: bronze_ingot_from_mixture_blasting
+    input: apeirix:bronze_mixture
+    output: apeirix:bronze_ingot
+    count: 1

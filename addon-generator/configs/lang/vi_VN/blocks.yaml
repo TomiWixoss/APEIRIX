@@ -1,0 +1,12 @@
+# Ngôn ngữ tiếng Việt - Blocks
+blocks:
+  # Tin
+  tin_block: Khối Thiếc
+  tin_ore: Quặng Thiếc
+  deepslate_tin_ore: Quặng Thiếc Đá Sâu
+
+  # Bronze
+  bronze_block: Khối Đồng Thanh
+
+  # Crafting Blocks
+  alloy_mixing_table: Bàn Trộn Hợp Kim

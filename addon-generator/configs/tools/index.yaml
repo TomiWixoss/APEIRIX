@@ -1,2 +1,3 @@
 import:
   - bronze/index.yaml
+  - stone_hammer.yaml

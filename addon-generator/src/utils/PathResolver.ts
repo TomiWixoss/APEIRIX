@@ -23,7 +23,15 @@ export class PathResolver {
       return texturePath;
     }
 
-    // Resolve relative to config directory
+    // If configPath is a directory (no extension), add dummy file to simulate file location
+    const ext = path.extname(configPath);
+    if (!ext) {
+      // Texture paths in YAML are relative to the YAML file, not the directory
+      // So we need to add a dummy filename to make dirname() work correctly
+      configPath = path.join(configPath, 'entity.yaml');
+    }
+
+    // Resolve relative to config file's directory
     return this.resolveFromConfig(configPath, texturePath);
   }
 

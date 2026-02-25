@@ -88,6 +88,9 @@ export interface BlockConfig {
   id: string;
   name: string;
   texture: string;
+  textureTop?: string;
+  textureSide?: string;
+  textureFront?: string;
   category?: string;
   destroyTime?: number;
   explosionResistance?: number;
@@ -98,6 +101,13 @@ export interface BlockConfig {
   toolTier?: string;
   miningSpeed?: number;
   drops?: string;
+  // Crafting table component (optional)
+  craftingTable?: {
+    gridSize?: 3 | 2;
+    craftingTags?: string[];
+    customDescription?: string;
+    tableName?: string;
+  };
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
   testCommands?: string[];

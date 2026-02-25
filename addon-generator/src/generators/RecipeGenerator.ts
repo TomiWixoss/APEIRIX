@@ -14,6 +14,7 @@ export interface ShapedRecipeConfig {
   resultCount?: number;
   resultExtra?: string[]; // Trả về thêm items (như bucket)
   unlock?: string[];
+  craftingTags?: string[]; // Custom crafting tags
 }
 
 export interface ShapelessRecipeConfig {
@@ -23,6 +24,7 @@ export interface ShapelessRecipeConfig {
   resultCount?: number;
   resultExtra?: string[]; // Trả về thêm items (như bucket)
   unlock?: string[];
+  craftingTags?: string[]; // Custom crafting tags
 }
 
 export interface SmeltingRecipeConfig {
@@ -50,7 +52,7 @@ export class RecipeGenerator {
         description: {
           identifier: `apeirix:${config.id}`
         },
-        tags: ["crafting_table"],
+        tags: config.craftingTags || ["crafting_table"],
         pattern: config.pattern,
         key: key,
         result: {
@@ -93,7 +95,7 @@ export class RecipeGenerator {
         description: {
           identifier: `apeirix:${config.id}`
         },
-        tags: ["crafting_table"],
+        tags: config.craftingTags || ["crafting_table"],
         ingredients: config.ingredients.map(item => ({ item: this.formatItem(item) })),
         result: {
           item: this.formatItem(config.result),

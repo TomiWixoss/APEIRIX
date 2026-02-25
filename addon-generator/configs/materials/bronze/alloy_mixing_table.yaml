@@ -1,0 +1,29 @@
+id: alloy_mixing_table
+name: lang:blocks.alloy_mixing_table
+textureTop: ../../../assets/blocks/alloy_mixing_table_top.png
+textureSide: ../../../assets/blocks/alloy_mixing_table_side.png
+textureFront: ../../../assets/blocks/alloy_mixing_table_front.png
+category: equipment
+destroyTime: 3.5
+explosionResistance: 6.0
+mapColor: "#8B7355"
+craftingTable:
+  gridSize: 3
+  craftingTags:
+    - alloy_mixing_crafting
+  customDescription: "Alloy Mixing Table"
+  tableName: "Alloy Mixing Table"
+recipes:
+  - type: shaped
+    id: alloy_mixing_table
+    pattern:
+      - "III"
+      - "I I"
+      - "SSS"
+    ingredients:
+      I: minecraft:iron_ingot
+      S: minecraft:cobblestone
+    result: apeirix:alloy_mixing_table
+    count: 1
+    unlock:
+      - minecraft:iron_ingot
