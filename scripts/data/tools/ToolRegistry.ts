@@ -4,7 +4,7 @@
 
 export interface ToolDefinition {
   id: string;
-  type: "pickaxe" | "axe" | "shovel" | "hoe" | "sword" | "spear";
+  type: "pickaxe" | "axe" | "shovel" | "hoe" | "sword" | "spear" | "hammer";
   durability: number;
 }
 

@@ -6,12 +6,12 @@ damage: 4
 category: equipment
 group: itemGroup.name.pickaxe
 diggerTags:
+  - is_pickaxe_item_destructible
   - stone
   - metal
   - rock
-  - diamond_pick_diggable
-  - iron_pick_diggable
-  - stone_pick_diggable
+  - wood
+  - log
 recipe:
   type: shaped
   id: bronze_pickaxe
@@ -29,3 +29,4 @@ recipe:
 materialId: apeirix:bronze_ingot
 durability: 375
 enchantability: 18
+tier: iron

@@ -9,6 +9,13 @@ durability: 131
 enchantability: 5
 efficiency: 4
 tier: stone
+diggerTags:
+  - is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
 recipe:
   type: shaped
   id: stone_hammer

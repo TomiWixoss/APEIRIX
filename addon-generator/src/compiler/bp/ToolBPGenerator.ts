@@ -25,7 +25,9 @@ export class ToolBPGenerator {
           speed: tool.speed || 4,
           damage: tool.damage || 1,
           enchantability: tool.enchantability || 14,
-          tier: tool.tier
+          tier: tool.tier,
+          diggerTags: tool.diggerTags,
+          blockTags: tool.blockTags
         };
 
         switch (tool.type) {

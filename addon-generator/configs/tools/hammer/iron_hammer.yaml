@@ -9,6 +9,13 @@ durability: 250
 enchantability: 14
 efficiency: 6
 tier: iron
+diggerTags:
+  - is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
 recipe:
   type: shaped
   id: iron_hammer

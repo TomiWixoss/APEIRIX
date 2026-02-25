@@ -6,7 +6,7 @@ materialId: apeirix:bronze_ingot
 durability: 375
 damage: 3
 enchantability: 18
-tier: bronze_tier
+tier: iron
 recipe:
   id: bronze_spear
   type: shaped

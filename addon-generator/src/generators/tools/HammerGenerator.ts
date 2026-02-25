@@ -17,6 +17,7 @@ export interface HammerConfig {
   
   // Block tags để smash
   blockTags?: string;
+  diggerTags?: string[];
 }
 
 /**
@@ -30,7 +31,15 @@ export class HammerGenerator {
     const damage = config.damage || 5;
     const efficiency = config.efficiency || 4;
     const enchantability = config.enchantability || 14;
-    const blockTags = config.blockTags || "q.any_tag('stone', 'metal', 'rock', 'wood', 'log')";
+    
+    // Build blockTags from diggerTags array or use blockTags string or default
+    let blockTags: string;
+    if (config.diggerTags && config.diggerTags.length > 0) {
+      const tagList = config.diggerTags.map(tag => `'${tag}'`).join(', ');
+      blockTags = `q.any_tag(${tagList})`;
+    } else {
+      blockTags = config.blockTags || "q.any_tag('stone', 'metal', 'rock', 'wood', 'log')";
+    }
 
     // Build tags array
     const tags = ["minecraft:is_tool", "minecraft:is_pickaxe"];

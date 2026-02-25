@@ -17,6 +17,7 @@ export interface PickaxeConfig {
   
   // Block tags để mine
   blockTags?: string;
+  diggerTags?: string[];
 }
 
 /**
@@ -30,12 +31,20 @@ export class PickaxeGenerator {
     const damage = config.damage || 4;
     const efficiency = config.efficiency || 6;
     const enchantability = config.enchantability || 14;
-    const blockTags = config.blockTags || "q.any_tag('stone', 'metal', 'rock', 'diamond_pick_diggable', 'iron_pick_diggable', 'stone_pick_diggable')";
+    
+    // Build blockTags from diggerTags array or use blockTags string or default
+    let blockTags: string;
+    if (config.diggerTags && config.diggerTags.length > 0) {
+      const tagList = config.diggerTags.map(tag => `'${tag}'`).join(', ');
+      blockTags = `q.any_tag(${tagList})`;
+    } else {
+      blockTags = config.blockTags || "q.any_tag('stone', 'metal', 'rock', 'diamond_pick_diggable', 'iron_pick_diggable', 'stone_pick_diggable')";
+    }
 
     // Build tags array
     const tags = ["minecraft:is_pickaxe"];
     if (config.tier) {
-      tags.unshift(`minecraft:${config.tier}`);
+      tags.unshift(`minecraft:${config.tier}_tier`);
     }
 
     const itemData = {
