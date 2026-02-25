@@ -26,13 +26,5 @@ recipes:
     count: 1
     unlock:
       - apeirix:bronze_ingot
-  - type: shapeless
-    id: apeirix:bronze_chestplate_from_block
-    ingredients:
-      - apeirix:bronze_block
-    result: apeirix:bronze_chestplate
-    count: 1
-    unlock:
-      - apeirix:bronze_ingot
 materialId: apeirix:bronze_ingot
 enchantability: 18

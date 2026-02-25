@@ -22,7 +22,7 @@ export class BlockGenerator {
 
   generate(config: BlockConfig): void {
     const blockData = {
-      format_version: "1.21.80",
+      format_version: "1.21.50",
       "minecraft:block": {
         description: {
           identifier: `apeirix:${config.id}`,
