@@ -29,6 +29,7 @@ export interface WikiItemData {
   id: string;
   category: string;
   name?: string;
+  description?: string;
   icon?: string;
   info?: Record<string, string | number | boolean>;
 }
@@ -194,6 +195,10 @@ ${this.generateWikiData(wikiItems)}
       
       if (item.name) {
         lines.push(`    name: "${item.name}",`);
+      }
+      
+      if (item.description) {
+        lines.push(`    description: "${item.description}",`);
       }
       
       if (item.icon) {

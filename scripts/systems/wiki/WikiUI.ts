@@ -73,8 +73,8 @@ export class WikiUI {
                 // Get name from wiki data (already translated in YAML)
                 const name = wikiData.name || shortId;
                 
-                // Description is not used in new UI (only info)
-                const description = "";
+                // Get description from wiki data
+                const description = wikiData.description || "";
                 
                 // Info already in generated data (no need to look up in lang)
                 const info = (wikiData.info || {}) as unknown as Record<string, string | number | boolean>;
@@ -159,22 +159,23 @@ export class WikiUI {
         // Build body text with category and info
         let body = "";
 
-        // Category
-        const categoryKey = `wiki.categories.${item.category}`;
-        body += `${LangManager.get("wiki.category")} ${LangManager.get(categoryKey)}\n\n`;
-
-        // Description (if exists)
+        // Description (if exists) - Label in hoa, content in thường
         if (item.description) {
-            body += `${LangManager.get("wiki.description")}\n${item.description}\n\n`;
+            body += `${LangManager.get("wiki.description")}\n§r§8${item.description}\n\n`;
         }
 
-        // Additional info
+        // Additional info - KHÔNG in hoa
         if (item.info && Object.keys(item.info).length > 0) {
             body += `${LangManager.get("wiki.information")}:\n`;
             for (const [key, value] of Object.entries(item.info)) {
-                body += `§0${key}:§r §8${value}\n`;
+                body += `§r§0${key}:§r §8${value}\n`;
             }
+            body += "\n";
         }
+
+        // Category - xuống dưới cùng
+        const categoryKey = `wiki.categories.${item.category}`;
+        body += `${LangManager.get("wiki.category")} ${LangManager.get(categoryKey)}`;
 
         const form = new ActionFormData()
             .title(jsonUITitle)

@@ -44,6 +44,7 @@ export class WikiDataBPGenerator {
             id: `apeirix:${itemId}`,
             category: category,
             name: itemData.name,
+            description: itemData.description,
             icon: itemData.icon,
             info: itemData.info
           });

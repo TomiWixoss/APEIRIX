@@ -110,6 +110,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_ingot",
     category: "materials",
     name: "Thỏi Đồng Thanh",
+    description: "Hợp kim đồng thanh được tạo từ đồng (copper) và thiếc. Bền hơn đồng nguyên chất, dùng để chế tạo công cụ và giáp.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Chế tạo": "3 copper ingot + 1 tin ingot = 4 bronze",
@@ -121,6 +122,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_nugget",
     category: "materials",
     name: "Mảnh Đồng Thanh",
+    description: "Mảnh nhỏ của đồng thanh. 9 mảnh tạo thành 1 thỏi đồng thanh.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chia nhỏ thỏi đồng thanh",
@@ -131,6 +133,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_block",
     category: "materials",
     name: "Khối Đồng Thanh",
+    description: "Khối đồng thanh dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Độ cứng": "16.65",
@@ -142,6 +145,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_tin",
     category: "materials",
     name: "Thiếc Thô",
+    description: "Thiếc thô được khai thác từ quặng thiếc. Nấu luyện để có thỏi thiếc.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Khai thác quặng thiếc",
@@ -152,6 +156,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_ingot",
     category: "materials",
     name: "Thỏi Thiếc",
+    description: "Thỏi thiếc tinh luyện. Kết hợp với đồng để tạo hợp kim đồng (bronze).",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Nấu quặng thiếc hoặc thiếc thô",
@@ -162,6 +167,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_nugget",
     category: "materials",
     name: "Mảnh Thiếc",
+    description: "Mảnh nhỏ của thiếc. 9 mảnh tạo thành 1 thỏi thiếc.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chia nhỏ thỏi thiếc",
@@ -172,6 +178,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_block",
     category: "materials",
     name: "Khối Thiếc",
+    description: "Khối thiếc dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Độ cứng": "16.65",
@@ -183,6 +190,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_ore",
     category: "materials",
     name: "Quặng Thiếc",
+    description: "Quặng thiếc tìm thấy dưới lòng đất. Khai thác để có thiếc thô.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Độ sâu": "Y: 0 đến 64",
@@ -195,6 +203,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:deepslate_tin_ore",
     category: "materials",
     name: "Quặng Thiếc Deepslate",
+    description: "Biến thể deepslate của quặng thiếc. Cứng hơn nhưng cho cùng lượng thiếc.",
     info: {
       "Độ hiếm": "Phổ biến",
       "Độ sâu": "Y: 0 đến 64",
@@ -206,6 +215,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_pickaxe",
     category: "tools",
     name: "Cuốc Đồng Thanh",
+    description: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
@@ -218,6 +228,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_axe",
     category: "tools",
     name: "Rìu Đồng Thanh",
+    description: "Rìu đồng thanh dùng để chặt gỗ. Cũng có thể dùng làm vũ khí.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
@@ -230,6 +241,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_shovel",
     category: "tools",
     name: "Xẻng Đồng Thanh",
+    description: "Xẻng đồng thanh dùng để đào đất, cát, sỏi và các khối mềm khác.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
@@ -242,6 +254,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_hoe",
     category: "tools",
     name: "Cuốc Cày Đồng Thanh",
+    description: "Cuốc cày đồng thanh dùng để làm đất trồng trọt và thu hoạch nhanh cây trồng.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
@@ -254,6 +267,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_sword",
     category: "tools",
     name: "Kiếm Đồng Thanh",
+    description: "Kiếm đồng thanh dùng để chiến đấu. Chặt mạng nhện và tre nhanh hơn.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
@@ -266,6 +280,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_spear",
     category: "tools",
     name: "Giáo Đồng Thanh",
+    description: "Giáo đồng thanh có thể ném xa để tấn công từ khoảng cách an toàn.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
@@ -278,6 +293,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_helmet",
     category: "armor",
     name: "Mũ Đồng Thanh",
+    description: "Mũ giáp đồng thanh bảo vệ đầu. Tương đương với mũ sắt.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "220",
@@ -290,6 +306,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_chestplate",
     category: "armor",
     name: "Áo Giáp Đồng Thanh",
+    description: "Áo giáp đồng thanh bảo vệ ngực. Cung cấp bảo vệ tốt nhất.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "320",
@@ -302,6 +319,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_leggings",
     category: "armor",
     name: "Quần Giáp Đồng Thanh",
+    description: "Quần giáp đồng thanh bảo vệ chân. Bảo vệ tốt thứ hai sau áo giáp.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "300",
@@ -314,6 +332,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_boots",
     category: "armor",
     name: "Giày Giáp Đồng Thanh",
+    description: "Giày giáp đồng thanh bảo vệ bàn chân. Giảm sát thương khi rơi.",
     info: {
       "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "260",
@@ -326,6 +345,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canempty",
     category: "foods",
     name: "Hộp Rỗng",
+    description: "Hộp thiếc rỗng dùng để đóng hộp thức ăn. Có thể chế tạo hoặc rửa hộp bẩn.",
     info: {
       "Loại": "Vật liệu",
       "Chế tạo": "4 thỏi thiếc",
@@ -336,6 +356,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:candirty",
     category: "foods",
     name: "Hộp Bẩn",
+    description: "Hộp thiếc đã sử dụng. Cần rửa sạch trước khi dùng lại.",
     info: {
       "Loại": "Vật liệu",
       "Nguồn": "Sau khi ăn đồ hộp",
@@ -346,6 +367,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canned_food",
     category: "foods",
     name: "Thức Ăn Đóng Hộp",
+    description: "Thức ăn đóng hộp cơ bản. Bổ dưỡng và bảo quản lâu.",
     info: {
       "Dinh dưỡng": "10 (5 thanh)",
       "Độ no": "12.8",
@@ -357,6 +379,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canned_pumpkin",
     category: "foods",
     name: "Bí Ngô Đóng Hộp",
+    description: "Bí ngô đóng hộp. Cho hiệu ứng kháng lửa.",
     info: {
       "Dinh dưỡng": "4 (2 thanh)",
       "Độ no": "4.8",
@@ -368,6 +391,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedbeets",
     category: "foods",
     name: "Súp Củ Cải Đóng Hộp",
+    description: "Súp củ cải đường đóng hộp. Bổ dưỡng và bảo quản lâu dài.",
     info: {
       "Dinh dưỡng": "6 (3 thanh)",
       "Độ no": "7.2",
@@ -379,6 +403,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedbread",
     category: "foods",
     name: "Bánh Mì Đóng Hộp",
+    description: "Bánh mì đóng hộp. Tiện lợi và bảo quản lâu.",
     info: {
       "Dinh dưỡng": "5 (2.5 thanh)",
       "Độ no": "6",
@@ -390,6 +415,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedcarrots",
     category: "foods",
     name: "Cà Rốt Đóng Hộp",
+    description: "Cà rốt đóng hộp. Cho hiệu ứng nhìn đêm.",
     info: {
       "Dinh dưỡng": "4 (2 thanh)",
       "Độ no": "4.8",
@@ -401,6 +427,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canneddogfood",
     category: "foods",
     name: "Thức Ăn Chó Đóng Hộp",
+    description: "Thức ăn cho chó đóng hộp. Không nên ăn!",
     info: {
       "Dinh dưỡng": "2 (1 thanh)",
       "Độ no": "0.4",
@@ -412,6 +439,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedfish",
     category: "foods",
     name: "Cá Đóng Hộp",
+    description: "Cá đóng hộp. Cho hiệu ứng thở dưới nước.",
     info: {
       "Dinh dưỡng": "5 (2.5 thanh)",
       "Độ no": "6",
@@ -423,6 +451,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedmeal",
     category: "foods",
     name: "Bữa Ăn Đóng Hộp",
+    description: "Bữa ăn đầy đủ đóng hộp. Cho hiệu ứng hồi máu.",
     info: {
       "Dinh dưỡng": "12 (6 thanh)",
       "Độ no": "16",
@@ -434,6 +463,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedmushroomsoup",
     category: "foods",
     name: "Súp Nấm Đóng Hộp",
+    description: "Súp nấm đóng hộp. Bổ dưỡng và ngon miệng.",
     info: {
       "Dinh dưỡng": "6 (3 thanh)",
       "Độ no": "7.2",
@@ -445,6 +475,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedsalad",
     category: "foods",
     name: "Salad Đóng Hộp",
+    description: "Salad đóng hộp. Loại bỏ tất cả hiệu ứng.",
     info: {
       "Dinh dưỡng": "3 (1.5 thanh)",
       "Độ no": "3.6",
@@ -456,6 +487,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:achievement_book",
     category: "special",
     name: "Sổ Thành Tựu",
+    description: "Cuốn sổ ghi chép các thành tựu của bạn trong APEIRIX. Sử dụng để xem tiến trình và mở khóa phần thưởng.",
     info: {
       "Loại": "Đặc biệt",
       "Chức năng": "Xem thành tựu",
@@ -467,6 +499,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:wiki_book",
     category: "special",
     name: "Bách Khoa Toàn Thư",
+    description: "Cuốn sách chứa thông tin về tất cả vật phẩm trong APEIRIX. Sử dụng để tìm hiểu về các vật phẩm trong túi đồ.",
     info: {
       "Loại": "Đặc biệt",
       "Chức năng": "Xem thông tin vật phẩm",

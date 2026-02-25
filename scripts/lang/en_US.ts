@@ -61,9 +61,9 @@ export const LANG_EN = {
         "emptyTitle": "§l§0ENCYCLOPEDIA",
         "emptyMessage": "§0You don't have any APEIRIX items in your inventory yet.\n\n§0Explore the world and collect items to unlock information in the encyclopedia!\n\n§0Available categories:\n§0• §0Materials\n§0• §0Tools\n§0• §0Armor\n§0• §0Foods\n§0• §0Special",
         "emptyButton": "§0Got it",
-        "description": "Description:",
-        "category": "Category:",
-        "information": "§lInformation",
+        "description": "§l§0DESCRIPTION:",
+        "category": "§0Category:",
+        "information": "§l§0Information",
         "categories": {
             "materials": "§0Materials",
             "tools": "§0Tools",
