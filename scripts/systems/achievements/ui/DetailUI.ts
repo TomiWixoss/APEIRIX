@@ -1,5 +1,6 @@
 /**
  * Detail UI - Achievement detail view
+ * Uses JSON UI (achievement_wiki-style with icon, wider) for custom display
  */
 
 import { Player } from "@minecraft/server";
@@ -23,7 +24,7 @@ export class DetailUI {
         const statusText = unlocked
             ? LangManager.get("achievements.statusCompleted")
             : LangManager.get("achievements.statusLocked");
-        const progressText = `§3${Math.floor(progress)}§8/§3${achievement.requirement}`;
+        const progressText = `§1${Math.floor(progress)}§8/§1${achievement.requirement}`;
 
         const achievementName = LangManager.getAchievementName(achievementId);
         const achievementDesc = LangManager.getAchievementDesc(achievementId);
@@ -34,9 +35,14 @@ export class DetailUI {
             ? LangManager.get("achievements.congratulations")
             : LangManager.get("achievements.keepGoing");
 
+        // Build title with achievement icon for JSON UI (achievement_wiki-style, wider)
+        // Format: apeirix:achievement_wiki:<icon_texture_padded_200>$<title_text>
+        const paddedIcon = achievement.icon.padEnd(200, "$");
+        const jsonUITitle = `apeirix:achievement_wiki:${paddedIcon}${achievementName}`;
+
         const body =
             `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-            `§7${achievementDesc}\n` +
+            `${achievementDesc}\n` +
             `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n` +
             `${statusLabel} ${statusIcon} ${statusText}\n\n` +
             `${progressLabel} ${progressText}\n` +
@@ -44,7 +50,7 @@ export class DetailUI {
             endMessage;
 
         const form = new ActionFormData()
-            .title(`§l§6${achievementName}`)
+            .title(jsonUITitle)
             .body(body);
 
         // Add reward buttons
@@ -66,7 +72,6 @@ export class DetailUI {
         }
 
         form.button(LangManager.get("ui.backToList"), "textures/ui/arrow_left");
-        form.button(LangManager.get("ui.close"));
 
         try {
             const response = await form.show(player);
@@ -75,14 +80,9 @@ export class DetailUI {
 
             const rewardCount = achievement.rewards ? achievement.rewards.length : 0;
             const backButtonIndex = rewardCount;
-            const closeButtonIndex = rewardCount + 1;
 
             if (response.selection === backButtonIndex) {
                 await CategoryMenuUI.show(player, categoryId);
-                return;
-            }
-
-            if (response.selection === closeButtonIndex) {
                 return;
             }
 

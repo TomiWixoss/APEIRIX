@@ -1,5 +1,6 @@
 /**
  * Category Menu UI - Achievement list in category
+ * Uses JSON UI (achievement_list-style) for custom display
  */
 
 import { Player } from "@minecraft/server";
@@ -30,15 +31,21 @@ export class CategoryMenuUI {
         const progressText = LangManager.get("achievements.progress");
         const completedText = LangManager.get("achievements.completed");
 
+        // Build title for achievement_list-style JSON UI (wider than wiki list)
+        // Format: apeirix:achievement_list:<title_text>
+        const jsonUITitle = `apeirix:achievement_list:${categoryName}`;
+
+        // Build body text with progress
+        const bodyText = 
+            `${categoryDesc}\n\n` +
+            `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
+            `${progressText} §1${unlockedCount}§8/§1${achievements.length}\n` +
+            `${this.createProgressBar(progressPercent)}\n` +
+            `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━`;
+
         const form = new ActionFormData()
-            .title(`§l§6${categoryName}`)
-            .body(
-                `§7${categoryDesc}\n\n` +
-                `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
-                `${progressText} §3${unlockedCount}§8/§3${achievements.length}\n` +
-                `${this.createProgressBar(progressPercent)}\n` +
-                `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━`
-            );
+            .title(jsonUITitle)
+            .body(bodyText);
 
         achievementsData.forEach(({ achievement, unlocked, progress }) => {
             const status = unlocked ? "§2[✓]" : "§8[✗]";

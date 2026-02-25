@@ -1,5 +1,6 @@
 /**
  * Main Menu UI - Achievement category selection
+ * Uses JSON UI (achievement_list-style) for custom display
  */
 
 import { Player } from "@minecraft/server";
@@ -11,11 +12,19 @@ import { CategoryMenuUI } from "./CategoryMenuUI";
 
 export class MainMenuUI {
     static async show(player: Player): Promise<void> {
-        const form = new ActionFormData()
-            .title(LangManager.get("achievements.title"))
-            .body(LangManager.get("achievements.selectCategory"));
-
         const categories = AchievementRegistry.getAllCategories();
+
+        // Build title for achievement_list-style JSON UI (wider than wiki list)
+        // Format: apeirix:achievement_list:<title_text>
+        const titleText = LangManager.get("achievements.title");
+        const jsonUITitle = `apeirix:achievement_list:${titleText}`;
+
+        // Build body text
+        const bodyText = LangManager.get("achievements.selectCategory");
+
+        const form = new ActionFormData()
+            .title(jsonUITitle)
+            .body(bodyText);
 
         categories.forEach(category => {
             const categoryAchievements = AchievementRegistry.getAchievementsByCategory(category.id);
@@ -27,12 +36,10 @@ export class MainMenuUI {
             const completedText = LangManager.get("achievements.completed");
 
             form.button(
-                `§l${categoryName}\n§r§3${unlockedCount}§0/§3${categoryAchievements.length} §0${completedText}`,
+                `§l${categoryName}\n§r§1${unlockedCount}§0/§1${categoryAchievements.length} §0${completedText}`,
                 category.icon
             );
         });
-
-        form.button(LangManager.get("ui.close"));
 
         try {
             const response = await form.show(player);
