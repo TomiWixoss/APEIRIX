@@ -1,4 +1,4 @@
-import { GameDataGenerator, ToolData, FoodData, OreData } from '../../generators/GameDataGenerator.js';
+import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData } from '../../generators/GameDataGenerator.js';
 import path from 'path';
 
 /**
@@ -72,11 +72,84 @@ export class GameDataBPGenerator {
       }
     }
 
+    // Collect wiki items from all sources
+    const wikiItems: WikiItemData[] = [];
+    
+    // Items
+    if (config.items) {
+      for (const item of config.items) {
+        if (item.wiki) {
+          wikiItems.push({
+            id: `apeirix:${item.id}`,
+            category: item.wiki.category || 'special',
+            icon: item.wiki.icon,
+            info: item.wiki.info
+          });
+        }
+      }
+    }
+
+    // Tools
+    if (config.tools) {
+      for (const tool of config.tools) {
+        if (tool.wiki) {
+          wikiItems.push({
+            id: `apeirix:${tool.id}`,
+            category: tool.wiki.category || 'tools',
+            icon: tool.wiki.icon,
+            info: tool.wiki.info
+          });
+        }
+      }
+    }
+
+    // Foods
+    if (config.foods) {
+      for (const food of config.foods) {
+        if (food.wiki) {
+          wikiItems.push({
+            id: `apeirix:${food.id}`,
+            category: food.wiki.category || 'foods',
+            icon: food.wiki.icon,
+            info: food.wiki.info
+          });
+        }
+      }
+    }
+
+    // Armor
+    if (config.armor) {
+      for (const armor of config.armor) {
+        if (armor.wiki) {
+          wikiItems.push({
+            id: `apeirix:${armor.id}`,
+            category: armor.wiki.category || 'armor',
+            icon: armor.wiki.icon,
+            info: armor.wiki.info
+          });
+        }
+      }
+    }
+
+    // Blocks
+    if (config.blocks) {
+      for (const block of config.blocks) {
+        if (block.wiki) {
+          wikiItems.push({
+            id: `apeirix:${block.id}`,
+            category: block.wiki.category || 'materials',
+            icon: block.wiki.icon,
+            info: block.wiki.info
+          });
+        }
+      }
+    }
+
     // Generate file to project root (for development)
-    generator.generate(tools, foods, ores);
+    generator.generate(tools, foods, ores, wikiItems);
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, 'BP/scripts/data');
   }
 }

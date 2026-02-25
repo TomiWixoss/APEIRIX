@@ -1,17 +1,20 @@
 /**
  * Wiki UI - Encyclopedia for APEIRIX items
+ * Displays items from inventory with icon + name button format
  */
 
 import { Player, Container } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { LangManager } from "../../lang/LangManager";
-import { GENERATED_TOOLS, GENERATED_FOODS } from "../../data/GeneratedGameData";
+import { GENERATED_WIKI_ITEMS } from "../../data/GeneratedGameData";
 
 interface WikiItem {
     id: string;
-    fullId: string;
     name: string;
     category: string;
+    icon: string;
+    description?: string;
+    info?: Record<string, string | number | boolean>;
 }
 
 export class WikiUI {
@@ -23,9 +26,12 @@ export class WikiUI {
             return;
         }
 
-        await this.showCategoryMenu(player, items);
+        await this.showItemList(player, items);
     }
 
+    /**
+     * Scan player inventory for APEIRIX items
+     */
     private static scanInventory(player: Player): WikiItem[] {
         const items: WikiItem[] = [];
         const container = player.getComponent("inventory")?.container as Container;
@@ -42,186 +48,123 @@ export class WikiUI {
             if (seenIds.has(fullId)) continue;
 
             seenIds.add(fullId);
-            const shortId = fullId.replace("apeirix:", "");
 
-            const wikiItem = this.getItemInfo(shortId, fullId);
-            if (wikiItem) {
-                items.push(wikiItem);
+            // Get wiki data from generated data
+            const wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === fullId);
+            if (wikiData) {
+                const shortId = fullId.replace("apeirix:", "");
+                
+                // Get name from lang file
+                const langKey = `wiki.items.${shortId}.name`;
+                const name = LangManager.get(langKey);
+                
+                // Get description from lang file
+                const descKey = `wiki.items.${shortId}.description`;
+                const description = LangManager.get(descKey);
+                
+                // Get info from lang file
+                const info: Record<string, string | number | boolean> = {};
+                if (wikiData.info) {
+                    for (const [key, value] of Object.entries(wikiData.info)) {
+                        if (typeof value === "string") {
+                            const infoKey = `wiki.items.${shortId}.info.${key}`;
+                            info[key] = LangManager.get(infoKey);
+                        } else {
+                            info[key] = value;
+                        }
+                    }
+                }
+
+                // Use icon from wiki data or default to item texture path
+                const hasIcon = "icon" in wikiData;
+                const iconPath: string = hasIcon && typeof wikiData.icon === "string"
+                    ? wikiData.icon 
+                    : `textures/items/${shortId}`;
+
+                items.push({
+                    id: fullId,
+                    name: name,
+                    category: wikiData.category,
+                    icon: iconPath,
+                    description: description,
+                    info: info
+                });
             }
         }
 
         return items;
     }
 
-    private static getItemInfo(shortId: string, fullId: string): WikiItem | null {
-        // Check if item exists in game by trying to get its display name
-        // Items are registered in pack lang files as item.apeirix.{id}.name
-        
-        // For now, we'll categorize based on known patterns
-        // This is a simplified approach - items exist if they're in inventory
-        
-        let category = "special";
-        
-        // Categorize by ID patterns
-        if (shortId.includes("_ingot") || shortId.includes("_nugget") || 
-            shortId.includes("_ore") || shortId.includes("_block") || 
-            shortId.startsWith("raw_")) {
-            category = "materials";
-        } else if (shortId.includes("pickaxe") || shortId.includes("axe") || 
-                   shortId.includes("shovel") || shortId.includes("hoe") || 
-                   shortId.includes("sword") || shortId.includes("spear")) {
-            category = "tools";
-        } else if (shortId.includes("helmet") || shortId.includes("chestplate") || 
-                   shortId.includes("leggings") || shortId.includes("boots")) {
-            category = "armor";
-        } else if (shortId.includes("canned") || shortId.includes("food")) {
-            category = "foods";
-        }
-
-        // Use item's typeId as name for now (will show as apeirix:item_id)
-        // In-game, the actual translated name will be shown from pack lang
-        return {
-            id: shortId,
-            fullId: fullId,
-            name: fullId, // Will be translated by game
-            category: category,
-        };
-    }
-
-    private static async showCategoryMenu(player: Player, allItems: WikiItem[]): Promise<void> {
+    /**
+     * Show item list with icon + name buttons
+     */
+    private static async showItemList(player: Player, items: WikiItem[]): Promise<void> {
         const form = new ActionFormData()
             .title(LangManager.get("wiki.title"))
             .body(
-                LangManager.get("wiki.subtitle") +
+                LangManager.get("wiki.selectItem") +
                     "\n" +
-                    LangManager.get("wiki.itemCount").replace("{count}", allItems.length.toString())
+                    LangManager.get("wiki.itemCount").replace("{count}", items.length.toString())
             );
 
-        const categories = [
-            { key: "all", items: allItems },
-            { key: "materials", items: allItems.filter((i) => i.category === "materials") },
-            { key: "tools", items: allItems.filter((i) => i.category === "tools") },
-            { key: "armor", items: allItems.filter((i) => i.category === "armor") },
-            { key: "foods", items: allItems.filter((i) => i.category === "foods") },
-            { key: "special", items: allItems.filter((i) => i.category === "special") },
-        ];
-
-        categories.forEach((cat) => {
-            const label = `${LangManager.get(`wiki.categories.${cat.key}`)} §7(${cat.items.length})`;
-            form.button(label);
-        });
-
-        form.button(LangManager.get("ui.close"));
-
-        try {
-            const response = await form.show(player);
-            if (response.canceled || response.selection === undefined) return;
-
-            const selectedIndex = response.selection;
-            if (selectedIndex === categories.length) return; // Close
-
-            const selectedCategory = categories[selectedIndex];
-            await this.showItemList(player, selectedCategory.items, selectedCategory.key, allItems);
-        } catch (error) {
-            console.error("Error showing wiki category menu:", error);
-        }
-    }
-
-    private static async showItemList(
-        player: Player,
-        items: WikiItem[],
-        categoryKey: string,
-        allItems: WikiItem[]
-    ): Promise<void> {
-        if (items.length === 0) {
-            const form = new ActionFormData()
-                .title(LangManager.get("wiki.title"))
-                .body(LangManager.get("wiki.noItemsInCategory"))
-                .button(LangManager.get("ui.backToMenu"));
-
-            await form.show(player);
-            await this.showCategoryMenu(player, allItems);
-            return;
-        }
-
-        const form = new ActionFormData()
-            .title(LangManager.get(`wiki.categories.${categoryKey}`))
-            .body(LangManager.get("wiki.selectItem"));
-
+        // Sort items by name
         items.sort((a, b) => a.name.localeCompare(b.name));
 
+        // Add buttons with icon path and name
         items.forEach((item) => {
-            form.button(item.name);
+            // Button format: icon path, display name
+            form.button(`§8${item.name}`, item.icon);
         });
-
-        form.button(LangManager.get("ui.backToMenu"));
 
         try {
             const response = await form.show(player);
             if (response.canceled || response.selection === undefined) return;
 
-            const selectedIndex = response.selection;
-            if (selectedIndex === items.length) {
-                await this.showCategoryMenu(player, allItems);
-                return;
-            }
-
-            const selectedItem = items[selectedIndex];
-            await this.showItemDetail(player, selectedItem, items, categoryKey, allItems);
+            const selectedItem = items[response.selection];
+            await this.showItemDetail(player, selectedItem, items);
         } catch (error) {
             console.error("Error showing wiki item list:", error);
         }
     }
 
+    /**
+     * Show detailed information about an item
+     */
     private static async showItemDetail(
         player: Player,
         item: WikiItem,
-        categoryItems: WikiItem[],
-        categoryKey: string,
         allItems: WikiItem[]
     ): Promise<void> {
-        let body = `§r${item.name}\n\n`;
+        let body = `§r§f${item.name}\n\n`;
 
-        body += `${LangManager.get("wiki.type")} §e${LangManager.get(`wiki.types.${item.category}`)}\n`;
+        // Category
+        const categoryKey = `wiki.categories.${item.category}`;
+        body += `${LangManager.get("wiki.category")} §e${LangManager.get(categoryKey)}\n\n`;
 
-        // Add category-specific info
-        if (item.category === "tools") {
-            const toolData = GENERATED_TOOLS.find((t) => t.id === item.fullId);
-            if (toolData) {
-                body += `${LangManager.get("wiki.durability")} §e${toolData.durability}\n`;
-                body += `${LangManager.get("wiki.toolTypes." + toolData.type)}\n`;
-            }
-        } else if (item.category === "foods") {
-            const foodData = GENERATED_FOODS.find((f) => f.itemId === item.fullId);
-            if (foodData) {
-                if (foodData.effects && foodData.effects.length > 0) {
-                    body += `\n§l§eEffects:\n`;
-                    foodData.effects.forEach((effect: any) => {
-                        const duration = Math.floor(effect.duration / 20);
-                        body += `§7- ${effect.name} (${duration}s)\n`;
-                    });
-                }
-                if (foodData.removeEffects) {
-                    body += `\n§a✓ Removes all effects\n`;
-                }
+        // Description
+        if (item.description) {
+            body += `${LangManager.get("wiki.description")}\n§f${item.description}\n\n`;
+        }
+
+        // Additional info
+        if (item.info && Object.keys(item.info).length > 0) {
+            body += `§l§e${LangManager.get("wiki.information")}:\n`;
+            for (const [key, value] of Object.entries(item.info)) {
+                body += `§r§7${key}: §f${value}\n`;
             }
         }
 
         const form = new ActionFormData()
-            .title(LangManager.get("wiki.detailTitle"))
+            .title(LangManager.get("wiki.title"))
             .body(body)
-            .button(LangManager.get("ui.backToList"))
-            .button(LangManager.get("ui.backToMenu"));
+            .button(LangManager.get("wiki.back"));
 
         try {
             const response = await form.show(player);
             if (response.canceled || response.selection === undefined) return;
 
-            if (response.selection === 0) {
-                await this.showItemList(player, categoryItems, categoryKey, allItems);
-            } else if (response.selection === 1) {
-                await this.showCategoryMenu(player, allItems);
-            }
+            // Back to list
+            await this.showItemList(player, allItems);
         } catch (error) {
             console.error("Error showing wiki item detail:", error);
         }

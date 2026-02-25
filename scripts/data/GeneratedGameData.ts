@@ -101,3 +101,35 @@ export const GENERATED_FOODS = [
     removeEffects: true,
   }
 ];
+
+/**
+ * Generated wiki item data
+ */
+export const GENERATED_WIKI_ITEMS = [
+  {
+    id: "apeirix:tin_ingot",
+    category: "materials",
+    info: {
+      Rarity: "lang:wiki.items.tin_ingot.info.Rarity",
+      Source: "lang:wiki.items.tin_ingot.info.Source"
+    },
+  },
+  {
+    id: "apeirix:bronze_spear",
+    category: "tools",
+    info: {
+      Material: "lang:wiki.items.bronze_spear.info.Material",
+      Durability: "lang:wiki.items.bronze_spear.info.Durability",
+      Damage: "lang:wiki.items.bronze_spear.info.Damage"
+    },
+  },
+  {
+    id: "apeirix:cannedbeets",
+    category: "foods",
+    info: {
+      Nutrition: "lang:wiki.items.cannedbeets.info.Nutrition",
+      Saturation: "lang:wiki.items.cannedbeets.info.Saturation",
+      Preservation: "lang:wiki.items.cannedbeets.info.Preservation"
+    },
+  }
+];

@@ -1,78 +1,50 @@
 # English Wiki UI Language
 
 wiki:
-  title: "§l§6═══ ENCYCLOPEDIA ═══"
-  subtitle: "§7Discover items in APEIRIX"
-
-  # Main menu
-  selectCategory: "§7Select a category to view:"
-  noItemsFound: "§cNo items found in your inventory!"
-  noItemsInCategory: "§7You don't have any items in this category yet."
-
-  # Categories
-  categories:
-    all: "§l§e📚 All Items"
-    materials: "§l§b⛏ Materials"
-    tools: "§l§6🔨 Tools"
-    armor: "§l§9🛡 Armor"
-    foods: "§l§a🍖 Foods"
-    special: "§l§d✨ Special"
-
-  # Item list
+  # UI Text
+  title: "§l§6ENCYCLOPEDIA"
   itemCount: "§7Discovered: §e{count}§7 items"
-  newBadge: "§l§6[NEW!]"
-  selectItem: "§7Select an item to view details:"
+  noItemsFound: "§cNo APEIRIX items found in your inventory!"
+  selectItem: "§7Select an item to view details"
+  back: "§cBack"
 
-  # Item detail
-  detailTitle: "§l§6═══ ITEM DETAILS ═══"
-  type: "§7Type:"
-  maxStack: "§7Max Stack:"
-  durability: "§7Durability:"
-  nutrition: "§7Nutrition:"
-  saturation: "§7Saturation:"
-  canAlwaysEat: "§7Can Always Eat:"
+  # Detail labels
+  description: "§7Description:"
+  category: "§7Category:"
+  information: "Information"
 
-  # Armor stats
-  armorProtection: "§7Protection:"
-  armorToughness: "§7Toughness:"
+  # Item-specific wiki data
+  items:
+    # Tools
+    bronze_spear:
+      name: "Bronze Spear"
+      description: "A bronze spear with extended reach, perfect for hunting and combat."
+      info:
+        Material: "Bronze"
+        Durability: "375"
+        Damage: "3"
 
-  # Tool stats
-  toolSpeed: "§7Speed:"
-  toolDamage: "§7Damage:"
+    # Foods
+    cannedbeets:
+      name: "Canned Beetroot Soup"
+      description: "Preserved beetroot soup in a can. Nutritious and long-lasting."
+      info:
+        Nutrition: "6"
+        Saturation: "7.2"
+        Preservation: "Canned"
 
-  # Recipes
-  recipes: "§l§e⚒ CRAFTING RECIPES"
-  noRecipes: "§7No crafting recipes available."
-  craftingRecipe: "§7Crafting Recipe:"
-  smeltingRecipe: "§7Smelting Recipe:"
-  blastingRecipe: "§7Blast Furnace Recipe:"
+    # Materials
+    tin_ingot:
+      name: "Tin Ingot"
+      description: "A refined tin ingot used for crafting bronze alloys and various tools."
+      info:
+        Rarity: "Common"
+        Source: "Smelting Tin Ore or Raw Tin"
 
-  # Usage
-  usedIn: "§l§a✓ USED IN"
-  notUsedInRecipes: "§7Not used in any recipes."
-
-  # Types
-  types:
-    material: "Material"
-    tool: "Tool"
+  # Category names
+  categories:
+    materials: "Materials"
+    tools: "Tools"
     armor: "Armor"
-    food: "Food"
+    foods: "Foods"
     special: "Special"
-    block: "Block"
-    ore: "Ore"
-
-  # Armor slots
-  armorSlots:
-    helmet: "Helmet"
-    chestplate: "Chestplate"
-    leggings: "Leggings"
-    boots: "Boots"
-
-  # Tool types
-  toolTypes:
-    pickaxe: "Pickaxe"
-    axe: "Axe"
-    shovel: "Shovel"
-    hoe: "Hoe"
-    sword: "Sword"
-    spear: "Spear"
