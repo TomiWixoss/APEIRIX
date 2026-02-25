@@ -10,6 +10,7 @@ export interface RPConfig {
   armor?: any[];
   tools?: any[];
   foods?: any[];
+  enableJsonUI?: boolean;
 }
 
 /**
@@ -47,6 +48,11 @@ export class RPCompiler {
 
     // Generate languages.json
     this.generateLanguagesJson(rpPath);
+
+    // Copy UI files (if enabled)
+    if (config.enableJsonUI) {
+      await this.copyUIFiles(rpPath, configDir);
+    }
 
     console.log(`✓ RP compiled: ${stats.textures} textures, ${stats.attachables} attachables`);
   }
@@ -215,5 +221,62 @@ export class RPCompiler {
   private static generateLanguagesJson(rpPath: string): void {
     const generator = new LangGenerator(rpPath);
     generator.generateLanguagesJson('RP');
+  }
+
+  /**
+   * Copy UI files and textures to RP
+   */
+  private static async copyUIFiles(rpPath: string, configDir: string): Promise<void> {
+    const { copyFileSync, readdirSync, statSync } = await import('fs');
+    
+    // UI files are in configs/ui/ and configs/ui-textures/
+    const uiSourceDir = path.join(configDir, 'ui');
+    const uiTexturesSourceDir = path.join(configDir, 'ui-textures');
+    
+    const uiDestDir = path.join(rpPath, 'ui');
+    const texturesDestDir = path.join(rpPath, 'textures');
+    
+    // Check if UI source directories exist
+    if (!existsSync(uiSourceDir)) {
+      console.log('  ⓘ No UI files found in configs/ui/, skipping UI copy');
+      return;
+    }
+    
+    console.log('  📋 Copying JSON UI files...');
+    
+    // Copy UI JSON files
+    this.copyDirectoryRecursive(uiSourceDir, uiDestDir);
+    
+    // Copy UI textures to textures/cc/ui/
+    if (existsSync(uiTexturesSourceDir)) {
+      const uiTexturesDestDir = path.join(texturesDestDir, 'cc', 'ui');
+      this.copyDirectoryRecursive(uiTexturesSourceDir, uiTexturesDestDir);
+    }
+    
+    console.log('  ✓ JSON UI files copied');
+  }
+
+  /**
+   * Copy directory recursively
+   */
+  private static copyDirectoryRecursive(source: string, dest: string): void {
+    const { copyFileSync, readdirSync, statSync } = require('fs');
+    
+    if (!existsSync(dest)) {
+      mkdirSync(dest, { recursive: true });
+    }
+    
+    const files = readdirSync(source);
+    
+    for (const file of files) {
+      const sourcePath = path.join(source, file);
+      const destPath = path.join(dest, file);
+      
+      if (statSync(sourcePath).isDirectory()) {
+        this.copyDirectoryRecursive(sourcePath, destPath);
+      } else {
+        copyFileSync(sourcePath, destPath);
+      }
+    }
   }
 }

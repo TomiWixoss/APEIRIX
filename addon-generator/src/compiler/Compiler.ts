@@ -18,6 +18,7 @@ export interface CompileOptions {
 export interface AddonConfig {
   addon: AddonMetadata & {
     language?: string; // Language setting for lang system
+    enableJsonUI?: boolean; // Enable JSON UI for custom forms
   };
   items?: any[];
   blocks?: any[];
@@ -78,8 +79,11 @@ export class Compiler {
       // 5. Compile BP (pass configDir)
       await BPCompiler.compile(config, this.outputDir, configDir);
 
-      // 6. Compile RP (pass configDir)
-      await RPCompiler.compile(config, this.outputDir, configDir);
+      // 6. Compile RP (pass configDir and enableJsonUI)
+      await RPCompiler.compile({
+        ...config,
+        enableJsonUI: config.addon?.enableJsonUI
+      }, this.outputDir, configDir);
 
       // 7. Copy assets
       await AssetCopier.copy({
