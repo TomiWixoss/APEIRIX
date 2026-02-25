@@ -1,0 +1,11 @@
+id: wiki_book
+testCommands:
+  - "# Test: Bách Khoa Toàn Thư APEIRIX"
+  - clear @s
+  - give @s apeirix:wiki_book
+  - 'tellraw @s {"text":"=== Test: Bách Khoa Toàn Thư APEIRIX ===","color":"gold"}'
+  - 'tellraw @s {"text":"Special Item: Encyclopedia","color":"aqua"}'
+  - 'tellraw @s {"text":"Max Stack: 1","color":"gray"}'
+  - 'tellraw @s {"text":"Mở để xem thông tin items!","color":"yellow"}'
+  - 'tellraw @s {"text":"Click chuột phải để mở UI","color":"white"}'
+  - playsound random.levelup @s

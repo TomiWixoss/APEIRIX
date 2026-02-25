@@ -1,86 +1,43 @@
 ---
 inclusion: auto
 fileMatchPattern: "**/configs/**/*.yaml"
-description: "Config system documentation - auto-included when editing config YAML files"
+description: "Config system overview - auto-included when editing YAML configs"
 ---
 
-# Config System
+# Config System Overview
 
-## Cấu Trúc
+**Note: Read existing YAML files to understand exact format.**
 
-**Mỗi entity = 2 files:**
-- `entity.yaml` - Definition + recipes
+## Structure
+
+Each entity typically has:
+- `entity.yaml` - Main definition
 - `entity.test.yaml` - Test commands (optional)
 
-**Mỗi thư mục = 2 index files:**
-- `index.yaml` - Import entity.yaml files
-- `index.test.yaml` - Import entity.test.yaml files
+Each directory has:
+- `index.yaml` - Imports entity files
+- `index.test.yaml` - Imports test files
 
-## Entity Format
+## Key Concepts
 
-**Item:**
-```yaml
-id: tin_ingot
-name: lang:materials.tin_ingot  # PHẢI dùng lang key
-texture: ../../../../assets/items/tin_ingot.png
-category: items
-maxStackSize: 64
-recipes:
-  - type: smelting
-    input: apeirix:tin_ore
-    output: apeirix:tin_ingot
-```
+- All names use `lang:` prefix
+- Texture paths are relative to config file
+- Recipes defined in entity YAML
+- Main config is `addon.yaml`
 
-**Tool:**
-```yaml
-id: bronze_pickaxe
-name: lang:tools.bronze_pickaxe
-type: pickaxe
-texture: ../../../../assets/tools/bronze_pickaxe.png
-materialId: apeirix:bronze_ingot
-durability: 375
-damage: 4
-tier: stone
-recipe:
-  type: shaped
-  pattern: ["###", " S ", " S "]
-  ingredients:
-    "#": apeirix:bronze_ingot
-    S: minecraft:stick
-```
+## Entity Types
 
-**Ore:**
-```yaml
-id: tin_ore
-name: lang:materials.tin_ore
-texturePath: ../../../../assets/blocks/tin_ore.png
-deepslateTexturePath: ../../../../assets/blocks/deepslate_tin_ore.png
-toolTier: stone
-minY: 0
-maxY: 64
-veinSize: 9
-veinsPerChunk: 20
-```
+- Materials (items, ores, blocks)
+- Tools (pickaxe, axe, shovel, hoe, sword, spear)
+- Armor (helmet, chestplate, leggings, boots)
+- Foods (with effects)
+- Special items
 
-## Main Config
+## Rules
 
-```yaml
-# addon.yaml
-addon:
-  name: APEIRIX
-  language: vi_VN  # vi_VN hoặc en_US
-  version: [1, 0, 0]
-  minEngineVersion: [1, 21, 50]
-import:
-  - materials/index.yaml
-  - tools/index.yaml
-  - armor/index.yaml
-  - foods/index.yaml
-```
+- Use `lang:` prefix for names
+- Follow existing file patterns
+- Test after changes
+- Don't edit generated JSON
 
-## Quy Tắc
-
-- PHẢI dùng `lang:` prefix cho `name` field
-- Texture paths relative to config file
-- Recipe IDs phải unique
-- Test commands optional nhưng recommended
+**Read existing YAML files for exact format and structure.**

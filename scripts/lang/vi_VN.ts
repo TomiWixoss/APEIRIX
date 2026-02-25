@@ -1,6 +1,6 @@
 /**
  * Vietnamese Language File for APEIRIX
- * AUTO-GENERATED from configs/script-lang/vi_VN/ui.yaml
+ * AUTO-GENERATED from configs/script-lang/vi_VN/*.yaml
  * DO NOT EDIT - Changes will be overwritten
  */
 
@@ -51,5 +51,64 @@ export const LANG_VI = {
     },
     "items": {
         "achievementBook": "Sách Thành Tựu APEIRIX"
+    },
+    "wiki": {
+        "title": "§l§6═══ BÁCH KHOA TOÀN THƯ ═══",
+        "subtitle": "§7Khám phá các vật phẩm trong APEIRIX",
+        "selectCategory": "§7Chọn danh mục để xem:",
+        "noItemsFound": "§cKhông tìm thấy vật phẩm nào trong túi đồ!",
+        "noItemsInCategory": "§7Bạn chưa có vật phẩm nào trong danh mục này.",
+        "categories": {
+            "all": "§l§e📚 Tất cả",
+            "materials": "§l§b⛏ Nguyên liệu",
+            "tools": "§l§6🔨 Công cụ",
+            "armor": "§l§9🛡 Giáp",
+            "foods": "§l§a🍖 Thức ăn",
+            "special": "§l§d✨ Đặc biệt"
+        },
+        "itemCount": "§7Đã khám phá: §e{count}§7 vật phẩm",
+        "newBadge": "§l§6[MỚI!]",
+        "selectItem": "§7Chọn vật phẩm để xem chi tiết:",
+        "detailTitle": "§l§6═══ CHI TIẾT VẬT PHẨM ═══",
+        "type": "§7Loại:",
+        "maxStack": "§7Xếp chồng tối đa:",
+        "durability": "§7Độ bền:",
+        "nutrition": "§7Dinh dưỡng:",
+        "saturation": "§7Độ no:",
+        "canAlwaysEat": "§7Có thể ăn khi no:",
+        "armorProtection": "§7Giáp:",
+        "armorToughness": "§7Độ cứng:",
+        "toolSpeed": "§7Tốc độ:",
+        "toolDamage": "§7Sát thương:",
+        "recipes": "§l§e⚒ CÔNG THỨC CHẾ TẠO",
+        "noRecipes": "§7Không có công thức chế tạo.",
+        "craftingRecipe": "§7Công thức chế tạo:",
+        "smeltingRecipe": "§7Công thức nấu luyện:",
+        "blastingRecipe": "§7Công thức lò cao:",
+        "usedIn": "§l§a✓ SỬ DỤNG TRONG",
+        "notUsedInRecipes": "§7Không được sử dụng trong công thức nào.",
+        "types": {
+            "material": "Nguyên liệu",
+            "tool": "Công cụ",
+            "armor": "Giáp",
+            "food": "Thức ăn",
+            "special": "Đặc biệt",
+            "block": "Khối",
+            "ore": "Quặng"
+        },
+        "armorSlots": {
+            "helmet": "Mũ",
+            "chestplate": "Áo giáp",
+            "leggings": "Quần",
+            "boots": "Giày"
+        },
+        "toolTypes": {
+            "pickaxe": "Cuốc",
+            "axe": "Rìu",
+            "shovel": "Xẻng",
+            "hoe": "Cuốc cày",
+            "sword": "Kiếm",
+            "spear": "Giáo"
+        }
     }
 };

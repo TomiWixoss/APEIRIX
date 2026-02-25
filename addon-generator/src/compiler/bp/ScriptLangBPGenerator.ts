@@ -25,16 +25,31 @@ export class ScriptLangBPGenerator {
     
     for (const lang of languages) {
       // Look in script-lang folder
-      const langYamlPath = path.join(configDir, 'script-lang', lang, 'ui.yaml');
+      const uiYamlPath = path.join(configDir, 'script-lang', lang, 'ui.yaml');
+      const wikiYamlPath = path.join(configDir, 'script-lang', lang, 'wiki.yaml');
       
-      if (!existsSync(langYamlPath)) {
-        console.warn(`[ScriptLangBPGenerator] UI lang file not found: ${langYamlPath}`);
-        continue;
+      let langData: Record<string, any> = {};
+
+      // Load UI YAML
+      if (existsSync(uiYamlPath)) {
+        const uiContent = readFileSync(uiYamlPath, 'utf-8');
+        const uiData = yaml.load(uiContent) as Record<string, any>;
+        langData = { ...langData, ...uiData };
+      } else {
+        console.warn(`[ScriptLangBPGenerator] UI lang file not found: ${uiYamlPath}`);
       }
 
-      // Load YAML
-      const yamlContent = readFileSync(langYamlPath, 'utf-8');
-      const langData = yaml.load(yamlContent) as Record<string, any>;
+      // Load Wiki YAML
+      if (existsSync(wikiYamlPath)) {
+        const wikiContent = readFileSync(wikiYamlPath, 'utf-8');
+        const wikiData = yaml.load(wikiContent) as Record<string, any>;
+        langData = { ...langData, ...wikiData };
+      }
+
+      if (Object.keys(langData).length === 0) {
+        console.warn(`[ScriptLangBPGenerator] No lang data found for ${lang}`);
+        continue;
+      }
 
       // Generate TypeScript content
       const tsContent = this.generateTypeScriptContent(lang, langData);
@@ -56,7 +71,7 @@ export class ScriptLangBPGenerator {
 
     return `/**
  * ${langName} Language File for APEIRIX
- * AUTO-GENERATED from configs/script-lang/${lang}/ui.yaml
+ * AUTO-GENERATED from configs/script-lang/${lang}/*.yaml
  * DO NOT EDIT - Changes will be overwritten
  */
 

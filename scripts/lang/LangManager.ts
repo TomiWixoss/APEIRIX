@@ -11,8 +11,20 @@ import { GENERATED_LANGUAGE } from "../data/GeneratedLanguage";
 type LangData = typeof LANG_VI;
 
 export class LangManager {
+    private static instance: LangManager;
     private static currentLang: LangData = LANG_VI;
     private static initialized = false;
+
+    /**
+     * Get singleton instance
+     */
+    static getInstance(): LangManager {
+        if (!this.instance) {
+            this.instance = new LangManager();
+            this.init();
+        }
+        return this.instance;
+    }
 
     /**
      * Initialize language from generated config
@@ -43,6 +55,13 @@ export class LangManager {
 
     /**
      * Get translated text
+     */
+    get(key: string): string {
+        return LangManager.get(key);
+    }
+
+    /**
+     * Get translated text (static)
      */
     static get(key: string): string {
         // Auto-initialize on first use

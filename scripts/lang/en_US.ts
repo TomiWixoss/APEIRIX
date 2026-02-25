@@ -1,6 +1,6 @@
 /**
  * English Language File for APEIRIX
- * AUTO-GENERATED from configs/script-lang/en_US/ui.yaml
+ * AUTO-GENERATED from configs/script-lang/en_US/*.yaml
  * DO NOT EDIT - Changes will be overwritten
  */
 
@@ -51,5 +51,64 @@ export const LANG_EN = {
     },
     "items": {
         "achievementBook": "APEIRIX Achievement Book"
+    },
+    "wiki": {
+        "title": "§l§6═══ ENCYCLOPEDIA ═══",
+        "subtitle": "§7Discover items in APEIRIX",
+        "selectCategory": "§7Select a category to view:",
+        "noItemsFound": "§cNo items found in your inventory!",
+        "noItemsInCategory": "§7You don't have any items in this category yet.",
+        "categories": {
+            "all": "§l§e📚 All Items",
+            "materials": "§l§b⛏ Materials",
+            "tools": "§l§6🔨 Tools",
+            "armor": "§l§9🛡 Armor",
+            "foods": "§l§a🍖 Foods",
+            "special": "§l§d✨ Special"
+        },
+        "itemCount": "§7Discovered: §e{count}§7 items",
+        "newBadge": "§l§6[NEW!]",
+        "selectItem": "§7Select an item to view details:",
+        "detailTitle": "§l§6═══ ITEM DETAILS ═══",
+        "type": "§7Type:",
+        "maxStack": "§7Max Stack:",
+        "durability": "§7Durability:",
+        "nutrition": "§7Nutrition:",
+        "saturation": "§7Saturation:",
+        "canAlwaysEat": "§7Can Always Eat:",
+        "armorProtection": "§7Protection:",
+        "armorToughness": "§7Toughness:",
+        "toolSpeed": "§7Speed:",
+        "toolDamage": "§7Damage:",
+        "recipes": "§l§e⚒ CRAFTING RECIPES",
+        "noRecipes": "§7No crafting recipes available.",
+        "craftingRecipe": "§7Crafting Recipe:",
+        "smeltingRecipe": "§7Smelting Recipe:",
+        "blastingRecipe": "§7Blast Furnace Recipe:",
+        "usedIn": "§l§a✓ USED IN",
+        "notUsedInRecipes": "§7Not used in any recipes.",
+        "types": {
+            "material": "Material",
+            "tool": "Tool",
+            "armor": "Armor",
+            "food": "Food",
+            "special": "Special",
+            "block": "Block",
+            "ore": "Ore"
+        },
+        "armorSlots": {
+            "helmet": "Helmet",
+            "chestplate": "Chestplate",
+            "leggings": "Leggings",
+            "boots": "Boots"
+        },
+        "toolTypes": {
+            "pickaxe": "Pickaxe",
+            "axe": "Axe",
+            "shovel": "Shovel",
+            "hoe": "Hoe",
+            "sword": "Sword",
+            "spear": "Spear"
+        }
     }
 };

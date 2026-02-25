@@ -1,3 +1,4 @@
 import:
   - achievement_book.yaml
+  - wiki_book.yaml
   - index.test.yaml
