@@ -67,15 +67,21 @@ export const GENERATED_TOOLS = [
  */
 export const GENERATED_FOODS = [
   {
+    itemId: "apeirix:canned_pumpkin",
+    effects: [
+      { name: "fire_resistance", duration: 15 * 20, amplifier: 0, chance: 1 }
+    ],
+  },
+  {
     itemId: "apeirix:cannedcarrots",
     effects: [
       { name: "night_vision", duration: 15 * 20, amplifier: 0, chance: 1 }
     ],
   },
   {
-    itemId: "apeirix:canned_pumpkin",
+    itemId: "apeirix:canneddogfood",
     effects: [
-      { name: "fire_resistance", duration: 15 * 20, amplifier: 0, chance: 1 }
+      { name: "nausea", duration: 10 * 20, amplifier: 0, chance: 1 }
     ],
   },
   {
@@ -85,19 +91,13 @@ export const GENERATED_FOODS = [
     ],
   },
   {
-    itemId: "apeirix:cannedsalad",
-    removeEffects: true,
-  },
-  {
     itemId: "apeirix:cannedmeal",
     effects: [
       { name: "regeneration", duration: 5 * 20, amplifier: 1, chance: 1 }
     ],
   },
   {
-    itemId: "apeirix:canneddogfood",
-    effects: [
-      { name: "nausea", duration: 10 * 20, amplifier: 0, chance: 1 }
-    ],
+    itemId: "apeirix:cannedsalad",
+    removeEffects: true,
   }
 ];

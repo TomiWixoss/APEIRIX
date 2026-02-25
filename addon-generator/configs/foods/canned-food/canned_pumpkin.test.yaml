@@ -1,3 +1,4 @@
+id: canned_pumpkin
 testCommands:
   - "# Test: Bí Ngô Nghiền Hộp - Fire Resistance"
   - clear @s

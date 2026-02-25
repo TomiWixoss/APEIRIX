@@ -1,3 +1,4 @@
+id: achievement_book
 testCommands:
   - "# Test: Sách Thành Tựu APEIRIX"
   - clear @s

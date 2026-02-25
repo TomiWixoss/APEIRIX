@@ -1,3 +1,4 @@
+id: canned_food
 testCommands:
   - "# Test: Thịt Hộp Hầm"
   - clear @s

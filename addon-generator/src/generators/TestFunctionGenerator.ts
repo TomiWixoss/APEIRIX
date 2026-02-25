@@ -70,4 +70,50 @@ export class TestFunctionGenerator {
     FileManager.writeText(outputPath, content);
     console.log(`✅ Đã tạo master test: BP/functions/tests/run_all_${category}.mcfunction`);
   }
+
+  /**
+   * Tạo group test function - gộp tất cả test commands vào 1 file
+   * Chỉ clear inventory 1 lần đầu tiên
+   */
+  generateGroupTest(
+    entities: Array<{id: string, name: string, commands: string[]}>, 
+    category: string
+  ): void {
+    const commands: string[] = [];
+    
+    // Header
+    commands.push(`# Group Test Function - ${category}`);
+    commands.push(`# Test tất cả ${entities.length} ${category} cùng lúc`);
+    commands.push('');
+    
+    // Clear inventory chỉ 1 lần đầu
+    commands.push('# Clear inventory once');
+    commands.push('clear @s');
+    commands.push('');
+    
+    // Thêm test commands của từng entity
+    entities.forEach((entity, index) => {
+      commands.push(`# Test ${index + 1}: ${entity.name}`);
+      
+      // Filter out "clear @s" commands từ entity test
+      const filteredCommands = entity.commands.filter(cmd => {
+        if (typeof cmd !== 'string') return true; // Keep non-string commands
+        const trimmed = cmd.trim().toLowerCase();
+        return trimmed !== 'clear @s' && !trimmed.startsWith('clear @s');
+      });
+      
+      commands.push(...filteredCommands);
+      commands.push(''); // Spacing between tests
+    });
+    
+    // Summary
+    commands.push(`# Test completed`);
+    commands.push(`tellraw @s {"text":"=== Đã test ${entities.length} ${category} ===","color":"green","bold":true}`);
+    
+    const content = commands.join('\n');
+    const outputPath = join(this.projectRoot, `functions/tests/${category}_all.mcfunction`);
+    
+    FileManager.writeText(outputPath, content);
+    console.log(`✅ Đã tạo group test: BP/functions/tests/${category}_all.mcfunction`);
+  }
 }

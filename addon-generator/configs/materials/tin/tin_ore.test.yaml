@@ -1,3 +1,4 @@
+id: tin_ore
 testCommands:
   - "# Test: Quặng Thiếc"
   - clear @s

@@ -1,3 +1,4 @@
+id: bronze_boots
 testCommands:
   - "# Test: Giày Đồng Thanh"
   - clear @s

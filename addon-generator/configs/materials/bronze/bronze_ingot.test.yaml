@@ -1,3 +1,4 @@
+id: bronze_ingot
 testCommands:
   - "# Test: Thỏi Đồng Thanh"
   - clear @s

@@ -1,3 +1,4 @@
+id: bronze_chestplate
 testCommands:
   - "# Test: Áo Giáp Đồng Thanh"
   - clear @s

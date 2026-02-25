@@ -1,3 +1,4 @@
+id: bronze_leggings
 testCommands:
   - "# Test: Quần Giáp Đồng Thanh"
   - clear @s

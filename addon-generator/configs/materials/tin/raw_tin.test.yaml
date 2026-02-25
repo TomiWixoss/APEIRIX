@@ -1,3 +1,4 @@
+id: raw_tin
 testCommands:
   - "# Test: Thiếc Thô"
   - clear @s

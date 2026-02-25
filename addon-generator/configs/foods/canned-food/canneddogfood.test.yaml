@@ -1,3 +1,4 @@
+id: canneddogfood
 testCommands:
   - "# Test: Thức Ăn Cho Chó - Nausea"
   - clear @s

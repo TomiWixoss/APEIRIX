@@ -1,3 +1,4 @@
+id: cannedmeal
 testCommands:
   - "# Test: Khẩu Phần Ăn Chiến Đấu - Regeneration II"
   - clear @s

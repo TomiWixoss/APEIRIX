@@ -31,7 +31,7 @@ export class EntityNormalizer {
         // Block entity
         normalized.blocks = [config];
       } else {
-        // Default: Item entity
+        // Default: Item entity (includes .test.yaml files)
         normalized.items = [config];
       }
       

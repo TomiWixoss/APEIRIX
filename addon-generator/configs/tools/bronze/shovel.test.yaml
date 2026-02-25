@@ -1,3 +1,4 @@
+id: bronze_shovel
 testCommands:
   - "# Test: Xẻng Đồng Thanh"
   - clear @s

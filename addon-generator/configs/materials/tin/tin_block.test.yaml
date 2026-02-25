@@ -1,3 +1,4 @@
+id: tin_block
 testCommands:
   - "# Test: Khối Thiếc"
   - clear @s

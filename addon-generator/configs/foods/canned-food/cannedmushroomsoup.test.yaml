@@ -1,3 +1,4 @@
+id: cannedmushroomsoup
 testCommands:
   - "# Test: Súp Nấm Hộp"
   - clear @s

@@ -1,3 +1,4 @@
+id: bronze_pickaxe
 testCommands:
   - "# Test: Cúp Đồng Thanh"
   - clear @s

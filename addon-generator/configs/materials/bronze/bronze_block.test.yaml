@@ -1,3 +1,4 @@
+id: bronze_block
 testCommands:
   - "# Test: Khối Đồng Thanh"
   - clear @s

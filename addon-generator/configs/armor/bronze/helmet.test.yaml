@@ -1,3 +1,4 @@
+id: bronze_helmet
 testCommands:
   - "# Test: Mũ Đồng Thanh"
   - clear @s

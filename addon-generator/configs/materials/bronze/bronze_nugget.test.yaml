@@ -1,3 +1,4 @@
+id: bronze_nugget
 testCommands:
   - "# Test: Hạt Đồng Thanh"
   - clear @s

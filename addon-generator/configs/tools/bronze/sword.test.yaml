@@ -1,3 +1,4 @@
+id: bronze_sword
 testCommands:
   - "# Test: Kiếm Đồng Thanh"
   - clear @s

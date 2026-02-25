@@ -99,6 +99,7 @@ export interface BlockConfig {
   drops?: string;
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
+  testCommands?: string[];
 }
 
 export interface OreConfig {

@@ -1,3 +1,4 @@
+id: cannedcarrots
 testCommands:
   - "# Test: Cà Rốt Đóng Hộp - Night Vision"
   - clear @s

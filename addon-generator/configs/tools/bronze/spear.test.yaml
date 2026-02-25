@@ -1,3 +1,4 @@
+id: bronze_spear
 testCommands:
   - "# Test: Giáo Đồng Thanh"
   - clear @s

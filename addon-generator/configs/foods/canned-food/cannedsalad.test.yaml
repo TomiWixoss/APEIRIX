@@ -1,3 +1,4 @@
+id: cannedsalad
 testCommands:
   - "# Test: Salad Đóng Hộp - Remove Effects"
   - clear @s

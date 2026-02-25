@@ -1,3 +1,4 @@
+id: cannedfish
 testCommands:
   - "# Test: Cá Mòi Đóng Hộp - Water Breathing"
   - clear @s

@@ -1,3 +1,4 @@
+id: candirty
 testCommands:
   - "# Test: Vỏ Đồ Hộp Bẩn"
   - clear @s

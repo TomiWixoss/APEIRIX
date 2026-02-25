@@ -1,3 +1,4 @@
+id: bronze_hoe
 testCommands:
   - "# Test: Cuốc Đồng Thanh"
   - clear @s

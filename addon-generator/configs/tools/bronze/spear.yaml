@@ -7,14 +7,6 @@ durability: 375
 damage: 3
 enchantability: 18
 tier: bronze_tier
-testCommands:
-  - "# Test: Giáo Đồng Thanh"
-  - clear @s
-  - give @s apeirix:bronze_spear
-  - 'tellraw @s {"text":"=== Test: Giáo Đồng Thanh ===","color":"gold"}'
-  - 'tellraw @s {"text":"Damage: 3 | Durability: 375","color":"aqua"}'
-  - tellraw @s {"text":"Vũ khí tầm xa mạnh mẽ!","color":"white"}
-  - playsound random.levelup @s
 recipe:
   id: bronze_spear
   type: shaped

@@ -1,3 +1,4 @@
+id: tin_ingot
 testCommands:
   - "# Test: Thỏi Thiếc"
   - clear @s

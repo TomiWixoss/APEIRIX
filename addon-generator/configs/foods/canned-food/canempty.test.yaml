@@ -1,3 +1,4 @@
+id: canempty
 testCommands:
   - "# Test: Vỏ Đồ Hộp Rỗng"
   - clear @s
