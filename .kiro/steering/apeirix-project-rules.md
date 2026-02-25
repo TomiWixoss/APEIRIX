@@ -6,11 +6,25 @@ ALLWAYS RESPOND AS VIETNAMESE!
 
 # APEIRIX - Development Rules
 
-## ⚠️ CRITICAL PRINCIPLE
+## ⚠️ CRITICAL PRINCIPLES
+
+### 1. ALWAYS USE CONTEXT-GATHERER FIRST
+
+**MANDATORY: Before implementing ANY request, you MUST use context-gatherer subagent to:**
+- Understand the relevant codebase structure
+- Find necessary files
+- Identify existing patterns
+- Gather complete context
+
+**Only skip this step when:**
+- Request is extremely simple (e.g., changing 1 line of text)
+- You already know ALL related files with certainty
+
+### 2. CODE IS THE SOURCE OF TRUTH
 
 **CODE IS THE SOURCE OF TRUTH - NOT RULES**
 
-Rules are high-level guidelines only. Before implementing anything:
+Rules are high-level guidelines only. After gathering context:
 1. Read existing similar implementations
 2. Follow established patterns exactly
 3. Never invent new structures without checking codebase first
