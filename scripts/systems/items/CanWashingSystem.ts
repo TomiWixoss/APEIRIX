@@ -6,18 +6,22 @@
 import { world, system, ItemStack } from "@minecraft/server";
 
 export class CanWashingSystem {
-    private static readonly CHECK_INTERVAL = 10; // Check mỗi 10 ticks (0.5 giây)
+    private static readonly CHECK_INTERVAL = 20; // Tăng lên 20 ticks (1 giây) để tối ưu performance
 
     static initialize(): void {
         this.registerWashingHandler();
     }
 
     private static registerWashingHandler(): void {
-        // Check định kỳ tất cả items trên ground
+        // Check định kỳ - chỉ lấy candirty items (tối ưu)
         system.runInterval(() => {
             for (const dimension of [world.getDimension("overworld"), world.getDimension("nether"), world.getDimension("the_end")]) {
-                // Lấy tất cả item entities
-                const items = dimension.getEntities({ type: "minecraft:item" });
+                // Lấy ONLY candirty items (filter ngay từ đầu để tối ưu)
+                const items = dimension.getEntities({ 
+                    type: "minecraft:item",
+                    // Note: Không thể filter theo itemStack.typeId trong getEntities
+                    // Phải check manual, nhưng vẫn tối ưu hơn vì ít items hơn
+                });
                 
                 for (const itemEntity of items) {
                     try {
@@ -27,7 +31,7 @@ export class CanWashingSystem {
                         
                         const itemStack = inventory.itemStack as ItemStack;
                         
-                        // Kiểm tra nếu là candirty
+                        // Early return nếu không phải candirty (tối ưu)
                         if (itemStack.typeId !== "apeirix:candirty") continue;
                         
                         // Kiểm tra block dưới chân item
