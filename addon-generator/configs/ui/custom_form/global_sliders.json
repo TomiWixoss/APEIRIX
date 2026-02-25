@@ -4,12 +4,12 @@
     "custom_slider@global_sliders.option_slider": {
 
         //slider textures (variables are custom made and not available in vanilla ui)
-        "$button_default":"textures/cc/ui/custom_form/slider/button",
-        "$button_hover":"textures/cc/ui/custom_form/slider/button_hover",
-        "$slider_background":"textures/cc/ui/custom_form/slider/bar",
-        "$slider_background_hover":"textures/cc/ui/custom_form/slider/bar",
-        "$bar_full":"textures/cc/ui/custom_form/slider/bar_full",
-        "$bar_full_hover":"textures/cc/ui/custom_form/slider/bar_full",
+        "$button_default":"textures/apeirix/ui/custom_form/slider/button",
+        "$button_hover":"textures/apeirix/ui/custom_form/slider/button_hover",
+        "$slider_background":"textures/apeirix/ui/custom_form/slider/bar",
+        "$slider_background_hover":"textures/apeirix/ui/custom_form/slider/bar",
+        "$bar_full":"textures/apeirix/ui/custom_form/slider/bar_full",
+        "$bar_full_hover":"textures/apeirix/ui/custom_form/slider/bar_full",
 
 
         "$option_label": "#custom_slider_text",

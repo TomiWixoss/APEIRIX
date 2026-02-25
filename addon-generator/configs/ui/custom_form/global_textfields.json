@@ -4,8 +4,8 @@
     "custom_input@settings_common.option_text_edit": {
 
         //text field textures (variables are custom made and not available in vanilla ui)
-        "$textfield": "textures/cc/ui/custom_form/textfield/textfield",
-        "$textfield_hover": "textures/cc/ui/custom_form/textfield/textfield",
+        "$textfield": "textures/apeirix/ui/custom_form/textfield/textfield",
+        "$textfield_hover": "textures/apeirix/ui/custom_form/textfield/textfield",
 
 
         "$option_label": "#custom_text",

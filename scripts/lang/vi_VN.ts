@@ -53,23 +53,23 @@ export const LANG_VI = {
         "achievementBook": "Sách Thành Tựu APEIRIX"
     },
     "wiki": {
-        "title": "§l§6BÁCH KHOA TOÀN THƯ",
-        "itemCount": "§7Đã khám phá: §e{count}§7 vật phẩm",
+        "title": "§l§0BÁCH KHOA TOÀN THƯ",
+        "itemCount": "§0Đã khám phá: §0{count}§0 vật phẩm",
         "noItemsFound": "§cKhông tìm thấy vật phẩm APEIRIX nào trong túi đồ!",
-        "selectItem": "§7Chọn vật phẩm để xem chi tiết",
+        "selectItem": "§0Chọn vật phẩm để xem chi tiết",
         "back": "§cQuay lại",
-        "emptyTitle": "§l§6BÁCH KHOA TOÀN THƯ",
-        "emptyMessage": "§7Bạn chưa có vật phẩm APEIRIX nào trong túi đồ.\n\n§eHãy khám phá thế giới và thu thập các vật phẩm để mở khóa thông tin trong bách khoa toàn thư!\n\n§7Các danh mục có sẵn:\n§8• §aNguyên liệu\n§8• §aCông cụ\n§8• §aGiáp\n§8• §aThức ăn\n§8• §aĐặc biệt",
-        "emptyButton": "§aĐã hiểu",
-        "description": "§7Mô tả:",
-        "category": "§7Danh mục:",
-        "information": "Thông tin",
+        "emptyTitle": "§l§0BÁCH KHOA TOÀN THƯ",
+        "emptyMessage": "§0Bạn chưa có vật phẩm APEIRIX nào trong túi đồ.\n\n§0Hãy khám phá thế giới và thu thập các vật phẩm để mở khóa thông tin trong bách khoa toàn thư!\n\n§0Các danh mục có sẵn:\n§0• §0Nguyên liệu\n§0• §0Công cụ\n§0• §0Giáp\n§0• §0Thức ăn\n§0• §0Đặc biệt",
+        "emptyButton": "§0Đã hiểu",
+        "description": "§0Mô tả:",
+        "category": "§0Danh mục:",
+        "information": "§l§0Thông tin",
         "categories": {
-            "materials": "Nguyên liệu",
-            "tools": "Công cụ",
-            "armor": "Giáp",
-            "foods": "Thức ăn",
-            "special": "Đặc biệt"
+            "materials": "§0Nguyên liệu",
+            "tools": "§0Công cụ",
+            "armor": "§0Giáp",
+            "foods": "§0Thức ăn",
+            "special": "§0Đặc biệt"
         }
     }
 };

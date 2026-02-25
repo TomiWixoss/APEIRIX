@@ -13,14 +13,14 @@
     "size": ["100%", "100%c"],
 
     //dropdown values textures (variables are custom made and not available in vanilla ui)
-    "$radio_on":"textures/cc/ui/custom_form/dropdown/custom_radio_on",
-    "$radio_on_hover":"textures/cc/ui/custom_form/dropdown/custom_radio_on",
-    "$radio_off":"textures/cc/ui/custom_form/dropdown/custom_radio_off",
-    "$radio_off_hover":"textures/cc/ui/custom_form/dropdown/custom_radio_off",
-    "$dropDownSelectBG":"textures/cc/ui/custom_form/dropdown/custom_dropDownSelectBG",
-    "$dropDownHoverBG":"textures/cc/ui/custom_form/dropdown/custom_dropDownHoverBG",
-    "$radio_background":"textures/cc/ui/custom_form/dropdown/radioBG",
-    "$dropdownBG|default":"textures/cc/ui/custom_form/dropdown/dropdownBG",
+    "$radio_on":"textures/apeirix/ui/custom_form/dropdown/custom_radio_on",
+    "$radio_on_hover":"textures/apeirix/ui/custom_form/dropdown/custom_radio_on",
+    "$radio_off":"textures/apeirix/ui/custom_form/dropdown/custom_radio_off",
+    "$radio_off_hover":"textures/apeirix/ui/custom_form/dropdown/custom_radio_off",
+    "$dropDownSelectBG":"textures/apeirix/ui/custom_form/dropdown/custom_dropDownSelectBG",
+    "$dropDownHoverBG":"textures/apeirix/ui/custom_form/dropdown/custom_dropDownHoverBG",
+    "$radio_background":"textures/apeirix/ui/custom_form/dropdown/radioBG",
+    "$dropdownBG|default":"textures/apeirix/ui/custom_form/dropdown/dropdownBG",
 
     "$dropdown_background_control":"global_dropdowns.dropdown_background_control",
     
@@ -431,3 +431,4 @@
     ]
   }
 }
+

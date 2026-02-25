@@ -109,28 +109,33 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_ingot",
     category: "materials",
-    name: "Thỏi Đồng",
+    name: "Thỏi Đồng Thanh",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chế tạo từ đồng + thiếc"
+      "Chế tạo": "3 copper ingot + 1 tin ingot = 4 bronze",
+      "Độ bền công cụ": "375",
+      "Độ phù phép": "18"
     },
   },
   {
     id: "apeirix:bronze_nugget",
     category: "materials",
-    name: "Mảnh Đồng",
+    name: "Mảnh Đồng Thanh",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chia nhỏ thỏi đồng"
+      "Nguồn": "Chia nhỏ thỏi đồng thanh",
+      "Chế tạo": "1 thỏi = 9 mảnh"
     },
   },
   {
     id: "apeirix:bronze_block",
     category: "materials",
-    name: "Khối Đồng",
+    name: "Khối Đồng Thanh",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chế tạo từ 9 thỏi đồng"
+      "Độ cứng": "16.65",
+      "Chế tạo": "9 thỏi đồng thanh",
+      "Công cụ": "Cần cuốc đá trở lên"
     },
   },
   {
@@ -139,7 +144,8 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thiếc Thô",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Khai thác quặng thiếc"
+      "Nguồn": "Khai thác quặng thiếc",
+      "Chế tạo": "Nấu trong lò hoặc lò cao"
     },
   },
   {
@@ -148,7 +154,8 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thỏi Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Nấu quặng thiếc hoặc thiếc thô"
+      "Nguồn": "Nấu quặng thiếc hoặc thiếc thô",
+      "Chế tạo": "9 mảnh thiếc hoặc 1 khối thiếc"
     },
   },
   {
@@ -157,7 +164,8 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Mảnh Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chia nhỏ thỏi thiếc"
+      "Nguồn": "Chia nhỏ thỏi thiếc",
+      "Chế tạo": "1 thỏi thiếc = 9 mảnh"
     },
   },
   {
@@ -166,7 +174,9 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Khối Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chế tạo từ 9 thỏi thiếc"
+      "Độ cứng": "16.65",
+      "Chế tạo": "9 thỏi thiếc",
+      "Công cụ": "Cần cuốc đá trở lên"
     },
   },
   {
@@ -175,107 +185,141 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Quặng Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
-      "Nguồn": "Khai thác dưới lòng đất",
-      "Độ sâu": "Y: -64 đến 64"
+      "Độ sâu": "Y: 0 đến 64",
+      "Kích thước mạch": "9 khối",
+      "Tần suất": "20 mạch/chunk",
+      "Công cụ": "Cần cuốc đá trở lên"
+    },
+  },
+  {
+    id: "apeirix:deepslate_tin_ore",
+    category: "materials",
+    name: "Quặng Thiếc Deepslate",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Độ sâu": "Y: 0 đến 64",
+      "Độ cứng": "14.985",
+      "Công cụ": "Cần cuốc đá trở lên"
     },
   },
   {
     id: "apeirix:bronze_pickaxe",
     category: "tools",
-    name: "Cuốc Đồng",
+    name: "Cuốc Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
-      "Tốc độ": "6"
+      "Sát thương": "+4",
+      "Độ phù phép": "18",
+      "Chế tạo": "3 thỏi đồng thanh + 2 gậy"
     },
   },
   {
     id: "apeirix:bronze_axe",
     category: "tools",
-    name: "Rìu Đồng",
+    name: "Rìu Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
-      "Sát thương": "7"
+      "Sát thương": "+5",
+      "Độ phù phép": "18",
+      "Chế tạo": "3 thỏi đồng thanh + 2 gậy"
     },
   },
   {
     id: "apeirix:bronze_shovel",
     category: "tools",
-    name: "Xẻng Đồng",
+    name: "Xẻng Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
-      "Tốc độ": "6"
+      "Sát thương": "+3",
+      "Độ phù phép": "18",
+      "Chế tạo": "1 thỏi đồng thanh + 2 gậy"
     },
   },
   {
     id: "apeirix:bronze_hoe",
     category: "tools",
-    name: "Cuốc Cày Đồng",
+    name: "Cuốc Cày Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
-      "Độ bền": "375"
+      "Chất liệu": "Đồng Thanh (Bronze)",
+      "Độ bền": "375",
+      "Sát thương": "+4",
+      "Độ phù phép": "18",
+      "Chế tạo": "2 thỏi đồng thanh + 2 gậy"
     },
   },
   {
     id: "apeirix:bronze_sword",
     category: "tools",
-    name: "Kiếm Đồng",
+    name: "Kiếm Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
-      "Sát thương": "6"
+      "Sát thương": "+6",
+      "Độ phù phép": "18",
+      "Chế tạo": "2 thỏi đồng thanh + 1 gậy"
     },
   },
   {
     id: "apeirix:bronze_spear",
     category: "tools",
-    name: "Giáo Đồng",
+    name: "Giáo Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "375",
-      "Sát thương": "3"
+      "Sát thương": "+3",
+      "Độ phù phép": "18",
+      "Chế tạo": "1 thỏi đồng thanh + 2 gậy"
     },
   },
   {
     id: "apeirix:bronze_helmet",
     category: "armor",
-    name: "Mũ Đồng",
+    name: "Mũ Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "220",
-      "Giáp": "2"
+      "Giáp": "+2",
+      "Độ phù phép": "18",
+      "Chế tạo": "5 thỏi đồng thanh"
     },
   },
   {
     id: "apeirix:bronze_chestplate",
     category: "armor",
-    name: "Áo Giáp Đồng",
+    name: "Áo Giáp Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "320",
-      "Giáp": "6"
+      "Giáp": "+5",
+      "Độ phù phép": "18",
+      "Chế tạo": "8 thỏi đồng thanh"
     },
   },
   {
     id: "apeirix:bronze_leggings",
     category: "armor",
-    name: "Quần Giáp Đồng",
+    name: "Quần Giáp Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "300",
-      "Giáp": "5"
+      "Giáp": "+4",
+      "Độ phù phép": "18",
+      "Chế tạo": "7 thỏi đồng thanh"
     },
   },
   {
     id: "apeirix:bronze_boots",
     category: "armor",
-    name: "Giày Giáp Đồng",
+    name: "Giày Giáp Đồng Thanh",
     info: {
-      "Chất liệu": "Đồng",
+      "Chất liệu": "Đồng Thanh (Bronze)",
       "Độ bền": "260",
-      "Giáp": "2"
+      "Giáp": "+1",
+      "Độ phù phép": "18",
+      "Chế tạo": "4 thỏi đồng thanh"
     },
   },
   {
@@ -284,7 +328,8 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Hộp Rỗng",
     info: {
       "Loại": "Vật liệu",
-      "Nguồn": "Chế tạo hoặc rửa hộp bẩn"
+      "Chế tạo": "4 thỏi thiếc",
+      "Tái chế": "Rửa hộp bẩn với xô nước"
     },
   },
   {
@@ -293,7 +338,8 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Hộp Bẩn",
     info: {
       "Loại": "Vật liệu",
-      "Nguồn": "Sau khi ăn đồ hộp"
+      "Nguồn": "Sau khi ăn đồ hộp",
+      "Tái chế": "Rửa với xô nước hoặc thả vào nước"
     },
   },
   {
@@ -301,9 +347,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Thức Ăn Đóng Hộp",
     info: {
-      "Dinh dưỡng": "5",
-      "Độ no": "6",
-      "Bảo quản": "Đóng hộp"
+      "Dinh dưỡng": "10 (5 thanh)",
+      "Độ no": "12.8",
+      "Chế tạo": "Hộp rỗng + 2 thịt nấu chín",
+      "Sau khi dùng": "Hộp bẩn"
     },
   },
   {
@@ -311,9 +358,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Bí Ngô Đóng Hộp",
     info: {
-      "Dinh dưỡng": "4",
+      "Dinh dưỡng": "4 (2 thanh)",
       "Độ no": "4.8",
-      "Hiệu ứng": "Kháng lửa 15s"
+      "Hiệu ứng": "Kháng lửa 15s",
+      "Chế tạo": "Hộp rỗng + bí ngô + đường"
     },
   },
   {
@@ -321,9 +369,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Súp Củ Cải Đóng Hộp",
     info: {
-      "Dinh dưỡng": "6",
+      "Dinh dưỡng": "6 (3 thanh)",
       "Độ no": "7.2",
-      "Bảo quản": "Đóng hộp"
+      "Chế tạo": "Hộp rỗng + súp củ cải",
+      "Sau khi dùng": "Hộp bẩn"
     },
   },
   {
@@ -331,9 +380,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Bánh Mì Đóng Hộp",
     info: {
-      "Dinh dưỡng": "5",
+      "Dinh dưỡng": "5 (2.5 thanh)",
       "Độ no": "6",
-      "Bảo quản": "Đóng hộp"
+      "Chế tạo": "Hộp rỗng + bánh mì",
+      "Sau khi dùng": "Hộp bẩn"
     },
   },
   {
@@ -341,9 +391,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Cà Rốt Đóng Hộp",
     info: {
-      "Dinh dưỡng": "3",
-      "Độ no": "3.6",
-      "Hiệu ứng": "Nhìn đêm 15s"
+      "Dinh dưỡng": "4 (2 thanh)",
+      "Độ no": "4.8",
+      "Hiệu ứng": "Nhìn đêm 15s",
+      "Chế tạo": "Hộp rỗng + 3 cà rốt"
     },
   },
   {
@@ -351,9 +402,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Thức Ăn Chó Đóng Hộp",
     info: {
-      "Dinh dưỡng": "2",
-      "Độ no": "1.2",
-      "Hiệu ứng": "Buồn nôn 10s"
+      "Dinh dưỡng": "2 (1 thanh)",
+      "Độ no": "0.4",
+      "Hiệu ứng": "Buồn nôn 10s",
+      "Chế tạo": "Hộp rỗng + 2 thịt thối + xương"
     },
   },
   {
@@ -361,9 +413,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Cá Đóng Hộp",
     info: {
-      "Dinh dưỡng": "5",
+      "Dinh dưỡng": "5 (2.5 thanh)",
       "Độ no": "6",
-      "Hiệu ứng": "Thở dưới nước 30s"
+      "Hiệu ứng": "Thở dưới nước 30s",
+      "Chế tạo": "Hộp rỗng + 2 cá nấu chín"
     },
   },
   {
@@ -371,9 +424,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Bữa Ăn Đóng Hộp",
     info: {
-      "Dinh dưỡng": "8",
-      "Độ no": "12.8",
-      "Hiệu ứng": "Hồi máu II 5s"
+      "Dinh dưỡng": "12 (6 thanh)",
+      "Độ no": "16",
+      "Hiệu ứng": "Hồi máu II 5s",
+      "Chế tạo": "Hộp rỗng + bánh mì + thịt bò + cà rốt"
     },
   },
   {
@@ -381,9 +435,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Súp Nấm Đóng Hộp",
     info: {
-      "Dinh dưỡng": "6",
+      "Dinh dưỡng": "6 (3 thanh)",
       "Độ no": "7.2",
-      "Bảo quản": "Đóng hộp"
+      "Chế tạo": "Hộp rỗng + súp nấm",
+      "Sau khi dùng": "Hộp bẩn"
     },
   },
   {
@@ -391,9 +446,10 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Salad Đóng Hộp",
     info: {
-      "Dinh dưỡng": "6",
-      "Độ no": "7.2",
-      "Đặc biệt": "Xóa hiệu ứng"
+      "Dinh dưỡng": "3 (1.5 thanh)",
+      "Độ no": "3.6",
+      "Đặc biệt": "Xóa tất cả hiệu ứng",
+      "Chế tạo": "Hộp rỗng + táo + dâu + lá sồi"
     },
   },
   {
@@ -402,7 +458,9 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Sổ Thành Tựu",
     info: {
       "Loại": "Đặc biệt",
-      "Chức năng": "Xem thành tựu"
+      "Chức năng": "Xem thành tựu",
+      "Xếp chồng": "1",
+      "Độ hiếm": "Độc nhất"
     },
   },
   {
@@ -411,7 +469,9 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bách Khoa Toàn Thư",
     info: {
       "Loại": "Đặc biệt",
-      "Chức năng": "Xem thông tin vật phẩm"
+      "Chức năng": "Xem thông tin vật phẩm",
+      "Xếp chồng": "1",
+      "Độ hiếm": "Độc nhất"
     },
   }
 ];

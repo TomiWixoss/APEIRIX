@@ -4,10 +4,10 @@
     "custom_toggle@settings_common.option_toggle": {
 
         //toggle textures (variables are custom made and not available in vanilla ui)
-        "$option_toggle_off_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_off",
-        "$option_toggle_on_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_on",
-        "$option_toggle_off_hover_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_off_hover",
-        "$option_toggle_on_hover_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_on_hover",
+        "$option_toggle_off_texture": "textures/apeirix/ui/custom_form/toggle/custom_toggle_off",
+        "$option_toggle_on_texture": "textures/apeirix/ui/custom_form/toggle/custom_toggle_on",
+        "$option_toggle_off_hover_texture": "textures/apeirix/ui/custom_form/toggle/custom_toggle_off_hover",
+        "$option_toggle_on_hover_texture": "textures/apeirix/ui/custom_form/toggle/custom_toggle_on_hover",
         "$hover": false,
         "$option_toggle_outline_hover": "textures/forms/modal/toggles/toggle_outline_on_hover",
 

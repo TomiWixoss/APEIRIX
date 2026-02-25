@@ -22,7 +22,7 @@
     "orientation": "vertical",
     "anchor_from": "top_left",
     "anchor_to": "top_left",
-    "$button_texture|default": "textures/cc/ui/style_book",
+    "$button_texture|default": "textures/apeirix/ui/style_book",
 
     "controls": [
       {

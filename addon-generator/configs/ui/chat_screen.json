@@ -3,9 +3,10 @@
       "bindings": [
         {
           "binding_type": "view",
-          "source_property_name": "((('§␛' + #text + '§r') - ('§␛' + 'toast.') = ('§␛' + #text + '§r')) and (('§␛' + #text + '§r') - ('§␛' + 'cc:portal') = ('§␛' + #text + '§r')))",
+          "source_property_name": "((('§␛' + #text + '§r') - ('§␛' + 'toast.') = ('§␛' + #text + '§r')) and (('§␛' + #text + '§r') - ('§␛' + 'apeirix:portal') = ('§␛' + #text + '§r')))",
           "target_property_name": "#visible"
         }
       ]
     }
   }
+

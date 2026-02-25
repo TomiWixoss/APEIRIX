@@ -53,23 +53,23 @@ export const LANG_EN = {
         "achievementBook": "APEIRIX Achievement Book"
     },
     "wiki": {
-        "title": "§l§6ENCYCLOPEDIA",
-        "itemCount": "§7Discovered: §e{count}§7 items",
+        "title": "§l§0ENCYCLOPEDIA",
+        "itemCount": "§0Discovered: §0{count}§0 items",
         "noItemsFound": "§cNo APEIRIX items found in inventory!",
-        "selectItem": "§7Select an item to view details",
+        "selectItem": "§0Select an item to view details",
         "back": "§cBack",
-        "emptyTitle": "§l§6ENCYCLOPEDIA",
-        "emptyMessage": "§7You don't have any APEIRIX items in your inventory yet.\n\n§eExplore the world and collect items to unlock information in the encyclopedia!\n\n§7Available categories:\n§8• §aMaterials\n§8• §aTools\n§8• §aArmor\n§8• §aFoods\n§8• §aSpecial",
-        "emptyButton": "§aGot it",
-        "description": "§7Description:",
-        "category": "§7Category:",
-        "information": "Information",
+        "emptyTitle": "§l§0ENCYCLOPEDIA",
+        "emptyMessage": "§0You don't have any APEIRIX items in your inventory yet.\n\n§0Explore the world and collect items to unlock information in the encyclopedia!\n\n§0Available categories:\n§0• §0Materials\n§0• §0Tools\n§0• §0Armor\n§0• §0Foods\n§0• §0Special",
+        "emptyButton": "§0Got it",
+        "description": "§0Description:",
+        "category": "§0Category:",
+        "information": "§l§0Information",
         "categories": {
-            "materials": "Materials",
-            "tools": "Tools",
-            "armor": "Armor",
-            "foods": "Foods",
-            "special": "Special"
+            "materials": "§0Materials",
+            "tools": "§0Tools",
+            "armor": "§0Armor",
+            "foods": "§0Foods",
+            "special": "§0Special"
         }
     }
 };

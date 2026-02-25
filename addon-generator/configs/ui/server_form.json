@@ -19,7 +19,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(not (('%.3s' * #title_text) = 'cc:'))",
+              "source_property_name": "(not (('%.13s' * #title_text) = 'apeirix:wiki:'))",
               "target_property_name": "#visible"
             }
           ]
@@ -54,7 +54,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "((not ((#title_text - 'cc:book:') = #title_text)) and ((#title_text - 'dark:') = #title_text))",
+              "source_property_name": "((not ((#title_text - 'apeirix:wiki:') = #title_text)) and ((#title_text - 'dark:') = #title_text))",
               "target_property_name": "#visible"
             }
           ]
@@ -74,14 +74,14 @@
                   {
                     "button_panel@server_form.book_button_panel_main": {
                       "$body_text_color": "white",
-                      "$button_texture": "textures/cc/ui/style_dark_book",
+                      "$button_texture": "textures/apeirix/ui/style_dark_book",
                       "$default_text_color": [0.8274509804, 0.8274509804, 0.8274509804]
                     }
                   },
                   {
                     "content@server_form.book_button_panel_content": {
-                      "$frame_texture": "textures/cc/ui/dark_book_frame",
-                      "$back_texture": "textures/cc/ui/dark_book_back",
+                      "$frame_texture": "textures/apeirix/ui/dark_book_frame",
+                      "$back_texture": "textures/apeirix/ui/dark_book_back",
                       "$title_text_color": "white"
                     }
                   }
@@ -95,7 +95,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(not ((#title_text - 'cc:book:dark:') = #title_text))",
+              "source_property_name": "(not ((#title_text - 'apeirix:wiki:dark:') = #title_text))",
               "target_property_name": "#visible"
             }
           ]
@@ -131,7 +131,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(not ((#title_text - 'cc:task:') = #title_text))",
+              "source_property_name": "(not ((#title_text - 'apeirix:task:') = #title_text))",
               "target_property_name": "#visible"
             }
           ]
@@ -200,7 +200,7 @@
                   },
                   {
                     "binding_type": "view",
-                    "source_property_name": "((#title_text - 'cc:book:dark:') - 'cc:book:')",
+                    "source_property_name": "((#title_text - 'apeirix:wiki:dark:') - 'apeirix:wiki:')",
                     "target_property_name": "#text_remainder"
                   },
                   {
@@ -223,7 +223,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "((#title_text - 'cc:book:dark:') - 'cc:book:')",
+              "source_property_name": "((#title_text - 'apeirix:wiki:dark:') - 'apeirix:wiki:')",
               "target_property_name": "#text_remainder"
             },
             {
@@ -271,7 +271,7 @@
                   },
                   {
                     "binding_type": "view",
-                    "source_property_name": "((#title_text - 'cc:book:dark:') - 'cc:book:')",
+                    "source_property_name": "((#title_text - 'apeirix:wiki:dark:') - 'apeirix:wiki:')",
                     "target_property_name": "#text_remainder"
                   },
                   {
@@ -289,7 +289,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "((#title_text - 'cc:book:dark:') - 'cc:book:')",
+              "source_property_name": "((#title_text - 'apeirix:wiki:dark:') - 'apeirix:wiki:')",
               "target_property_name": "#text_remainder"
             },
             {
@@ -435,7 +435,7 @@
   "book_button": {
     "type": "panel",
     "size": ["100%", "100%c + 2px"],
-    "$button_texture|default": "textures/cc/ui/style_book",
+    "$button_texture|default": "textures/apeirix/ui/style_book",
     "controls": [
       {
         "book_button2": {
@@ -612,7 +612,7 @@
                   },
                   {
                     "binding_type": "view",
-                    "source_property_name": "(#title_text - 'cc:task:')",
+                    "source_property_name": "(#title_text - 'apeirix:task:')",
                     "target_property_name": "#text_remainder"
                   },
                   {
@@ -635,7 +635,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(#title_text - 'cc:task:')",
+              "source_property_name": "(#title_text - 'apeirix:task:')",
               "target_property_name": "#text_remainder"
             },
             {
@@ -683,7 +683,7 @@
                   },
                   {
                     "binding_type": "view",
-                    "source_property_name": "(#title_text - 'cc:task:')",
+                    "source_property_name": "(#title_text - 'apeirix:task:')",
                     "target_property_name": "#text_remainder"
                   },
                   {
@@ -701,7 +701,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(#title_text - 'cc:task:')",
+              "source_property_name": "(#title_text - 'apeirix:task:')",
               "target_property_name": "#text_remainder"
             },
             {
@@ -837,7 +837,7 @@
   "task_button": {
     "type": "panel",
     "size": ["100%", "100%c + 2px"],
-    "$button_texture|default": "textures/cc/ui/style_book",
+    "$button_texture|default": "textures/apeirix/ui/style_book",
     "controls": [
       {
         "task_button2": {
@@ -954,7 +954,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(not (('%.8s' * #title_text) = 'cc:book:'))",
+              "source_property_name": "(not (('%.13s' * #title_text) = 'apeirix:wiki:'))",
               "target_property_name": "#visible"
             }
           ]
@@ -990,7 +990,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "((not ((#title_text - 'cc:book:') = #title_text)) and ((#title_text - 'dark:') = #title_text))",
+              "source_property_name": "((not ((#title_text - 'apeirix:wiki:') = #title_text)) and ((#title_text - 'dark:') = #title_text))",
               "target_property_name": "#visible"
             }
           ]
@@ -1010,16 +1010,16 @@
                   {
                     "button_panel@server_form.book_button_panel_main": {
                       "$body_text_color": "white",
-                      "$button_texture": "textures/cc/ui/style_dark_book",
-                      "$dropdownBG": "textures/cc/ui/style_dark_book",
+                      "$button_texture": "textures/apeirix/ui/style_dark_book",
+                      "$dropdownBG": "textures/apeirix/ui/style_dark_book",
                       "$default_text_color": [0.8274509804, 0.8274509804, 0.8274509804],
                       "$scrolling_content": "global_custom_form.custom_form_panel"
                     }
                   },
                   {
                     "content@server_form.book_button_panel_content": {
-                      "$frame_texture": "textures/cc/ui/dark_book_frame",
-                      "$back_texture": "textures/cc/ui/dark_book_back",
+                      "$frame_texture": "textures/apeirix/ui/dark_book_frame",
+                      "$back_texture": "textures/apeirix/ui/dark_book_back",
                       "$title_text_color": "white"
                     }
                   }
@@ -1033,7 +1033,7 @@
             },
             {
               "binding_type": "view",
-              "source_property_name": "(not ((#title_text - 'cc:book:dark:') = #title_text))",
+              "source_property_name": "(not ((#title_text - 'apeirix:wiki:dark:') = #title_text))",
               "target_property_name": "#visible"
             }
           ]
@@ -1042,3 +1042,5 @@
     ]
   }
 }
+
+

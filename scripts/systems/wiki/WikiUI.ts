@@ -1,6 +1,6 @@
 /**
  * Wiki UI - Encyclopedia for APEIRIX items
- * Displays items from inventory with icon + name button format
+ * Uses JSON UI (book-style) for custom display
  */
 
 import { Player, Container } from "@minecraft/server";
@@ -79,11 +79,11 @@ export class WikiUI {
                 // Info already in generated data (no need to look up in lang)
                 const info = (wikiData.info || {}) as unknown as Record<string, string | number | boolean>;
 
-                // Use icon from wiki data or default to item texture path
+                // Use icon from wiki data or default to full texture path
                 const hasIcon = "icon" in wikiData;
                 const iconPath: string = hasIcon && typeof wikiData.icon === "string"
                     ? wikiData.icon 
-                    : `textures/items/${shortId}`;
+                    : `textures/items/${shortId}`; // Full texture path (without .png)
 
                 items.push({
                     id: fullId,
@@ -100,24 +100,32 @@ export class WikiUI {
     }
 
     /**
-     * Show item list with icon + name buttons
+     * Show item list with JSON UI book-style format
+     * Title format: apeirix:wiki:<icon>|<title>
      */
     private static async showItemList(player: Player, items: WikiItem[]): Promise<void> {
-        const form = new ActionFormData()
-            .title(LangManager.get("wiki.title"))
-            .body(
-                LangManager.get("wiki.selectItem") +
-                    "\n" +
-                    LangManager.get("wiki.itemCount").replace("{count}", items.length.toString())
-            );
-
         // Sort items by name
         items.sort((a, b) => a.name.localeCompare(b.name));
+
+        // Build body text with item count
+        const bodyText = LangManager.get("wiki.selectItem") + "\n" + 
+                        LangManager.get("wiki.itemCount").replace("{count}", items.length.toString());
+
+        // Build title WITH ICON for list view (using wiki_book icon)
+        // Format: apeirix:wiki:<icon_texture_padded_200>$<title_text>
+        const wikiIconPath = "textures/items/wiki_book";
+        const paddedWikiIcon = wikiIconPath.padEnd(200, "$");
+        const titleText = LangManager.get("wiki.title");
+        const jsonUITitle = `apeirix:wiki:${paddedWikiIcon}${titleText}`;
+        
+        const form = new ActionFormData()
+            .title(jsonUITitle) // JSON UI format with icon
+            .body(bodyText);
 
         // Add buttons with icon path and name
         items.forEach((item) => {
             // Button format: icon path, display name
-            form.button(`§8${item.name}`, item.icon);
+            form.button(item.name, item.icon);
         });
 
         try {
@@ -132,34 +140,44 @@ export class WikiUI {
     }
 
     /**
-     * Show detailed information about an item
+     * Show detailed information about an item with JSON UI book-style
+     * Title format: apeirix:wiki:<icon_padded_200>$<title>
      */
     private static async showItemDetail(
         player: Player,
         item: WikiItem,
         allItems: WikiItem[]
     ): Promise<void> {
-        let body = `§r§f${item.name}\n\n`;
+        // Build title with item icon (padded to 200 chars)
+        // Format: apeirix:wiki:<icon_texture_padded_200>$<item_name>
+        // Use direct texture path to PNG file (JSON UI can load this)
+        const shortId = item.id.replace("apeirix:", "");
+        const iconTexturePath = `textures/items/${shortId}`;
+        const paddedIcon = iconTexturePath.padEnd(200, "$");
+        const jsonUITitle = `apeirix:wiki:${paddedIcon}${item.name}`;
+
+        // Build body text with category and info
+        let body = "";
 
         // Category
         const categoryKey = `wiki.categories.${item.category}`;
-        body += `${LangManager.get("wiki.category")} §e${LangManager.get(categoryKey)}\n\n`;
+        body += `${LangManager.get("wiki.category")} ${LangManager.get(categoryKey)}\n\n`;
 
-        // Description
+        // Description (if exists)
         if (item.description) {
-            body += `${LangManager.get("wiki.description")}\n§f${item.description}\n\n`;
+            body += `${LangManager.get("wiki.description")}\n${item.description}\n\n`;
         }
 
         // Additional info
         if (item.info && Object.keys(item.info).length > 0) {
-            body += `§l§e${LangManager.get("wiki.information")}:\n`;
+            body += `${LangManager.get("wiki.information")}:\n`;
             for (const [key, value] of Object.entries(item.info)) {
-                body += `§r§7${key}: §f${value}\n`;
+                body += `§0${key}:§r §8${value}\n`;
             }
         }
 
         const form = new ActionFormData()
-            .title(LangManager.get("wiki.title"))
+            .title(jsonUITitle)
             .body(body)
             .button(LangManager.get("wiki.back"));
 

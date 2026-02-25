@@ -15,7 +15,7 @@
 	},
 	"portal": {
 		"type": "image",
-		"texture": "textures/cc/ui/portal",
+		"texture": "textures/apeirix/ui/portal",
 		"alpha": "@hud.portal_alpha",
 		"uv": "@hud.portal_uv",
 		"uv_size": [16, 16],
@@ -31,7 +31,7 @@
 			},
 			{
 				"binding_type": "view",
-				"source_property_name": "(('%.9s' * #text) = 'cc:portal')",
+				"source_property_name": "(('%.15s' * #text) = 'apeirix:portal')",
 				"target_property_name": "#visible"
 			}
 		]
@@ -99,7 +99,7 @@
 		"type": "image",
 		"anchor_to": "top_right",
 		"anchor_from": "top_right",
-		"texture": "textures/cc/ui/style_dark",
+		"texture": "textures/apeirix/ui/style_dark",
 		"size": [
 			"100%c + 17px", //background width
 			"100%cm + 7px" //background height
@@ -266,9 +266,10 @@
 		"bindings": [
 			{
 				"binding_type": "view",
-				"source_property_name": "((('§␛' + #text + '§r') - ('§␛' + 'toast.') = ('§␛' + #text + '§r')) and (('§␛' + #text + '§r') - ('§␛' + 'cc:portal') = ('§␛' + #text + '§r')))",
+				"source_property_name": "((('§␛' + #text + '§r') - ('§␛' + 'toast.') = ('§␛' + #text + '§r')) and (('§␛' + #text + '§r') - ('§␛' + 'apeirix:portal') = ('§␛' + #text + '§r')))",
 				"target_property_name": "#visible"
 			}
 		]
 	}
 }
+

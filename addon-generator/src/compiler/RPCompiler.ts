@@ -247,9 +247,9 @@ export class RPCompiler {
     // Copy UI JSON files
     this.copyDirectoryRecursive(uiSourceDir, uiDestDir);
     
-    // Copy UI textures to textures/cc/ui/
+    // Copy UI textures to textures/apeirix/ui/
     if (existsSync(uiTexturesSourceDir)) {
-      const uiTexturesDestDir = path.join(texturesDestDir, 'cc', 'ui');
+      const uiTexturesDestDir = path.join(texturesDestDir, 'apeirix', 'ui');
       this.copyDirectoryRecursive(uiTexturesSourceDir, uiTexturesDestDir);
     }
     
