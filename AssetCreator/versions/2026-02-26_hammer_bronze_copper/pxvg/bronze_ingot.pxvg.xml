@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#8B5A2BFF" />
+    <color k="B" hex="#A0522DFF" />
+    <color k="C" hex="#654321FF" />
+    <color k="D" hex="#CD853FFF" />
+    <color k="E" hex="#8B4513FF" />
+    <color k="F" hex="#D2691EFF" />
+    <color k="G" hex="#3D2314FF" />
+    <color k="H" hex="#DEB887FF" />
+  </palette>
+  <layer id="main">
+    <rect x="0" y="6" w="1" h="5" c="A" />
+    <rect x="1" y="7" w="1" h="4" c="D" />
+    <row y="2" x1="10" x2="11" c="A" />
+    <row y="3" x1="7" x2="9" c="A" />
+    <row y="3" x1="10" x2="11" c="B" />
+    <row y="4" x1="4" x2="6" c="A" />
+    <row y="4" x1="9" x2="10" c="E" />
+    <row y="5" x1="1" x2="3" c="A" />
+    <row y="5" x1="5" x2="6" c="D" />
+    <row y="5" x1="8" x2="9" c="E" />
+    <row y="5" x1="11" x2="12" c="D" />
+    <row y="6" x1="3" x2="5" c="D" />
+    <row y="6" x1="7" x2="8" c="E" />
+    <row y="6" x1="10" x2="11" c="D" />
+    <row y="6" x1="12" x2="13" c="F" />
+    <row y="7" x1="3" x2="4" c="D" />
+    <row y="7" x1="5" x2="7" c="B" />
+    <row y="7" x1="9" x2="11" c="F" />
+    <row y="7" x1="13" x2="14" c="E" />
+    <row y="8" x1="4" x2="5" c="D" />
+    <row y="8" x1="6" x2="8" c="F" />
+    <row y="8" x1="10" x2="11" c="B" />
+    <row y="9" x1="7" x2="8" c="E" />
+    <row y="9" x1="9" x2="10" c="B" />
+    <row y="9" x1="12" x2="13" c="C" />
+    <row y="10" x1="2" x2="3" c="E" />
+    <row y="10" x1="6" x2="7" c="E" />
+    <row y="10" x1="8" x2="9" c="B" />
+    <row y="10" x1="13" x2="14" c="G" />
+    <row y="11" x1="5" x2="6" c="E" />
+    <row y="11" x1="7" x2="8" c="B" />
+    <row y="11" x1="10" x2="12" c="G" />
+    <row y="12" x1="7" x2="9" c="G" />
+    <row y="13" x1="3" x2="4" c="A" />
+    <row y="13" x1="5" x2="6" c="G" />
+    <dots c="A" pts="1,11 2,12" />
+    <dots c="B" pts="8,4 11,4 4,5 7,5 10,5 13,5 2,6 6,6 9,6 12,7 2,8 3,9 6,9 14,9 5,10 2,11 6,12" />
+    <dots c="C" pts="12,3 13,4 14,5 15,6 13,8 11,10" />
+    <dots c="D" pts="7,4 12,4 14,6 8,7 9,8 4,12" />
+    <dots c="E" pts="12,8 14,8 2,9 11,9 10,10 12,10 3,11 9,11 3,12 5,12" />
+    <dots c="F" pts="1,6 2,7 3,8 5,9 4,10 4,11" />
+    <dots c="G" pts="15,7 15,8 15,9" />
+    <dots c="H" pts="4,9" />
+  </layer>
+</pxvg>

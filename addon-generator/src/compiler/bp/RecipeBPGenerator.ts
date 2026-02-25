@@ -43,6 +43,15 @@ export class RecipeBPGenerator {
               tags: recipe.tags || (recipe.type === 'blasting' ? ['blast_furnace'] : ['furnace', 'blast_furnace', 'soul_campfire', 'campfire'])
             });
             break;
+          case 'smithing_transform':
+            generator.createSmithingTransform({
+              id: recipe.id,
+              template: recipe.template,
+              base: recipe.base,
+              addition: recipe.addition,
+              result: recipe.result
+            });
+            break;
           default:
             console.warn(`  ⚠ Unknown recipe type: ${recipe.type}`);
             continue;

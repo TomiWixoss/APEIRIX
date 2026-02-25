@@ -46,6 +46,11 @@ export class HammerGenerator {
     if (config.tier) {
       tags.unshift(`minecraft:${config.tier}_tier`);
     }
+    
+    // Add transformable_items tag for diamond tier (để có thể nâng cấp lên netherite)
+    if (config.tier === 'diamond') {
+      tags.push('minecraft:transformable_items');
+    }
 
     const itemData = {
       format_version: "1.21.0",

@@ -71,6 +71,11 @@ export const GENERATED_TOOLS = [
     durability: 131
   },
   {
+    id: "apeirix:copper_hammer",
+    type: "hammer" as const,
+    durability: 200
+  },
+  {
     id: "apeirix:iron_hammer",
     type: "hammer" as const,
     durability: 250
@@ -81,9 +86,19 @@ export const GENERATED_TOOLS = [
     durability: 32
   },
   {
+    id: "apeirix:bronze_hammer",
+    type: "hammer" as const,
+    durability: 250
+  },
+  {
     id: "apeirix:diamond_hammer",
     type: "hammer" as const,
     durability: 1561
+  },
+  {
+    id: "apeirix:netherite_hammer",
+    type: "hammer" as const,
+    durability: 2031
   }
 ];
 
@@ -693,7 +708,10 @@ export const GENERATED_HAMMER_MINING = [
 export const GENERATED_HAMMER_IDS = [
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
+  "apeirix:copper_hammer",
   "apeirix:iron_hammer",
   "apeirix:golden_hammer",
-  "apeirix:diamond_hammer"
+  "apeirix:bronze_hammer",
+  "apeirix:diamond_hammer",
+  "apeirix:netherite_hammer"
 ];

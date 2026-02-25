@@ -1,7 +1,10 @@
 import:
   - wooden_hammer.yaml
   - stone_hammer.yaml
+  - copper_hammer.yaml
   - iron_hammer.yaml
   - golden_hammer.yaml
+  - bronze_hammer.yaml
   - diamond_hammer.yaml
+  - netherite_hammer.yaml
   - index.test.yaml

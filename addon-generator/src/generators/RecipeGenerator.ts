@@ -34,6 +34,14 @@ export interface SmeltingRecipeConfig {
   tags?: string[];
 }
 
+export interface SmithingTransformRecipeConfig {
+  id: string;
+  template: string;
+  base: string;
+  addition: string;
+  result: string;
+}
+
 export class RecipeGenerator {
   constructor(private projectRoot: string) {}
 
@@ -155,6 +163,38 @@ export class RecipeGenerator {
     const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipe);
     console.log(`✅ Đã tạo smelting recipe: ${config.id}`);
+  }
+
+  /**
+   * Tạo smithing transform recipe (nâng cấp netherite)
+   */
+  createSmithingTransform(config: SmithingTransformRecipeConfig): void {
+    const recipe = {
+      format_version: "1.21.0",
+      "minecraft:recipe_smithing_transform": {
+        description: {
+          identifier: `apeirix:${config.id}`
+        },
+        tags: ["smithing_table"],
+        template: this.formatItem(config.template),
+        base: this.formatItem(config.base),
+        addition: this.formatItem(config.addition),
+        result: this.formatItem(config.result)
+      }
+    };
+
+    // Strip "apeirix:" prefix từ ID để tạo filename hợp lệ
+    const filename = config.id.replace(/^apeirix:/, '');
+    
+    // Validate filename không rỗng
+    if (!filename || filename.trim() === '') {
+      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      return;
+    }
+    
+    const path = join(this.projectRoot, `recipes/${filename}.json`);
+    FileManager.writeJSON(path, recipe);
+    console.log(`✅ Đã tạo smithing_transform recipe: ${config.id}`);
   }
 
   private formatItem(item: string): string {
