@@ -1,6 +1,6 @@
 addon:
   name: APEIRIX
-  description: Addon Minecraft Bedrock Edition thêm mọi thứ vào game
+  description: lang:addon.description
   author: TomiSakae
   language: vi_VN # Default language: vi_VN, en_US
   enableJsonUI: true # Enable JSON UI for custom forms (deprecated but still works)

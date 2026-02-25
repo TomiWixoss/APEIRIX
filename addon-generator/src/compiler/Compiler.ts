@@ -7,6 +7,7 @@ import { BPCompiler } from './BPCompiler.js';
 import { RPCompiler } from './RPCompiler.js';
 import { AssetCopier } from './AssetCopier.js';
 import { UUIDGenerator } from '../utils/UUIDGenerator.js';
+import { langLoader } from '../core/loaders/LangLoader.js';
 
 export interface CompileOptions {
   config?: string;
@@ -186,9 +187,18 @@ export class Compiler {
   private async generateManifests(config: AddonConfig): Promise<void> {
     console.log('📋 Generating manifests...');
 
+    // Resolve description from lang if it starts with "lang:"
+    let description = config.addon.description;
+    if (description && description.startsWith('lang:')) {
+      const langKey = description.substring(5); // Remove "lang:" prefix
+      const configDir = path.dirname(this.configPath);
+      description = langLoader.get(langKey, configDir, description);
+      console.log(`[Compiler] Resolved description: ${langKey} -> ${description}`);
+    }
+
     const metadata: AddonMetadata = {
       name: config.addon.name,
-      description: config.addon.description,
+      description: description,
       version: config.addon.version || [1, 0, 0],
       minEngineVersion: config.addon.minEngineVersion || [1, 21, 0],
       author: config.addon.author,
