@@ -15,9 +15,9 @@ wiki:
   emptyButton: "§0Đã hiểu"
 
   # Detail labels
-  description: "§0Mô tả:"
-  category: "§0Danh mục:"
-  information: "§l§0Thông tin"
+  description: "Mô tả:"
+  category: "Danh mục:"
+  information: "§lThông tin"
 
   # Category names
   categories:

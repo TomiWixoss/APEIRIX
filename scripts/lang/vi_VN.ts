@@ -61,9 +61,9 @@ export const LANG_VI = {
         "emptyTitle": "§l§0BÁCH KHOA TOÀN THƯ",
         "emptyMessage": "§0Bạn chưa có vật phẩm APEIRIX nào trong túi đồ.\n\n§0Hãy khám phá thế giới và thu thập các vật phẩm để mở khóa thông tin trong bách khoa toàn thư!\n\n§0Các danh mục có sẵn:\n§0• §0Nguyên liệu\n§0• §0Công cụ\n§0• §0Giáp\n§0• §0Thức ăn\n§0• §0Đặc biệt",
         "emptyButton": "§0Đã hiểu",
-        "description": "§0Mô tả:",
-        "category": "§0Danh mục:",
-        "information": "§l§0Thông tin",
+        "description": "Mô tả:",
+        "category": "Danh mục:",
+        "information": "§lThông tin",
         "categories": {
             "materials": "§0Nguyên liệu",
             "tools": "§0Công cụ",

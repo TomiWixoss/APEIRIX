@@ -13,9 +13,9 @@ wiki:
   emptyButton: "§0Got it"
 
   # Detail labels
-  description: "§0Description:"
-  category: "§0Category:"
-  information: "§l§0Information"
+  description: "Description:"
+  category: "Category:"
+  information: "§lInformation"
 
   # Category names
   categories:
