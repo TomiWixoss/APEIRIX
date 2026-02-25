@@ -20,7 +20,7 @@ export class RPCompiler {
   /**
    * Compile complete Resource Pack
    */
-  static async compile(config: RPConfig, outputDir: string): Promise<void> {
+  static async compile(config: RPConfig, outputDir: string, configDir: string = ''): Promise<void> {
     console.log('\n🎨 Compiling Resource Pack...');
     
     const rpPath = path.join(outputDir, 'RP');
@@ -42,8 +42,8 @@ export class RPCompiler {
       stats.attachables = await this.generateAttachables(config.armor, rpPath);
     }
 
-    // Generate lang file
-    stats.langEntries = await this.generateLangFile(config, rpPath);
+    // Generate lang file (pass configDir)
+    stats.langEntries = await this.generateLangFile(config, rpPath, configDir);
 
     // Generate languages.json
     this.generateLanguagesJson(rpPath);
@@ -134,15 +134,16 @@ export class RPCompiler {
   /**
    * Generate lang file using LangGenerator
    */
-  private static async generateLangFile(config: RPConfig, rpPath: string): Promise<number> {
-    const generator = new LangGenerator(rpPath);
+  private static async generateLangFile(config: RPConfig, rpPath: string, configDir: string = ''): Promise<number> {
+    const generator = new LangGenerator(rpPath, configDir);
     const entries: Record<string, string> = {};
 
-    // Collect all lang entries (same as BP)
+    // Collect all lang entries (resolve lang: prefix)
     if (config.items) {
       for (const item of config.items) {
         if (item.name) {
-          entries[`item.apeirix.${item.id}.name`] = item.name;
+          const displayName = generator.resolveName(item.name);
+          entries[`item.apeirix.${item.id}.name`] = displayName;
         }
       }
     }
@@ -150,7 +151,8 @@ export class RPCompiler {
     if (config.tools) {
       for (const tool of config.tools) {
         if (tool.name) {
-          entries[`item.apeirix.${tool.id}.name`] = tool.name;
+          const displayName = generator.resolveName(tool.name);
+          entries[`item.apeirix.${tool.id}.name`] = displayName;
         }
       }
     }
@@ -158,7 +160,8 @@ export class RPCompiler {
     if (config.armor) {
       for (const armor of config.armor) {
         if (armor.name) {
-          entries[`item.apeirix.${armor.id}.name`] = armor.name;
+          const displayName = generator.resolveName(armor.name);
+          entries[`item.apeirix.${armor.id}.name`] = displayName;
         }
       }
     }
@@ -166,7 +169,8 @@ export class RPCompiler {
     if (config.foods) {
       for (const food of config.foods) {
         if (food.name) {
-          entries[`item.apeirix.${food.id}.name`] = food.name;
+          const displayName = generator.resolveName(food.name);
+          entries[`item.apeirix.${food.id}.name`] = displayName;
         }
       }
     }
@@ -174,7 +178,8 @@ export class RPCompiler {
     if (config.blocks) {
       for (const block of config.blocks) {
         if (block.name) {
-          entries[`tile.apeirix:${block.id}.name`] = block.name;
+          const displayName = generator.resolveName(block.name);
+          entries[`tile.apeirix:${block.id}.name`] = displayName;
         }
       }
     }
@@ -182,12 +187,18 @@ export class RPCompiler {
     if (config.ores) {
       for (const ore of config.ores) {
         if (ore.name) {
-          entries[`tile.apeirix:${ore.id}.name`] = ore.name;
+          const displayName = generator.resolveName(ore.name);
+          entries[`tile.apeirix:${ore.id}.name`] = displayName;
         }
         // Add deepslate variant if exists
         if (ore.deepslateTexturePath || ore.deepslateTexture) {
-          const deepslateName = ore.deepslateName || `Deepslate ${ore.name}`;
-          entries[`tile.apeirix:deepslate_${ore.id}.name`] = deepslateName;
+          // Resolve ore.name first before creating deepslate name
+          const resolvedOreName = ore.name ? generator.resolveName(ore.name) : ore.id;
+          const deepslateName = ore.deepslateName || `Deepslate ${resolvedOreName}`;
+          const resolvedDeepslateName = deepslateName.startsWith('lang:') 
+            ? generator.resolveName(deepslateName)
+            : deepslateName;
+          entries[`tile.apeirix:deepslate_${ore.id}.name`] = resolvedDeepslateName;
         }
       }
     }

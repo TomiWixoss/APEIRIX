@@ -1,6 +1,7 @@
 ---
 inclusion: auto
 fileMatchPattern: "**/*.yaml"
+description: "Language system documentation - auto-included when editing YAML files"
 ---
 
 # Hệ Thống Ngôn Ngữ (Language System)

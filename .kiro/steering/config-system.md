@@ -1,6 +1,7 @@
 ---
 inclusion: auto
 fileMatchPattern: "**/configs/**/*.yaml"
+description: "Config system documentation - auto-included when editing config YAML files"
 ---
 
 # Config System

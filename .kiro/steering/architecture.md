@@ -1,6 +1,7 @@
 ---
 inclusion: auto
 fileMatchPattern: "**/src/**/*.ts"
+description: "Architecture documentation - auto-included when editing TypeScript files"
 ---
 
 # Architecture

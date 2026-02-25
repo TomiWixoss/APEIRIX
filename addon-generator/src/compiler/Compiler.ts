@@ -78,8 +78,8 @@ export class Compiler {
       // 5. Compile BP (pass configDir)
       await BPCompiler.compile(config, this.outputDir, configDir);
 
-      // 6. Compile RP
-      await RPCompiler.compile(config, this.outputDir);
+      // 6. Compile RP (pass configDir)
+      await RPCompiler.compile(config, this.outputDir, configDir);
 
       // 7. Copy assets
       await AssetCopier.copy({

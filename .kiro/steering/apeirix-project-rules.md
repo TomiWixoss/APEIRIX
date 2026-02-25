@@ -1,3 +1,7 @@
+---
+description: "APEIRIX project rules and development guidelines"
+---
+
 # APEIRIX - Project Rules
 
 ## 📚 Documentation Structure

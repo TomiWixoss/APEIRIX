@@ -1,3 +1,7 @@
+---
+description: "APEIRIX quick reference - build commands and basic workflow"
+---
+
 # APEIRIX - Quick Reference
 
 ## Build Commands
