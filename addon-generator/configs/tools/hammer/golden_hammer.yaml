@@ -10,7 +10,7 @@ enchantability: 22
 efficiency: 12
 tier: golden
 diggerTags:
-  - is_pickaxe_item_destructible
+  - minecraft:is_pickaxe_item_destructible
   - stone
   - metal
   - rock

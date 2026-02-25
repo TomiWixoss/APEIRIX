@@ -10,7 +10,7 @@ enchantability: 10
 efficiency: 8
 tier: diamond
 diggerTags:
-  - is_pickaxe_item_destructible
+  - minecraft:is_pickaxe_item_destructible
   - stone
   - metal
   - rock

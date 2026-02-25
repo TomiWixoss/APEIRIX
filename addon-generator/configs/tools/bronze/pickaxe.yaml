@@ -6,7 +6,7 @@ damage: 4
 category: equipment
 group: itemGroup.name.pickaxe
 diggerTags:
-  - is_pickaxe_item_destructible
+  - minecraft:is_pickaxe_item_destructible
   - stone
   - metal
   - rock

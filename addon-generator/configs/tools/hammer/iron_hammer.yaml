@@ -10,7 +10,7 @@ enchantability: 14
 efficiency: 6
 tier: iron
 diggerTags:
-  - is_pickaxe_item_destructible
+  - minecraft:is_pickaxe_item_destructible
   - stone
   - metal
   - rock
