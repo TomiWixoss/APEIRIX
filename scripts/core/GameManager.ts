@@ -13,6 +13,7 @@ import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
 import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
+import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { GameData } from "../data/GameData";
 
 // Import achievements
@@ -68,6 +69,7 @@ export class GameManager {
         FoodEffectsSystem.getInstance();
         CanWashingSystem.initialize();
         HammerMiningSystem.initialize();
+        OreCrusherSystem.initialize();
     }
 
     private static setupEventListeners(): void {

@@ -1,0 +1,26 @@
+id: ore_crusher
+name: lang:blocks.ore_crusher
+textureFront: ../../../assets/blocks/orecrushermk1front.png
+textureSide: ../../../assets/blocks/orecrushermk1allothersides.png
+textureTop: ../../../assets/blocks/orecrushermk1allothersides.png
+category: equipment
+destroyTime: 5.0
+explosionResistance: 10.0
+mapColor: "#4A4A4A"
+requiresTool: true
+toolTier: stone
+recipes:
+  - type: shaped
+    id: ore_crusher
+    pattern:
+      - "III"
+      - "IHI"
+      - "SSS"
+    ingredients:
+      I: minecraft:iron_ingot
+      H: apeirix:iron_hammer
+      S: minecraft:smooth_stone
+    result: apeirix:ore_crusher
+    count: 1
+    unlock:
+      - minecraft:iron_ingot

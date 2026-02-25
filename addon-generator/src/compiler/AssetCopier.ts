@@ -74,18 +74,20 @@ export class AssetCopier {
     if (config.blocks) {
       for (const block of config.blocks) {
         const blockConfigPath = (block as any)._sourcePath || config.configPath;
+        const blockId = (block as any).id;
+        
         if (block.texture) {
           this.copyTexture(blockConfigPath, block.texture, path.join(outputDir, 'RP', 'textures', 'blocks'));
         }
-        // Copy multi-face textures
+        // Copy multi-face textures with renamed filenames
         if (block.textureTop) {
-          this.copyTexture(blockConfigPath, block.textureTop, path.join(outputDir, 'RP', 'textures', 'blocks'));
+          this.copyTextureWithRename(blockConfigPath, block.textureTop, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_top.png`);
         }
         if (block.textureSide) {
-          this.copyTexture(blockConfigPath, block.textureSide, path.join(outputDir, 'RP', 'textures', 'blocks'));
+          this.copyTextureWithRename(blockConfigPath, block.textureSide, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_side.png`);
         }
         if (block.textureFront) {
-          this.copyTexture(blockConfigPath, block.textureFront, path.join(outputDir, 'RP', 'textures', 'blocks'));
+          this.copyTextureWithRename(blockConfigPath, block.textureFront, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_front.png`);
         }
       }
     }
@@ -143,6 +145,29 @@ export class AssetCopier {
       console.log(`  ✓ Copied pack icon: ${path.basename(iconPath)}`);
     } catch (error) {
       console.error(`  ✗ Failed to copy pack icon: ${error}`);
+    }
+  }
+
+  /**
+   * Copy texture file with custom destination filename
+   */
+  private static copyTextureWithRename(configPath: string, texturePath: string, destDir: string, destFilename: string): void {
+    const sourcePath = PathResolver.resolveTexture(configPath, texturePath);
+    
+    if (!existsSync(sourcePath)) {
+      console.warn(`⚠ Texture not found: ${sourcePath}`);
+      console.warn(`  Config path: ${configPath}`);
+      console.warn(`  Texture path: ${texturePath}`);
+      return;
+    }
+
+    this.ensureDir(destDir);
+    const destPath = path.join(destDir, destFilename);
+    
+    try {
+      copyFileSync(sourcePath, destPath);
+    } catch (error) {
+      console.error(`  ✗ Failed to copy texture ${destFilename}: ${error}`);
     }
   }
 
