@@ -4,3 +4,4 @@ build/
 *.log
 .DS_Store
 .addon-generator-history.json
+.uuid-cache.json

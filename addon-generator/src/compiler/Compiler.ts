@@ -185,13 +185,12 @@ export class Compiler {
       uuids: config.addon.uuids || {}
     };
 
-    // Generate both UUIDs first
-    const rpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.rp);
-    const bpUuid = UUIDGenerator.getOrGenerate(metadata.uuids.bp);
+    // Get UUIDs dựa trên version (cache nếu version giống, generate mới nếu khác)
+    const uuids = UUIDGenerator.getUUIDsForVersion(metadata.version);
     
-    // Generate manifests with consistent UUIDs
-    ManifestGenerator.generateBP(metadata, bpUuid, rpUuid, this.outputDir);
-    ManifestGenerator.generateRP(metadata, rpUuid, bpUuid, this.outputDir);
+    // Generate manifests với UUIDs đã cache
+    ManifestGenerator.generateBP(metadata, uuids, this.outputDir);
+    ManifestGenerator.generateRP(metadata, uuids, this.outputDir);
 
     console.log('✓ Manifests generated\n');
   }

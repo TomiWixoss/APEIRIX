@@ -26,20 +26,21 @@ export class ManifestGenerator {
   /**
    * Generate BP manifest
    */
-  static generateBP(metadata: AddonMetadata, bpUuid: string, rpUuid: string, outputDir: string): void {
+  static generateBP(metadata: AddonMetadata, uuids: { bp: string; rp: string; bpModule: string; bpScript: string; rpModule: string }, outputDir: string): void {
     const templatePath = path.join(__dirname, '../templates/bp-manifest.json');
     const template = readFileSync(templatePath, 'utf-8');
 
-    const moduleUuid = UUIDGenerator.generate();
-    const scriptUuid = UUIDGenerator.generate();
+    // Thêm version vào tên pack
+    const versionString = metadata.version.join('.');
+    const packName = `${metadata.name} v${versionString}`;
 
     const manifest = template
-      .replace('{{name}}', metadata.name)
+      .replace('{{name}}', packName)
       .replace('{{description}}', metadata.description)
-      .replace('{{uuid}}', bpUuid)
-      .replace('{{moduleUuid}}', moduleUuid)
-      .replace('{{scriptUuid}}', scriptUuid)
-      .replace('{{rpUuid}}', rpUuid)
+      .replace('{{uuid}}', uuids.bp)
+      .replace('{{moduleUuid}}', uuids.bpModule)
+      .replace('{{scriptUuid}}', uuids.bpScript)
+      .replace('{{rpUuid}}', uuids.rp)
       .replace('{{author}}', metadata.author || 'APEIRIX Team');
 
     // Parse and update version
@@ -59,18 +60,20 @@ export class ManifestGenerator {
   /**
    * Generate RP manifest
    */
-  static generateRP(metadata: AddonMetadata, rpUuid: string, bpUuid: string, outputDir: string): void {
+  static generateRP(metadata: AddonMetadata, uuids: { bp: string; rp: string; bpModule: string; bpScript: string; rpModule: string }, outputDir: string): void {
     const templatePath = path.join(__dirname, '../templates/rp-manifest.json');
     const template = readFileSync(templatePath, 'utf-8');
 
-    const moduleUuid = UUIDGenerator.generate();
+    // Thêm version vào tên pack
+    const versionString = metadata.version.join('.');
+    const packName = `${metadata.name} v${versionString}`;
 
     const manifest = template
-      .replace('{{name}}', metadata.name)
+      .replace('{{name}}', packName)
       .replace('{{description}}', metadata.description)
-      .replace('{{uuid}}', rpUuid)
-      .replace('{{moduleUuid}}', moduleUuid)
-      .replace('{{bpUuid}}', bpUuid)
+      .replace('{{uuid}}', uuids.rp)
+      .replace('{{moduleUuid}}', uuids.rpModule)
+      .replace('{{bpUuid}}', uuids.bp)
       .replace('{{author}}', metadata.author || 'APEIRIX Team');
 
     // Parse and update version
