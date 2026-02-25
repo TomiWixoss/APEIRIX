@@ -14,6 +14,21 @@ export class EntityNormalizer {
     
     // Nếu có 'id' field ở root level → đây là single entity file
     if (config.id) {
+      // Check if this is a test-only file (only has id + testCommands)
+      const keys = Object.keys(config);
+      const isTestOnly = keys.length <= 3 && // id, testCommands, và có thể _sourcePath
+        keys.includes('id') && 
+        keys.includes('testCommands') &&
+        !config.name && 
+        !config.texture;
+      
+      if (isTestOnly) {
+        // Test-only file - don't classify into any category
+        // Just return it as-is for mergeTestCommands to handle
+        normalized.items = [config]; // Temporary classification for mergeTestCommands
+        return normalized;
+      }
+      
       // Detect entity type dựa vào fields
       if (config.nutrition !== undefined) {
         // Food entity
@@ -31,7 +46,7 @@ export class EntityNormalizer {
         // Block entity
         normalized.blocks = [config];
       } else {
-        // Default: Item entity (includes .test.yaml files)
+        // Default: Item entity
         normalized.items = [config];
       }
       

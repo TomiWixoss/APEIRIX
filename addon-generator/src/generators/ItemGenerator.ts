@@ -17,6 +17,11 @@ export class ItemGenerator {
   constructor(private projectRoot: string) {}
 
   generate(config: ItemConfig): void {
+    // Skip if no name (test-only entity or improperly merged entity)
+    if (!config.name) {
+      return;
+    }
+    
     if (!Validator.validateItemId(config.id)) {
       throw new Error(`Item ID không hợp lệ: "${config.id}"`);
     }

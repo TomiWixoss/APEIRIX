@@ -9,25 +9,44 @@ export class ConfigMerger {
    * Merge two configs together
    * Auto-detect single entity files và convert thành array
    * Auto-merge testCommands từ .test.yaml files
-   * Deduplicate entities by ID (keep last occurrence with most specific _sourcePath)
+   * Deduplicate entities by ID (merge properties instead of replacing)
    */
   static merge(base: ContentConfig, imported: ContentConfig): ContentConfig {
     // Auto-detect single entity files (không có array, chỉ có properties trực tiếp)
     const importedNormalized = EntityNormalizer.normalize(imported);
     
     // Helper function to merge and deduplicate arrays by ID
+    // Merge properties instead of replacing entire entity
     const mergeArrays = (baseArr: any[] | undefined, importedArr: any[] | undefined): any[] => {
-      const combined = [...(baseArr || []), ...(importedArr || [])];
+      const combined = [...(baseArr || [])];
+      const seenIds = new Set(combined.map(e => e?.id).filter(Boolean));
       
-      // Deduplicate by ID - keep last occurrence (most recent/specific)
-      const seen = new Map<string, any>();
-      for (const entity of combined) {
-        if (entity && entity.id) {
-          seen.set(entity.id, entity);
+      // Add new entities or merge with existing ones
+      for (const importedEntity of (importedArr || [])) {
+        if (!importedEntity || !importedEntity.id) continue;
+        
+        if (seenIds.has(importedEntity.id)) {
+          // Entity already exists - merge properties
+          const existingEntity = combined.find(e => e.id === importedEntity.id);
+          if (existingEntity) {
+            // console.log(`[ConfigMerger] Merging ${importedEntity.id}: existing has name=${!!existingEntity.name}, imported has name=${!!importedEntity.name}`);
+            // Merge properties (imported properties override existing ones)
+            // But only merge non-undefined properties to avoid overwriting with undefined
+            for (const key in importedEntity) {
+              if (importedEntity[key] !== undefined) {
+                existingEntity[key] = importedEntity[key];
+              }
+            }
+          }
+        } else {
+          // New entity - add to array
+          // console.log(`[ConfigMerger] Adding new entity ${importedEntity.id}: has name=${!!importedEntity.name}`);
+          combined.push(importedEntity);
+          seenIds.add(importedEntity.id);
         }
       }
       
-      return Array.from(seen.values());
+      return combined;
     };
     
     const merged: ContentConfig = {

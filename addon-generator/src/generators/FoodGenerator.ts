@@ -33,6 +33,11 @@ export class FoodGenerator {
   constructor(private projectRoot: string) {}
 
   generate(config: FoodConfig): void {
+    // Skip if no name (test-only entity or improperly merged entity)
+    if (!config.name) {
+      return;
+    }
+    
     const itemPath = join(
       this.projectRoot,
       'items',
