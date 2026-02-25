@@ -3,11 +3,6 @@ name: lang:materials.tin_ingot
 texture: ../../../../assets/items/tin_ingot.png
 category: items
 maxStackSize: 64
-wiki:
-  category: materials
-  info:
-    Rarity: lang:wiki.items.tin_ingot.info.Rarity
-    Source: lang:wiki.items.tin_ingot.info.Source
 recipes:
   - type: smelting
     id: tin_ingot_from_ore_smelting

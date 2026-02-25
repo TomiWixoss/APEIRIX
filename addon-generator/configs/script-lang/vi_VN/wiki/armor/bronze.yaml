@@ -1,0 +1,34 @@
+# Wiki data for Bronze armor
+
+items:
+  bronze_helmet:
+    name: "Mũ Đồng"
+    description: "Mũ giáp đồng bảo vệ đầu."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "220"
+      Giáp: "2"
+
+  bronze_chestplate:
+    name: "Áo Giáp Đồng"
+    description: "Áo giáp đồng bảo vệ ngực."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "320"
+      Giáp: "6"
+
+  bronze_leggings:
+    name: "Quần Giáp Đồng"
+    description: "Quần giáp đồng bảo vệ chân."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "300"
+      Giáp: "5"
+
+  bronze_boots:
+    name: "Giày Giáp Đồng"
+    description: "Giày giáp đồng bảo vệ bàn chân."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "260"
+      Giáp: "2"

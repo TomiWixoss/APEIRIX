@@ -201,7 +201,9 @@ ${this.generateWikiData(wikiItems)}
         infoEntries.forEach(([key, value], index) => {
           const isLast = index === infoEntries.length - 1;
           const formattedValue = typeof value === 'string' ? `"${value}"` : value;
-          lines.push(`      ${key}: ${formattedValue}${isLast ? '' : ','}`);
+          // Quote key nếu có dấu cách hoặc ký tự đặc biệt
+          const quotedKey = /[^a-zA-Z0-9_$]/.test(key) ? `"${key}"` : key;
+          lines.push(`      ${quotedKey}: ${formattedValue}${isLast ? '' : ','}`);
         });
         lines.push(`    },`);
       }

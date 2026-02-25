@@ -1,4 +1,5 @@
 # Vietnamese Wiki UI Language
+# Wiki item data nằm trong thư mục wiki/ (materials/, tools/, armor/, foods/, special/)
 
 wiki:
   # UI Text
@@ -12,34 +13,6 @@ wiki:
   description: "§7Mô tả:"
   category: "§7Danh mục:"
   information: "Thông tin"
-
-  # Item-specific wiki data
-  items:
-    # Tools
-    bronze_spear:
-      name: "Giáo Đồng"
-      description: "Một cây giáo đồng với tầm đánh xa, hoàn hảo cho săn bắn và chiến đấu."
-      info:
-        Material: "Đồng"
-        Durability: "375"
-        Damage: "3"
-
-    # Foods
-    cannedbeets:
-      name: "Súp Củ Cải Đóng Hộp"
-      description: "Súp củ cải đường đóng hộp. Bổ dưỡng và bảo quản lâu dài."
-      info:
-        Nutrition: "6"
-        Saturation: "7.2"
-        Preservation: "Đóng hộp"
-
-    # Materials
-    tin_ingot:
-      name: "Thỏi Thiếc"
-      description: "Thỏi thiếc tinh luyện dùng để chế tạo hợp kim đồng và các công cụ khác."
-      info:
-        Rarity: "Phổ biến"
-        Source: "Nấu quặng thiếc hoặc thiếc thô"
 
   # Category names
   categories:

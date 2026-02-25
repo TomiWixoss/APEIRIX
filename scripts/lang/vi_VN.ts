@@ -61,34 +61,6 @@ export const LANG_VI = {
         "description": "§7Mô tả:",
         "category": "§7Danh mục:",
         "information": "Thông tin",
-        "items": {
-            "bronze_spear": {
-                "name": "Giáo Đồng",
-                "description": "Một cây giáo đồng với tầm đánh xa, hoàn hảo cho săn bắn và chiến đấu.",
-                "info": {
-                    "Material": "Đồng",
-                    "Durability": "375",
-                    "Damage": "3"
-                }
-            },
-            "cannedbeets": {
-                "name": "Súp Củ Cải Đóng Hộp",
-                "description": "Súp củ cải đường đóng hộp. Bổ dưỡng và bảo quản lâu dài.",
-                "info": {
-                    "Nutrition": "6",
-                    "Saturation": "7.2",
-                    "Preservation": "Đóng hộp"
-                }
-            },
-            "tin_ingot": {
-                "name": "Thỏi Thiếc",
-                "description": "Thỏi thiếc tinh luyện dùng để chế tạo hợp kim đồng và các công cụ khác.",
-                "info": {
-                    "Rarity": "Phổ biến",
-                    "Source": "Nấu quặng thiếc hoặc thiếc thô"
-                }
-            }
-        },
         "categories": {
             "materials": "Nguyên liệu",
             "tools": "Công cụ",

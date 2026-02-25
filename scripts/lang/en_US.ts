@@ -55,40 +55,12 @@ export const LANG_EN = {
     "wiki": {
         "title": "§l§6ENCYCLOPEDIA",
         "itemCount": "§7Discovered: §e{count}§7 items",
-        "noItemsFound": "§cNo APEIRIX items found in your inventory!",
+        "noItemsFound": "§cNo APEIRIX items found in inventory!",
         "selectItem": "§7Select an item to view details",
         "back": "§cBack",
         "description": "§7Description:",
         "category": "§7Category:",
         "information": "Information",
-        "items": {
-            "bronze_spear": {
-                "name": "Bronze Spear",
-                "description": "A bronze spear with extended reach, perfect for hunting and combat.",
-                "info": {
-                    "Material": "Bronze",
-                    "Durability": "375",
-                    "Damage": "3"
-                }
-            },
-            "cannedbeets": {
-                "name": "Canned Beetroot Soup",
-                "description": "Preserved beetroot soup in a can. Nutritious and long-lasting.",
-                "info": {
-                    "Nutrition": "6",
-                    "Saturation": "7.2",
-                    "Preservation": "Canned"
-                }
-            },
-            "tin_ingot": {
-                "name": "Tin Ingot",
-                "description": "A refined tin ingot used for crafting bronze alloys and various tools.",
-                "info": {
-                    "Rarity": "Common",
-                    "Source": "Smelting Tin Ore or Raw Tin"
-                }
-            }
-        },
         "categories": {
             "materials": "Materials",
             "tools": "Tools",

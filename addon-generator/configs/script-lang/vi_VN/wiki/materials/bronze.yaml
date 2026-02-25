@@ -1,0 +1,23 @@
+# Wiki data for Bronze materials
+
+items:
+  bronze_ingot:
+    name: "Thỏi Đồng"
+    description: "Hợp kim đồng được tạo từ đồng và thiếc. Bền hơn đồng nguyên chất."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Chế tạo từ đồng + thiếc"
+
+  bronze_nugget:
+    name: "Mảnh Đồng"
+    description: "Mảnh nhỏ của đồng. 9 mảnh tạo thành 1 thỏi."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Chia nhỏ thỏi đồng"
+
+  bronze_block:
+    name: "Khối Đồng"
+    description: "Khối đồng dùng để lưu trữ hoặc trang trí."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Chế tạo từ 9 thỏi đồng"

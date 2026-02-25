@@ -107,29 +107,279 @@ export const GENERATED_FOODS = [
  */
 export const GENERATED_WIKI_ITEMS = [
   {
+    id: "apeirix:bronze_ingot",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Chế tạo từ đồng + thiếc"
+    },
+  },
+  {
+    id: "apeirix:bronze_nugget",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Chia nhỏ thỏi đồng"
+    },
+  },
+  {
+    id: "apeirix:bronze_block",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Chế tạo từ 9 thỏi đồng"
+    },
+  },
+  {
+    id: "apeirix:raw_tin",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Khai thác quặng thiếc"
+    },
+  },
+  {
     id: "apeirix:tin_ingot",
     category: "materials",
     info: {
-      Rarity: "lang:wiki.items.tin_ingot.info.Rarity",
-      Source: "lang:wiki.items.tin_ingot.info.Source"
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Nấu quặng thiếc hoặc thiếc thô"
+    },
+  },
+  {
+    id: "apeirix:tin_nugget",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Chia nhỏ thỏi thiếc"
+    },
+  },
+  {
+    id: "apeirix:tin_block",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Chế tạo từ 9 thỏi thiếc"
+    },
+  },
+  {
+    id: "apeirix:tin_ore",
+    category: "materials",
+    info: {
+      "Độ hiếm": "Phổ biến",
+      "Nguồn": "Khai thác dưới lòng đất",
+      "Độ sâu": "Y: -64 đến 64"
+    },
+  },
+  {
+    id: "apeirix:bronze_pickaxe",
+    category: "tools",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "375",
+      "Tốc độ": "6"
+    },
+  },
+  {
+    id: "apeirix:bronze_axe",
+    category: "tools",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "375",
+      "Sát thương": "7"
+    },
+  },
+  {
+    id: "apeirix:bronze_shovel",
+    category: "tools",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "375",
+      "Tốc độ": "6"
+    },
+  },
+  {
+    id: "apeirix:bronze_hoe",
+    category: "tools",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "375"
+    },
+  },
+  {
+    id: "apeirix:bronze_sword",
+    category: "tools",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "375",
+      "Sát thương": "6"
     },
   },
   {
     id: "apeirix:bronze_spear",
     category: "tools",
     info: {
-      Material: "lang:wiki.items.bronze_spear.info.Material",
-      Durability: "lang:wiki.items.bronze_spear.info.Durability",
-      Damage: "lang:wiki.items.bronze_spear.info.Damage"
+      "Chất liệu": "Đồng",
+      "Độ bền": "375",
+      "Sát thương": "3"
+    },
+  },
+  {
+    id: "apeirix:bronze_helmet",
+    category: "armor",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "220",
+      "Giáp": "2"
+    },
+  },
+  {
+    id: "apeirix:bronze_chestplate",
+    category: "armor",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "320",
+      "Giáp": "6"
+    },
+  },
+  {
+    id: "apeirix:bronze_leggings",
+    category: "armor",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "300",
+      "Giáp": "5"
+    },
+  },
+  {
+    id: "apeirix:bronze_boots",
+    category: "armor",
+    info: {
+      "Chất liệu": "Đồng",
+      "Độ bền": "260",
+      "Giáp": "2"
+    },
+  },
+  {
+    id: "apeirix:canempty",
+    category: "foods",
+    info: {
+      "Loại": "Vật liệu",
+      "Nguồn": "Chế tạo hoặc rửa hộp bẩn"
+    },
+  },
+  {
+    id: "apeirix:candirty",
+    category: "foods",
+    info: {
+      "Loại": "Vật liệu",
+      "Nguồn": "Sau khi ăn đồ hộp"
+    },
+  },
+  {
+    id: "apeirix:canned_food",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "5",
+      "Độ no": "6",
+      "Bảo quản": "Đóng hộp"
+    },
+  },
+  {
+    id: "apeirix:canned_pumpkin",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "4",
+      "Độ no": "4.8",
+      "Hiệu ứng": "Kháng lửa 15s"
     },
   },
   {
     id: "apeirix:cannedbeets",
     category: "foods",
     info: {
-      Nutrition: "lang:wiki.items.cannedbeets.info.Nutrition",
-      Saturation: "lang:wiki.items.cannedbeets.info.Saturation",
-      Preservation: "lang:wiki.items.cannedbeets.info.Preservation"
+      "Dinh dưỡng": "6",
+      "Độ no": "7.2",
+      "Bảo quản": "Đóng hộp"
+    },
+  },
+  {
+    id: "apeirix:cannedbread",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "5",
+      "Độ no": "6",
+      "Bảo quản": "Đóng hộp"
+    },
+  },
+  {
+    id: "apeirix:cannedcarrots",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "3",
+      "Độ no": "3.6",
+      "Hiệu ứng": "Nhìn đêm 15s"
+    },
+  },
+  {
+    id: "apeirix:canneddogfood",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "2",
+      "Độ no": "1.2",
+      "Hiệu ứng": "Buồn nôn 10s"
+    },
+  },
+  {
+    id: "apeirix:cannedfish",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "5",
+      "Độ no": "6",
+      "Hiệu ứng": "Thở dưới nước 30s"
+    },
+  },
+  {
+    id: "apeirix:cannedmeal",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "8",
+      "Độ no": "12.8",
+      "Hiệu ứng": "Hồi máu II 5s"
+    },
+  },
+  {
+    id: "apeirix:cannedmushroomsoup",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "6",
+      "Độ no": "7.2",
+      "Bảo quản": "Đóng hộp"
+    },
+  },
+  {
+    id: "apeirix:cannedsalad",
+    category: "foods",
+    info: {
+      "Dinh dưỡng": "6",
+      "Độ no": "7.2",
+      "Đặc biệt": "Xóa hiệu ứng"
+    },
+  },
+  {
+    id: "apeirix:achievement_book",
+    category: "special",
+    info: {
+      "Loại": "Đặc biệt",
+      "Chức năng": "Xem thành tựu"
+    },
+  },
+  {
+    id: "apeirix:wiki_book",
+    category: "special",
+    info: {
+      "Loại": "Đặc biệt",
+      "Chức năng": "Xem thông tin vật phẩm"
     },
   }
 ];

@@ -7,12 +7,6 @@ durability: 375
 damage: 3
 enchantability: 18
 tier: bronze_tier
-wiki:
-  category: tools
-  info:
-    Material: lang:wiki.items.bronze_spear.info.Material
-    Durability: lang:wiki.items.bronze_spear.info.Durability
-    Damage: lang:wiki.items.bronze_spear.info.Damage
 recipe:
   id: bronze_spear
   type: shaped

@@ -1,0 +1,20 @@
+# Bronze Material Wiki Data (English)
+
+items:
+  bronze_ingot:
+    icon: "textures/items/bronze_ingot"
+    info:
+      Rarity: "Common"
+      Source: "Crafted from copper + tin"
+
+  bronze_nugget:
+    icon: "textures/items/bronze_nugget"
+    info:
+      Rarity: "Common"
+      Source: "Breaking down bronze ingots"
+
+  bronze_block:
+    icon: "textures/blocks/bronze_block"
+    info:
+      Rarity: "Common"
+      Source: "Crafted from 9 bronze ingots"

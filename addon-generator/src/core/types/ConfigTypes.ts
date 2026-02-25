@@ -60,13 +60,6 @@ export interface ItemConfig {
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
   testCommands?: string[];
-  wiki?: WikiMetadata;
-}
-
-export interface WikiMetadata {
-  category?: string;
-  icon?: string; // Path to icon texture (defaults to item texture)
-  info?: Record<string, string | number | boolean>; // Custom key-value info
 }
 
 export interface FoodConfig {
@@ -89,7 +82,6 @@ export interface FoodConfig {
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
   testCommands?: string[];
-  wiki?: WikiMetadata;
 }
 
 export interface BlockConfig {
@@ -109,7 +101,6 @@ export interface BlockConfig {
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
   testCommands?: string[];
-  wiki?: WikiMetadata;
 }
 
 export interface OreConfig {
@@ -144,7 +135,6 @@ export interface ToolConfig {
   testCommands?: string[];
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
-  wiki?: WikiMetadata;
 }
 
 export interface ArmorSetConfig {
@@ -165,7 +155,6 @@ export interface ArmorSetConfig {
   armorLayerTexturePath?: string;
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
-  wiki?: WikiMetadata;
 }
 
 export interface RecipeConfig {

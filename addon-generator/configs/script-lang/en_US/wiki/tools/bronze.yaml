@@ -1,0 +1,43 @@
+# Bronze Tools Wiki Data (English)
+
+items:
+  bronze_pickaxe:
+    icon: "textures/items/bronze_pickaxe"
+    info:
+      Material: "Bronze"
+      Durability: "375"
+      Speed: "6"
+
+  bronze_axe:
+    icon: "textures/items/bronze_axe"
+    info:
+      Material: "Bronze"
+      Durability: "375"
+      Damage: "7"
+
+  bronze_shovel:
+    icon: "textures/items/bronze_shovel"
+    info:
+      Material: "Bronze"
+      Durability: "375"
+      Speed: "6"
+
+  bronze_hoe:
+    icon: "textures/items/bronze_hoe"
+    info:
+      Material: "Bronze"
+      Durability: "375"
+
+  bronze_sword:
+    icon: "textures/items/bronze_sword"
+    info:
+      Material: "Bronze"
+      Durability: "375"
+      Damage: "6"
+
+  bronze_spear:
+    icon: "textures/items/bronze_spear"
+    info:
+      Material: "Bronze"
+      Durability: "375"
+      Damage: "3"

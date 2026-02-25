@@ -1,0 +1,38 @@
+# Wiki data for Tin materials
+
+items:
+  raw_tin:
+    name: "Thiếc Thô"
+    description: "Thiếc thô được khai thác từ quặng thiếc. Cần nấu luyện để có thỏi thiếc."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Khai thác quặng thiếc"
+
+  tin_ingot:
+    name: "Thỏi Thiếc"
+    description: "Thỏi thiếc tinh luyện dùng để chế tạo hợp kim đồng và các công cụ khác."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Nấu quặng thiếc hoặc thiếc thô"
+
+  tin_nugget:
+    name: "Mảnh Thiếc"
+    description: "Mảnh nhỏ của thiếc. 9 mảnh tạo thành 1 thỏi."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Chia nhỏ thỏi thiếc"
+
+  tin_block:
+    name: "Khối Thiếc"
+    description: "Khối thiếc dùng để lưu trữ hoặc trang trí."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Chế tạo từ 9 thỏi thiếc"
+
+  tin_ore:
+    name: "Quặng Thiếc"
+    description: "Quặng thiếc tìm thấy dưới lòng đất."
+    info:
+      Độ hiếm: "Phổ biến"
+      Nguồn: "Khai thác dưới lòng đất"
+      Độ sâu: "Y: -64 đến 64"

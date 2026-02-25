@@ -1,0 +1,30 @@
+# Bronze Armor Wiki Data (English)
+
+items:
+  bronze_helmet:
+    icon: "textures/items/bronze_helmet"
+    info:
+      Material: "Bronze"
+      Durability: "220"
+      Armor: "2"
+
+  bronze_chestplate:
+    icon: "textures/items/bronze_chestplate"
+    info:
+      Material: "Bronze"
+      Durability: "320"
+      Armor: "6"
+
+  bronze_leggings:
+    icon: "textures/items/bronze_leggings"
+    info:
+      Material: "Bronze"
+      Durability: "300"
+      Armor: "5"
+
+  bronze_boots:
+    icon: "textures/items/bronze_boots"
+    info:
+      Material: "Bronze"
+      Durability: "260"
+      Armor: "2"

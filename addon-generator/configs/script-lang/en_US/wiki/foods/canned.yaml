@@ -1,0 +1,84 @@
+# Canned Food Wiki Data (English)
+
+items:
+  canempty:
+    icon: "textures/items/canempty"
+    info:
+      Type: "Material"
+      Source: "Crafted or washing dirty cans"
+
+  candirty:
+    icon: "textures/items/candirty"
+    info:
+      Type: "Material"
+      Source: "After eating canned food"
+
+  canned_food:
+    icon: "textures/items/canned_food"
+    info:
+      Nutrition: "5"
+      Saturation: "6"
+      Preservation: "Canned"
+
+  canned_pumpkin:
+    icon: "textures/items/canned_pumpkin"
+    info:
+      Nutrition: "4"
+      Saturation: "4.8"
+      Effect: "Fire Resistance 15s"
+
+  cannedbeets:
+    icon: "textures/items/cannedbeets"
+    info:
+      Nutrition: "6"
+      Saturation: "7.2"
+      Preservation: "Canned"
+
+  cannedbread:
+    icon: "textures/items/cannedbread"
+    info:
+      Nutrition: "5"
+      Saturation: "6"
+      Preservation: "Canned"
+
+  cannedcarrots:
+    icon: "textures/items/cannedcarrots"
+    info:
+      Nutrition: "3"
+      Saturation: "3.6"
+      Effect: "Night Vision 15s"
+
+  canneddogfood:
+    icon: "textures/items/canneddogfood"
+    info:
+      Nutrition: "2"
+      Saturation: "1.2"
+      Effect: "Nausea 10s"
+
+  cannedfish:
+    icon: "textures/items/cannedfish"
+    info:
+      Nutrition: "5"
+      Saturation: "6"
+      Effect: "Water Breathing 30s"
+
+  cannedmeal:
+    icon: "textures/items/cannedmeal"
+    info:
+      Nutrition: "8"
+      Saturation: "12.8"
+      Effect: "Regeneration II 5s"
+
+  cannedmushroomsoup:
+    icon: "textures/items/cannedmushroomsoup"
+    info:
+      Nutrition: "6"
+      Saturation: "7.2"
+      Preservation: "Canned"
+
+  cannedsalad:
+    icon: "textures/items/cannedsalad"
+    info:
+      Nutrition: "6"
+      Saturation: "7.2"
+      Special: "Removes effects"

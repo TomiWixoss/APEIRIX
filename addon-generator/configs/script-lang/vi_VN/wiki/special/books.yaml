@@ -1,0 +1,16 @@
+# Wiki data for Special books
+
+items:
+  achievement_book:
+    name: "Sổ Thành Tựu"
+    description: "Sổ ghi chép các thành tựu trong APEIRIX."
+    info:
+      Loại: "Đặc biệt"
+      Chức năng: "Xem thành tựu"
+
+  wiki_book:
+    name: "Bách Khoa Toàn Thư"
+    description: "Cuốn sách chứa thông tin về tất cả vật phẩm trong APEIRIX."
+    info:
+      Loại: "Đặc biệt"
+      Chức năng: "Xem thông tin vật phẩm"

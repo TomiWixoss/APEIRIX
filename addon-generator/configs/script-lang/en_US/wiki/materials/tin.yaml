@@ -1,0 +1,33 @@
+# Tin Material Wiki Data (English)
+
+items:
+  raw_tin:
+    icon: "textures/items/raw_tin"
+    info:
+      Rarity: "Common"
+      Source: "Mining tin ore"
+
+  tin_ingot:
+    icon: "textures/items/tin_ingot"
+    info:
+      Rarity: "Common"
+      Source: "Smelting tin ore or raw tin"
+
+  tin_nugget:
+    icon: "textures/items/tin_nugget"
+    info:
+      Rarity: "Common"
+      Source: "Breaking down tin ingots"
+
+  tin_block:
+    icon: "textures/blocks/tin_block"
+    info:
+      Rarity: "Common"
+      Source: "Crafted from 9 tin ingots"
+
+  tin_ore:
+    icon: "textures/blocks/tin_ore"
+    info:
+      Rarity: "Common"
+      Source: "Underground mining"
+      Depth: "Y: -64 to 64"

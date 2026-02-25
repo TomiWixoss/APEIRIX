@@ -1,0 +1,96 @@
+# Wiki data for Canned foods
+
+items:
+  canempty:
+    name: "Hộp Rỗng"
+    description: "Hộp thiếc rỗng dùng để đóng hộp thức ăn."
+    info:
+      Loại: "Vật liệu"
+      Nguồn: "Chế tạo hoặc rửa hộp bẩn"
+
+  candirty:
+    name: "Hộp Bẩn"
+    description: "Hộp thiếc đã sử dụng. Cần rửa sạch trước khi dùng lại."
+    info:
+      Loại: "Vật liệu"
+      Nguồn: "Sau khi ăn đồ hộp"
+
+  canned_food:
+    name: "Thức Ăn Đóng Hộp"
+    description: "Thức ăn đóng hộp cơ bản. Bổ dưỡng và bảo quản lâu."
+    info:
+      Dinh dưỡng: "5"
+      Độ no: "6"
+      Bảo quản: "Đóng hộp"
+
+  canned_pumpkin:
+    name: "Bí Ngô Đóng Hộp"
+    description: "Bí ngô đóng hộp. Cho hiệu ứng kháng lửa."
+    info:
+      Dinh dưỡng: "4"
+      Độ no: "4.8"
+      Hiệu ứng: "Kháng lửa 15s"
+
+  cannedbeets:
+    name: "Súp Củ Cải Đóng Hộp"
+    description: "Súp củ cải đường đóng hộp. Bổ dưỡng và bảo quản lâu dài."
+    info:
+      Dinh dưỡng: "6"
+      Độ no: "7.2"
+      Bảo quản: "Đóng hộp"
+
+  cannedbread:
+    name: "Bánh Mì Đóng Hộp"
+    description: "Bánh mì đóng hộp. Tiện lợi và bảo quản lâu."
+    info:
+      Dinh dưỡng: "5"
+      Độ no: "6"
+      Bảo quản: "Đóng hộp"
+
+  cannedcarrots:
+    name: "Cà Rốt Đóng Hộp"
+    description: "Cà rốt đóng hộp. Cho hiệu ứng nhìn đêm."
+    info:
+      Dinh dưỡng: "3"
+      Độ no: "3.6"
+      Hiệu ứng: "Nhìn đêm 15s"
+
+  canneddogfood:
+    name: "Thức Ăn Chó Đóng Hộp"
+    description: "Thức ăn cho chó đóng hộp. Không nên ăn!"
+    info:
+      Dinh dưỡng: "2"
+      Độ no: "1.2"
+      Hiệu ứng: "Buồn nôn 10s"
+
+  cannedfish:
+    name: "Cá Đóng Hộp"
+    description: "Cá đóng hộp. Cho hiệu ứng thở dưới nước."
+    info:
+      Dinh dưỡng: "5"
+      Độ no: "6"
+      Hiệu ứng: "Thở dưới nước 30s"
+
+  cannedmeal:
+    name: "Bữa Ăn Đóng Hộp"
+    description: "Bữa ăn đầy đủ đóng hộp. Cho hiệu ứng hồi máu."
+    info:
+      Dinh dưỡng: "8"
+      Độ no: "12.8"
+      Hiệu ứng: "Hồi máu II 5s"
+
+  cannedmushroomsoup:
+    name: "Súp Nấm Đóng Hộp"
+    description: "Súp nấm đóng hộp. Bổ dưỡng và ngon miệng."
+    info:
+      Dinh dưỡng: "6"
+      Độ no: "7.2"
+      Bảo quản: "Đóng hộp"
+
+  cannedsalad:
+    name: "Salad Đóng Hộp"
+    description: "Salad đóng hộp. Loại bỏ tất cả hiệu ứng."
+    info:
+      Dinh dưỡng: "6"
+      Độ no: "7.2"
+      Đặc biệt: "Xóa hiệu ứng"

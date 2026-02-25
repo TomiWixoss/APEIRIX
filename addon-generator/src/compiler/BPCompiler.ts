@@ -94,7 +94,7 @@ export class BPCompiler {
     stats.langEntries = await LangBPGenerator.generate(config, bpPath, configDir);
 
     // Generate GameData file (output to root scripts folder)
-    await GameDataBPGenerator.generate(config, outputDir);
+    await GameDataBPGenerator.generate(config, outputDir, configDir);
 
     // Generate Language Config for scripts
     const language = config.addon?.language || 'vi_VN';

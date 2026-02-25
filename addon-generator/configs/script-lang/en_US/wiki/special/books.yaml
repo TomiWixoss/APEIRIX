@@ -1,0 +1,14 @@
+# Special Items Wiki Data (English)
+
+items:
+  achievement_book:
+    icon: "textures/items/achievement_book"
+    info:
+      Type: "Special"
+      Function: "View achievements"
+
+  wiki_book:
+    icon: "textures/items/wiki_book"
+    info:
+      Type: "Special"
+      Function: "View item information"

@@ -1,0 +1,49 @@
+# Wiki data for Bronze tools
+
+items:
+  bronze_pickaxe:
+    name: "Cuốc Đồng"
+    description: "Cuốc đồng dùng để khai thác đá và quặng."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "375"
+      Tốc độ: "6"
+
+  bronze_axe:
+    name: "Rìu Đồng"
+    description: "Rìu đồng dùng để chặt gỗ."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "375"
+      Sát thương: "7"
+
+  bronze_shovel:
+    name: "Xẻng Đồng"
+    description: "Xẻng đồng dùng để đào đất, cát và sỏi."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "375"
+      Tốc độ: "6"
+
+  bronze_hoe:
+    name: "Cuốc Cày Đồng"
+    description: "Cuốc cày đồng dùng để làm đất trồng trọt."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "375"
+
+  bronze_sword:
+    name: "Kiếm Đồng"
+    description: "Kiếm đồng dùng để chiến đấu."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "375"
+      Sát thương: "6"
+
+  bronze_spear:
+    name: "Giáo Đồng"
+    description: "Một cây giáo đồng với tầm đánh xa, hoàn hảo cho săn bắn và chiến đấu."
+    info:
+      Chất liệu: "Đồng"
+      Độ bền: "375"
+      Sát thương: "3"
