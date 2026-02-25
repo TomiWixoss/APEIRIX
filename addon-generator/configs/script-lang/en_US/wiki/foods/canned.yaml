@@ -2,83 +2,107 @@
 
 items:
   canempty:
-    icon: "textures/items/canempty"
+    name: "Empty Can"
+    description: "Empty tin can used for canning food. Can be crafted or obtained by washing dirty cans."
     info:
       Type: "Material"
-      Source: "Crafted or washing dirty cans"
+      Crafting: "4 tin ingots"
+      Recycling: "Wash dirty can with water bucket"
 
   candirty:
-    icon: "textures/items/candirty"
+    name: "Dirty Can"
+    description: "Used tin can. Needs to be washed before reuse."
     info:
       Type: "Material"
       Source: "After eating canned food"
+      Recycling: "Wash with water bucket or throw into water"
 
   canned_food:
-    icon: "textures/items/canned_food"
+    name: "Canned Food"
+    description: "Basic canned food. Nutritious and long-lasting preservation."
     info:
-      Nutrition: "5"
-      Saturation: "6"
-      Preservation: "Canned"
+      Nutrition: "10 (5 shanks)"
+      Saturation: "12.8"
+      Crafting: "Empty can + 2 cooked meats"
+      After Use: "Dirty can"
 
   canned_pumpkin:
-    icon: "textures/items/canned_pumpkin"
+    name: "Canned Pumpkin"
+    description: "Canned pumpkin. Grants fire resistance effect."
     info:
-      Nutrition: "4"
+      Nutrition: "4 (2 shanks)"
       Saturation: "4.8"
       Effect: "Fire Resistance 15s"
+      Crafting: "Empty can + pumpkin + sugar"
 
   cannedbeets:
-    icon: "textures/items/cannedbeets"
+    name: "Canned Beetroot Soup"
+    description: "Canned beetroot soup. Nutritious and long-lasting."
     info:
-      Nutrition: "6"
+      Nutrition: "6 (3 shanks)"
       Saturation: "7.2"
-      Preservation: "Canned"
+      Crafting: "Empty can + beetroot soup"
+      After Use: "Dirty can"
 
   cannedbread:
-    icon: "textures/items/cannedbread"
+    name: "Canned Bread"
+    description: "Canned bread. Convenient and long-lasting."
     info:
-      Nutrition: "5"
+      Nutrition: "5 (2.5 shanks)"
       Saturation: "6"
-      Preservation: "Canned"
+      Crafting: "Empty can + bread"
+      After Use: "Dirty can"
 
   cannedcarrots:
-    icon: "textures/items/cannedcarrots"
+    name: "Canned Carrots"
+    description: "Canned carrots. Grants night vision effect."
     info:
-      Nutrition: "3"
-      Saturation: "3.6"
+      Nutrition: "4 (2 shanks)"
+      Saturation: "4.8"
       Effect: "Night Vision 15s"
+      Crafting: "Empty can + 3 carrots"
 
   canneddogfood:
-    icon: "textures/items/canneddogfood"
+    name: "Canned Dog Food"
+    description: "Canned dog food. Not recommended for human consumption!"
     info:
-      Nutrition: "2"
-      Saturation: "1.2"
+      Nutrition: "2 (1 shank)"
+      Saturation: "0.4"
       Effect: "Nausea 10s"
+      Crafting: "Empty can + 2 rotten flesh + bone"
 
   cannedfish:
-    icon: "textures/items/cannedfish"
+    name: "Canned Fish"
+    description: "Canned fish. Grants water breathing effect."
     info:
-      Nutrition: "5"
+      Nutrition: "5 (2.5 shanks)"
       Saturation: "6"
       Effect: "Water Breathing 30s"
+      Crafting: "Empty can + 2 cooked cod"
 
   cannedmeal:
-    icon: "textures/items/cannedmeal"
+    name: "Canned Meal"
+    description: "Complete canned meal. Grants regeneration effect."
     info:
-      Nutrition: "8"
-      Saturation: "12.8"
+      Nutrition: "12 (6 shanks)"
+      Saturation: "16"
       Effect: "Regeneration II 5s"
+      Crafting: "Empty can + bread + cooked beef + carrot"
 
   cannedmushroomsoup:
-    icon: "textures/items/cannedmushroomsoup"
+    name: "Canned Mushroom Soup"
+    description: "Canned mushroom soup. Nutritious and delicious."
     info:
-      Nutrition: "6"
+      Nutrition: "6 (3 shanks)"
       Saturation: "7.2"
-      Preservation: "Canned"
+      Crafting: "Empty can + mushroom stew"
+      After Use: "Dirty can"
 
   cannedsalad:
-    icon: "textures/items/cannedsalad"
+    name: "Canned Salad"
+    description: "Canned salad. Removes all status effects."
     info:
-      Nutrition: "6"
-      Saturation: "7.2"
-      Special: "Removes effects"
+      Nutrition: "3 (1.5 shanks)"
+      Saturation: "3.6"
+      Special: "Removes all effects"
+      Crafting: "Empty can + apple + sweet berries + oak leaves"

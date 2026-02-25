@@ -2,32 +2,53 @@
 
 items:
   raw_tin:
-    icon: "textures/items/raw_tin"
+    name: "Raw Tin"
+    description: "Raw tin obtained from mining tin ore. Smelt to get tin ingots."
     info:
       Rarity: "Common"
       Source: "Mining tin ore"
+      Crafting: "Smelt in furnace or blast furnace"
 
   tin_ingot:
-    icon: "textures/items/tin_ingot"
+    name: "Tin Ingot"
+    description: "Refined tin ingot. Combine with copper to create bronze alloy."
     info:
       Rarity: "Common"
       Source: "Smelting tin ore or raw tin"
+      Crafting: "9 nuggets or 1 block"
 
   tin_nugget:
-    icon: "textures/items/tin_nugget"
+    name: "Tin Nugget"
+    description: "Small piece of tin. 9 nuggets make 1 ingot."
     info:
       Rarity: "Common"
       Source: "Breaking down tin ingots"
+      Crafting: "1 ingot = 9 nuggets"
 
   tin_block:
-    icon: "textures/blocks/tin_block"
+    name: "Tin Block"
+    description: "Tin block for storage or decoration. Can be broken into 9 ingots."
     info:
       Rarity: "Common"
-      Source: "Crafted from 9 tin ingots"
+      Hardness: "16.65"
+      Crafting: "9 tin ingots"
+      Tool: "Requires stone pickaxe or better"
 
   tin_ore:
-    icon: "textures/blocks/tin_ore"
+    name: "Tin Ore"
+    description: "Tin ore found underground. Mine to get raw tin."
     info:
       Rarity: "Common"
-      Source: "Underground mining"
-      Depth: "Y: -64 to 64"
+      Depth: "Y: 0 to 64"
+      Vein Size: "9 blocks"
+      Frequency: "20 veins per chunk"
+      Tool: "Requires stone pickaxe or better"
+
+  deepslate_tin_ore:
+    name: "Deepslate Tin Ore"
+    description: "Deepslate variant of tin ore. Harder but yields same amount."
+    info:
+      Rarity: "Common"
+      Depth: "Y: 0 to 64"
+      Hardness: "14.985"
+      Tool: "Requires stone pickaxe or better"

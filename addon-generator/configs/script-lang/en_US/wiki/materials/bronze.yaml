@@ -2,19 +2,27 @@
 
 items:
   bronze_ingot:
-    icon: "textures/items/bronze_ingot"
+    name: "Bronze Ingot"
+    description: "Bronze alloy made from copper and tin. Stronger than pure copper, used to craft tools and armor."
     info:
       Rarity: "Common"
-      Source: "Crafted from copper + tin"
+      Crafting: "3 copper + 1 tin = 4 bronze"
+      Tool Durability: "375"
+      Enchantability: "18"
 
   bronze_nugget:
-    icon: "textures/items/bronze_nugget"
+    name: "Bronze Nugget"
+    description: "Small piece of bronze. 9 nuggets make 1 ingot."
     info:
       Rarity: "Common"
       Source: "Breaking down bronze ingots"
+      Crafting: "1 ingot = 9 nuggets"
 
   bronze_block:
-    icon: "textures/blocks/bronze_block"
+    name: "Bronze Block"
+    description: "Bronze block for storage or decoration. Can be broken into 9 ingots."
     info:
       Rarity: "Common"
-      Source: "Crafted from 9 bronze ingots"
+      Hardness: "16.65"
+      Crafting: "9 bronze ingots"
+      Tool: "Requires stone pickaxe or better"

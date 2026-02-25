@@ -2,22 +2,27 @@
 
 items:
   bronze_ingot:
-    name: "Thỏi Đồng"
-    description: "Hợp kim đồng được tạo từ đồng và thiếc. Bền hơn đồng nguyên chất."
+    name: "Thỏi Đồng Thanh"
+    description: "Hợp kim đồng thanh được tạo từ đồng (copper) và thiếc. Bền hơn đồng nguyên chất, dùng để chế tạo công cụ và giáp."
     info:
       Độ hiếm: "Phổ biến"
-      Nguồn: "Chế tạo từ đồng + thiếc"
+      Chế tạo: "3 copper ingot + 1 tin ingot = 4 bronze"
+      Độ bền công cụ: "375"
+      Độ phù phép: "18"
 
   bronze_nugget:
-    name: "Mảnh Đồng"
-    description: "Mảnh nhỏ của đồng. 9 mảnh tạo thành 1 thỏi."
+    name: "Mảnh Đồng Thanh"
+    description: "Mảnh nhỏ của đồng thanh. 9 mảnh tạo thành 1 thỏi đồng thanh."
     info:
       Độ hiếm: "Phổ biến"
-      Nguồn: "Chia nhỏ thỏi đồng"
+      Nguồn: "Chia nhỏ thỏi đồng thanh"
+      Chế tạo: "1 thỏi = 9 mảnh"
 
   bronze_block:
-    name: "Khối Đồng"
-    description: "Khối đồng dùng để lưu trữ hoặc trang trí."
+    name: "Khối Đồng Thanh"
+    description: "Khối đồng thanh dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi."
     info:
       Độ hiếm: "Phổ biến"
-      Nguồn: "Chế tạo từ 9 thỏi đồng"
+      Độ cứng: "16.65"
+      Chế tạo: "9 thỏi đồng thanh"
+      Công cụ: "Cần cuốc đá trở lên"

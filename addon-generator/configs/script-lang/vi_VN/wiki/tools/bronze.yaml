@@ -2,48 +2,61 @@
 
 items:
   bronze_pickaxe:
-    name: "Cuốc Đồng"
-    description: "Cuốc đồng dùng để khai thác đá và quặng."
+    name: "Cuốc Đồng Thanh"
+    description: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "375"
-      Tốc độ: "6"
+      Sát thương: "+4"
+      Độ phù phép: "18"
+      Chế tạo: "3 thỏi đồng thanh + 2 gậy"
 
   bronze_axe:
-    name: "Rìu Đồng"
-    description: "Rìu đồng dùng để chặt gỗ."
+    name: "Rìu Đồng Thanh"
+    description: "Rìu đồng thanh dùng để chặt gỗ. Cũng có thể dùng làm vũ khí."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "375"
-      Sát thương: "7"
+      Sát thương: "+5"
+      Độ phù phép: "18"
+      Chế tạo: "3 thỏi đồng thanh + 2 gậy"
 
   bronze_shovel:
-    name: "Xẻng Đồng"
-    description: "Xẻng đồng dùng để đào đất, cát và sỏi."
+    name: "Xẻng Đồng Thanh"
+    description: "Xẻng đồng thanh dùng để đào đất, cát, sỏi và các khối mềm khác."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "375"
-      Tốc độ: "6"
+      Sát thương: "+3"
+      Độ phù phép: "18"
+      Chế tạo: "1 thỏi đồng thanh + 2 gậy"
 
   bronze_hoe:
-    name: "Cuốc Cày Đồng"
-    description: "Cuốc cày đồng dùng để làm đất trồng trọt."
+    name: "Cuốc Cày Đồng Thanh"
+    description: "Cuốc cày đồng thanh dùng để làm đất trồng trọt và thu hoạch nhanh cây trồng."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "375"
+      Sát thương: "+4"
+      Độ phù phép: "18"
+      Chế tạo: "2 thỏi đồng thanh + 2 gậy"
 
   bronze_sword:
-    name: "Kiếm Đồng"
-    description: "Kiếm đồng dùng để chiến đấu."
+    name: "Kiếm Đồng Thanh"
+    description: "Kiếm đồng thanh dùng để chiến đấu. Chặt mạng nhện và tre nhanh hơn."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "375"
-      Sát thương: "6"
+      Sát thương: "+6"
+      Độ phù phép: "18"
+      Chế tạo: "2 thỏi đồng thanh + 1 gậy"
 
   bronze_spear:
-    name: "Giáo Đồng"
-    description: "Một cây giáo đồng với tầm đánh xa, hoàn hảo cho săn bắn và chiến đấu."
+    name: "Giáo Đồng Thanh"
+    description: "Giáo đồng thanh có thể ném xa để tấn công từ khoảng cách an toàn."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "375"
-      Sát thương: "3"
+      Sát thương: "+3"
+      Độ phù phép: "18"
+      Chế tạo: "1 thỏi đồng thanh + 2 gậy"

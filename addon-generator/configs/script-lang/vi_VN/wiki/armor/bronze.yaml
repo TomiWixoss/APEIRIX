@@ -2,33 +2,41 @@
 
 items:
   bronze_helmet:
-    name: "Mũ Đồng"
-    description: "Mũ giáp đồng bảo vệ đầu."
+    name: "Mũ Đồng Thanh"
+    description: "Mũ giáp đồng thanh bảo vệ đầu. Tương đương với mũ sắt."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "220"
-      Giáp: "2"
+      Giáp: "+2"
+      Độ phù phép: "18"
+      Chế tạo: "5 thỏi đồng thanh"
 
   bronze_chestplate:
-    name: "Áo Giáp Đồng"
-    description: "Áo giáp đồng bảo vệ ngực."
+    name: "Áo Giáp Đồng Thanh"
+    description: "Áo giáp đồng thanh bảo vệ ngực. Cung cấp bảo vệ tốt nhất."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "320"
-      Giáp: "6"
+      Giáp: "+5"
+      Độ phù phép: "18"
+      Chế tạo: "8 thỏi đồng thanh"
 
   bronze_leggings:
-    name: "Quần Giáp Đồng"
-    description: "Quần giáp đồng bảo vệ chân."
+    name: "Quần Giáp Đồng Thanh"
+    description: "Quần giáp đồng thanh bảo vệ chân. Bảo vệ tốt thứ hai sau áo giáp."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "300"
-      Giáp: "5"
+      Giáp: "+4"
+      Độ phù phép: "18"
+      Chế tạo: "7 thỏi đồng thanh"
 
   bronze_boots:
-    name: "Giày Giáp Đồng"
-    description: "Giày giáp đồng bảo vệ bàn chân."
+    name: "Giày Giáp Đồng Thanh"
+    description: "Giày giáp đồng thanh bảo vệ bàn chân. Giảm sát thương khi rơi."
     info:
-      Chất liệu: "Đồng"
+      Chất liệu: "Đồng Thanh (Bronze)"
       Độ bền: "260"
-      Giáp: "2"
+      Giáp: "+1"
+      Độ phù phép: "18"
+      Chế tạo: "4 thỏi đồng thanh"

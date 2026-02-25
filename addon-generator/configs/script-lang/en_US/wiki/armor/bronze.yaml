@@ -2,29 +2,41 @@
 
 items:
   bronze_helmet:
-    icon: "textures/items/bronze_helmet"
+    name: "Bronze Helmet"
+    description: "Bronze helmet protects your head. Equivalent to iron helmet."
     info:
       Material: "Bronze"
       Durability: "220"
-      Armor: "2"
+      Armor: "+2"
+      Enchantability: "18"
+      Crafting: "5 bronze ingots"
 
   bronze_chestplate:
-    icon: "textures/items/bronze_chestplate"
+    name: "Bronze Chestplate"
+    description: "Bronze chestplate protects your torso. Provides the best protection."
     info:
       Material: "Bronze"
       Durability: "320"
-      Armor: "6"
+      Armor: "+5"
+      Enchantability: "18"
+      Crafting: "8 bronze ingots"
 
   bronze_leggings:
-    icon: "textures/items/bronze_leggings"
+    name: "Bronze Leggings"
+    description: "Bronze leggings protect your legs. Second best protection after chestplate."
     info:
       Material: "Bronze"
       Durability: "300"
-      Armor: "5"
+      Armor: "+4"
+      Enchantability: "18"
+      Crafting: "7 bronze ingots"
 
   bronze_boots:
-    icon: "textures/items/bronze_boots"
+    name: "Bronze Boots"
+    description: "Bronze boots protect your feet. Reduces fall damage."
     info:
       Material: "Bronze"
       Durability: "260"
-      Armor: "2"
+      Armor: "+1"
+      Enchantability: "18"
+      Crafting: "4 bronze ingots"

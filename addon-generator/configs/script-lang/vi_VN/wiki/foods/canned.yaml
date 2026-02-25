@@ -3,10 +3,11 @@
 items:
   canempty:
     name: "Hộp Rỗng"
-    description: "Hộp thiếc rỗng dùng để đóng hộp thức ăn."
+    description: "Hộp thiếc rỗng dùng để đóng hộp thức ăn. Có thể chế tạo hoặc rửa hộp bẩn."
     info:
       Loại: "Vật liệu"
-      Nguồn: "Chế tạo hoặc rửa hộp bẩn"
+      Chế tạo: "4 thỏi thiếc"
+      Tái chế: "Rửa hộp bẩn với xô nước"
 
   candirty:
     name: "Hộp Bẩn"
@@ -14,83 +15,94 @@ items:
     info:
       Loại: "Vật liệu"
       Nguồn: "Sau khi ăn đồ hộp"
+      Tái chế: "Rửa với xô nước hoặc thả vào nước"
 
   canned_food:
     name: "Thức Ăn Đóng Hộp"
     description: "Thức ăn đóng hộp cơ bản. Bổ dưỡng và bảo quản lâu."
     info:
-      Dinh dưỡng: "5"
-      Độ no: "6"
-      Bảo quản: "Đóng hộp"
+      Dinh dưỡng: "10 (5 thanh)"
+      Độ no: "12.8"
+      Chế tạo: "Hộp rỗng + 2 thịt nấu chín"
+      Sau khi dùng: "Hộp bẩn"
 
   canned_pumpkin:
     name: "Bí Ngô Đóng Hộp"
     description: "Bí ngô đóng hộp. Cho hiệu ứng kháng lửa."
     info:
-      Dinh dưỡng: "4"
+      Dinh dưỡng: "4 (2 thanh)"
       Độ no: "4.8"
       Hiệu ứng: "Kháng lửa 15s"
+      Chế tạo: "Hộp rỗng + bí ngô + đường"
 
   cannedbeets:
     name: "Súp Củ Cải Đóng Hộp"
     description: "Súp củ cải đường đóng hộp. Bổ dưỡng và bảo quản lâu dài."
     info:
-      Dinh dưỡng: "6"
+      Dinh dưỡng: "6 (3 thanh)"
       Độ no: "7.2"
-      Bảo quản: "Đóng hộp"
+      Chế tạo: "Hộp rỗng + súp củ cải"
+      Sau khi dùng: "Hộp bẩn"
 
   cannedbread:
     name: "Bánh Mì Đóng Hộp"
     description: "Bánh mì đóng hộp. Tiện lợi và bảo quản lâu."
     info:
-      Dinh dưỡng: "5"
+      Dinh dưỡng: "5 (2.5 thanh)"
       Độ no: "6"
-      Bảo quản: "Đóng hộp"
+      Chế tạo: "Hộp rỗng + bánh mì"
+      Sau khi dùng: "Hộp bẩn"
 
   cannedcarrots:
     name: "Cà Rốt Đóng Hộp"
     description: "Cà rốt đóng hộp. Cho hiệu ứng nhìn đêm."
     info:
-      Dinh dưỡng: "3"
-      Độ no: "3.6"
+      Dinh dưỡng: "4 (2 thanh)"
+      Độ no: "4.8"
       Hiệu ứng: "Nhìn đêm 15s"
+      Chế tạo: "Hộp rỗng + 3 cà rốt"
 
   canneddogfood:
     name: "Thức Ăn Chó Đóng Hộp"
     description: "Thức ăn cho chó đóng hộp. Không nên ăn!"
     info:
-      Dinh dưỡng: "2"
-      Độ no: "1.2"
+      Dinh dưỡng: "2 (1 thanh)"
+      Độ no: "0.4"
       Hiệu ứng: "Buồn nôn 10s"
+      Chế tạo: "Hộp rỗng + 2 thịt thối + xương"
 
   cannedfish:
     name: "Cá Đóng Hộp"
     description: "Cá đóng hộp. Cho hiệu ứng thở dưới nước."
     info:
-      Dinh dưỡng: "5"
+      Dinh dưỡng: "5 (2.5 thanh)"
       Độ no: "6"
       Hiệu ứng: "Thở dưới nước 30s"
+      Chế tạo: "Hộp rỗng + 2 cá nấu chín"
 
   cannedmeal:
     name: "Bữa Ăn Đóng Hộp"
     description: "Bữa ăn đầy đủ đóng hộp. Cho hiệu ứng hồi máu."
     info:
-      Dinh dưỡng: "8"
-      Độ no: "12.8"
+      Dinh dưỡng: "12 (6 thanh)"
+      Độ no: "16"
       Hiệu ứng: "Hồi máu II 5s"
+      Chế tạo: "Hộp rỗng + bánh mì + thịt bò + cà rốt"
 
   cannedmushroomsoup:
     name: "Súp Nấm Đóng Hộp"
     description: "Súp nấm đóng hộp. Bổ dưỡng và ngon miệng."
     info:
-      Dinh dưỡng: "6"
+      Dinh dưỡng: "6 (3 thanh)"
       Độ no: "7.2"
-      Bảo quản: "Đóng hộp"
+      Chế tạo: "Hộp rỗng + súp nấm"
+      Sau khi dùng: "Hộp bẩn"
 
   cannedsalad:
     name: "Salad Đóng Hộp"
     description: "Salad đóng hộp. Loại bỏ tất cả hiệu ứng."
     info:
-      Dinh dưỡng: "6"
-      Độ no: "7.2"
-      Đặc biệt: "Xóa hiệu ứng"
+      Dinh dưỡng: "3 (1.5 thanh)"
+      Độ no: "3.6"
+      Đặc biệt: "Xóa tất cả hiệu ứng"
+      Chế tạo: "Hộp rỗng + táo + dâu + lá sồi"
