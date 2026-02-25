@@ -1,0 +1,9 @@
+testCommands:
+  - "# Test: Hạt Đồng Thanh"
+  - clear @s
+  - give @s apeirix:bronze_nugget 64
+  - 'tellraw @s {"text":"=== Test: Hạt Đồng Thanh ===","color":"gold"}'
+  - 'tellraw @s {"text":"Material: Bronze Nugget","color":"aqua"}'
+  - tellraw @s {"text":"1 Thỏi Đồng Thanh = 9 Hạt Đồng Thanh","color":"white"}
+  - tellraw @s {"text":"9 Hạt Đồng Thanh = 1 Thỏi Đồng Thanh","color":"yellow"}
+  - playsound random.levelup @s

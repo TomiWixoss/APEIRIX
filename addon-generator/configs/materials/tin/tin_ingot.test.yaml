@@ -1,0 +1,9 @@
+testCommands:
+  - "# Test: Thỏi Thiếc"
+  - clear @s
+  - give @s apeirix:tin_ingot 64
+  - 'tellraw @s {"text":"=== Test: Thỏi Thiếc ===","color":"gold"}'
+  - 'tellraw @s {"text":"Material: Tin Ingot","color":"aqua"}'
+  - tellraw @s {"text":"Nấu từ quặng hoặc craft từ 9 mảnh thiếc","color":"white"}
+  - tellraw @s {"text":"Dùng để craft Bronze Ingot (3 Copper + 1 Tin = 4 Bronze)","color":"yellow"}
+  - playsound random.levelup @s

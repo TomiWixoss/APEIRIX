@@ -1,0 +1,10 @@
+testCommands:
+  - "# Test: Áo Giáp Đồng Thanh"
+  - clear @s
+  - give @s apeirix:bronze_chestplate
+  - 'tellraw @s {"text":"=== Test: Áo Giáp Đồng Thanh ===","color":"gold"}'
+  - 'tellraw @s {"text":"Protection: 5 | Durability: 320","color":"aqua"}'
+  - 'tellraw @s {"text":"Slot: Chest | Enchantability: 18","color":"gray"}'
+  - 'tellraw @s {"text":"Trimmable: Yes","color":"yellow"}'
+  - tellraw @s {"text":"Mặc vào để test protection!","color":"white"}
+  - playsound random.levelup @s

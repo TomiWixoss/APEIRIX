@@ -22,8 +22,12 @@ $TempDir = ".\temp_mcaddon"
 $Timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $FinalFile = "APEIRIX_v${Version}_${Timestamp}.mcaddon"
 
-if (-not (Test-Path $ExportDir)) { New-Item -ItemType Directory -Path $ExportDir | Out-Null }
-if (Test-Path $TempDir) { Remove-Item -Recurse -Force $TempDir }
+if (-not (Test-Path $ExportDir)) { 
+    New-Item -ItemType Directory -Path $ExportDir | Out-Null 
+}
+if (Test-Path $TempDir) { 
+    Remove-Item -Recurse -Force $TempDir 
+}
 New-Item -ItemType Directory -Path $TempDir | Out-Null
 
 # Step 4: Create mcpacks using .NET
@@ -31,21 +35,23 @@ Write-Host "[4/6] Creating mcpacks..." -ForegroundColor Yellow
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 # BP mcpack
-$BPSource = (Resolve-Path ".\build\APEIRIX_bp").Path
-$BPPack = Join-Path (Resolve-Path $TempDir).Path "BP.mcpack"
-[System.IO.Compression.ZipFile]::CreateFromDirectory($BPSource, $BPPack)
-Write-Host "    ✓ Behavior Pack" -ForegroundColor Gray
+$BPSourcePath = (Resolve-Path ".\build\APEIRIX_bp").Path
+$TempDirPath = (Resolve-Path $TempDir).Path
+$BPPackPath = Join-Path $TempDirPath "BP.mcpack"
+[System.IO.Compression.ZipFile]::CreateFromDirectory($BPSourcePath, $BPPackPath)
+Write-Host "    - Behavior Pack created" -ForegroundColor Gray
 
 # RP mcpack
-$RPSource = (Resolve-Path ".\build\APEIRIX_rp").Path
-$RPPack = Join-Path (Resolve-Path $TempDir).Path "RP.mcpack"
-[System.IO.Compression.ZipFile]::CreateFromDirectory($RPSource, $RPPack)
-Write-Host "    ✓ Resource Pack" -ForegroundColor Gray
+$RPSourcePath = (Resolve-Path ".\build\APEIRIX_rp").Path
+$RPPackPath = Join-Path $TempDirPath "RP.mcpack"
+[System.IO.Compression.ZipFile]::CreateFromDirectory($RPSourcePath, $RPPackPath)
+Write-Host "    - Resource Pack created" -ForegroundColor Gray
 
 # Step 5: Create mcaddon
 Write-Host "[5/6] Creating mcaddon..." -ForegroundColor Yellow
-$McaddonPath = Join-Path (Resolve-Path $ExportDir).Path $FinalFile
-[System.IO.Compression.ZipFile]::CreateFromDirectory((Resolve-Path $TempDir).Path, $McaddonPath)
+$ExportDirPath = (Resolve-Path $ExportDir).Path
+$McaddonPath = Join-Path $ExportDirPath $FinalFile
+[System.IO.Compression.ZipFile]::CreateFromDirectory($TempDirPath, $McaddonPath)
 
 # Step 6: Cleanup
 Write-Host "[6/6] Cleanup..." -ForegroundColor Yellow

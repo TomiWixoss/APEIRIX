@@ -1,0 +1,14 @@
+testCommands:
+  - "# Test: Cuốc Đồng Thanh"
+  - clear @s
+  - give @s apeirix:bronze_hoe
+  - give @s minecraft:dirt 64
+  - give @s minecraft:grass_block 64
+  - give @s minecraft:wheat_seeds 64
+  - 'tellraw @s {"text":"=== Test: Cuốc Đồng Thanh ===","color":"gold"}'
+  - 'tellraw @s {"text":"Damage: 4 | Durability: 375","color":"aqua"}'
+  - 'tellraw @s {"text":"Digger: Plant, Crop, Leaves, Hay, Sponge","color":"gray"}'
+  - 'tellraw @s {"text":"Enchantability: 18","color":"yellow"}'
+  - 'tellraw @s {"text":"Special: Có thể cuốc đất thành farmland","color":"light_purple"}'
+  - tellraw @s {"text":"Đã cho Dirt + Grass + Seeds để test tilling!","color":"green"}
+  - playsound random.levelup @s

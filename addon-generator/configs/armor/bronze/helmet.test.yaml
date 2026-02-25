@@ -1,0 +1,10 @@
+testCommands:
+  - "# Test: Mũ Đồng Thanh"
+  - clear @s
+  - give @s apeirix:bronze_helmet
+  - 'tellraw @s {"text":"=== Test: Mũ Đồng Thanh ===","color":"gold"}'
+  - 'tellraw @s {"text":"Protection: 2 | Durability: 220","color":"aqua"}'
+  - 'tellraw @s {"text":"Slot: Head | Enchantability: 18","color":"gray"}'
+  - 'tellraw @s {"text":"Trimmable: Yes","color":"yellow"}'
+  - tellraw @s {"text":"Mặc vào để test protection!","color":"white"}
+  - playsound random.levelup @s

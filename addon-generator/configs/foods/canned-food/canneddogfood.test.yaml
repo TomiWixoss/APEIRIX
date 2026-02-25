@@ -1,0 +1,13 @@
+testCommands:
+  - "# Test: Thức Ăn Cho Chó - Nausea"
+  - clear @s
+  - give @s apeirix:canneddogfood 64
+  - effect @s saturation 1 255 true
+  - effect @s instant_damage 1 10 true
+  - 'tellraw @s {"text":"=== Test: Thức Ăn Cho Chó ===","color":"gold"}'
+  - 'tellraw @s {"text":"Nutrition: 2 | Saturation: 0.4","color":"aqua"}'
+  - 'tellraw @s {"text":"Effect: Nausea 10s","color":"red"}'
+  - 'tellraw @s {"text":"WARNING: Người ăn bị Nausea!","color":"dark_red"}'
+  - tellraw @s {"text":"Dành cho Sói/Chó ăn hồi 100% máu","color":"yellow"}
+  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - playsound random.levelup @s
