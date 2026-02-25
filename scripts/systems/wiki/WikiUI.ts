@@ -100,8 +100,8 @@ export class WikiUI {
     }
 
     /**
-     * Show item list with JSON UI book-style format
-     * Title format: apeirix:wiki:<icon>|<title>
+     * Show item list WITHOUT icon title (plain text)
+     * Title format: apeirix:list:<title> (no texture path)
      */
     private static async showItemList(player: Player, items: WikiItem[]): Promise<void> {
         // Sort items by name
@@ -111,15 +111,13 @@ export class WikiUI {
         const bodyText = LangManager.get("wiki.selectItem") + "\n" + 
                         LangManager.get("wiki.itemCount").replace("{count}", items.length.toString());
 
-        // Build title WITH ICON for list view (using wiki_book icon)
-        // Format: apeirix:wiki:<icon_texture_padded_200>$<title_text>
-        const wikiIconPath = "textures/items/wiki_book";
-        const paddedWikiIcon = wikiIconPath.padEnd(200, "$");
+        // Build title WITHOUT ICON for list view (plain text only)
+        // Format: apeirix:list:<title_text>
         const titleText = LangManager.get("wiki.title");
-        const jsonUITitle = `apeirix:wiki:${paddedWikiIcon}${titleText}`;
+        const plainTitle = `apeirix:list:${titleText}`;
         
         const form = new ActionFormData()
-            .title(jsonUITitle) // JSON UI format with icon
+            .title(plainTitle) // Plain text format (no icon)
             .body(bodyText);
 
         // Add buttons with icon path and name
