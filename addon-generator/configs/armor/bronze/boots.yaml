@@ -1,6 +1,6 @@
 type: boots
 id: bronze_boots
-name: Giày Đồng Thanh
+name: lang:armor.bronze_boots
 texture: ../../../../assets/armor/items/bronze_boots.png
 durability: 260
 protection: 1

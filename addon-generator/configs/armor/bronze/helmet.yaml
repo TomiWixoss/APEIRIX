@@ -1,6 +1,6 @@
 type: helmet
 id: bronze_helmet
-name: Mũ Đồng Thanh
+name: lang:armor.bronze_helmet
 texture: ../../../../assets/armor/items/bronze_helmet.png
 durability: 220
 protection: 2

@@ -1,5 +1,5 @@
 id: cannedbread
-name: Bánh Mì Đóng Hộp
+name: lang:foods.cannedbread
 texture: ../../../../assets/foods/cannedbread.png
 category: items
 stackSize: 64

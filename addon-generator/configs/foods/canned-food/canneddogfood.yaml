@@ -1,5 +1,5 @@
 id: canneddogfood
-name: Thức Ăn Cho Chó
+name: lang:foods.canneddogfood
 texture: ../../../../assets/foods/canneddogfood.png
 category: items
 stackSize: 64

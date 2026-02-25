@@ -1,5 +1,5 @@
 id: canempty
-name: Vỏ Đồ Hộp Rỗng
+name: lang:foods.canempty
 texture: ../../../../assets/foods/canempty.png
 category: items
 stackSize: 64

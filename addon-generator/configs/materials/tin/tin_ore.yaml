@@ -1,5 +1,5 @@
 id: tin_ore
-name: Quặng Thiếc
+name: lang:materials.tin_ore
 texturePath: ../../../../assets/blocks/tin_ore.png
 deepslateTexturePath: ../../../../assets/blocks/deepslate_tin_ore.png
 rawItemId: raw_tin

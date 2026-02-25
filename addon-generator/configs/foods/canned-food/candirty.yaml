@@ -1,5 +1,5 @@
 id: candirty
-name: Vỏ Đồ Hộp Bẩn
+name: lang:foods.candirty
 texture: ../../../../assets/foods/candirty.png
 category: items
 stackSize: 64

@@ -1,11 +1,24 @@
 import { FileManager } from '../core/FileManager.js';
-import { join } from 'path';
+import { join, dirname } from 'path';
+import { langLoader } from '../core/loaders/LangLoader.js';
 
 /**
  * Generator cho Language files - update en_US.lang
  */
 export class LangGenerator {
-  constructor(private projectRoot: string) {}
+  constructor(private projectRoot: string, private configDir: string = '') {}
+
+  /**
+   * Resolve display name from lang key or return as-is
+   * @param nameOrKey - Either "lang:materials.tin_ingot" or "Thỏi Thiếc"
+   */
+  resolveName(nameOrKey: string): string {
+    if (nameOrKey.startsWith('lang:')) {
+      const langKey = nameOrKey.substring(5); // Remove "lang:" prefix
+      return langLoader.get(langKey, this.configDir, nameOrKey);
+    }
+    return nameOrKey;
+  }
 
   updateLangFile(itemId: string, displayName: string, packType: 'BP' | 'RP', prefix: 'item' | 'tile' = 'item'): void {
     const filePath = join(this.projectRoot, `texts/en_US.lang`);

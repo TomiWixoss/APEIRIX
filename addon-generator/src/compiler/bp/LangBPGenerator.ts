@@ -6,15 +6,16 @@ import { LangGenerator } from '../../generators/LangGenerator.js';
  * Generate BP lang files
  */
 export class LangBPGenerator {
-  static async generate(config: any, outputDir: string): Promise<number> {
-    const generator = new LangGenerator(outputDir);
+  static async generate(config: any, outputDir: string, configDir: string = ''): Promise<number> {
+    const generator = new LangGenerator(outputDir, configDir);
     const entries: Record<string, string> = {};
 
     // Collect all lang entries
     if (config.items) {
       for (const item of config.items) {
         if (item.name) {
-          entries[`item.apeirix.${item.id}.name`] = item.name;
+          const displayName = generator.resolveName(item.name);
+          entries[`item.apeirix.${item.id}.name`] = displayName;
         }
       }
     }
@@ -22,7 +23,8 @@ export class LangBPGenerator {
     if (config.tools) {
       for (const tool of config.tools) {
         if (tool.name) {
-          entries[`item.apeirix.${tool.id}.name`] = tool.name;
+          const displayName = generator.resolveName(tool.name);
+          entries[`item.apeirix.${tool.id}.name`] = displayName;
         }
       }
     }
@@ -30,7 +32,8 @@ export class LangBPGenerator {
     if (config.armor) {
       for (const armor of config.armor) {
         if (armor.name) {
-          entries[`item.apeirix.${armor.id}.name`] = armor.name;
+          const displayName = generator.resolveName(armor.name);
+          entries[`item.apeirix.${armor.id}.name`] = displayName;
         }
       }
     }
@@ -38,7 +41,8 @@ export class LangBPGenerator {
     if (config.foods) {
       for (const food of config.foods) {
         if (food.name) {
-          entries[`item.apeirix.${food.id}.name`] = food.name;
+          const displayName = generator.resolveName(food.name);
+          entries[`item.apeirix.${food.id}.name`] = displayName;
         }
       }
     }
@@ -46,7 +50,8 @@ export class LangBPGenerator {
     if (config.blocks) {
       for (const block of config.blocks) {
         if (block.name) {
-          entries[`tile.apeirix:${block.id}.name`] = block.name;
+          const displayName = generator.resolveName(block.name);
+          entries[`tile.apeirix:${block.id}.name`] = displayName;
         }
       }
     }
@@ -54,7 +59,8 @@ export class LangBPGenerator {
     if (config.ores) {
       for (const ore of config.ores) {
         if (ore.name) {
-          entries[`tile.apeirix:${ore.id}.name`] = ore.name;
+          const displayName = generator.resolveName(ore.name);
+          entries[`tile.apeirix:${ore.id}.name`] = displayName;
         }
       }
     }

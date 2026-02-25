@@ -38,14 +38,24 @@ export class GameDataGenerator {
 
   /**
    * Generate GeneratedGameData.ts file
+   * @param tools Tool data array
+   * @param foods Food data array
+   * @param ores Ore data array
+   * @param customPath Optional custom output path (relative to projectRoot)
    */
-  generate(tools: ToolData[], foods: FoodData[], ores: OreData[]): void {
+  generate(tools: ToolData[], foods: FoodData[], ores: OreData[], customPath?: string): void {
     const content = this.generateContent(tools, foods, ores);
-    // Output to root scripts/data folder
-    const outputPath = join(this.projectRoot, 'scripts/data/GeneratedGameData.ts');
+    // Output to specified path or default to root scripts/data folder
+    const outputPath = customPath 
+      ? join(this.projectRoot, customPath, 'GeneratedGameData.ts')
+      : join(this.projectRoot, 'scripts/data/GeneratedGameData.ts');
     
     FileManager.writeText(outputPath, content);
-    console.log(`✅ Đã tạo: scripts/data/GeneratedGameData.ts`);
+    
+    const displayPath = customPath 
+      ? `${customPath}/GeneratedGameData.ts`
+      : 'scripts/data/GeneratedGameData.ts';
+    console.log(`✅ Đã tạo: ${displayPath}`);
   }
 
   /**

@@ -1,5 +1,5 @@
 id: cannedmushroomsoup
-name: Súp Nấm Hộp
+name: lang:foods.cannedmushroomsoup
 texture: ../../../../assets/foods/cannedmushroomsoup.png
 category: items
 stackSize: 64

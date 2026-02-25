@@ -1,5 +1,5 @@
 id: canned_pumpkin
-name: Bí Ngô Nghiền Hộp
+name: lang:foods.canned_pumpkin
 texture: ../../../../assets/foods/canned_pumpkin.png
 category: items
 stackSize: 64

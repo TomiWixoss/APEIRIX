@@ -1,6 +1,6 @@
 type: shovel
 id: bronze_shovel
-name: Xẻng Đồng Thanh
+name: lang:tools.bronze_shovel
 texture: ../../../../assets/tools/bronze_shovel.png
 damage: 3
 category: equipment

@@ -1,6 +1,6 @@
 type: pickaxe
 id: bronze_pickaxe
-name: Cúp Đồng Thanh
+name: lang:tools.bronze_pickaxe
 texture: ../../../../assets/tools/bronze_pickaxe.png
 damage: 4
 category: equipment

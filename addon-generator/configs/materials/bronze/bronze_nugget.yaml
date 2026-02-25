@@ -1,5 +1,5 @@
 id: bronze_nugget
-name: Hạt Đồng Thanh
+name: lang:materials.bronze_nugget
 texture: ../../../../assets/items/bronze_nugget.png
 category: items
 maxStackSize: 64

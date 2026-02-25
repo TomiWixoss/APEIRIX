@@ -1,5 +1,5 @@
 id: cannedcarrots
-name: Cà Rốt Đóng Hộp
+name: lang:foods.cannedcarrots
 texture: ../../../../assets/foods/cannedcarrots.png
 category: items
 stackSize: 64

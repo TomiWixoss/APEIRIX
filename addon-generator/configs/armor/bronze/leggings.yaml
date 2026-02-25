@@ -1,6 +1,6 @@
 type: leggings
 id: bronze_leggings
-name: Quần Giáp Đồng Thanh
+name: lang:armor.bronze_leggings
 texture: ../../../../assets/armor/items/bronze_leggings.png
 durability: 300
 protection: 4

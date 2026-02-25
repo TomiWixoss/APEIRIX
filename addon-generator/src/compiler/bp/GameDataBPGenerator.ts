@@ -72,7 +72,11 @@ export class GameDataBPGenerator {
       }
     }
 
-    // Generate file
+    // Generate file to project root (for development)
     generator.generate(tools, foods, ores);
+    
+    // Also generate to build folder (for Regolith to copy)
+    const buildGenerator = new GameDataGenerator(buildDir);
+    buildGenerator.generate(tools, foods, ores, 'BP/scripts/data');
   }
 }

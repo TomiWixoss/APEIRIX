@@ -1,5 +1,5 @@
 id: canned_food
-name: Thịt Hộp Hầm
+name: lang:foods.canned_food
 texture: ../../../../assets/foods/canned_food.png
 category: items
 stackSize: 64

@@ -1,5 +1,5 @@
 id: cannedbeets
-name: Súp Củ Dền Hộp
+name: lang:foods.cannedbeets
 texture: ../../../../assets/foods/cannedbeets.png
 category: items
 stackSize: 64

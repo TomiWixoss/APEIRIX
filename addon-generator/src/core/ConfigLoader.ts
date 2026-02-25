@@ -1,8 +1,9 @@
-import { join } from 'path';
+import { join, dirname } from 'path';
 import { ContentConfig } from './types/ConfigTypes.js';
 import { YamlLoader } from './loaders/YamlLoader.js';
 import { JsonLoader } from './loaders/JsonLoader.js';
 import { ConfigMerger } from './loaders/ConfigMerger.js';
+import { langLoader } from './loaders/LangLoader.js';
 
 // Re-export types for backward compatibility
 export * from './types/ConfigTypes.js';
@@ -24,6 +25,12 @@ export class ConfigLoader {
       config = JsonLoader.load(filePath);
     } else {
       throw new Error(`Unsupported config format: ${filePath}`);
+    }
+    
+    // Set language from addon config
+    if (config.addon?.language) {
+      langLoader.setLanguage(config.addon.language);
+      console.log(`[ConfigLoader] Language set to: ${config.addon.language}`);
     }
     
     // Load imported files nếu có

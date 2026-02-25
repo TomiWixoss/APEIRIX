@@ -1,5 +1,5 @@
 id: tin_block
-name: Khối Thiếc
+name: lang:materials.tin_block
 texture: ../../../../assets/blocks/tin_block.png
 category: construction
 destroyTime: 16.65

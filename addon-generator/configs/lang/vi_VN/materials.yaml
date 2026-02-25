@@ -1,0 +1,14 @@
+# Ngôn ngữ tiếng Việt - Materials
+materials:
+  # Tin
+  raw_tin: Thiếc Thô
+  tin_ingot: Thỏi Thiếc
+  tin_nugget: Mảnh Thiếc
+  tin_block: Khối Thiếc
+  tin_ore: Quặng Thiếc
+  deepslate_tin_ore: Quặng Thiếc Đá Sâu
+
+  # Bronze
+  bronze_ingot: Thỏi Đồng Thanh
+  bronze_nugget: Mảnh Đồng Thanh
+  bronze_block: Khối Đồng Thanh

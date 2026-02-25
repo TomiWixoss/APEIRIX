@@ -1,5 +1,5 @@
 id: raw_tin
-name: Thiếc Thô
+name: lang:materials.raw_tin
 texture: ../../../../assets/items/raw_tin.png
 category: items
 maxStackSize: 64

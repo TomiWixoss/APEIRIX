@@ -1,65 +1,55 @@
 /**
  * Vietnamese Language File for APEIRIX
+ * AUTO-GENERATED from configs/script-lang/vi_VN/ui.yaml
+ * DO NOT EDIT - Changes will be overwritten
  */
 
 export const LANG_VI = {
-    // UI General
-    ui: {
-        close: "§l§c✖ Đóng",
-        back: "§l§0← Quay lại",
-        backToList: "§l§0← Quay lại Danh sách",
-        backToMenu: "§l§0← Quay lại Menu"
+    "ui": {
+        "close": "§l§c✖ Đóng",
+        "back": "§l§0← Quay lại",
+        "backToList": "§l§0← Quay lại Danh sách",
+        "backToMenu": "§l§0← Quay lại Menu"
     },
-
-    // Achievement System
-    achievements: {
-        title: "§l§6═══ THÀNH TỰU APEIRIX ═══",
-        selectCategory: "§7Chọn nhánh thành tựu để xem:",
-        progress: "§7Tiến độ:",
-        completed: "§8hoàn thành",
-        status: "§7Trạng thái:",
-        statusCompleted: "§2§lĐÃ HOÀN THÀNH",
-        statusLocked: "§8§lCHƯA MỞ KHÓA",
-        rewardClaim: "§eNhận",
-        rewardClaimed: "§a✓ Đã nhận",
-        rewardLocked: "§8✗ Chưa mở khóa",
-        congratulations: "§2§l★ CHÚC MỪNG! ★\n§7Bạn đã hoàn thành thành tựu này!",
-        keepGoing: "§6§l⚡ CỐ GẮNG LÊN! ⚡\n§7Bạn sắp hoàn thành rồi!",
-        unlocked: "§6§l★ MỞ KHÓA THÀNH TỰU! ★",
-        received: "§a§l+ Nhận được:"
+    "achievements": {
+        "title": "§l§6═══ THÀNH TỰU APEIRIX ═══",
+        "selectCategory": "§7Chọn nhánh thành tựu để xem:",
+        "progress": "§7Tiến độ:",
+        "completed": "§8hoàn thành",
+        "status": "§7Trạng thái:",
+        "statusCompleted": "§2§lĐÃ HOÀN THÀNH",
+        "statusLocked": "§8§lCHƯA MỞ KHÓA",
+        "rewardClaim": "§eNhận",
+        "rewardClaimed": "§a✓ Đã nhận",
+        "rewardLocked": "§8✗ Chưa mở khóa",
+        "congratulations": "§2§l★ CHÚC MỪNG! ★\n§7Bạn đã hoàn thành thành tựu này!",
+        "keepGoing": "§6§l⚡ CỐ GẮNG LÊN! ⚡\n§7Bạn sắp hoàn thành rồi!",
+        "unlocked": "§6§l★ MỞ KHÓA THÀNH TỰU! ★",
+        "received": "§a§l+ Nhận được:"
     },
-
-    // Categories
-    categories: {
-        starter: {
-            name: "Khởi Đầu",
-            desc: "Những bước đầu tiên trong APEIRIX"
+    "categories": {
+        "starter": {
+            "name": "Khởi Đầu",
+            "desc": "Những bước đầu tiên trong APEIRIX"
         }
     },
-
-    // Achievement Names & Descriptions
-    achievementNames: {
-        welcome: "Chào mừng đến APEIRIX",
-        first_steps: "Bước Đầu Tiên",
-        breaker: "Người Phá Hủy"
+    "achievementNames": {
+        "welcome": "Chào mừng đến APEIRIX",
+        "first_steps": "Bước Đầu Tiên",
+        "breaker": "Người Phá Hủy"
     },
-
-    achievementDescs: {
-        welcome: "Tham gia thế giới lần đầu tiên",
-        first_steps: "Đi bộ 100 blocks",
-        breaker: "Phá 10 blocks"
+    "achievementDescs": {
+        "welcome": "Tham gia thế giới lần đầu tiên",
+        "first_steps": "Đi bộ 100 blocks",
+        "breaker": "Phá 10 blocks"
     },
-
-    // Welcome Messages
-    welcome: {
-        title: "§a§lChào mừng đến với APEIRIX!",
-        firstTime: "§e§lBạn đã nhận được Sách Thành Tựu APEIRIX!\n§7Sử dụng sách để xem tiến độ thành tựu của bạn",
-        returning: "§7Nếu làm mất sách, gõ: §b/scriptevent apeirix:getbook",
-        bookReceived: "§a§lĐã nhận lại Sách Thành Tựu APEIRIX!"
+    "welcome": {
+        "title": "§a§lChào mừng đến với APEIRIX!",
+        "firstTime": "§e§lBạn đã nhận được Sách Thành Tựu APEIRIX!\n§7Sử dụng sách để xem tiến độ thành tựu của bạn",
+        "returning": "§7Nếu làm mất sách, gõ: §b/scriptevent apeirix:getbook",
+        "bookReceived": "§a§lĐã nhận lại Sách Thành Tựu APEIRIX!"
     },
-
-    // Items
-    items: {
-        achievementBook: "Sách Thành Tựu APEIRIX"
+    "items": {
+        "achievementBook": "Sách Thành Tựu APEIRIX"
     }
 };

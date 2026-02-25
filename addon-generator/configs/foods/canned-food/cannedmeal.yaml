@@ -1,5 +1,5 @@
 id: cannedmeal
-name: Khẩu Phần Ăn Chiến Đấu
+name: lang:foods.cannedmeal
 texture: ../../../../assets/foods/cannedmeal.png
 category: items
 stackSize: 64

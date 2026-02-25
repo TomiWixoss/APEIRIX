@@ -1,6 +1,6 @@
 type: chestplate
 id: bronze_chestplate
-name: Áo Giáp Đồng Thanh
+name: lang:armor.bronze_chestplate
 texture: ../../../../assets/armor/items/bronze_chestplate.png
 durability: 320
 protection: 5

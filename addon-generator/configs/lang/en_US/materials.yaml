@@ -1,0 +1,14 @@
+# English Language - Materials
+materials:
+  # Tin
+  raw_tin: Raw Tin
+  tin_ingot: Tin Ingot
+  tin_nugget: Tin Nugget
+  tin_block: Block of Tin
+  tin_ore: Tin Ore
+  deepslate_tin_ore: Deepslate Tin Ore
+
+  # Bronze
+  bronze_ingot: Bronze Ingot
+  bronze_nugget: Bronze Nugget
+  bronze_block: Block of Bronze

@@ -1,5 +1,5 @@
 id: cannedfish
-name: Cá Mòi Đóng Hộp
+name: lang:foods.cannedfish
 texture: ../../../../assets/foods/cannedfish.png
 category: items
 stackSize: 64

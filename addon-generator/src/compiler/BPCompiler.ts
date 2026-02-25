@@ -10,8 +10,13 @@ import { RecipeBPGenerator } from './bp/RecipeBPGenerator.js';
 import { TestFunctionBPGenerator } from './bp/TestFunctionBPGenerator.js';
 import { LangBPGenerator } from './bp/LangBPGenerator.js';
 import { GameDataBPGenerator } from './bp/GameDataBPGenerator.js';
+import { LanguageConfigBPGenerator } from './bp/LanguageConfigBPGenerator.js';
+import { ScriptLangBPGenerator } from './bp/ScriptLangBPGenerator.js';
 
 export interface BPConfig {
+  addon?: {
+    language?: string;
+  };
   items?: any[];
   blocks?: any[];
   ores?: any[];
@@ -30,7 +35,7 @@ export class BPCompiler {
   /**
    * Compile complete Behavior Pack
    */
-  static async compile(config: BPConfig, outputDir: string): Promise<void> {
+  static async compile(config: BPConfig, outputDir: string, configDir: string = ''): Promise<void> {
     console.log('\n🔨 Compiling Behavior Pack...');
     
     const bpPath = path.join(outputDir, 'BP');
@@ -85,11 +90,18 @@ export class BPCompiler {
     // Generate test functions
     stats.functions = await TestFunctionBPGenerator.generate(config, bpPath);
 
-    // Generate lang file
-    stats.langEntries = await LangBPGenerator.generate(config, bpPath);
+    // Generate lang file (pass configDir for lang resolution)
+    stats.langEntries = await LangBPGenerator.generate(config, bpPath, configDir);
 
     // Generate GameData file (output to root scripts folder)
     await GameDataBPGenerator.generate(config, outputDir);
+
+    // Generate Language Config for scripts
+    const language = config.addon?.language || 'vi_VN';
+    await LanguageConfigBPGenerator.generate(language, outputDir);
+
+    // Generate Script Lang files from YAML (both vi_VN and en_US)
+    await ScriptLangBPGenerator.generate(configDir, outputDir);
 
     console.log(`✓ BP compiled: ${stats.items} items, ${stats.blocks} blocks, ${stats.recipes} recipes`);
   }

@@ -1,6 +1,6 @@
 type: hoe
 id: bronze_hoe
-name: Cuốc Đồng Thanh
+name: lang:tools.bronze_hoe
 texture: ../../../../assets/tools/bronze_hoe.png
 damage: 4
 category: equipment

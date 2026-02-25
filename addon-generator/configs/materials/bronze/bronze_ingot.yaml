@@ -1,5 +1,5 @@
 id: bronze_ingot
-name: Thỏi Đồng Thanh
+name: lang:materials.bronze_ingot
 texture: ../../../../assets/items/bronze_ingot.png
 category: items
 maxStackSize: 64

@@ -1,16 +1,55 @@
 /**
  * Language Manager for APEIRIX
+ * Automatically loads language based on addon config
  */
 
 import { LANG_VI } from "./vi_VN";
+import { LANG_EN } from "./en_US";
+import { GENERATED_LANGUAGE } from "../data/GeneratedLanguage";
+
+// Language type
+type LangData = typeof LANG_VI;
 
 export class LangManager {
-    private static currentLang = LANG_VI;
+    private static currentLang: LangData = LANG_VI;
+    private static initialized = false;
+
+    /**
+     * Initialize language from generated config
+     */
+    static init(): void {
+        if (this.initialized) return;
+        
+        // Load language from generated config
+        this.setLanguage(GENERATED_LANGUAGE);
+        
+        this.initialized = true;
+    }
+
+    /**
+     * Set language manually
+     */
+    static setLanguage(lang: string): void {
+        switch (lang) {
+            case 'en_US':
+                this.currentLang = LANG_EN;
+                break;
+            case 'vi_VN':
+            default:
+                this.currentLang = LANG_VI;
+                break;
+        }
+    }
 
     /**
      * Get translated text
      */
     static get(key: string): string {
+        // Auto-initialize on first use
+        if (!this.initialized) {
+            this.init();
+        }
+        
         const keys = key.split('.');
         let value: any = this.currentLang;
         

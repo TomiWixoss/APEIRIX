@@ -11,6 +11,7 @@ export interface ContentConfig {
     minEngineVersion?: [number, number, number];
     author?: string;
     license?: string;
+    language?: string; // NEW: Default language (e.g., "vi_VN", "en_US")
     uuids?: {
       bp?: string;
       rp?: string;

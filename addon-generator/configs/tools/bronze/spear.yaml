@@ -1,5 +1,5 @@
 id: bronze_spear
-name: Giáo Đồng Thanh
+name: lang:tools.bronze_spear
 type: spear
 texture: ../../../../assets/tools/bronze_spear.png
 materialId: apeirix:bronze_ingot

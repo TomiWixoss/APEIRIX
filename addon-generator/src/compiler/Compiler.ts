@@ -16,7 +16,9 @@ export interface CompileOptions {
 }
 
 export interface AddonConfig {
-  addon: AddonMetadata;
+  addon: AddonMetadata & {
+    language?: string; // Language setting for lang system
+  };
   items?: any[];
   blocks?: any[];
   ores?: any[];
@@ -28,6 +30,7 @@ export interface AddonConfig {
     bp?: string;
     rp?: string;
   };
+  generateBulkRecipeTest?: boolean | string;
 }
 
 /**
@@ -69,8 +72,11 @@ export class Compiler {
       // 4. Generate manifests
       await this.generateManifests(config);
 
-      // 5. Compile BP
-      await BPCompiler.compile(config, this.outputDir);
+      // Get config directory for lang resolution
+      const configDir = path.dirname(path.resolve(this.configPath));
+
+      // 5. Compile BP (pass configDir)
+      await BPCompiler.compile(config, this.outputDir, configDir);
 
       // 6. Compile RP
       await RPCompiler.compile(config, this.outputDir);

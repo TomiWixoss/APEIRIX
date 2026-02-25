@@ -1,5 +1,5 @@
 id: tin_ingot
-name: Thỏi Thiếc
+name: lang:materials.tin_ingot
 texture: ../../../../assets/items/tin_ingot.png
 category: items
 maxStackSize: 64

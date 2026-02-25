@@ -1,5 +1,5 @@
 id: bronze_block
-name: Khối Đồng Thanh
+name: lang:materials.bronze_block
 texture: ../../../../assets/blocks/bronze_block.png
 category: construction
 destroyTime: 16.65
