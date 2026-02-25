@@ -1,0 +1,433 @@
+{
+  "namespace": "global_dropdowns",
+
+
+  "dropdown_background_control":{
+    "type": "image",
+    "$dropdownBG|default": "",
+    "texture": "$dropdownBG"
+  },
+
+  "custom_dropdown": {
+    "type": "panel",
+    "size": ["100%", "100%c"],
+
+    //dropdown values textures (variables are custom made and not available in vanilla ui)
+    "$radio_on":"textures/cc/ui/custom_form/dropdown/custom_radio_on",
+    "$radio_on_hover":"textures/cc/ui/custom_form/dropdown/custom_radio_on",
+    "$radio_off":"textures/cc/ui/custom_form/dropdown/custom_radio_off",
+    "$radio_off_hover":"textures/cc/ui/custom_form/dropdown/custom_radio_off",
+    "$dropDownSelectBG":"textures/cc/ui/custom_form/dropdown/custom_dropDownSelectBG",
+    "$dropDownHoverBG":"textures/cc/ui/custom_form/dropdown/custom_dropDownHoverBG",
+    "$radio_background":"textures/cc/ui/custom_form/dropdown/radioBG",
+    "$dropdownBG|default":"textures/cc/ui/custom_form/dropdown/dropdownBG",
+
+    "$dropdown_background_control":"global_dropdowns.dropdown_background_control",
+    
+    "controls": [
+      {
+        "dropdown@settings_common.option_dropdown": {
+          "$option_label": "#custom_text",
+          "$dropdown_content": "global_dropdowns.custom_dropdown_content",
+          "$dropdown_area": "generated_form",
+          "$dropdown_name": "custom_dropdown",
+          "$toggle_binding_type": "collection",
+          "$toggle_grid_collection_name": "custom_form",
+          "$options_dropdown_toggle_label_binding": "#dropdown_option_text",
+          "$options_dropdown_toggle_label_binding_type": "collection",
+          "$options_dropdown_toggle_label_binding_collection_name": "custom_form",
+          "$dropdown_scroll_content_size": ["100%", "200%"],
+          "$label_bindings": [
+            {
+              "binding_name": "#custom_text",
+              "binding_type": "collection",
+              "binding_collection_name": "custom_form"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  "custom_dropdown_content@settings_common.option_radio_dropdown_group": {
+    "$radio_buttons": [],
+
+    "$radio_factory": {
+      "name": "buttons",
+      "control_name": "global_dropdowns.custom_dropdown_radio"
+    },
+
+    "$radio_collection_name": "custom_dropdown",
+    "$radio_bindings": [
+      {
+        "binding_name": "#custom_dropdown_length",
+        "binding_type": "collection",
+        "binding_name_override": "#collection_length",
+        "binding_collection_name": "custom_form"
+      }
+    ]
+  },
+
+  "custom_dropdown_radio@global_dropdowns.radio_with_label": {
+    "$toggle_name": "custom_dropdown_radio_toggle",
+    "$toggle_state_binding_name": "#custom_radio_toggled",
+    "$toggle_binding_type": "collection",
+    "$toggle_grid_collection_name": "custom_dropdown",
+    "$toggle_collection_details_type": "collection_details",
+
+    "$radio_label_text": "#custom_radio_text",
+    "$radio_label_bindings": [
+      {
+        "binding_name": "#custom_radio_text",
+        "binding_type": "collection",
+        "binding_collection_name": "custom_dropdown"
+      },
+      {
+        "binding_type": "collection_details"
+      }
+    ]
+  },
+
+  "radio_with_label": {
+    "type": "panel",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "size": ["100%", "17px"],
+    "offset": [3, 0],
+    "$enabled|default": true,
+    "controls": [
+      { "radio_with_label_core@global_dropdowns.radio_with_label_core": {} }
+    ]
+  },
+
+  "radio_with_label_core@global_dropdowns.radio_toggle": {
+    "$unchecked_control|default": "global_dropdowns.radio_visuals_unchecked",
+    "$checked_control|default": "global_dropdowns.radio_visuals_checked",
+    "$unchecked_hover_control|default": "global_dropdowns.radio_visuals_unchecked_hover",
+    "$checked_hover_control|default": "global_dropdowns.radio_visuals_checked_hover",
+    "$unchecked_locked_control|default": "global_dropdowns.radio_visuals_unchecked_locked",
+    "$unchecked_locked_hover_control|default": "global_dropdowns.radio_visuals_unchecked_locked",
+    "$checked_locked_control|default": "global_dropdowns.radio_visuals_checked_locked",
+    "$checked_locked_hover_control|default": "global_dropdowns.radio_visuals_checked_locked",
+
+    "$radio_toggle_group": true,
+    "size": ["100%", "100%c"],
+    "$toggle_name|default": "$toggle_state_binding_name",
+    "$toggle_enabled_binding_name": "$option_enabled_binding_name",
+
+    "enabled": "$enabled",
+    "$toggle_enabled_binding_type": "global",
+    "variables": [
+      {
+        "requires": "(not $option_enabled_binding_name or not $enabled)",
+        "$toggle_enabled_binding_name": "#not_data_bound",
+        "$toggle_enabled_binding_type": "none"
+      }
+    ]
+  },
+
+  "radio_toggle@global_dropdowns.toggle": {
+    "$unchecked_control|default": "global_dropdowns.radio_toggle_unchecked_state",
+    "$checked_control|default": "global_dropdowns.radio_toggle_checked_state",
+    "$unchecked_hover_control|default": "global_dropdowns.radio_toggle_unchecked_hover_state",
+    "$checked_hover_control|default": "global_dropdowns.radio_toggle_checked_hover_state",
+    "$unchecked_locked_control|default": "global_dropdowns.radio_toggle_unchecked_locked_state",
+    "$unchecked_locked_hover_control|default": "global_dropdowns.radio_toggle_unchecked_locked_state",
+    "$checked_locked_control|default": "global_dropdowns.radio_toggle_checked_locked_state",
+    "$checked_locked_hover_control|default": "global_dropdowns.radio_toggle_checked_locked_state",
+    "$radio_toggle_group": true
+  },
+
+  "toggle@global_dropdowns.toggle_visuals": {
+    "type": "toggle",
+
+    "$focus_id|default": "",
+    "$focus_override_down|default": "",
+    "$focus_override_up|default": "",
+    "$focus_override_left|default": "",
+    "$focus_override_right|default": "",
+    "focus_identifier": "$focus_id",
+    "focus_change_down": "$focus_override_down",
+    "focus_change_up": "$focus_override_up",
+    "focus_change_left": "$focus_override_left",
+    "focus_change_right": "$focus_override_right",
+    "$toggle_focus_enabled|default": true,
+    "focus_enabled": "$toggle_focus_enabled",
+    "focus_magnet_enabled": true,
+
+    "$default_focus_precedence|default": 0,
+    "default_focus_precedence": "$default_focus_precedence",
+
+    "$allow_controller_back_button_mapping|default": false,
+
+    "layer": 1,
+    "sound_name": "random.click",
+    "sound_volume": 1.0,
+    "sound_pitch": 1.0,
+
+    "checked_control": "checked",
+    "unchecked_control": "unchecked",
+    "checked_hover_control": "checked_hover",
+    "unchecked_hover_control": "unchecked_hover",
+    "checked_locked_control": "checked_locked",
+    "unchecked_locked_control": "unchecked_locked",
+    "checked_locked_hover_control": "checked_locked_hover",
+    "unchecked_locked_hover_control": "unchecked_locked_hover",
+
+    "$radio_toggle_group|default": false,
+    "$toggle_default_state|default": false,
+    "$toggle_group_forced_index|default": -1,
+    "$toggle_group_default_selected|default": 0,
+    "$toggle_binding_type|default": "global",
+    "$toggle_binding_condition|default": "visible",
+    "$toggle_state_binding_name|default": "#toggle_state",
+    "$toggle_enabled_binding_type|default": "none",
+    "$toggle_enabled_binding_condition|default": "visible",
+    "$toggle_enabled_binding_name|default": "#toggle_enabled",
+    "$toggle_grid_collection_name|default": "",
+    "$toggle_collection_details_type|default": "none",
+    "$toggle_collection_detail_name|default": "",
+
+    "$toggle_tts_name|default": "accessibility.toggle.tts.title",
+    "$toggle_tts_header_binding_type|default": "none",
+    "$toggle_tts_header_binding_condition|default": "visible",
+    "$toggle_tts_header_binding_collection_name|default": "",
+    "$toggle_tts_header|default": "",
+    "$toggle_tts_value_binding_type|default": "none",
+    "$toggle_tts_value_binding_condition|default": "visible",
+    "$toggle_tts_value_binding_collection_name|default": "",
+    "$toggle_tts_override_toggle_value|default": "",
+    "$toggle_tts_toggle_on_text|default": "accessibility.state.on",
+    "$toggle_tts_toggle_off_text|default": "accessibility.state.off",
+    "$toggle_tts_type_priority|default": -100,
+    "$toggle_tts_index_priority|default": 150,
+    "$toggle_tts_inherit_siblings|default": false,
+    "$tts_section_header|default": "",
+
+    "$ignore_tts_enabled_bind|default": false,
+    "$toggle_focus_bind|default": "",
+
+    "radio_toggle_group": "$radio_toggle_group",
+    "toggle_name": "$toggle_name",
+    "toggle_default_state": "$toggle_default_state",
+    "toggle_group_forced_index": "$toggle_group_forced_index",
+    "toggle_group_default_selected": "$toggle_group_default_selected",
+    "toggle_grid_collection_name": "$toggle_grid_collection_name",
+
+    "$enable_directional_toggling|default": false,
+    "$toggle_on_button|default": "toggle.toggle_on",
+    "$toggle_off_button|default": "toggle.toggle_off",
+
+    "$toggle_tts_enabled_binding_type|default": "none",
+
+    "enable_directional_toggling": "$enable_directional_toggling",
+    "toggle_on_button": "$toggle_on_button",
+    "toggle_off_button": "$toggle_off_button",
+
+    "tts_toggle_on": "$toggle_tts_toggle_on_text",
+    "tts_toggle_off": "$toggle_tts_toggle_off_text",
+    "tts_name": "$toggle_tts_name",
+    "tts_control_header": "$toggle_tts_header",
+    "tts_section_header": "$tts_section_header",
+    "tts_override_control_value": "$toggle_tts_override_toggle_value",
+    "tts_control_type_order_priority": "$toggle_tts_type_priority",
+    "tts_index_priority": "$toggle_tts_index_priority",
+    "tts_inherit_siblings": "$toggle_tts_inherit_siblings",
+
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.menu_select",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.menu_ok",
+        "mapping_type": "focused"
+      },
+      {
+        "from_button_id": "button.controller_back",
+        "to_button_id": "button.controller_back",
+        "mapping_type": "focused",
+        "ignored": "(not $allow_controller_back_button_mapping)"
+      },
+      {
+        "ignored": "(not $enable_directional_toggling)",
+        "from_button_id": "button.menu_left",
+        "to_button_id": "$toggle_off_button",
+        "mapping_type": "pressed",
+        "input_mode_condition": "gamepad_and_not_gaze"
+      },
+      {
+        "ignored": "(not $enable_directional_toggling)",
+        "from_button_id": "button.menu_right",
+        "to_button_id": "$toggle_on_button",
+        "mapping_type": "pressed",
+        "input_mode_condition": "gamepad_and_not_gaze"
+      }
+    ],
+
+    "$toggle_property_bag|default": {
+      "#toggle_state": true
+    },
+
+    "property_bag": "$toggle_property_bag",
+
+    "bindings": [
+      {
+        "binding_type": "$toggle_binding_type",
+        "binding_condition": "$toggle_binding_condition",
+        "binding_collection_name": "$toggle_grid_collection_name",
+        "binding_name": "$toggle_state_binding_name",
+        "binding_name_override": "#toggle_state"
+      },
+      {
+        "binding_type": "$toggle_enabled_binding_type",
+        "binding_condition": "$toggle_enabled_binding_condition",
+        "binding_collection_name": "$toggle_grid_collection_name",
+        "binding_name": "$toggle_enabled_binding_name",
+        "binding_name_override": "#enabled"
+      },
+      {
+        "binding_type": "$toggle_collection_details_type",
+        "binding_collection_name": "$toggle_collection_detail_name"
+      },
+      {
+        "binding_type": "$toggle_tts_header_binding_type",
+        "binding_condition": "$toggle_tts_header_binding_condition",
+        "binding_collection_name": "$toggle_tts_header_binding_collection_name",
+        "binding_name": "$toggle_tts_header"
+      },
+      {
+        "binding_type": "$toggle_tts_value_binding_type",
+        "binding_condition": "$toggle_tts_value_binding_condition",
+        "binding_collection_name": "$toggle_tts_value_binding_collection_name",
+        "binding_name": "$toggle_tts_override_toggle_value"
+      },
+      {
+        "ignored": "$ignore_tts_enabled_bind",
+        "binding_type": "$toggle_tts_enabled_binding_type",
+        "binding_name": "#tts_enabled",
+        "binding_name_override": "#focus_enabled"
+      },
+      {
+        "ignored": "(($toggle_focus_bind = '') and (not $ignore_tts_enabled_bind))",
+        "binding_type": "global",
+        "binding_name": "$toggle_focus_bind",
+        "binding_name_override": "#focus_enabled"
+      }
+    ]
+  },
+
+  "toggle_visuals": {
+    "type": "panel",
+    "controls": [
+      { "unchecked@$unchecked_control": {} },
+      { "checked@$checked_control": {} },
+      { "unchecked_hover@$unchecked_hover_control": {} },
+      { "checked_hover@$checked_hover_control": {} },
+      { "unchecked_locked@$unchecked_locked_control": {} },
+      { "checked_locked@$checked_locked_control": {} },
+      { "unchecked_locked_hover@$unchecked_locked_hover_control": {} },
+      { "checked_locked_hover@$checked_locked_hover_control": {} }
+    ]
+  },
+
+  "radio_visuals_unchecked@radio_visuals": {
+    "$radio_texture": "$radio_off"
+  },
+  "radio_visuals_checked@radio_visuals": {
+    "$radio_texture": "$radio_on",
+    "$selected": true
+  },
+  "radio_visuals_unchecked_hover@radio_visuals": {
+    "$radio_texture": "$radio_off_hover",
+    "$hovered": true
+  },
+  "radio_visuals_unchecked_locked@radio_visuals": {
+    "$radio_texture": "$radio_off",
+    "$alpha": 0.5
+  },
+  "radio_visuals_checked_locked@radio_visuals": {
+    "$radio_texture": "$radio_on",
+    "$alpha": 0.5,
+    "$selected": true
+  },
+  "radio_visuals_checked_hover@radio_visuals": {
+    "$radio_texture": "$radio_on_hover",
+    "$hovered": true
+  },
+  "radio_visuals": {
+    "type": "panel",
+    "size": ["100%", 16],
+    "$alpha|default": 1.0,
+    "$radio_label_bindings|default": [],
+    "$radio_label_color|default": "$main_header_text_color",
+    "$radio_label_font_type|default": "default",
+    "$no_label|default": false,
+    "$selected|default": false,
+    "$hovered|default": false,
+    "variables": [
+      {
+        "requires": "$selected",
+        "$highlight_image": "$dropDownSelectBG"
+      },
+      {
+        "requires": "$hovered",
+        "$highlight_image": "$dropDownHoverBG"
+      }
+    ],
+    "controls": [
+      {
+        "radio_image": {
+          "type": "image",
+          "texture": "$radio_texture",
+          "alpha": "$alpha",
+          "anchor_from": "right_middle",
+          "anchor_to": "right_middle",
+          "size": [10, 10],
+          "offset": [-4, 0],
+          "layer": 2
+        }
+      },
+      {
+        "radio_label": {
+          "ignored": "($no_label)",
+          "type": "label",
+          "anchor_from": "left_middle",
+          "anchor_to": "left_middle",
+          "text": "$radio_label_text",
+          "font_type": "$radio_label_font_type",
+          "color": "$radio_label_color",
+          "offset": [4, 0.5],
+          "size": ["100% - 16px", "default"],
+          "alpha": "$alpha",
+          "bindings": "$radio_label_bindings",
+          "layer": 2
+        }
+      },
+      {
+        "radio_background": {
+          "type": "image",
+          "texture": "$radio_background",
+          "size": ["100% + 4px", "100% + 4px"],
+          "layer": 0
+        }
+      },
+      {
+        "accessibility_selection_highlight": {
+          "type": "image",
+          "$selection_highlight_size|default": ["100% + 4px", "100% + 2px"],
+          "size": "$selection_highlight_size",
+          "$selection_highlight_offset|default": [0, 0],
+          "offset": "$selection_highlight_offset",
+          "ignored": "(not $selected and not $hovered)",
+          "$highlight_image|default": "",
+          "texture": "$highlight_image",
+          "tiled": true,
+          "layer": 1
+        }
+      }
+    ]
+  }
+}

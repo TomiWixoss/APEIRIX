@@ -1,0 +1,9 @@
+{
+  "ui_defs": [
+    "ui/custom_form/global_custom_form.json",
+    "ui/custom_form/global_sliders.json",
+    "ui/custom_form/global_toggles.json",
+    "ui/custom_form/global_dropdowns.json",
+    "ui/custom_form/global_textfields.json"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+    "namespace": "global_textfields",
+
+    "custom_input@settings_common.option_text_edit": {
+
+        //text field textures (variables are custom made and not available in vanilla ui)
+        "$textfield": "textures/cc/ui/custom_form/textfield/textfield",
+        "$textfield_hover": "textures/cc/ui/custom_form/textfield/textfield",
+
+
+        "$option_label": "#custom_text",
+        "$control_name": "global_textfields.option_text_edit_control",
+        "$option_place_holder_text": "#custom_placeholder_text",
+        "$text_edit_box_placeholder_content_binding_name": "$option_place_holder_text",
+        "$text_edit_box_placeholder_content_binding_type": "collection",
+        "$text_edit_box_grid_collection_name": "custom_form",
+
+        "$max_text_edit_length": 128,
+
+        "$text_edit_box_content_binding_type": "collection",
+        "$text_edit_box_content_binding_name": "#custom_input_text",
+
+        "$option_binding_name": "#custom_input_text",
+        "$text_box_enabled_binding_name": "#custom_input_enabled",
+        "$text_box_name": "custom_input",
+        "$label_bindings": [
+            {
+                "binding_name": "#custom_text",
+                "binding_type": "collection",
+                "binding_collection_name": "custom_form"
+            }
+        ]
+    },
+
+    "option_text_edit_control@common.text_edit_box": {
+
+        "$text_background_default": "global_textfields.edit_box_indent",
+        "$text_background_hover": "global_textfields.edit_box_indent_hover",
+
+        "$option_text_edit_control_size|default": [ "100%", "30px" ],
+        "size": "$option_text_edit_control_size",
+        "max_length": "$max_text_edit_length",
+        "$text_edit_box_content_binding_name": "$option_binding_name",
+        "$text_edit_box_binding_collection_name": "$option_binding_name",
+        "$text_edit_box_binding_type": "global",
+        "$text_box_enabled_binding_name": "$option_enabled_binding_name",
+        "enabled": "$enabled",
+        "$place_holder_text": "$option_place_holder_text",
+        "$text_box_tts_header": "$option_label",
+        "$tts_override_control_value|default": " ",
+        "tts_override_control_value": "$tts_override_control_value",
+
+        "variables": [
+            {
+                "requires": "(not $option_enabled_binding_name or not $enabled)",
+                "$text_box_enabled_binding_name": "#not_data_bound",
+                "$text_edit_box_enabled_binding_type": "none"
+            }
+        ]
+    },
+
+    "edit_box_indent": {
+        "type": "image",
+        "texture": "$textfield"
+    },
+
+    "edit_box_indent_hover@global_textfields.edit_box_indent": {
+        "texture": "$textfield_hover"
+    },
+
+    "custom_nonmodal_textfield@common.text_edit_box": {
+        "size": [ "100%", 24 ],
+        "max_length": 64,
+        "$text_edit_box_label_offset": [ 2, 0 ],
+        "$text_background_default": "global_textfields.edit_box_indent",
+        "$text_background_hover": "global_textfields.edit_box_indent_hover",
+        "$text_box_name": "portfolio_text_box",
+        "$text_edit_text_control": "search_portfolio",
+        "$place_holder_text": "Search.. ( Case sensitive )",
+        "focus_wrap_enabled": false,
+        "default_focus_precedence": 0
+    }
+}

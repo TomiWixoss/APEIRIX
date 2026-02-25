@@ -1,0 +1,274 @@
+{
+	"portal_panel": {
+		"type": "panel",
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"size": [
+			"100%",
+			"100%"
+		],
+		"controls": [
+			{
+				"portal@hud.portal": {}
+			}
+		]
+	},
+	"portal": {
+		"type": "image",
+		"texture": "textures/cc/ui/portal",
+		"alpha": "@hud.portal_alpha",
+		"uv": "@hud.portal_uv",
+		"uv_size": [16, 16],
+		"anchor_from": "center",
+		"anchor_to": "center",
+		"size": [
+			"100%",
+			"200%"
+		],
+		"bindings": [
+			{
+				"binding_name": "#text"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "(('%.9s' * #text) = 'cc:portal')",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+	"portal_factory": {
+		"type": "panel",
+		"size": [
+			"100%",
+			"100%"
+		],
+		"factory": {
+			"name": "chat_item_factory",
+			"control_ids": {
+				"chat_item": "portal_panel@hud.portal_panel"
+			}
+		}
+	},
+	"portal_uv": {
+		"anim_type": "flip_book",
+		"initial_uv": [
+			0,
+			0
+		],
+		"frame_count": 32,
+		"frame_step": 16,
+		"fps": 10,
+		"next": "@hud.portal_uv",
+		"reversible": false
+	},
+	"portal_alpha": {
+		"anim_type": "alpha",
+		"from": 0.0,
+		"to": 1.0,
+		"next": "@hud.portal_wait",
+		"duration": 3
+	},
+	"portal_wait": {
+		"anim_type": "wait",
+		"next": "@hud.portal_alpha_out",
+		"duration": 1.5
+	},
+	"portal_alpha_out": {
+		"anim_type": "alpha",
+		"from": 1.0,
+		"to": 0.0,
+		"next": "@hud.portal_wait",
+		"duration": 3,
+		"destroy_at_end": "chat_grid_item"
+	},
+	"toast_panel": {
+		"type": "panel",
+		"anchor_from": "top_right",
+		"anchor_to": "top_right",
+		"size": [
+			"100%",
+			"100%cm + 0.5px"
+		],
+		"controls": [
+			{
+				"toast@hud.toast": {}
+			}
+		]
+	},
+	"toast": {
+		"type": "image",
+		"anchor_to": "top_right",
+		"anchor_from": "top_right",
+		"texture": "textures/cc/ui/style_dark",
+		"size": [
+			"100%c + 17px", //background width
+			"100%cm + 7px" //background height
+		],
+		"offset": "@hud.toast_anim",
+		"layer": 998,
+		"bindings": [
+			{
+				"binding_name": "#text"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "(('%.6s' * #text) = 'toast.')",
+				"target_property_name": "#visible"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "(#text - 'toast.')",
+				"target_property_name": "#text_remainder"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "(('%.200s' * #text_remainder) - '$')",
+				"target_property_name": "#adv_icon"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "((#text_remainder - '$') - #adv_icon)",
+				"target_property_name": "#adv_text"
+			}
+		],
+		"controls": [
+			{
+				"text": {
+					"type": "label",
+					"layer": 999,
+					"text": "#text",
+					"anchor_to": "right_middle",
+					"anchor_from": "right_middle",
+					"offset": [
+						/*
+							This number represents the offset from the right side of the toast background.
+							If you change this, you most likely should change the width of the background as well.
+						*/
+						"-6px",
+						"-1%"
+					],
+					"localize": false,
+					"bindings": [
+						{
+							"binding_type": "view",
+							"source_control_name": "toast",
+							"source_property_name": "#adv_text",
+							"target_property_name": "#text",
+							"resolve_sibling_scope": true
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "(not (#text = ''))",
+							"target_property_name": "#visible"
+						}
+					]
+				}
+			},
+			{
+				"icon": {
+					"type": "image",
+					"layer": 1000,
+					"size": [
+						"24px",
+						"24px"
+					],
+					"anchor_from": "left_middle",
+					"anchor_to": "left_middle",
+					"offset": [
+						"4px",
+						"0%"
+					],
+					"keep_ratio": true,
+					"texture": "#texture",
+					"bindings": [
+						{
+							"binding_type": "view",
+							"source_control_name": "toast",
+							"source_property_name": "#adv_icon",
+							"target_property_name": "#texture",
+							"resolve_sibling_scope": true
+						},
+						{
+							"binding_type": "view",
+							"binding_condition": "once",
+							"source_property_name": "(not (#texture = ''))",
+							"target_property_name": "#visible"
+						}
+					]
+				}
+			}
+		]
+	},
+	"toast_anim": {
+		"anim_type": "offset",
+		"easing": "out_sine",
+		"next": "@hud.toast_anim2",
+		"from": [
+			"100%c + 40px",
+			"20px"
+		],
+		"to": [
+			"0%",
+			"20px"
+		],
+		"duration": 1
+	},
+	"toast_anim2": {
+		"anim_type": "wait",
+		"next": "@hud.toast_anim3",
+		"duration": 4
+	},
+	"toast_anim3": {
+		"anim_type": "offset",
+		"easing": "in_sine",
+		"from": [
+			"0%",
+			"20px"
+		],
+		"to": [
+			"100%c + 40px",
+			"20px"
+		],
+		"duration": 1,
+		"destroy_at_end": "chat_grid_item"
+	},
+	"toast_factory": {
+		"type": "stack_panel",
+		"size": [
+			"100%",
+			"100%"
+		],
+		"factory": {
+			"name": "chat_item_factory",
+			"control_ids": {
+				"chat_item": "toast_panel@hud.toast_panel"
+			}
+		}
+	},
+	"root_panel": {
+		"modifications": [
+			{
+				"array_name": "controls",
+				"operation": "insert_front",
+				"value": [
+					{
+						"toast_factory@hud.toast_factory": {}
+					},
+					{
+						"portal_factory@hud.portal_factory": {}
+					}
+				]
+			}
+		]
+	},
+	//Vanilla Overrides
+	"chat_grid_item/chat_background": {
+		"bindings": [
+			{
+				"binding_type": "view",
+				"source_property_name": "((('§␛' + #text + '§r') - ('§␛' + 'toast.') = ('§␛' + #text + '§r')) and (('§␛' + #text + '§r') - ('§␛' + 'cc:portal') = ('§␛' + #text + '§r')))",
+				"target_property_name": "#visible"
+			}
+		]
+	}
+}

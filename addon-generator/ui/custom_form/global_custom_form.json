@@ -1,0 +1,85 @@
+{
+    "namespace": "global_custom_form",
+
+  "custom_form_panel@common.scrolling_panel" : {
+    "anchor_to": "top_left",
+    "anchor_from": "top_left",
+    "$show_background": false,
+    "$body_text_color|default": "black",
+    "size": [ "100%", "100%" ],
+    "$scrolling_content": "global_custom_form.custom_form_scrolling_content",
+    "$scroll_size": [ 5, "100% - 4px" ],
+    "$scrolling_pane_size": [ "100% - 4px", "100% - 2px" ],
+    "$scrolling_pane_offset": [ 2, 0 ],
+    "$scroll_bar_right_padding_size": [ 0, 0 ]
+  },
+  
+  "custom_form_scrolling_content": {
+    "type": "stack_panel",
+    "size": ["100% - 4px", "100%c"],
+    "$body_text_color|default": "black",
+    "offset": [2,0],
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$button_texture|default": "textures/cc/ui/style_book",
+
+    "controls": [
+      {
+        "generated_form@global_custom_form.generated_contents": {}
+      },
+      {
+        "submit_button@common_buttons.light_text_button": {
+          "$pressed_button_name": "button.submit_custom_form",
+          "$default_button_texture": "$button_texture",
+          "anchor_from": "top_left",
+          "anchor_to": "top_left",
+          "size": [ "100%", 32 ],
+          "$button_text": "#submit_text",
+          "$button_text_binding_type": "global",
+          "$button_binding_condition": "once",
+
+          "bindings": [
+            {
+              "binding_name": "#submit_button_visible",
+              "binding_name_override": "#visible"
+            }
+          ]
+        }
+      }
+    ]    
+  },
+  "generated_contents": {
+    "type": "stack_panel",
+    "size": ["100%", "100%c"],
+    "orientation": "vertical",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$body_text_color|default": "black",
+
+    "factory":{
+      "name": "buttons",
+      "control_ids": {
+          "toggle": "global_toggles.custom_toggle",
+          "slider": "global_sliders.custom_slider",
+          "input": "global_textfields.custom_input",
+          "dropdown": "global_dropdowns.custom_dropdown",
+
+        "label": "global_custom_form.book_label",
+        "step_slider": "server_form.custom_step_slider"
+      }
+    },
+
+    "collection_name": "custom_form",
+    "bindings": [
+      {
+        "binding_name": "#custom_form_length",
+        "binding_name_override": "#collection_length"
+      }
+    ]
+  },
+  "book_label@server_form.custom_label": {
+    "$body_text_color|default": "black",
+    "$main_header_text_color": "$body_text_color"
+  }
+}

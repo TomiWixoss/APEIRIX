@@ -1,0 +1,81 @@
+{
+    "namespace": "global_toggles",
+
+    "custom_toggle@settings_common.option_toggle": {
+
+        //toggle textures (variables are custom made and not available in vanilla ui)
+        "$option_toggle_off_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_off",
+        "$option_toggle_on_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_on",
+        "$option_toggle_off_hover_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_off_hover",
+        "$option_toggle_on_hover_texture": "textures/cc/ui/custom_form/toggle/custom_toggle_on_hover",
+        "$hover": false,
+        "$option_toggle_outline_hover": "textures/forms/modal/toggles/toggle_outline_on_hover",
+
+
+        "$control_name": "global_toggles.option_toggle_control",
+        "$option_label": "#custom_text",
+        "$toggle_name": "custom_toggle",
+        "$toggle_state_binding_name": "#custom_toggle_state",
+        "$option_binding_name": "#custom_toggle_state",
+        "$toggle_binding_type": "collection",
+        "$toggle_enabled_binding_name": "#custom_toggle_enabled",
+        "$toggle_enabled_binding_type": "collection",
+        "$toggle_grid_collection_name": "custom_form",
+        "$label_bindings": [
+            {
+                "binding_name": "#custom_text",
+                "binding_type": "collection",
+                "binding_collection_name": "custom_form"
+            }
+        ]
+    },
+
+    "option_toggle_control@settings_common.option_toggle_control": {
+        "$unchecked_control": "global_toggles.option_toggle_off",
+        "$checked_control": "global_toggles.option_toggle_on",
+        "$unchecked_hover_control": "global_toggles.option_toggle_off_hover",
+        "$checked_hover_control": "global_toggles.option_toggle_on_hover"
+    },
+    "option_toggle_state_template": {
+        "$hover_color|default": "white",
+        "$toggle_outline|default": "textures/forms/modal/toggles/toggle_outline_on",
+        "$hover|default": false,
+        "type": "image",
+        "size": [ 30, 16 ],
+        "color": "$hover_color",
+        "anchor_from": "top_left",
+        "anchor_to": "top_left",
+        "variables": [
+            {
+                "requires": "$hover",
+                "$hover_color": [ 0.8, 0.8, 0.8 ]
+            }
+        ],
+        "controls": [
+            {
+                "outline": {
+                    "type": "image",
+                    "texture": "$toggle_outline",
+                    "ignored": "(not $hover)"
+                }
+            }
+        ]
+    },
+    
+    "option_toggle_off@global_toggles.option_toggle_state_template": {
+        "texture": "$option_toggle_off_texture"
+    },
+
+    "option_toggle_on@global_toggles.option_toggle_state_template": {
+        "texture": "$option_toggle_on_texture"
+    },
+
+    "option_toggle_off_hover@global_toggles.option_toggle_state_template": {
+        "texture": "$option_toggle_off_hover_texture",
+        "$toggle_outline": "$option_toggle_outline_hover"
+    },
+
+    "option_toggle_on_hover@global_toggles.option_toggle_state_template": {
+        "texture": "$option_toggle_on_hover_texture"
+    }
+}
