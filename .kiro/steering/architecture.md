@@ -1,6 +1,4 @@
 ---
-inclusion: auto
-fileMatchPattern: "**/src/**/*.ts"
 description: "Architecture overview - auto-included when editing TypeScript"
 ---
 

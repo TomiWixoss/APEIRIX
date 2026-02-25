@@ -1,6 +1,4 @@
 ---
-inclusion: auto
-fileMatchPattern: "**/configs/**/*.yaml"
 description: "Config system overview - auto-included when editing YAML configs"
 ---
 

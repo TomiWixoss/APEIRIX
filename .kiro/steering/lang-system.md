@@ -1,6 +1,4 @@
 ---
-inclusion: auto
-fileMatchPattern: "**/*.yaml"
 description: "Language system overview - auto-included when editing YAML"
 ---
 
@@ -32,13 +30,20 @@ description: "Language system overview - auto-included when editing YAML"
 ## Categories
 
 - materials, tools, armor, foods, special (pack lang)
-- ui, achievements, etc. (script UI lang)
+- ui, achievements, wiki (script UI lang)
 
-## Workflow
+## Wiki System (Special Case)
 
-1. Define translations in YAML
-2. Use lang keys in configs/code
-3. Compile generates output files
-4. LangManager loads at runtime
+Wiki data is stored separately from regular script UI lang:
 
-**Read existing lang YAML files for exact format and available keys.**
+### Wiki UI Text
+- Location: `configs/script-lang/{language}/wiki.yaml`
+- Purpose: UI labels (title, buttons, category names)
+- Output: `scripts/lang/{language}.ts` (under `wiki` key)
+- Usage: `LangManager.get('wiki.title')`
+
+### Wiki Item Data
+- Location: `configs/script-lang/{language}/wiki/{category}/`
+- Structure: Mirrors config structure (materials/, tools/, armor/, foods/, special/)
+- Purpose: Item names, descriptions, and info for wiki display
+- Output: `scripts/data/GeneratedGameData.ts` (GENERATED_WIKI_ITEMS)
