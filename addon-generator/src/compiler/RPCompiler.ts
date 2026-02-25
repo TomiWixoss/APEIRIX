@@ -229,9 +229,11 @@ export class RPCompiler {
   private static async copyUIFiles(rpPath: string, configDir: string): Promise<void> {
     const { copyFileSync, readdirSync, statSync } = await import('fs');
     
-    // UI files are in configs/ui/ and configs/ui-textures/
+    // UI JSON files are in configs/ui/
+    // UI textures are in assets/ui/ (outside configs/)
     const uiSourceDir = path.join(configDir, 'ui');
-    const uiTexturesSourceDir = path.join(configDir, 'ui-textures');
+    const assetsDir = path.join(path.dirname(configDir), 'assets');
+    const uiTexturesSourceDir = path.join(assetsDir, 'ui');
     
     const uiDestDir = path.join(rpPath, 'ui');
     const texturesDestDir = path.join(rpPath, 'textures');
@@ -247,7 +249,7 @@ export class RPCompiler {
     // Copy UI JSON files
     this.copyDirectoryRecursive(uiSourceDir, uiDestDir);
     
-    // Copy UI textures to textures/apeirix/ui/
+    // Copy UI textures from assets/ui/ to textures/apeirix/ui/
     if (existsSync(uiTexturesSourceDir)) {
       const uiTexturesDestDir = path.join(texturesDestDir, 'apeirix', 'ui');
       this.copyDirectoryRecursive(uiTexturesSourceDir, uiTexturesDestDir);
