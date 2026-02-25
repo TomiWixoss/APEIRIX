@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#2F2F37FF" />
+    <color k="B" hex="#797979FF" />
+    <color k="C" hex="#646464FF" />
+    <color k="D" hex="#515151FF" />
+    <color k="E" hex="#3D3D43FF" />
+    <color k="F" hex="#515151FF" />
+    <color k="G" hex="#3D3D43FF" />
+    <color k="H" hex="#646464FF" />
+    <color k="I" hex="#515151FF" />
+    <color k="J" hex="#3D3D43FF" />
+    <color k="K" hex="#2F2F37FF" />
+    <color k="L" hex="#2F2F37FF" />
+    <color k="M" hex="#3D3D43FF" />
+    <color k="N" hex="#2F2F37FF" />
+    <color k="O" hex="#797979FF" />
+    <color k="P" hex="#797979FF" />
+    <color k="Q" hex="#646464FF" />
+    <color k="R" hex="#2F2F37FF" />
+  </palette>
+  <layer id="main">
+    <rect x="0" y="0" w="1" h="15" c="A" />
+    <rect x="7" y="0" w="2" h="2" c="G" />
+    <rect x="15" y="0" w="1" h="15" c="A" />
+    <rect x="7" y="5" w="2" h="2" c="E" />
+    <rect x="12" y="7" w="2" h="3" c="Q" />
+    <rect x="7" y="9" w="2" h="2" c="E" />
+    <rect x="7" y="13" w="2" h="2" c="E" />
+    <row y="0" x1="3" x2="4" c="D" />
+    <row y="0" x1="11" x2="13" c="D" />
+    <row y="1" x1="2" x2="3" c="B" />
+    <row y="1" x1="10" x2="11" c="B" />
+    <row y="1" x1="12" x2="13" c="C" />
+    <row y="2" x1="1" x2="3" c="C" />
+    <row y="2" x1="7" x2="8" c="E" />
+    <row y="2" x1="9" x2="10" c="I" />
+    <row y="2" x1="11" x2="12" c="B" />
+    <row y="2" x1="13" x2="14" c="C" />
+    <row y="3" x1="1" x2="2" c="J" />
+    <row y="3" x1="3" x2="4" c="H" />
+    <row y="3" x1="7" x2="8" c="L" />
+    <row y="3" x1="11" x2="13" c="M" />
+    <row y="4" x1="3" x2="6" c="D" />
+    <row y="4" x1="7" x2="8" c="G" />
+    <row y="4" x1="9" x2="10" c="D" />
+    <row y="5" x1="1" x2="2" c="C" />
+    <row y="5" x1="9" x2="10" c="B" />
+    <row y="5" x1="11" x2="13" c="N" />
+    <row y="6" x1="4" x2="6" c="B" />
+    <row y="6" x1="9" x2="10" c="C" />
+    <row y="6" x1="11" x2="13" c="O" />
+    <row y="7" x1="7" x2="8" c="L" />
+    <row y="8" x1="1" x2="2" c="D" />
+    <row y="8" x1="4" x2="5" c="B" />
+    <row y="8" x1="7" x2="8" c="G" />
+    <row y="8" x1="9" x2="10" c="D" />
+    <row y="9" x1="2" x2="4" c="Q" />
+    <row y="10" x1="5" x2="6" c="I" />
+    <row y="10" x1="9" x2="11" c="B" />
+    <row y="11" x1="3" x2="4" c="H" />
+    <row y="11" x1="7" x2="8" c="R" />
+    <row y="11" x1="11" x2="12" c="J" />
+    <row y="12" x1="3" x2="4" c="D" />
+    <row y="12" x1="5" x2="6" c="C" />
+    <row y="12" x1="7" x2="8" c="G" />
+    <row y="12" x1="9" x2="10" c="D" />
+    <row y="13" x1="2" x2="3" c="C" />
+    <row y="13" x1="4" x2="5" c="I" />
+    <row y="13" x1="9" x2="10" c="C" />
+    <row y="13" x1="13" x2="14" c="B" />
+    <row y="14" x1="1" x2="2" c="I" />
+    <row y="14" x1="11" x2="14" c="I" />
+    <row y="15" x1="1" x2="2" c="J" />
+    <row y="15" x1="3" x2="4" c="K" />
+    <row y="15" x1="12" x2="14" c="K" />
+    <dots c="A" pts="7,15" />
+    <dots c="B" pts="1,0 4,2 6,2 12,4 5,5 2,6 1,9 6,9 10,9 1,13 6,13 11,13 3,14 5,14 10,14" />
+    <dots c="C" pts="2,0 14,0 1,1 5,2 14,5 14,8 5,9 1,10 14,10 2,12 12,13 4,14 9,14" />
+    <dots c="D" pts="1,4 6,8 12,12 14,12" />
+    <dots c="E" pts="5,0 10,0 6,1 9,1" />
+    <dots c="F" pts="6,0 9,0" />
+    <dots c="H" pts="4,1 4,7 10,11 6,15" />
+    <dots c="I" pts="5,1 14,1 2,4 14,4 4,5 6,5 1,6 14,6 9,9 11,9 14,9 1,12 11,12 6,14" />
+    <dots c="J" pts="5,3 9,3 14,3 2,7 5,7 10,7 14,7 2,11 5,11 9,11 5,15 9,15 11,15" />
+    <dots c="K" pts="6,3 10,3 1,7 6,7 9,7 1,11 6,11 14,11 10,15" />
+    <dots c="L" pts="0,15 8,15 15,15" />
+    <dots c="M" pts="3,5" />
+    <dots c="N" pts="11,4 13,4 3,6 3,7 3,8" />
+    <dots c="O" pts="2,10" />
+    <dots c="P" pts="11,7 11,8 4,10 12,10 13,12" />
+    <dots c="Q" pts="3,10 13,10 13,11" />
+  </layer>
+</pxvg>
