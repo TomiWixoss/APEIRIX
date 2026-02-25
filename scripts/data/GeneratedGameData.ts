@@ -109,6 +109,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_ingot",
     category: "materials",
+    name: "Thỏi Đồng",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chế tạo từ đồng + thiếc"
@@ -117,6 +118,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_nugget",
     category: "materials",
+    name: "Mảnh Đồng",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chia nhỏ thỏi đồng"
@@ -125,6 +127,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_block",
     category: "materials",
+    name: "Khối Đồng",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chế tạo từ 9 thỏi đồng"
@@ -133,6 +136,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:raw_tin",
     category: "materials",
+    name: "Thiếc Thô",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Khai thác quặng thiếc"
@@ -141,6 +145,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:tin_ingot",
     category: "materials",
+    name: "Thỏi Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Nấu quặng thiếc hoặc thiếc thô"
@@ -149,6 +154,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:tin_nugget",
     category: "materials",
+    name: "Mảnh Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chia nhỏ thỏi thiếc"
@@ -157,6 +163,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:tin_block",
     category: "materials",
+    name: "Khối Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Chế tạo từ 9 thỏi thiếc"
@@ -165,6 +172,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:tin_ore",
     category: "materials",
+    name: "Quặng Thiếc",
     info: {
       "Độ hiếm": "Phổ biến",
       "Nguồn": "Khai thác dưới lòng đất",
@@ -174,6 +182,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_pickaxe",
     category: "tools",
+    name: "Cuốc Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "375",
@@ -183,6 +192,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_axe",
     category: "tools",
+    name: "Rìu Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "375",
@@ -192,6 +202,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_shovel",
     category: "tools",
+    name: "Xẻng Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "375",
@@ -201,6 +212,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_hoe",
     category: "tools",
+    name: "Cuốc Cày Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "375"
@@ -209,6 +221,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_sword",
     category: "tools",
+    name: "Kiếm Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "375",
@@ -218,6 +231,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_spear",
     category: "tools",
+    name: "Giáo Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "375",
@@ -227,6 +241,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_helmet",
     category: "armor",
+    name: "Mũ Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "220",
@@ -236,6 +251,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_chestplate",
     category: "armor",
+    name: "Áo Giáp Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "320",
@@ -245,6 +261,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_leggings",
     category: "armor",
+    name: "Quần Giáp Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "300",
@@ -254,6 +271,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:bronze_boots",
     category: "armor",
+    name: "Giày Giáp Đồng",
     info: {
       "Chất liệu": "Đồng",
       "Độ bền": "260",
@@ -263,6 +281,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:canempty",
     category: "foods",
+    name: "Hộp Rỗng",
     info: {
       "Loại": "Vật liệu",
       "Nguồn": "Chế tạo hoặc rửa hộp bẩn"
@@ -271,6 +290,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:candirty",
     category: "foods",
+    name: "Hộp Bẩn",
     info: {
       "Loại": "Vật liệu",
       "Nguồn": "Sau khi ăn đồ hộp"
@@ -279,6 +299,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:canned_food",
     category: "foods",
+    name: "Thức Ăn Đóng Hộp",
     info: {
       "Dinh dưỡng": "5",
       "Độ no": "6",
@@ -288,6 +309,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:canned_pumpkin",
     category: "foods",
+    name: "Bí Ngô Đóng Hộp",
     info: {
       "Dinh dưỡng": "4",
       "Độ no": "4.8",
@@ -297,6 +319,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedbeets",
     category: "foods",
+    name: "Súp Củ Cải Đóng Hộp",
     info: {
       "Dinh dưỡng": "6",
       "Độ no": "7.2",
@@ -306,6 +329,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedbread",
     category: "foods",
+    name: "Bánh Mì Đóng Hộp",
     info: {
       "Dinh dưỡng": "5",
       "Độ no": "6",
@@ -315,6 +339,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedcarrots",
     category: "foods",
+    name: "Cà Rốt Đóng Hộp",
     info: {
       "Dinh dưỡng": "3",
       "Độ no": "3.6",
@@ -324,6 +349,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:canneddogfood",
     category: "foods",
+    name: "Thức Ăn Chó Đóng Hộp",
     info: {
       "Dinh dưỡng": "2",
       "Độ no": "1.2",
@@ -333,6 +359,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedfish",
     category: "foods",
+    name: "Cá Đóng Hộp",
     info: {
       "Dinh dưỡng": "5",
       "Độ no": "6",
@@ -342,6 +369,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedmeal",
     category: "foods",
+    name: "Bữa Ăn Đóng Hộp",
     info: {
       "Dinh dưỡng": "8",
       "Độ no": "12.8",
@@ -351,6 +379,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedmushroomsoup",
     category: "foods",
+    name: "Súp Nấm Đóng Hộp",
     info: {
       "Dinh dưỡng": "6",
       "Độ no": "7.2",
@@ -360,6 +389,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:cannedsalad",
     category: "foods",
+    name: "Salad Đóng Hộp",
     info: {
       "Dinh dưỡng": "6",
       "Độ no": "7.2",
@@ -369,6 +399,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:achievement_book",
     category: "special",
+    name: "Sổ Thành Tựu",
     info: {
       "Loại": "Đặc biệt",
       "Chức năng": "Xem thành tựu"
@@ -377,6 +408,7 @@ export const GENERATED_WIKI_ITEMS = [
   {
     id: "apeirix:wiki_book",
     category: "special",
+    name: "Bách Khoa Toàn Thư",
     info: {
       "Loại": "Đặc biệt",
       "Chức năng": "Xem thông tin vật phẩm"

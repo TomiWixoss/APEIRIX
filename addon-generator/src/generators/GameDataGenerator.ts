@@ -28,6 +28,7 @@ export interface OreData {
 export interface WikiItemData {
   id: string;
   category: string;
+  name?: string;
   icon?: string;
   info?: Record<string, string | number | boolean>;
 }
@@ -190,6 +191,10 @@ ${this.generateWikiData(wikiItems)}
       lines.push(`  {`);
       lines.push(`    id: "${item.id}",`);
       lines.push(`    category: "${item.category}",`);
+      
+      if (item.name) {
+        lines.push(`    name: "${item.name}",`);
+      }
       
       if (item.icon) {
         lines.push(`    icon: "${item.icon}",`);

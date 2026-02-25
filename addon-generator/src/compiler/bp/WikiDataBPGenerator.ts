@@ -43,6 +43,7 @@ export class WikiDataBPGenerator {
           wikiItems.push({
             id: `apeirix:${itemId}`,
             category: category,
+            name: itemData.name,
             icon: itemData.icon,
             info: itemData.info
           });

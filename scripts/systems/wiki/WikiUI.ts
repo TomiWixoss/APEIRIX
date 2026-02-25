@@ -54,26 +54,14 @@ export class WikiUI {
             if (wikiData) {
                 const shortId = fullId.replace("apeirix:", "");
                 
-                // Get name from lang file
-                const langKey = `wiki.items.${shortId}.name`;
-                const name = LangManager.get(langKey);
+                // Get name from wiki data (already translated in YAML)
+                const name = wikiData.name || shortId;
                 
-                // Get description from lang file
-                const descKey = `wiki.items.${shortId}.description`;
-                const description = LangManager.get(descKey);
+                // Description is not used in new UI (only info)
+                const description = "";
                 
-                // Get info from lang file
-                const info: Record<string, string | number | boolean> = {};
-                if (wikiData.info) {
-                    for (const [key, value] of Object.entries(wikiData.info)) {
-                        if (typeof value === "string") {
-                            const infoKey = `wiki.items.${shortId}.info.${key}`;
-                            info[key] = LangManager.get(infoKey);
-                        } else {
-                            info[key] = value;
-                        }
-                    }
-                }
+                // Info already in generated data (no need to look up in lang)
+                const info = (wikiData.info || {}) as unknown as Record<string, string | number | boolean>;
 
                 // Use icon from wiki data or default to item texture path
                 const hasIcon = "icon" in wikiData;
