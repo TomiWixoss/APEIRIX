@@ -14,7 +14,7 @@ export interface BlockConfig {
   explosionResistance?: number;
   mapColor?: string;
   requiresTool?: boolean;
-  toolTier?: 'stone' | 'copper' | 'iron' | 'diamond' | 'netherite';
+  toolTier?: 'wooden' | 'stone' | 'copper' | 'iron' | 'golden' | 'diamond' | 'netherite';
   // Crafting table component (optional)
   craftingTable?: {
     gridSize?: 3 | 2;
@@ -124,7 +124,7 @@ export class BlockGenerator {
       };
     }
 
-    const tiers = ['stone', 'copper', 'iron', 'diamond', 'netherite'];
+    const tiers = ['wooden', 'stone', 'copper', 'iron', 'golden', 'diamond', 'netherite'];
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
@@ -132,12 +132,15 @@ export class BlockGenerator {
     const scanner = new PickaxeScanner(this.projectRoot);
     const customPickaxeEntries = scanner.generatePickaxeEntries(destroySpeed);
 
+    // Build tier condition with OR logic
+    const tierCondition = allowedTiers.map(t => `q.any_tag('minecraft:${t}_tier')`).join(' || ');
+    
     return {
       seconds_to_destroy: destroyTime * 3.33,
       item_specific_speeds: [
         {
           item: {
-            tags: `q.any_tag('minecraft:is_pickaxe') && q.any_tag(${allowedTiers.map(t => `'minecraft:${t}_tier'`).join(', ')})`
+            tags: `q.any_tag('minecraft:is_pickaxe') && (${tierCondition})`
           },
           destroy_speed: destroySpeed
         },

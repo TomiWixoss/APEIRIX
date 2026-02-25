@@ -33,7 +33,7 @@ export class EntityNormalizer {
       if (config.nutrition !== undefined) {
         // Food entity
         normalized.foods = [config];
-      } else if (config.type && ['pickaxe', 'axe', 'shovel', 'hoe', 'sword', 'spear'].includes(config.type)) {
+      } else if (config.type && ['pickaxe', 'axe', 'shovel', 'hoe', 'sword', 'spear', 'hammer'].includes(config.type)) {
         // Tool entity
         normalized.tools = [config];
       } else if (config.type && ['helmet', 'chestplate', 'leggings', 'boots'].includes(config.type)) {

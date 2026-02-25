@@ -1,0 +1,7 @@
+import:
+  - wooden_hammer.yaml
+  - stone_hammer.yaml
+  - iron_hammer.yaml
+  - golden_hammer.yaml
+  - diamond_hammer.yaml
+  - index.test.yaml

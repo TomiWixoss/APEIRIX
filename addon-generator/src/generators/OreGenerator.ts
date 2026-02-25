@@ -54,7 +54,7 @@ export class OreGenerator {
       : (config.destroyTime || 9.99);
     const destroySpeed = isDeepslate ? 4.5 : 3.0;
 
-    const tiers = ['stone', 'copper', 'iron', 'diamond', 'netherite'];
+    const tiers = ['wooden', 'stone', 'copper', 'iron', 'golden', 'diamond', 'netherite'];
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 
@@ -109,7 +109,7 @@ export class OreGenerator {
   }
 
   private generateOreLootTable(config: OreConfig, oreId: string): void {
-    const tiers = ['stone', 'copper', 'iron', 'diamond', 'netherite'];
+    const tiers = ['wooden', 'stone', 'copper', 'iron', 'golden', 'diamond', 'netherite'];
     const minTierIndex = tiers.indexOf(config.toolTier || 'stone');
     const allowedTiers = tiers.slice(minTierIndex);
 

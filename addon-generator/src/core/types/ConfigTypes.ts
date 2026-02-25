@@ -135,7 +135,7 @@ export interface ToolConfig {
   id: string;
   name: string;
   texture: string;
-  type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword' | 'spear';
+  type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword' | 'spear' | 'hammer';
   materialId: string;
   durability?: number;
   damage?: number;

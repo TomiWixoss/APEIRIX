@@ -7,6 +7,8 @@ category: equipment
 destroyTime: 3.5
 explosionResistance: 6.0
 mapColor: "#8B7355"
+requiresTool: true
+toolTier: wooden
 craftingTable:
   gridSize: 3
   craftingTags:

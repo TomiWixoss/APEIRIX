@@ -5,6 +5,7 @@ import { ShovelGenerator } from '../../generators/tools/ShovelGenerator.js';
 import { HoeGenerator } from '../../generators/tools/HoeGenerator.js';
 import { SwordGenerator } from '../../generators/tools/SwordGenerator.js';
 import { SpearGenerator } from '../../generators/tools/SpearGenerator.js';
+import { HammerGenerator } from '../../generators/tools/HammerGenerator.js';
 
 /**
  * Generate BP tools
@@ -23,7 +24,8 @@ export class ToolBPGenerator {
           durability: tool.durability || 250,
           speed: tool.speed || 4,
           damage: tool.damage || 1,
-          enchantability: tool.enchantability || 14
+          enchantability: tool.enchantability || 14,
+          tier: tool.tier
         };
 
         switch (tool.type) {
@@ -44,6 +46,9 @@ export class ToolBPGenerator {
             break;
           case 'spear':
             new SpearGenerator(bpPath).generate(toolConfig);
+            break;
+          case 'hammer':
+            new HammerGenerator(bpPath).generate(toolConfig);
             break;
           default:
             console.warn(`  ⚠ Unknown tool type: ${tool.type}`);

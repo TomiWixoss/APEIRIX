@@ -59,6 +59,31 @@ export const GENERATED_TOOLS = [
     id: "apeirix:bronze_spear",
     type: "spear" as const,
     durability: 375
+  },
+  {
+    id: "apeirix:wooden_hammer",
+    type: "hammer" as const,
+    durability: 59
+  },
+  {
+    id: "apeirix:stone_hammer",
+    type: "hammer" as const,
+    durability: 131
+  },
+  {
+    id: "apeirix:iron_hammer",
+    type: "hammer" as const,
+    durability: 250
+  },
+  {
+    id: "apeirix:golden_hammer",
+    type: "hammer" as const,
+    durability: 32
+  },
+  {
+    id: "apeirix:diamond_hammer",
+    type: "hammer" as const,
+    durability: 1561
   }
 ];
 

@@ -1,10 +1,14 @@
-type: tool
+type: hammer
 id: stone_hammer
 name: lang:tools.stone_hammer
-texture: ../../assets/tools/stone_hammer.png
+texture: ../../../assets/tools/stone_hammer.png
 damage: 2
 category: equipment
-group: itemGroup.name.tool
+materialId: minecraft:cobblestone
+durability: 131
+enchantability: 5
+efficiency: 4
+tier: stone
 recipe:
   type: shaped
   id: stone_hammer
@@ -19,6 +23,3 @@ recipe:
   count: 1
   unlock:
     - minecraft:cobblestone
-materialId: minecraft:cobblestone
-durability: 131
-enchantability: 5

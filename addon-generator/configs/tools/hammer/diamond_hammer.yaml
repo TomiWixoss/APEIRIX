@@ -1,0 +1,25 @@
+type: hammer
+id: diamond_hammer
+name: lang:tools.diamond_hammer
+texture: ../../../assets/tools/diamond_hammer.png
+damage: 4
+category: equipment
+materialId: minecraft:diamond
+durability: 1561
+enchantability: 10
+efficiency: 8
+tier: diamond
+recipe:
+  type: shaped
+  id: diamond_hammer
+  pattern:
+    - " # "
+    - " S#"
+    - "S  "
+  ingredients:
+    "#": minecraft:diamond
+    S: minecraft:stick
+  result: apeirix:diamond_hammer
+  count: 1
+  unlock:
+    - minecraft:diamond
