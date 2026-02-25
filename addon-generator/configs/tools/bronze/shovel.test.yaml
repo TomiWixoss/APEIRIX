@@ -10,5 +10,5 @@ testCommands:
   - 'tellraw @s {"text":"Damage: 3 | Durability: 375","color":"aqua"}'
   - 'tellraw @s {"text":"Digger: Dirt, Sand, Gravel, Snow, Clay","color":"gray"}'
   - 'tellraw @s {"text":"Enchantability: 18","color":"yellow"}'
-  - tellraw @s {"text":"Đã cho Dirt + Sand + Gravel để test digging!","color":"green"}
+  - 'tellraw @s {"text":"Đã cho Dirt + Sand + Gravel để test digging!","color":"green"}'
   - playsound random.levelup @s

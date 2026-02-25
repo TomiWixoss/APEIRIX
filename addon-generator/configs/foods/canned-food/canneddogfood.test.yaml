@@ -9,6 +9,6 @@ testCommands:
   - 'tellraw @s {"text":"Nutrition: 2 | Saturation: 0.4","color":"aqua"}'
   - 'tellraw @s {"text":"Effect: Nausea 10s","color":"red"}'
   - 'tellraw @s {"text":"WARNING: Người ăn bị Nausea!","color":"dark_red"}'
-  - tellraw @s {"text":"Dành cho Sói/Chó ăn hồi 100% máu","color":"yellow"}
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Dành cho Sói/Chó ăn hồi 100% máu","color":"yellow"}'
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

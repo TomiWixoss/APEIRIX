@@ -5,5 +5,5 @@ testCommands:
   - give @s apeirix:raw_tin 64
   - 'tellraw @s {"text":"=== Test: Thiếc Thô ===","color":"gold"}'
   - 'tellraw @s {"text":"Material: Raw Tin Ore Drop","color":"aqua"}'
-  - tellraw @s {"text":"Đào quặng thiếc để nhận được!","color":"white"}
+  - 'tellraw @s {"text":"Đào quặng thiếc để nhận được!","color":"white"}'
   - playsound random.levelup @s

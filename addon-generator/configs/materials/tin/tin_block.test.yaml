@@ -6,6 +6,6 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Khối Thiếc ===","color":"gold"}'
   - 'tellraw @s {"text":"Block: Tin Block","color":"aqua"}'
   - 'tellraw @s {"text":"Destroy Time: 16.65 | Tool: Stone+","color":"gray"}'
-  - tellraw @s {"text":"9 Thỏi Thiếc = 1 Khối Thiếc","color":"white"}
-  - tellraw @s {"text":"Dùng để lưu trữ hoặc trang trí","color":"yellow"}
+  - 'tellraw @s {"text":"9 Thỏi Thiếc = 1 Khối Thiếc","color":"white"}'
+  - 'tellraw @s {"text":"Dùng để lưu trữ hoặc trang trí","color":"yellow"}'
   - playsound random.levelup @s

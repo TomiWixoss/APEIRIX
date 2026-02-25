@@ -7,6 +7,6 @@ testCommands:
   - effect @s instant_damage 1 10 true
   - 'tellraw @s {"text":"=== Test: Súp Củ Dền Hộp ===","color":"gold"}'
   - 'tellraw @s {"text":"Nutrition: 6 | Saturation: 7.2","color":"aqua"}'
-  - tellraw @s {"text":"Súp củ dền giờ có thể stack 64!","color":"white"}
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Súp củ dền giờ có thể stack 64!","color":"white"}'
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

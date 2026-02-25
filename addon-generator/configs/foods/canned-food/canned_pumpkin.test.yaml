@@ -8,6 +8,6 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Bí Ngô Nghiền Hộp ===","color":"gold"}'
   - 'tellraw @s {"text":"Nutrition: 4 | Saturation: 4.8","color":"aqua"}'
   - 'tellraw @s {"text":"Effect: Fire Resistance 15s","color":"yellow"}'
-  - tellraw @s {"text":"Ăn để test Fire Resistance!","color":"white"}
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Ăn để test Fire Resistance!","color":"white"}'
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

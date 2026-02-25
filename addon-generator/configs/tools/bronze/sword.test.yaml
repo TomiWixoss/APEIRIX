@@ -9,5 +9,5 @@ testCommands:
   - 'tellraw @s {"text":"Damage: 6 | Durability: 375","color":"aqua"}'
   - 'tellraw @s {"text":"Special: Web (15x), Bamboo (6x)","color":"gray"}'
   - 'tellraw @s {"text":"Enchantability: 18","color":"yellow"}'
-  - tellraw @s {"text":"Đã spawn Zombie + Skeleton để test combat!","color":"red"}
+  - 'tellraw @s {"text":"Đã spawn Zombie + Skeleton để test combat!","color":"red"}'
   - playsound random.levelup @s

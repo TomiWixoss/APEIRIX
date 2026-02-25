@@ -9,7 +9,7 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Quặng Thiếc ===","color":"gold"}'
   - 'tellraw @s {"text":"Ore: Tin Ore + Deepslate Tin Ore","color":"aqua"}'
   - 'tellraw @s {"text":"Y: 0-64 | Vein: 9 | Per Chunk: 20","color":"gray"}'
-  - tellraw @s {"text":"Tool: Stone Pickaxe+","color":"white"}
-  - tellraw @s {"text":"Fortune Support: x2 multiplier","color":"yellow"}
-  - tellraw @s {"text":"Đã cho Diamond Pickaxe Fortune III để test!","color":"green"}
+  - 'tellraw @s {"text":"Tool: Stone Pickaxe+","color":"white"}'
+  - 'tellraw @s {"text":"Fortune Support: x2 multiplier","color":"yellow"}'
+  - 'tellraw @s {"text":"Đã cho Diamond Pickaxe Fortune III để test!","color":"green"}'
   - playsound random.levelup @s

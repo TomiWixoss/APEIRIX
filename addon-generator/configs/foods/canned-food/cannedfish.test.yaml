@@ -8,6 +8,6 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Cá Mòi Đóng Hộp ===","color":"gold"}'
   - 'tellraw @s {"text":"Nutrition: 5 | Saturation: 6.0","color":"aqua"}'
   - 'tellraw @s {"text":"Effect: Water Breathing 30s","color":"yellow"}'
-  - tellraw @s {"text":"Ăn để test Water Breathing!","color":"white"}
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Ăn để test Water Breathing!","color":"white"}'
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

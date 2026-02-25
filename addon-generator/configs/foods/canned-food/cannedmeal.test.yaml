@@ -8,6 +8,6 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Khẩu Phần Ăn Chiến Đấu ===","color":"gold"}'
   - 'tellraw @s {"text":"Nutrition: 12 | Saturation: 16.0","color":"aqua"}'
   - 'tellraw @s {"text":"Effect: Regeneration II 5s","color":"yellow"}'
-  - tellraw @s {"text":"Đầy thanh ăn + hồi máu nhanh!","color":"green"}
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Đầy thanh ăn + hồi máu nhanh!","color":"green"}'
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

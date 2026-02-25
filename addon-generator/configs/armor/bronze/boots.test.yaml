@@ -7,5 +7,5 @@ testCommands:
   - 'tellraw @s {"text":"Protection: 1 | Durability: 260","color":"aqua"}'
   - 'tellraw @s {"text":"Slot: Feet | Enchantability: 18","color":"gray"}'
   - 'tellraw @s {"text":"Trimmable: Yes","color":"yellow"}'
-  - tellraw @s {"text":"Mặc vào để test protection!","color":"white"}
+  - 'tellraw @s {"text":"Mặc vào để test protection!","color":"white"}'
   - playsound random.levelup @s

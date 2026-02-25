@@ -4,7 +4,7 @@ testCommands:
   - clear @s
   - give @s apeirix:canempty 64
   - 'tellraw @s {"text":"=== Test: Vỏ Đồ Hộp Rỗng ===","color":"gold"}'
-  - tellraw @s {"text":"Material cơ bản cho hệ thống đồ hộp","color":"gray"}
-  - tellraw @s {"text":"Recipe: 2 Tin Ingot + 1 Tin Ingot = 4 Empty Can","color":"white"}
-  - tellraw @s {"text":"Dùng để craft tất cả canned foods","color":"yellow"}
+  - 'tellraw @s {"text":"Material cơ bản cho hệ thống đồ hộp","color":"gray"}'
+  - 'tellraw @s {"text":"Recipe: 2 Tin Ingot + 1 Tin Ingot = 4 Empty Can","color":"white"}'
+  - 'tellraw @s {"text":"Dùng để craft tất cả canned foods","color":"yellow"}'
   - playsound random.levelup @s

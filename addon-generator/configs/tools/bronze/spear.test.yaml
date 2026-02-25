@@ -9,6 +9,6 @@ testCommands:
   - 'tellraw @s {"text":"Damage: 3 | Durability: 375","color":"aqua"}'
   - 'tellraw @s {"text":"Type: Ranged Weapon (Throwable)","color":"gray"}'
   - 'tellraw @s {"text":"Enchantability: 18","color":"yellow"}'
-  - tellraw @s {"text":"Vũ khí tầm xa mạnh mẽ!","color":"white"}
-  - tellraw @s {"text":"Đã spawn Zombie + Skeleton để test throwing!","color":"red"}
+  - 'tellraw @s {"text":"Vũ khí tầm xa mạnh mẽ!","color":"white"}'
+  - 'tellraw @s {"text":"Đã spawn Zombie + Skeleton để test throwing!","color":"red"}'
   - playsound random.levelup @s

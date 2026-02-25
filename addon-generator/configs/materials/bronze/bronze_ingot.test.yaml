@@ -7,7 +7,7 @@ testCommands:
   - give @s apeirix:tin_ingot 64
   - 'tellraw @s {"text":"=== Test: Thỏi Đồng Thanh ===","color":"gold"}'
   - 'tellraw @s {"text":"Material: Bronze Ingot (Alloy)","color":"aqua"}'
-  - tellraw @s {"text":"Recipe: 3 Copper + 1 Tin = 4 Bronze","color":"white"}
-  - tellraw @s {"text":"Dùng để craft tools, armor, weapons","color":"yellow"}
-  - tellraw @s {"text":"Đã cho materials để test crafting!","color":"green"}
+  - 'tellraw @s {"text":"Recipe: 3 Copper + 1 Tin = 4 Bronze","color":"white"}'
+  - 'tellraw @s {"text":"Dùng để craft tools, armor, weapons","color":"yellow"}'
+  - 'tellraw @s {"text":"Đã cho materials để test crafting!","color":"green"}'
   - playsound random.levelup @s

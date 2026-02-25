@@ -6,6 +6,6 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Sách Thành Tựu APEIRIX ===","color":"gold"}'
   - 'tellraw @s {"text":"Special Item: Achievement Book","color":"aqua"}'
   - 'tellraw @s {"text":"Max Stack: 1","color":"gray"}'
-  - tellraw @s {"text":"Mở để xem hệ thống thành tựu!","color":"yellow"}
-  - tellraw @s {"text":"Click chuột phải để mở UI","color":"white"}
+  - 'tellraw @s {"text":"Mở để xem hệ thống thành tựu!","color":"yellow"}'
+  - 'tellraw @s {"text":"Click chuột phải để mở UI","color":"white"}'
   - playsound random.levelup @s

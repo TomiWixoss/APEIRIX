@@ -8,5 +8,5 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Bánh Mì Đóng Hộp ===","color":"gold"}'
   - 'tellraw @s {"text":"Nutrition: 5 | Saturation: 6.0","color":"aqua"}'
   - 'tellraw @s {"text":"Easter Egg: Spongebob reference!","color":"yellow"}'
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

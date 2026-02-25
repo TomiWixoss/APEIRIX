@@ -9,5 +9,5 @@ testCommands:
   - 'tellraw @s {"text":"Damage: 4 | Durability: 375","color":"aqua"}'
   - 'tellraw @s {"text":"Tier: Stone (có thể đào Iron+)","color":"gray"}'
   - 'tellraw @s {"text":"Enchantability: 18","color":"yellow"}'
-  - tellraw @s {"text":"Đã cho Stone + Iron Ore để test mining!","color":"green"}
+  - 'tellraw @s {"text":"Đã cho Stone + Iron Ore để test mining!","color":"green"}'
   - playsound random.levelup @s

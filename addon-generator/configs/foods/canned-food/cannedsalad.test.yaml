@@ -10,6 +10,6 @@ testCommands:
   - 'tellraw @s {"text":"=== Test: Salad Đóng Hộp ===","color":"gold"}'
   - 'tellraw @s {"text":"Nutrition: 3 | Saturation: 3.6","color":"aqua"}'
   - 'tellraw @s {"text":"Special: Xóa TẤT CẢ hiệu ứng xấu!","color":"light_purple"}'
-  - tellraw @s {"text":"Đã cho Poison + Wither, ăn để test!","color":"red"}
-  - tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}
+  - 'tellraw @s {"text":"Đã cho Poison + Wither, ăn để test!","color":"red"}'
+  - 'tellraw @s {"text":"Converts to: Dirty Can","color":"gray"}'
   - playsound random.levelup @s

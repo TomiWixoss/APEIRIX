@@ -11,5 +11,5 @@ testCommands:
   - 'tellraw @s {"text":"Digger: Plant, Crop, Leaves, Hay, Sponge","color":"gray"}'
   - 'tellraw @s {"text":"Enchantability: 18","color":"yellow"}'
   - 'tellraw @s {"text":"Special: Có thể cuốc đất thành farmland","color":"light_purple"}'
-  - tellraw @s {"text":"Đã cho Dirt + Grass + Seeds để test tilling!","color":"green"}
+  - 'tellraw @s {"text":"Đã cho Dirt + Grass + Seeds để test tilling!","color":"green"}'
   - playsound random.levelup @s

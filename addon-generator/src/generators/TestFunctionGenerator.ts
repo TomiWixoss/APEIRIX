@@ -27,7 +27,15 @@ export class TestFunctionGenerator {
     
     // Nếu có custom commands từ YAML, dùng chúng
     if (config.commands && config.commands.length > 0) {
-      commands.push(...config.commands);
+      // Filter out non-string commands (YAML parsing errors)
+      const validCommands = config.commands.filter(cmd => {
+        if (typeof cmd !== 'string') {
+          console.warn(`⚠️  Skipping non-string command in ${config.id}:`, cmd);
+          return false;
+        }
+        return true;
+      });
+      commands.push(...validCommands);
     } else {
       // Default fallback: chỉ give item
       commands.push('clear @s');
@@ -96,8 +104,13 @@ export class TestFunctionGenerator {
       commands.push(`# Test ${index + 1}: ${entity.name}`);
       
       // Filter out "clear @s" commands từ entity test
+      // ALSO filter out non-string commands (objects from YAML parsing errors)
       const filteredCommands = entity.commands.filter(cmd => {
-        if (typeof cmd !== 'string') return true; // Keep non-string commands
+        // Skip non-string commands (YAML parsing errors)
+        if (typeof cmd !== 'string') {
+          console.warn(`⚠️  Skipping non-string command in ${entity.id}:`, cmd);
+          return false;
+        }
         const trimmed = cmd.trim().toLowerCase();
         return trimmed !== 'clear @s' && !trimmed.startsWith('clear @s');
       });
