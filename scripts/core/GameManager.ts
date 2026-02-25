@@ -12,6 +12,7 @@ import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
+import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
 import { GameData } from "../data/GameData";
 
 // Import achievements
@@ -66,6 +67,7 @@ export class GameManager {
         CustomToolSystem.getInstance();
         FoodEffectsSystem.getInstance();
         CanWashingSystem.initialize();
+        HammerMiningSystem.initialize();
     }
 
     private static setupEventListeners(): void {

@@ -533,3 +533,167 @@ export const GENERATED_WIKI_ITEMS = [
     },
   }
 ];
+
+/**
+ * Generated hammer mining data
+ */
+export const GENERATED_HAMMER_MINING = [
+  {
+    blockId: "minecraft:stone",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "minecraft:cobblestone",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "minecraft:deepslate",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "minecraft:cobbled_deepslate",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "minecraft:netherrack",
+    stoneDust: "apeirix:netherrack_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "minecraft:coal_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:coal_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_coal_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:coal_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:iron_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:iron_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_iron_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:iron_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:copper_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:copper_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_copper_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:copper_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:gold_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:gold_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_gold_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:gold_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:diamond_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:diamond_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_diamond_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:diamond_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:emerald_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:emerald_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_emerald_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:emerald_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:lapis_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:lapis_block_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:deepslate_lapis_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:lapis_block_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "minecraft:redstone_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "minecraft:deepslate_redstone_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4
+  },
+  {
+    blockId: "apeirix:tin_ore",
+    stoneDust: "apeirix:cobblestone_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:tin_ingot_dust",
+    oreDustCount: 9
+  },
+  {
+    blockId: "apeirix:deepslate_tin_ore",
+    stoneDust: "apeirix:deepslate_dust",
+    stoneDustCount: 4,
+    oreDust: "apeirix:tin_ingot_dust",
+    oreDustCount: 9
+  }
+];
+
+/**
+ * Generated hammer tool IDs
+ */
+export const GENERATED_HAMMER_IDS = [
+  "apeirix:wooden_hammer",
+  "apeirix:stone_hammer",
+  "apeirix:iron_hammer",
+  "apeirix:golden_hammer",
+  "apeirix:diamond_hammer"
+];

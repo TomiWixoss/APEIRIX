@@ -1,0 +1,3 @@
+id: lapis_block_dust_test
+commands:
+  - give @s apeirix:lapis_block_dust 64

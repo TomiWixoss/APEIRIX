@@ -12,6 +12,9 @@ maxY: 64
 veinSize: 9
 veinsPerChunk: 20
 fortuneMultiplier: 2
+dustItemId: tin_ingot_dust
+stoneDustCount: 4
+oreDustCount: 9
 recipes:
   - type: smelting
     id: tin_ingot_from_ore_smelting

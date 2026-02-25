@@ -1,0 +1,20 @@
+id: lapis_block_dust
+name: lang:materials.lapis_block_dust
+texture: ../../../assets/items/lapis_block_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: lapis_lazuli_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:lapis_block_dust
+    result: minecraft:lapis_lazuli
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:lapis_block_dust

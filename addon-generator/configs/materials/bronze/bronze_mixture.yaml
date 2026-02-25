@@ -5,26 +5,26 @@ category: items
 maxStackSize: 64
 recipes:
   - type: shapeless
-    id: bronze_mixture_from_copper_tin
+    id: bronze_mixture_from_copper_tin_dust
     ingredients:
-      - minecraft:copper_ingot
-      - minecraft:copper_ingot
-      - minecraft:copper_ingot
-      - apeirix:tin_ingot
+      - apeirix:copper_ingot_dust
+      - apeirix:copper_ingot_dust
+      - apeirix:copper_ingot_dust
+      - apeirix:tin_ingot_dust
     result: apeirix:bronze_mixture
     count: 4
     unlock:
-      - apeirix:tin_ingot
-      - apeirix:stone_hammer
+      - apeirix:tin_ingot_dust
+      - apeirix:copper_ingot_dust
     craftingTags:
       - alloy_mixing_crafting
   - type: smelting
-    id: bronze_ingot_from_mixture_smelting
+    id: bronze_nugget_from_mixture_smelting
     input: apeirix:bronze_mixture
-    output: apeirix:bronze_ingot
+    output: apeirix:bronze_nugget
     count: 1
   - type: blasting
-    id: bronze_ingot_from_mixture_blasting
+    id: bronze_nugget_from_mixture_blasting
     input: apeirix:bronze_mixture
-    output: apeirix:bronze_ingot
+    output: apeirix:bronze_nugget
     count: 1

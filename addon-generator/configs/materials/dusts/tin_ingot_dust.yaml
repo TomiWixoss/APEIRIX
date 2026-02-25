@@ -1,0 +1,20 @@
+id: tin_ingot_dust
+name: lang:materials.tin_ingot_dust
+texture: ../../../assets/items/tin_ingot_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: raw_tin_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:tin_ingot_dust
+    result: apeirix:raw_tin
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:tin_ingot_dust

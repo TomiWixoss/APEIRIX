@@ -1,3 +1,4 @@
 import:
   - tin/index.yaml
   - bronze/index.yaml
+  - dusts/index.yaml

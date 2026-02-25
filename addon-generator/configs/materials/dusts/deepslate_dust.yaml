@@ -1,0 +1,19 @@
+id: deepslate_dust
+name: lang:materials.deepslate_dust
+texture: ../../../assets/items/deepslate_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: deepslate_from_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:deepslate_dust
+    result: minecraft:cobbled_deepslate
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:deepslate_dust

@@ -13,3 +13,16 @@ materials:
   bronze_nugget: Bronze Nugget
   bronze_block: Block of Bronze
   bronze_mixture: Bronze Mixture
+
+  # Dusts
+  cobblestone_dust: Cobblestone Dust
+  deepslate_dust: Deepslate Dust
+  netherrack_dust: Netherrack Dust
+  coal_dust: Coal Dust
+  copper_ingot_dust: Copper Dust
+  iron_ingot_dust: Iron Dust
+  gold_ingot_dust: Gold Dust
+  tin_ingot_dust: Tin Dust
+  diamond_dust: Diamond Dust
+  emerald_dust: Emerald Dust
+  lapis_block_dust: Lapis Lazuli Dust

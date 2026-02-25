@@ -1,0 +1,20 @@
+id: diamond_dust
+name: lang:materials.diamond_dust
+texture: ../../../assets/items/diamond_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: diamond_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:diamond_dust
+    result: minecraft:diamond
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:diamond_dust

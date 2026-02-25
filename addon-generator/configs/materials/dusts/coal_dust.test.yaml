@@ -1,0 +1,3 @@
+id: coal_dust_test
+commands:
+  - give @s apeirix:coal_dust 64

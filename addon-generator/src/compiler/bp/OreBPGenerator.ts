@@ -24,7 +24,10 @@ export class OreBPGenerator {
           maxY: ore.maxY,
           veinSize: ore.veinSize,
           veinsPerChunk: ore.veinsPerChunk,
-          fortuneMultiplier: ore.fortuneMultiplier
+          fortuneMultiplier: ore.fortuneMultiplier,
+          dustItemId: ore.dustItemId,
+          stoneDustCount: ore.stoneDustCount,
+          oreDustCount: ore.oreDustCount
         };
         
         generator.generate(oreConfig);

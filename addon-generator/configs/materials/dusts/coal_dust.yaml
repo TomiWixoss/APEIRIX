@@ -1,0 +1,20 @@
+id: coal_dust
+name: lang:materials.coal_dust
+texture: ../../../assets/items/coal_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: coal_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:coal_dust
+    result: minecraft:coal
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:coal_dust

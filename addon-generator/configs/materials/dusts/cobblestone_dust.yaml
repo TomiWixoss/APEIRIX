@@ -1,0 +1,19 @@
+id: cobblestone_dust
+name: lang:materials.cobblestone_dust
+texture: ../../../assets/items/cobblestone_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: cobblestone_from_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:cobblestone_dust
+    result: minecraft:cobblestone
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:cobblestone_dust

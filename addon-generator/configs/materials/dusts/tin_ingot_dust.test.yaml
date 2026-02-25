@@ -1,0 +1,3 @@
+id: tin_ingot_dust_test
+commands:
+  - give @s apeirix:tin_ingot_dust 64

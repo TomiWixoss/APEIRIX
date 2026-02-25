@@ -1,0 +1,12 @@
+import:
+  - cobblestone_dust.test.yaml
+  - deepslate_dust.test.yaml
+  - netherrack_dust.test.yaml
+  - coal_dust.test.yaml
+  - copper_ingot_dust.test.yaml
+  - iron_ingot_dust.test.yaml
+  - gold_ingot_dust.test.yaml
+  - tin_ingot_dust.test.yaml
+  - diamond_dust.test.yaml
+  - emerald_dust.test.yaml
+  - lapis_block_dust.test.yaml

@@ -23,6 +23,11 @@ export interface OreConfig {
   
   // Fortune support
   fortuneMultiplier?: number;
+  
+  // Hammer dust drops
+  dustItemId?: string; // ID của dust khi dùng hammer
+  stoneDustCount?: number; // Số lượng stone/deepslate dust
+  oreDustCount?: number; // Số lượng ore dust
 }
 
 /**
@@ -114,35 +119,39 @@ export class OreGenerator {
     const allowedTiers = tiers.slice(minTierIndex);
 
     // Auto-scan custom pickaxes from BP/items
-    const scanner = new PickaxeScanner(this.projectRoot);
-    const customPickaxes = scanner.scanPickaxes();
+    const pickaxeScanner = new PickaxeScanner(this.projectRoot);
+    const customPickaxes = pickaxeScanner.scanPickaxes();
 
-    const pools: any[] = [
-      {
-        rolls: 1,
-        conditions: [
-          {
-            condition: "match_tool",
-            count: 1,
-            "minecraft:match_tool_filter_all": [
-              "minecraft:is_tool",
-              "minecraft:is_pickaxe"
-            ],
-            "minecraft:match_tool_filter_any": allowedTiers.map(t => `minecraft:${t}_tier`)
-          }
-        ],
-        entries: [
-          {
-            type: "item",
-            name: `apeirix:${config.rawItemId}`,
-            weight: 1
-          }
-        ]
-      }
-    ];
+    const pools: any[] = [];
+    
+    // Add vanilla pickaxe pool
+    pools.push({
+      rolls: 1,
+      conditions: [
+        {
+          condition: "match_tool",
+          count: 1,
+          "minecraft:match_tool_filter_all": [
+            "minecraft:is_tool",
+            "minecraft:is_pickaxe"
+          ],
+          "minecraft:match_tool_filter_any": allowedTiers.map(t => `minecraft:${t}_tier`)
+        }
+      ],
+      entries: [
+        {
+          type: "item",
+          name: `apeirix:${config.rawItemId}`,
+          weight: 1
+        }
+      ]
+    });
 
-    // Thêm pool cho mỗi custom pickaxe
+    // Add pool for each custom pickaxe (excluding hammers)
     customPickaxes.forEach((pickaxe: any) => {
+      // Skip hammers
+      if (pickaxe.id.includes('hammer')) return;
+      
       pools.push({
         rolls: 1,
         conditions: [
@@ -160,6 +169,9 @@ export class OreGenerator {
         ]
       });
     });
+
+    // NOTE: Hammer drops are handled by HammerMiningSystem script
+    // No loot table entries needed for hammers
 
     const lootTable = { pools };
 

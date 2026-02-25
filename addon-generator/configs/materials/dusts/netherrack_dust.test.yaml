@@ -1,0 +1,3 @@
+id: netherrack_dust_test
+commands:
+  - give @s apeirix:netherrack_dust 64

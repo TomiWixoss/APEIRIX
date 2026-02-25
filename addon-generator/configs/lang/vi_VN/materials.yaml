@@ -13,3 +13,16 @@ materials:
   bronze_nugget: Mảnh Đồng Thanh
   bronze_block: Khối Đồng Thanh
   bronze_mixture: Hỗn Hợp Đồng Thanh
+
+  # Dusts
+  cobblestone_dust: Bụi Đá Cuội
+  deepslate_dust: Bụi Đá Sâu
+  netherrack_dust: Bụi Đá Địa Ngục
+  coal_dust: Bụi Than
+  copper_ingot_dust: Bụi Đồng
+  iron_ingot_dust: Bụi Sắt
+  gold_ingot_dust: Bụi Vàng
+  tin_ingot_dust: Bụi Thiếc
+  diamond_dust: Bụi Kim Cương
+  emerald_dust: Bụi Ngọc Lục Bảo
+  lapis_block_dust: Bụi Lưu Ly

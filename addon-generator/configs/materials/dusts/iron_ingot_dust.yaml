@@ -1,0 +1,20 @@
+id: iron_ingot_dust
+name: lang:materials.iron_ingot_dust
+texture: ../../../assets/items/iron_ingot_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: raw_iron_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:iron_ingot_dust
+    result: minecraft:raw_iron
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:iron_ingot_dust

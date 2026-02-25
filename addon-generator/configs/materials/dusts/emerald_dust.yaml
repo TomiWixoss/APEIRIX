@@ -1,0 +1,20 @@
+id: emerald_dust
+name: lang:materials.emerald_dust
+texture: ../../../assets/items/emerald_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: emerald_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:emerald_dust
+    result: minecraft:emerald
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:emerald_dust

@@ -2,7 +2,8 @@ import { OreRegistry } from "./blocks/OreRegistry";
 import { TillableRegistry } from "./blocks/TillableRegistry";
 import { ToolRegistry } from "./tools/ToolRegistry";
 import { FoodRegistry } from "./foods/FoodRegistry";
-import { GENERATED_ORES, GENERATED_TOOLS, GENERATED_FOODS } from "./GeneratedGameData";
+import { HammerRegistry } from "./mining/HammerRegistry";
+import { GENERATED_ORES, GENERATED_TOOLS, GENERATED_FOODS, GENERATED_HAMMER_MINING, GENERATED_HAMMER_IDS } from "./GeneratedGameData";
 
 /**
  * GameData - Đăng ký tất cả game data
@@ -13,6 +14,7 @@ export class GameData {
     this.registerTools();
     this.registerTillables();
     this.registerFoods();
+    this.registerHammerMining();
   }
 
   private static registerOres(): void {
@@ -47,5 +49,19 @@ export class GameData {
     }
 
     // Thêm custom food ở đây (không được generate từ CLI)...
+  }
+
+  private static registerHammerMining(): void {
+    // Register hammer tool IDs
+    for (const hammerId of GENERATED_HAMMER_IDS) {
+      HammerRegistry.registerHammer(hammerId);
+    }
+
+    // Register hammer-mineable blocks
+    for (const block of GENERATED_HAMMER_MINING) {
+      HammerRegistry.registerBlock(block);
+    }
+
+    // Thêm custom hammer mining blocks ở đây (không được generate từ CLI)...
   }
 }

@@ -1,0 +1,20 @@
+id: gold_ingot_dust
+name: lang:materials.gold_ingot_dust
+texture: ../../../assets/items/gold_ingot_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: raw_gold_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:gold_ingot_dust
+    result: minecraft:raw_gold
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:gold_ingot_dust
