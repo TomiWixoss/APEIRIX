@@ -259,11 +259,13 @@ ${this.generateHammerIds(tools)}
       lines.push(`  {`);
       lines.push(`    blockId: "${block.blockId}",`);
       lines.push(`    stoneDust: "${block.stoneDust}",`);
-      lines.push(`    stoneDustCount: ${block.stoneDustCount}`);
       
       if (block.oreDust && block.oreDustCount) {
-        lines.push(`    ,oreDust: "${block.oreDust}",`);
+        lines.push(`    stoneDustCount: ${block.stoneDustCount},`);
+        lines.push(`    oreDust: "${block.oreDust}",`);
         lines.push(`    oreDustCount: ${block.oreDustCount}`);
+      } else {
+        lines.push(`    stoneDustCount: ${block.stoneDustCount}`);
       }
       
       lines.push(`  }`);
