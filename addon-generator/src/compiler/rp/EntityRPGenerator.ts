@@ -91,6 +91,14 @@ export class EntityRPGenerator {
       }
     }
 
+    // Add render scale if specified (for invisible markers)
+    if (entity.renderScale !== undefined) {
+      if (!clientData["minecraft:client_entity"].description.scripts) {
+        clientData["minecraft:client_entity"].description.scripts = {};
+      }
+      clientData["minecraft:client_entity"].description.scripts.scale = entity.renderScale;
+    }
+
     const outputPath = path.join(rpPath, `entity/${entity.id}.json`);
     FileManager.writeJSON(outputPath, clientData);
     console.log(`  ✅ Đã tạo: RP/entity/${entity.id}.json`);

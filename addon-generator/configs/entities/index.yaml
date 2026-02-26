@@ -1,3 +1,4 @@
 import:
   - rust_mite.yaml
+  - item_bait_marker.yaml
   - index.test.yaml

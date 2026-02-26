@@ -10,6 +10,7 @@ export class BPStructureManager {
       'items',
       'blocks',
       'entities',
+      'spawn_rules',
       'recipes',
       'loot_tables/blocks',
       'loot_tables/entities',

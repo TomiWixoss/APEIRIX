@@ -23,6 +23,7 @@ export class EntityBPGenerator {
       try {
         generator.generate(entity);
         generator.generateLootTable(entity);
+        generator.generateSpawnRules(entity);
         count++;
       } catch (error) {
         console.error(`  ❌ Error generating entity ${entity.id}:`, error);

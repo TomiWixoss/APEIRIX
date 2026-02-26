@@ -838,3 +838,48 @@ export const GENERATED_BRASS_SIFTER = [
     stoneDustId: "apeirix:cobblestone_dust"
   }
 ];
+
+/**
+ * Generated Rust Mite edible items
+ * Auto-generated from all foods and raw ores
+ */
+export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
+  "apeirix:bronze_ingot_dust",
+  "apeirix:bronze_ingot_dust_pure",
+  "apeirix:candirty",
+  "apeirix:canempty",
+  "apeirix:canned_pumpkin",
+  "apeirix:cannedcarrots",
+  "apeirix:canneddogfood",
+  "apeirix:cannedfish",
+  "apeirix:cannedmeal",
+  "apeirix:cannedsalad",
+  "apeirix:chickensoup",
+  "apeirix:coal_dust",
+  "apeirix:coal_dust_pure",
+  "apeirix:cobblestone_dust",
+  "apeirix:cookies",
+  "apeirix:copper_ingot_dust",
+  "apeirix:copper_ingot_dust_pure",
+  "apeirix:deepslate_dust",
+  "apeirix:diamond_dust",
+  "apeirix:diamond_dust_pure",
+  "apeirix:emerald_dust",
+  "apeirix:emerald_dust_pure",
+  "apeirix:fruit_salad",
+  "apeirix:gold_ingot_dust",
+  "apeirix:gold_ingot_dust_pure",
+  "apeirix:iron_ingot_dust",
+  "apeirix:iron_ingot_dust_pure",
+  "apeirix:lapis_block_dust",
+  "apeirix:lapis_block_dust_pure",
+  "apeirix:luncheonmeat",
+  "apeirix:netherrack_dust",
+  "apeirix:raw_tin",
+  "apeirix:redstone_dust_pure",
+  "apeirix:tin_ingot_dust",
+  "apeirix:tin_ingot_dust_pure",
+  "minecraft:raw_copper",
+  "minecraft:raw_gold",
+  "minecraft:raw_iron"
+];

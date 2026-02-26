@@ -18,6 +18,28 @@ entities:
     spawnCategory: monster
     isSpawnable: true
     isSummonable: true
+    spawnRules:
+      populationControl: monster
+      weight: 10
+      minGroupSize: 1
+      maxGroupSize: 3
+      conditions:
+        underground: true
+        brightnessMin: 0
+        brightnessMax: 7
+        biomes:
+          - monster
+        nearBlocks:
+          - minecraft:lava
+          - minecraft:iron_ore
+          - minecraft:copper_ore
+          - minecraft:gold_ore
+          - apeirix:tin_ore
+          - minecraft:deepslate_iron_ore
+          - minecraft:deepslate_copper_ore
+          - minecraft:deepslate_gold_ore
+          - apeirix:deepslate_tin_ore
+        nearBlocksRadius: 10
     lootTable:
       pools:
         - rolls: 1
@@ -42,7 +64,9 @@ entities:
               count: 1
     behaviors:
       float: true
-      randomStroll: true
+      randomStroll:
+        priority: 8
+        speed: 0.8
       lookAtPlayer: true
       meleeAttack: true
       nearestAttackableTarget:
@@ -53,6 +77,12 @@ entities:
                   subject: other
                   value: player
             maxDist: 8
+          - filters:
+              any_of:
+                - test: is_family
+                  subject: other
+                  value: item_bait_marker
+            maxDist: 10
     testCommands:
       - "# Test: Rust Mite"
       - clear @s

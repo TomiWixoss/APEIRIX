@@ -153,7 +153,14 @@ export class GameDataBPGenerator {
 
     // Collect brass sifter recipes (auto-detect from items with _dust and _dust_pure pattern)
     const brassSifter: BrassSifterData[] = [];
+    const allItems: string[] = [];
+    
     if (config.items) {
+      // Collect all item IDs
+      for (const item of config.items) {
+        allItems.push(`apeirix:${item.id}`);
+      }
+      
       // Find all dust items (not pure)
       const dustItems = config.items.filter((item: any) => 
         item.id.includes('_dust') && !item.id.includes('_dust_pure')
@@ -179,12 +186,19 @@ export class GameDataBPGenerator {
         }
       }
     }
+    
+    // Add foods to allItems
+    if (config.foods) {
+      for (const food of config.foods) {
+        allItems.push(`apeirix:${food.id}`);
+      }
+    }
 
     // Generate file to project root (for development)
-    generator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter);
+    generator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter, allItems);
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter, allItems, 'BP/scripts/data');
   }
 }

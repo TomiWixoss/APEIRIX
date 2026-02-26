@@ -15,6 +15,7 @@ import { CanWashingSystem } from "../systems/items/CanWashingSystem";
 import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { BrassSifterSystem } from "../systems/mining/BrassSifterSystem";
+import { RustMiteItemEatingSystem } from "../systems/entities/RustMiteItemEatingSystem";
 import { GameData } from "../data/GameData";
 
 // Import achievements
@@ -131,6 +132,7 @@ export class GameManager {
         HammerMiningSystem.initialize();
         OreCrusherSystem.initialize();
         BrassSifterSystem.initialize();
+        RustMiteItemEatingSystem.initialize();
     }
 
     private static setupEventListeners(): void {

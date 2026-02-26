@@ -1,5 +1,6 @@
 import { FileManager } from '../core/FileManager.js';
 import { Validator } from '../core/Validator.js';
+import { SpawnRuleGenerator } from './SpawnRuleGenerator.js';
 import { join } from 'path';
 
 export interface EntityConfig {
@@ -13,6 +14,7 @@ export interface EntityConfig {
   model: string;
   texture: string;
   animation?: string;
+  animationName?: string;
   health?: number;
   movement?: number;
   attack?: number;
@@ -23,6 +25,21 @@ export interface EntityConfig {
   spawnCategory?: 'monster' | 'creature' | 'ambient' | 'water_creature';
   isSpawnable?: boolean;
   isSummonable?: boolean;
+  spawnRules?: {
+    populationControl?: string;
+    weight?: number;
+    minGroupSize?: number;
+    maxGroupSize?: number;
+    conditions?: {
+      surface?: boolean;
+      underground?: boolean;
+      brightnessMin?: number;
+      brightnessMax?: number;
+      biomes?: string[];
+      nearBlocks?: string[];
+      nearBlocksRadius?: number;
+    };
+  };
   lootTable?: any;
   behaviors?: any;
 }
@@ -112,9 +129,13 @@ export class EntityGenerator {
         };
       }
       if (config.behaviors.randomStroll) {
+        const strollConfig = typeof config.behaviors.randomStroll === 'object' 
+          ? config.behaviors.randomStroll 
+          : {};
+        
         entityData["minecraft:entity"].components["minecraft:behavior.random_stroll"] = {
-          priority: 5,
-          speed_multiplier: 1.0
+          priority: strollConfig.priority || 5,
+          speed_multiplier: strollConfig.speed || 1.0
         };
       }
       if (config.behaviors.lookAtPlayer) {
@@ -157,5 +178,22 @@ export class EntityGenerator {
     const outputPath = join(this.projectRoot, `loot_tables/entities/${config.id}.json`);
     FileManager.writeJSON(outputPath, lootData);
     console.log(`✅ Đã tạo: BP/loot_tables/entities/${config.id}.json`);
+  }
+
+  /**
+   * Generate spawn rules for entity
+   */
+  generateSpawnRules(config: EntityConfig): void {
+    if (!config.spawnRules) return;
+
+    const spawnRuleGenerator = new SpawnRuleGenerator(this.projectRoot);
+    spawnRuleGenerator.generate({
+      id: config.id,
+      populationControl: config.spawnRules.populationControl,
+      weight: config.spawnRules.weight,
+      minGroupSize: config.spawnRules.minGroupSize,
+      maxGroupSize: config.spawnRules.maxGroupSize,
+      conditions: config.spawnRules.conditions
+    });
   }
 }

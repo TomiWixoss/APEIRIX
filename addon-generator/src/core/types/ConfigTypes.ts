@@ -207,6 +207,21 @@ export interface EntityConfig {
   spawnCategory?: 'monster' | 'creature' | 'ambient' | 'water_creature';
   isSpawnable?: boolean;
   isSummonable?: boolean;
+  spawnRules?: {
+    populationControl?: string; // 'monster', 'animal', 'water_animal', 'ambient'
+    weight?: number;
+    minGroupSize?: number;
+    maxGroupSize?: number;
+    conditions?: {
+      surface?: boolean; // Spawn on surface
+      underground?: boolean; // Spawn underground
+      brightnessMin?: number; // 0-15
+      brightnessMax?: number; // 0-15
+      biomes?: string[]; // Biome tags
+      nearBlocks?: string[]; // Must be near these blocks
+      nearBlocksRadius?: number; // Search radius for nearBlocks
+    };
+  };
   lootTable?: {
     pools: Array<{
       rolls: number;
