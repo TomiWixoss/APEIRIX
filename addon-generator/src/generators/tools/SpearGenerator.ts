@@ -82,9 +82,7 @@ export class SpearGenerator {
             slot: "melee_spear",
             value: enchantability
           },
-          "minecraft:hand_equipped": {
-            value: true
-          },
+          "minecraft:hand_equipped": true,
           "minecraft:use_modifiers": {
             use_duration: 72000,
             emit_vibrations: false,

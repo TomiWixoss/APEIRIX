@@ -53,6 +53,7 @@ export class AxeGenerator {
           "minecraft:display_name": {
             value: `item.apeirix.${config.id}.name`
           },
+          "minecraft:hand_equipped": true,
           "minecraft:tags": {
             tags: tags
           },
