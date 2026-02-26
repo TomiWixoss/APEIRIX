@@ -4,10 +4,16 @@ texture: ../../../assets/items/emerald_dust_pure.png
 category: items
 maxStackSize: 64
 recipes:
-  - type: smelting
+  - type: shaped
     id: emerald_from_pure_dust
-    input: apeirix:emerald_dust_pure
-    output: minecraft:emerald
-    tags:
-      - furnace
-      - blast_furnace
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:emerald_dust_pure
+    result: minecraft:emerald
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:emerald_dust_pure

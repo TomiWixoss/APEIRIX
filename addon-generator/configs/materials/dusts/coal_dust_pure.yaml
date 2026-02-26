@@ -4,10 +4,16 @@ texture: ../../../assets/items/coal_dust_pure.png
 category: items
 maxStackSize: 64
 recipes:
-  - type: smelting
+  - type: shaped
     id: coal_from_pure_dust
-    input: apeirix:coal_dust_pure
-    output: minecraft:coal
-    tags:
-      - furnace
-      - blast_furnace
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:coal_dust_pure
+    result: minecraft:coal
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:coal_dust_pure

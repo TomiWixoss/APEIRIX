@@ -4,10 +4,16 @@ texture: ../../../assets/items/gold_ingot_dust_pure.png
 category: items
 maxStackSize: 64
 recipes:
-  - type: smelting
-    id: gold_ingot_from_pure_dust
-    input: apeirix:gold_ingot_dust_pure
-    output: minecraft:gold_ingot
-    tags:
-      - furnace
-      - blast_furnace
+  - type: shaped
+    id: raw_gold_from_pure_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:gold_ingot_dust_pure
+    result: minecraft:raw_gold
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:gold_ingot_dust_pure

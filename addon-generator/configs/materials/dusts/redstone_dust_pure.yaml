@@ -3,3 +3,17 @@ name: lang:materials.redstone_dust_pure
 texture: ../../../assets/items/redstone_dust_pure.png
 category: items
 maxStackSize: 64
+recipes:
+  - type: shaped
+    id: redstone_from_pure_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:redstone_dust_pure
+    result: minecraft:redstone
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:redstone_dust_pure
