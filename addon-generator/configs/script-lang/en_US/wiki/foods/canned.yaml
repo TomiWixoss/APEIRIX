@@ -106,3 +106,39 @@ items:
       Saturation: "3.6"
       Special: "Removes all effects"
       Crafting: "Empty can + apple + sweet berries + oak leaves"
+
+  luncheonmeat:
+    name: "Canned Luncheon Meat"
+    description: "Canned luncheon meat. Grants saturation effect."
+    info:
+      Nutrition: "8 (4 shanks)"
+      Saturation: "10.4"
+      Effect: "Saturation 10s"
+      Crafting: "Empty can + cooked porkchop + cooked chicken"
+
+  fruit_salad:
+    name: "Canned Fruit Salad"
+    description: "Canned fruit salad. Grants speed effect."
+    info:
+      Nutrition: "6 (3 shanks)"
+      Saturation: "7.2"
+      Effect: "Speed 20s"
+      Crafting: "Empty can + apple + melon slice + sweet berries"
+
+  chickensoup:
+    name: "Canned Chicken Soup"
+    description: "Canned chicken soup. Grants regeneration effect."
+    info:
+      Nutrition: "7 (3.5 shanks)"
+      Saturation: "8.4"
+      Effect: "Regeneration 10s"
+      Crafting: "Empty can + cooked chicken + carrot + potato"
+
+  cookies:
+    name: "Canned Cookies"
+    description: "Canned cookies. Grants haste effect."
+    info:
+      Nutrition: "4 (2 shanks)"
+      Saturation: "4.8"
+      Effect: "Haste 15s"
+      Crafting: "Empty can + 3 cookies"

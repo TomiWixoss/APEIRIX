@@ -1,0 +1,26 @@
+id: fruit_salad
+name: lang:foods.fruit_salad
+texture: ../../../assets/foods/fruit_salad.png
+category: items
+stackSize: 64
+nutrition: 6
+saturation: 7.2
+canAlwaysEat: false
+usingConvertsTo: candirty
+effects:
+  - name: speed
+    duration: 20
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: fruit_salad
+  ingredients:
+    - apeirix:canempty
+    - minecraft:apple
+    - minecraft:melon_slice
+    - minecraft:sweet_berries
+  result: apeirix:fruit_salad
+  unlock:
+    - apeirix:canempty
+    - minecraft:apple

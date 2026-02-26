@@ -106,3 +106,39 @@ items:
       Độ no: "3.6"
       Đặc biệt: "Xóa tất cả hiệu ứng"
       Chế tạo: "Hộp rỗng + táo + dâu + lá sồi"
+
+  luncheonmeat:
+    name: "Thịt Nguội Đóng Hộp"
+    description: "Thịt nguội đóng hộp. Cho hiệu ứng no lâu."
+    info:
+      Dinh dưỡng: "8 (4 thanh)"
+      Độ no: "10.4"
+      Hiệu ứng: "No lâu 10s"
+      Chế tạo: "Hộp rỗng + thịt lợn + thịt gà"
+
+  fruit_salad:
+    name: "Salad Trái Cây Đóng Hộp"
+    description: "Salad trái cây đóng hộp. Cho hiệu ứng tăng tốc."
+    info:
+      Dinh dưỡng: "6 (3 thanh)"
+      Độ no: "7.2"
+      Hiệu ứng: "Tăng tốc 20s"
+      Chế tạo: "Hộp rỗng + táo + dưa + dâu"
+
+  chickensoup:
+    name: "Súp Gà Đóng Hộp"
+    description: "Súp gà đóng hộp. Cho hiệu ứng hồi máu."
+    info:
+      Dinh dưỡng: "7 (3.5 thanh)"
+      Độ no: "8.4"
+      Hiệu ứng: "Hồi máu 10s"
+      Chế tạo: "Hộp rỗng + thịt gà + cà rốt + khoai tây"
+
+  cookies:
+    name: "Bánh Quy Đóng Hộp"
+    description: "Bánh quy đóng hộp. Cho hiệu ứng đào nhanh."
+    info:
+      Dinh dưỡng: "4 (2 thanh)"
+      Độ no: "4.8"
+      Hiệu ứng: "Đào nhanh 15s"
+      Chế tạo: "Hộp rỗng + 3 bánh quy"

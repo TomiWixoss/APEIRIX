@@ -11,4 +11,8 @@ import:
   - cannedmeal.yaml
   - cannedmushroomsoup.yaml
   - cannedsalad.yaml
+  - luncheonmeat.yaml
+  - fruit_salad.yaml
+  - chickensoup.yaml
+  - cookies.yaml
   - index.test.yaml

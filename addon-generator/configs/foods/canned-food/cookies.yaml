@@ -1,0 +1,26 @@
+id: cookies
+name: lang:foods.cookies
+texture: ../../../assets/foods/cookies.png
+category: items
+stackSize: 64
+nutrition: 4
+saturation: 4.8
+canAlwaysEat: false
+usingConvertsTo: candirty
+effects:
+  - name: haste
+    duration: 15
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: cookies
+  ingredients:
+    - apeirix:canempty
+    - minecraft:cookie
+    - minecraft:cookie
+    - minecraft:cookie
+  result: apeirix:cookies
+  unlock:
+    - apeirix:canempty
+    - minecraft:cookie

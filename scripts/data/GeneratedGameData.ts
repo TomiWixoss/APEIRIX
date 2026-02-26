@@ -139,6 +139,30 @@ export const GENERATED_FOODS = [
   {
     itemId: "apeirix:cannedsalad",
     removeEffects: true,
+  },
+  {
+    itemId: "apeirix:luncheonmeat",
+    effects: [
+      { name: "saturation", duration: 10 * 20, amplifier: 0, chance: 1 }
+    ],
+  },
+  {
+    itemId: "apeirix:fruit_salad",
+    effects: [
+      { name: "speed", duration: 20 * 20, amplifier: 0, chance: 1 }
+    ],
+  },
+  {
+    itemId: "apeirix:chickensoup",
+    effects: [
+      { name: "regeneration", duration: 10 * 20, amplifier: 0, chance: 1 }
+    ],
+  },
+  {
+    itemId: "apeirix:cookies",
+    effects: [
+      { name: "haste", duration: 15 * 20, amplifier: 0, chance: 1 }
+    ],
   }
 ];
 
@@ -521,6 +545,54 @@ export const GENERATED_WIKI_ITEMS = [
       "Độ no": "3.6",
       "Đặc biệt": "Xóa tất cả hiệu ứng",
       "Chế tạo": "Hộp rỗng + táo + dâu + lá sồi"
+    },
+  },
+  {
+    id: "apeirix:luncheonmeat",
+    category: "foods",
+    name: "Thịt Nguội Đóng Hộp",
+    description: "Thịt nguội đóng hộp. Cho hiệu ứng no lâu.",
+    info: {
+      "Dinh dưỡng": "8 (4 thanh)",
+      "Độ no": "10.4",
+      "Hiệu ứng": "No lâu 10s",
+      "Chế tạo": "Hộp rỗng + thịt lợn + thịt gà"
+    },
+  },
+  {
+    id: "apeirix:fruit_salad",
+    category: "foods",
+    name: "Salad Trái Cây Đóng Hộp",
+    description: "Salad trái cây đóng hộp. Cho hiệu ứng tăng tốc.",
+    info: {
+      "Dinh dưỡng": "6 (3 thanh)",
+      "Độ no": "7.2",
+      "Hiệu ứng": "Tăng tốc 20s",
+      "Chế tạo": "Hộp rỗng + táo + dưa + dâu"
+    },
+  },
+  {
+    id: "apeirix:chickensoup",
+    category: "foods",
+    name: "Súp Gà Đóng Hộp",
+    description: "Súp gà đóng hộp. Cho hiệu ứng hồi máu.",
+    info: {
+      "Dinh dưỡng": "7 (3.5 thanh)",
+      "Độ no": "8.4",
+      "Hiệu ứng": "Hồi máu 10s",
+      "Chế tạo": "Hộp rỗng + thịt gà + cà rốt + khoai tây"
+    },
+  },
+  {
+    id: "apeirix:cookies",
+    category: "foods",
+    name: "Bánh Quy Đóng Hộp",
+    description: "Bánh quy đóng hộp. Cho hiệu ứng đào nhanh.",
+    info: {
+      "Dinh dưỡng": "4 (2 thanh)",
+      "Độ no": "4.8",
+      "Hiệu ứng": "Đào nhanh 15s",
+      "Chế tạo": "Hộp rỗng + 3 bánh quy"
     },
   },
   {
