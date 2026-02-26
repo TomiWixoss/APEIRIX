@@ -207,6 +207,35 @@ export interface EntityConfig {
   spawnCategory?: 'monster' | 'creature' | 'ambient' | 'water_creature';
   isSpawnable?: boolean;
   isSummonable?: boolean;
+  renderScale?: number; // For invisible markers
+  
+  // NEW: 1.21.130+ Components
+  rotationLockedToVehicle?: boolean;
+  burnsInDaylight?: {
+    protectionSlot?: 'slot.weapon.offhand' | 'slot.armor.head' | 'slot.armor.chest' | 'slot.armor.legs' | 'slot.armor.feet' | 'slot.armor.body';
+  };
+  breathable?: {
+    canDehydrate?: boolean;
+    breatheBlocks?: string[];
+    suffocateTime?: number;
+    breathesAir?: boolean;
+    breathesWater?: boolean;
+    breathesLava?: boolean;
+    breathesSolids?: boolean;
+    generatesBubbles?: boolean;
+    inhaleTime?: number;
+    totalSupply?: number;
+  };
+  rideable?: {
+    seatCount?: number;
+    familyTypes?: string[];
+    interactText?: string;
+    riders?: Array<{
+      entityType: string;
+      spawnEvent?: string;
+    }>;
+  };
+  
   spawnRules?: {
     populationControl?: string; // 'monster', 'animal', 'water_animal', 'ambient'
     weight?: number;
@@ -234,16 +263,53 @@ export interface EntityConfig {
     }>;
   };
   behaviors?: {
-    float?: boolean;
-    panic?: boolean;
-    randomStroll?: boolean;
-    lookAtPlayer?: boolean;
-    meleeAttack?: boolean;
+    float?: boolean | {
+      priority?: number;
+      chancePerTickToFloat?: number;
+      timeUnderWaterToDismountPassengers?: number;
+    };
+    panic?: boolean | {
+      priority?: number;
+      speed?: number;
+    };
+    randomStroll?: boolean | {
+      priority?: number;
+      speed?: number;
+    };
+    lookAtPlayer?: boolean | {
+      priority?: number;
+      lookDistance?: number;
+      probability?: number;
+    };
+    randomLookAround?: boolean | {
+      priority?: number;
+    };
+    meleeAttack?: boolean | {
+      priority?: number;
+      speedMultiplier?: number;
+      trackTarget?: boolean;
+    };
     nearestAttackableTarget?: {
-      entityTypes: Array<{
-        filters: any;
-        maxDist?: number;
-      }>;
+      priority?: number;
+      withinRadius?: number;
+      reselectTargets?: boolean;
+      entityTypes?: any[];
+      targetAcquisitionProbability?: number;
+      attackInterval?: {
+        rangeMin?: number;
+        rangeMax?: number;
+      } | number;
+    };
+    hurtByTarget?: boolean | {
+      priority?: number;
+    };
+    useKineticWeapon?: {
+      priority?: number;
+      approachDistance?: number;
+      repositionDistance?: number;
+      cooldownDistance?: number;
+      weaponReachMultiplier?: number;
+      hijackMountNavigation?: boolean;
     };
   };
   testCommands?: string[];
