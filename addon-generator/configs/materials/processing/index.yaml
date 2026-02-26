@@ -1,3 +1,4 @@
 import:
   - ore_crusher.yaml
+  - brass_sifter.yaml
   - ore_crusher.test.yaml

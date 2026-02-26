@@ -1,0 +1,13 @@
+id: tin_ingot_dust_pure
+name: lang:materials.tin_ingot_dust_pure
+texture: ../../../assets/items/tin_ingot_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: tin_ingot_from_pure_dust
+    input: apeirix:tin_ingot_dust_pure
+    output: apeirix:tin_ingot
+    tags:
+      - furnace
+      - blast_furnace

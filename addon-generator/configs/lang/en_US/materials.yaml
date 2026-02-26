@@ -12,7 +12,7 @@ materials:
   bronze_ingot: Bronze Ingot
   bronze_nugget: Bronze Nugget
   bronze_block: Block of Bronze
-  bronze_mixture: Bronze Mixture
+  bronze_ingot_dust: Bronze Dust
 
   # Dusts
   cobblestone_dust: Cobblestone Dust
@@ -26,3 +26,15 @@ materials:
   diamond_dust: Diamond Dust
   emerald_dust: Emerald Dust
   lapis_block_dust: Lapis Lazuli Dust
+
+  # Pure Dusts
+  bronze_ingot_dust_pure: Pure Bronze Dust
+  coal_dust_pure: Pure Coal Dust
+  copper_ingot_dust_pure: Pure Copper Dust
+  diamond_dust_pure: Pure Diamond Dust
+  emerald_dust_pure: Pure Emerald Dust
+  gold_ingot_dust_pure: Pure Gold Dust
+  iron_ingot_dust_pure: Pure Iron Dust
+  lapis_block_dust_pure: Pure Lapis Lazuli Dust
+  redstone_dust_pure: Pure Redstone Dust
+  tin_ingot_dust_pure: Pure Tin Dust

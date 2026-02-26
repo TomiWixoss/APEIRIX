@@ -14,6 +14,7 @@ import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
 import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
+import { BrassSifterSystem } from "../systems/mining/BrassSifterSystem";
 import { GameData } from "../data/GameData";
 
 // Import achievements
@@ -129,6 +130,7 @@ export class GameManager {
         CanWashingSystem.initialize();
         HammerMiningSystem.initialize();
         OreCrusherSystem.initialize();
+        BrassSifterSystem.initialize();
     }
 
     private static setupEventListeners(): void {

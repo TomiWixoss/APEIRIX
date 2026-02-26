@@ -1,0 +1,13 @@
+id: coal_dust_pure
+name: lang:materials.coal_dust_pure
+texture: ../../../assets/items/coal_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: coal_from_pure_dust
+    input: apeirix:coal_dust_pure
+    output: minecraft:coal
+    tags:
+      - furnace
+      - blast_furnace

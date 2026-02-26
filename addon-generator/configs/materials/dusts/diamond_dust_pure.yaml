@@ -1,0 +1,13 @@
+id: diamond_dust_pure
+name: lang:materials.diamond_dust_pure
+texture: ../../../assets/items/diamond_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: diamond_from_pure_dust
+    input: apeirix:diamond_dust_pure
+    output: minecraft:diamond
+    tags:
+      - furnace
+      - blast_furnace

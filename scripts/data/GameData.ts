@@ -3,7 +3,8 @@ import { TillableRegistry } from "./blocks/TillableRegistry";
 import { ToolRegistry } from "./tools/ToolRegistry";
 import { FoodRegistry } from "./foods/FoodRegistry";
 import { HammerRegistry } from "./mining/HammerRegistry";
-import { GENERATED_ORES, GENERATED_TOOLS, GENERATED_FOODS, GENERATED_HAMMER_MINING, GENERATED_HAMMER_IDS } from "./GeneratedGameData";
+import { BrassSifterRegistry } from "./mining/BrassSifterRegistry";
+import { GENERATED_ORES, GENERATED_TOOLS, GENERATED_FOODS, GENERATED_HAMMER_MINING, GENERATED_HAMMER_IDS, GENERATED_BRASS_SIFTER } from "./GeneratedGameData";
 
 /**
  * GameData - Đăng ký tất cả game data
@@ -15,6 +16,7 @@ export class GameData {
     this.registerTillables();
     this.registerFoods();
     this.registerHammerMining();
+    this.registerBrassSifter();
   }
 
   private static registerOres(): void {
@@ -63,5 +65,14 @@ export class GameData {
     }
 
     // Thêm custom hammer mining blocks ở đây (không được generate từ CLI)...
+  }
+
+  private static registerBrassSifter(): void {
+    // Register brass sifter recipes
+    for (const recipe of GENERATED_BRASS_SIFTER) {
+      BrassSifterRegistry.registerRecipe(recipe);
+    }
+
+    // Thêm custom brass sifter recipes ở đây (không được generate từ CLI)...
   }
 }

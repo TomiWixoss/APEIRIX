@@ -1,0 +1,13 @@
+id: emerald_dust_pure
+name: lang:materials.emerald_dust_pure
+texture: ../../../assets/items/emerald_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: emerald_from_pure_dust
+    input: apeirix:emerald_dust_pure
+    output: minecraft:emerald
+    tags:
+      - furnace
+      - blast_furnace

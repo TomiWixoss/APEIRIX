@@ -1,4 +1,4 @@
-import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, HammerMiningData } from '../../generators/GameDataGenerator.js';
+import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, HammerMiningData, BrassSifterData } from '../../generators/GameDataGenerator.js';
 import { WikiDataBPGenerator } from './WikiDataBPGenerator.js';
 import path from 'path';
 
@@ -151,11 +151,40 @@ export class GameDataBPGenerator {
     // Collect wiki items from script-lang YAML files
     const wikiItems = await WikiDataBPGenerator.generate(configDir, buildDir);
 
+    // Collect brass sifter recipes (auto-detect from items with _dust and _dust_pure pattern)
+    const brassSifter: BrassSifterData[] = [];
+    if (config.items) {
+      // Find all dust items (not pure)
+      const dustItems = config.items.filter((item: any) => 
+        item.id.includes('_dust') && !item.id.includes('_dust_pure')
+      );
+      
+      for (const dustItem of dustItems) {
+        // Check if corresponding pure dust exists
+        const pureDustId = `${dustItem.id}_pure`;
+        const pureDustExists = config.items.some((item: any) => item.id === pureDustId);
+        
+        if (pureDustExists) {
+          // Determine stone dust based on dust type
+          let stoneDustId = 'apeirix:cobblestone_dust'; // Default
+          
+          // No special stone dust mapping needed for now
+          // All ore dusts use cobblestone_dust
+          
+          brassSifter.push({
+            dustId: `apeirix:${dustItem.id}`,
+            pureDustId: `apeirix:${pureDustId}`,
+            stoneDustId: stoneDustId
+          });
+        }
+      }
+    }
+
     // Generate file to project root (for development)
-    generator.generate(tools, foods, ores, wikiItems, hammerMining);
+    generator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter);
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, hammerMining, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter, 'BP/scripts/data');
   }
 }

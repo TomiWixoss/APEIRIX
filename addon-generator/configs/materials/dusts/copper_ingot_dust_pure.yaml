@@ -1,0 +1,13 @@
+id: copper_ingot_dust_pure
+name: lang:materials.copper_ingot_dust_pure
+texture: ../../../assets/items/copper_ingot_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: copper_ingot_from_pure_dust
+    input: apeirix:copper_ingot_dust_pure
+    output: minecraft:copper_ingot
+    tags:
+      - furnace
+      - blast_furnace

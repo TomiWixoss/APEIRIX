@@ -787,3 +787,54 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:diamond_hammer",
   "apeirix:netherite_hammer"
 ];
+
+/**
+ * Generated brass sifter recipes
+ */
+export const GENERATED_BRASS_SIFTER = [
+  {
+    dustId: "apeirix:bronze_ingot_dust",
+    pureDustId: "apeirix:bronze_ingot_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:coal_dust",
+    pureDustId: "apeirix:coal_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:copper_ingot_dust",
+    pureDustId: "apeirix:copper_ingot_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:iron_ingot_dust",
+    pureDustId: "apeirix:iron_ingot_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:gold_ingot_dust",
+    pureDustId: "apeirix:gold_ingot_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:tin_ingot_dust",
+    pureDustId: "apeirix:tin_ingot_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:diamond_dust",
+    pureDustId: "apeirix:diamond_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:emerald_dust",
+    pureDustId: "apeirix:emerald_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:lapis_block_dust",
+    pureDustId: "apeirix:lapis_block_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  }
+];

@@ -1,0 +1,13 @@
+id: iron_ingot_dust_pure
+name: lang:materials.iron_ingot_dust_pure
+texture: ../../../assets/items/iron_ingot_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: iron_ingot_from_pure_dust
+    input: apeirix:iron_ingot_dust_pure
+    output: minecraft:iron_ingot
+    tags:
+      - furnace
+      - blast_furnace

@@ -1,0 +1,27 @@
+id: brass_sifter
+name: lang:blocks.brass_sifter
+textureTop: ../../../assets/blocks/brass_sifter_top.png
+textureSide: ../../../assets/blocks/brass_sifter_side_powered.png
+textureFront: ../../../assets/blocks/brass_sifter_side_powered.png
+category: equipment
+destroyTime: 4.0
+explosionResistance: 8.0
+mapColor: "#B8860B"
+requiresTool: true
+toolTier: stone
+recipes:
+  - type: shaped
+    id: brass_sifter
+    pattern:
+      - "BBB"
+      - "BIB"
+      - "SSS"
+    ingredients:
+      B: apeirix:bronze_ingot
+      I: minecraft:iron_bars
+      S: minecraft:smooth_stone
+    result: apeirix:brass_sifter
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+      - minecraft:iron_bars

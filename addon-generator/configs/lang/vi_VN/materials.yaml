@@ -12,7 +12,7 @@ materials:
   bronze_ingot: Thỏi Đồng Thanh
   bronze_nugget: Mảnh Đồng Thanh
   bronze_block: Khối Đồng Thanh
-  bronze_mixture: Hỗn Hợp Đồng Thanh
+  bronze_ingot_dust: Bụi Đồng Thanh
 
   # Dusts
   cobblestone_dust: Bụi Đá Cuội
@@ -26,3 +26,15 @@ materials:
   diamond_dust: Bụi Kim Cương
   emerald_dust: Bụi Ngọc Lục Bảo
   lapis_block_dust: Bụi Lưu Ly
+
+  # Pure Dusts
+  bronze_ingot_dust_pure: Bụi Đồng Thanh Tinh Khiết
+  coal_dust_pure: Bụi Than Tinh Khiết
+  copper_ingot_dust_pure: Bụi Đồng Tinh Khiết
+  diamond_dust_pure: Bụi Kim Cương Tinh Khiết
+  emerald_dust_pure: Bụi Ngọc Lục Bảo Tinh Khiết
+  gold_ingot_dust_pure: Bụi Vàng Tinh Khiết
+  iron_ingot_dust_pure: Bụi Sắt Tinh Khiết
+  lapis_block_dust_pure: Bụi Lưu Ly Tinh Khiết
+  redstone_dust_pure: Bụi Đá Đỏ Tinh Khiết
+  tin_ingot_dust_pure: Bụi Thiếc Tinh Khiết

@@ -1,0 +1,13 @@
+id: lapis_block_dust_pure
+name: lang:materials.lapis_block_dust_pure
+texture: ../../../assets/items/lapis_block_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: lapis_lazuli_from_pure_dust
+    input: apeirix:lapis_block_dust_pure
+    output: minecraft:lapis_lazuli
+    tags:
+      - furnace
+      - blast_furnace
