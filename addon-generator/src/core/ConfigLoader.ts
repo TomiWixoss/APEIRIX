@@ -233,5 +233,6 @@ export class ConfigLoader {
     addToArray(config.tools);
     addToArray(config.armor);
     addToArray(config.entities);
+    addToArray(config.structures);
   }
 }

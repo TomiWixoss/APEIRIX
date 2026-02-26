@@ -29,6 +29,7 @@ export interface AddonConfig {
   tools?: any[];
   foods?: any[];
   entities?: any[];
+  structures?: any[];
   icons?: {
     bp?: string;
     rp?: string;
@@ -97,7 +98,8 @@ export class Compiler {
         foods: config.foods,
         ores: config.ores,
         armor: config.armor,
-        entities: config.entities
+        entities: config.entities,
+        structures: config.structures
       }, this.outputDir);
 
       // 8. Print summary

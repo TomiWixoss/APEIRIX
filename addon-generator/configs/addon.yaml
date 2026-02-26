@@ -22,3 +22,4 @@ import:
   - foods/index.yaml
   - special/index.yaml
   - entities/index.yaml
+  - structure/index.yaml

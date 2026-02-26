@@ -60,6 +60,7 @@ export class ConfigMerger {
       tools: mergeArrays(base.tools, importedNormalized.tools),
       armor: mergeArrays(base.armor, importedNormalized.armor),
       entities: mergeArrays(base.entities, importedNormalized.entities),
+      structures: mergeArrays(base.structures, importedNormalized.structures),
       recipes: mergeArrays(base.recipes, importedNormalized.recipes)
     };
     
@@ -160,6 +161,15 @@ export class ConfigMerger {
             found = true;
           }
         }
+        
+        // Search in structures
+        if (!found && config.structures) {
+          const structure = config.structures.find(s => s.id === testItem.id);
+          if (structure) {
+            structure.testCommands = testItem.testCommands;
+            found = true;
+          }
+        }
       });
     }
     
@@ -170,5 +180,6 @@ export class ConfigMerger {
     mergeForType(testsConfig.blocks, 'blocks');
     mergeForType(testsConfig.ores, 'ores');
     mergeForType(testsConfig.entities, 'entities');
+    mergeForType(testsConfig.structures, 'structures');
   }
 }

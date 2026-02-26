@@ -16,11 +16,13 @@ export class BPStructureManager {
       'loot_tables/entities',
       'features',
       'feature_rules',
+      'structures',
       'functions/tests/items',
       'functions/tests/tools',
       'functions/tests/foods',
       'functions/tests/entities',
       'functions/tests/recipes',
+      'functions/tests/structures',
       'scripts/data',
       'texts'
     ];

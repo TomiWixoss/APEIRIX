@@ -1,0 +1,20 @@
+id: camping_tent
+name: lang:structures.camping_tent
+description: lang:structures.camping_tent.description
+file: ./CampingTent.mcstructure
+category: structures
+
+spawnRules:
+  scatter:
+    iterations: 1
+    chance: 2
+  biomes:
+    - test: has_biome_tag
+      operator: "=="
+      value: plains
+    - test: has_biome_tag
+      operator: "=="
+      value: forest
+
+testCommands:
+  - structure load camping_tent ~ ~ ~

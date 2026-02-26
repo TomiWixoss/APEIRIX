@@ -26,6 +26,10 @@ export interface AssetConfig {
     animation?: string;
     spawnEgg?: { texture?: string };
   }>;
+  structures?: Array<{
+    id?: string;
+    file?: string;
+  }>;
 }
 
 /**

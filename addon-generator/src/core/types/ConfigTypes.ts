@@ -36,6 +36,7 @@ export interface ContentConfig {
   armor?: ArmorSetConfig[];
   recipes?: RecipeConfig[];
   entities?: EntityConfig[];
+  structures?: StructureConfig[];
   
   // YAML linking - import từ files khác
   import?: string[];           // Array of config files to import (NEW)
@@ -310,6 +311,26 @@ export interface EntityConfig {
       cooldownDistance?: number;
       weaponReachMultiplier?: number;
       hijackMountNavigation?: boolean;
+    };
+  };
+  testCommands?: string[];
+}
+
+export interface StructureConfig {
+  id: string;
+  name: string;
+  file: string; // Path to .mcstructure file
+  category?: string;
+  description?: string;
+  spawnRules?: {
+    scatter?: {
+      iterations: number; // Số lần thử spawn per chunk
+      chance: number; // Xác suất spawn (0-100)
+    };
+    biomes?: string[]; // Biome tags
+    yRange?: {
+      min: number;
+      max: number;
     };
   };
   testCommands?: string[];

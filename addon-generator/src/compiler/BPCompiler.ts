@@ -13,6 +13,7 @@ import { GameDataBPGenerator } from './bp/GameDataBPGenerator.js';
 import { LanguageConfigBPGenerator } from './bp/LanguageConfigBPGenerator.js';
 import { ScriptLangBPGenerator } from './bp/ScriptLangBPGenerator.js';
 import { EntityBPGenerator } from './bp/EntityBPGenerator.js';
+import { StructureBPGenerator } from './bp/StructureBPGenerator.js';
 
 export interface BPConfig {
   addon?: {
@@ -26,6 +27,7 @@ export interface BPConfig {
   tools?: any[];
   foods?: any[];
   entities?: any[];
+  structures?: any[];
   generateBulkRecipeTest?: boolean | string;
 }
 
@@ -88,6 +90,12 @@ export class BPCompiler {
     if (config.entities?.length) {
       const entityCount = await EntityBPGenerator.generate(config.entities, bpPath);
       console.log(`  ✓ Generated ${entityCount} entities`);
+    }
+
+    // Generate structures
+    if (config.structures?.length) {
+      const structureCount = await StructureBPGenerator.generate(config.structures, bpPath, configDir);
+      console.log(`  ✓ Generated ${structureCount} structures`);
     }
 
     // Generate recipes

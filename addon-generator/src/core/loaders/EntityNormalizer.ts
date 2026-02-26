@@ -48,6 +48,9 @@ export class EntityNormalizer {
       } else if (config.health !== undefined || config.movement !== undefined || config.spawnCategory !== undefined || config.behaviors !== undefined || config.model !== undefined) {
         // Mob entity (có health, movement, spawnCategory, behaviors, hoặc model)
         normalized.entities = [config];
+      } else if (config.file && config.file.endsWith('.mcstructure')) {
+        // Structure entity (có file .mcstructure)
+        normalized.structures = [config];
       } else {
         // Default: Item entity
         normalized.items = [config];
