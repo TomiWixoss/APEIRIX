@@ -1,5 +1,5 @@
-id: ore_crusher
-name: lang:blocks.ore_crusher
+id: ore_crusher_mk1
+name: lang:blocks.ore_crusher_mk1
 textureFront: ../../../assets/blocks/orecrushermk1front.png
 textureSide: ../../../assets/blocks/orecrushermk1allothersides.png
 textureTop: ../../../assets/blocks/orecrushermk1allothersides.png
@@ -11,17 +11,17 @@ requiresTool: true
 toolTier: stone
 recipes:
   - type: shaped
-    id: ore_crusher
+    id: ore_crusher_mk1
     pattern:
       - "IBI"
-      - "INI"
+      - "IPI"
       - "OOO"
     ingredients:
       I: minecraft:iron_ingot
       B: minecraft:iron_block
-      N: minecraft:nether_star
+      P: minecraft:piston
       O: minecraft:obsidian
-    result: apeirix:ore_crusher
+    result: apeirix:ore_crusher_mk1
     count: 1
     unlock:
-      - minecraft:nether_star
+      - minecraft:obsidian

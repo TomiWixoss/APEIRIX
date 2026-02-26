@@ -1,0 +1,25 @@
+id: ore_crusher_mk2
+name: lang:blocks.ore_crusher_mk2
+textureFront: ../../../assets/blocks/orecrushermk2front.png
+textureSide: ../../../assets/blocks/orecrushermk1allothersides.png
+textureTop: ../../../assets/blocks/orecrushermk1allothersides.png
+category: equipment
+destroyTime: 5.0
+explosionResistance: 15.0
+mapColor: "#5A5A5A"
+requiresTool: true
+toolTier: iron
+recipes:
+  - type: shaped
+    id: ore_crusher_mk2
+    pattern:
+      - "DDD"
+      - "DCD"
+      - "DDD"
+    ingredients:
+      D: minecraft:diamond
+      C: apeirix:ore_crusher_mk1
+    result: apeirix:ore_crusher_mk2
+    count: 1
+    unlock:
+      - apeirix:ore_crusher_mk1

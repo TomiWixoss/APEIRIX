@@ -1,0 +1,25 @@
+id: ore_crusher_mk3
+name: lang:blocks.ore_crusher_mk3
+textureFront: ../../../assets/blocks/orecrushermk3front.png
+textureSide: ../../../assets/blocks/orecrushermk1allothersides.png
+textureTop: ../../../assets/blocks/orecrushermk1allothersides.png
+category: equipment
+destroyTime: 5.0
+explosionResistance: 20.0
+mapColor: "#6A6A6A"
+requiresTool: true
+toolTier: diamond
+recipes:
+  - type: shaped
+    id: ore_crusher_mk3
+    pattern:
+      - "NNN"
+      - "NCN"
+      - "NNN"
+    ingredients:
+      N: minecraft:netherite_ingot
+      C: apeirix:ore_crusher_mk2
+    result: apeirix:ore_crusher_mk3
+    count: 1
+    unlock:
+      - apeirix:ore_crusher_mk2
