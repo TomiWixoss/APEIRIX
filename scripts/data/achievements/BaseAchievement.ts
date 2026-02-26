@@ -8,6 +8,7 @@ export interface BaseAchievement {
     id: string;
     requirement: number;
     category: string;
+    phase?: string; // New: phase identifier (e.g., "phase1", "phase2")
     icon: string;
     rewards?: RewardDefinition[];
 }
@@ -16,6 +17,7 @@ export abstract class Achievement implements BaseAchievement {
     abstract id: string;
     abstract requirement: number;
     abstract category: string;
+    phase?: string; // New: phase identifier
     abstract icon: string;
     abstract rewards?: RewardDefinition[];
 

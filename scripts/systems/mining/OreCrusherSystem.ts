@@ -1,5 +1,6 @@
 import { world, system, Block, ItemStack, Vector3 } from '@minecraft/server';
 import { HammerRegistry } from '../../data/mining/HammerRegistry';
+import { EventBus } from '../../core/EventBus';
 
 /**
  * OreCrusherSystem - Tự động nghiền quặng chạm vào ore_crusher
@@ -140,6 +141,21 @@ export class OreCrusherSystem {
     // Phá block
     try {
       targetBlock.setType('minecraft:air');
+      
+      // Emit event for achievement tracking
+      // Find nearest player within 10 blocks
+      const players = world.getAllPlayers();
+      for (const player of players) {
+        const distance = Math.sqrt(
+          Math.pow(player.location.x - crusherBlock.location.x, 2) +
+          Math.pow(player.location.y - crusherBlock.location.y, 2) +
+          Math.pow(player.location.z - crusherBlock.location.z, 2)
+        );
+        if (distance <= 10) {
+          EventBus.emit("orecrusher:used", player);
+          break;
+        }
+      }
       
       // Spawn dust drops x2 (double so với hammer)
       const dropLocation = {

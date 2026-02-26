@@ -1,5 +1,5 @@
 /**
- * Category Menu UI - Achievement list in category
+ * Category Menu UI - Achievement list in category/phase
  * Uses JSON UI (achievement_list-style) for custom display
  */
 
@@ -10,13 +10,19 @@ import { AchievementSystem } from "../AchievementSystem";
 import { LangManager } from "../../../lang/LangManager";
 import { DetailUI } from "./DetailUI";
 import { MainMenuUI } from "./MainMenuUI";
+import { PhaseMenuUI } from "./PhaseMenuUI";
 
 export class CategoryMenuUI {
-    static async show(player: Player, categoryId: string): Promise<void> {
+    static async show(player: Player, categoryId: string, phaseId?: string): Promise<void> {
         const category = AchievementRegistry.getCategory(categoryId);
         if (!category) return;
 
-        const achievements = AchievementRegistry.getAchievementsByCategory(categoryId);
+        // Get achievements for this category/phase
+        let achievements = AchievementRegistry.getAchievementsByCategory(categoryId);
+        if (phaseId) {
+            achievements = achievements.filter(a => a.phase === phaseId);
+        }
+
         const achievementsData = achievements.map(achievement => ({
             achievement,
             unlocked: AchievementSystem.hasAchievement(player, achievement.id),
@@ -27,17 +33,25 @@ export class CategoryMenuUI {
         const progressPercent = Math.floor((unlockedCount / achievements.length) * 100);
 
         const categoryName = LangManager.getCategoryName(categoryId);
-        const categoryDesc = LangManager.getCategoryDesc(categoryId);
         const progressText = LangManager.get("achievements.progress");
         const completedText = LangManager.get("achievements.completed");
 
-        // Build title for achievement_list-style JSON UI (wider than wiki list)
-        // Format: apeirix:achievement_list:<title_text>
-        const jsonUITitle = `apeirix:achievement_list:${categoryName}`;
+        // Build title
+        let titleText = categoryName;
+        if (phaseId) {
+            const phaseName = LangManager.get(`phases.${categoryId}.${phaseId}.name`);
+            titleText = `${categoryName} - ${phaseName}`;
+        }
+        const jsonUITitle = `apeirix:achievement_list:${titleText}`;
 
         // Build body text with progress
-        const bodyText = 
-            `${categoryDesc}\n\n` +
+        let bodyText = "";
+        if (phaseId) {
+            const phaseDesc = LangManager.get(`phases.${categoryId}.${phaseId}.desc`);
+            bodyText = `${phaseDesc}\n\n`;
+        }
+        
+        bodyText +=
             `§8━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n` +
             `${progressText} §1${unlockedCount}§8/§1${achievements.length}\n` +
             `${this.createProgressBar(progressPercent)}\n` +
@@ -68,9 +82,14 @@ export class CategoryMenuUI {
 
             if (response.selection < achievementsData.length) {
                 const selected = achievementsData[response.selection];
-                await DetailUI.show(player, selected.achievement.id, categoryId);
+                await DetailUI.show(player, selected.achievement.id, categoryId, phaseId);
             } else {
-                await MainMenuUI.show(player);
+                // Back button
+                if (phaseId && category.phases && category.phases.length > 0) {
+                    await PhaseMenuUI.show(player, categoryId);
+                } else {
+                    await MainMenuUI.show(player);
+                }
             }
         } catch (error) {
             console.error("Error showing category menu:", error);

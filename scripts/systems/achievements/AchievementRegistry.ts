@@ -30,6 +30,10 @@ export class AchievementRegistry {
         return this.achievements.getAll().filter(a => a.category === categoryId);
     }
 
+    static getAchievementsByCategoryAndPhase(categoryId: string, phaseId: string): Achievement[] {
+        return this.achievements.getAll().filter(a => a.category === categoryId && a.phase === phaseId);
+    }
+
     static getCategory(id: string): AchievementCategory | undefined {
         return this.categories.get(id);
     }

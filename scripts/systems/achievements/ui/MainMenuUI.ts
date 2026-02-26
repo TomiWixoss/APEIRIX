@@ -9,6 +9,7 @@ import { AchievementRegistry } from "../AchievementRegistry";
 import { AchievementSystem } from "../AchievementSystem";
 import { LangManager } from "../../../lang/LangManager";
 import { CategoryMenuUI } from "./CategoryMenuUI";
+import { PhaseMenuUI } from "./PhaseMenuUI";
 
 export class MainMenuUI {
     static async show(player: Player): Promise<void> {
@@ -27,18 +28,28 @@ export class MainMenuUI {
             .body(bodyText);
 
         categories.forEach(category => {
-            const categoryAchievements = AchievementRegistry.getAchievementsByCategory(category.id);
-            const unlockedCount = categoryAchievements.filter(a =>
-                AchievementSystem.hasAchievement(player, a.id)
-            ).length;
-
             const categoryName = LangManager.getCategoryName(category.id);
-            const completedText = LangManager.get("achievements.completed");
+            
+            if (category.locked) {
+                // Locked category
+                form.button(
+                    `${categoryName}\n§8§l[KHÓA]`,
+                    category.icon
+                );
+            } else {
+                // Unlocked category - show progress
+                const categoryAchievements = AchievementRegistry.getAchievementsByCategory(category.id);
+                const unlockedCount = categoryAchievements.filter(a =>
+                    AchievementSystem.hasAchievement(player, a.id)
+                ).length;
 
-            form.button(
-                `§l${categoryName}\n§r§1${unlockedCount}§0/§1${categoryAchievements.length} §0${completedText}`,
-                category.icon
-            );
+                const completedText = LangManager.get("achievements.completed");
+
+                form.button(
+                    `${categoryName}\n§r§1${unlockedCount}§0/§1${categoryAchievements.length} §0${completedText}`,
+                    category.icon
+                );
+            }
         });
 
         try {
@@ -48,7 +59,19 @@ export class MainMenuUI {
 
             if (response.selection < categories.length) {
                 const selectedCategory = categories[response.selection];
-                await CategoryMenuUI.show(player, selectedCategory.id);
+                
+                if (selectedCategory.locked) {
+                    player.sendMessage("§c§lNhánh này hiện đang bị khóa!");
+                    player.playSound("random.break");
+                    return;
+                }
+
+                // Check if category has phases
+                if (selectedCategory.phases && selectedCategory.phases.length > 0) {
+                    await PhaseMenuUI.show(player, selectedCategory.id);
+                } else {
+                    await CategoryMenuUI.show(player, selectedCategory.id);
+                }
             }
         } catch (error) {
             console.error("Error showing main menu:", error);

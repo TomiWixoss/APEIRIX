@@ -17,9 +17,15 @@ import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { GameData } from "../data/GameData";
 
 // Import achievements
-import { WelcomeAchievement } from "../data/achievements/categories/starter/WelcomeAchievement";
-import { FirstStepsAchievement } from "../data/achievements/categories/starter/FirstStepsAchievement";
-import { BreakerAchievement } from "../data/achievements/categories/starter/BreakerAchievement";
+import { FirstOreAchievement } from "../data/achievements/categories/metallurgy/FirstOreAchievement";
+import { TinCollectorAchievement } from "../data/achievements/categories/metallurgy/TinCollectorAchievement";
+import { BronzeMakerAchievement } from "../data/achievements/categories/metallurgy/BronzeMakerAchievement";
+import { AlloyMasterAchievement } from "../data/achievements/categories/metallurgy/AlloyMasterAchievement";
+import { ToolCrafterAchievement } from "../data/achievements/categories/metallurgy/ToolCrafterAchievement";
+import { ArmorSmithAchievement } from "../data/achievements/categories/metallurgy/ArmorSmithAchievement";
+import { CrusherUserAchievement } from "../data/achievements/categories/metallurgy/CrusherUserAchievement";
+import { HammerExpertAchievement } from "../data/achievements/categories/metallurgy/HammerExpertAchievement";
+import { BronzeAgeCompleteAchievement } from "../data/achievements/categories/metallurgy/BronzeAgeCompleteAchievement";
 
 export class GameManager {
     private static initialized = false;
@@ -40,25 +46,78 @@ export class GameManager {
     }
 
     private static registerCategories(): void {
+        // Metallurgy - Unlocked
         AchievementRegistry.registerCategory({
-            id: "starter",
-            icon: "textures/items/book_normal"
+            id: "metallurgy",
+            icon: "textures/items/bronze_ingot",
+            locked: false,
+            phases: [
+                { id: "phase1", order: 1, locked: false }
+            ]
+        });
+
+        // Alchemy - Locked
+        AchievementRegistry.registerCategory({
+            id: "alchemy",
+            icon: "textures/items/potion_bottle_splash",
+            locked: true
+        });
+
+        // Magic - Locked
+        AchievementRegistry.registerCategory({
+            id: "magic",
+            icon: "textures/items/ender_pearl",
+            locked: true
+        });
+
+        // Divinity - Locked
+        AchievementRegistry.registerCategory({
+            id: "divinity",
+            icon: "textures/items/totem",
+            locked: true
+        });
+
+        // Technology - Locked
+        AchievementRegistry.registerCategory({
+            id: "technology",
+            icon: "textures/items/redstone_dust",
+            locked: true
         });
     }
 
     private static registerAchievements(): void {
-        const welcomeAchievement = new WelcomeAchievement();
-        const firstStepsAchievement = new FirstStepsAchievement();
-        const breakerAchievement = new BreakerAchievement();
+        // Metallurgy Phase 1 Achievements (9 achievements - removed welcome)
+        const firstOre = new FirstOreAchievement();
+        const tinCollector = new TinCollectorAchievement();
+        const bronzeMaker = new BronzeMakerAchievement();
+        const alloyMaster = new AlloyMasterAchievement();
+        const toolCrafter = new ToolCrafterAchievement();
+        const armorSmith = new ArmorSmithAchievement();
+        const crusherUser = new CrusherUserAchievement();
+        const hammerExpert = new HammerExpertAchievement();
+        const bronzeAgeComplete = new BronzeAgeCompleteAchievement();
 
-        AchievementRegistry.registerAchievement(welcomeAchievement);
-        AchievementRegistry.registerAchievement(firstStepsAchievement);
-        AchievementRegistry.registerAchievement(breakerAchievement);
+        // Register all achievements
+        AchievementRegistry.registerAchievement(firstOre);
+        AchievementRegistry.registerAchievement(tinCollector);
+        AchievementRegistry.registerAchievement(bronzeMaker);
+        AchievementRegistry.registerAchievement(alloyMaster);
+        AchievementRegistry.registerAchievement(toolCrafter);
+        AchievementRegistry.registerAchievement(armorSmith);
+        AchievementRegistry.registerAchievement(crusherUser);
+        AchievementRegistry.registerAchievement(hammerExpert);
+        AchievementRegistry.registerAchievement(bronzeAgeComplete);
 
         // Setup tracking for each achievement
-        welcomeAchievement.setupTracking();
-        firstStepsAchievement.setupTracking();
-        breakerAchievement.setupTracking();
+        firstOre.setupTracking();
+        tinCollector.setupTracking();
+        bronzeMaker.setupTracking();
+        alloyMaster.setupTracking();
+        toolCrafter.setupTracking();
+        armorSmith.setupTracking();
+        crusherUser.setupTracking();
+        hammerExpert.setupTracking();
+        bronzeAgeComplete.setupTracking();
     }
 
     private static initializeSystems(): void {
@@ -79,9 +138,12 @@ export class GameManager {
             if (event.initialSpawn) {
                 player.sendMessage(LangManager.get("welcome.title"));
 
-                const hasWelcomeAchievement = AchievementSystem.hasAchievement(player, "welcome");
+                // Check if player already has achievement book (by checking any achievement)
+                const hasAnyAchievement = AchievementRegistry.getAllAchievements().some(achievement =>
+                    AchievementSystem.hasAchievement(player, achievement.id)
+                );
 
-                if (!hasWelcomeAchievement) {
+                if (!hasAnyAchievement) {
                     system.runTimeout(() => {
                         try {
                             player.runCommand("give @s apeirix:achievement_book 1");

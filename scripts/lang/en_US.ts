@@ -28,20 +28,56 @@ export const LANG_EN = {
         "received": "§a§l+ Received:"
     },
     "categories": {
-        "starter": {
-            "name": "Getting Started",
-            "desc": "§0First steps in APEIRIX"
+        "metallurgy": {
+            "name": "§6⚒ METALLURGY",
+            "desc": "§0Physical World - Ores → Alloys → Tools/Armor"
+        },
+        "alchemy": {
+            "name": "§5⚗ ALCHEMY",
+            "desc": "§8§l[LOCKED]§r §8Chemical/Transmutation - Essences → Transmutation → Magical Materials"
+        },
+        "magic": {
+            "name": "§d✦ MAGIC",
+            "desc": "§8§l[LOCKED]§r §8Pure Magic - Mana → Spells → Enchantments"
+        },
+        "divinity": {
+            "name": "§e✟ DIVINITY",
+            "desc": "§8§l[LOCKED]§r §8Divine Power - Faith → Blessings → Miracles"
+        },
+        "technology": {
+            "name": "§b⚙ TECHNOLOGY",
+            "desc": "§8§l[LOCKED]§r §8Advanced Science - Electricity → Machines → Automation"
+        }
+    },
+    "phases": {
+        "metallurgy": {
+            "phase1": {
+                "name": "§6Phase 1: §0Bronze Age",
+                "desc": "§0Learn basic metallurgy and alloy mechanics"
+            }
         }
     },
     "achievementNames": {
-        "welcome": "Welcome to APEIRIX",
-        "first_steps": "First Steps",
-        "breaker": "Block Breaker"
+        "first_ore": "First Ore",
+        "tin_collector": "Tin Collector",
+        "bronze_maker": "Bronze Maker",
+        "alloy_master": "Alloy Master",
+        "tool_crafter": "Tool Crafter",
+        "armor_smith": "Armor Smith",
+        "crusher_user": "Crusher Operator",
+        "hammer_expert": "Hammer Expert",
+        "bronze_age_complete": "Bronze Age Complete"
     },
     "achievementDescs": {
-        "welcome": "§0Join the world for the first time",
-        "first_steps": "§0Walk 100 blocks",
-        "breaker": "§0Break 10 blocks"
+        "first_ore": "§0Mine your first tin ore",
+        "tin_collector": "§0Collect 64 tin ore",
+        "bronze_maker": "§0Create your first bronze ingot",
+        "alloy_master": "§0Create 32 bronze ingots",
+        "tool_crafter": "§0Craft complete bronze tool set",
+        "armor_smith": "§0Craft complete bronze armor set",
+        "crusher_user": "§0Use ore crusher for the first time",
+        "hammer_expert": "§0Use hammer to mine 100 blocks",
+        "bronze_age_complete": "§0Complete all Phase 1 achievements"
     },
     "welcome": {
         "title": "§a§lWelcome to APEIRIX!",

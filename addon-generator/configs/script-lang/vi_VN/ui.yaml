@@ -23,19 +23,51 @@ achievements:
   received: "§a§l+ Nhận được:"
 
 categories:
-  starter:
-    name: "Khởi Đầu"
-    desc: "§0Những bước đầu tiên trong APEIRIX"
+  metallurgy:
+    name: "§6⚒ LUYỆN KIM"
+    desc: "§0Thế giới vật chất - Quặng → Hợp kim → Công cụ/Giáp"
+  alchemy:
+    name: "§5⚗ GIẢ KIM"
+    desc: "§8§l[KHÓA]§r §8Hóa học/Biến đổi - Tinh chất → Biến hóa → Vật liệu ma thuật"
+  magic:
+    name: "§d✦ MA THUẬT"
+    desc: "§8§l[KHÓA]§r §8Ma thuật thuần túy - Mana → Phép thuật → Phù phép"
+  divinity:
+    name: "§e✟ THẦN HỌC"
+    desc: "§8§l[KHÓA]§r §8Sức mạnh thần thánh - Đức tin → Phước lành → Phép màu"
+  technology:
+    name: "§b⚙ CÔNG NGHỆ"
+    desc: "§8§l[KHÓA]§r §8Khoa học tiên tiến - Điện → Máy móc → Tự động hóa"
+
+phases:
+  metallurgy:
+    phase1:
+      name: "§6Phase 1: §0Thời Đại Đồng Thau"
+      desc: "§0Làm quen với cơ chế luyện kim và hợp kim cơ bản"
 
 achievementNames:
-  welcome: "Chào mừng đến APEIRIX"
-  first_steps: "Bước Đầu Tiên"
-  breaker: "Người Phá Hủy"
+  # Metallurgy Phase 1
+  first_ore: "Quặng Đầu Tiên"
+  tin_collector: "Thợ Thu Thập Thiếc"
+  bronze_maker: "Thợ Rèn Đồng Thau"
+  alloy_master: "Bậc Thầy Hợp Kim"
+  tool_crafter: "Thợ Chế Tạo Công Cụ"
+  armor_smith: "Thợ Rèn Giáp"
+  crusher_user: "Người Vận Hành Máy Nghiền"
+  hammer_expert: "Chuyên Gia Búa"
+  bronze_age_complete: "Hoàn Thành Thời Đại Đồng Thau"
 
 achievementDescs:
-  welcome: "§0Tham gia thế giới lần đầu tiên"
-  first_steps: "§0Đi bộ 100 blocks"
-  breaker: "§0Phá 10 blocks"
+  # Metallurgy Phase 1
+  first_ore: "§0Khai thác quặng thiếc đầu tiên"
+  tin_collector: "§0Thu thập 64 quặng thiếc"
+  bronze_maker: "§0Tạo ra thỏi đồng thau đầu tiên"
+  alloy_master: "§0Tạo 32 thỏi đồng thau"
+  tool_crafter: "§0Chế tạo bộ công cụ đồng thau hoàn chỉnh"
+  armor_smith: "§0Chế tạo bộ giáp đồng thau hoàn chỉnh"
+  crusher_user: "§0Sử dụng máy nghiền quặng lần đầu"
+  hammer_expert: "§0Sử dụng búa để khai thác 100 blocks"
+  bronze_age_complete: "§0Hoàn thành tất cả thành tựu Phase 1"
 
 welcome:
   title: "§a§lChào mừng đến với APEIRIX!"

@@ -11,7 +11,7 @@ import { LangManager } from "../../../lang/LangManager";
 import { CategoryMenuUI } from "./CategoryMenuUI";
 
 export class DetailUI {
-    static async show(player: Player, achievementId: string, categoryId: string): Promise<void> {
+    static async show(player: Player, achievementId: string, categoryId: string, phaseId?: string): Promise<void> {
         const achievement = AchievementRegistry.getAchievement(achievementId);
         if (!achievement) return;
 
@@ -82,7 +82,7 @@ export class DetailUI {
             const backButtonIndex = rewardCount;
 
             if (response.selection === backButtonIndex) {
-                await CategoryMenuUI.show(player, categoryId);
+                await CategoryMenuUI.show(player, categoryId, phaseId);
                 return;
             }
 
@@ -91,7 +91,7 @@ export class DetailUI {
                 const success = AchievementSystem.claimReward(player, achievementId, response.selection);
 
                 if (success) {
-                    await this.show(player, achievementId, categoryId);
+                    await this.show(player, achievementId, categoryId, phaseId);
                 } else if (!unlocked) {
                     player.sendMessage("§cBạn cần hoàn thành thành tựu trước!");
                 } else {
