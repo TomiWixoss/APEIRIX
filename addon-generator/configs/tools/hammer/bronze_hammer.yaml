@@ -5,7 +5,7 @@ texture: ../../../assets/tools/bronze_hammer.png
 damage: 3
 category: equipment
 materialId: apeirix:bronze_ingot
-durability: 250
+durability: 375
 enchantability: 14
 efficiency: 6
 tier: iron
@@ -20,9 +20,9 @@ recipe:
   type: shaped
   id: bronze_hammer
   pattern:
-    - " # "
-    - " S#"
-    - "S  "
+    - "###"
+    - "#S#"
+    - " S "
   ingredients:
     "#": apeirix:bronze_ingot
     S: minecraft:stick

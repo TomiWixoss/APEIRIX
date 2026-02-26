@@ -13,14 +13,15 @@ recipes:
   - type: shaped
     id: ore_crusher
     pattern:
-      - "III"
-      - "IHI"
-      - "SSS"
+      - "IBI"
+      - "INI"
+      - "OOO"
     ingredients:
       I: minecraft:iron_ingot
-      H: apeirix:iron_hammer
-      S: minecraft:smooth_stone
+      B: minecraft:iron_block
+      N: minecraft:nether_star
+      O: minecraft:obsidian
     result: apeirix:ore_crusher
     count: 1
     unlock:
-      - minecraft:iron_ingot
+      - minecraft:nether_star

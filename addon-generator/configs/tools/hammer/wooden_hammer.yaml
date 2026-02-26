@@ -20,9 +20,9 @@ recipe:
   type: shaped
   id: wooden_hammer
   pattern:
-    - " # "
-    - " S#"
-    - "S  "
+    - "###"
+    - "#S#"
+    - " S "
   ingredients:
     "#": minecraft:planks
     S: minecraft:stick

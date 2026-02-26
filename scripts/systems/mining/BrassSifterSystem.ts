@@ -1,15 +1,21 @@
-import { world, system, Block, ItemStack, Player, Vector3 } from '@minecraft/server';
+import { world, system, Block, ItemStack, Player } from '@minecraft/server';
 import { EventBus } from '../../core/EventBus';
 import { BrassSifterRegistry } from '../../data/mining/BrassSifterRegistry';
 
 /**
  * BrassSifterSystem - Lọc bụi khoáng sản thành bụi tinh khiết
  * 
- * Cơ chế:
+ * Cơ chế hao hụt khối lượng (Mass Loss):
  * - Player cầm bụi khoáng sản và tương tác với brass_sifter
- * - Mất 1 bụi khoáng sản từ tay
- * - Sinh ra 1 bụi tinh khiết + bụi đá đã lọc
- * - Bụi tinh khiết đem đi nung sẽ ra 1 thỏi
+ * - Mất 2 bụi khoáng sản từ tay (hao hụt khi tinh chế)
+ * - Sinh ra 1 bụi tinh khiết + 2 bụi đá đã lọc
+ * - 4 Bụi tinh khiết đem đi nung = 1 thỏi
+ * 
+ * Toán học cân bằng:
+ * - Đập 1 quặng bằng búa: 9 bụi thường
+ * - Rây 9 bụi (tỷ lệ 2:1): 4.5 bụi tinh khiết
+ * - Ép 4.5 bụi (4 bụi = 1 thỏi): 1.125 thỏi
+ * - Bonus: +12.5% so với đào thường (1 thỏi)
  * 
  * Sử dụng auto-generated data từ GeneratedGameData.ts
  */
@@ -61,6 +67,9 @@ export class BrassSifterSystem {
 
   /**
    * Xử lý quá trình lọc bụi
+   * 
+   * Cơ chế hao hụt: 2 Bụi Thường → 1 Bụi Tinh Khiết + 2 Bụi Đá
+   * Toán học: 9 bụi từ búa → 4.5 bụi tinh khiết → 1.125 thỏi (bonus 12.5%)
    */
   private static processSifting(
     player: Player, 
@@ -81,11 +90,22 @@ export class BrassSifterSystem {
         return;
       }
       
-      // Remove 1 dust from hand
-      if (heldItem.amount > 1) {
-        heldItem.amount -= 1;
+      // --- BẮT ĐẦU CƠ CHẾ HAO HỤT 2:1 ---
+      // Bắt buộc phải có từ 2 bụi trở lên mới đủ để rây ra 1 bụi tinh khiết
+      if (heldItem.amount < 2) {
+        player.onScreenDisplay.setActionBar("§cBạn cần ít nhất 2 Bụi khoáng sản để rây lọc!");
+        try {
+          player.playSound("note.bass", { volume: 0.5, pitch: 1.0 });
+        } catch (e) {}
+        return;
+      }
+      
+      // Trừ đi 2 Bụi (Hao hụt khối lượng khi tinh chế)
+      if (heldItem.amount > 2) {
+        heldItem.amount -= 2;
         inventory.container.setItem(selectedSlot, heldItem);
       } else {
+        // Nếu có đúng 2 cái thì xóa luôn khỏi tay
         inventory.container.setItem(selectedSlot, undefined);
       }
       
@@ -96,8 +116,12 @@ export class BrassSifterSystem {
         z: player.location.z
       };
       
+      // Sinh ra 1 Bụi Tinh Khiết (từ 2 bụi thường)
       player.dimension.spawnItem(new ItemStack(recipe.pureDustId, 1), spawnLocation);
-      player.dimension.spawnItem(new ItemStack(recipe.stoneDustId, 1), spawnLocation);
+      
+      // Vì sàng lọc 2 bụi, lượng đất đá rớt ra sẽ nhiều hơn -> Sinh ra 2 Bụi Đá
+      player.dimension.spawnItem(new ItemStack(recipe.stoneDustId, 2), spawnLocation);
+      // --- KẾT THÚC CƠ CHẾ HAO HỤT 2:1 ---
       
       // Particle effect at sifter
       try {

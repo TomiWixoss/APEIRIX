@@ -1,9 +1,11 @@
 /**
  * Armor Smith Achievement - Craft complete bronze armor set
+ * 
+ * OPTIMIZED: Track qua equip event thay vì scan item entities
  */
 
 import { Achievement } from "../../BaseAchievement";
-import { world, system } from "@minecraft/server";
+import { world, system, EquipmentSlot } from "@minecraft/server";
 import { AchievementSystem } from "../../../../systems/achievements/AchievementSystem";
 
 export class ArmorSmithAchievement extends Achievement {
@@ -29,61 +31,59 @@ export class ArmorSmithAchievement extends Achievement {
     ];
 
     setupTracking(): void {
-        // Track when player picks up bronze armor
-        world.afterEvents.entitySpawn.subscribe((event) => {
-            if (event.entity.typeId !== "minecraft:item") return;
-            
-            const checkInterval = system.runInterval(() => {
-                try {
-                    const item = event.entity;
-                    if (!item.isValid) {
-                        system.clearRun(checkInterval);
-                        return;
-                    }
-
-                    const itemStack = item.getComponent("item")?.itemStack;
-                    if (!itemStack || !this.BRONZE_ARMOR.includes(itemStack.typeId)) {
-                        system.clearRun(checkInterval);
-                        return;
-                    }
-
-                    // Find nearby players
-                    const nearbyPlayers = world.getAllPlayers().filter(p => {
-                        const distance = Math.sqrt(
-                            Math.pow(p.location.x - item.location.x, 2) +
-                            Math.pow(p.location.y - item.location.y, 2) +
-                            Math.pow(p.location.z - item.location.z, 2)
-                        );
-                        return distance < 2;
-                    });
-
-                    if (nearbyPlayers.length > 0) {
-                        system.clearRun(checkInterval);
-                        
-                        const player = nearbyPlayers[0];
-                        if (!AchievementSystem.hasAchievement(player, this.id)) {
-                            // Count unique armor pieces in inventory
-                            const inventory = player.getComponent("inventory");
-                            if (inventory && inventory.container) {
-                                const foundArmor = new Set<string>();
-                                for (let i = 0; i < inventory.container.size; i++) {
-                                    const invItem = inventory.container.getItem(i);
-                                    if (invItem && this.BRONZE_ARMOR.includes(invItem.typeId)) {
-                                        foundArmor.add(invItem.typeId);
-                                    }
-                                }
-                                AchievementSystem.setProgress(player, this.id, foundArmor.size);
-                            }
-                        }
-                    }
-                } catch (error) {
-                    system.clearRun(checkInterval);
-                }
-            }, 20);
-
-            system.runTimeout(() => {
-                system.clearRun(checkInterval);
-            }, 200);
+        // Track khi player mặc bronze armor hoặc có trong inventory
+        world.afterEvents.playerSpawn.subscribe((event) => {
+            this.checkPlayerArmor(event.player);
         });
+        
+        // Periodic check mỗi 5 giây cho tất cả players
+        system.runInterval(() => {
+            for (const player of world.getAllPlayers()) {
+                if (!AchievementSystem.hasAchievement(player, this.id)) {
+                    this.checkPlayerArmor(player);
+                }
+            }
+        }, 100); // 5 giây
+    }
+
+    private checkPlayerArmor(player: any): void {
+        try {
+            const foundArmor = new Set<string>();
+            
+            // Check equipped armor
+            const equipment = player.getComponent("equippable");
+            if (equipment) {
+                const slots = [
+                    EquipmentSlot.Head,
+                    EquipmentSlot.Chest,
+                    EquipmentSlot.Legs,
+                    EquipmentSlot.Feet
+                ];
+                
+                for (const slot of slots) {
+                    const item = equipment.getEquipment(slot);
+                    if (item && this.BRONZE_ARMOR.includes(item.typeId)) {
+                        foundArmor.add(item.typeId);
+                    }
+                }
+            }
+            
+            // Check inventory
+            const inventory = player.getComponent("inventory");
+            if (inventory?.container) {
+                for (let i = 0; i < inventory.container.size; i++) {
+                    const item = inventory.container.getItem(i);
+                    if (item && this.BRONZE_ARMOR.includes(item.typeId)) {
+                        foundArmor.add(item.typeId);
+                    }
+                }
+            }
+            
+            if (foundArmor.size > 0) {
+                AchievementSystem.setProgress(player, this.id, foundArmor.size);
+            }
+        } catch (error) {
+            // Player không còn valid
+        }
     }
 }

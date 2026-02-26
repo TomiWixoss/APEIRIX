@@ -20,9 +20,9 @@ recipe:
   type: shaped
   id: diamond_hammer
   pattern:
-    - " # "
-    - " S#"
-    - "S  "
+    - "###"
+    - "#S#"
+    - " S "
   ingredients:
     "#": minecraft:diamond
     S: minecraft:stick

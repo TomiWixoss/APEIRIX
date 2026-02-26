@@ -20,9 +20,9 @@ recipe:
   type: shaped
   id: copper_hammer
   pattern:
-    - " # "
-    - " S#"
-    - "S  "
+    - "###"
+    - "#S#"
+    - " S "
   ingredients:
     "#": minecraft:copper_ingot
     S: minecraft:stick

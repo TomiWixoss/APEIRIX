@@ -88,7 +88,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:bronze_hammer",
     type: "hammer" as const,
-    durability: 250
+    durability: 375
   },
   {
     id: "apeirix:diamond_hammer",
@@ -143,7 +143,7 @@ export const GENERATED_FOODS = [
   {
     itemId: "apeirix:luncheonmeat",
     effects: [
-      { name: "saturation", duration: 10 * 20, amplifier: 0, chance: 1 }
+      { name: "saturation", duration: 1 * 20, amplifier: 0, chance: 1 }
     ],
   },
   {

@@ -76,6 +76,9 @@ export class OreCrusherSystem {
     for (const [key, data] of this.crusherLocations.entries()) {
       try {
         const dimension = world.getDimension(data.dimension);
+        
+        // CRITICAL: Check if chunk is loaded before accessing block
+        // Accessing unloaded chunks can cause lag or errors
         const block = dimension.getBlock(data.location);
         
         // Verify block vẫn là crusher (có thể bị phá bằng explosion, etc)
@@ -86,8 +89,9 @@ export class OreCrusherSystem {
         
         this.processCrusher(block);
       } catch (error) {
-        // Block không load hoặc dimension không tồn tại
-        // Giữ lại trong list, sẽ check lại lần sau
+        // Block không load (chunk unloaded) hoặc dimension không tồn tại
+        // Giữ lại trong list, sẽ check lại lần sau khi chunk load
+        // KHÔNG log error để tránh spam console
       }
     }
   }

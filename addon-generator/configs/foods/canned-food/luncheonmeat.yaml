@@ -9,7 +9,7 @@ canAlwaysEat: false
 usingConvertsTo: candirty
 effects:
   - name: saturation
-    duration: 10
+    duration: 1
     amplifier: 0
     chance: 1
 recipe:
