@@ -45,6 +45,9 @@ export class EntityNormalizer {
       } else if (config.destroyTime !== undefined || config.explosionResistance !== undefined) {
         // Block entity
         normalized.blocks = [config];
+      } else if (config.health !== undefined || config.movement !== undefined || config.spawnCategory !== undefined || config.behaviors !== undefined || config.model !== undefined) {
+        // Mob entity (có health, movement, spawnCategory, behaviors, hoặc model)
+        normalized.entities = [config];
       } else {
         // Default: Item entity
         normalized.items = [config];

@@ -1,94 +1,93 @@
-entities:
-  - id: rust_mite
-    name: lang:entities.rust_mite
-    spawnEgg:
-      texture: ../../assets/entities/spawn_egg_rust_mite.png
-      baseColor: "#8B4513"
-      overlayColor: "#FF8C00"
-    model: ../../assets/entities/silverfish.geo.json
-    texture: ../../assets/entities/rust_mite.png
-    animation: ../../assets/entities/silverfish.animation.json
-    animationName: move
-    health: 8
-    movement: 0.25
-    attack: 1
-    collisionBox:
-      width: 0.4
-      height: 0.3
-    spawnCategory: monster
-    isSpawnable: true
-    isSummonable: true
-    spawnRules:
-      populationControl: monster
-      weight: 10
-      minGroupSize: 1
-      maxGroupSize: 3
-      conditions:
-        underground: true
-        brightnessMin: 0
-        brightnessMax: 7
-        biomes:
-          - monster
-        nearBlocks:
-          - minecraft:lava
-          - minecraft:iron_ore
-          - minecraft:copper_ore
-          - minecraft:gold_ore
-          - apeirix:tin_ore
-          - minecraft:deepslate_iron_ore
-          - minecraft:deepslate_copper_ore
-          - minecraft:deepslate_gold_ore
-          - apeirix:deepslate_tin_ore
-        nearBlocksRadius: 10
-    lootTable:
-      pools:
-        - rolls: 1
-          entries:
-            - type: item
-              name: apeirix:candirty
-              weight: 60
-              count:
-                min: 1
-                max: 2
-            - type: item
-              name: apeirix:iron_ingot_dust
-              weight: 20
-              count: 1
-            - type: item
-              name: apeirix:copper_ingot_dust
-              weight: 15
-              count: 1
-            - type: item
-              name: apeirix:tin_ingot_dust
-              weight: 5
-              count: 1
-    behaviors:
-      float: true
-      randomStroll:
-        priority: 8
-        speed: 0.8
-      lookAtPlayer: true
-      meleeAttack: true
-      nearestAttackableTarget:
-        entityTypes:
-          - filters:
-              any_of:
-                - test: is_family
-                  subject: other
-                  value: player
-            maxDist: 8
-          - filters:
-              any_of:
-                - test: is_family
-                  subject: other
-                  value: item_bait_marker
-            maxDist: 10
-    testCommands:
-      - "# Test: Rust Mite"
-      - clear @s
-      - summon apeirix:rust_mite ~~2~
-      - 'tellraw @s {"text":"=== Test: Bọ Ăn Rỉ Sét ===","color":"gold"}'
-      - 'tellraw @s {"text":"HP: 8 | Damage: 1 | Speed: 0.25","color":"aqua"}'
-      - 'tellraw @s {"text":"Sinh vật nhỏ bé thu hút bởi quặng và đồ hộp","color":"white"}'
-      - 'tellraw @s {"text":"Drops: Vỏ đồ hộp bẩn, Bụi kim loại","color":"yellow"}'
-      - playsound random.levelup @s
+id: rust_mite
+name: lang:entities.rust_mite
+spawnEgg:
+  texture: ../../assets/entities/spawn_egg_rust_mite.png
+  baseColor: "#8B4513"
+  overlayColor: "#FF8C00"
+model: ../../assets/entities/silverfish.geo.json
+texture: ../../assets/entities/rust_mite.png
+animation: ../../assets/entities/silverfish.animation.json
+animationName: move
+health: 8
+movement: 0.25
+attack: 1
+collisionBox:
+  width: 0.4
+  height: 0.3
+spawnCategory: monster
+isSpawnable: true
+isSummonable: true
+spawnRules:
+  populationControl: monster
+  weight: 10
+  minGroupSize: 1
+  maxGroupSize: 3
+  conditions:
+    underground: true
+    brightnessMin: 0
+    brightnessMax: 7
+    biomes:
+      - monster
+    nearBlocks:
+      - minecraft:lava
+      - minecraft:iron_ore
+      - minecraft:copper_ore
+      - minecraft:gold_ore
+      - apeirix:tin_ore
+      - minecraft:deepslate_iron_ore
+      - minecraft:deepslate_copper_ore
+      - minecraft:deepslate_gold_ore
+      - apeirix:deepslate_tin_ore
+    nearBlocksRadius: 10
+lootTable:
+  pools:
+    - rolls: 1
+      entries:
+        - type: item
+          name: apeirix:candirty
+          weight: 60
+          count:
+            min: 1
+            max: 2
+        - type: item
+          name: apeirix:iron_ingot_dust
+          weight: 20
+          count: 1
+        - type: item
+          name: apeirix:copper_ingot_dust
+          weight: 15
+          count: 1
+        - type: item
+          name: apeirix:tin_ingot_dust
+          weight: 5
+          count: 1
+behaviors:
+  float: true
+  randomStroll:
+    priority: 8
+    speed: 0.8
+  lookAtPlayer: true
+  meleeAttack: true
+  nearestAttackableTarget:
+    entityTypes:
+      - filters:
+          any_of:
+            - test: is_family
+              subject: other
+              value: player
+        maxDist: 8
+      - filters:
+          any_of:
+            - test: is_family
+              subject: other
+              value: item_bait_marker
+        maxDist: 10
+testCommands:
+  - "# Test: Rust Mite"
+  - clear @s
+  - summon apeirix:rust_mite ~~2~
+  - 'tellraw @s {"text":"=== Test: Bọ Ăn Rỉ Sét ===","color":"gold"}'
+  - 'tellraw @s {"text":"HP: 8 | Damage: 1 | Speed: 0.25","color":"aqua"}'
+  - 'tellraw @s {"text":"Sinh vật nhỏ bé thu hút bởi quặng và đồ hộp","color":"white"}'
+  - 'tellraw @s {"text":"Drops: Vỏ đồ hộp bẩn, Bụi kim loại","color":"yellow"}'
+  - playsound random.levelup @s

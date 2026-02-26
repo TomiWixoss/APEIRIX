@@ -1,16 +1,15 @@
-entities:
-  - id: item_bait_marker
-    name: "Item Bait Marker"
-    model: ../../assets/entities/silverfish.geo.json
-    texture: ../../assets/entities/rust_mite.png
-    health: 1
-    movement: 0
-    collisionBox:
-      width: 0.001
-      height: 0.001
-    spawnCategory: creature
-    isSpawnable: false
-    isSummonable: true
-    renderScale: 0.001
-    behaviors:
-      float: false
+id: item_bait_marker
+name: "Item Bait Marker"
+model: ../../assets/entities/silverfish.geo.json
+texture: ../../assets/entities/rust_mite.png
+health: 1
+movement: 0
+collisionBox:
+  width: 0.001
+  height: 0.001
+spawnCategory: creature
+isSpawnable: false
+isSummonable: true
+renderScale: 0.001
+behaviors:
+  float: false
