@@ -35,6 +35,7 @@ export interface ContentConfig {
   tools?: ToolConfig[];
   armor?: ArmorSetConfig[];
   recipes?: RecipeConfig[];
+  entities?: EntityConfig[];
   
   // YAML linking - import từ files khác
   import?: string[];           // Array of config files to import (NEW)
@@ -182,4 +183,53 @@ export interface RecipeConfig {
   output?: string;
   tags?: string[];
   generateTest?: boolean; // Tự động tạo test function
+}
+
+export interface EntityConfig {
+  id: string;
+  name: string;
+  spawnEgg?: {
+    texture: string;
+    baseColor?: string;
+    overlayColor?: string;
+  };
+  model: string; // Path to .geo.json
+  texture: string; // Path to texture file
+  animation?: string; // Path to .animation.json
+  animationName?: string; // Animation name to use (e.g., "move", "walk", "idle")
+  health?: number;
+  movement?: number;
+  attack?: number;
+  collisionBox?: {
+    width: number;
+    height: number;
+  };
+  spawnCategory?: 'monster' | 'creature' | 'ambient' | 'water_creature';
+  isSpawnable?: boolean;
+  isSummonable?: boolean;
+  lootTable?: {
+    pools: Array<{
+      rolls: number;
+      entries: Array<{
+        type: string;
+        name: string;
+        weight?: number;
+        count?: number | { min: number; max: number };
+      }>;
+    }>;
+  };
+  behaviors?: {
+    float?: boolean;
+    panic?: boolean;
+    randomStroll?: boolean;
+    lookAtPlayer?: boolean;
+    meleeAttack?: boolean;
+    nearestAttackableTarget?: {
+      entityTypes: Array<{
+        filters: any;
+        maxDist?: number;
+      }>;
+    };
+  };
+  testCommands?: string[];
 }

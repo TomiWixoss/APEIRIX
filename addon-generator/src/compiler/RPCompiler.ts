@@ -2,6 +2,7 @@ import path from 'path';
 import { mkdirSync, existsSync } from 'fs';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
+import { EntityRPGenerator } from './rp/EntityRPGenerator.js';
 
 export interface RPConfig {
   items?: any[];
@@ -10,6 +11,7 @@ export interface RPConfig {
   armor?: any[];
   tools?: any[];
   foods?: any[];
+  entities?: any[];
   enableJsonUI?: boolean;
 }
 
@@ -43,6 +45,11 @@ export class RPCompiler {
       stats.attachables = await this.generateAttachables(config.armor, rpPath);
     }
 
+    // Generate entity clients
+    if (config.entities && config.entities.length > 0) {
+      await EntityRPGenerator.generate(config.entities, rpPath);
+    }
+
     // Generate lang file (pass configDir)
     stats.langEntries = await this.generateLangFile(config, rpPath, configDir);
 
@@ -64,8 +71,12 @@ export class RPCompiler {
     const dirs = [
       'textures/items',
       'textures/blocks',
+      'textures/entity',
       'textures/models/armor',
       'attachables',
+      'entity',
+      'models/entity',
+      'animations',
       'texts'
     ];
 
@@ -83,13 +94,25 @@ export class RPCompiler {
   private static async generateTextureRegistries(config: RPConfig, rpPath: string): Promise<number> {
     const generator = new TextureGenerator(path.dirname(rpPath));
 
-    // Collect all items (items + tools + armor + foods)
+    // Collect all items (items + tools + armor + foods + spawn eggs)
     const allItems = [
       ...(config.items || []),
       ...(config.tools || []),
       ...(config.armor || []),
       ...(config.foods || [])
     ];
+
+    // Add spawn egg textures for entities
+    if (config.entities) {
+      for (const entity of config.entities) {
+        if (entity.spawnEgg) {
+          allItems.push({
+            id: `spawn_egg_${entity.id}`,
+            name: `Spawn ${entity.name}`
+          });
+        }
+      }
+    }
 
     // Generate item textures
     if (allItems.length > 0) {
@@ -231,6 +254,21 @@ export class RPCompiler {
             ? generator.resolveName(deepslateName)
             : deepslateName;
           entries[`tile.apeirix:deepslate_${ore.id}.name`] = resolvedDeepslateName;
+        }
+      }
+    }
+
+    // Add entity names
+    if (config.entities) {
+      for (const entity of config.entities) {
+        if (entity.name) {
+          const displayName = generator.resolveName(entity.name);
+          entries[`entity.apeirix:${entity.id}.name`] = displayName;
+        }
+        // Add spawn egg name
+        if (entity.spawnEgg) {
+          const spawnEggName = entity.spawnEgg.name || `Spawn ${generator.resolveName(entity.name)}`;
+          entries[`item.spawn_egg.entity.apeirix:${entity.id}.name`] = spawnEggName;
         }
       }
     }

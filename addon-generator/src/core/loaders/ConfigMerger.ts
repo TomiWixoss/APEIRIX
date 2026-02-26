@@ -59,6 +59,7 @@ export class ConfigMerger {
       ores: mergeArrays(base.ores, importedNormalized.ores),
       tools: mergeArrays(base.tools, importedNormalized.tools),
       armor: mergeArrays(base.armor, importedNormalized.armor),
+      entities: mergeArrays(base.entities, importedNormalized.entities),
       recipes: mergeArrays(base.recipes, importedNormalized.recipes)
     };
     
@@ -150,6 +151,15 @@ export class ConfigMerger {
             found = true;
           }
         }
+        
+        // Search in entities
+        if (!found && config.entities) {
+          const entity = config.entities.find(e => e.id === testItem.id);
+          if (entity) {
+            entity.testCommands = testItem.testCommands;
+            found = true;
+          }
+        }
       });
     }
     
@@ -159,5 +169,6 @@ export class ConfigMerger {
     mergeForType(testsConfig.armor, 'armor');
     mergeForType(testsConfig.blocks, 'blocks');
     mergeForType(testsConfig.ores, 'ores');
+    mergeForType(testsConfig.entities, 'entities');
   }
 }

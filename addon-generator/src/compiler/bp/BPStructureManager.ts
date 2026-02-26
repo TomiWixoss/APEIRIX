@@ -9,13 +9,16 @@ export class BPStructureManager {
     const directories = [
       'items',
       'blocks',
+      'entities',
       'recipes',
       'loot_tables/blocks',
+      'loot_tables/entities',
       'features',
       'feature_rules',
       'functions/tests/items',
       'functions/tests/tools',
       'functions/tests/foods',
+      'functions/tests/entities',
       'functions/tests/recipes',
       'scripts/data',
       'texts'

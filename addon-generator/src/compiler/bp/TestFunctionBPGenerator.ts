@@ -241,6 +241,40 @@ export class TestFunctionBPGenerator {
       }
     }
 
+    // Generate entity test functions
+    if (config.entities) {
+      for (const entity of config.entities) {
+        if (entity.testCommands) {
+          const generator = new TestFunctionGenerator(outputDir);
+          generator.generate({
+            id: entity.id,
+            displayName: entity.name || entity.id,
+            commands: entity.testCommands
+          }, 'entities');
+          count++;
+          
+          // Track for top-level group test
+          if (!categoryGroups['entities']) categoryGroups['entities'] = [];
+          categoryGroups['entities'].push({
+            id: entity.id,
+            name: entity.name || entity.id,
+            commands: entity.testCommands
+          });
+          
+          // Track for sub-category group test (dynamic)
+          const subCatPath = getSubCategoryPath(entity, 'entities');
+          if (subCatPath) {
+            if (!subCategoryGroups[subCatPath]) subCategoryGroups[subCatPath] = [];
+            subCategoryGroups[subCatPath].push({
+              id: entity.id,
+              name: entity.name || entity.id,
+              commands: entity.testCommands
+            });
+          }
+        }
+      }
+    }
+
     // Generate recipe test functions
     if (config.recipes) {
       for (const recipe of config.recipes) {

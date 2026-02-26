@@ -19,6 +19,13 @@ export interface AssetConfig {
   foods?: Array<{ texture?: string }>;
   ores?: Array<{ texturePath?: string; deepslateTexturePath?: string }>;
   armor?: Array<{ texture?: string; textures?: any; armorLayerTexturePath?: string }>;
+  entities?: Array<{ 
+    id?: string;
+    texture?: string; 
+    model?: string; 
+    animation?: string;
+    spawnEgg?: { texture?: string };
+  }>;
 }
 
 /**
@@ -123,6 +130,34 @@ export class AssetCopier {
       }
     }
 
+    // Copy entity assets
+    if (config.entities) {
+      for (const entity of config.entities) {
+        const entityConfigPath = (entity as any)._sourcePath || config.configPath;
+        const entityId = entity.id || 'unknown';
+        
+        // Copy entity texture
+        if (entity.texture) {
+          this.copyTexture(entityConfigPath, entity.texture, path.join(outputDir, 'RP', 'textures', 'entity'));
+        }
+        
+        // Copy entity model (.geo.json)
+        if (entity.model) {
+          this.copyEntityAsset(entityConfigPath, entity.model, path.join(outputDir, 'RP', 'models', 'entity'));
+        }
+        
+        // Copy entity animation (.animation.json)
+        if (entity.animation) {
+          this.copyEntityAsset(entityConfigPath, entity.animation, path.join(outputDir, 'RP', 'animations'));
+        }
+        
+        // Copy spawn egg texture
+        if (entity.spawnEgg?.texture) {
+          this.copyTexture(entityConfigPath, entity.spawnEgg.texture, path.join(outputDir, 'RP', 'textures', 'items'));
+        }
+      }
+    }
+
     console.log('✓ Assets copied successfully');
   }
 
@@ -214,6 +249,29 @@ export class AssetCopier {
   private static copyArmorLayerTexture(configPath: string, layerPath: string, outputDir: string): void {
     const armorDir = path.join(outputDir, 'RP', 'textures', 'models', 'armor');
     this.copyTexture(configPath, layerPath, armorDir);
+  }
+
+  /**
+   * Copy entity asset (model, animation, etc.)
+   */
+  private static copyEntityAsset(configPath: string, assetPath: string, destDir: string): void {
+    const sourcePath = PathResolver.resolveTexture(configPath, assetPath);
+    
+    if (!existsSync(sourcePath)) {
+      console.warn(`⚠ Entity asset not found: ${sourcePath}`);
+      console.warn(`  Config path: ${configPath}`);
+      console.warn(`  Asset path: ${assetPath}`);
+      return;
+    }
+
+    this.ensureDir(destDir);
+    const destPath = path.join(destDir, path.basename(assetPath));
+    
+    try {
+      copyFileSync(sourcePath, destPath);
+    } catch (error) {
+      console.error(`  ✗ Failed to copy entity asset ${path.basename(assetPath)}: ${error}`);
+    }
   }
 
   /**

@@ -12,6 +12,7 @@ import { LangBPGenerator } from './bp/LangBPGenerator.js';
 import { GameDataBPGenerator } from './bp/GameDataBPGenerator.js';
 import { LanguageConfigBPGenerator } from './bp/LanguageConfigBPGenerator.js';
 import { ScriptLangBPGenerator } from './bp/ScriptLangBPGenerator.js';
+import { EntityBPGenerator } from './bp/EntityBPGenerator.js';
 
 export interface BPConfig {
   addon?: {
@@ -24,6 +25,7 @@ export interface BPConfig {
   armor?: any[];
   tools?: any[];
   foods?: any[];
+  entities?: any[];
   generateBulkRecipeTest?: boolean | string;
 }
 
@@ -80,6 +82,12 @@ export class BPCompiler {
     // Generate ores
     if (config.ores?.length) {
       stats.blocks += await OreBPGenerator.generate(config.ores, bpPath);
+    }
+
+    // Generate entities
+    if (config.entities?.length) {
+      const entityCount = await EntityBPGenerator.generate(config.entities, bpPath);
+      console.log(`  ✓ Generated ${entityCount} entities`);
     }
 
     // Generate recipes

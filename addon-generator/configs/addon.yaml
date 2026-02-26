@@ -21,3 +21,4 @@ import:
   - armor/index.yaml
   - foods/index.yaml
   - special/index.yaml
+  - entities/index.yaml

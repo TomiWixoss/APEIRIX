@@ -232,5 +232,6 @@ export class ConfigLoader {
     addToArray(config.ores);
     addToArray(config.tools);
     addToArray(config.armor);
+    addToArray(config.entities);
   }
 }
