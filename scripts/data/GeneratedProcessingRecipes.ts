@@ -28,6 +28,17 @@ export interface BrassSifterRecipe {
   stoneDust: string;
 }
 
+export interface OreWasherRecipe {
+  inputId: string;
+  pureDust: string;
+  stoneDust: string;
+}
+
+export interface OreSieveRecipe {
+  inputId: string;
+  outputs: Array<{ item: string; chance: number }>;
+}
+
 export interface FuelConfig {
   blockId: string;
   usesPerBlock: number;
@@ -38,6 +49,10 @@ export interface FuelConfig {
  * Generated processing recipes grouped by machine type
  */
 export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = {
+  "ore_sieve": [
+    { inputId: "minecraft:gravel", outputId: "", processingTime: 60 },
+    { inputId: "minecraft:sand", outputId: "", processingTime: 60 }
+  ],
   "compressor": [
     { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_base_plate", processingTime: 60 }
   ],
@@ -151,6 +166,13 @@ export const GENERATED_ORE_CRUSHER_RECIPES: Record<string, OreCrusherRecipe[]> =
  * Generated brass sifter recipes
  */
 export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
+
+];
+
+/**
+ * Generated ore washer recipes
+ */
+export const GENERATED_ORE_WASHER_RECIPES: OreWasherRecipe[] = [
   { inputId: "apeirix:coal_dust", pureDust: "apeirix:coal_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:iron_ingot_dust", pureDust: "apeirix:iron_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:copper_ingot_dust", pureDust: "apeirix:copper_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
@@ -159,7 +181,15 @@ export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
   { inputId: "apeirix:emerald_dust", pureDust: "apeirix:emerald_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:lapis_block_dust", pureDust: "apeirix:lapis_block_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:tin_ingot_dust", pureDust: "apeirix:tin_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
-  { inputId: "apeirix:bronze_ingot_dust", pureDust: "apeirix:bronze_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:bronze_ingot_dust", pureDust: "apeirix:bronze_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" }
+];
+
+/**
+ * Generated ore sieve recipes
+ */
+export const GENERATED_ORE_SIEVE_RECIPES: OreSieveRecipe[] = [
+  { inputId: "minecraft:gravel", outputs: [{"item":"apeirix:iron_ingot_dust","chance":0.15},{"item":"apeirix:coal_dust","chance":0.2},{"item":"apeirix:copper_ingot_dust","chance":0.1},{"item":"apeirix:gold_ingot_dust","chance":0.05},{"item":"apeirix:tin_ingot_dust","chance":0.08}] },
+  { inputId: "minecraft:sand", outputs: [{"item":"apeirix:copper_ingot_dust","chance":0.1},{"item":"apeirix:gold_ingot_dust","chance":0.03},{"item":"apeirix:diamond_dust","chance":0.02},{"item":"apeirix:emerald_dust","chance":0.01}] }
 ];
 
 /**

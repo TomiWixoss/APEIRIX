@@ -1,12 +1,12 @@
-id: brass_sifter
-name: lang:blocks.brass_sifter
+id: ore_washer
+name: lang:blocks.ore_washer
 textures:
   up: ../../../assets/blocks/brass_sifter_top.png
   down: ../../../assets/blocks/brass_sifter_top.png
-  north: ../../../assets/blocks/brass_sifter_side_powered.png
-  south: ../../../assets/blocks/brass_sifter_side_powered.png
-  east: ../../../assets/blocks/brass_sifter_side_powered.png
-  west: ../../../assets/blocks/brass_sifter_side_powered.png
+  north: ../../../assets/blocks/ore_washer.png
+  south: ../../../assets/blocks/ore_washer.png
+  east: ../../../assets/blocks/ore_washer.png
+  west: ../../../assets/blocks/ore_washer.png
 category: equipment
 destroyTime: 4.0
 explosionResistance: 8.0
@@ -52,7 +52,7 @@ processingRecipes:
     stoneDust: apeirix:cobblestone_dust
 recipes:
   - type: shaped
-    id: brass_sifter
+    id: ore_washer
     pattern:
       - "BBB"
       - "BIB"
@@ -61,7 +61,7 @@ recipes:
       B: apeirix:bronze_ingot
       I: minecraft:iron_bars
       S: minecraft:smooth_stone
-    result: apeirix:brass_sifter
+    result: apeirix:ore_washer
     count: 1
     unlock:
       - apeirix:bronze_ingot

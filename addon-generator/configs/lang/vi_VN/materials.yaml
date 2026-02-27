@@ -55,7 +55,9 @@ blocks:
   ore_crusher_mk1: Máy Nghiền Quặng MK1
   ore_crusher_mk2: Máy Nghiền Quặng MK2
   ore_crusher_mk3: Máy Nghiền Quặng MK3
-  brass_sifter: Rây Lọc Đồng Thau
+  ore_sieve: Rây Sàng Quặng
+  ore_sieve_on: Rây Sàng Quặng (Đang Hoạt Động)
+  ore_washer: Máy Rửa Quặng
   compressor: Máy Nén
   compressor_on: Máy Nén (Đang Hoạt Động)
   crusher: Máy Nghiền

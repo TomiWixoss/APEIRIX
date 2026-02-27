@@ -1,0 +1,19 @@
+# Đây là file placeholder cho response của AI
+# Copy response của AI vào đây, sau đó chạy:
+# node extract-pxvg-from-ai.js 2026-02-27_new_raw ai-response-placeholder.txt
+
+# Format mẫu mà AI cần trả về:
+# ```pxvg:steel_hammer.pxvg.xml
+# <pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+#   <palette>
+#     <color k="A" hex="#FF0000FF" />
+#   </palette>
+#   <layer id="main">
+#     <rect x="0" y="0" w="16" h="16" c="A" />
+#   </layer>
+# </pxvg>
+# ```
+
+================================================================================
+
+# PASTE RESPONSE CỦA AI VÀO ĐÂY:

@@ -110,13 +110,28 @@ export class GameDataBPGenerator {
       for (const block of config.blocks) {
         if (block.processingRecipes && Array.isArray(block.processingRecipes)) {
           for (const recipe of block.processingRecipes) {
-            // BrassSifter-style recipe (input -> pureDust + stoneDust) - CHECK THIS FIRST
-            if (recipe.input && recipe.pureDust && recipe.stoneDust) {
+            // OreSieve-style recipe (input -> random outputs) - CHECK THIS FIRST
+            if (recipe.input && recipe.outputs && Array.isArray(recipe.outputs)) {
+              processingRecipes.push({
+                machineType: block.id,
+                input: recipe.input,
+                output: '', // No fixed output
+                processingTime: recipe.processingTime || 60,
+                outputs: recipe.outputs, // Array of {item, chance}
+                fuelConfig: block.fuel ? {
+                  blockId: block.fuel.blockId,
+                  usesPerBlock: block.fuel.usesPerBlock,
+                  detectFaces: block.fuel.detectFaces || 'bottom'
+                } : undefined
+              });
+            }
+            // BrassSifter/OreWasher-style recipe (input -> pureDust + stoneDust)
+            else if (recipe.input && recipe.pureDust && recipe.stoneDust) {
               processingRecipes.push({
                 machineType: block.id,
                 input: recipe.input,
                 output: recipe.pureDust, // Primary output
-                processingTime: 1, // Instant for brass sifter
+                processingTime: 1, // Instant for washer
                 stoneDust: recipe.stoneDust,
                 pureDust: recipe.pureDust,
                 fuelConfig: block.fuel ? {

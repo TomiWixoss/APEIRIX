@@ -117,8 +117,17 @@ export interface BlockConfig {
   // Processing recipes (for processing machines)
   processingRecipes?: Array<{
     input: string;
-    output: string;
-    processingTime: number;
+    output?: string;
+    processingTime?: number;
+    // OreSieve specific
+    outputs?: Array<{ item: string; chance: number }>;
+    // OreWasher/BrassSifter specific
+    pureDust?: string;
+    stoneDust?: string;
+    // OreCrusher specific
+    stoneDustCount?: number;
+    oreDust?: string;
+    oreDustCount?: number;
   }>;
   
   mapColor?: string;

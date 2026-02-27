@@ -1,10 +1,9 @@
 /**
- * Brass Sifter System - Lọc bụi khoáng sản thành bụi tinh khiết
+ * Ore Sieve System - Sàng sỏi và cát để lấy bụi quặng
  * 
- * Cơ chế: 2 Bụi Thường → 1 Bụi Tinh Khiết + 2 Bụi Đá
+ * Cơ chế: Gravel/Sand → Random Ore Dusts (theo tỉ lệ)
  * Hỗ trợ: Player interaction + Hopper automation
- * 
- * Note: Không có block ON riêng, ON và OFF đều dùng brass_sifter
+ * Texture: Animated flipbook (4 frames)
  */
 
 import { world, system } from '@minecraft/server';
@@ -13,61 +12,51 @@ import { MachineStateManager } from '../shared/processing/MachineState';
 import { PlayerInteractionHandler } from '../shared/processing/PlayerInteractionHandler';
 import { ProcessingHandler } from '../shared/processing/ProcessingHandler';
 import { HopperHandler, ProcessingRecipe } from '../shared/processing/HopperHandler';
-import { GENERATED_BRASS_SIFTER_RECIPES, BrassSifterRecipe } from '../../data/GeneratedProcessingRecipes';
+import { GENERATED_ORE_SIEVE_RECIPES, OreSieveRecipe } from '../../data/GeneratedProcessingRecipes';
 
-export class BrassSifterSystem {
-  private static readonly MACHINE_TYPE = 'brass_sifter';
-  private static readonly SIFTER_BLOCK = 'apeirix:brass_sifter';
-  private static readonly INPUT_AMOUNT = 2;
-  private static readonly PROCESSING_TIME = 40; // 2 giây
+export class OreSieveSystem {
+  private static readonly MACHINE_TYPE = 'ore_sieve';
+  private static readonly SIEVE_BLOCK = 'apeirix:ore_sieve';
+  private static readonly SIEVE_BLOCK_ON = 'apeirix:ore_sieve_on';
+  private static readonly INPUT_AMOUNT = 1;
+  private static readonly PROCESSING_TIME = 60; // 3 giây
   
-  private static recipeMap: Map<string, BrassSifterRecipe> = new Map();
+  private static recipeMap: Map<string, OreSieveRecipe> = new Map();
 
   /**
    * Chuyển đổi rotation của player thành direction state (0-3)
-   * 0 = south, 1 = west, 2 = north, 3 = east
-   * 
-   * Block quay mặt về phía player (đối diện với hướng player nhìn)
-   * Minecraft yaw: 0=south, 90=west, 180=north, 270=east
    */
   private static getDirectionFromPlayer(player: any): number {
     const rotation = player.getRotation();
     const yaw = rotation.y;
     
-    // Normalize yaw to 0-360
     let normalizedYaw = yaw % 360;
     if (normalizedYaw < 0) normalizedYaw += 360;
     
-    // Convert to direction (block faces player - opposite of player's facing)
-    // Player yaw 0° (nhìn nam) → block direction 2 (mặt bắc)
-    // Player yaw 90° (nhìn tây) → block direction 1 (mặt đông) - FIXED
-    // Player yaw 180° (nhìn bắc) → block direction 0 (mặt nam)
-    // Player yaw 270° (nhìn đông) → block direction 3 (mặt tây) - FIXED
     let direction: number;
     if (normalizedYaw >= 315 || normalizedYaw < 45) {
-      direction = 2;  // Nhìn nam → mặt bắc
+      direction = 2;
     } else if (normalizedYaw >= 45 && normalizedYaw < 135) {
-      direction = 1;  // Nhìn tây → mặt đông (ĐÃ ĐỔI từ 3 sang 1)
+      direction = 1;
     } else if (normalizedYaw >= 135 && normalizedYaw < 225) {
-      direction = 0; // Nhìn bắc → mặt nam
+      direction = 0;
     } else {
-      direction = 3; // Nhìn đông → mặt tây (ĐÃ ĐỔI từ 1 sang 3)
+      direction = 3;
     }
     
     return direction;
   }
 
   static initialize(): void {
-    console.warn('[BrassSifterSystem] Initializing...');
+    console.warn('[OreSieveSystem] Initializing...');
     
     this.loadRecipes();
     
     // Đăng ký machine state + set direction khi đặt block
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
-      if (event.block.typeId === this.SIFTER_BLOCK) {
+      if (event.block.typeId === this.SIEVE_BLOCK) {
         MachineStateManager.add(event.block.dimension.id, event.block.location, this.MACHINE_TYPE);
         
-        // Set direction dựa vào hướng player nhìn - NGAY LẬP TỨC
         const direction = this.getDirectionFromPlayer(event.player);
         const permutation = (event.block.permutation as any).withState('apeirix:direction', direction);
         event.block.setPermutation(permutation);
@@ -75,14 +64,14 @@ export class BrassSifterSystem {
     });
     
     world.afterEvents.playerBreakBlock.subscribe((event) => {
-      if (event.brokenBlockPermutation.type.id === this.SIFTER_BLOCK) {
+      if (event.brokenBlockPermutation.type.id === this.SIEVE_BLOCK) {
         MachineStateManager.remove(event.block.dimension.id, event.block.location);
       }
     });
     
-    // Player interaction (custom handler vì cần 2 inputs)
+    // Player interaction
     world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
-      if (event.block.typeId === this.SIFTER_BLOCK) {
+      if (event.block.typeId === this.SIEVE_BLOCK) {
         this.handlePlayerInteraction(event);
       }
     });
@@ -90,7 +79,7 @@ export class BrassSifterSystem {
     // Processing loop
     system.runInterval(() => {
       PlayerInteractionHandler.incrementTick();
-      ProcessingHandler.processAll(this.SIFTER_BLOCK, this.SIFTER_BLOCK, this.MACHINE_TYPE); // ON = OFF
+      ProcessingHandler.processAll(this.SIEVE_BLOCK_ON, this.SIEVE_BLOCK, this.MACHINE_TYPE);
     }, 1);
     
     // Hopper input check
@@ -98,41 +87,61 @@ export class BrassSifterSystem {
       this.checkHopperInputs();
     }, 20);
     
-    console.warn('[BrassSifterSystem] Initialized');
+    console.warn('[OreSieveSystem] Initialized');
   }
 
   private static loadRecipes(): void {
-    for (const recipe of GENERATED_BRASS_SIFTER_RECIPES) {
+    for (const recipe of GENERATED_ORE_SIEVE_RECIPES) {
       this.recipeMap.set(recipe.inputId, recipe);
     }
-    console.warn(`[BrassSifterSystem] Loaded ${this.recipeMap.size} sifter recipes`);
+    console.warn(`[OreSieveSystem] Loaded ${this.recipeMap.size} sieve recipes`);
   }
 
-  private static getRecipe(itemId: string): BrassSifterRecipe | undefined {
+  private static getRecipe(itemId: string): OreSieveRecipe | undefined {
     return this.recipeMap.get(itemId);
   }
 
   /**
-   * Convert BrassSifterRecipe to ProcessingRecipe adapter
+   * Roll random output dựa trên chance
    */
-  private static toProcessingRecipe(recipe: BrassSifterRecipe): ProcessingRecipe {
+  private static rollOutput(recipe: OreSieveRecipe): string | null {
+    const roll = Math.random();
+    let cumulative = 0;
+    
+    for (const output of recipe.outputs) {
+      cumulative += output.chance;
+      if (roll < cumulative) {
+        return output.item;
+      }
+    }
+    
+    return null; // Không ra gì
+  }
+
+  /**
+   * Convert OreSieveRecipe to ProcessingRecipe adapter
+   */
+  private static toProcessingRecipe(recipe: OreSieveRecipe, outputItem: string | null): ProcessingRecipe {
     return {
       inputId: recipe.inputId,
-      outputId: `${recipe.pureDust},1;${recipe.stoneDust},2`, // Format: item,count;item,count
+      outputId: outputItem || '', // Empty nếu không ra gì
       processingTime: this.PROCESSING_TIME
     };
   }
 
   /**
-   * Recipe getter cho HopperHandler
+   * Recipe getter cho HopperHandler (với random output)
    */
   private static recipeGetter = (itemId: string): ProcessingRecipe | undefined => {
-    const recipe = BrassSifterSystem.getRecipe(itemId);
-    return recipe ? BrassSifterSystem.toProcessingRecipe(recipe) : undefined;
+    const recipe = OreSieveSystem.getRecipe(itemId);
+    if (!recipe) return undefined;
+    
+    const output = OreSieveSystem.rollOutput(recipe);
+    return OreSieveSystem.toProcessingRecipe(recipe, output);
   };
 
   /**
-   * Xử lý player click (custom vì cần 2 inputs)
+   * Xử lý player click
    */
   private static handlePlayerInteraction(event: any): void {
     const { block, player, itemStack } = event;
@@ -146,7 +155,7 @@ export class BrassSifterSystem {
     if (!state) return;
     
     if (state.isProcessing) {
-      player.sendMessage("§cMáy rây đang hoạt động!");
+      player.sendMessage("§cRây sàng đang hoạt động!");
       event.cancel = true;
       return;
     }
@@ -161,7 +170,7 @@ export class BrassSifterSystem {
   /**
    * Bắt đầu xử lý từ player
    */
-  private static startProcessingFromPlayer(player: any, block: any, recipe: BrassSifterRecipe, state: any): void {
+  private static startProcessingFromPlayer(player: any, block: any, recipe: OreSieveRecipe, state: any): void {
     try {
       const inventory = player.getComponent('inventory');
       if (!inventory || !inventory.container) return;
@@ -171,16 +180,7 @@ export class BrassSifterSystem {
       
       if (!heldItem || heldItem.typeId !== recipe.inputId) return;
       
-      // Cần ít nhất 2 bụi
-      if (heldItem.amount < this.INPUT_AMOUNT) {
-        player.sendMessage("§cBạn cần ít nhất 2 Bụi khoáng sản để rây lọc!");
-        try {
-          player.playSound("note.bass", { volume: 0.5, pitch: 1.0 });
-        } catch (e) {}
-        return;
-      }
-      
-      // Trừ 2 bụi
+      // Trừ 1 item
       if (heldItem.amount > this.INPUT_AMOUNT) {
         heldItem.amount -= this.INPUT_AMOUNT;
         inventory.container.setItem(selectedSlot, heldItem);
@@ -188,14 +188,27 @@ export class BrassSifterSystem {
         inventory.container.setItem(selectedSlot, undefined);
       }
       
-      // Lưu direction trước khi bật máy (brass sifter không đổi block type nên không cần preserve)
-      // Bật máy
+      // Roll output
+      const output = this.rollOutput(recipe);
+      
+      // Lưu direction trước khi bật máy
+      const currentDirection = (block.permutation as any).getState('apeirix:direction');
+      
+      // Bật máy (chuyển sang ON)
+      block.setType(this.SIEVE_BLOCK_ON);
+      try {
+        const onPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+        block.setPermutation(onPermutation);
+      } catch (e) {
+        // Nếu block không có direction state thì bỏ qua
+      }
+      
       state.isProcessing = true;
       state.inputItem = recipe.inputId;
-      state.outputItem = `${recipe.pureDust},1;${recipe.stoneDust},2`; // Format: item,count;item,count
+      state.outputItem = output || '';
       state.ticksRemaining = this.PROCESSING_TIME;
       
-      EventBus.emit("brasssifter:used", player);
+      EventBus.emit("oresieve:used", player);
       
     } catch (error) {
       // Failed to start processing
@@ -213,16 +226,32 @@ export class BrassSifterSystem {
         const dimension = world.getDimension(state.dimension);
         const block = dimension.getBlock(state.location);
         
-        if (!block || block.typeId !== this.SIFTER_BLOCK) continue;
+        if (!block || (block.typeId !== this.SIEVE_BLOCK && block.typeId !== this.SIEVE_BLOCK_ON)) continue;
         
-        // Thử lấy từ hopper trên (cần 2 items)
+        // Thử lấy từ hopper trên
         if (HopperHandler.checkHopperAbove(block, state, this.recipeGetter, this.INPUT_AMOUNT)) {
+          // Lưu direction và bật máy
+          const currentDirection = (block.permutation as any).getState('apeirix:direction');
+          block.setType(this.SIEVE_BLOCK_ON);
+          try {
+            const onPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+            block.setPermutation(onPermutation);
+          } catch (e) {}
+          
           state.isProcessing = true;
           continue;
         }
         
-        // Thử lấy từ hopper 4 bên (cần 2 items)
+        // Thử lấy từ hopper 4 bên
         if (HopperHandler.checkHoppersSides(block, state, this.recipeGetter, this.INPUT_AMOUNT)) {
+          // Lưu direction và bật máy
+          const currentDirection = (block.permutation as any).getState('apeirix:direction');
+          block.setType(this.SIEVE_BLOCK_ON);
+          try {
+            const onPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+            block.setPermutation(onPermutation);
+          } catch (e) {}
+          
           state.isProcessing = true;
         }
         

@@ -48,6 +48,30 @@ export class OreCrusherSystem {
   // Recipe maps for each crusher type
   private static recipesByMachine: Map<string, Map<string, OreCrusherRecipe>> = new Map();
 
+  /**
+   * Chuyển đổi rotation của player thành direction state (0-3)
+   */
+  private static getDirectionFromPlayer(player: any): number {
+    const rotation = player.getRotation();
+    const yaw = rotation.y;
+    
+    let normalizedYaw = yaw % 360;
+    if (normalizedYaw < 0) normalizedYaw += 360;
+    
+    let direction: number;
+    if (normalizedYaw >= 315 || normalizedYaw < 45) {
+      direction = 2;
+    } else if (normalizedYaw >= 45 && normalizedYaw < 135) {
+      direction = 1;
+    } else if (normalizedYaw >= 135 && normalizedYaw < 225) {
+      direction = 0;
+    } else {
+      direction = 3;
+    }
+    
+    return direction;
+  }
+
   static initialize(): void {
     console.warn('[OreCrusherSystem] Initializing...');
     
@@ -57,7 +81,7 @@ export class OreCrusherSystem {
     // Track khi player đặt crusher
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
       if (this.CRUSHER_BLOCK_IDS.includes(event.block.typeId)) {
-        this.addCrusher(event.block);
+        this.addCrusher(event.block, event.player);
       }
     });
     
@@ -100,7 +124,16 @@ export class OreCrusherSystem {
   /**
    * Thêm crusher vào tracking list
    */
-  private static addCrusher(block: Block): void {
+  private static addCrusher(block: Block, player: any): void {
+    // Set direction dựa trên hướng player
+    const direction = this.getDirectionFromPlayer(player);
+    try {
+      const permutation = (block.permutation as any).withState('apeirix:direction', direction);
+      block.setPermutation(permutation);
+    } catch (e) {
+      // Block không có direction state, bỏ qua
+    }
+    
     const key = this.getLocationKey(block.dimension.id, block.location);
     this.crusherLocations.set(key, {
       dimension: block.dimension.id,

@@ -31,22 +31,6 @@ export const LANG_VI = {
         "metallurgy": {
             "name": "§6⚒ LUYỆN KIM",
             "desc": "§0Thế giới vật chất - Quặng → Hợp kim → Công cụ/Giáp"
-        },
-        "alchemy": {
-            "name": "§5⚗ GIẢ KIM",
-            "desc": "§8§l[KHÓA]§r §8Hóa học/Biến đổi - Tinh chất → Biến hóa → Vật liệu ma thuật"
-        },
-        "magic": {
-            "name": "§d✦ MA THUẬT",
-            "desc": "§8§l[KHÓA]§r §8Ma thuật thuần túy - Mana → Phép thuật → Phù phép"
-        },
-        "divinity": {
-            "name": "§e✟ THẦN HỌC",
-            "desc": "§8§l[KHÓA]§r §8Sức mạnh thần thánh - Đức tin → Phước lành → Phép màu"
-        },
-        "technology": {
-            "name": "§b⚙ CÔNG NGHỆ",
-            "desc": "§8§l[KHÓA]§r §8Khoa học tiên tiến - Điện → Máy móc → Tự động hóa"
         }
     },
     "phases": {
@@ -112,7 +96,8 @@ export const LANG_VI = {
         "ore_crusher_mk1": "Máy Nghiền Quặng MK1",
         "ore_crusher_mk2": "Máy Nghiền Quặng MK2",
         "ore_crusher_mk3": "Máy Nghiền Quặng MK3",
-        "brass_sifter": "Rây Lọc Đồng Thau",
+        "ore_sieve": "Rây Sàng Quặng",
+        "ore_washer": "Máy Rửa Quặng",
         "compressor": "Máy Nén",
         "crusher": "Máy Nghiền"
     }

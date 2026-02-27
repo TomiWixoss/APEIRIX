@@ -325,6 +325,15 @@ export class RPCompiler {
           
           if (textureToAnimate === 'all') {
             texturesToAnimate.push(block.id);
+          } else if (textureToAnimate === 'sides') {
+            // Animate all 4 side faces (north, south, east, west)
+            if (block.textures) {
+              ['north', 'south', 'east', 'west'].forEach(face => {
+                if (block.textures![face as 'north' | 'south' | 'east' | 'west']) {
+                  texturesToAnimate.push(`${block.id}_${face}`);
+                }
+              });
+            }
           } else if (block.textures) {
             // Check individual faces
             const faceName = textureToAnimate as 'up' | 'down' | 'north' | 'south' | 'east' | 'west';

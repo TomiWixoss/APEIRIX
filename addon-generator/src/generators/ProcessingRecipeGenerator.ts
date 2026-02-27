@@ -10,9 +10,11 @@ export interface ProcessingRecipeData {
   stoneDustCount?: number;
   oreDust?: string;
   oreDustCount?: number;
-  // BrassSifter specific
+  // BrassSifter/OreWasher specific
   stoneDust?: string;
   pureDust?: string;
+  // OreSieve specific
+  outputs?: Array<{ item: string; chance: number }>;
   // Fuel config
   fuelConfig?: {
     blockId: string;
@@ -99,6 +101,17 @@ export interface BrassSifterRecipe {
   stoneDust: string;
 }
 
+export interface OreWasherRecipe {
+  inputId: string;
+  pureDust: string;
+  stoneDust: string;
+}
+
+export interface OreSieveRecipe {
+  inputId: string;
+  outputs: Array<{ item: string; chance: number }>;
+}
+
 export interface FuelConfig {
   blockId: string;
   usesPerBlock: number;
@@ -124,6 +137,20 @@ ${this.generateOreCrusherRecipes(recipesByMachine)}
  */
 export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
 ${this.generateBrassSifterRecipes(recipesByMachine)}
+];
+
+/**
+ * Generated ore washer recipes
+ */
+export const GENERATED_ORE_WASHER_RECIPES: OreWasherRecipe[] = [
+${this.generateOreWasherRecipes(recipesByMachine)}
+];
+
+/**
+ * Generated ore sieve recipes
+ */
+export const GENERATED_ORE_SIEVE_RECIPES: OreSieveRecipe[] = [
+${this.generateOreSieveRecipes(recipesByMachine)}
 ];
 
 /**
@@ -189,23 +216,69 @@ ${this.generateFuelConfigs(fuelConfigs)}
   }
 
   /**
-   * Generate brass sifter recipes
+   * Generate brass sifter recipes (OLD - now ore_sieve)
    */
   private generateBrassSifterRecipes(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
+    const lines: string[] = [];
+    
+    for (const [machineType, recipes] of Object.entries(recipesByMachine)) {
+      // Only brass_sifter with outputs (new ore_sieve logic)
+      if (machineType !== 'brass_sifter') continue;
+      
+      const sieveRecipes = recipes.filter(r => r.outputs !== undefined);
+      if (sieveRecipes.length > 0) {
+        // These are actually ore_sieve recipes, skip for brass_sifter
+        continue;
+      }
+    }
+    
+    return ''; // No more brass_sifter recipes
+  }
+
+  /**
+   * Generate ore washer recipes (NEW - old brass_sifter logic)
+   */
+  private generateOreWasherRecipes(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
     const lines: string[] = [];
     let hasRecipes = false;
     
     for (const [machineType, recipes] of Object.entries(recipesByMachine)) {
-      // Only include brass sifter recipes (has pureDust)
-      const sifterRecipes = recipes.filter(r => r.pureDust !== undefined);
+      // Only ore_washer recipes (has pureDust)
+      if (machineType !== 'ore_washer') continue;
       
-      if (sifterRecipes.length > 0) {
+      const washerRecipes = recipes.filter(r => r.pureDust !== undefined);
+      
+      if (washerRecipes.length > 0) {
         hasRecipes = true;
-        sifterRecipes.forEach((recipe, index) => {
-          const isLastInMachine = index === sifterRecipes.length - 1;
-          const isLastOverall = Object.keys(recipesByMachine).indexOf(machineType) === Object.keys(recipesByMachine).length - 1;
-          const isLast = isLastInMachine && isLastOverall;
+        washerRecipes.forEach((recipe, index) => {
+          const isLast = index === washerRecipes.length - 1;
           lines.push(`  { inputId: "${recipe.input}", pureDust: "${recipe.pureDust}", stoneDust: "${recipe.stoneDust}" }${isLast ? '' : ','}`);
+        });
+      }
+    }
+    
+    return hasRecipes ? lines.join('\n') : '';
+  }
+
+  /**
+   * Generate ore sieve recipes (NEW - brass_sifter with new logic)
+   */
+  private generateOreSieveRecipes(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
+    const lines: string[] = [];
+    let hasRecipes = false;
+    
+    for (const [machineType, recipes] of Object.entries(recipesByMachine)) {
+      // Only ore_sieve with outputs array
+      if (machineType !== 'ore_sieve') continue;
+      
+      const sieveRecipes = recipes.filter(r => r.outputs !== undefined);
+      
+      if (sieveRecipes.length > 0) {
+        hasRecipes = true;
+        sieveRecipes.forEach((recipe, index) => {
+          const isLast = index === sieveRecipes.length - 1;
+          const outputsStr = JSON.stringify(recipe.outputs);
+          lines.push(`  { inputId: "${recipe.input}", outputs: ${outputsStr} }${isLast ? '' : ','}`);
         });
       }
     }

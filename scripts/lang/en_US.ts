@@ -31,22 +31,6 @@ export const LANG_EN = {
         "metallurgy": {
             "name": "§6⚒ METALLURGY",
             "desc": "§0Physical World - Ores → Alloys → Tools/Armor"
-        },
-        "alchemy": {
-            "name": "§5⚗ ALCHEMY",
-            "desc": "§8§l[LOCKED]§r §8Chemical/Transmutation - Essences → Transmutation → Magical Materials"
-        },
-        "magic": {
-            "name": "§d✦ MAGIC",
-            "desc": "§8§l[LOCKED]§r §8Pure Magic - Mana → Spells → Enchantments"
-        },
-        "divinity": {
-            "name": "§e✟ DIVINITY",
-            "desc": "§8§l[LOCKED]§r §8Divine Power - Faith → Blessings → Miracles"
-        },
-        "technology": {
-            "name": "§b⚙ TECHNOLOGY",
-            "desc": "§8§l[LOCKED]§r §8Advanced Science - Electricity → Machines → Automation"
         }
     },
     "phases": {
@@ -112,7 +96,8 @@ export const LANG_EN = {
         "ore_crusher_mk1": "Ore Crusher MK1",
         "ore_crusher_mk2": "Ore Crusher MK2",
         "ore_crusher_mk3": "Ore Crusher MK3",
-        "brass_sifter": "Brass Sifter",
+        "ore_sieve": "Ore Sieve",
+        "ore_washer": "Ore Washer",
         "compressor": "Compressor",
         "crusher": "Crusher"
     }
