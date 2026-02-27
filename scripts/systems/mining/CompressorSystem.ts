@@ -18,10 +18,15 @@ export class CompressorSystem {
   static initialize(): void {
     console.warn('[CompressorSystem] Initializing...');
     
-    // Đăng ký machine state
+    // Đăng ký machine state + set direction khi đặt block
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
       if (event.block.typeId === this.COMPRESSOR_OFF) {
-        MachineStateManager.add(event.block.dimension.id, event.block.location);
+        MachineStateManager.add(event.block.dimension.id, event.block.location, this.MACHINE_TYPE);
+        
+        // Set direction dựa vào hướng player nhìn - NGAY LẬP TỨC
+        const direction = this.getDirectionFromPlayer(event.player);
+        const permutation = (event.block.permutation as any).withState('apeirix:direction', direction);
+        event.block.setPermutation(permutation);
       }
     });
     
@@ -46,7 +51,7 @@ export class CompressorSystem {
     // Processing loop
     system.runInterval(() => {
       PlayerInteractionHandler.incrementTick();
-      ProcessingHandler.processAll(this.COMPRESSOR_ON, this.COMPRESSOR_OFF);
+      ProcessingHandler.processAll(this.COMPRESSOR_ON, this.COMPRESSOR_OFF, this.MACHINE_TYPE);
     }, 1);
     
     // Hopper input check
@@ -55,6 +60,25 @@ export class CompressorSystem {
     }, 20);
     
     console.warn('[CompressorSystem] Initialized');
+  }
+
+  /**
+   * Chuyển đổi rotation của player thành direction state (0-3)
+   * 0 = south, 1 = west, 2 = north, 3 = east
+   */
+  private static getDirectionFromPlayer(player: any): number {
+    const rotation = player.getRotation();
+    const yaw = rotation.y;
+    
+    // Normalize yaw to 0-360
+    let normalizedYaw = yaw % 360;
+    if (normalizedYaw < 0) normalizedYaw += 360;
+    
+    // Convert to direction (player faces opposite of block front)
+    if (normalizedYaw >= 315 || normalizedYaw < 45) return 2;  // north
+    if (normalizedYaw >= 45 && normalizedYaw < 135) return 3;  // east
+    if (normalizedYaw >= 135 && normalizedYaw < 225) return 0; // south
+    return 1; // west
   }
 
   private static checkHopperInputs(): void {
@@ -69,28 +93,27 @@ export class CompressorSystem {
         
         const recipeGetter = (itemId: string) => ProcessingRecipeRegistry.getRecipe(this.MACHINE_TYPE, itemId);
         
+        // Lưu direction trước khi bật máy
+        const currentDirection = (block.permutation as any).getState('apeirix:direction');
+        
         // Thử lấy từ hopper trên
         if (HopperHandler.checkHopperAbove(block, state, recipeGetter)) {
-          const permutation = block.permutation;
-          const direction = permutation.getState('minecraft:cardinal_direction');
           block.setType(this.COMPRESSOR_ON);
-          if (direction) {
-            const newPermutation = block.permutation.withState('minecraft:cardinal_direction', direction);
-            block.setPermutation(newPermutation);
-          }
+          try {
+            const onPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+            block.setPermutation(onPermutation);
+          } catch (e) {}
           state.isProcessing = true;
           continue;
         }
         
         // Thử lấy từ hopper 4 bên
         if (HopperHandler.checkHoppersSides(block, state, recipeGetter)) {
-          const permutation = block.permutation;
-          const direction = permutation.getState('minecraft:cardinal_direction');
           block.setType(this.COMPRESSOR_ON);
-          if (direction) {
-            const newPermutation = block.permutation.withState('minecraft:cardinal_direction', direction);
-            block.setPermutation(newPermutation);
-          }
+          try {
+            const onPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+            block.setPermutation(onPermutation);
+          } catch (e) {}
           state.isProcessing = true;
         }
         

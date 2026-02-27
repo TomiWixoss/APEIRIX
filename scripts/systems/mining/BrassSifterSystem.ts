@@ -16,21 +16,46 @@ import { HopperHandler, ProcessingRecipe } from '../shared/processing/HopperHand
 import { GENERATED_BRASS_SIFTER_RECIPES, BrassSifterRecipe } from '../../data/GeneratedProcessingRecipes';
 
 export class BrassSifterSystem {
+  private static readonly MACHINE_TYPE = 'brass_sifter';
   private static readonly SIFTER_BLOCK = 'apeirix:brass_sifter';
   private static readonly INPUT_AMOUNT = 2;
   private static readonly PROCESSING_TIME = 40; // 2 giây
   
   private static recipeMap: Map<string, BrassSifterRecipe> = new Map();
 
+  /**
+   * Chuyển đổi rotation của player thành direction state (0-3)
+   * 0 = south, 1 = west, 2 = north, 3 = east
+   */
+  private static getDirectionFromPlayer(player: any): number {
+    const rotation = player.getRotation();
+    const yaw = rotation.y;
+    
+    // Normalize yaw to 0-360
+    let normalizedYaw = yaw % 360;
+    if (normalizedYaw < 0) normalizedYaw += 360;
+    
+    // Convert to direction (player faces opposite of block front)
+    if (normalizedYaw >= 315 || normalizedYaw < 45) return 2;  // north
+    if (normalizedYaw >= 45 && normalizedYaw < 135) return 3;  // east
+    if (normalizedYaw >= 135 && normalizedYaw < 225) return 0; // south
+    return 1; // west
+  }
+
   static initialize(): void {
     console.warn('[BrassSifterSystem] Initializing...');
     
     this.loadRecipes();
     
-    // Đăng ký machine state
+    // Đăng ký machine state + set direction khi đặt block
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
       if (event.block.typeId === this.SIFTER_BLOCK) {
-        MachineStateManager.add(event.block.dimension.id, event.block.location);
+        MachineStateManager.add(event.block.dimension.id, event.block.location, this.MACHINE_TYPE);
+        
+        // Set direction dựa vào hướng player nhìn - NGAY LẬP TỨC
+        const direction = this.getDirectionFromPlayer(event.player);
+        const permutation = (event.block.permutation as any).withState('apeirix:direction', direction);
+        event.block.setPermutation(permutation);
       }
     });
     
@@ -50,7 +75,7 @@ export class BrassSifterSystem {
     // Processing loop
     system.runInterval(() => {
       PlayerInteractionHandler.incrementTick();
-      ProcessingHandler.processAll(this.SIFTER_BLOCK, this.SIFTER_BLOCK); // ON = OFF
+      ProcessingHandler.processAll(this.SIFTER_BLOCK, this.SIFTER_BLOCK, this.MACHINE_TYPE); // ON = OFF
     }, 1);
     
     // Hopper input check
@@ -106,7 +131,7 @@ export class BrassSifterSystem {
     if (!state) return;
     
     if (state.isProcessing) {
-      player.onScreenDisplay.setActionBar("§cMáy rây đang hoạt động!");
+      player.sendMessage("§cMáy rây đang hoạt động!");
       event.cancel = true;
       return;
     }
@@ -133,7 +158,7 @@ export class BrassSifterSystem {
       
       // Cần ít nhất 2 bụi
       if (heldItem.amount < this.INPUT_AMOUNT) {
-        player.onScreenDisplay.setActionBar("§cBạn cần ít nhất 2 Bụi khoáng sản để rây lọc!");
+        player.sendMessage("§cBạn cần ít nhất 2 Bụi khoáng sản để rây lọc!");
         try {
           player.playSound("note.bass", { volume: 0.5, pitch: 1.0 });
         } catch (e) {}
@@ -148,16 +173,17 @@ export class BrassSifterSystem {
         inventory.container.setItem(selectedSlot, undefined);
       }
       
+      // Lưu direction trước khi bật máy (brass sifter không đổi block type nên không cần preserve)
       // Bật máy
       state.isProcessing = true;
       state.inputItem = recipe.inputId;
-      state.outputItem = `${recipe.pureDust}:1,${recipe.stoneDust}:2`;
+      state.outputItem = `${recipe.pureDust},1;${recipe.stoneDust},2`; // Format: item,count;item,count
       state.ticksRemaining = this.PROCESSING_TIME;
       
       EventBus.emit("brasssifter:used", player);
       
     } catch (error) {
-      console.warn('[BrassSifterSystem] Failed to start processing:', error);
+      // Failed to start processing
     }
   }
 

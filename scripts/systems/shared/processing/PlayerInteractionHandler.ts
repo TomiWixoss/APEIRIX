@@ -27,7 +27,7 @@ export class PlayerInteractionHandler {
     
     // Đang chạy thì không cho bỏ thêm
     if (state.isProcessing) {
-      player.onScreenDisplay.setActionBar("§cMáy nén đang hoạt động!");
+      player.sendMessage("§cMáy đang hoạt động!");
       event.cancel = true;
       return;
     }
@@ -78,19 +78,24 @@ export class PlayerInteractionHandler {
         inventory.container.setItem(selectedSlot, undefined);
       }
       
-      // Bật máy
+      // Lưu direction trước khi bật máy
+      const currentDirection = (block.permutation as any).getState('apeirix:direction');
+      
+      // Bật máy và preserve direction
       state.inputItem = recipe.inputId;
       state.outputItem = recipe.outputId;
       state.ticksRemaining = recipe.processingTime;
       
-      // Chuyển sang ON state
-      const permutation = block.permutation;
-      const direction = permutation.getState('minecraft:cardinal_direction');
       block.setType(onBlockId);
-      if (direction) {
-        const newPermutation = block.permutation.withState('minecraft:cardinal_direction', direction);
-        block.setPermutation(newPermutation);
+      
+      // Set lại direction sau khi đổi type
+      try {
+        const onPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+        block.setPermutation(onPermutation);
+      } catch (e) {
+        // Nếu block không có direction state thì bỏ qua
       }
+      
       state.isProcessing = true;
       
       // Sound

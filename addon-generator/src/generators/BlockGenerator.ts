@@ -83,6 +83,12 @@ export class BlockGenerator {
       "minecraft:material_instances": materialInstances
     };
 
+    // Add placement_direction if block has front texture (directional block)
+    if (config.textureFront) {
+      // Use states + permutations instead of deprecated placement_direction
+      // States will be added to description, permutations will handle rotation
+    }
+
     // Add crafting table component if specified
     if (config.craftingTable) {
       components["minecraft:crafting_table"] = {
@@ -102,9 +108,52 @@ export class BlockGenerator {
             menu_category: {
               category: config.category
             }
+          } : {}),
+          // Add custom direction state for directional blocks (can't use minecraft: namespace)
+          ...(config.textureFront ? {
+            states: {
+              "apeirix:direction": [0, 1, 2, 3]  // 0=south, 1=west, 2=north, 3=east
+            }
           } : {})
         },
-        components
+        components,
+        // Add permutations for rotation if directional
+        ...(config.textureFront ? {
+          permutations: [
+            {
+              condition: "query.block_state('apeirix:direction') == 0",
+              components: {
+                "minecraft:transformation": {
+                  rotation: [0, 0, 0]
+                }
+              }
+            },
+            {
+              condition: "query.block_state('apeirix:direction') == 1",
+              components: {
+                "minecraft:transformation": {
+                  rotation: [0, 90, 0]
+                }
+              }
+            },
+            {
+              condition: "query.block_state('apeirix:direction') == 2",
+              components: {
+                "minecraft:transformation": {
+                  rotation: [0, 180, 0]
+                }
+              }
+            },
+            {
+              condition: "query.block_state('apeirix:direction') == 3",
+              components: {
+                "minecraft:transformation": {
+                  rotation: [0, 270, 0]
+                }
+              }
+            }
+          ]
+        } : {})
       }
     };
 

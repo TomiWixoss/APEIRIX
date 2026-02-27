@@ -2,7 +2,9 @@ id: ore_crusher
 testCommands:
   - "# Test: Máy Nghiền Quặng"
   - clear @s
-  - give @s apeirix:ore_crusher 1
+  - give @s apeirix:ore_crusher_mk1 1
+  - give @s apeirix:ore_crusher_mk2 1
+  - give @s apeirix:ore_crusher_mk3 1
   - give @s minecraft:iron_ore 64
   - give @s minecraft:coal_ore 64
   - give @s minecraft:copper_ore 64

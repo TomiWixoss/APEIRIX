@@ -13,17 +13,20 @@ export interface ProcessingOutput {
 
 export class ProcessingHandler {
   /**
-   * Xử lý tất cả machines đang chạy
+   * Xử lý tất cả machines đang chạy của một loại cụ thể
    */
-  static processAll(onBlockId: string, offBlockId: string): void {
+  static processAll(onBlockId: string, offBlockId: string, machineType?: string): void {
     for (const [key, state] of MachineStateManager.getAll().entries()) {
       if (!state.isProcessing) continue;
+      
+      // Filter by machine type if specified
+      if (machineType && state.machineType !== machineType) continue;
       
       try {
         const dimension = world.getDimension(state.dimension);
         const block = dimension.getBlock(state.location);
         
-        if (!block || block.typeId !== onBlockId) {
+        if (!block || (block.typeId !== onBlockId && block.typeId !== offBlockId)) {
           state.isProcessing = false;
           continue;
         }
@@ -44,10 +47,27 @@ export class ProcessingHandler {
    * Hoàn thành quá trình xử lý (hỗ trợ nhiều outputs)
    */
   private static finishProcessing(block: any, state: MachineState, offBlockId: string): void {
-    // Parse outputs từ state.outputItem (format: "item1:count1,item2:count2")
     const outputs = this.parseOutputs(state.outputItem);
     
-    // Spawn từng output
+    // Lưu direction trước khi tắt máy
+    const currentDirection = (block.permutation as any).getState('apeirix:direction');
+    
+    // Tắt máy và preserve direction
+    block.setType(offBlockId);
+    try {
+      const offPermutation = (block.permutation as any).withState('apeirix:direction', currentDirection ?? 0);
+      block.setPermutation(offPermutation);
+    } catch (e) {
+      // Nếu block không có direction state thì bỏ qua
+    }
+    
+    // Reset state
+    state.isProcessing = false;
+    state.ticksRemaining = 0;
+    state.inputItem = '';
+    state.outputItem = '';
+    
+    // Spawn items SAU KHI đã tắt máy
     for (const output of outputs) {
       const transferredToHopper = HopperHandler.tryTransferToHopper(block, output.itemId, output.amount);
       
@@ -58,22 +78,13 @@ export class ProcessingHandler {
           z: block.location.z + 0.5
         };
         
-        block.dimension.spawnItem(new ItemStack(output.itemId, output.amount), spawnLocation);
+        try {
+          block.dimension.spawnItem(new ItemStack(output.itemId, output.amount), spawnLocation);
+        } catch (e) {
+          // Failed to spawn item
+        }
       }
     }
-    
-    // Tắt máy
-    const permutation = block.permutation;
-    const direction = permutation.getState('minecraft:cardinal_direction');
-    block.setType(offBlockId);
-    if (direction) {
-      const newPermutation = block.permutation.withState('minecraft:cardinal_direction', direction);
-      block.setPermutation(newPermutation);
-    }
-    state.isProcessing = false;
-    state.ticksRemaining = 0;
-    state.inputItem = '';
-    state.outputItem = '';
     
     // Effects
     try {
@@ -92,18 +103,25 @@ export class ProcessingHandler {
 
   /**
    * Parse output string thành array of outputs
-   * Format: "item1:count1,item2:count2" hoặc "item1" (count = 1)
+   * Format: "item1,count1;item2,count2" hoặc "item1" (count = 1)
+   * VD: "apeirix:iron_ingot,2;apeirix:cobblestone_dust,3"
    */
   private static parseOutputs(outputStr: string): ProcessingOutput[] {
     if (!outputStr) return [];
     
     const outputs: ProcessingOutput[] = [];
-    const parts = outputStr.split(',');
+    const parts = outputStr.split(';'); // Split by semicolon for multiple outputs
     
     for (const part of parts) {
-      const [itemId, countStr] = part.split(':');
+      const trimmed = part.trim();
+      if (!trimmed) continue;
+      
+      const [itemId, countStr] = trimmed.split(','); // Split by comma for item,count
       const amount = countStr ? parseInt(countStr) : 1;
-      outputs.push({ itemId: itemId.trim(), amount });
+      
+      if (itemId && !isNaN(amount)) {
+        outputs.push({ itemId: itemId.trim(), amount });
+      }
     }
     
     return outputs;
@@ -111,8 +129,9 @@ export class ProcessingHandler {
 
   /**
    * Encode outputs thành string để lưu vào state
+   * Format: "item1,count1;item2,count2"
    */
   static encodeOutputs(outputs: ProcessingOutput[]): string {
-    return outputs.map(o => `${o.itemId}:${o.amount}`).join(',');
+    return outputs.map(o => `${o.itemId},${o.amount}`).join(';');
   }
 }

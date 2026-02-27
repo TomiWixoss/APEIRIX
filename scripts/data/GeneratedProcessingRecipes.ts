@@ -39,7 +39,7 @@ export interface FuelConfig {
  */
 export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = {
   "compressor": [
-    { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_plate", processingTime: 60 }
+    { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_base_plate", processingTime: 60 }
   ],
 };
 

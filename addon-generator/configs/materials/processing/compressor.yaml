@@ -11,7 +11,7 @@ requiresTool: true
 toolTier: stone
 processingRecipes:
   - input: apeirix:steel_alloy_ingot
-    output: apeirix:steel_alloy_plate
+    output: apeirix:steel_alloy_base_plate
     processingTime: 60
 recipes:
   - type: shaped

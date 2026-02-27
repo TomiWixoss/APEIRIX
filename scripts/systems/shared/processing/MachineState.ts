@@ -7,6 +7,7 @@ import { Vector3 } from '@minecraft/server';
 export interface MachineState {
   dimension: string;
   location: Vector3;
+  machineType: string; // 'compressor', 'brass_sifter', 'ore_crusher_mk1', etc.
   isProcessing: boolean;
   ticksRemaining: number;
   inputItem: string;
@@ -21,11 +22,12 @@ export class MachineStateManager {
     return `${dimensionId}:${Math.floor(location.x)},${Math.floor(location.y)},${Math.floor(location.z)}`;
   }
 
-  static add(dimensionId: string, location: Vector3): void {
+  static add(dimensionId: string, location: Vector3, machineType: string): void {
     const key = this.getLocationKey(dimensionId, location);
     this.states.set(key, {
       dimension: dimensionId,
       location: location,
+      machineType: machineType,
       isProcessing: false,
       ticksRemaining: 0,
       inputItem: '',
