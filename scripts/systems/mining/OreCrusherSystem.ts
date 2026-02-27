@@ -12,6 +12,11 @@ import { EventBus } from '../../core/EventBus';
  *   + MK1: 80 ticks (4s), x1 dust
  *   + MK2: 40 ticks (2s), x1.5 dust
  *   + MK3: 20 ticks (1s), x2 dust
+ * 
+ * FUEL SYSTEM:
+ * - Yêu cầu Coal Block bên dưới để hoạt động
+ * - Mỗi lần nghiền tiêu hao fuel
+ * - MK1: 64 lần/coal block, MK2: 32 lần, MK3: 16 lần
  */
 export class OreCrusherSystem {
   private static readonly CRUSHER_BLOCK_IDS = [
@@ -22,12 +27,20 @@ export class OreCrusherSystem {
   
   // Cấu hình cho từng cấp độ
   private static readonly CRUSHER_CONFIGS = {
-    'apeirix:ore_crusher_mk1': { interval: 80, multiplier: 1.0 },   // 4s, x1
-    'apeirix:ore_crusher_mk2': { interval: 40, multiplier: 1.5 },   // 2s, x1.5
-    'apeirix:ore_crusher_mk3': { interval: 20, multiplier: 2.0 }    // 1s, x2
+    'apeirix:ore_crusher_mk1': { interval: 80, multiplier: 1.0, fuelPerCrush: 64 },   // 4s, x1, 64 crushes/coal
+    'apeirix:ore_crusher_mk2': { interval: 40, multiplier: 1.5, fuelPerCrush: 32 },   // 2s, x1.5, 32 crushes/coal
+    'apeirix:ore_crusher_mk3': { interval: 20, multiplier: 2.0, fuelPerCrush: 16 }    // 1s, x2, 16 crushes/coal
   };
   
-  private static crusherLocations: Map<string, { dimension: string; location: Vector3; blockId: string; tickCounter: number }> = new Map();
+  private static readonly FUEL_BLOCK = 'minecraft:coal_block';
+  
+  private static crusherLocations: Map<string, { 
+    dimension: string; 
+    location: Vector3; 
+    blockId: string; 
+    tickCounter: number;
+    fuelRemaining: number; // Số lần nghiền còn lại từ coal block hiện tại
+  }> = new Map();
 
   static initialize(): void {
     console.warn('[OreCrusherSystem] Initializing...');
@@ -63,7 +76,8 @@ export class OreCrusherSystem {
       dimension: block.dimension.id,
       location: block.location,
       blockId: block.typeId,
-      tickCounter: 0
+      tickCounter: 0,
+      fuelRemaining: 0 // Sẽ check fuel khi bắt đầu nghiền
     });
     console.warn(`[OreCrusherSystem] Added ${block.typeId} at ${key}`);
   }
@@ -112,6 +126,12 @@ export class OreCrusherSystem {
         // Chỉ xử lý khi đủ interval
         if (data.tickCounter >= config.interval) {
           data.tickCounter = 0;
+          
+          // Check fuel trước khi nghiền
+          if (!this.checkAndConsumeFuel(block, data, config.fuelPerCrush)) {
+            continue; // Không đủ fuel, bỏ qua
+          }
+          
           this.processCrusher(block, config.multiplier);
         }
       } catch (error) {
@@ -119,6 +139,62 @@ export class OreCrusherSystem {
         // Giữ lại trong list, sẽ check lại lần sau khi chunk load
         // KHÔNG log error để tránh spam console
       }
+    }
+  }
+
+  /**
+   * Kiểm tra và tiêu hao fuel
+   * @returns true nếu có đủ fuel, false nếu không
+   */
+  private static checkAndConsumeFuel(
+    crusherBlock: Block, 
+    data: { fuelRemaining: number }, 
+    fuelPerCrush: number
+  ): boolean {
+    // Nếu còn fuel từ lần trước, tiêu hao
+    if (data.fuelRemaining > 0) {
+      data.fuelRemaining--;
+      return true;
+    }
+    
+    // Hết fuel, check coal block bên dưới
+    const fuelLoc = {
+      x: crusherBlock.location.x,
+      y: crusherBlock.location.y - 1,
+      z: crusherBlock.location.z
+    };
+    
+    try {
+      const fuelBlock = crusherBlock.dimension.getBlock(fuelLoc);
+      
+      if (fuelBlock && fuelBlock.typeId === this.FUEL_BLOCK) {
+        // Có coal block, tiêu hao nó và nạp fuel
+        fuelBlock.setType('minecraft:air');
+        data.fuelRemaining = fuelPerCrush - 1; // -1 vì lần này đã dùng
+        
+        // Particle effect khi tiêu hao coal
+        try {
+          crusherBlock.dimension.spawnParticle(
+            'minecraft:lava_particle',
+            {
+              x: fuelLoc.x + 0.5,
+              y: fuelLoc.y + 0.5,
+              z: fuelLoc.z + 0.5
+            }
+          );
+        } catch (e) {
+          // Particle không spawn được
+        }
+        
+        return true;
+      }
+      
+      // Không có coal block
+      return false;
+      
+    } catch (error) {
+      // Không thể truy cập block bên dưới
+      return false;
     }
   }
 
