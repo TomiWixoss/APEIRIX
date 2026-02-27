@@ -7,7 +7,13 @@ nutrition: 3
 saturation: 3.6
 canAlwaysEat: false
 usingConvertsTo: candirty
-removeEffects: true
+# NERFED: Xóa removeEffects vì quá mạnh (stack 64, rẻ, miễn nhiễm mọi debuff)
+# Thay vào đó chỉ cho buff nhẹ
+effects:
+  - name: health_boost
+    duration: 10
+    amplifier: 0
+    chance: 1
 recipe:
   type: shapeless
   id: cannedsalad
