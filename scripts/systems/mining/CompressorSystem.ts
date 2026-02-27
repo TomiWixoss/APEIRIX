@@ -1,5 +1,6 @@
 /**
  * Compressor System - Nén vật phẩm thành plate
+ * Hỗ trợ: Player interaction + Hopper automation
  */
 
 import { world, system } from '@minecraft/server';
@@ -17,6 +18,7 @@ export class CompressorSystem {
   static initialize(): void {
     console.warn('[CompressorSystem] Initializing...');
     
+    // Đăng ký machine state
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
       if (event.block.typeId === this.COMPRESSOR_OFF) {
         MachineStateManager.add(event.block.dimension.id, event.block.location);
@@ -30,6 +32,7 @@ export class CompressorSystem {
       }
     });
     
+    // Player interaction
     world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
       if (event.block.typeId === this.COMPRESSOR_OFF) {
         const state = MachineStateManager.get(event.block.dimension.id, event.block.location);
@@ -40,11 +43,13 @@ export class CompressorSystem {
       }
     });
     
+    // Processing loop
     system.runInterval(() => {
       PlayerInteractionHandler.incrementTick();
       ProcessingHandler.processAll(this.COMPRESSOR_ON, this.COMPRESSOR_OFF);
     }, 1);
     
+    // Hopper input check
     system.runInterval(() => {
       this.checkHopperInputs();
     }, 20);
@@ -64,6 +69,7 @@ export class CompressorSystem {
         
         const recipeGetter = (itemId: string) => ProcessingRecipeRegistry.getRecipe(this.MACHINE_TYPE, itemId);
         
+        // Thử lấy từ hopper trên
         if (HopperHandler.checkHopperAbove(block, state, recipeGetter)) {
           const permutation = block.permutation;
           const direction = permutation.getState('minecraft:cardinal_direction');
@@ -76,6 +82,7 @@ export class CompressorSystem {
           continue;
         }
         
+        // Thử lấy từ hopper 4 bên
         if (HopperHandler.checkHoppersSides(block, state, recipeGetter)) {
           const permutation = block.permutation;
           const direction = permutation.getState('minecraft:cardinal_direction');

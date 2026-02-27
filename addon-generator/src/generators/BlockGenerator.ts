@@ -9,7 +9,7 @@ export interface BlockConfig {
   textureTop?: string;
   textureSide?: string;
   textureFront?: string;
-  category?: 'construction' | 'nature' | 'equipment' | 'items';
+  category?: 'construction' | 'nature' | 'equipment' | 'items' | 'none';
   destroyTime?: number;
   explosionResistance?: number;
   mapColor?: string;
@@ -98,9 +98,11 @@ export class BlockGenerator {
       "minecraft:block": {
         description: {
           identifier: `apeirix:${config.id}`,
-          menu_category: {
-            category: config.category || "construction"
-          }
+          ...(config.category && config.category !== 'none' ? {
+            menu_category: {
+              category: config.category
+            }
+          } : {})
         },
         components
       }

@@ -1,47 +1,66 @@
-import { world, system, Block, ItemStack, Player } from '@minecraft/server';
+/**
+ * Brass Sifter System - Lọc bụi khoáng sản thành bụi tinh khiết
+ * 
+ * Cơ chế: 2 Bụi Thường → 1 Bụi Tinh Khiết + 2 Bụi Đá
+ * Hỗ trợ: Player interaction + Hopper automation
+ * 
+ * Note: Không có block ON riêng, ON và OFF đều dùng brass_sifter
+ */
+
+import { world, system } from '@minecraft/server';
 import { EventBus } from '../../core/EventBus';
+import { MachineStateManager } from '../shared/processing/MachineState';
+import { PlayerInteractionHandler } from '../shared/processing/PlayerInteractionHandler';
+import { ProcessingHandler } from '../shared/processing/ProcessingHandler';
+import { HopperHandler, ProcessingRecipe } from '../shared/processing/HopperHandler';
 import { GENERATED_BRASS_SIFTER_RECIPES, BrassSifterRecipe } from '../../data/GeneratedProcessingRecipes';
 
-/**
- * BrassSifterSystem - Lọc bụi khoáng sản thành bụi tinh khiết
- * 
- * Cơ chế hao hụt khối lượng (Mass Loss):
- * - Player cầm bụi khoáng sản và tương tác với brass_sifter
- * - Mất 2 bụi khoáng sản từ tay (hao hụt khi tinh chế)
- * - Sinh ra 1 bụi tinh khiết + 2 bụi đá đã lọc
- * - 4 Bụi tinh khiết đem đi nung = 1 thỏi
- * 
- * Toán học cân bằng:
- * - Đập 1 quặng bằng búa: 9 bụi thường
- * - Rây 9 bụi (tỷ lệ 2:1): 4.5 bụi tinh khiết
- * - Ép 4.5 bụi (4 bụi = 1 thỏi): 1.125 thỏi
- * - Bonus: +12.5% so với đào thường (1 thỏi)
- * 
- * YAML-DRIVEN:
- * - Recipes được định nghĩa trong YAML configs
- * - Auto-generated từ processingRecipes trong brass_sifter.yaml
- */
 export class BrassSifterSystem {
-  private static readonly SIFTER_BLOCK_ID = 'apeirix:brass_sifter';
+  private static readonly SIFTER_BLOCK = 'apeirix:brass_sifter';
+  private static readonly INPUT_AMOUNT = 2;
+  private static readonly PROCESSING_TIME = 40; // 2 giây
+  
   private static recipeMap: Map<string, BrassSifterRecipe> = new Map();
 
   static initialize(): void {
     console.warn('[BrassSifterSystem] Initializing...');
     
-    // Load recipes from generated data
     this.loadRecipes();
     
-    // Listen to player interact with block
-    world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
-      this.handleInteraction(event);
+    // Đăng ký machine state
+    world.afterEvents.playerPlaceBlock.subscribe((event) => {
+      if (event.block.typeId === this.SIFTER_BLOCK) {
+        MachineStateManager.add(event.block.dimension.id, event.block.location);
+      }
     });
     
-    console.warn('[BrassSifterSystem] Initialized - YAML-driven');
+    world.afterEvents.playerBreakBlock.subscribe((event) => {
+      if (event.brokenBlockPermutation.type.id === this.SIFTER_BLOCK) {
+        MachineStateManager.remove(event.block.dimension.id, event.block.location);
+      }
+    });
+    
+    // Player interaction (custom handler vì cần 2 inputs)
+    world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+      if (event.block.typeId === this.SIFTER_BLOCK) {
+        this.handlePlayerInteraction(event);
+      }
+    });
+    
+    // Processing loop
+    system.runInterval(() => {
+      PlayerInteractionHandler.incrementTick();
+      ProcessingHandler.processAll(this.SIFTER_BLOCK, this.SIFTER_BLOCK); // ON = OFF
+    }, 1);
+    
+    // Hopper input check
+    system.runInterval(() => {
+      this.checkHopperInputs();
+    }, 20);
+    
+    console.warn('[BrassSifterSystem] Initialized');
   }
 
-  /**
-   * Load recipes từ generated data
-   */
   private static loadRecipes(): void {
     for (const recipe of GENERATED_BRASS_SIFTER_RECIPES) {
       this.recipeMap.set(recipe.inputId, recipe);
@@ -49,73 +68,71 @@ export class BrassSifterSystem {
     console.warn(`[BrassSifterSystem] Loaded ${this.recipeMap.size} sifter recipes`);
   }
 
-  /**
-   * Lấy recipe cho dust ID
-   */
-  private static getRecipe(dustId: string): BrassSifterRecipe | undefined {
-    return this.recipeMap.get(dustId);
+  private static getRecipe(itemId: string): BrassSifterRecipe | undefined {
+    return this.recipeMap.get(itemId);
   }
 
   /**
-   * Xử lý khi player tương tác với brass sifter
+   * Convert BrassSifterRecipe to ProcessingRecipe adapter
    */
-  private static handleInteraction(event: any): void {
+  private static toProcessingRecipe(recipe: BrassSifterRecipe): ProcessingRecipe {
+    return {
+      inputId: recipe.inputId,
+      outputId: `${recipe.pureDust}:1,${recipe.stoneDust}:2`, // Encode outputs
+      processingTime: this.PROCESSING_TIME
+    };
+  }
+
+  /**
+   * Recipe getter cho HopperHandler
+   */
+  private static recipeGetter = (itemId: string): ProcessingRecipe | undefined => {
+    const recipe = BrassSifterSystem.getRecipe(itemId);
+    return recipe ? BrassSifterSystem.toProcessingRecipe(recipe) : undefined;
+  };
+
+  /**
+   * Xử lý player click (custom vì cần 2 inputs)
+   */
+  private static handlePlayerInteraction(event: any): void {
     const { block, player, itemStack } = event;
     
-    // Check if block is brass sifter
-    if (block.typeId !== this.SIFTER_BLOCK_ID) {
+    if (!itemStack) return;
+    
+    const recipe = this.getRecipe(itemStack.typeId);
+    if (!recipe) return;
+    
+    const state = MachineStateManager.get(block.dimension.id, block.location);
+    if (!state) return;
+    
+    if (state.isProcessing) {
+      player.onScreenDisplay.setActionBar("§cMáy rây đang hoạt động!");
+      event.cancel = true;
       return;
     }
     
-    // Check if player is holding a dust item
-    if (!itemStack) {
-      return;
-    }
-    
-    const dustId = itemStack.typeId;
-    const recipe = this.getRecipe(dustId);
-    
-    if (!recipe) {
-      return;
-    }
-    
-    // Cancel default interaction
     event.cancel = true;
     
-    // Process sifting after a small delay
     system.runTimeout(() => {
-      this.processSifting(player, block, recipe);
+      this.startProcessingFromPlayer(player, block, recipe, state);
     }, 1);
   }
 
   /**
-   * Xử lý quá trình lọc bụi
-   * 
-   * Cơ chế hao hụt: 2 Bụi Thường → 1 Bụi Tinh Khiết + 2 Bụi Đá
-   * Toán học: 9 bụi từ búa → 4.5 bụi tinh khiết → 1.125 thỏi (bonus 12.5%)
+   * Bắt đầu xử lý từ player
    */
-  private static processSifting(
-    player: Player, 
-    block: Block, 
-    recipe: BrassSifterRecipe
-  ): void {
+  private static startProcessingFromPlayer(player: any, block: any, recipe: BrassSifterRecipe, state: any): void {
     try {
-      // Get player's main hand item
       const inventory = player.getComponent('inventory');
-      if (!inventory || !inventory.container) {
-        return;
-      }
+      if (!inventory || !inventory.container) return;
       
       const selectedSlot = player.selectedSlotIndex;
       const heldItem = inventory.container.getItem(selectedSlot);
       
-      if (!heldItem || !this.getRecipe(heldItem.typeId)) {
-        return;
-      }
+      if (!heldItem || heldItem.typeId !== recipe.inputId) return;
       
-      // --- BẮT ĐẦU CƠ CHẾ HAO HỤT 2:1 ---
-      // Bắt buộc phải có từ 2 bụi trở lên mới đủ để rây ra 1 bụi tinh khiết
-      if (heldItem.amount < 2) {
+      // Cần ít nhất 2 bụi
+      if (heldItem.amount < this.INPUT_AMOUNT) {
         player.onScreenDisplay.setActionBar("§cBạn cần ít nhất 2 Bụi khoáng sản để rây lọc!");
         try {
           player.playSound("note.bass", { volume: 0.5, pitch: 1.0 });
@@ -123,55 +140,54 @@ export class BrassSifterSystem {
         return;
       }
       
-      // Trừ đi 2 Bụi (Hao hụt khối lượng khi tinh chế)
-      if (heldItem.amount > 2) {
-        heldItem.amount -= 2;
+      // Trừ 2 bụi
+      if (heldItem.amount > this.INPUT_AMOUNT) {
+        heldItem.amount -= this.INPUT_AMOUNT;
         inventory.container.setItem(selectedSlot, heldItem);
       } else {
-        // Nếu có đúng 2 cái thì xóa luôn khỏi tay
         inventory.container.setItem(selectedSlot, undefined);
       }
       
-      // Spawn pure dust and stone dust at player location
-      const spawnLocation = {
-        x: player.location.x,
-        y: player.location.y + 0.5,
-        z: player.location.z
-      };
+      // Bật máy
+      state.isProcessing = true;
+      state.inputItem = recipe.inputId;
+      state.outputItem = `${recipe.pureDust}:1,${recipe.stoneDust}:2`;
+      state.ticksRemaining = this.PROCESSING_TIME;
       
-      // Sinh ra 1 Bụi Tinh Khiết (từ 2 bụi thường)
-      player.dimension.spawnItem(new ItemStack(recipe.pureDust, 1), spawnLocation);
-      
-      // Vì sàng lọc 2 bụi, lượng đất đá rớt ra sẽ nhiều hơn -> Sinh ra 2 Bụi Đá
-      player.dimension.spawnItem(new ItemStack(recipe.stoneDust, 2), spawnLocation);
-      // --- KẾT THÚC CƠ CHẾ HAO HỤT 2:1 ---
-      
-      // Particle effect at sifter
-      try {
-        block.dimension.spawnParticle(
-          'minecraft:crop_growth_emitter',
-          {
-            x: block.location.x + 0.5,
-            y: block.location.y + 0.5,
-            z: block.location.z + 0.5
-          }
-        );
-      } catch (e) {
-        // Particle không spawn được, không sao
-      }
-      
-      // Play sound
-      try {
-        player.playSound('random.levelup', { volume: 0.5, pitch: 1.5 });
-      } catch (e) {
-        // Sound không play được, không sao
-      }
-      
-      // Emit event for achievement tracking
       EventBus.emit("brasssifter:used", player);
       
     } catch (error) {
-      console.warn('[BrassSifterSystem] Failed to process sifting:', error);
+      console.warn('[BrassSifterSystem] Failed to start processing:', error);
+    }
+  }
+
+  /**
+   * Kiểm tra hopper inputs
+   */
+  private static checkHopperInputs(): void {
+    for (const [key, state] of MachineStateManager.getAll().entries()) {
+      if (state.isProcessing) continue;
+      
+      try {
+        const dimension = world.getDimension(state.dimension);
+        const block = dimension.getBlock(state.location);
+        
+        if (!block || block.typeId !== this.SIFTER_BLOCK) continue;
+        
+        // Thử lấy từ hopper trên (cần 2 items)
+        if (HopperHandler.checkHopperAbove(block, state, this.recipeGetter, this.INPUT_AMOUNT)) {
+          state.isProcessing = true;
+          continue;
+        }
+        
+        // Thử lấy từ hopper 4 bên (cần 2 items)
+        if (HopperHandler.checkHoppersSides(block, state, this.recipeGetter, this.INPUT_AMOUNT)) {
+          state.isProcessing = true;
+        }
+        
+      } catch (error) {
+        // Chunk unloaded
+      }
     }
   }
 }

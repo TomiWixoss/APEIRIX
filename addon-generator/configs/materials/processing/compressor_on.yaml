@@ -3,7 +3,7 @@ name: lang:blocks.compressor_on
 textureTop: ../../../assets/blocks/compressor_top.png
 textureSide: ../../../assets/blocks/compressor_side.png
 textureFront: ../../../assets/blocks/compressor_front_on.png
-category: equipment
+category: none
 destroyTime: 5.0
 explosionResistance: 10.0
 mapColor: "#4A4A4A"
