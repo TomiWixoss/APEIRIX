@@ -18,6 +18,7 @@ import { BrassSifterSystem } from "../systems/mining/BrassSifterSystem";
 import { CompressorSystem } from "../systems/mining/CompressorSystem";
 import { CrusherSystem } from "../systems/mining/CrusherSystem";
 import { RustMiteItemEatingSystem } from "../systems/entities/RustMiteItemEatingSystem";
+import { DisplayHandler } from "../systems/shared/processing/DisplayHandler";
 import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
@@ -140,6 +141,7 @@ export class GameManager {
         CompressorSystem.initialize();
         CrusherSystem.initialize();
         RustMiteItemEatingSystem.initialize();
+        DisplayHandler.initialize(); // Hiển thị thông tin máy xử lý
     }
 
     private static setupEventListeners(): void {

@@ -3,8 +3,8 @@ name: lang:blocks.crusher
 textures:
   up: ../../../assets/blocks/crusher_top.png
   down: ../../../assets/blocks/crusher_top.png
-  north: ../../../assets/blocks/crusher_front.png
-  south: ../../../assets/blocks/crusher_side.png
+  north: ../../../assets/blocks/crusher_side.png
+  south: ../../../assets/blocks/crusher_front.png
   east: ../../../assets/blocks/crusher_side.png
   west: ../../../assets/blocks/crusher_side.png
 category: equipment

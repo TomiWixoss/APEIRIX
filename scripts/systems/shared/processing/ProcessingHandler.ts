@@ -64,6 +64,7 @@ export class ProcessingHandler {
     // Reset state
     state.isProcessing = false;
     state.ticksRemaining = 0;
+    state.totalProcessingTime = 0;
     state.inputItem = '';
     state.outputItem = '';
     

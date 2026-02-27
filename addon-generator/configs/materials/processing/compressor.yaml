@@ -3,8 +3,8 @@ name: lang:blocks.compressor
 textures:
   up: ../../../assets/blocks/compressor_top.png
   down: ../../../assets/blocks/compressor_top.png
-  north: ../../../assets/blocks/compressor_front.png
-  south: ../../../assets/blocks/compressor_side.png
+  north: ../../../assets/blocks/compressor_side.png
+  south: ../../../assets/blocks/compressor_front.png
   east: ../../../assets/blocks/compressor_side.png
   west: ../../../assets/blocks/compressor_side.png
 category: equipment

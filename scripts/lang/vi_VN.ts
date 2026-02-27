@@ -107,5 +107,13 @@ export const LANG_VI = {
             "foods": "§0Thức ăn",
             "special": "§0Đặc biệt"
         }
+    },
+    "machines": {
+        "ore_crusher_mk1": "Máy Nghiền Quặng MK1",
+        "ore_crusher_mk2": "Máy Nghiền Quặng MK2",
+        "ore_crusher_mk3": "Máy Nghiền Quặng MK3",
+        "brass_sifter": "Rây Lọc Đồng Thau",
+        "compressor": "Máy Nén",
+        "crusher": "Máy Nghiền"
     }
 };

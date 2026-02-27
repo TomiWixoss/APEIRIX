@@ -85,6 +85,7 @@ export class PlayerInteractionHandler {
       state.inputItem = recipe.inputId;
       state.outputItem = recipe.outputId;
       state.ticksRemaining = recipe.processingTime;
+      state.totalProcessingTime = recipe.processingTime; // Lưu tổng thời gian
       
       block.setType(onBlockId);
       

@@ -117,7 +117,7 @@ export class BPCompiler {
     await LanguageConfigBPGenerator.generate(language, outputDir);
 
     // Generate Script Lang files from YAML (both vi_VN and en_US)
-    await ScriptLangBPGenerator.generate(configDir, outputDir);
+    await ScriptLangBPGenerator.generate(configDir, outputDir, config);
 
     console.log(`✓ BP compiled: ${stats.items} items, ${stats.blocks} blocks, ${stats.recipes} recipes`);
   }

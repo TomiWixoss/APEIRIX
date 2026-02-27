@@ -10,6 +10,7 @@ export interface MachineState {
   machineType: string; // 'compressor', 'brass_sifter', 'ore_crusher_mk1', etc.
   isProcessing: boolean;
   ticksRemaining: number;
+  totalProcessingTime: number; // Tổng thời gian xử lý ban đầu
   inputItem: string;
   outputItem: string;
   lastInteractionTick: number;
@@ -30,6 +31,7 @@ export class MachineStateManager {
       machineType: machineType,
       isProcessing: false,
       ticksRemaining: 0,
+      totalProcessingTime: 0,
       inputItem: '',
       outputItem: '',
       lastInteractionTick: 0

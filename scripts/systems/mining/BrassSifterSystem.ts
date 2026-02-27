@@ -26,6 +26,9 @@ export class BrassSifterSystem {
   /**
    * Chuyển đổi rotation của player thành direction state (0-3)
    * 0 = south, 1 = west, 2 = north, 3 = east
+   * 
+   * Block quay mặt về phía player (đối diện với hướng player nhìn)
+   * Minecraft yaw: 0=south, 90=west, 180=north, 270=east
    */
   private static getDirectionFromPlayer(player: any): number {
     const rotation = player.getRotation();
@@ -35,11 +38,23 @@ export class BrassSifterSystem {
     let normalizedYaw = yaw % 360;
     if (normalizedYaw < 0) normalizedYaw += 360;
     
-    // Convert to direction (player faces opposite of block front)
-    if (normalizedYaw >= 315 || normalizedYaw < 45) return 2;  // north
-    if (normalizedYaw >= 45 && normalizedYaw < 135) return 3;  // east
-    if (normalizedYaw >= 135 && normalizedYaw < 225) return 0; // south
-    return 1; // west
+    // Convert to direction (block faces player - opposite of player's facing)
+    // Player yaw 0° (nhìn nam) → block direction 2 (mặt bắc)
+    // Player yaw 90° (nhìn tây) → block direction 1 (mặt đông) - FIXED
+    // Player yaw 180° (nhìn bắc) → block direction 0 (mặt nam)
+    // Player yaw 270° (nhìn đông) → block direction 3 (mặt tây) - FIXED
+    let direction: number;
+    if (normalizedYaw >= 315 || normalizedYaw < 45) {
+      direction = 2;  // Nhìn nam → mặt bắc
+    } else if (normalizedYaw >= 45 && normalizedYaw < 135) {
+      direction = 1;  // Nhìn tây → mặt đông (ĐÃ ĐỔI từ 3 sang 1)
+    } else if (normalizedYaw >= 135 && normalizedYaw < 225) {
+      direction = 0; // Nhìn bắc → mặt nam
+    } else {
+      direction = 3; // Nhìn đông → mặt tây (ĐÃ ĐỔI từ 1 sang 3)
+    }
+    
+    return direction;
   }
 
   static initialize(): void {

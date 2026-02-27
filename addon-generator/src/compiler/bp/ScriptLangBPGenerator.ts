@@ -11,7 +11,7 @@ export class ScriptLangBPGenerator {
   /**
    * Generate script lang files (vi_VN.ts, en_US.ts) from YAML
    */
-  static async generate(configDir: string, outputDir: string): Promise<void> {
+  static async generate(configDir: string, outputDir: string, config?: any): Promise<void> {
     // Output to root scripts/lang folder (for TypeScript compilation)
     const scriptsLangDir = path.join(outputDir, '..', '..', 'scripts', 'lang');
     
@@ -44,6 +44,33 @@ export class ScriptLangBPGenerator {
         const wikiContent = readFileSync(wikiYamlPath, 'utf-8');
         const wikiData = yaml.load(wikiContent) as Record<string, any>;
         langData = { ...langData, ...wikiData };
+      }
+
+      // Auto-generate machine names from Pack Lang
+      if (config && config.blocks) {
+        const packLangPath = path.join(configDir, 'lang', lang, 'materials.yaml');
+        if (existsSync(packLangPath)) {
+          const packLangContent = readFileSync(packLangPath, 'utf-8');
+          const packLangData = yaml.load(packLangContent) as Record<string, any>;
+          
+          // Extract machine names from blocks
+          if (packLangData && packLangData.blocks) {
+            if (!langData.machines) {
+              langData.machines = {};
+            }
+            
+            // Auto-add machine names from block configs
+            for (const block of config.blocks) {
+              // Check if block is a processing machine (has processingRecipes)
+              if (block.processingRecipes && block.processingRecipes.length > 0) {
+                const blockName = packLangData.blocks[block.id];
+                if (blockName) {
+                  langData.machines[block.id] = blockName;
+                }
+              }
+            }
+          }
+        }
       }
 
       if (Object.keys(langData).length === 0) {

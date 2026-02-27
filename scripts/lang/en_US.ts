@@ -107,5 +107,13 @@ export const LANG_EN = {
             "foods": "§0Foods",
             "special": "§0Special"
         }
+    },
+    "machines": {
+        "ore_crusher_mk1": "Ore Crusher MK1",
+        "ore_crusher_mk2": "Ore Crusher MK2",
+        "ore_crusher_mk3": "Ore Crusher MK3",
+        "brass_sifter": "Brass Sifter",
+        "compressor": "Compressor",
+        "crusher": "Crusher"
     }
 };

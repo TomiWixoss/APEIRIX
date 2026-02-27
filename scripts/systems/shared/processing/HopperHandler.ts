@@ -85,6 +85,7 @@ export class HopperHandler {
         state.inputItem = recipe.inputId;
         state.outputItem = recipe.outputId;
         state.ticksRemaining = recipe.processingTime;
+        state.totalProcessingTime = recipe.processingTime; // Lưu tổng thời gian
         return true;
       }
       

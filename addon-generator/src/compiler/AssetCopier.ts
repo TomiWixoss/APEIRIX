@@ -11,9 +11,14 @@ export interface AssetConfig {
   items?: Array<{ texture?: string }>;
   blocks?: Array<{ 
     texture?: string;
-    textureTop?: string;
-    textureSide?: string;
-    textureFront?: string;
+    textures?: {
+      up?: string;
+      down?: string;
+      north?: string;
+      south?: string;
+      east?: string;
+      west?: string;
+    };
   }>;
   tools?: Array<{ texture?: string; texturePath?: string }>;
   foods?: Array<{ texture?: string }>;
@@ -90,15 +95,27 @@ export class AssetCopier {
         if (block.texture) {
           this.copyTexture(blockConfigPath, block.texture, path.join(outputDir, 'RP', 'textures', 'blocks'));
         }
-        // Copy multi-face textures with renamed filenames
-        if (block.textureTop) {
-          this.copyTextureWithRename(blockConfigPath, block.textureTop, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_top.png`);
-        }
-        if (block.textureSide) {
-          this.copyTextureWithRename(blockConfigPath, block.textureSide, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_side.png`);
-        }
-        if (block.textureFront) {
-          this.copyTextureWithRename(blockConfigPath, block.textureFront, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_front.png`);
+        
+        // Copy multi-face textures
+        if (block.textures) {
+          if (block.textures.up) {
+            this.copyTextureWithRename(blockConfigPath, block.textures.up, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_up.png`);
+          }
+          if (block.textures.down) {
+            this.copyTextureWithRename(blockConfigPath, block.textures.down, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_down.png`);
+          }
+          if (block.textures.north) {
+            this.copyTextureWithRename(blockConfigPath, block.textures.north, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_north.png`);
+          }
+          if (block.textures.south) {
+            this.copyTextureWithRename(blockConfigPath, block.textures.south, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_south.png`);
+          }
+          if (block.textures.east) {
+            this.copyTextureWithRename(blockConfigPath, block.textures.east, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_east.png`);
+          }
+          if (block.textures.west) {
+            this.copyTextureWithRename(blockConfigPath, block.textures.west, path.join(outputDir, 'RP', 'textures', 'blocks'), `${blockId}_west.png`);
+          }
         }
       }
     }
