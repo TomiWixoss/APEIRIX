@@ -61,8 +61,8 @@ export class ProcessingRecipeGenerator {
  */
 
 export interface ProcessingRecipe {
-  input: string;
-  output: string;
+  inputId: string;
+  outputId: string;
   processingTime: number;
 }
 
@@ -86,7 +86,7 @@ ${this.generateRecipesByMachine(recipesByMachine)}
       
       recipes.forEach((recipe, index) => {
         const isLast = index === recipes.length - 1;
-        lines.push(`    { input: "${recipe.input}", output: "${recipe.output}", processingTime: ${recipe.processingTime} }${isLast ? '' : ','}`);
+        lines.push(`    { inputId: "${recipe.input}", outputId: "${recipe.output}", processingTime: ${recipe.processingTime} }${isLast ? '' : ','}`);
       });
       
       lines.push(`  ],`);

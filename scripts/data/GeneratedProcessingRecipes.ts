@@ -9,8 +9,8 @@
  */
 
 export interface ProcessingRecipe {
-  input: string;
-  output: string;
+  inputId: string;
+  outputId: string;
   processingTime: number;
 }
 
@@ -19,6 +19,6 @@ export interface ProcessingRecipe {
  */
 export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = {
   "compressor": [
-    { input: "apeirix:steel_alloy_ingot", output: "apeirix:steel_alloy_plate", processingTime: 60 }
+    { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_plate", processingTime: 60 }
   ],
 };

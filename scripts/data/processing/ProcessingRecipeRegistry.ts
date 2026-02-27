@@ -49,14 +49,10 @@ export class ProcessingRecipeRegistry {
   /**
    * Load recipes từ generated data
    */
-  static loadFromGenerated(generatedRecipes: Record<string, Array<{input: string; output: string; processingTime: number}>>): void {
+  static loadFromGenerated(generatedRecipes: Record<string, ProcessingRecipe[]>): void {
     for (const [machineType, recipes] of Object.entries(generatedRecipes)) {
       for (const recipe of recipes) {
-        this.registerRecipe(machineType, {
-          inputId: recipe.input,
-          outputId: recipe.output,
-          processingTime: recipe.processingTime
-        });
+        this.registerRecipe(machineType, recipe);
       }
     }
   }
