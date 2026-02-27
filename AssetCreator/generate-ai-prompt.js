@@ -6,19 +6,34 @@ const fs = require('fs');
 const path = require('path');
 
 // Lấy tham số từ command line
-const versionName = process.argv[2];
+const versionNameOrPath = process.argv[2];
 const docsPath = process.argv[3] || 'docs/llms.txt';
 
-if (!versionName) {
-    console.error('\x1b[31m✗ Thiếu tên version!\x1b[0m');
-    console.log('Cách dùng: node generate-ai-prompt.js <tên_version> [đường_dẫn_docs]');
+if (!versionNameOrPath) {
+    console.error('\x1b[31m✗ Thiếu tên version hoặc đường dẫn!\x1b[0m');
+    console.log('Cách dùng: node generate-ai-prompt.js <tên_version|đường_dẫn_tuyệt_đối> [đường_dẫn_docs]');
+    console.log('Ví dụ: node generate-ai-prompt.js 2026-02-27_alloy-steel');
+    console.log('Hoặc: node generate-ai-prompt.js C:\\Users\\tomis\\Docs\\APEIRIX\\AssetCreator\\versions\\2026-02-27_alloy-steel');
     process.exit(1);
 }
 
+// Xác định đường dẫn version (hỗ trợ cả tên và đường dẫn tuyệt đối)
+let versionPath;
+let versionName;
+
+if (path.isAbsolute(versionNameOrPath)) {
+    // Đường dẫn tuyệt đối
+    versionPath = versionNameOrPath;
+    versionName = path.basename(versionPath);
+} else {
+    // Tên version (tương đối)
+    versionPath = path.join('versions', versionNameOrPath);
+    versionName = versionNameOrPath;
+}
+
 // Kiểm tra version tồn tại
-const versionPath = path.join('versions', versionName);
 if (!fs.existsSync(versionPath)) {
-    console.error(`\x1b[31m✗ Không tìm thấy version '${versionName}'\x1b[0m`);
+    console.error(`\x1b[31m✗ Không tìm thấy version tại: ${versionPath}\x1b[0m`);
     process.exit(1);
 }
 
@@ -120,4 +135,4 @@ console.log('\x1b[32mBƯỚC TIẾP THEO:\x1b[0m');
 console.log(`  1. Mở file: ${outputPath}`);
 console.log('  2. Copy nội dung và gửi cho AI');
 console.log(`  3. Paste response của AI vào: ${responsePlaceholderPath}`);
-console.log(`  4. Chạy: node extract-pxvg-from-ai.js ${versionName} ai-response-placeholder.txt\n`);
+console.log(`  4. Chạy: node extract-pxvg-from-ai.js ${versionName}\n`);

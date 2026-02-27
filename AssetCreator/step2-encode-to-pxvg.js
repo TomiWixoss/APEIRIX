@@ -7,12 +7,14 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Lấy tham số từ command line
-const versionName = process.argv[2];
+const versionNameOrPath = process.argv[2];
 const pixciExe = process.argv[3] || './pixci-cli.exe';
 
-if (!versionName) {
-    console.error('\x1b[31m✗ Thiếu tên version!\x1b[0m');
-    console.log('Cách dùng: node step2-encode-to-pxvg.js <tên_version>');
+if (!versionNameOrPath) {
+    console.error('\x1b[31m✗ Thiếu tên version hoặc đường dẫn!\x1b[0m');
+    console.log('Cách dùng: node step2-encode-to-pxvg.js <tên_version|đường_dẫn_tuyệt_đối>');
+    console.log('Ví dụ: node step2-encode-to-pxvg.js 2026-02-27_alloy-steel');
+    console.log('Hoặc: node step2-encode-to-pxvg.js C:\\Users\\tomis\\Docs\\APEIRIX\\AssetCreator\\versions\\2026-02-27_alloy-steel');
     process.exit(1);
 }
 
@@ -22,10 +24,23 @@ if (!fs.existsSync(pixciExe)) {
     process.exit(1);
 }
 
+// Xác định đường dẫn version (hỗ trợ cả tên và đường dẫn tuyệt đối)
+let versionPath;
+let versionName;
+
+if (path.isAbsolute(versionNameOrPath)) {
+    // Đường dẫn tuyệt đối
+    versionPath = versionNameOrPath;
+    versionName = path.basename(versionPath);
+} else {
+    // Tên version (tương đối)
+    versionPath = path.join('versions', versionNameOrPath);
+    versionName = versionNameOrPath;
+}
+
 // Kiểm tra version tồn tại
-const versionPath = path.join('versions', versionName);
 if (!fs.existsSync(versionPath)) {
-    console.error(`\x1b[31m✗ Không tìm thấy version '${versionName}'\x1b[0m`);
+    console.error(`\x1b[31m✗ Không tìm thấy version tại: ${versionPath}\x1b[0m`);
     console.log('Chạy step1-create-version.js trước');
     process.exit(1);
 }
@@ -77,7 +92,5 @@ if (failedCount > 0) {
 
 if (convertedCount > 0) {
     console.log('\x1b[32mBƯỚC TIẾP THEO:\x1b[0m');
-    console.log(`  1. Chạy: node generate-ai-prompt.js ${versionName}`);
-    console.log('  2. Paste response AI vào file placeholder');
-    console.log(`  3. Chạy: node extract-pxvg-from-ai.js ${versionName} ai-response-placeholder.txt\n`);
+    console.log(`  node generate-ai-prompt.js ${versionName}\n`);
 }

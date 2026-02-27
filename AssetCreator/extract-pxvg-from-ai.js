@@ -6,20 +6,41 @@ const fs = require('fs');
 const path = require('path');
 
 // Lấy tham số từ command line
-const versionName = process.argv[2];
-const responseFile = process.argv[3];
+const versionNameOrPath = process.argv[2];
 
-if (!versionName || !responseFile) {
-    console.error('\x1b[31m✗ Thiếu tham số!\x1b[0m');
-    console.log('Cách dùng: node extract-pxvg-from-ai.js <tên_version> <file_response>');
+if (!versionNameOrPath) {
+    console.error('\x1b[31m✗ Thiếu tên version hoặc đường dẫn!\x1b[0m');
+    console.log('Cách dùng: node extract-pxvg-from-ai.js <tên_version|đường_dẫn_tuyệt_đối> [file_response]');
+    console.log('Ví dụ: node extract-pxvg-from-ai.js 2026-02-27_alloy-steel');
+    console.log('Hoặc: node extract-pxvg-from-ai.js C:\\Users\\tomis\\Docs\\APEIRIX\\AssetCreator\\versions\\2026-02-27_alloy-steel');
+    console.log('Hoặc: node extract-pxvg-from-ai.js 2026-02-27_alloy-steel custom-response.txt');
     process.exit(1);
 }
 
+// Xác định đường dẫn version (hỗ trợ cả tên và đường dẫn tuyệt đối)
+let versionPath;
+let versionName;
+
+if (path.isAbsolute(versionNameOrPath)) {
+    // Đường dẫn tuyệt đối
+    versionPath = versionNameOrPath;
+    versionName = path.basename(versionPath);
+} else {
+    // Tên version (tương đối)
+    versionPath = path.join('versions', versionNameOrPath);
+    versionName = versionNameOrPath;
+}
+
 // Kiểm tra version tồn tại
-const versionPath = path.join('versions', versionName);
 if (!fs.existsSync(versionPath)) {
-    console.error(`\x1b[31m✗ Không tìm thấy version '${versionName}'\x1b[0m`);
+    console.error(`\x1b[31m✗ Không tìm thấy version tại: ${versionPath}\x1b[0m`);
     process.exit(1);
+}
+
+// Xác định file response (mặc định là ai-response-placeholder.txt trong thư mục version)
+let responseFile = process.argv[3];
+if (!responseFile) {
+    responseFile = path.join(versionPath, 'ai-response-placeholder.txt');
 }
 
 // Kiểm tra file response
@@ -72,4 +93,4 @@ matches.forEach(match => {
 
 console.log(`\n\x1b[32m✓ Đã trích xuất ${extractedCount} file vào: ${pxvgEditedPath}\x1b[0m\n`);
 console.log('\x1b[32mBƯỚC TIẾP THEO:\x1b[0m');
-console.log(`  Chạy: node step3-decode-to-images.js ${versionName}\n`);
+console.log(`  node step3-decode-to-images.js ${versionName}\n`);
