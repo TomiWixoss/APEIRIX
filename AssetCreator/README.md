@@ -23,21 +23,59 @@ AssetCreator/
 
 ## QUY TRÌNH LÀM VIỆC CHO AI (QUAN TRỌNG)
 
-### Bước 1: Tạo thư mục version mới
+### Workflow 3 bước - Từng bước một (KHUYẾN NGHỊ)
+
+#### Bước 1: Tạo version mới
+```powershell
+.\step1-create-version.ps1 -VersionName "bronze_tools"
+```
+
+Tạo cấu trúc:
+```
+versions/2026-02-27_bronze_tools/
+├── reference/  (Đặt ảnh gốc vào đây)
+├── pxvg/       (File PXVG để chỉnh sửa)
+├── preview/    (Preview x10 - tự động tạo)
+└── icons/      (Icon x1 - tự động tạo)
+```
+
+**Sau bước này: Copy ảnh PNG vào thư mục reference/**
+
+#### Bước 2: Chuyển ảnh sang PXVG
+```powershell
+.\step2-encode-to-pxvg.ps1 -VersionName "2026-02-27_bronze_tools"
+```
+
+Chuyển đổi tất cả ảnh trong reference/ sang file PXVG.
+
+**Sau bước này: Chỉnh sửa file .pxvg.xml trong thư mục pxvg/**
+
+#### Bước 3: Tạo preview và icon
+```powershell
+.\step3-decode-to-images.ps1 -VersionName "2026-02-27_bronze_tools"
+```
+
+Tạo preview (x10) và icon (x1) từ PXVG đã chỉnh sửa.
+
+---
+
+### Phương pháp cũ (Tham khảo)
+
+#### Bước 1: Tạo thư mục version mới
 ```powershell
 # Chạy script với tên mô tả
 .\create-version.ps1 -VersionName "cannedfood_tin"
 # Tạo: versions/2026-02-24_cannedfood_tin/
 ```
 
-### Bước 2: Copy ảnh mẫu vào reference của version
+#### Bước 2: Copy ảnh mẫu vào reference của version
 ```powershell
 # Copy vào thư mục version mới
 $version = "versions/2026-02-24_cannedfood_tin"
 Copy-Item "duong_dan_nguon.png" -Destination "$version/reference/"
 ```
 
-### Bước 3: Encode/Edit/Decode trong thư mục version
+#### Bước 3: Encode/Edit/Decode trong thư mục version
 ```powershell
 Set-Location "versions/2026-02-24_cannedfood_tin"
 
@@ -51,7 +89,7 @@ Set-Location "versions/2026-02-24_cannedfood_tin"
 ..\..\pixci-cli.exe decode pxvg/ten.pxvg.xml -o icons/ten.png --scale 1
 ```
 
-### Bước 4: Sau khi hoàn thành, xóa thư mục gốc nếu cần
+#### Bước 4: Sau khi hoàn thành
 - Giữ assets chính trong thư mục gốc (bronze, tin, copper...)
 - Các version hoàn chỉnh nằm trong `versions/`
 
