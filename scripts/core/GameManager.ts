@@ -63,34 +63,6 @@ export class GameManager {
                 { id: "phase1", order: 1, locked: false }
             ]
         });
-
-        // Alchemy - Locked
-        AchievementRegistry.registerCategory({
-            id: "alchemy",
-            icon: "textures/items/potion_bottle_splash",
-            locked: true
-        });
-
-        // Magic - Locked
-        AchievementRegistry.registerCategory({
-            id: "magic",
-            icon: "textures/items/ender_pearl",
-            locked: true
-        });
-
-        // Divinity - Locked
-        AchievementRegistry.registerCategory({
-            id: "divinity",
-            icon: "textures/items/totem",
-            locked: true
-        });
-
-        // Technology - Locked
-        AchievementRegistry.registerCategory({
-            id: "technology",
-            icon: "textures/items/redstone_dust",
-            locked: true
-        });
     }
 
     private static registerAchievements(): void {
