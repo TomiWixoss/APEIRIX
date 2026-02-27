@@ -1,0 +1,226 @@
+Dưới đây là các file vũ khí và công cụ tiếp theo đã được nâng cấp vật liệu từ Sắt (Iron) lên **Hợp kim Thép (Steel Alloy)**. Phần lưỡi kim loại được tinh chỉnh sang dải màu xanh xám lạnh (Cool Blue-Gray) sắc bén và tối màu hơn, trong khi phần cán gỗ và da quấn (nếu có) vẫn được giữ nguyên để đảm bảo tính logic vật liệu.
+
+```pxvg:steel_alloy_axe.pxvg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#40444AFF" />
+    <color k="B" hex="#E1E4EAFF" />
+    <color k="C" hex="#848993FF" />
+    <color k="D" hex="#AAB1BCFF" />
+    <color k="E" hex="#493615FF" />
+    <color k="F" hex="#684E1EFF" />
+    <color k="G" hex="#2C2E33FF" />
+    <color k="H" hex="#5C626AFF" />
+    <color k="I" hex="#281E0BFF" />
+    <color k="J" hex="#896727FF" />
+  </palette>
+  <layer id="main">
+    <row y="1" x1="9" x2="10" c="A" />
+    <row y="2" x1="9" x2="10" c="B" />
+    <row y="4" x1="8" x2="10" c="C" />
+    <row y="6" x1="7" x2="8" c="G" />
+    <row y="7" x1="11" x2="12" c="C" />
+    <row y="8" x1="11" x2="12" c="G" />
+    <row y="14" x1="2" x2="3" c="I" />
+    <dots c="A" pts="8,2 11,2 7,3 11,3 6,4" />
+    <dots c="B" pts="8,3 7,4 7,5" />
+    <dots c="C" pts="9,3 9,5 11,5 10,6 12,6" />
+    <dots c="D" pts="10,3 8,5" />
+    <dots c="E" pts="11,4 9,6 8,7 7,8 6,9 5,10 4,11 3,12 2,13" />
+    <dots c="F" pts="12,4 9,7 7,9 6,10 4,12" />
+    <dots c="G" pts="6,5 13,6 13,7" />
+    <dots c="H" pts="10,5 11,6" />
+    <dots c="I" pts="12,5 10,7 9,8 8,9 7,10 6,11 5,12 4,13" />
+    <dots c="J" pts="8,8 5,11 3,13" />
+  </layer>
+</pxvg>
+```
+
+```pxvg:steel_alloy_hoe.pxvg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#40444AFF" />
+    <color k="B" hex="#E1E4EAFF" />
+    <color k="C" hex="#AAB1BCFF" />
+    <color k="D" hex="#2C2E33FF" />
+    <color k="E" hex="#848993FF" />
+    <color k="F" hex="#493615FF" />
+    <color k="G" hex="#684E1EFF" />
+    <color k="H" hex="#896727FF" />
+  </palette>
+  <layer id="main">
+    <row y="1" x1="7" x2="9" c="A" />
+    <row y="2" x1="8" x2="9" c="C" />
+    <row y="3" x1="7" x2="8" c="D" />
+    <row y="4" x1="10" x2="11" c="E" />
+    <row y="6" x1="11" x2="12" c="D" />
+    <row y="14" x1="2" x2="3" c="D" />
+    <dots c="A" pts="6,2 10,2 11,3" />
+    <dots c="B" pts="7,2" />
+    <dots c="C" pts="10,3 11,5" />
+    <dots c="D" pts="9,4 13,4 13,5 10,7 9,8 8,9 7,10 6,11 5,12 4,13" />
+    <dots c="E" pts="9,3 12,5" />
+    <dots c="F" pts="12,3 10,5 9,6 8,7 7,8 6,9 5,10 4,11 3,12 2,13" />
+    <dots c="G" pts="13,3 10,6 8,8 6,10 4,12" />
+    <dots c="H" pts="12,4 9,7 7,9 5,11 3,13" />
+  </layer>
+</pxvg>
+```
+
+```pxvg:steel_alloy_pickaxe.pxvg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#40444AFF" />
+    <color k="B" hex="#E1E4EAFF" />
+    <color k="C" hex="#AAB1BCFF" />
+    <color k="D" hex="#848993FF" />
+    <color k="E" hex="#493615FF" />
+    <color k="F" hex="#684E1EFF" />
+    <color k="G" hex="#2C2E33FF" />
+    <color k="H" hex="#896727FF" />
+    <color k="I" hex="#281E0BFF" />
+  </palette>
+  <layer id="main">
+    <rect x="14" y="6" w="1" h="5" c="G" />
+    <rect x="12" y="7" w="1" h="4" c="G" />
+    <row y="2" x1="6" x2="10" c="A" />
+    <row y="3" x1="8" x2="9" c="D" />
+    <row y="4" x1="7" x2="9" c="G" />
+    <row y="4" x1="10" x2="11" c="D" />
+    <row y="14" x1="2" x2="3" c="I" />
+    <dots c="A" pts="5,3 11,3 6,4" />
+    <dots c="B" pts="6,3 13,10" />
+    <dots c="C" pts="7,3 10,3 11,5 13,6 13,9" />
+    <dots c="D" pts="12,5 12,6 13,7 13,8" />
+    <dots c="E" pts="12,3 10,5 9,6 8,7 7,8 6,9 5,10 4,11 3,12 2,13" />
+    <dots c="F" pts="13,3 10,6 8,8 6,10 4,12" />
+    <dots c="G" pts="13,5 13,11" />
+    <dots c="H" pts="12,4 9,7 7,9 5,11 3,13" />
+    <dots c="I" pts="13,4 11,6 10,7 9,8 8,9 7,10 6,11 5,12 4,13" />
+  </layer>
+</pxvg>
+```
+
+```pxvg:steel_alloy_shovel.pxvg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#40444AFF" />
+    <color k="B" hex="#2C2E33FF" />
+    <color k="C" hex="#E1E4EAFF" />
+    <color k="D" hex="#848993FF" />
+    <color k="E" hex="#AAB1BCFF" />
+    <color k="F" hex="#493615FF" />
+    <color k="G" hex="#896727FF" />
+    <color k="H" hex="#281E0BFF" />
+    <color k="I" hex="#684E1EFF" />
+  </palette>
+  <layer id="main">
+    <row y="2" x1="11" x2="12" c="A" />
+    <row y="3" x1="11" x2="12" c="C" />
+    <row y="12" x1="2" x2="3" c="F" />
+    <row y="14" x1="3" x2="4" c="H" />
+    <dots c="A" pts="10,3 9,4 8,5" />
+    <dots c="B" pts="13,2 14,3 14,4 14,5 13,6 12,7 11,8" />
+    <dots c="C" pts="10,4 13,4 9,5 13,5 12,6 11,7" />
+    <dots c="D" pts="13,3 12,4 11,5 10,6" />
+    <dots c="E" pts="11,4 10,5 12,5 11,6" />
+    <dots c="F" pts="9,6 8,7 7,8 6,9 5,10 4,11 2,13" />
+    <dots c="G" pts="9,7 8,8 6,10 4,12 3,13" />
+    <dots c="H" pts="10,7 9,8 8,9 7,10 6,11 5,12 4,13" />
+    <dots c="I" pts="7,9 5,11" />
+  </layer>
+</pxvg>
+```
+
+```pxvg:steel_alloy_spear.pxvg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#40444AFF" />
+    <color k="B" hex="#AAB1BCFF" />
+    <color k="C" hex="#E1E4EAFF" />
+    <color k="D" hex="#2C2E33FF" />
+    <color k="E" hex="#848993FF" />
+    <color k="F" hex="#5C626AFF" />
+    <color k="G" hex="#6B727AFF" />
+    <color k="H" hex="#4B4F56FF" />
+    <color k="I" hex="#493615FF" />
+    <color k="J" hex="#684E1EFF" />
+    <color k="K" hex="#281E0BFF" />
+    <color k="L" hex="#896727FF" />
+    <color k="M" hex="#67290BFF" />
+    <color k="N" hex="#BA5F34FF" />
+    <color k="O" hex="#411805FF" />
+    <color k="P" hex="#A34B22FF" />
+  </palette>
+  <layer id="main">
+    <row y="0" x1="13" x2="15" c="A" />
+    <row y="1" x1="11" x2="12" c="A" />
+    <row y="2" x1="9" x2="10" c="A" />
+    <row y="3" x1="7" x2="8" c="A" />
+    <row y="6" x1="10" x2="12" c="H" />
+    <row y="8" x1="11" x2="12" c="D" />
+    <dots c="A" pts="7,4 8,5" />
+    <dots c="B" pts="13,1 12,2 10,3 10,4" />
+    <dots c="C" pts="14,1 13,2 12,3 11,4 10,5 9,6" />
+    <dots c="D" pts="15,1 15,2 14,3 14,4 13,5 13,6 10,7 12,7" />
+    <dots c="E" pts="11,2 11,3 9,4 9,5" />
+    <dots c="F" pts="14,2 13,3 12,4 11,5" />
+    <dots c="G" pts="9,3 8,4" />
+    <dots c="H" pts="13,4 12,5 11,7" />
+    <dots c="I" pts="8,6 7,7 6,8 5,9 4,10 3,11" />
+    <dots c="J" pts="8,7" />
+    <dots c="K" pts="9,7 8,8 7,9 6,10 5,11 4,12" />
+    <dots c="L" pts="7,8 6,9 5,10 4,11 3,12" />
+    <dots c="M" pts="2,12 1,13 0,14" />
+    <dots c="N" pts="2,13" />
+    <dots c="O" pts="3,13 2,14 1,15" />
+    <dots c="P" pts="1,14 0,15" />
+  </layer>
+</pxvg>
+```
+
+```pxvg:steel_alloy_sword.pxvg.xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#40444AFF" />
+    <color k="B" hex="#E1E4EAFF" />
+    <color k="C" hex="#2C2E33FF" />
+    <color k="D" hex="#848993FF" />
+    <color k="E" hex="#AAB1BCFF" />
+    <color k="F" hex="#5C626AFF" />
+    <color k="G" hex="#6B727AFF" />
+    <color k="H" hex="#493615FF" />
+    <color k="I" hex="#684E1EFF" />
+    <color k="J" hex="#896727FF" />
+    <color k="K" hex="#281E0BFF" />
+  </palette>
+  <layer id="main">
+    <row y="0" x1="13" x2="15" c="A" />
+    <row y="1" x1="13" x2="14" c="B" />
+    <row y="6" x1="2" x2="3" c="A" />
+    <row y="9" x1="4" x2="5" c="G" />
+    <row y="11" x1="6" x2="7" c="A" />
+    <row y="12" x1="6" x2="7" c="C" />
+    <row y="13" x1="0" x2="1" c="A" />
+    <row y="13" x1="8" x2="9" c="C" />
+    <row y="15" x1="0" x2="2" c="C" />
+    <dots c="A" pts="12,1 11,2 10,3 9,4 8,5 7,6 2,7 4,7 6,7 3,8 3,9 4,10 6,10 8,12 0,14" />
+    <dots c="B" pts="12,2 14,2 11,3 13,3 10,4 9,5" />
+    <dots c="C" pts="15,1 15,2 14,3 13,4 12,5 11,6 10,7 5,8 9,8 8,9 7,10 5,11 8,11 9,12 2,14" />
+    <dots c="D" pts="13,2 12,3 11,4 10,5 9,6 8,7" />
+    <dots c="E" pts="12,4 11,5 8,6 10,6 7,7 9,7 6,8 8,8 7,9" />
+    <dots c="F" pts="3,7 6,9 5,10 1,14" />
+    <dots c="G" pts="4,8 7,8" />
+    <dots c="H" pts="3,11 2,12" />
+    <dots c="I" pts="4,11 2,13" />
+    <dots c="J" pts="3,12" />
+    <dots c="K" pts="4,12 3,13" />
+  </layer>
+</pxvg>
+```
