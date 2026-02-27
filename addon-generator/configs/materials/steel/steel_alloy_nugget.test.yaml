@@ -1,0 +1,10 @@
+id: steel_alloy_nugget
+testCommands:
+  - "# Test: Mảnh Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_nugget 64
+  - 'tellraw @s {"text":"=== Test: Mảnh Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Material: Steel Alloy Nugget","color":"aqua"}'
+  - 'tellraw @s {"text":"1 Thỏi Hợp Kim Thép = 9 Mảnh Hợp Kim Thép","color":"white"}'
+  - 'tellraw @s {"text":"9 Mảnh Hợp Kim Thép = 1 Thỏi Hợp Kim Thép","color":"yellow"}'
+  - playsound random.levelup @s

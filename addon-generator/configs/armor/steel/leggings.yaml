@@ -1,0 +1,30 @@
+type: leggings
+id: steel_alloy_leggings
+name: lang:armor.steel_alloy_leggings
+texture: ../../../assets/steel_alloy/steel_alloy_leggings.png
+durability: 600
+protection: 6
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: steel_alloy_layer_2
+armorLayerTexturePath: ../../../assets/steel_alloy/steel_alloy_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: steel_alloy_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:steel_alloy_ingot
+    result: apeirix:steel_alloy_leggings
+    count: 1
+    unlock:
+      - apeirix:steel_alloy_ingot
+materialId: apeirix:steel_alloy_ingot
+enchantability: 22

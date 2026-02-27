@@ -1,0 +1,10 @@
+id: steel_alloy_dust
+testCommands:
+  - "# Test: Bụi Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_dust 64
+  - 'tellraw @s {"text":"=== Test: Bụi Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Material: Steel Alloy Dust","color":"aqua"}'
+  - 'tellraw @s {"text":"Nguồn: Nghiền quặng bằng Ore Crusher","color":"white"}'
+  - 'tellraw @s {"text":"Có thể rửa để lấy bụi tinh khiết","color":"yellow"}'
+  - playsound random.levelup @s

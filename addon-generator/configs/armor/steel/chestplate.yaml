@@ -1,0 +1,30 @@
+type: chestplate
+id: steel_alloy_chestplate
+name: lang:armor.steel_alloy_chestplate
+texture: ../../../assets/steel_alloy/steel_alloy_chestplate.png
+durability: 640
+protection: 8
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: steel_alloy_layer_1
+armorLayerTexturePath: ../../../assets/steel_alloy/steel_alloy_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: steel_alloy_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:steel_alloy_ingot
+    result: apeirix:steel_alloy_chestplate
+    count: 1
+    unlock:
+      - apeirix:steel_alloy_ingot
+materialId: apeirix:steel_alloy_ingot
+enchantability: 22

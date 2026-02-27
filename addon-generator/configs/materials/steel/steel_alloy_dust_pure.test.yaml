@@ -1,0 +1,10 @@
+id: steel_alloy_dust_pure
+testCommands:
+  - "# Test: Bụi Hợp Kim Thép Tinh Khiết"
+  - clear @s
+  - give @s apeirix:steel_alloy_dust_pure 64
+  - 'tellraw @s {"text":"=== Test: Bụi Hợp Kim Thép Tinh Khiết ===","color":"gold"}'
+  - 'tellraw @s {"text":"Material: Pure Steel Alloy Dust","color":"aqua"}'
+  - 'tellraw @s {"text":"Nguồn: Rửa bụi hợp kim thép","color":"white"}'
+  - 'tellraw @s {"text":"Nung trong lò để lấy thỏi","color":"yellow"}'
+  - playsound random.levelup @s

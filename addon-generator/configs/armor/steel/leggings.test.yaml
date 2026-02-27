@@ -1,0 +1,11 @@
+id: steel_alloy_leggings
+testCommands:
+  - "# Test: Quần Giáp Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_leggings
+  - 'tellraw @s {"text":"=== Test: Quần Giáp Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Protection: 6 | Durability: 600","color":"aqua"}'
+  - 'tellraw @s {"text":"Slot: Legs | Enchantability: 22","color":"gray"}'
+  - 'tellraw @s {"text":"Trimmable: Yes","color":"yellow"}'
+  - 'tellraw @s {"text":"Mặc vào để test protection!","color":"white"}'
+  - playsound random.levelup @s

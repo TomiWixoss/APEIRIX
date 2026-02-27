@@ -1,0 +1,30 @@
+type: sword
+id: steel_alloy_sword
+name: lang:tools.steel_alloy_sword
+texture: ../../../assets/steel_alloy/steel_alloy_sword.png
+damage: 7
+category: equipment
+group: itemGroup.name.sword
+specialBlocks:
+  - block: minecraft:web
+    speed: 15
+  - block: minecraft:bamboo
+    speed: 6
+recipe:
+  type: shaped
+  id: steel_alloy_sword
+  pattern:
+    - "#"
+    - "#"
+    - S
+  ingredients:
+    "#": apeirix:steel_alloy_ingot
+    S: minecraft:stick
+  result: apeirix:steel_alloy_sword
+  count: 1
+  unlock:
+    - apeirix:steel_alloy_ingot
+materialId: apeirix:steel_alloy_ingot
+durability: 750
+enchantability: 22
+tier: diamond

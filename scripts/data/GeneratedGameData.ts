@@ -61,6 +61,31 @@ export const GENERATED_TOOLS = [
     durability: 375
   },
   {
+    id: "apeirix:steel_alloy_pickaxe",
+    type: "pickaxe" as const,
+    durability: 750
+  },
+  {
+    id: "apeirix:steel_alloy_axe",
+    type: "axe" as const,
+    durability: 750
+  },
+  {
+    id: "apeirix:steel_alloy_shovel",
+    type: "shovel" as const,
+    durability: 750
+  },
+  {
+    id: "apeirix:steel_alloy_hoe",
+    type: "hoe" as const,
+    durability: 750
+  },
+  {
+    id: "apeirix:steel_alloy_sword",
+    type: "sword" as const,
+    durability: 750
+  },
+  {
     id: "apeirix:wooden_hammer",
     type: "hammer" as const,
     durability: 59
@@ -89,6 +114,11 @@ export const GENERATED_TOOLS = [
     id: "apeirix:bronze_hammer",
     type: "hammer" as const,
     durability: 375
+  },
+  {
+    id: "apeirix:steel_alloy_hammer",
+    type: "hammer" as const,
+    durability: 750
   },
   {
     id: "apeirix:diamond_hammer",
@@ -203,6 +233,63 @@ export const GENERATED_WIKI_ITEMS = [
       "Độ cứng": "16.65",
       "Chế tạo": "9 thỏi đồng thanh",
       "Công cụ": "Cần cuốc đá trở lên"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_ingot",
+    category: "materials",
+    name: "Thỏi Hợp Kim Thép",
+    description: "Hợp kim thép cao cấp được tạo từ sắt và than. Mạnh hơn nhiều so với đồng thanh, dùng để chế tạo công cụ và giáp cao cấp.",
+    info: {
+      "Độ Hiếm": "Hiếm",
+      "Chế Tạo": "Hợp kim từ sắt và than",
+      "Độ Bền Công Cụ": "750",
+      "Khả Năng Phù Phép": "22"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_nugget",
+    category: "materials",
+    name: "Mảnh Hợp Kim Thép",
+    description: "Mảnh nhỏ của hợp kim thép. 9 mảnh tạo thành 1 thỏi.",
+    info: {
+      "Độ Hiếm": "Hiếm",
+      "Nguồn": "Phân rã thỏi hợp kim thép",
+      "Chế Tạo": "1 thỏi = 9 mảnh"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_block",
+    category: "materials",
+    name: "Khối Hợp Kim Thép",
+    description: "Khối hợp kim thép dùng để lưu trữ hoặc trang trí. Có thể phá thành 9 thỏi.",
+    info: {
+      "Độ Hiếm": "Hiếm",
+      "Độ Cứng": "5.0",
+      "Chế Tạo": "9 thỏi hợp kim thép",
+      "Công Cụ": "Cần cuốc đá trở lên"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_dust",
+    category: "materials",
+    name: "Bụi Hợp Kim Thép",
+    description: "Bụi hợp kim thép nghiền từ quặng. Có thể rửa để lấy bụi tinh khiết.",
+    info: {
+      "Độ Hiếm": "Hiếm",
+      "Nguồn": "Nghiền quặng bằng Ore Crusher",
+      "Xử Lý": "Rửa để lấy bụi tinh khiết"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_dust_pure",
+    category: "materials",
+    name: "Bụi Hợp Kim Thép Tinh Khiết",
+    description: "Bụi hợp kim thép đã được rửa sạch. Nung để lấy thỏi hợp kim thép.",
+    info: {
+      "Độ Hiếm": "Hiếm",
+      "Nguồn": "Rửa bụi hợp kim thép",
+      "Xử Lý": "Nung trong lò để lấy thỏi"
     },
   },
   {
@@ -354,6 +441,85 @@ export const GENERATED_WIKI_ITEMS = [
     },
   },
   {
+    id: "apeirix:steel_alloy_pickaxe",
+    category: "tools",
+    name: "Cuốc Hợp Kim Thép",
+    description: "Cuốc hợp kim thép để đào đá và quặng. Tương đương với cuốc kim cương.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "750",
+      "Sát Thương": "+5",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "3 thỏi hợp kim thép + 2 que gỗ"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_axe",
+    category: "tools",
+    name: "Rìu Hợp Kim Thép",
+    description: "Rìu hợp kim thép để chặt gỗ. Cũng có thể dùng làm vũ khí.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "750",
+      "Sát Thương": "+6",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "3 thỏi hợp kim thép + 2 que gỗ"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_shovel",
+    category: "tools",
+    name: "Xẻng Hợp Kim Thép",
+    description: "Xẻng hợp kim thép để đào đất, cát, sỏi và các khối mềm khác.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "750",
+      "Sát Thương": "+4",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "1 thỏi hợp kim thép + 2 que gỗ"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_hoe",
+    category: "tools",
+    name: "Cuốc Hợp Kim Thép",
+    description: "Cuốc hợp kim thép để làm đất và thu hoạch cây trồng nhanh chóng.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "750",
+      "Sát Thương": "+5",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "2 thỏi hợp kim thép + 2 que gỗ"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_sword",
+    category: "tools",
+    name: "Kiếm Hợp Kim Thép",
+    description: "Kiếm hợp kim thép để chiến đấu. Chặt mạng nhện và tre nhanh hơn.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "750",
+      "Sát Thương": "+7",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "2 thỏi hợp kim thép + 1 que gỗ"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_hammer",
+    category: "tools",
+    name: "Búa Hợp Kim Thép",
+    description: "Búa hợp kim thép mạnh mẽ để đào vùng 3x3. Hiệu quả cao cho khai thác quy mô lớn.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "750",
+      "Sát Thương": "+6",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "6 thỏi hợp kim thép + 1 que gỗ",
+      "Đặc Biệt": "Đào vùng 3x3"
+    },
+  },
+  {
     id: "apeirix:bronze_helmet",
     category: "armor",
     name: "Mũ Đồng Thanh",
@@ -403,6 +569,58 @@ export const GENERATED_WIKI_ITEMS = [
       "Giáp": "+1",
       "Độ phù phép": "18",
       "Chế tạo": "4 thỏi đồng thanh"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_helmet",
+    category: "armor",
+    name: "Mũ Hợp Kim Thép",
+    description: "Mũ hợp kim thép bảo vệ đầu. Tương đương với mũ kim cương.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "440",
+      "Giáp": "+3",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "5 thỏi hợp kim thép"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_chestplate",
+    category: "armor",
+    name: "Áo Giáp Hợp Kim Thép",
+    description: "Áo giáp hợp kim thép bảo vệ thân. Cung cấp khả năng bảo vệ tốt nhất.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "640",
+      "Giáp": "+8",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "8 thỏi hợp kim thép"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_leggings",
+    category: "armor",
+    name: "Quần Hợp Kim Thép",
+    description: "Quần hợp kim thép bảo vệ chân. Khả năng bảo vệ tốt thứ hai sau áo giáp.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "600",
+      "Giáp": "+6",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "7 thỏi hợp kim thép"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_boots",
+    category: "armor",
+    name: "Giày Hợp Kim Thép",
+    description: "Giày hợp kim thép bảo vệ bàn chân. Giảm sát thương rơi.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "520",
+      "Giáp": "+3",
+      "Khả Năng Phù Phép": "22",
+      "Chế Tạo": "4 thỏi hợp kim thép"
     },
   },
   {
@@ -784,6 +1002,7 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:iron_hammer",
   "apeirix:golden_hammer",
   "apeirix:bronze_hammer",
+  "apeirix:steel_alloy_hammer",
   "apeirix:diamond_hammer",
   "apeirix:netherite_hammer"
 ];
@@ -795,6 +1014,11 @@ export const GENERATED_BRASS_SIFTER = [
   {
     dustId: "apeirix:bronze_ingot_dust",
     pureDustId: "apeirix:bronze_ingot_dust_pure",
+    stoneDustId: "apeirix:cobblestone_dust"
+  },
+  {
+    dustId: "apeirix:steel_alloy_dust",
+    pureDustId: "apeirix:steel_alloy_dust_pure",
     stoneDustId: "apeirix:cobblestone_dust"
   },
   {
@@ -877,6 +1101,8 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:netherrack_dust",
   "apeirix:raw_tin",
   "apeirix:redstone_dust_pure",
+  "apeirix:steel_alloy_dust",
+  "apeirix:steel_alloy_dust_pure",
   "apeirix:tin_ingot_dust",
   "apeirix:tin_ingot_dust_pure",
   "minecraft:raw_copper",

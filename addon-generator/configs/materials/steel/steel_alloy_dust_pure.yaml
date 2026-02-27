@@ -1,0 +1,27 @@
+id: steel_alloy_dust_pure
+name: lang:materials.steel_alloy_dust_pure
+texture: ../../../assets/steel_alloy/steel_alloy_dust_pure.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: apeirix:steel_alloy_ingot_from_pure_dust_smelting
+    input: apeirix:steel_alloy_dust_pure
+    output: apeirix:steel_alloy_ingot
+    tags:
+      - furnace
+      - blast_furnace
+    unlock:
+      - apeirix:steel_alloy_dust_pure
+  - type: shaped
+    id: steel_alloy_ingot_from_pure_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:steel_alloy_dust_pure
+    result: apeirix:steel_alloy_ingot
+    count: 1
+    unlock:
+      - apeirix:steel_alloy_dust_pure

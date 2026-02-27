@@ -1,0 +1,13 @@
+id: steel_alloy_sword
+testCommands:
+  - "# Test: Kiếm Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_sword
+  - summon zombie ~ ~1 ~3
+  - summon skeleton ~ ~1 ~5
+  - 'tellraw @s {"text":"=== Test: Kiếm Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Damage: 7 | Durability: 750","color":"aqua"}'
+  - 'tellraw @s {"text":"Special: Web (15x), Bamboo (6x)","color":"gray"}'
+  - 'tellraw @s {"text":"Enchantability: 22","color":"yellow"}'
+  - 'tellraw @s {"text":"Đã spawn Zombie + Skeleton để test combat!","color":"red"}'
+  - playsound random.levelup @s

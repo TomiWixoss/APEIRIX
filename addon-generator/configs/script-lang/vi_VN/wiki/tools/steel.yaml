@@ -1,0 +1,63 @@
+# Dữ Liệu Wiki Công Cụ Steel Alloy (Tiếng Việt)
+
+items:
+  steel_alloy_pickaxe:
+    name: "Cuốc Hợp Kim Thép"
+    description: "Cuốc hợp kim thép để đào đá và quặng. Tương đương với cuốc kim cương."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "750"
+      Sát Thương: "+5"
+      Khả Năng Phù Phép: "22"
+      Chế Tạo: "3 thỏi hợp kim thép + 2 que gỗ"
+
+  steel_alloy_axe:
+    name: "Rìu Hợp Kim Thép"
+    description: "Rìu hợp kim thép để chặt gỗ. Cũng có thể dùng làm vũ khí."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "750"
+      Sát Thương: "+6"
+      Khả Năng Phù Phép: "22"
+      Chế Tạo: "3 thỏi hợp kim thép + 2 que gỗ"
+
+  steel_alloy_shovel:
+    name: "Xẻng Hợp Kim Thép"
+    description: "Xẻng hợp kim thép để đào đất, cát, sỏi và các khối mềm khác."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "750"
+      Sát Thương: "+4"
+      Khả Năng Phù Phép: "22"
+      Chế Tạo: "1 thỏi hợp kim thép + 2 que gỗ"
+
+  steel_alloy_hoe:
+    name: "Cuốc Hợp Kim Thép"
+    description: "Cuốc hợp kim thép để làm đất và thu hoạch cây trồng nhanh chóng."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "750"
+      Sát Thương: "+5"
+      Khả Năng Phù Phép: "22"
+      Chế Tạo: "2 thỏi hợp kim thép + 2 que gỗ"
+
+  steel_alloy_sword:
+    name: "Kiếm Hợp Kim Thép"
+    description: "Kiếm hợp kim thép để chiến đấu. Chặt mạng nhện và tre nhanh hơn."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "750"
+      Sát Thương: "+7"
+      Khả Năng Phù Phép: "22"
+      Chế Tạo: "2 thỏi hợp kim thép + 1 que gỗ"
+
+  steel_alloy_hammer:
+    name: "Búa Hợp Kim Thép"
+    description: "Búa hợp kim thép mạnh mẽ để đào vùng 3x3. Hiệu quả cao cho khai thác quy mô lớn."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "750"
+      Sát Thương: "+6"
+      Khả Năng Phù Phép: "22"
+      Chế Tạo: "6 thỏi hợp kim thép + 1 que gỗ"
+      Đặc Biệt: "Đào vùng 3x3"

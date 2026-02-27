@@ -1,0 +1,63 @@
+# Steel Alloy Tools Wiki Data (English)
+
+items:
+  steel_alloy_pickaxe:
+    name: "Steel Alloy Pickaxe"
+    description: "Steel alloy pickaxe for mining stone and ores. Equivalent to diamond pickaxe."
+    info:
+      Material: "Steel Alloy"
+      Durability: "750"
+      Damage: "+5"
+      Enchantability: "22"
+      Crafting: "3 steel alloy ingots + 2 sticks"
+
+  steel_alloy_axe:
+    name: "Steel Alloy Axe"
+    description: "Steel alloy axe for chopping wood. Can also be used as a weapon."
+    info:
+      Material: "Steel Alloy"
+      Durability: "750"
+      Damage: "+6"
+      Enchantability: "22"
+      Crafting: "3 steel alloy ingots + 2 sticks"
+
+  steel_alloy_shovel:
+    name: "Steel Alloy Shovel"
+    description: "Steel alloy shovel for digging dirt, sand, gravel and other soft blocks."
+    info:
+      Material: "Steel Alloy"
+      Durability: "750"
+      Damage: "+4"
+      Enchantability: "22"
+      Crafting: "1 steel alloy ingot + 2 sticks"
+
+  steel_alloy_hoe:
+    name: "Steel Alloy Hoe"
+    description: "Steel alloy hoe for tilling soil and harvesting crops quickly."
+    info:
+      Material: "Steel Alloy"
+      Durability: "750"
+      Damage: "+5"
+      Enchantability: "22"
+      Crafting: "2 steel alloy ingots + 2 sticks"
+
+  steel_alloy_sword:
+    name: "Steel Alloy Sword"
+    description: "Steel alloy sword for combat. Cuts cobwebs and bamboo faster."
+    info:
+      Material: "Steel Alloy"
+      Durability: "750"
+      Damage: "+7"
+      Enchantability: "22"
+      Crafting: "2 steel alloy ingots + 1 stick"
+
+  steel_alloy_hammer:
+    name: "Steel Alloy Hammer"
+    description: "Powerful steel alloy hammer for 3x3 mining. Highly efficient for large-scale mining."
+    info:
+      Material: "Steel Alloy"
+      Durability: "750"
+      Damage: "+6"
+      Enchantability: "22"
+      Crafting: "6 steel alloy ingots + 1 stick"
+      Special: "Mines 3x3 area"

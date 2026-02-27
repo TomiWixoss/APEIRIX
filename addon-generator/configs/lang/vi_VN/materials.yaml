@@ -38,3 +38,10 @@ materials:
   lapis_block_dust_pure: Bụi Lưu Ly Tinh Khiết
   redstone_dust_pure: Bụi Đá Đỏ Tinh Khiết
   tin_ingot_dust_pure: Bụi Thiếc Tinh Khiết
+
+  # Steel Alloy
+  steel_alloy_ingot: Thỏi Hợp Kim Thép
+  steel_alloy_nugget: Mảnh Hợp Kim Thép
+  steel_alloy_block: Khối Hợp Kim Thép
+  steel_alloy_dust: Bụi Hợp Kim Thép
+  steel_alloy_dust_pure: Bụi Hợp Kim Thép Tinh Khiết

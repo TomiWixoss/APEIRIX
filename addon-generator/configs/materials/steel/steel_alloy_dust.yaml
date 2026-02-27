@@ -1,0 +1,34 @@
+id: steel_alloy_dust
+name: lang:materials.steel_alloy_dust
+texture: ../../../assets/steel_alloy/steel_alloy_dust.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: steel_alloy_dust_from_iron_coal_dust
+    ingredients:
+      - apeirix:iron_ingot_dust
+      - apeirix:iron_ingot_dust
+      - apeirix:iron_ingot_dust
+      - apeirix:coal_dust
+    result: apeirix:steel_alloy_dust
+    count: 4
+    unlock:
+      - apeirix:iron_ingot_dust
+      - apeirix:coal_dust
+    craftingTags:
+      - alloy_mixing_crafting
+  - type: shaped
+    id: steel_alloy_ingot_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:steel_alloy_dust
+    result: apeirix:steel_alloy_ingot
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:steel_alloy_dust

@@ -1,0 +1,26 @@
+id: steel_alloy_ingot
+name: lang:materials.steel_alloy_ingot
+texture: ../../../assets/steel_alloy/steel_alloy_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: apeirix:steel_alloy_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:steel_alloy_nugget
+    result: apeirix:steel_alloy_ingot
+    count: 1
+    unlock:
+      - apeirix:steel_alloy_nugget
+  - type: shapeless
+    id: apeirix:steel_alloy_ingot_from_block
+    ingredients:
+      - apeirix:steel_alloy_block
+    result: apeirix:steel_alloy_ingot
+    count: 9
+    unlock:
+      - apeirix:steel_alloy_block

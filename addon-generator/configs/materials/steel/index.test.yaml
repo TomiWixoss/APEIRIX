@@ -1,0 +1,6 @@
+import:
+  - steel_alloy_ingot.test.yaml
+  - steel_alloy_nugget.test.yaml
+  - steel_alloy_block.test.yaml
+  - steel_alloy_dust.test.yaml
+  - steel_alloy_dust_pure.test.yaml

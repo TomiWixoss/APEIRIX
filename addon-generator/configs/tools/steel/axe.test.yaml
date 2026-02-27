@@ -1,0 +1,13 @@
+id: steel_alloy_axe
+testCommands:
+  - "# Test: Rìu Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_axe
+  - give @s minecraft:oak_log 64
+  - give @s minecraft:pumpkin 16
+  - 'tellraw @s {"text":"=== Test: Rìu Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Damage: 6 | Durability: 750","color":"aqua"}'
+  - 'tellraw @s {"text":"Digger: Wood, Log, Pumpkin, Plant Stem","color":"gray"}'
+  - 'tellraw @s {"text":"Enchantability: 22","color":"yellow"}'
+  - 'tellraw @s {"text":"Đã cho Wood + Pumpkin để test chopping!","color":"green"}'
+  - playsound random.levelup @s

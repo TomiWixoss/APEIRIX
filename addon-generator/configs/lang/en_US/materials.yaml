@@ -38,3 +38,10 @@ materials:
   lapis_block_dust_pure: Pure Lapis Lazuli Dust
   redstone_dust_pure: Pure Redstone Dust
   tin_ingot_dust_pure: Pure Tin Dust
+
+  # Steel Alloy
+  steel_alloy_ingot: Steel Alloy Ingot
+  steel_alloy_nugget: Steel Alloy Nugget
+  steel_alloy_block: Steel Alloy Block
+  steel_alloy_dust: Steel Alloy Dust
+  steel_alloy_dust_pure: Pure Steel Alloy Dust

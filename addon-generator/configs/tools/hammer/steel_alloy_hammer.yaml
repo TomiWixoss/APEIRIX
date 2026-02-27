@@ -1,0 +1,32 @@
+type: hammer
+id: steel_alloy_hammer
+name: lang:tools.steel_alloy_hammer
+texture: ../../../assets/steel_alloy/steel_alloy_hammer.png
+damage: 4
+category: equipment
+materialId: apeirix:steel_alloy_ingot
+durability: 750
+enchantability: 18
+efficiency: 8
+tier: diamond
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: steel_alloy_hammer
+  pattern:
+    - "###"
+    - "#S#"
+    - " S "
+  ingredients:
+    "#": apeirix:steel_alloy_ingot
+    S: minecraft:stick
+  result: apeirix:steel_alloy_hammer
+  count: 1
+  unlock:
+    - apeirix:steel_alloy_ingot

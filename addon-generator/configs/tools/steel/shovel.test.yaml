@@ -1,0 +1,14 @@
+id: steel_alloy_shovel
+testCommands:
+  - "# Test: Xẻng Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_shovel
+  - give @s minecraft:dirt 64
+  - give @s minecraft:sand 64
+  - give @s minecraft:gravel 64
+  - 'tellraw @s {"text":"=== Test: Xẻng Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Damage: 4 | Durability: 750","color":"aqua"}'
+  - 'tellraw @s {"text":"Digger: Dirt, Sand, Gravel, Snow, Clay","color":"gray"}'
+  - 'tellraw @s {"text":"Enchantability: 22","color":"yellow"}'
+  - 'tellraw @s {"text":"Đã cho Dirt + Sand + Gravel để test digging!","color":"green"}'
+  - playsound random.levelup @s

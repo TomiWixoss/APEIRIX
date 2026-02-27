@@ -1,0 +1,11 @@
+id: steel_alloy_helmet
+testCommands:
+  - "# Test: Mũ Hợp Kim Thép"
+  - clear @s
+  - give @s apeirix:steel_alloy_helmet
+  - 'tellraw @s {"text":"=== Test: Mũ Hợp Kim Thép ===","color":"gold"}'
+  - 'tellraw @s {"text":"Protection: 3 | Durability: 440","color":"aqua"}'
+  - 'tellraw @s {"text":"Slot: Head | Enchantability: 22","color":"gray"}'
+  - 'tellraw @s {"text":"Trimmable: Yes","color":"yellow"}'
+  - 'tellraw @s {"text":"Mặc vào để test protection!","color":"white"}'
+  - playsound random.levelup @s

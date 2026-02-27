@@ -1,0 +1,14 @@
+id: steel_alloy_nugget
+name: lang:materials.steel_alloy_nugget
+texture: ../../../assets/steel_alloy/steel_alloy_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: steel_alloy_nugget_from_ingot
+    ingredients:
+      - apeirix:steel_alloy_ingot
+    result: apeirix:steel_alloy_nugget
+    count: 9
+    unlock:
+      - apeirix:steel_alloy_ingot

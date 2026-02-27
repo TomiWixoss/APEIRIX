@@ -1,0 +1,7 @@
+import:
+  - steel_alloy_ingot.yaml
+  - steel_alloy_nugget.yaml
+  - steel_alloy_block.yaml
+  - steel_alloy_dust.yaml
+  - steel_alloy_dust_pure.yaml
+  - index.test.yaml

@@ -1,5 +1,6 @@
 import:
   - tin/index.yaml
   - bronze/index.yaml
+  - steel/index.yaml
   - dusts/index.yaml
   - processing/index.yaml

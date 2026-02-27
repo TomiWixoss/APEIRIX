@@ -1,0 +1,7 @@
+import:
+  - pickaxe.yaml
+  - axe.yaml
+  - shovel.yaml
+  - hoe.yaml
+  - sword.yaml
+  - index.test.yaml
