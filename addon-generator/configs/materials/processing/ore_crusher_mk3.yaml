@@ -9,6 +9,11 @@ explosionResistance: 20.0
 mapColor: "#6A6A6A"
 requiresTool: true
 toolTier: diamond
+# Fuel configuration
+fuel:
+  blockId: minecraft:coal_block
+  usesPerBlock: 16
+  detectFaces: all # all = tất cả 6 mặt, bottom = chỉ đáy
 processingRecipes:
   # Vanilla stone blocks
   - input: minecraft:stone

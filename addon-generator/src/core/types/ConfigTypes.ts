@@ -107,6 +107,13 @@ export interface BlockConfig {
     blendFrames?: boolean;
   };
   
+  // Fuel configuration (for machines)
+  fuel?: {
+    blockId: string;
+    usesPerBlock: number;
+    detectFaces?: 'all' | 'bottom';
+  };
+  
   // Processing recipes (for processing machines)
   processingRecipes?: Array<{
     input: string;

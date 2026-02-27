@@ -13,6 +13,12 @@ export interface ProcessingRecipeData {
   // BrassSifter specific
   stoneDust?: string;
   pureDust?: string;
+  // Fuel config
+  fuelConfig?: {
+    blockId: string;
+    usesPerBlock: number;
+    detectFaces: 'all' | 'bottom';
+  };
 }
 
 /**
@@ -49,12 +55,18 @@ export class ProcessingRecipeGenerator {
   private generateContent(recipes: ProcessingRecipeData[]): string {
     // Group recipes by machine type
     const recipesByMachine: Record<string, ProcessingRecipeData[]> = {};
+    const fuelConfigs: Record<string, any> = {};
     
     for (const recipe of recipes) {
       if (!recipesByMachine[recipe.machineType]) {
         recipesByMachine[recipe.machineType] = [];
       }
       recipesByMachine[recipe.machineType].push(recipe);
+      
+      // Store fuel config (same for all recipes of a machine)
+      if (recipe.fuelConfig && !fuelConfigs[recipe.machineType]) {
+        fuelConfigs[recipe.machineType] = recipe.fuelConfig;
+      }
     }
 
     return `/**
@@ -87,6 +99,12 @@ export interface BrassSifterRecipe {
   stoneDust: string;
 }
 
+export interface FuelConfig {
+  blockId: string;
+  usesPerBlock: number;
+  detectFaces: 'all' | 'bottom';
+}
+
 /**
  * Generated processing recipes grouped by machine type
  */
@@ -107,6 +125,13 @@ ${this.generateOreCrusherRecipes(recipesByMachine)}
 export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
 ${this.generateBrassSifterRecipes(recipesByMachine)}
 ];
+
+/**
+ * Generated fuel configs for machines
+ */
+export const GENERATED_FUEL_CONFIGS: Record<string, FuelConfig> = {
+${this.generateFuelConfigs(fuelConfigs)}
+};
 `;
   }
 
@@ -186,5 +211,20 @@ ${this.generateBrassSifterRecipes(recipesByMachine)}
     }
     
     return hasRecipes ? lines.join('\n') : '';
+  }
+
+  /**
+   * Generate fuel configs
+   */
+  private generateFuelConfigs(fuelConfigs: Record<string, any>): string {
+    const lines: string[] = [];
+    const entries = Object.entries(fuelConfigs);
+    
+    entries.forEach(([machineType, config], index) => {
+      const isLast = index === entries.length - 1;
+      lines.push(`  "apeirix:${machineType}": { blockId: "${config.blockId}", usesPerBlock: ${config.usesPerBlock}, detectFaces: "${config.detectFaces}" }${isLast ? '' : ','}`);
+    });
+    
+    return lines.join('\n');
   }
 }

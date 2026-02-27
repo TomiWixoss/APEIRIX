@@ -28,6 +28,12 @@ export interface BrassSifterRecipe {
   stoneDust: string;
 }
 
+export interface FuelConfig {
+  blockId: string;
+  usesPerBlock: number;
+  detectFaces: 'all' | 'bottom';
+}
+
 /**
  * Generated processing recipes grouped by machine type
  */
@@ -132,3 +138,12 @@ export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
   { inputId: "apeirix:tin_ingot_dust", pureDust: "apeirix:tin_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:bronze_ingot_dust", pureDust: "apeirix:bronze_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
 ];
+
+/**
+ * Generated fuel configs for machines
+ */
+export const GENERATED_FUEL_CONFIGS: Record<string, FuelConfig> = {
+  "apeirix:ore_crusher_mk1": { blockId: "minecraft:coal_block", usesPerBlock: 64, detectFaces: "all" },
+  "apeirix:ore_crusher_mk2": { blockId: "minecraft:coal_block", usesPerBlock: 32, detectFaces: "all" },
+  "apeirix:ore_crusher_mk3": { blockId: "minecraft:coal_block", usesPerBlock: 16, detectFaces: "all" }
+};

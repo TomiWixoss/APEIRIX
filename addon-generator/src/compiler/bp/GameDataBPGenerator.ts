@@ -118,7 +118,12 @@ export class GameDataBPGenerator {
                 output: recipe.pureDust, // Primary output
                 processingTime: 1, // Instant for brass sifter
                 stoneDust: recipe.stoneDust,
-                pureDust: recipe.pureDust
+                pureDust: recipe.pureDust,
+                fuelConfig: block.fuel ? {
+                  blockId: block.fuel.blockId,
+                  usesPerBlock: block.fuel.usesPerBlock,
+                  detectFaces: block.fuel.detectFaces || 'bottom'
+                } : undefined
               });
             }
             // OreCrusher-style recipe (input -> stoneDust + oreDust)
@@ -130,7 +135,12 @@ export class GameDataBPGenerator {
                 processingTime: 1, // Instant for ore crusher
                 stoneDustCount: recipe.stoneDustCount,
                 oreDust: recipe.oreDust,
-                oreDustCount: recipe.oreDustCount
+                oreDustCount: recipe.oreDustCount,
+                fuelConfig: block.fuel ? {
+                  blockId: block.fuel.blockId,
+                  usesPerBlock: block.fuel.usesPerBlock,
+                  detectFaces: block.fuel.detectFaces || 'bottom'
+                } : undefined
               });
             }
             // Compressor-style recipe (input -> output)
@@ -139,7 +149,12 @@ export class GameDataBPGenerator {
                 machineType: block.id,
                 input: recipe.input,
                 output: recipe.output,
-                processingTime: recipe.processingTime || 60
+                processingTime: recipe.processingTime || 60,
+                fuelConfig: block.fuel ? {
+                  blockId: block.fuel.blockId,
+                  usesPerBlock: block.fuel.usesPerBlock,
+                  detectFaces: block.fuel.detectFaces || 'bottom'
+                } : undefined
               });
             }
           }
