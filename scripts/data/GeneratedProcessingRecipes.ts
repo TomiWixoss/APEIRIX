@@ -41,6 +41,29 @@ export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = 
   "compressor": [
     { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_base_plate", processingTime: 60 }
   ],
+  "crusher": [
+    { inputId: "minecraft:stone", outputId: "apeirix:cobblestone_dust", processingTime: 40 },
+    { inputId: "minecraft:cobblestone", outputId: "apeirix:cobblestone_dust", processingTime: 40 },
+    { inputId: "minecraft:deepslate", outputId: "apeirix:deepslate_dust", processingTime: 40 },
+    { inputId: "minecraft:cobbled_deepslate", outputId: "apeirix:deepslate_dust", processingTime: 40 },
+    { inputId: "minecraft:netherrack", outputId: "apeirix:netherrack_dust", processingTime: 40 },
+    { inputId: "minecraft:coal_ore", outputId: "apeirix:coal_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_coal_ore", outputId: "apeirix:coal_dust", processingTime: 60 },
+    { inputId: "minecraft:iron_ore", outputId: "apeirix:iron_ingot_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_iron_ore", outputId: "apeirix:iron_ingot_dust", processingTime: 60 },
+    { inputId: "minecraft:copper_ore", outputId: "apeirix:copper_ingot_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_copper_ore", outputId: "apeirix:copper_ingot_dust", processingTime: 60 },
+    { inputId: "minecraft:gold_ore", outputId: "apeirix:gold_ingot_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_gold_ore", outputId: "apeirix:gold_ingot_dust", processingTime: 60 },
+    { inputId: "minecraft:diamond_ore", outputId: "apeirix:diamond_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_diamond_ore", outputId: "apeirix:diamond_dust", processingTime: 60 },
+    { inputId: "minecraft:emerald_ore", outputId: "apeirix:emerald_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_emerald_ore", outputId: "apeirix:emerald_dust", processingTime: 60 },
+    { inputId: "minecraft:lapis_ore", outputId: "apeirix:lapis_block_dust", processingTime: 60 },
+    { inputId: "minecraft:deepslate_lapis_ore", outputId: "apeirix:lapis_block_dust", processingTime: 60 },
+    { inputId: "apeirix:tin_ore", outputId: "apeirix:tin_ingot_dust", processingTime: 60 },
+    { inputId: "apeirix:deepslate_tin_ore", outputId: "apeirix:tin_ingot_dust", processingTime: 60 }
+  ],
 };
 
 /**

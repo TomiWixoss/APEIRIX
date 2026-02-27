@@ -14,9 +14,7 @@ export class BlockBPGenerator {
           id: block.id,
           name: block.name,
           texturePath: block.texture || block.texturePath,
-          textureTop: block.textureTop,
-          textureSide: block.textureSide,
-          textureFront: block.textureFront,
+          textures: block.textures, // Pass textures object for multi-face blocks
           category: block.category,
           destroyTime: block.destroyTime,
           explosionResistance: block.explosionResistance,

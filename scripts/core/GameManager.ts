@@ -16,6 +16,7 @@ import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { BrassSifterSystem } from "../systems/mining/BrassSifterSystem";
 import { CompressorSystem } from "../systems/mining/CompressorSystem";
+import { CrusherSystem } from "../systems/mining/CrusherSystem";
 import { RustMiteItemEatingSystem } from "../systems/entities/RustMiteItemEatingSystem";
 import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
@@ -137,6 +138,7 @@ export class GameManager {
         OreCrusherSystem.initialize();
         BrassSifterSystem.initialize();
         CompressorSystem.initialize();
+        CrusherSystem.initialize();
         RustMiteItemEatingSystem.initialize();
     }
 

@@ -58,3 +58,5 @@ blocks:
   brass_sifter: Brass Sifter
   compressor: Compressor
   compressor_on: Compressor (Running)
+  crusher: Crusher
+  crusher_on: Crusher (Running)

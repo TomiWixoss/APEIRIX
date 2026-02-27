@@ -5,5 +5,8 @@ import:
   - brass_sifter.yaml
   - compressor.yaml
   - compressor_on.yaml
+  - crusher.yaml
+  - crusher_on.yaml
   - ore_crusher.test.yaml
   - compressor.test.yaml
+  - crusher.test.yaml
