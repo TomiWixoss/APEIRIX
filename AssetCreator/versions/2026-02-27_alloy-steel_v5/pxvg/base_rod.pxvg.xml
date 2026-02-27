@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#444444FF" />
+    <color k="B" hex="#353535FF" />
+    <color k="C" hex="#D8D8D8FF" />
+    <color k="D" hex="#727272FF" />
+  </palette>
+  <layer id="main">
+    <row y="14" x1="1" x2="2" c="B" />
+    <dots c="A" pts="12,1 11,2 10,3 9,4 8,5 7,6 6,7 5,8 4,9 3,10 2,11 1,12" />
+    <dots c="B" pts="13,1 14,2 13,3 12,4 11,5 10,6 9,7 8,8 7,9 6,10 5,11 4,12 1,13 3,13" />
+    <dots c="C" pts="12,2 11,3 10,4 9,5 8,6 7,7 6,8 5,9 4,10 3,11 2,12" />
+    <dots c="D" pts="13,2 12,3 11,4 10,5 9,6 8,7 7,8 6,9 5,10 4,11 3,12 2,13" />
+  </layer>
+</pxvg>
