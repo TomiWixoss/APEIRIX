@@ -1,6 +1,6 @@
 id: engineering_hammer
 name: lang:materials.engineering_hammer
-texture: ../../../assets/steel_alloy/steel_alloy_engineering_hammer.png
+texture: ../../../assets/steel_alloy/engineering_hammer.png
 category: items
 maxStackSize: 1
 recipes:

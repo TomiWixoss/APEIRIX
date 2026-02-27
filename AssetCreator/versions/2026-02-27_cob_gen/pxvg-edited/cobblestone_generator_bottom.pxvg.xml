@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#3A3A3AFF" />
+    <color k="B" hex="#525252FF" />
+  </palette>
+  <layer id="main">
+    <rect x="15" y="0" w="1" h="16" c="A" />
+    <rect x="0" y="1" w="1" h="15" c="A" />
+    <rect x="14" y="1" w="1" h="14" c="B" />
+    <rect x="1" y="2" w="1" h="13" c="B" />
+    <rect x="2" y="2" w="2" h="2" c="A" />
+    <rect x="4" y="2" w="8" h="13" c="B" />
+    <rect x="12" y="2" w="2" h="2" c="A" />
+    <rect x="2" y="4" w="2" h="8" c="B" />
+    <rect x="12" y="4" w="2" h="8" c="B" />
+    <rect x="2" y="12" w="2" h="2" c="A" />
+    <rect x="12" y="12" w="2" h="2" c="A" />
+    <row y="0" x1="0" x2="14" c="A" />
+    <row y="1" x1="1" x2="13" c="B" />
+    <row y="14" x1="2" x2="3" c="B" />
+    <row y="14" x1="12" x2="13" c="B" />
+    <row y="15" x1="1" x2="14" c="A" />
+  </layer>
+</pxvg>

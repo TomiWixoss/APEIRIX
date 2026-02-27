@@ -1,4 +1,4 @@
-import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent, system } from "@minecraft/server";
+import { world, ItemStack, Player, EquipmentSlot, PlayerBreakBlockAfterEvent, system, GameMode } from "@minecraft/server";
 import { ToolRegistry } from "../../data/tools/ToolRegistry";
 import { TillableRegistry } from "../../data/blocks/TillableRegistry";
 
@@ -110,6 +110,11 @@ export class CustomToolSystem {
   }
 
   private damageTool(player: Player, tool: ItemStack, amount: number): void {
+    // Skip durability damage in Creative mode
+    if (player.getGameMode() === GameMode.Creative) {
+      return;
+    }
+    
     const durability = tool.getComponent("minecraft:durability");
     if (!durability) return;
 
