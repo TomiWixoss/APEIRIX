@@ -1,0 +1,310 @@
+# HƯỚNG DẪN PXVG FORMAT
+
+# PXVG (Pixel Vector Graphics)
+> PXVG là một ngôn ngữ đánh dấu (Markup Language) dựa trên XML, được thiết kế đặc biệt làm mã trung gian (Static IR) để định nghĩa và sinh hình ảnh Pixel Art. PXVG cho phép định nghĩa các khối, đường nét, điểm ảnh lẻ và các hình học ngữ nghĩa một cách ngắn gọn, tối ưu hóa kích thước chuỗi (Token) và đảm bảo an toàn tuyệt đối khi parse.
+
+## Cấu trúc gốc
+Mọi file PXVG (lưu với đuôi `.pxvg.xml`) phải được bao bọc trong thẻ `<pxvg>` với các thuộc tính kích thước Canvas.
+```xml
+<pxvg w="32" h="32" xmlns="http://pixci.dev/pxvg">
+  <!-- Nội dung bản vẽ -->
+</pxvg>
+```
+
+## Bảng màu (Palette)
+Định nghĩa các mã màu sử dụng trong bản vẽ. Có hai cách:
+1. Sử dụng palette có sẵn (ví dụ: `endesga-32`, `pico-8`):
+   `<palette load="endesga-32" />`
+2. Tự định nghĩa các màu cụ thể (gắn mã key 1 ký tự để tiết kiệm token khi gọi):
+   ```xml
+   <palette>
+     <color k="A" hex="#1C1C1EFF" />
+     <color k="B" hex="#FF0000FF" />
+   </palette>
+   ```
+
+## Hệ thống Lớp (Layers)
+Các đối tượng đồ họa được phân rã theo lớp để quản lý trật tự vẽ (overlap). Các thẻ vẽ phải nằm trong thẻ `<layer>`.
+```xml
+<layer id="main">
+  <!-- Chi tiết nét vẽ -->
+</layer>
+```
+
+## Các Thẻ Hình Học Cơ Bản (Primitives)
+*Mẹo Nhấn Mạnh:* Truyền `c="CLEAR"` vào BẤT KỲ thẻ nào dưới đây sẽ biến thẻ đó thành một **cục tẩy (Eraser)**, lập tức đục lẹm layer hiện tại thành trong suốt thay vì tô màu.
+Các thẻ dùng để đổ màu lên ma trận điểm ảnh với tọa độ bắt buộc là **số nguyên (Integer)**.
+- **`<rect>`**: Hình chữ nhật đặc.
+  *Thuộc tính:* `x`, `y` (tọa độ góc trái trên), `w` (rộng), `h` (cao), `c` (mã màu).
+- **`<row>`**: Chuỗi điểm ngang kéo dài liên tục trên 1 hàng y. (Dùng để tối ưu token).
+  *Thuộc tính:* `y` (hàng), `x1` (cột bắt đầu), `x2` (cột kết thúc), `c` (mã màu).
+- **`<dot>`**: Một điểm ảnh đơn lẻ.
+  *Thuộc tính:* `x`, `y`, `c` (mã màu).
+- **`<dots>`**: Tập hợp nhiều điểm ảnh đơn lẻ dùng chung một màu (siêu nén).
+  *Thuộc tính:* `c` (mã màu), `pts` (chuỗi tọa độ "x,y x,y...").
+- **`<line>`**: Đường thẳng vẽ bằng thuật toán Bresenham.
+  *Thuộc tính:* `x1`, `y1` (Bắt đầu), `x2`, `y2` (Kết thúc), `thickness` (Hoặc `t="2"` độ dày nét), `c` (mã màu).
+- **`<circle>`**: Hình tròn (thuật toán midpoint nén gai).
+  *Thuộc tính:* `cx`, `cy` (tâm), `r` (bán kính), `fill` ("true"/"false"), `c` (mã màu).
+- **`<ellipse>`**: Hình bầu dục tỷ lệ vàng.
+  *Thuộc tính:* `cx`, `cy` (tâm), `rx`, `ry` (bán trục ngang, dọc), `fill` ("true"/"false"), `c`.
+- **`<rounded-rect>`**: Hình chữ nhật bo góc viền.
+  *Thuộc tính:* `x`, `y` (top-left), `w`, `h`, `r` (bán kính góc bo), `c`.
+- **`<polygon>`**: Đa giác đặc.
+  *Thuộc tính:* `pts` (chuỗi điểm "x,y x,y..."), `c` (mã màu).
+- **`<curve>`**: Đường cong Bezier 3 điểm (pixel perfect).
+  *Thuộc tính:* `start` ("x,y"), `ctrl` ("x,y"), `end` ("x,y"), `t` (độ dày nét), `c` (mã màu).
+- **`<cubic-curve>`**: Đường cong Bezier 4 điểm.
+  *Thuộc tính:* `p0`, `p1`, `p2`, `p3` (các tọa độ "x,y"), `t` (độ dày nét), `c`.
+- **`<bucket>`**: Đổ thùng sơn lấp đầy khoảng trống kín.
+  *Thuộc tính:* `x`, `y` (điểm mồi xuất phát), `c`.
+- **`<dither>`**: Trộn 2 màu đục lỗ (Checkered pattern) tạo độ chuyển vùng.
+  *Thuộc tính:* `x`, `y`, `w`, `h`, `c` (màu chính 1), `c2` (màu xen kẽ 2), `pattern` ("checkered", "bayer"), `ratio` (nếu dùng bayer).
+- **`<gradient>`**: Phủ màu Gradient tuyến tính lên khu vực.
+  *Thuộc tính:* `x`, `y`, `w`, `h`, `mode` ("vertical", "horizontal", "diagonal_down", "diagonal_up"), `palette` ("color_key_1,color_key_2,...").
+- **`<noise>`**: Phủ các điểm sáng nhiễu hạt ngẫu nhiên (chỉ định vùng).
+  *Thuộc tính:* `x`, `y`, `w`, `h`, `density` (0.0 -> 1.0, vd "0.5"), `palette` ("c1,c2").
+
+## Thao Tác Biến Theo Từng Lớp (Transform & Alpha)
+Sử dụng như một thẻ đơn độc lập bên trong layer hoặc frame `<layer>...<flip-x />...</layer>`
+- **`<alpha-lock>`**: Bật/tắt chế độ khóa Alpha (Các lệnh rải điểm sau thẻ này sẽ chỉ ăn vào vùng ĐÃ CÓ MÀU).
+  *Thuộc tính:* `v` ("true" / "false"). VD: `<alpha-lock v="true" />`
+- **`<translate>`**: Dịch chuyển tịnh tiến. *Thuộc tính:* `dx`, `dy`.
+- **`<flip-x>`**, **`<flip-y>`**: Lật ảnh.
+- **`<mirror-x>`**, **`<mirror-y>`**: Sao chép nửa bức vẽ và tạo ảnh phản chiếu qua tâm gương tạc nắn đối xứng (rất đỉnh cho tạo hình body).
+
+## Hậu Kỳ (Post-processing)
+Áp dụng lên toàn bộ Canvas sau khi tất cả các layer đã được rải điểm. Bắt buộc đặt bên trong container `<postprocess>` ở **cuối file**. Đối với animation, hậu kỳ sẽ được áp dụng riêng biệt lên *từng frame* trước khi ghép lại thành Spritesheet.
+- **`<outline>`**: Viền tự động.
+  *Thuộc tính:* `sel-out` (True/False - nếu `true`, lấy màu vật thể làm viền rồi tô đậm đi và đổi tone màu), `thickness` (Độ dày), `color` (Nếu `sel-out="false"`, dùng màu gán sẵn, Vd: "#000000FF").
+- **`<shadow>`** (hoặc `<directional-shadow>`): Đổ bóng ánh sáng toàn cục lên khối 2D.
+  *Thuộc tính:* `dir` (Định hướng sáng: `top_left`, `top_right`...), `intensity` (Cường độ bóng 0.0 - 1.0).
+- **`<jaggies>`** (hoặc `<jaggies-cleanup>`): Tự diệt các góc vuông bị cấn hạt hoặc đường răng cưa lỗi trên bản vẽ. Không có thuộc tính.
+- **`<internal-aa>`**: Khử răng cưa (Anti-aliasing) nội sinh, tự vuốt mềm các đoạn ranh giới giao thoa giữa 2 màu nội bộ vật thể.
+- **`<shadow-mask>`**: Phủ bóng tối bo cong dạng hình cầu khối hắt.
+  *Thuộc tính:* `cx`, `cy` (tâm khối cầu), `r` (bán kính), `dir` (Hướng sáng `top_left`, vv...), `intensity` (0.0 -> 1.0).
+- **`<highlight-edge>`**: Đường viền bắt sáng quang học (Rim Light) làm nổi tách vật thể.
+  *Thuộc tính:* `dir`, `intensity`.
+
+## Animation & Rigging (Hoạt Ảnh và Lắp Ráp)
+PXVG hỗ trợ việc tái sử dụng linh kiện đồ họa thông qua cơ chế Bone & Rigging `<defs>` - `<use>`, giúp tiết kiệm token đáng kể và giữ vững tính liên tục (consistency) của nhân vật khi tạo Spritesheet. 
+
+- **`<defs>`**: Đặt khối này ở phần đầu, là nơi khai báo (định nghĩa) các bộ phận. Nội dung trong `<defs>` **không được hiển thị ngay**.
+- **`<group>`**: Gom một tập hợp các thẻ vẽ vật thể rời (VD: Cái đầu, Cánh tay). 
+  *Thuộc tính:* `id` (Tên định danh, VD: "head"). 
+- **`<animation>`**: Đánh dấu PXVG sẽ render ra một ảnh Spritesheet liên hoàn thay vì 1 ảnh tĩnh duy nhất.
+  *Thuộc tính:* `name` (Tên hoạt ảnh, Vd: "walk_cycle"), `columns` (Số cột trong lưới xuất ra, mặc định bằng tổng số frame).
+- **`<frame>`**: Định nghĩa một khung hình bên trong `<animation>`.
+  *Thuộc tính:* `id` (Số thứ tự hoặc tên).
+- **`<use>`**: Kéo thả khối `<group>` đã định nghĩa vào trong frame hoặc layer, hỗ trợ đẩy tọa độ hoặc lật chiều.
+  *Thuộc tính:* `ref` (Gắn với `id` của `<group>`), `x` (đẩy trục ngang), `y` (đẩy trục dọc), `flip-x` ("true" / "false" - Khấu trừ phép lật trái phải).
+
+**Ví dụ một Hoạt Ảnh Slime nảy:**
+```xml
+<pxvg w="32" h="32" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="01" hex="#1A1C2CFF" />
+    <color k="09" hex="#6ABE30FF" />
+  </palette>
+  
+  <defs>
+    <group id="slime_body">
+      <rect x="6" y="22" w="20" h="7" c="09" />
+      <row y="21" x1="8" x2="23" c="09" />
+      <row y="20" x1="10" x2="21" c="09" />
+    </group>
+    <group id="slime_eyes"><rect x="12" y="20" w="2" h="3" c="01" /></group>
+  </defs>
+
+  <animation name="bounce" columns="2">
+    <!-- Frame 1: Đứng yên -->
+    <frame id="1">
+      <use ref="slime_body" />
+      <use ref="slime_eyes" />
+    </frame>
+    <!-- Frame 2: Nảy lên (cả body và mắt dịch lên y="-4") -->
+    <frame id="2">
+      <use ref="slime_body" x="0" y="-4" />
+      <use ref="slime_eyes" x="0" y="-4" />
+    </frame>
+  </animation>
+  <postprocess><outline sel-out="false" color="#1A1C2CFF" thickness="1" /></postprocess>
+</pxvg>
+```
+
+
+================================================================================
+
+# DANH SÁCH FILE PXVG CẦN CHỈNH SỬA
+
+Dưới đây là các file PXVG hiện tại. Hãy chỉnh sửa chúng theo yêu cầu.
+
+## FILE: iron_block.pxvg.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#D1CFCFFF" />
+    <color k="B" hex="#C1C1C1FF" />
+    <color k="C" hex="#F2F2F2FF" />
+    <color k="D" hex="#ECECECFF" />
+    <color k="E" hex="#EAEAEAFF" />
+    <color k="F" hex="#E6E6E6FF" />
+    <color k="G" hex="#B9B9B9FF" />
+    <color k="H" hex="#B1B0B0FF" />
+    <color k="I" hex="#DCDCDCFF" />
+    <color k="J" hex="#E0E0E0FF" />
+    <color k="K" hex="#D6D6D6FF" />
+  </palette>
+  <layer id="main">
+    <rect x="10" y="1" w="5" h="2" c="F" />
+    <rect x="10" y="4" w="5" h="2" c="F" />
+    <rect x="8" y="7" w="7" h="2" c="F" />
+    <rect x="11" y="10" w="4" h="2" c="F" />
+    <rect x="9" y="13" w="6" h="2" c="F" />
+    <row y="0" x1="1" x2="2" c="B" />
+    <row y="0" x1="3" x2="10" c="A" />
+    <row y="0" x1="11" x2="14" c="B" />
+    <row y="1" x1="1" x2="5" c="C" />
+    <row y="1" x1="6" x2="8" c="D" />
+    <row y="2" x1="1" x2="9" c="F" />
+    <row y="3" x1="1" x2="7" c="I" />
+    <row y="3" x1="8" x2="10" c="J" />
+    <row y="3" x1="11" x2="14" c="K" />
+    <row y="4" x1="1" x2="6" c="C" />
+    <row y="4" x1="7" x2="9" c="D" />
+    <row y="5" x1="1" x2="9" c="F" />
+    <row y="6" x1="1" x2="5" c="I" />
+    <row y="6" x1="6" x2="9" c="J" />
+    <row y="6" x1="10" x2="14" c="K" />
+    <row y="7" x1="1" x2="2" c="C" />
+    <row y="7" x1="3" x2="7" c="D" />
+    <row y="8" x1="1" x2="7" c="F" />
+    <row y="9" x1="1" x2="8" c="I" />
+    <row y="9" x1="9" x2="11" c="J" />
+    <row y="9" x1="12" x2="14" c="K" />
+    <row y="10" x1="1" x2="6" c="C" />
+    <row y="10" x1="7" x2="10" c="D" />
+    <row y="11" x1="1" x2="10" c="F" />
+    <row y="12" x1="1" x2="6" c="I" />
+    <row y="12" x1="7" x2="10" c="J" />
+    <row y="12" x1="11" x2="14" c="K" />
+    <row y="13" x1="1" x2="4" c="C" />
+    <row y="13" x1="5" x2="8" c="D" />
+    <row y="14" x1="1" x2="8" c="F" />
+    <row y="15" x1="0" x2="6" c="B" />
+    <row y="15" x1="7" x2="8" c="G" />
+    <row y="15" x1="10" x2="15" c="G" />
+    <dots c="A" pts="0,0 15,0" />
+    <dots c="B" pts="0,1 15,1 0,2 0,4 0,5 0,7 0,8 0,10 0,11 0,13 0,14 9,15" />
+    <dots c="E" pts="9,1" />
+    <dots c="G" pts="15,2 15,4 15,5 15,7 15,8 15,10 15,11 15,13 15,14" />
+    <dots c="H" pts="0,3 15,3 0,6 15,6 0,9 15,9 0,12 15,12" />
+  </layer>
+</pxvg>
+```
+
+## FILE: iron_ingot.pxvg.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#5E5E5EFF" />
+    <color k="B" hex="#A8A8A8FF" />
+    <color k="C" hex="#727272FF" />
+    <color k="D" hex="#D8D8D8FF" />
+    <color k="E" hex="#FFFFFFFF" />
+    <color k="F" hex="#353535FF" />
+    <color k="G" hex="#828282FF" />
+    <color k="H" hex="#585858FF" />
+  </palette>
+  <layer id="main">
+    <rect x="8" y="4" w="4" h="3" c="D" />
+    <rect x="5" y="5" w="3" h="3" c="D" />
+    <rect x="0" y="6" w="1" h="5" c="A" />
+    <rect x="3" y="6" w="2" h="2" c="D" />
+    <rect x="1" y="8" w="2" h="2" c="B" />
+    <row y="2" x1="10" x2="11" c="A" />
+    <row y="3" x1="7" x2="9" c="A" />
+    <row y="3" x1="10" x2="11" c="B" />
+    <row y="4" x1="4" x2="6" c="A" />
+    <row y="5" x1="1" x2="3" c="A" />
+    <row y="6" x1="12" x2="13" c="E" />
+    <row y="7" x1="9" x2="11" c="E" />
+    <row y="8" x1="4" x2="5" c="D" />
+    <row y="8" x1="6" x2="8" c="E" />
+    <row y="8" x1="11" x2="12" c="C" />
+    <row y="9" x1="4" x2="5" c="E" />
+    <row y="9" x1="8" x2="11" c="C" />
+    <row y="9" x1="12" x2="14" c="B" />
+    <row y="10" x1="2" x2="3" c="B" />
+    <row y="10" x1="6" x2="9" c="C" />
+    <row y="10" x1="10" x2="11" c="B" />
+    <row y="10" x1="13" x2="14" c="F" />
+    <row y="11" x1="6" x2="7" c="C" />
+    <row y="11" x1="8" x2="9" c="G" />
+    <row y="11" x1="10" x2="12" c="F" />
+    <row y="12" x1="7" x2="9" c="F" />
+    <row y="13" x1="3" x2="4" c="A" />
+    <row y="13" x1="5" x2="6" c="F" />
+    <dots c="A" pts="1,11 2,12" />
+    <dots c="B" pts="7,4 12,4 4,5 13,5 1,7 14,7 14,8 3,9 3,11 4,12" />
+    <dots c="C" pts="12,3 13,4 14,5 15,6 13,7" />
+    <dots c="D" pts="12,5 2,6 14,6 8,7 12,7 9,8 6,9 4,10 4,11" />
+    <dots c="E" pts="1,6 2,7 3,8" />
+    <dots c="F" pts="15,7 15,8 15,9" />
+    <dots c="G" pts="10,8 13,8 7,9 1,10 5,10 12,10 2,11 5,11 3,12 5,12" />
+    <dots c="H" pts="6,12" />
+  </layer>
+</pxvg>
+```
+
+## FILE: iron_nugget.pxvg.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#585F68FF" />
+    <color k="B" hex="#BAC8DAFF" />
+    <color k="C" hex="#D9DFE7FF" />
+    <color k="D" hex="#F2F2F2FF" />
+    <color k="E" hex="#A2B0BEFF" />
+    <color k="F" hex="#393C40FF" />
+    <color k="G" hex="#738D8DFF" />
+    <color k="H" hex="#BDCADBFF" />
+  </palette>
+  <layer id="main">
+    <row y="5" x1="6" x2="7" c="A" />
+    <row y="6" x1="8" x2="10" c="A" />
+    <row y="7" x1="6" x2="7" c="D" />
+    <row y="7" x1="9" x2="10" c="E" />
+    <row y="8" x1="6" x2="7" c="C" />
+    <row y="8" x1="9" x2="10" c="G" />
+    <row y="9" x1="6" x2="7" c="B" />
+    <row y="9" x1="8" x2="10" c="F" />
+    <row y="10" x1="5" x2="7" c="F" />
+    <dots c="A" pts="5,6 4,7 4,8 4,9" />
+    <dots c="B" pts="6,6" />
+    <dots c="C" pts="7,6 5,7 8,7" />
+    <dots c="D" pts="5,8" />
+    <dots c="E" pts="8,8" />
+    <dots c="F" pts="11,7 11,8" />
+    <dots c="H" pts="5,9" />
+  </layer>
+</pxvg>
+```
+
+================================================================================
+
+# YÊU CẦU CHO AI
+
+Hãy chỉnh sửa các file PXVG trên theo yêu cầu của tôi.
+Khi trả lời, hãy xuất từng file PXVG đã chỉnh sửa theo định dạng:
+
+```pxvg:filename.pxvg.xml
+<pxvg w="32" h="32" xmlns="http://pixci.dev/pxvg">
+  <!-- Nội dung PXVG đã chỉnh sửa -->
+</pxvg>
+```
+
+CHÚ Ý: Phải dùng đúng định dạng ```pxvg:ten_file.pxvg.xml để script có thể trích xuất tự động.

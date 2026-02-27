@@ -90,7 +90,6 @@ if (failedCount > 0) {
     console.log(`\n\x1b[32m✓ Đã chuyển đổi ${convertedCount}/${imageFiles.length} file sang PXVG\x1b[0m\n`);
 }
 
-if (convertedCount > 0) {
-    console.log('\x1b[32mBƯỚC TIẾP THEO:\x1b[0m');
-    console.log(`  node generate-ai-prompt.js ${versionName}\n`);
-}
+// Luôn hiển thị bước tiếp theo (kể cả khi có lỗi, vì file PXVG có thể đã tồn tại)
+console.log('\x1b[32mBƯỚC TIẾP THEO:\x1b[0m');
+console.log(`  node generate-ai-prompt.js ${versionName}\n`);
