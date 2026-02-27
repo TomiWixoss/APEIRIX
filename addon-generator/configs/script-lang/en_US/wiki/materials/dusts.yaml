@@ -1,0 +1,237 @@
+# Dusts and Raw Materials Wiki Data (English)
+
+items:
+  # Raw materials from crushing
+  raw_coal:
+    name: "Raw Coal"
+    description: "Crushed coal ore. Can be smelted or further processed into pure coal dust."
+    info:
+      Type: "Raw Material"
+      Source: "Crushing coal ore"
+      Processing: "Smelt or sieve for purity"
+
+  raw_diamond:
+    name: "Raw Diamond"
+    description: "Crushed diamond ore. Process to get diamond dust."
+    info:
+      Type: "Raw Material"
+      Source: "Crushing diamond ore"
+      Processing: "Sieve or wash for purity"
+
+  raw_emerald:
+    name: "Raw Emerald"
+    description: "Crushed emerald ore. Process to get emerald dust."
+    info:
+      Type: "Raw Material"
+      Source: "Crushing emerald ore"
+      Processing: "Sieve or wash for purity"
+
+  raw_lapis:
+    name: "Raw Lapis"
+    description: "Crushed lapis ore. Process to get lapis dust."
+    info:
+      Type: "Raw Material"
+      Source: "Crushing lapis ore"
+      Processing: "Sieve or wash for purity"
+
+  # Metal dusts
+  iron_ingot_dust:
+    name: "Iron Dust"
+    description: "Iron dust from crushing. Smelt to get iron ingots with bonus yield."
+    info:
+      Type: "Metal Dust"
+      Source: "Crushing iron ore"
+      Yield: "2 dusts per ore"
+      Smelting: "1 dust = 1 ingot"
+
+  iron_ingot_dust_pure:
+    name: "Pure Iron Dust"
+    description: "Purified iron dust. Higher smelting efficiency."
+    info:
+      Type: "Pure Metal Dust"
+      Source: "Sieving/washing iron dust"
+      Yield: "Bonus experience"
+      Smelting: "1 dust = 1 ingot + bonus XP"
+
+  copper_ingot_dust:
+    name: "Copper Dust"
+    description: "Copper dust from crushing. Smelt to get copper ingots with bonus yield."
+    info:
+      Type: "Metal Dust"
+      Source: "Crushing copper ore"
+      Yield: "2 dusts per ore"
+      Smelting: "1 dust = 1 ingot"
+
+  copper_ingot_dust_pure:
+    name: "Pure Copper Dust"
+    description: "Purified copper dust. Higher smelting efficiency."
+    info:
+      Type: "Pure Metal Dust"
+      Source: "Sieving/washing copper dust"
+      Yield: "Bonus experience"
+      Smelting: "1 dust = 1 ingot + bonus XP"
+
+  gold_ingot_dust:
+    name: "Gold Dust"
+    description: "Gold dust from crushing. Smelt to get gold ingots with bonus yield."
+    info:
+      Type: "Metal Dust"
+      Source: "Crushing gold ore"
+      Yield: "2 dusts per ore"
+      Smelting: "1 dust = 1 ingot"
+
+  gold_ingot_dust_pure:
+    name: "Pure Gold Dust"
+    description: "Purified gold dust. Higher smelting efficiency."
+    info:
+      Type: "Pure Metal Dust"
+      Source: "Sieving/washing gold dust"
+      Yield: "Bonus experience"
+      Smelting: "1 dust = 1 ingot + bonus XP"
+
+  tin_ingot_dust:
+    name: "Tin Dust"
+    description: "Tin dust from crushing. Smelt to get tin ingots with bonus yield."
+    info:
+      Type: "Metal Dust"
+      Source: "Crushing tin ore"
+      Yield: "2 dusts per ore"
+      Smelting: "1 dust = 1 ingot"
+
+  tin_ingot_dust_pure:
+    name: "Pure Tin Dust"
+    description: "Purified tin dust. Higher smelting efficiency."
+    info:
+      Type: "Pure Metal Dust"
+      Source: "Sieving/washing tin dust"
+      Yield: "Bonus experience"
+      Smelting: "1 dust = 1 ingot + bonus XP"
+
+  # Gem dusts
+  diamond_dust:
+    name: "Diamond Dust"
+    description: "Diamond dust from crushing. Can be compressed back into diamonds."
+    info:
+      Type: "Gem Dust"
+      Source: "Crushing diamond ore"
+      Yield: "2 dusts per ore"
+      Crafting: "Used in advanced recipes"
+
+  diamond_dust_pure:
+    name: "Pure Diamond Dust"
+    description: "Purified diamond dust. Higher quality for crafting."
+    info:
+      Type: "Pure Gem Dust"
+      Source: "Sieving/washing diamond dust"
+      Quality: "Premium"
+      Crafting: "Better results in recipes"
+
+  emerald_dust:
+    name: "Emerald Dust"
+    description: "Emerald dust from crushing. Can be compressed back into emeralds."
+    info:
+      Type: "Gem Dust"
+      Source: "Crushing emerald ore"
+      Yield: "2 dusts per ore"
+      Crafting: "Used in advanced recipes"
+
+  emerald_dust_pure:
+    name: "Pure Emerald Dust"
+    description: "Purified emerald dust. Higher quality for crafting."
+    info:
+      Type: "Pure Gem Dust"
+      Source: "Sieving/washing emerald dust"
+      Quality: "Premium"
+      Crafting: "Better results in recipes"
+
+  lapis_block_dust:
+    name: "Lapis Dust"
+    description: "Lapis dust from crushing. Can be compressed back into lapis."
+    info:
+      Type: "Gem Dust"
+      Source: "Crushing lapis ore"
+      Yield: "Multiple dusts per ore"
+      Crafting: "Used for dyes and recipes"
+
+  lapis_block_dust_pure:
+    name: "Pure Lapis Dust"
+    description: "Purified lapis dust. Higher quality for crafting."
+    info:
+      Type: "Pure Gem Dust"
+      Source: "Sieving/washing lapis dust"
+      Quality: "Premium"
+      Crafting: "Better dye results"
+
+  # Other dusts
+  coal_dust:
+    name: "Coal Dust"
+    description: "Coal dust from crushing. Can be smelted or used as fuel."
+    info:
+      Type: "Fuel Dust"
+      Source: "Crushing coal ore"
+      Yield: "2 dusts per ore"
+      Uses: "Fuel, smelting, crafting"
+
+  coal_dust_pure:
+    name: "Pure Coal Dust"
+    description: "Purified coal dust. Burns longer and hotter."
+    info:
+      Type: "Pure Fuel Dust"
+      Source: "Sieving/washing coal dust"
+      Burn Time: "Extended"
+      Efficiency: "Higher"
+
+  redstone_dust_pure:
+    name: "Pure Redstone Dust"
+    description: "Purified redstone dust. Better for redstone circuits."
+    info:
+      Type: "Pure Redstone"
+      Source: "Sieving/washing redstone"
+      Quality: "Premium"
+      Signal: "Stronger"
+
+  cobblestone_dust:
+    name: "Cobblestone Dust"
+    description: "Crushed cobblestone. Can be compressed into sand or used in recipes."
+    info:
+      Type: "Stone Dust"
+      Source: "Crushing cobblestone"
+      Uses: "Crafting, compression"
+      Output: "Sand when compressed"
+
+  deepslate_dust:
+    name: "Deepslate Dust"
+    description: "Crushed deepslate. Harder to process but useful for crafting."
+    info:
+      Type: "Stone Dust"
+      Source: "Crushing deepslate"
+      Uses: "Crafting, compression"
+      Rarity: "Common in deep layers"
+
+  netherrack_dust:
+    name: "Netherrack Dust"
+    description: "Crushed netherrack. Used in nether-related recipes."
+    info:
+      Type: "Nether Dust"
+      Source: "Crushing netherrack"
+      Uses: "Nether crafting"
+      Special: "Fire-resistant recipes"
+
+  # Bronze processing
+  bronze_ingot_dust:
+    name: "Bronze Dust"
+    description: "Bronze alloy dust. Smelt to get bronze ingots."
+    info:
+      Type: "Alloy Dust"
+      Source: "Crushing bronze items"
+      Smelting: "1 dust = 1 ingot"
+      Recycling: "Recover bronze from tools"
+
+  bronze_ingot_dust_pure:
+    name: "Pure Bronze Dust"
+    description: "Purified bronze dust. Higher quality smelting."
+    info:
+      Type: "Pure Alloy Dust"
+      Source: "Sieving/washing bronze dust"
+      Quality: "Premium"
+      Smelting: "Bonus experience"

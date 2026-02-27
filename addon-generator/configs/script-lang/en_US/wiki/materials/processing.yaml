@@ -1,0 +1,90 @@
+# Processing Machines Wiki Data (English)
+
+items:
+  ore_crusher_mk1:
+    name: "Ore Crusher MK1"
+    description: "Basic ore crusher. Crushes ores into dust for further processing."
+    info:
+      Type: "Processing Machine"
+      Speed: "Slow (10s per operation)"
+      Fuel: "Coal, Charcoal"
+      Input: "Raw ores"
+      Output: "Ore dust"
+      Crafting: "4 iron ingots + 4 cobblestone + 1 piston"
+
+  ore_crusher_mk2:
+    name: "Ore Crusher MK2"
+    description: "Improved ore crusher with faster processing speed."
+    info:
+      Type: "Processing Machine"
+      Speed: "Medium (7s per operation)"
+      Fuel: "Coal, Charcoal"
+      Input: "Raw ores"
+      Output: "Ore dust"
+      Crafting: "4 bronze ingots + 4 stone + 1 MK1 crusher"
+
+  ore_crusher_mk3:
+    name: "Ore Crusher MK3"
+    description: "Advanced ore crusher with fastest processing speed."
+    info:
+      Type: "Processing Machine"
+      Speed: "Fast (5s per operation)"
+      Fuel: "Coal, Charcoal"
+      Input: "Raw ores"
+      Output: "Ore dust"
+      Crafting: "4 steel ingots + 4 deepslate + 1 MK2 crusher"
+
+  ore_sieve:
+    name: "Ore Sieve"
+    description: "Sifts ore dust to remove impurities. Produces pure dust."
+    info:
+      Type: "Processing Machine"
+      Speed: "Medium (8s per operation)"
+      Fuel: "Not required"
+      Input: "Ore dust"
+      Output: "Pure ore dust"
+      Crafting: "4 iron ingots + 4 string + 1 hopper"
+
+  ore_washer:
+    name: "Ore Washer"
+    description: "Washes ore dust with water to purify it. Requires water source."
+    info:
+      Type: "Processing Machine"
+      Speed: "Fast (5s per operation)"
+      Fuel: "Not required"
+      Input: "Ore dust + Water"
+      Output: "Pure ore dust"
+      Crafting: "4 iron ingots + 4 glass + 1 cauldron"
+
+  crusher:
+    name: "Crusher"
+    description: "General purpose crusher. Crushes various materials into dust or smaller pieces."
+    info:
+      Type: "Processing Machine"
+      Speed: "Medium (7s per operation)"
+      Fuel: "Coal, Charcoal"
+      Input: "Various materials"
+      Output: "Dust, fragments"
+      Crafting: "4 iron ingots + 4 cobblestone + 1 piston"
+
+  compressor:
+    name: "Compressor"
+    description: "Compresses materials into denser forms. Used for advanced crafting."
+    info:
+      Type: "Processing Machine"
+      Speed: "Slow (10s per operation)"
+      Fuel: "Coal, Charcoal"
+      Input: "Various materials"
+      Output: "Compressed materials"
+      Crafting: "4 iron ingots + 4 iron blocks + 1 piston"
+
+  alloy_mixing_table:
+    name: "Alloy Mixing Table"
+    description: "Mixes metals to create alloys. Essential for bronze and steel production."
+    info:
+      Type: "Crafting Station"
+      Speed: "Instant"
+      Fuel: "Not required"
+      Input: "Metal ingots"
+      Output: "Alloy ingots"
+      Crafting: "4 bronze ingots + 4 smooth stone + 1 crafting table"

@@ -1,0 +1,90 @@
+# Máy Chế Biến - Dữ Liệu Wiki (Tiếng Việt)
+
+items:
+  ore_crusher_mk1:
+    name: "Máy Nghiền Quặng MK1"
+    description: "Máy nghiền quặng cơ bản. Nghiền quặng thành bụi để chế biến tiếp."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Chậm (10 giây/lần)"
+      Nhiên Liệu: "Than, Than củi"
+      Đầu Vào: "Quặng thô"
+      Đầu Ra: "Bụi quặng"
+      Chế Tạo: "4 thỏi sắt + 4 đá cuội + 1 piston"
+
+  ore_crusher_mk2:
+    name: "Máy Nghiền Quặng MK2"
+    description: "Máy nghiền quặng cải tiến với tốc độ xử lý nhanh hơn."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Trung bình (7 giây/lần)"
+      Nhiên Liệu: "Than, Than củi"
+      Đầu Vào: "Quặng thô"
+      Đầu Ra: "Bụi quặng"
+      Chế Tạo: "4 thỏi đồng + 4 đá + 1 máy nghiền MK1"
+
+  ore_crusher_mk3:
+    name: "Máy Nghiền Quặng MK3"
+    description: "Máy nghiền quặng tiên tiến với tốc độ xử lý nhanh nhất."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Nhanh (5 giây/lần)"
+      Nhiên Liệu: "Than, Than củi"
+      Đầu Vào: "Quặng thô"
+      Đầu Ra: "Bụi quặng"
+      Chế Tạo: "4 thỏi thép + 4 đá sâu + 1 máy nghiền MK2"
+
+  ore_sieve:
+    name: "Rây Quặng"
+    description: "Sàng lọc bụi quặng để loại bỏ tạp chất. Tạo ra bụi tinh khiết."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Trung bình (8 giây/lần)"
+      Nhiên Liệu: "Không cần"
+      Đầu Vào: "Bụi quặng"
+      Đầu Ra: "Bụi quặng tinh khiết"
+      Chế Tạo: "4 thỏi sắt + 4 sợi dây + 1 phễu"
+
+  ore_washer:
+    name: "Máy Rửa Quặng"
+    description: "Rửa bụi quặng bằng nước để làm sạch. Cần nguồn nước."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Nhanh (5 giây/lần)"
+      Nhiên Liệu: "Không cần"
+      Đầu Vào: "Bụi quặng + Nước"
+      Đầu Ra: "Bụi quặng tinh khiết"
+      Chế Tạo: "4 thỏi sắt + 4 thủy tinh + 1 vạc"
+
+  crusher:
+    name: "Máy Nghiền"
+    description: "Máy nghiền đa năng. Nghiền nhiều loại vật liệu thành bụi hoặc mảnh nhỏ."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Trung bình (7 giây/lần)"
+      Nhiên Liệu: "Than, Than củi"
+      Đầu Vào: "Nhiều loại vật liệu"
+      Đầu Ra: "Bụi, mảnh vỡ"
+      Chế Tạo: "4 thỏi sắt + 4 đá cuội + 1 piston"
+
+  compressor:
+    name: "Máy Nén"
+    description: "Nén vật liệu thành dạng đặc hơn. Dùng cho chế tạo nâng cao."
+    info:
+      Loại: "Máy Chế Biến"
+      Tốc Độ: "Chậm (10 giây/lần)"
+      Nhiên Liệu: "Than, Than củi"
+      Đầu Vào: "Nhiều loại vật liệu"
+      Đầu Ra: "Vật liệu nén"
+      Chế Tạo: "4 thỏi sắt + 4 khối sắt + 1 piston"
+
+  alloy_mixing_table:
+    name: "Bàn Trộn Hợp Kim"
+    description: "Trộn kim loại để tạo hợp kim. Thiết yếu cho sản xuất đồng và thép."
+    info:
+      Loại: "Trạm Chế Tạo"
+      Tốc Độ: "Tức thì"
+      Nhiên Liệu: "Không cần"
+      Đầu Vào: "Thỏi kim loại"
+      Đầu Ra: "Thỏi hợp kim"
+      Chế Tạo: "4 thỏi đồng + 4 đá mịn + 1 bàn chế tạo"

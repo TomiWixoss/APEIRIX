@@ -1,0 +1,73 @@
+# Búa - Dữ Liệu Wiki (Tiếng Việt)
+
+items:
+  wooden_hammer:
+    name: "Búa Gỗ"
+    description: "Búa gỗ cơ bản. Đập khối thành bụi thay vì rơi vật phẩm thường."
+    info:
+      Vật Liệu: "Gỗ"
+      Độ Bền: "59"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Chế Tạo: "5 ván gỗ + 2 que"
+
+  stone_hammer:
+    name: "Búa Đá"
+    description: "Búa đá để nghiền. Đập khối thành bụi để chế biến."
+    info:
+      Vật Liệu: "Đá"
+      Độ Bền: "131"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Chế Tạo: "5 đá cuội + 2 que"
+
+  bronze_hammer:
+    name: "Búa Đồng"
+    description: "Búa đồng với độ bền tốt. Đập khối thành bụi hiệu quả."
+    info:
+      Vật Liệu: "Đồng"
+      Độ Bền: "375"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Chế Tạo: "5 thỏi đồng + 2 que"
+
+  iron_hammer:
+    name: "Búa Sắt"
+    description: "Búa sắt để nghiền nặng. Đập hầu hết các khối thành bụi."
+    info:
+      Vật Liệu: "Sắt"
+      Độ Bền: "250"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Chế Tạo: "5 thỏi sắt + 2 que"
+
+  diamond_hammer:
+    name: "Búa Kim Cương"
+    description: "Búa kim cương với độ bền xuất sắc. Đập mọi khối thành bụi."
+    info:
+      Vật Liệu: "Kim Cương"
+      Độ Bền: "1561"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Chế Tạo: "5 kim cương + 2 que"
+
+  netherite_hammer:
+    name: "Búa Netherite"
+    description: "Búa tối thượng với khả năng chống lửa. Đập khối thành bụi, không bao giờ cháy trong dung nham."
+    info:
+      Vật Liệu: "Netherite"
+      Độ Bền: "2031"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Đặc Biệt: "Chống lửa"
+      Chế Tạo: "Nâng cấp búa kim cương với thỏi netherite"
+
+  steel_alloy_hammer:
+    name: "Búa Hợp Kim Thép"
+    description: "Búa thép với độ bền vượt trội. Đập khối thành bụi rất hiệu quả."
+    info:
+      Vật Liệu: "Hợp Kim Thép"
+      Độ Bền: "500"
+      Chức Năng: "Đập khối → bụi"
+      Fortune: "Tăng sản lượng bụi quặng"
+      Chế Tạo: "5 thỏi hợp kim thép + 2 que"

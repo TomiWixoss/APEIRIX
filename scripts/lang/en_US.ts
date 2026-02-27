@@ -31,6 +31,18 @@ export const LANG_EN = {
         "metallurgy": {
             "name": "§6⚒ METALLURGY",
             "desc": "§0Physical World - Ores → Alloys → Tools/Armor"
+        },
+        "starter": {
+            "name": "§a✦ STARTER",
+            "desc": "§0First steps in APEIRIX world"
+        },
+        "food": {
+            "name": "§eFOOD & SURVIVAL",
+            "desc": "§0Canning, preservation and nutrition"
+        },
+        "processing": {
+            "name": "§b⚙ PROCESSING",
+            "desc": "§0Machines, automation and efficiency"
         }
     },
     "phases": {
@@ -42,6 +54,9 @@ export const LANG_EN = {
         }
     },
     "achievementNames": {
+        "welcome": "Welcome",
+        "first_mine": "First Mine",
+        "first_craft": "First Craft",
         "first_ore": "First Ore",
         "tin_collector": "Tin Collector",
         "bronze_maker": "Bronze Maker",
@@ -50,9 +65,18 @@ export const LANG_EN = {
         "armor_smith": "Armor Smith",
         "crusher_user": "Crusher Operator",
         "hammer_expert": "Hammer Expert",
-        "bronze_age_complete": "Bronze Age Complete"
+        "bronze_age_complete": "Bronze Age Complete",
+        "first_can": "First Can",
+        "can_collector": "Can Collector",
+        "recycler": "Recycler",
+        "processing_master": "Processing Master",
+        "dust_collector": "Dust Collector",
+        "efficiency_expert": "Efficiency Expert"
     },
     "achievementDescs": {
+        "welcome": "§0Join APEIRIX world for the first time",
+        "first_mine": "§0Mine your first block",
+        "first_craft": "§0Craft your first item",
         "first_ore": "§0Mine your first tin ore",
         "tin_collector": "§0Collect 64 tin ore",
         "bronze_maker": "§0Create your first bronze ingot",
@@ -61,7 +85,13 @@ export const LANG_EN = {
         "armor_smith": "§0Craft complete bronze armor set",
         "crusher_user": "§0Use ore crusher for the first time",
         "hammer_expert": "§0Use hammer to mine 100 blocks",
-        "bronze_age_complete": "§0Complete all Phase 1 achievements"
+        "bronze_age_complete": "§0Complete all Phase 1 achievements",
+        "first_can": "§0Craft your first empty can",
+        "can_collector": "§0Collect 10 different canned foods",
+        "recycler": "§0Wash 50 dirty cans",
+        "processing_master": "§0Use all 7 processing machines",
+        "dust_collector": "§0Collect 100 pure dusts",
+        "efficiency_expert": "§0Process 1000 items through machines"
     },
     "welcome": {
         "title": "§a§lWelcome to APEIRIX!",

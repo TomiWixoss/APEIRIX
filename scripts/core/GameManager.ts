@@ -24,7 +24,7 @@ import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
 
-// Import achievements
+// Import achievements - Metallurgy
 import { FirstOreAchievement } from "../data/achievements/categories/metallurgy/FirstOreAchievement";
 import { TinCollectorAchievement } from "../data/achievements/categories/metallurgy/TinCollectorAchievement";
 import { BronzeMakerAchievement } from "../data/achievements/categories/metallurgy/BronzeMakerAchievement";
@@ -34,6 +34,21 @@ import { ArmorSmithAchievement } from "../data/achievements/categories/metallurg
 import { CrusherUserAchievement } from "../data/achievements/categories/metallurgy/CrusherUserAchievement";
 import { HammerExpertAchievement } from "../data/achievements/categories/metallurgy/HammerExpertAchievement";
 import { BronzeAgeCompleteAchievement } from "../data/achievements/categories/metallurgy/BronzeAgeCompleteAchievement";
+
+// Import achievements - Starter
+import { WelcomeAchievement } from "../data/achievements/categories/starter/WelcomeAchievement";
+import { FirstMineAchievement } from "../data/achievements/categories/starter/FirstMineAchievement";
+import { FirstCraftAchievement } from "../data/achievements/categories/starter/FirstCraftAchievement";
+
+// Import achievements - Food
+import { FirstCanAchievement } from "../data/achievements/categories/food/FirstCanAchievement";
+import { CanCollectorAchievement } from "../data/achievements/categories/food/CanCollectorAchievement";
+import { RecyclerAchievement } from "../data/achievements/categories/food/RecyclerAchievement";
+
+// Import achievements - Processing
+import { ProcessingMasterAchievement } from "../data/achievements/categories/processing/ProcessingMasterAchievement";
+import { DustCollectorAchievement } from "../data/achievements/categories/processing/DustCollectorAchievement";
+import { EfficiencyExpertAchievement } from "../data/achievements/categories/processing/EfficiencyExpertAchievement";
 
 export class GameManager {
     private static initialized = false;
@@ -55,6 +70,13 @@ export class GameManager {
     }
 
     private static registerCategories(): void {
+        // Starter - Unlocked
+        AchievementRegistry.registerCategory({
+            id: "starter",
+            icon: "textures/items/achievement_book",
+            locked: false
+        });
+
         // Metallurgy - Unlocked
         AchievementRegistry.registerCategory({
             id: "metallurgy",
@@ -64,10 +86,29 @@ export class GameManager {
                 { id: "phase1", order: 1, locked: false }
             ]
         });
+
+        // Food - Unlocked
+        AchievementRegistry.registerCategory({
+            id: "food",
+            icon: "textures/items/canned_food",
+            locked: false
+        });
+
+        // Processing - Unlocked
+        AchievementRegistry.registerCategory({
+            id: "processing",
+            icon: "textures/blocks/crusher_front",
+            locked: false
+        });
     }
 
     private static registerAchievements(): void {
-        // Metallurgy Phase 1 Achievements (9 achievements - removed welcome)
+        // Starter Achievements (3 achievements)
+        const welcome = new WelcomeAchievement();
+        const firstMine = new FirstMineAchievement();
+        const firstCraft = new FirstCraftAchievement();
+
+        // Metallurgy Phase 1 Achievements (9 achievements)
         const firstOre = new FirstOreAchievement();
         const tinCollector = new TinCollectorAchievement();
         const bronzeMaker = new BronzeMakerAchievement();
@@ -78,7 +119,23 @@ export class GameManager {
         const hammerExpert = new HammerExpertAchievement();
         const bronzeAgeComplete = new BronzeAgeCompleteAchievement();
 
+        // Food Achievements (3 achievements)
+        const firstCan = new FirstCanAchievement();
+        const canCollector = new CanCollectorAchievement();
+        const recycler = new RecyclerAchievement();
+
+        // Processing Achievements (3 achievements)
+        const processingMaster = new ProcessingMasterAchievement();
+        const dustCollector = new DustCollectorAchievement();
+        const efficiencyExpert = new EfficiencyExpertAchievement();
+
         // Register all achievements
+        // Starter
+        AchievementRegistry.registerAchievement(welcome);
+        AchievementRegistry.registerAchievement(firstMine);
+        AchievementRegistry.registerAchievement(firstCraft);
+        
+        // Metallurgy
         AchievementRegistry.registerAchievement(firstOre);
         AchievementRegistry.registerAchievement(tinCollector);
         AchievementRegistry.registerAchievement(bronzeMaker);
@@ -89,7 +146,23 @@ export class GameManager {
         AchievementRegistry.registerAchievement(hammerExpert);
         AchievementRegistry.registerAchievement(bronzeAgeComplete);
 
+        // Food
+        AchievementRegistry.registerAchievement(firstCan);
+        AchievementRegistry.registerAchievement(canCollector);
+        AchievementRegistry.registerAchievement(recycler);
+
+        // Processing
+        AchievementRegistry.registerAchievement(processingMaster);
+        AchievementRegistry.registerAchievement(dustCollector);
+        AchievementRegistry.registerAchievement(efficiencyExpert);
+
         // Setup tracking for each achievement
+        // Starter
+        welcome.setupTracking();
+        firstMine.setupTracking();
+        firstCraft.setupTracking();
+
+        // Metallurgy
         firstOre.setupTracking();
         tinCollector.setupTracking();
         bronzeMaker.setupTracking();
@@ -99,6 +172,16 @@ export class GameManager {
         crusherUser.setupTracking();
         hammerExpert.setupTracking();
         bronzeAgeComplete.setupTracking();
+
+        // Food
+        firstCan.setupTracking();
+        canCollector.setupTracking();
+        recycler.setupTracking();
+
+        // Processing
+        processingMaster.setupTracking();
+        dustCollector.setupTracking();
+        efficiencyExpert.setupTracking();
     }
 
     private static initializeSystems(): void {

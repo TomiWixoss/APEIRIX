@@ -31,6 +31,18 @@ export const LANG_VI = {
         "metallurgy": {
             "name": "§6⚒ LUYỆN KIM",
             "desc": "§0Thế giới vật chất - Quặng → Hợp kim → Công cụ/Giáp"
+        },
+        "starter": {
+            "name": "§a✦ KHỞI ĐẦU",
+            "desc": "§0Những bước đầu tiên trong thế giới APEIRIX"
+        },
+        "food": {
+            "name": "§eTHỰC PHẨM & SINH TỒN",
+            "desc": "§0Đóng hộp, bảo quản và dinh dưỡng"
+        },
+        "processing": {
+            "name": "§b⚙ CHẾ BIẾN",
+            "desc": "§0Máy móc, tự động hóa và hiệu suất"
         }
     },
     "phases": {
@@ -42,6 +54,9 @@ export const LANG_VI = {
         }
     },
     "achievementNames": {
+        "welcome": "Chào Mừng",
+        "first_mine": "Khai Thác Đầu Tiên",
+        "first_craft": "Chế Tạo Đầu Tiên",
         "first_ore": "Quặng Đầu Tiên",
         "tin_collector": "Thợ Thu Thập Thiếc",
         "bronze_maker": "Thợ Rèn Đồng Thau",
@@ -50,9 +65,18 @@ export const LANG_VI = {
         "armor_smith": "Thợ Rèn Giáp",
         "crusher_user": "Người Vận Hành Máy Nghiền",
         "hammer_expert": "Chuyên Gia Búa",
-        "bronze_age_complete": "Hoàn Thành Thời Đại Đồng Thau"
+        "bronze_age_complete": "Hoàn Thành Thời Đại Đồng Thau",
+        "first_can": "Hộp Đầu Tiên",
+        "can_collector": "Thợ Thu Thập Hộp",
+        "recycler": "Người Tái Chế",
+        "processing_master": "Bậc Thầy Chế Biến",
+        "dust_collector": "Thợ Thu Thập Bụi",
+        "efficiency_expert": "Chuyên Gia Hiệu Suất"
     },
     "achievementDescs": {
+        "welcome": "§0Tham gia thế giới APEIRIX lần đầu tiên",
+        "first_mine": "§0Khai thác khối đầu tiên của bạn",
+        "first_craft": "§0Chế tạo vật phẩm đầu tiên của bạn",
         "first_ore": "§0Khai thác quặng thiếc đầu tiên",
         "tin_collector": "§0Thu thập 64 quặng thiếc",
         "bronze_maker": "§0Tạo ra thỏi đồng thau đầu tiên",
@@ -61,7 +85,13 @@ export const LANG_VI = {
         "armor_smith": "§0Chế tạo bộ giáp đồng thau hoàn chỉnh",
         "crusher_user": "§0Sử dụng máy nghiền quặng lần đầu",
         "hammer_expert": "§0Sử dụng búa để khai thác 100 blocks",
-        "bronze_age_complete": "§0Hoàn thành tất cả thành tựu Phase 1"
+        "bronze_age_complete": "§0Hoàn thành tất cả thành tựu Phase 1",
+        "first_can": "§0Chế tạo hộp rỗng đầu tiên",
+        "can_collector": "§0Thu thập 10 loại thực phẩm đóng hộp khác nhau",
+        "recycler": "§0Rửa 50 hộp bẩn",
+        "processing_master": "§0Sử dụng tất cả 7 máy chế biến",
+        "dust_collector": "§0Thu thập 100 bụi tinh khiết",
+        "efficiency_expert": "§0Chế biến 1000 vật phẩm qua máy móc"
     },
     "welcome": {
         "title": "§a§lChào mừng đến với APEIRIX!",

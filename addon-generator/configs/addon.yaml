@@ -1,13 +1,13 @@
 addon:
-  name: APEIRIX
+  name: APEIRIX BETA
   description: lang:addon.description
   author: TomiSakae
   language: vi_VN # Default language: vi_VN, en_US
   enableJsonUI: true # Enable JSON UI for custom forms (deprecated but still works)
   version:
+    - 0
+    - 0
     - 1
-    - 0
-    - 0
   minEngineVersion:
     - 1
     - 21

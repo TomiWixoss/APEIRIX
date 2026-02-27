@@ -238,6 +238,426 @@ export const GENERATED_WIKI_ITEMS = [
     },
   },
   {
+    id: "apeirix:raw_coal",
+    category: "materials",
+    name: "Than Thô",
+    description: "Quặng than đã nghiền. Có thể nung hoặc chế biến thành bụi than tinh khiết.",
+    info: {
+      "Loại": "Nguyên Liệu Thô",
+      "Nguồn": "Nghiền quặng than",
+      "Chế Biến": "Nung hoặc sàng để tinh khiết"
+    },
+  },
+  {
+    id: "apeirix:raw_diamond",
+    category: "materials",
+    name: "Kim Cương Thô",
+    description: "Quặng kim cương đã nghiền. Chế biến để có bụi kim cương.",
+    info: {
+      "Loại": "Nguyên Liệu Thô",
+      "Nguồn": "Nghiền quặng kim cương",
+      "Chế Biến": "Sàng hoặc rửa để tinh khiết"
+    },
+  },
+  {
+    id: "apeirix:raw_emerald",
+    category: "materials",
+    name: "Ngọc Lục Bảo Thô",
+    description: "Quặng ngọc lục bảo đã nghiền. Chế biến để có bụi ngọc lục bảo.",
+    info: {
+      "Loại": "Nguyên Liệu Thô",
+      "Nguồn": "Nghiền quặng ngọc lục bảo",
+      "Chế Biến": "Sàng hoặc rửa để tinh khiết"
+    },
+  },
+  {
+    id: "apeirix:raw_lapis",
+    category: "materials",
+    name: "Lapis Thô",
+    description: "Quặng lapis đã nghiền. Chế biến để có bụi lapis.",
+    info: {
+      "Loại": "Nguyên Liệu Thô",
+      "Nguồn": "Nghiền quặng lapis",
+      "Chế Biến": "Sàng hoặc rửa để tinh khiết"
+    },
+  },
+  {
+    id: "apeirix:iron_ingot_dust",
+    category: "materials",
+    name: "Bụi Sắt",
+    description: "Bụi sắt từ nghiền quặng. Nung để có thỏi sắt với sản lượng cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại",
+      "Nguồn": "Nghiền quặng sắt",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      Nung: "1 bụi = 1 thỏi"
+    },
+  },
+  {
+    id: "apeirix:iron_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Sắt Tinh Khiết",
+    description: "Bụi sắt đã tinh chế. Hiệu suất nung cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi sắt",
+      "Sản Lượng": "Kinh nghiệm thưởng",
+      Nung: "1 bụi = 1 thỏi + XP thưởng"
+    },
+  },
+  {
+    id: "apeirix:copper_ingot_dust",
+    category: "materials",
+    name: "Bụi Đồng",
+    description: "Bụi đồng từ nghiền quặng. Nung để có thỏi đồng với sản lượng cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại",
+      "Nguồn": "Nghiền quặng đồng",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      Nung: "1 bụi = 1 thỏi"
+    },
+  },
+  {
+    id: "apeirix:copper_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Đồng Tinh Khiết",
+    description: "Bụi đồng đã tinh chế. Hiệu suất nung cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi đồng",
+      "Sản Lượng": "Kinh nghiệm thưởng",
+      Nung: "1 bụi = 1 thỏi + XP thưởng"
+    },
+  },
+  {
+    id: "apeirix:gold_ingot_dust",
+    category: "materials",
+    name: "Bụi Vàng",
+    description: "Bụi vàng từ nghiền quặng. Nung để có thỏi vàng với sản lượng cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại",
+      "Nguồn": "Nghiền quặng vàng",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      Nung: "1 bụi = 1 thỏi"
+    },
+  },
+  {
+    id: "apeirix:gold_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Vàng Tinh Khiết",
+    description: "Bụi vàng đã tinh chế. Hiệu suất nung cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi vàng",
+      "Sản Lượng": "Kinh nghiệm thưởng",
+      Nung: "1 bụi = 1 thỏi + XP thưởng"
+    },
+  },
+  {
+    id: "apeirix:tin_ingot_dust",
+    category: "materials",
+    name: "Bụi Thiếc",
+    description: "Bụi thiếc từ nghiền quặng. Nung để có thỏi thiếc với sản lượng cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại",
+      "Nguồn": "Nghiền quặng thiếc",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      Nung: "1 bụi = 1 thỏi"
+    },
+  },
+  {
+    id: "apeirix:tin_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Thiếc Tinh Khiết",
+    description: "Bụi thiếc đã tinh chế. Hiệu suất nung cao hơn.",
+    info: {
+      "Loại": "Bụi Kim Loại Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi thiếc",
+      "Sản Lượng": "Kinh nghiệm thưởng",
+      Nung: "1 bụi = 1 thỏi + XP thưởng"
+    },
+  },
+  {
+    id: "apeirix:diamond_dust",
+    category: "materials",
+    name: "Bụi Kim Cương",
+    description: "Bụi kim cương từ nghiền quặng. Có thể nén lại thành kim cương.",
+    info: {
+      "Loại": "Bụi Đá Quý",
+      "Nguồn": "Nghiền quặng kim cương",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      "Chế Tạo": "Dùng trong công thức nâng cao"
+    },
+  },
+  {
+    id: "apeirix:diamond_dust_pure",
+    category: "materials",
+    name: "Bụi Kim Cương Tinh Khiết",
+    description: "Bụi kim cương đã tinh chế. Chất lượng cao hơn cho chế tạo.",
+    info: {
+      "Loại": "Bụi Đá Quý Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi kim cương",
+      "Chất Lượng": "Cao cấp",
+      "Chế Tạo": "Kết quả tốt hơn"
+    },
+  },
+  {
+    id: "apeirix:emerald_dust",
+    category: "materials",
+    name: "Bụi Ngọc Lục Bảo",
+    description: "Bụi ngọc lục bảo từ nghiền quặng. Có thể nén lại thành ngọc lục bảo.",
+    info: {
+      "Loại": "Bụi Đá Quý",
+      "Nguồn": "Nghiền quặng ngọc lục bảo",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      "Chế Tạo": "Dùng trong công thức nâng cao"
+    },
+  },
+  {
+    id: "apeirix:emerald_dust_pure",
+    category: "materials",
+    name: "Bụi Ngọc Lục Bảo Tinh Khiết",
+    description: "Bụi ngọc lục bảo đã tinh chế. Chất lượng cao hơn cho chế tạo.",
+    info: {
+      "Loại": "Bụi Đá Quý Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi ngọc lục bảo",
+      "Chất Lượng": "Cao cấp",
+      "Chế Tạo": "Kết quả tốt hơn"
+    },
+  },
+  {
+    id: "apeirix:lapis_block_dust",
+    category: "materials",
+    name: "Bụi Lapis",
+    description: "Bụi lapis từ nghiền quặng. Có thể nén lại thành lapis.",
+    info: {
+      "Loại": "Bụi Đá Quý",
+      "Nguồn": "Nghiền quặng lapis",
+      "Sản Lượng": "Nhiều bụi mỗi quặng",
+      "Chế Tạo": "Dùng cho thuốc nhuộm và công thức"
+    },
+  },
+  {
+    id: "apeirix:lapis_block_dust_pure",
+    category: "materials",
+    name: "Bụi Lapis Tinh Khiết",
+    description: "Bụi lapis đã tinh chế. Chất lượng cao hơn cho chế tạo.",
+    info: {
+      "Loại": "Bụi Đá Quý Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi lapis",
+      "Chất Lượng": "Cao cấp",
+      "Chế Tạo": "Thuốc nhuộm tốt hơn"
+    },
+  },
+  {
+    id: "apeirix:coal_dust",
+    category: "materials",
+    name: "Bụi Than",
+    description: "Bụi than từ nghiền quặng. Có thể nung hoặc dùng làm nhiên liệu.",
+    info: {
+      "Loại": "Bụi Nhiên Liệu",
+      "Nguồn": "Nghiền quặng than",
+      "Sản Lượng": "2 bụi mỗi quặng",
+      "Công Dụng": "Nhiên liệu, nung, chế tạo"
+    },
+  },
+  {
+    id: "apeirix:coal_dust_pure",
+    category: "materials",
+    name: "Bụi Than Tinh Khiết",
+    description: "Bụi than đã tinh chế. Cháy lâu hơn và nóng hơn.",
+    info: {
+      "Loại": "Bụi Nhiên Liệu Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi than",
+      "Thời Gian Cháy": "Kéo dài",
+      "Hiệu Suất": "Cao hơn"
+    },
+  },
+  {
+    id: "apeirix:redstone_dust_pure",
+    category: "materials",
+    name: "Bụi Redstone Tinh Khiết",
+    description: "Bụi redstone đã tinh chế. Tốt hơn cho mạch redstone.",
+    info: {
+      "Loại": "Redstone Tinh Khiết",
+      "Nguồn": "Sàng/rửa redstone",
+      "Chất Lượng": "Cao cấp",
+      "Tín Hiệu": "Mạnh hơn"
+    },
+  },
+  {
+    id: "apeirix:cobblestone_dust",
+    category: "materials",
+    name: "Bụi Đá Cuội",
+    description: "Đá cuội đã nghiền. Có thể nén thành cát hoặc dùng trong công thức.",
+    info: {
+      "Loại": "Bụi Đá",
+      "Nguồn": "Nghiền đá cuội",
+      "Công Dụng": "Chế tạo, nén",
+      "Đầu Ra": "Cát khi nén"
+    },
+  },
+  {
+    id: "apeirix:deepslate_dust",
+    category: "materials",
+    name: "Bụi Đá Sâu",
+    description: "Đá sâu đã nghiền. Khó chế biến hơn nhưng hữu ích cho chế tạo.",
+    info: {
+      "Loại": "Bụi Đá",
+      "Nguồn": "Nghiền đá sâu",
+      "Công Dụng": "Chế tạo, nén",
+      "Độ Hiếm": "Phổ biến ở tầng sâu"
+    },
+  },
+  {
+    id: "apeirix:netherrack_dust",
+    category: "materials",
+    name: "Bụi Netherrack",
+    description: "Netherrack đã nghiền. Dùng trong công thức liên quan đến Nether.",
+    info: {
+      "Loại": "Bụi Nether",
+      "Nguồn": "Nghiền netherrack",
+      "Công Dụng": "Chế tạo Nether",
+      "Đặc Biệt": "Công thức chống lửa"
+    },
+  },
+  {
+    id: "apeirix:bronze_ingot_dust",
+    category: "materials",
+    name: "Bụi Đồng",
+    description: "Bụi hợp kim đồng. Nung để có thỏi đồng.",
+    info: {
+      "Loại": "Bụi Hợp Kim",
+      "Nguồn": "Nghiền đồ đồng",
+      Nung: "1 bụi = 1 thỏi",
+      "Tái Chế": "Thu hồi đồng từ công cụ"
+    },
+  },
+  {
+    id: "apeirix:bronze_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Đồng Tinh Khiết",
+    description: "Bụi đồng đã tinh chế. Nung chất lượng cao hơn.",
+    info: {
+      "Loại": "Bụi Hợp Kim Tinh Khiết",
+      "Nguồn": "Sàng/rửa bụi đồng",
+      "Chất Lượng": "Cao cấp",
+      Nung: "Kinh nghiệm thưởng"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher_mk1",
+    category: "materials",
+    name: "Máy Nghiền Quặng MK1",
+    description: "Máy nghiền quặng cơ bản. Nghiền quặng thành bụi để chế biến tiếp.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Chậm (10 giây/lần)",
+      "Nhiên Liệu": "Than, Than củi",
+      "Đầu Vào": "Quặng thô",
+      "Đầu Ra": "Bụi quặng",
+      "Chế Tạo": "4 thỏi sắt + 4 đá cuội + 1 piston"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher_mk2",
+    category: "materials",
+    name: "Máy Nghiền Quặng MK2",
+    description: "Máy nghiền quặng cải tiến với tốc độ xử lý nhanh hơn.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Trung bình (7 giây/lần)",
+      "Nhiên Liệu": "Than, Than củi",
+      "Đầu Vào": "Quặng thô",
+      "Đầu Ra": "Bụi quặng",
+      "Chế Tạo": "4 thỏi đồng + 4 đá + 1 máy nghiền MK1"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher_mk3",
+    category: "materials",
+    name: "Máy Nghiền Quặng MK3",
+    description: "Máy nghiền quặng tiên tiến với tốc độ xử lý nhanh nhất.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Nhanh (5 giây/lần)",
+      "Nhiên Liệu": "Than, Than củi",
+      "Đầu Vào": "Quặng thô",
+      "Đầu Ra": "Bụi quặng",
+      "Chế Tạo": "4 thỏi thép + 4 đá sâu + 1 máy nghiền MK2"
+    },
+  },
+  {
+    id: "apeirix:ore_sieve",
+    category: "materials",
+    name: "Rây Quặng",
+    description: "Sàng lọc bụi quặng để loại bỏ tạp chất. Tạo ra bụi tinh khiết.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Trung bình (8 giây/lần)",
+      "Nhiên Liệu": "Không cần",
+      "Đầu Vào": "Bụi quặng",
+      "Đầu Ra": "Bụi quặng tinh khiết",
+      "Chế Tạo": "4 thỏi sắt + 4 sợi dây + 1 phễu"
+    },
+  },
+  {
+    id: "apeirix:ore_washer",
+    category: "materials",
+    name: "Máy Rửa Quặng",
+    description: "Rửa bụi quặng bằng nước để làm sạch. Cần nguồn nước.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Nhanh (5 giây/lần)",
+      "Nhiên Liệu": "Không cần",
+      "Đầu Vào": "Bụi quặng + Nước",
+      "Đầu Ra": "Bụi quặng tinh khiết",
+      "Chế Tạo": "4 thỏi sắt + 4 thủy tinh + 1 vạc"
+    },
+  },
+  {
+    id: "apeirix:crusher",
+    category: "materials",
+    name: "Máy Nghiền",
+    description: "Máy nghiền đa năng. Nghiền nhiều loại vật liệu thành bụi hoặc mảnh nhỏ.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Trung bình (7 giây/lần)",
+      "Nhiên Liệu": "Than, Than củi",
+      "Đầu Vào": "Nhiều loại vật liệu",
+      "Đầu Ra": "Bụi, mảnh vỡ",
+      "Chế Tạo": "4 thỏi sắt + 4 đá cuội + 1 piston"
+    },
+  },
+  {
+    id: "apeirix:compressor",
+    category: "materials",
+    name: "Máy Nén",
+    description: "Nén vật liệu thành dạng đặc hơn. Dùng cho chế tạo nâng cao.",
+    info: {
+      "Loại": "Máy Chế Biến",
+      "Tốc Độ": "Chậm (10 giây/lần)",
+      "Nhiên Liệu": "Than, Than củi",
+      "Đầu Vào": "Nhiều loại vật liệu",
+      "Đầu Ra": "Vật liệu nén",
+      "Chế Tạo": "4 thỏi sắt + 4 khối sắt + 1 piston"
+    },
+  },
+  {
+    id: "apeirix:alloy_mixing_table",
+    category: "materials",
+    name: "Bàn Trộn Hợp Kim",
+    description: "Trộn kim loại để tạo hợp kim. Thiết yếu cho sản xuất đồng và thép.",
+    info: {
+      "Loại": "Trạm Chế Tạo",
+      "Tốc Độ": "Tức thì",
+      "Nhiên Liệu": "Không cần",
+      "Đầu Vào": "Thỏi kim loại",
+      "Đầu Ra": "Thỏi hợp kim",
+      "Chế Tạo": "4 thỏi đồng + 4 đá mịn + 1 bàn chế tạo"
+    },
+  },
+  {
     id: "apeirix:steel_alloy_ingot",
     category: "materials",
     name: "Thỏi Hợp Kim Thép",
@@ -440,6 +860,98 @@ export const GENERATED_WIKI_ITEMS = [
       "Sát thương": "+3",
       "Độ phù phép": "18",
       "Chế tạo": "1 thỏi đồng thanh + 2 gậy"
+    },
+  },
+  {
+    id: "apeirix:wooden_hammer",
+    category: "tools",
+    name: "Búa Gỗ",
+    description: "Búa gỗ cơ bản. Đập khối thành bụi thay vì rơi vật phẩm thường.",
+    info: {
+      "Vật Liệu": "Gỗ",
+      "Độ Bền": "59",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Chế Tạo": "5 ván gỗ + 2 que"
+    },
+  },
+  {
+    id: "apeirix:stone_hammer",
+    category: "tools",
+    name: "Búa Đá",
+    description: "Búa đá để nghiền. Đập khối thành bụi để chế biến.",
+    info: {
+      "Vật Liệu": "Đá",
+      "Độ Bền": "131",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Chế Tạo": "5 đá cuội + 2 que"
+    },
+  },
+  {
+    id: "apeirix:bronze_hammer",
+    category: "tools",
+    name: "Búa Đồng",
+    description: "Búa đồng với độ bền tốt. Đập khối thành bụi hiệu quả.",
+    info: {
+      "Vật Liệu": "Đồng",
+      "Độ Bền": "375",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Chế Tạo": "5 thỏi đồng + 2 que"
+    },
+  },
+  {
+    id: "apeirix:iron_hammer",
+    category: "tools",
+    name: "Búa Sắt",
+    description: "Búa sắt để nghiền nặng. Đập hầu hết các khối thành bụi.",
+    info: {
+      "Vật Liệu": "Sắt",
+      "Độ Bền": "250",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Chế Tạo": "5 thỏi sắt + 2 que"
+    },
+  },
+  {
+    id: "apeirix:diamond_hammer",
+    category: "tools",
+    name: "Búa Kim Cương",
+    description: "Búa kim cương với độ bền xuất sắc. Đập mọi khối thành bụi.",
+    info: {
+      "Vật Liệu": "Kim Cương",
+      "Độ Bền": "1561",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Chế Tạo": "5 kim cương + 2 que"
+    },
+  },
+  {
+    id: "apeirix:netherite_hammer",
+    category: "tools",
+    name: "Búa Netherite",
+    description: "Búa tối thượng với khả năng chống lửa. Đập khối thành bụi, không bao giờ cháy trong dung nham.",
+    info: {
+      "Vật Liệu": "Netherite",
+      "Độ Bền": "2031",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Đặc Biệt": "Chống lửa",
+      "Chế Tạo": "Nâng cấp búa kim cương với thỏi netherite"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_hammer",
+    category: "tools",
+    name: "Búa Hợp Kim Thép",
+    description: "Búa thép với độ bền vượt trội. Đập khối thành bụi rất hiệu quả.",
+    info: {
+      "Vật Liệu": "Hợp Kim Thép",
+      "Độ Bền": "500",
+      "Chức Năng": "Đập khối → bụi",
+      Fortune: "Tăng sản lượng bụi quặng",
+      "Chế Tạo": "5 thỏi hợp kim thép + 2 que"
     },
   },
   {
