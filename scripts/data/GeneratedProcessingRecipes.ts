@@ -14,6 +14,20 @@ export interface ProcessingRecipe {
   processingTime: number;
 }
 
+export interface OreCrusherRecipe {
+  inputId: string;
+  stoneDust: string;
+  stoneDustCount: number;
+  oreDust?: string;
+  oreDustCount?: number;
+}
+
+export interface BrassSifterRecipe {
+  inputId: string;
+  pureDust: string;
+  stoneDust: string;
+}
+
 /**
  * Generated processing recipes grouped by machine type
  */
@@ -22,3 +36,99 @@ export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = 
     { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_plate", processingTime: 60 }
   ],
 };
+
+/**
+ * Generated ore crusher recipes grouped by machine type
+ */
+export const GENERATED_ORE_CRUSHER_RECIPES: Record<string, OreCrusherRecipe[]> = {
+  "ore_crusher_mk1": [
+    { inputId: "minecraft:stone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:cobblestone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:deepslate", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:cobbled_deepslate", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:netherrack", stoneDust: "apeirix:netherrack_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:coal_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:coal_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_coal_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:coal_dust", oreDustCount: 9 },
+    { inputId: "minecraft:iron_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:iron_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_iron_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:iron_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:copper_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:copper_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_copper_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:copper_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:gold_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:gold_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_gold_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:gold_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:diamond_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:diamond_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_diamond_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:diamond_dust", oreDustCount: 9 },
+    { inputId: "minecraft:emerald_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:emerald_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_emerald_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:emerald_dust", oreDustCount: 9 },
+    { inputId: "minecraft:lapis_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:lapis_block_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_lapis_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:lapis_block_dust", oreDustCount: 9 },
+    { inputId: "minecraft:redstone_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:deepslate_redstone_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "apeirix:tin_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:tin_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:deepslate_tin_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:tin_ingot_dust", oreDustCount: 9 }
+  ],
+  "ore_crusher_mk2": [
+    { inputId: "minecraft:stone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:cobblestone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:deepslate", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:cobbled_deepslate", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:netherrack", stoneDust: "apeirix:netherrack_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:coal_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:coal_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_coal_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:coal_dust", oreDustCount: 9 },
+    { inputId: "minecraft:iron_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:iron_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_iron_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:iron_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:copper_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:copper_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_copper_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:copper_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:gold_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:gold_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_gold_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:gold_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:diamond_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:diamond_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_diamond_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:diamond_dust", oreDustCount: 9 },
+    { inputId: "minecraft:emerald_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:emerald_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_emerald_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:emerald_dust", oreDustCount: 9 },
+    { inputId: "minecraft:lapis_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:lapis_block_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_lapis_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:lapis_block_dust", oreDustCount: 9 },
+    { inputId: "minecraft:redstone_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:deepslate_redstone_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "apeirix:tin_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:tin_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:deepslate_tin_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:tin_ingot_dust", oreDustCount: 9 }
+  ],
+  "ore_crusher_mk3": [
+    { inputId: "minecraft:stone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:cobblestone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:deepslate", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:cobbled_deepslate", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:netherrack", stoneDust: "apeirix:netherrack_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:coal_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:coal_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_coal_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:coal_dust", oreDustCount: 9 },
+    { inputId: "minecraft:iron_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:iron_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_iron_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:iron_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:copper_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:copper_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_copper_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:copper_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:gold_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:gold_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_gold_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:gold_ingot_dust", oreDustCount: 9 },
+    { inputId: "minecraft:diamond_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:diamond_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_diamond_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:diamond_dust", oreDustCount: 9 },
+    { inputId: "minecraft:emerald_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:emerald_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_emerald_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:emerald_dust", oreDustCount: 9 },
+    { inputId: "minecraft:lapis_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:lapis_block_dust", oreDustCount: 9 },
+    { inputId: "minecraft:deepslate_lapis_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:lapis_block_dust", oreDustCount: 9 },
+    { inputId: "minecraft:redstone_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
+    { inputId: "minecraft:deepslate_redstone_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4 },
+    { inputId: "apeirix:tin_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:tin_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:deepslate_tin_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:tin_ingot_dust", oreDustCount: 9 }
+  ],
+};
+
+/**
+ * Generated brass sifter recipes
+ */
+export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
+  { inputId: "apeirix:coal_dust", pureDust: "apeirix:coal_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:iron_ingot_dust", pureDust: "apeirix:iron_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:copper_ingot_dust", pureDust: "apeirix:copper_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:gold_ingot_dust", pureDust: "apeirix:gold_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:diamond_dust", pureDust: "apeirix:diamond_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:emerald_dust", pureDust: "apeirix:emerald_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:lapis_block_dust", pureDust: "apeirix:lapis_block_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:tin_ingot_dust", pureDust: "apeirix:tin_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:bronze_ingot_dust", pureDust: "apeirix:bronze_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+];

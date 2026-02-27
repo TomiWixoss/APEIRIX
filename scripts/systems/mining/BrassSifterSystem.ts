@@ -1,6 +1,6 @@
 import { world, system, Block, ItemStack, Player } from '@minecraft/server';
 import { EventBus } from '../../core/EventBus';
-import { BrassSifterRegistry } from '../../data/mining/BrassSifterRegistry';
+import { GENERATED_BRASS_SIFTER_RECIPES, BrassSifterRecipe } from '../../data/GeneratedProcessingRecipes';
 
 /**
  * BrassSifterSystem - Lọc bụi khoáng sản thành bụi tinh khiết
@@ -17,20 +17,43 @@ import { BrassSifterRegistry } from '../../data/mining/BrassSifterRegistry';
  * - Ép 4.5 bụi (4 bụi = 1 thỏi): 1.125 thỏi
  * - Bonus: +12.5% so với đào thường (1 thỏi)
  * 
- * Sử dụng auto-generated data từ GeneratedGameData.ts
+ * YAML-DRIVEN:
+ * - Recipes được định nghĩa trong YAML configs
+ * - Auto-generated từ processingRecipes trong brass_sifter.yaml
  */
 export class BrassSifterSystem {
   private static readonly SIFTER_BLOCK_ID = 'apeirix:brass_sifter';
+  private static recipeMap: Map<string, BrassSifterRecipe> = new Map();
 
   static initialize(): void {
     console.warn('[BrassSifterSystem] Initializing...');
+    
+    // Load recipes from generated data
+    this.loadRecipes();
     
     // Listen to player interact with block
     world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
       this.handleInteraction(event);
     });
     
-    console.warn('[BrassSifterSystem] Initialized');
+    console.warn('[BrassSifterSystem] Initialized - YAML-driven');
+  }
+
+  /**
+   * Load recipes từ generated data
+   */
+  private static loadRecipes(): void {
+    for (const recipe of GENERATED_BRASS_SIFTER_RECIPES) {
+      this.recipeMap.set(recipe.inputId, recipe);
+    }
+    console.warn(`[BrassSifterSystem] Loaded ${this.recipeMap.size} sifter recipes`);
+  }
+
+  /**
+   * Lấy recipe cho dust ID
+   */
+  private static getRecipe(dustId: string): BrassSifterRecipe | undefined {
+    return this.recipeMap.get(dustId);
   }
 
   /**
@@ -50,7 +73,7 @@ export class BrassSifterSystem {
     }
     
     const dustId = itemStack.typeId;
-    const recipe = BrassSifterRegistry.getRecipe(dustId);
+    const recipe = this.getRecipe(dustId);
     
     if (!recipe) {
       return;
@@ -74,7 +97,7 @@ export class BrassSifterSystem {
   private static processSifting(
     player: Player, 
     block: Block, 
-    recipe: { pureDustId: string; stoneDustId: string }
+    recipe: BrassSifterRecipe
   ): void {
     try {
       // Get player's main hand item
@@ -86,7 +109,7 @@ export class BrassSifterSystem {
       const selectedSlot = player.selectedSlotIndex;
       const heldItem = inventory.container.getItem(selectedSlot);
       
-      if (!heldItem || !BrassSifterRegistry.canSift(heldItem.typeId)) {
+      if (!heldItem || !this.getRecipe(heldItem.typeId)) {
         return;
       }
       
@@ -117,10 +140,10 @@ export class BrassSifterSystem {
       };
       
       // Sinh ra 1 Bụi Tinh Khiết (từ 2 bụi thường)
-      player.dimension.spawnItem(new ItemStack(recipe.pureDustId, 1), spawnLocation);
+      player.dimension.spawnItem(new ItemStack(recipe.pureDust, 1), spawnLocation);
       
       // Vì sàng lọc 2 bụi, lượng đất đá rớt ra sẽ nhiều hơn -> Sinh ra 2 Bụi Đá
-      player.dimension.spawnItem(new ItemStack(recipe.stoneDustId, 2), spawnLocation);
+      player.dimension.spawnItem(new ItemStack(recipe.stoneDust, 2), spawnLocation);
       // --- KẾT THÚC CƠ CHẾ HAO HỤT 2:1 ---
       
       // Particle effect at sifter

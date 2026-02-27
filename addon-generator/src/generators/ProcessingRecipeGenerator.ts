@@ -6,6 +6,13 @@ export interface ProcessingRecipeData {
   input: string;
   output: string;
   processingTime: number;
+  // OreCrusher specific
+  stoneDustCount?: number;
+  oreDust?: string;
+  oreDustCount?: number;
+  // BrassSifter specific
+  stoneDust?: string;
+  pureDust?: string;
 }
 
 /**
@@ -66,32 +73,118 @@ export interface ProcessingRecipe {
   processingTime: number;
 }
 
+export interface OreCrusherRecipe {
+  inputId: string;
+  stoneDust: string;
+  stoneDustCount: number;
+  oreDust?: string;
+  oreDustCount?: number;
+}
+
+export interface BrassSifterRecipe {
+  inputId: string;
+  pureDust: string;
+  stoneDust: string;
+}
+
 /**
  * Generated processing recipes grouped by machine type
  */
 export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = {
-${this.generateRecipesByMachine(recipesByMachine)}
+${this.generateCompressorRecipes(recipesByMachine)}
 };
+
+/**
+ * Generated ore crusher recipes grouped by machine type
+ */
+export const GENERATED_ORE_CRUSHER_RECIPES: Record<string, OreCrusherRecipe[]> = {
+${this.generateOreCrusherRecipes(recipesByMachine)}
+};
+
+/**
+ * Generated brass sifter recipes
+ */
+export const GENERATED_BRASS_SIFTER_RECIPES: BrassSifterRecipe[] = [
+${this.generateBrassSifterRecipes(recipesByMachine)}
+];
 `;
   }
 
   /**
-   * Generate recipes grouped by machine
+   * Generate compressor-style recipes
    */
-  private generateRecipesByMachine(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
+  private generateCompressorRecipes(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
     const lines: string[] = [];
     
     for (const [machineType, recipes] of Object.entries(recipesByMachine)) {
-      lines.push(`  "${machineType}": [`);
+      // Only include compressor-style recipes (has output, no stoneDust/pureDust)
+      const compressorRecipes = recipes.filter(r => !r.stoneDustCount && !r.pureDust);
       
-      recipes.forEach((recipe, index) => {
-        const isLast = index === recipes.length - 1;
-        lines.push(`    { inputId: "${recipe.input}", outputId: "${recipe.output}", processingTime: ${recipe.processingTime} }${isLast ? '' : ','}`);
-      });
-      
-      lines.push(`  ],`);
+      if (compressorRecipes.length > 0) {
+        lines.push(`  "${machineType}": [`);
+        
+        compressorRecipes.forEach((recipe, index) => {
+          const isLast = index === compressorRecipes.length - 1;
+          lines.push(`    { inputId: "${recipe.input}", outputId: "${recipe.output}", processingTime: ${recipe.processingTime} }${isLast ? '' : ','}`);
+        });
+        
+        lines.push(`  ],`);
+      }
     }
     
     return lines.join('\n');
+  }
+
+  /**
+   * Generate ore crusher recipes
+   */
+  private generateOreCrusherRecipes(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
+    const lines: string[] = [];
+    
+    for (const [machineType, recipes] of Object.entries(recipesByMachine)) {
+      // Only include ore crusher recipes (has stoneDustCount, NOT pureDust)
+      const crusherRecipes = recipes.filter(r => r.stoneDustCount !== undefined && !r.pureDust);
+      
+      if (crusherRecipes.length > 0) {
+        lines.push(`  "${machineType}": [`);
+        
+        crusherRecipes.forEach((recipe, index) => {
+          const isLast = index === crusherRecipes.length - 1;
+          const oreDustPart = recipe.oreDust 
+            ? `, oreDust: "${recipe.oreDust}", oreDustCount: ${recipe.oreDustCount}` 
+            : '';
+          lines.push(`    { inputId: "${recipe.input}", stoneDust: "${recipe.output}", stoneDustCount: ${recipe.stoneDustCount}${oreDustPart} }${isLast ? '' : ','}`);
+        });
+        
+        lines.push(`  ],`);
+      }
+    }
+    
+    return lines.join('\n');
+  }
+
+  /**
+   * Generate brass sifter recipes
+   */
+  private generateBrassSifterRecipes(recipesByMachine: Record<string, ProcessingRecipeData[]>): string {
+    const lines: string[] = [];
+    let hasRecipes = false;
+    
+    for (const [machineType, recipes] of Object.entries(recipesByMachine)) {
+      // Only include brass sifter recipes (has pureDust)
+      const sifterRecipes = recipes.filter(r => r.pureDust !== undefined);
+      
+      if (sifterRecipes.length > 0) {
+        hasRecipes = true;
+        sifterRecipes.forEach((recipe, index) => {
+          const isLastInMachine = index === sifterRecipes.length - 1;
+          const isLastOverall = Object.keys(recipesByMachine).indexOf(machineType) === Object.keys(recipesByMachine).length - 1;
+          const isLast = isLastInMachine && isLastOverall;
+          lines.push(`  { inputId: "${recipe.input}", pureDust: "${recipe.pureDust}", stoneDust: "${recipe.stoneDust}" }${isLast ? '' : ','}`);
+        });
+      }
+    }
+    
+    return hasRecipes ? lines.join('\n') : '';
   }
 }

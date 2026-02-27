@@ -1,6 +1,6 @@
 import { world, system, Block, ItemStack, Vector3 } from '@minecraft/server';
-import { HammerRegistry } from '../../data/mining/HammerRegistry';
 import { EventBus } from '../../core/EventBus';
+import { GENERATED_ORE_CRUSHER_RECIPES, OreCrusherRecipe } from '../../data/GeneratedProcessingRecipes';
 
 /**
  * OreCrusherSystem - Tự động nghiền quặng chạm vào ore_crusher
@@ -17,6 +17,10 @@ import { EventBus } from '../../core/EventBus';
  * - Yêu cầu Coal Block bên dưới để hoạt động
  * - Mỗi lần nghiền tiêu hao fuel
  * - MK1: 64 lần/coal block, MK2: 32 lần, MK3: 16 lần
+ * 
+ * YAML-DRIVEN:
+ * - Recipes được định nghĩa trong YAML configs
+ * - Auto-generated từ processingRecipes trong ore_crusher_mk1/2/3.yaml
  */
 export class OreCrusherSystem {
   private static readonly CRUSHER_BLOCK_IDS = [
@@ -39,11 +43,17 @@ export class OreCrusherSystem {
     location: Vector3; 
     blockId: string; 
     tickCounter: number;
-    fuelRemaining: number; // Số lần nghiền còn lại từ coal block hiện tại
+    fuelRemaining: number;
   }> = new Map();
+  
+  // Recipe maps for each crusher type
+  private static recipesByMachine: Map<string, Map<string, OreCrusherRecipe>> = new Map();
 
   static initialize(): void {
     console.warn('[OreCrusherSystem] Initializing...');
+    
+    // Load recipes from generated data
+    this.loadRecipes();
     
     // Track khi player đặt crusher
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
@@ -64,7 +74,28 @@ export class OreCrusherSystem {
       this.processAllCrushers();
     }, 1);
     
-    console.warn('[OreCrusherSystem] Initialized - 3-tier system (MK1/MK2/MK3)');
+    console.warn('[OreCrusherSystem] Initialized - 3-tier system (MK1/MK2/MK3) - YAML-driven');
+  }
+
+  /**
+   * Load recipes từ generated data
+   */
+  private static loadRecipes(): void {
+    for (const [machineType, recipes] of Object.entries(GENERATED_ORE_CRUSHER_RECIPES)) {
+      const recipeMap = new Map<string, OreCrusherRecipe>();
+      for (const recipe of recipes) {
+        recipeMap.set(recipe.inputId, recipe);
+      }
+      this.recipesByMachine.set(`apeirix:${machineType}`, recipeMap);
+    }
+    console.warn(`[OreCrusherSystem] Loaded ${this.recipesByMachine.size} crusher types with recipes`);
+  }
+
+  /**
+   * Lấy recipe cho crusher type và block ID
+   */
+  private static getRecipe(crusherType: string, blockId: string): OreCrusherRecipe | undefined {
+    return this.recipesByMachine.get(crusherType)?.get(blockId);
   }
 
   /**
@@ -238,9 +269,9 @@ export class OreCrusherSystem {
   private static crushBlock(targetBlock: Block, crusherBlock: Block, multiplier: number): void {
     const blockId = targetBlock.typeId;
     
-    // Kiểm tra xem block có thể nghiền bằng hammer không
-    const dustDrop = HammerRegistry.getDrops(blockId);
-    if (!dustDrop) {
+    // Kiểm tra xem block có thể nghiền không (dùng recipe từ YAML)
+    const recipe = this.getRecipe(crusherBlock.typeId, blockId);
+    if (!recipe) {
       return;
     }
     
@@ -271,20 +302,20 @@ export class OreCrusherSystem {
       };
       
       // Spawn stone dust
-      const stoneDustCount = Math.floor(dustDrop.stoneDustCount * multiplier);
+      const stoneDustCount = Math.floor(recipe.stoneDustCount * multiplier);
       if (stoneDustCount > 0) {
         targetBlock.dimension.spawnItem(
-          new ItemStack(dustDrop.stoneDust, stoneDustCount),
+          new ItemStack(recipe.stoneDust, stoneDustCount),
           dropLocation
         );
       }
       
       // Spawn ore dust if exists
-      if (dustDrop.oreDust && dustDrop.oreDustCount) {
-        const oreDustCount = Math.floor(dustDrop.oreDustCount * multiplier);
+      if (recipe.oreDust && recipe.oreDustCount) {
+        const oreDustCount = Math.floor(recipe.oreDustCount * multiplier);
         if (oreDustCount > 0) {
           targetBlock.dimension.spawnItem(
-            new ItemStack(dustDrop.oreDust, oreDustCount),
+            new ItemStack(recipe.oreDust, oreDustCount),
             dropLocation
           );
         }

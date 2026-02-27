@@ -9,6 +9,118 @@ explosionResistance: 20.0
 mapColor: "#6A6A6A"
 requiresTool: true
 toolTier: diamond
+processingRecipes:
+  # Vanilla stone blocks
+  - input: minecraft:stone
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+  - input: minecraft:cobblestone
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+  - input: minecraft:deepslate
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+  - input: minecraft:cobbled_deepslate
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+  - input: minecraft:netherrack
+    stoneDust: apeirix:netherrack_dust
+    stoneDustCount: 4
+  # Vanilla ores - Coal
+  - input: minecraft:coal_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:coal_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_coal_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:coal_dust
+    oreDustCount: 9
+  # Vanilla ores - Iron
+  - input: minecraft:iron_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:iron_ingot_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_iron_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:iron_ingot_dust
+    oreDustCount: 9
+  # Vanilla ores - Copper
+  - input: minecraft:copper_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:copper_ingot_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_copper_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:copper_ingot_dust
+    oreDustCount: 9
+  # Vanilla ores - Gold
+  - input: minecraft:gold_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:gold_ingot_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_gold_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:gold_ingot_dust
+    oreDustCount: 9
+  # Vanilla ores - Diamond
+  - input: minecraft:diamond_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:diamond_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_diamond_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:diamond_dust
+    oreDustCount: 9
+  # Vanilla ores - Emerald
+  - input: minecraft:emerald_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:emerald_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_emerald_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:emerald_dust
+    oreDustCount: 9
+  # Vanilla ores - Lapis
+  - input: minecraft:lapis_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:lapis_block_dust
+    oreDustCount: 9
+  - input: minecraft:deepslate_lapis_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:lapis_block_dust
+    oreDustCount: 9
+  # Vanilla ores - Redstone (no ore dust, drops normally)
+  - input: minecraft:redstone_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+  - input: minecraft:deepslate_redstone_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+  # Custom ores - Tin
+  - input: apeirix:tin_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:tin_ingot_dust
+    oreDustCount: 9
+  - input: apeirix:deepslate_tin_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:tin_ingot_dust
+    oreDustCount: 9
 recipes:
   - type: shaped
     id: ore_crusher_mk3
