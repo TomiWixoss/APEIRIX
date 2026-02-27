@@ -10,12 +10,12 @@ export class FirstMineAchievement extends Achievement {
     id = "first_mine";
     requirement = 1;
     category = "starter";
-    icon = "textures/items/wooden_pickaxe";
+    icon = "textures/items/cobblestone_dust";
     rewards = [
         {
             item: "minecraft:torch",
             amount: 16,
-            icon: "textures/items/torch_on",
+            icon: "textures/items/torch",
             name: "Torch"
         }
     ];

@@ -10,7 +10,7 @@ export class ProcessingMasterAchievement extends Achievement {
     id = "processing_master";
     requirement = 7; // crusher, sieve, washer, compressor, alloy table, ore_crusher_mk1, ore_crusher_mk2
     category = "processing";
-    icon = "textures/blocks/crusher_front";
+    icon = "textures/items/iron_ingot_dust_pure";
     rewards = [
         {
             item: "minecraft:diamond",

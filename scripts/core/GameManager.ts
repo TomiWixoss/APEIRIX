@@ -202,29 +202,29 @@ export class GameManager {
     }
 
     private static setupEventListeners(): void {
-        // Player spawn - give achievement book and wiki book
+        // Player spawn - give achievement book and wiki book (only once per player)
         world.afterEvents.playerSpawn.subscribe((event) => {
             const player = event.player;
             if (event.initialSpawn) {
-                player.sendMessage(LangManager.get("welcome.title"));
+                // Check if player already received books
+                const hasReceivedBooks = player.getDynamicProperty("apeirix:books_received");
+                
+                if (!hasReceivedBooks) {
+                    player.sendMessage(LangManager.get("welcome.title"));
 
-                // Check if player already has achievement book (by checking any achievement)
-                const hasAnyAchievement = AchievementRegistry.getAllAchievements().some(achievement =>
-                    AchievementSystem.hasAchievement(player, achievement.id)
-                );
-
-                if (!hasAnyAchievement) {
+                    // Give books on first spawn only
                     system.runTimeout(() => {
                         try {
                             player.runCommand("give @s apeirix:achievement_book 1");
                             player.runCommand("give @s apeirix:wiki_book 1");
                             player.sendMessage(LangManager.get("welcome.firstTime"));
+                            
+                            // Mark as received
+                            player.setDynamicProperty("apeirix:books_received", true);
                         } catch (error) {
                             console.warn("Failed to give books:", error);
                         }
                     }, 20);
-                } else {
-                    player.sendMessage(LangManager.get("welcome.returning"));
                 }
             }
         });

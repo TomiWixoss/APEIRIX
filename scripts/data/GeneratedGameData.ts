@@ -550,6 +550,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Máy Nghiền Quặng MK1",
     description: "Máy nghiền quặng cơ bản. Nghiền quặng thành bụi để chế biến tiếp.",
+    icon: "textures/blocks/orecrushermk1front",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Chậm (10 giây/lần)",
@@ -564,6 +565,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Máy Nghiền Quặng MK2",
     description: "Máy nghiền quặng cải tiến với tốc độ xử lý nhanh hơn.",
+    icon: "textures/blocks/orecrushermk2front",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Trung bình (7 giây/lần)",
@@ -578,6 +580,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Máy Nghiền Quặng MK3",
     description: "Máy nghiền quặng tiên tiến với tốc độ xử lý nhanh nhất.",
+    icon: "textures/blocks/orecrushermk3front",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Nhanh (5 giây/lần)",
@@ -592,6 +595,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Rây Quặng",
     description: "Sàng lọc bụi quặng để loại bỏ tạp chất. Tạo ra bụi tinh khiết.",
+    icon: "textures/blocks/ore_sieve",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Trung bình (8 giây/lần)",
@@ -606,6 +610,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Máy Rửa Quặng",
     description: "Rửa bụi quặng bằng nước để làm sạch. Cần nguồn nước.",
+    icon: "textures/blocks/ore_washer",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Nhanh (5 giây/lần)",
@@ -620,6 +625,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Máy Nghiền",
     description: "Máy nghiền đa năng. Nghiền nhiều loại vật liệu thành bụi hoặc mảnh nhỏ.",
+    icon: "textures/blocks/crusher_front",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Trung bình (7 giây/lần)",
@@ -634,6 +640,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Máy Nén",
     description: "Nén vật liệu thành dạng đặc hơn. Dùng cho chế tạo nâng cao.",
+    icon: "textures/blocks/compressor_front",
     info: {
       "Loại": "Máy Chế Biến",
       "Tốc Độ": "Chậm (10 giây/lần)",
@@ -648,6 +655,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Bàn Trộn Hợp Kim",
     description: "Trộn kim loại để tạo hợp kim. Thiết yếu cho sản xuất đồng và thép.",
+    icon: "textures/blocks/alloy_mixing_table_front",
     info: {
       "Loại": "Trạm Chế Tạo",
       "Tốc Độ": "Tức thì",

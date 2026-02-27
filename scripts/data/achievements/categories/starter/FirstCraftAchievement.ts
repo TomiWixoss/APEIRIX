@@ -10,7 +10,7 @@ export class FirstCraftAchievement extends Achievement {
     id = "first_craft";
     requirement = 1;
     category = "starter";
-    icon = "textures/blocks/crafting_table_front";
+    icon = "textures/items/tin_nugget";
     rewards = [
         {
             item: "minecraft:stick",

@@ -10,7 +10,7 @@ export class EfficiencyExpertAchievement extends Achievement {
     id = "efficiency_expert";
     requirement = 1000;
     category = "processing";
-    icon = "textures/blocks/compressor_front_on";
+    icon = "textures/items/diamond_dust_pure";
     rewards = [
         {
             item: "minecraft:netherite_ingot",

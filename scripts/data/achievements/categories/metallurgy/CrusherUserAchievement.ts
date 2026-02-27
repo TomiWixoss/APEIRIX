@@ -11,7 +11,7 @@ export class CrusherUserAchievement extends Achievement {
     requirement = 1;
     category = "metallurgy";
     phase = "phase1";
-    icon = "textures/blocks/ore_crusher_front";
+    icon = "textures/items/cobblestone_dust";
     rewards = [
         {
             item: "apeirix:cobblestone_dust",

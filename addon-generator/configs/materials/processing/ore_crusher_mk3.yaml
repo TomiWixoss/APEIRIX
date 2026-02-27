@@ -3,8 +3,8 @@ name: lang:blocks.ore_crusher_mk3
 textures:
   up: ../../../assets/blocks/orecrushermk1allothersides.png
   down: ../../../assets/blocks/orecrushermk1allothersides.png
-  north: ../../../assets/blocks/orecrushermk3front.png
-  south: ../../../assets/blocks/orecrushermk1allothersides.png
+  north: ../../../assets/blocks/orecrushermk1allothersides.png
+  south: ../../../assets/blocks/orecrushermk3front.png
   east: ../../../assets/blocks/orecrushermk1allothersides.png
   west: ../../../assets/blocks/orecrushermk1allothersides.png
 category: equipment

@@ -4,6 +4,7 @@ items:
   ore_crusher_mk1:
     name: "Ore Crusher MK1"
     description: "Basic ore crusher. Crushes ores into dust for further processing."
+    icon: "textures/blocks/orecrushermk1front"
     info:
       Type: "Processing Machine"
       Speed: "Slow (10s per operation)"
@@ -15,6 +16,7 @@ items:
   ore_crusher_mk2:
     name: "Ore Crusher MK2"
     description: "Improved ore crusher with faster processing speed."
+    icon: "textures/blocks/orecrushermk2front"
     info:
       Type: "Processing Machine"
       Speed: "Medium (7s per operation)"
@@ -26,6 +28,7 @@ items:
   ore_crusher_mk3:
     name: "Ore Crusher MK3"
     description: "Advanced ore crusher with fastest processing speed."
+    icon: "textures/blocks/orecrushermk3front"
     info:
       Type: "Processing Machine"
       Speed: "Fast (5s per operation)"
@@ -37,6 +40,7 @@ items:
   ore_sieve:
     name: "Ore Sieve"
     description: "Sifts ore dust to remove impurities. Produces pure dust."
+    icon: "textures/blocks/ore_sieve"
     info:
       Type: "Processing Machine"
       Speed: "Medium (8s per operation)"
@@ -48,6 +52,7 @@ items:
   ore_washer:
     name: "Ore Washer"
     description: "Washes ore dust with water to purify it. Requires water source."
+    icon: "textures/blocks/ore_washer"
     info:
       Type: "Processing Machine"
       Speed: "Fast (5s per operation)"
@@ -59,6 +64,7 @@ items:
   crusher:
     name: "Crusher"
     description: "General purpose crusher. Crushes various materials into dust or smaller pieces."
+    icon: "textures/blocks/crusher_front"
     info:
       Type: "Processing Machine"
       Speed: "Medium (7s per operation)"
@@ -70,6 +76,7 @@ items:
   compressor:
     name: "Compressor"
     description: "Compresses materials into denser forms. Used for advanced crafting."
+    icon: "textures/blocks/compressor_front"
     info:
       Type: "Processing Machine"
       Speed: "Slow (10s per operation)"
@@ -81,6 +88,7 @@ items:
   alloy_mixing_table:
     name: "Alloy Mixing Table"
     description: "Mixes metals to create alloys. Essential for bronze and steel production."
+    icon: "textures/blocks/alloy_mixing_table_front"
     info:
       Type: "Crafting Station"
       Speed: "Instant"

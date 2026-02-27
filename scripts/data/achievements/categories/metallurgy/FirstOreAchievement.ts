@@ -11,7 +11,7 @@ export class FirstOreAchievement extends Achievement {
     requirement = 1;
     category = "metallurgy";
     phase = "phase1";
-    icon = "textures/blocks/tin_ore";
+    icon = "textures/items/raw_tin";
     rewards = [
         {
             item: "apeirix:raw_tin",
