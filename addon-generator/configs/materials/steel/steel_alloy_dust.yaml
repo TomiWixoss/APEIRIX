@@ -3,6 +3,7 @@ name: lang:materials.steel_alloy_dust
 texture: ../../../assets/steel_alloy/steel_alloy_dust.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shapeless
     id: steel_alloy_dust_from_iron_coal_dust

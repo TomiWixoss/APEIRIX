@@ -3,6 +3,7 @@ name: lang:materials.emerald_dust
 texture: ../../../assets/items/emerald_dust.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: emerald_from_dust

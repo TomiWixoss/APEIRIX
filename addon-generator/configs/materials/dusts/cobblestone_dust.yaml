@@ -3,6 +3,7 @@ name: lang:materials.cobblestone_dust
 texture: ../../../assets/items/cobblestone_dust.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: cobblestone_from_dust

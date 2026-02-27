@@ -3,6 +3,7 @@ name: lang:materials.bronze_ingot_dust_pure
 texture: ../../../assets/items/bronze_ingot_dust_pure.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: bronze_ingot_from_pure_dust

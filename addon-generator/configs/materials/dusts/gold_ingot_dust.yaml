@@ -3,6 +3,7 @@ name: lang:materials.gold_ingot_dust
 texture: ../../../assets/items/gold_ingot_dust.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: raw_gold_from_dust

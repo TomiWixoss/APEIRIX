@@ -872,18 +872,22 @@ export const GENERATED_BRASS_SIFTER = [
 
 /**
  * Generated Rust Mite edible items
- * Auto-generated from all foods and raw ores
+ * YAML-DRIVEN: Items explicitly marked with edibleByRustMite: true
  */
 export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:bronze_ingot_dust",
   "apeirix:bronze_ingot_dust_pure",
   "apeirix:candirty",
   "apeirix:canempty",
+  "apeirix:canned_food",
   "apeirix:canned_pumpkin",
+  "apeirix:cannedbeets",
+  "apeirix:cannedbread",
   "apeirix:cannedcarrots",
   "apeirix:canneddogfood",
   "apeirix:cannedfish",
   "apeirix:cannedmeal",
+  "apeirix:cannedmushroomsoup",
   "apeirix:cannedsalad",
   "apeirix:chickensoup",
   "apeirix:coal_dust",
@@ -911,8 +915,5 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:steel_alloy_dust",
   "apeirix:steel_alloy_dust_pure",
   "apeirix:tin_ingot_dust",
-  "apeirix:tin_ingot_dust_pure",
-  "minecraft:raw_copper",
-  "minecraft:raw_gold",
-  "minecraft:raw_iron"
+  "apeirix:tin_ingot_dust_pure"
 ];

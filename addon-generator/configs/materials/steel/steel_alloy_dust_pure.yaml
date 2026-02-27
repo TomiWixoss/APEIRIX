@@ -3,6 +3,7 @@ name: lang:materials.steel_alloy_dust_pure
 texture: ../../../assets/steel_alloy/steel_alloy_dust_pure.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: steel_alloy_ingot_from_pure_dust

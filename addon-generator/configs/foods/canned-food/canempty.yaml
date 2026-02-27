@@ -3,6 +3,7 @@ name: lang:foods.canempty
 texture: ../../../assets/foods/canempty.png
 category: items
 stackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: canempty

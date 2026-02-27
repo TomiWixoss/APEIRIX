@@ -3,6 +3,7 @@ name: lang:materials.coal_dust_pure
 texture: ../../../assets/items/coal_dust_pure.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: coal_from_pure_dust

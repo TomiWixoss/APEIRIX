@@ -3,6 +3,7 @@ name: lang:materials.copper_ingot_dust
 texture: ../../../assets/items/copper_ingot_dust.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: raw_copper_from_dust

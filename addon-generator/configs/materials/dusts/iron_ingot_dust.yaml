@@ -3,6 +3,7 @@ name: lang:materials.iron_ingot_dust
 texture: ../../../assets/items/iron_ingot_dust.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: raw_iron_from_dust

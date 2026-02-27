@@ -79,23 +79,30 @@ export class GameDataBPGenerator {
     
     // Collect all items for wiki
     const allItems: string[] = [];
+    const edibleItems: string[] = []; // Items edible by Rust Mite
     
     if (config.items) {
       for (const item of config.items) {
         allItems.push(`apeirix:${item.id}`);
+        // Collect items with edibleByRustMite: true
+        if (item.edibleByRustMite === true) {
+          edibleItems.push(`apeirix:${item.id}`);
+        }
       }
     }
     
-    // Add foods to allItems
+    // Add foods to allItems (foods are always edible by Rust Mite)
     if (config.foods) {
       for (const food of config.foods) {
         allItems.push(`apeirix:${food.id}`);
+        // Foods are always edible by Rust Mite
+        edibleItems.push(`apeirix:${food.id}`);
       }
     }
 
     // Generate file to project root (for development)
     // Note: hammerMining and brassSifter are now empty arrays - data moved to YAML
-    generator.generate(tools, foods, ores, wikiItems, [], [], allItems);
+    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, edibleItems);
     
     // Collect processing recipes
     const processingRecipes: ProcessingRecipeData[] = [];
@@ -148,6 +155,6 @@ export class GameDataBPGenerator {
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, edibleItems, 'BP/scripts/data');
   }
 }

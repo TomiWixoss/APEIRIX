@@ -3,6 +3,7 @@ name: lang:foods.canned_pumpkin
 texture: ../../../assets/foods/canned_pumpkin.png
 category: items
 stackSize: 64
+edibleByRustMite: true
 nutrition: 4
 saturation: 4.8
 canAlwaysEat: false

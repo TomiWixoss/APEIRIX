@@ -3,6 +3,7 @@ name: lang:foods.cannedbeets
 texture: ../../../assets/foods/cannedbeets.png
 category: items
 stackSize: 64
+edibleByRustMite: true
 nutrition: 6
 saturation: 7.2
 canAlwaysEat: false

@@ -3,6 +3,7 @@ name: lang:materials.lapis_block_dust_pure
 texture: ../../../assets/items/lapis_block_dust_pure.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: lapis_lazuli_from_pure_dust

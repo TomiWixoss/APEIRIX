@@ -3,6 +3,7 @@ name: lang:foods.canned_food
 texture: ../../../assets/foods/canned_food.png
 category: items
 stackSize: 64
+edibleByRustMite: true
 nutrition: 10
 saturation: 12.8
 canAlwaysEat: false

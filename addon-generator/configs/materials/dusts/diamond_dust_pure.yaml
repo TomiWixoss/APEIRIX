@@ -3,6 +3,7 @@ name: lang:materials.diamond_dust_pure
 texture: ../../../assets/items/diamond_dust_pure.png
 category: items
 maxStackSize: 64
+edibleByRustMite: true
 recipes:
   - type: shaped
     id: diamond_from_pure_dust

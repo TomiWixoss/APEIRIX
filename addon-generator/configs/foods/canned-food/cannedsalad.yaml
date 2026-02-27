@@ -3,6 +3,7 @@ name: lang:foods.cannedsalad
 texture: ../../../assets/foods/cannedsalad.png
 category: items
 stackSize: 64
+edibleByRustMite: true
 nutrition: 3
 saturation: 3.6
 canAlwaysEat: false
