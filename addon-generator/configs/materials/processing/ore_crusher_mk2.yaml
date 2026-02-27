@@ -130,6 +130,17 @@ processingRecipes:
     stoneDustCount: 4
     oreDust: apeirix:tin_ingot_dust
     oreDustCount: 9
+  # Custom ores - Silver
+  - input: apeirix:silver_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:silver_ingot_dust
+    oreDustCount: 9
+  - input: apeirix:deepslate_silver_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:silver_ingot_dust
+    oreDustCount: 9
 recipes:
   - type: shaped
     id: ore_crusher_mk2

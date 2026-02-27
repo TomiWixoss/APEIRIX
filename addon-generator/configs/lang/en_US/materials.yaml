@@ -48,6 +48,16 @@ materials:
   steel_alloy_ingot: Steel Alloy Ingot
   steel_alloy_nugget: Steel Alloy Nugget
   steel_alloy_block: Steel Alloy Block
+
+  # Silver
+  raw_silver: Raw Silver
+  silver_ingot: Silver Ingot
+  silver_nugget: Silver Nugget
+  silver_block: Block of Silver
+  silver_ore: Silver Ore
+  deepslate_silver_ore: Deepslate Silver Ore
+  silver_ingot_dust: Silver Dust
+  silver_ingot_dust_pure: Pure Silver Dust
   steel_alloy_dust: Steel Alloy Dust
   steel_alloy_dust_pure: Pure Steel Alloy Dust
   raw_steel: Raw Steel Alloy

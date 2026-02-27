@@ -1,0 +1,3 @@
+id: silver_block
+tests:
+  - command: give @s apeirix:silver_block 64

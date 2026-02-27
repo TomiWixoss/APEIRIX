@@ -1,0 +1,32 @@
+id: silver_block
+name: lang:materials.silver_block
+texture: ../../../assets/silver/silver_block.png
+category: construction
+destroyTime: 16.65
+explosionResistance: 6
+mapColor: "#c0c0c0"
+requiresTool: true
+toolTier: stone
+miningSpeed: 5
+drops: apeirix:silver_block
+recipes:
+  - type: shaped
+    id: silver_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:silver_ingot
+    result: apeirix:silver_block
+    count: 1
+    unlock:
+      - apeirix:silver_ingot
+  - type: shapeless
+    id: apeirix:silver_ingot_from_block
+    ingredients:
+      - apeirix:silver_block
+    result: apeirix:silver_ingot
+    count: 9
+    unlock:
+      - apeirix:silver_block

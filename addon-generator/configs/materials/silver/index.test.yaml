@@ -1,0 +1,8 @@
+import:
+  - raw_silver.test.yaml
+  - silver_ingot.test.yaml
+  - silver_nugget.test.yaml
+  - silver_block.test.yaml
+  - silver_ore.test.yaml
+  - silver_ingot_dust.test.yaml
+  - silver_ingot_dust_pure.test.yaml

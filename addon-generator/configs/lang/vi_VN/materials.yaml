@@ -56,6 +56,16 @@ materials:
   steel_alloy_base_gear: Bánh Răng Thép
   engineering_hammer: Búa Kỹ Thuật
 
+  # Silver
+  raw_silver: Bạc Thô
+  silver_ingot: Thỏi Bạc
+  silver_nugget: Mảnh Bạc
+  silver_block: Khối Bạc
+  silver_ore: Quặng Bạc
+  deepslate_silver_ore: Quặng Bạc Đá Sâu
+  silver_ingot_dust: Bụi Bạc
+  silver_ingot_dust_pure: Bụi Bạc Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

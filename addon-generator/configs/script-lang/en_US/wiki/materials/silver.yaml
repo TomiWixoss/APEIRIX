@@ -1,0 +1,70 @@
+# Silver Material Wiki Data (English)
+
+items:
+  raw_silver:
+    name: "Raw Silver"
+    description: "Raw silver obtained from mining silver ore. Smelt to get silver ingots."
+    info:
+      Rarity: "Rare"
+      Source: "Mining silver ore"
+      Crafting: "Smelt in furnace or blast furnace"
+
+  silver_ingot:
+    name: "Silver Ingot"
+    description: "Refined silver ingot. Used for crafting tools and decorative items."
+    info:
+      Rarity: "Rare"
+      Source: "Smelting silver ore or raw silver"
+      Crafting: "9 nuggets or 1 block"
+
+  silver_nugget:
+    name: "Silver Nugget"
+    description: "Small piece of silver. 9 nuggets make 1 ingot."
+    info:
+      Rarity: "Rare"
+      Source: "Breaking down silver ingots"
+      Crafting: "1 ingot = 9 nuggets"
+
+  silver_block:
+    name: "Silver Block"
+    description: "Silver block for storage or decoration. Can be broken into 9 ingots."
+    info:
+      Rarity: "Rare"
+      Hardness: "16.65"
+      Crafting: "9 silver ingots"
+      Tool: "Requires iron pickaxe or better"
+
+  silver_ore:
+    name: "Silver Ore"
+    description: "Silver ore found underground. Mine to get raw silver."
+    info:
+      Rarity: "Rare"
+      Depth: "Y: -64 to 32"
+      Vein Size: "6 blocks"
+      Frequency: "8 veins per chunk"
+      Tool: "Requires iron pickaxe or better"
+
+  deepslate_silver_ore:
+    name: "Deepslate Silver Ore"
+    description: "Deepslate variant of silver ore. Harder but yields same amount."
+    info:
+      Rarity: "Rare"
+      Depth: "Y: -64 to 32"
+      Hardness: "14.985"
+      Tool: "Requires iron pickaxe or better"
+
+  silver_ingot_dust:
+    name: "Silver Dust"
+    description: "Silver dust obtained from ore processing. Can be washed to get pure dust."
+    info:
+      Rarity: "Rare"
+      Source: "Ore Crusher, Ore Sieve"
+      Processing: "Wash in Ore Washer for pure dust"
+
+  silver_ingot_dust_pure:
+    name: "Pure Silver Dust"
+    description: "Pure silver dust ready for smelting. Yields 1 silver ingot."
+    info:
+      Rarity: "Rare"
+      Source: "Washing silver dust"
+      Crafting: "Smelt to get silver ingot"

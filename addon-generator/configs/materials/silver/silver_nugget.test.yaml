@@ -1,0 +1,3 @@
+id: silver_nugget
+tests:
+  - command: give @s apeirix:silver_nugget 64

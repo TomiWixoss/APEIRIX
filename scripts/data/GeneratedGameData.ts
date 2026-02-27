@@ -23,6 +23,18 @@ export const GENERATED_ORES = [
     dropItem: "apeirix:raw_tin",
     dropCount: 1,
     fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:silver_ore",
+    dropItem: "apeirix:raw_silver",
+    dropCount: 1,
+    fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:deepslate_silver_ore",
+    dropItem: "apeirix:raw_silver",
+    dropCount: 1,
+    fortuneEnabled: true
   }
 ];
 
@@ -663,6 +675,98 @@ export const GENERATED_WIKI_ITEMS = [
       "Đầu Vào": "Thỏi kim loại",
       "Đầu Ra": "Thỏi hợp kim",
       "Chế Tạo": "4 thỏi đồng + 4 đá mịn + 1 bàn chế tạo"
+    },
+  },
+  {
+    id: "apeirix:raw_silver",
+    category: "materials",
+    name: "Bạc Thô",
+    description: "Bạc thô được khai thác từ quặng bạc. Nấu luyện để có thỏi bạc.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Nguồn": "Khai thác quặng bạc",
+      "Chế tạo": "Nấu trong lò hoặc lò cao"
+    },
+  },
+  {
+    id: "apeirix:silver_ingot",
+    category: "materials",
+    name: "Thỏi Bạc",
+    description: "Thỏi bạc tinh luyện. Dùng để chế tạo công cụ và vật trang trí.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Nguồn": "Nấu quặng bạc hoặc bạc thô",
+      "Chế tạo": "9 mảnh bạc hoặc 1 khối bạc"
+    },
+  },
+  {
+    id: "apeirix:silver_nugget",
+    category: "materials",
+    name: "Mảnh Bạc",
+    description: "Mảnh nhỏ của bạc. 9 mảnh tạo thành 1 thỏi bạc.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Nguồn": "Chia nhỏ thỏi bạc",
+      "Chế tạo": "1 thỏi bạc = 9 mảnh"
+    },
+  },
+  {
+    id: "apeirix:silver_block",
+    category: "materials",
+    name: "Khối Bạc",
+    description: "Khối bạc dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Độ cứng": "16.65",
+      "Chế tạo": "9 thỏi bạc",
+      "Công cụ": "Cần cuốc sắt trở lên"
+    },
+  },
+  {
+    id: "apeirix:silver_ore",
+    category: "materials",
+    name: "Quặng Bạc",
+    description: "Quặng bạc tìm thấy dưới lòng đất. Khai thác để có bạc thô.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Độ sâu": "Y: -64 đến 32",
+      "Kích thước mạch": "6 khối",
+      "Tần suất": "8 mạch/chunk",
+      "Công cụ": "Cần cuốc sắt trở lên"
+    },
+  },
+  {
+    id: "apeirix:deepslate_silver_ore",
+    category: "materials",
+    name: "Quặng Bạc Đá Sâu",
+    description: "Biến thể đá sâu của quặng bạc. Cứng hơn nhưng cho cùng lượng bạc.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Độ sâu": "Y: -64 đến 32",
+      "Độ cứng": "14.985",
+      "Công cụ": "Cần cuốc sắt trở lên"
+    },
+  },
+  {
+    id: "apeirix:silver_ingot_dust",
+    category: "materials",
+    name: "Bụi Bạc",
+    description: "Bụi bạc thu được từ xử lý quặng. Có thể rửa để có bụi tinh khiết.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Nguồn": "Máy Nghiền Quặng, Rây Sàng Quặng",
+      "Xử lý": "Rửa trong Máy Rửa Quặng để có bụi tinh khiết"
+    },
+  },
+  {
+    id: "apeirix:silver_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Bạc Tinh Khiết",
+    description: "Bụi bạc tinh khiết sẵn sàng nấu luyện. Cho 1 thỏi bạc.",
+    info: {
+      "Độ hiếm": "Hiếm",
+      "Nguồn": "Rửa bụi bạc",
+      "Chế tạo": "Nấu để có thỏi bạc"
     },
   },
   {
@@ -1435,9 +1539,12 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:raw_diamond",
   "apeirix:raw_emerald",
   "apeirix:raw_lapis",
+  "apeirix:raw_silver",
   "apeirix:raw_steel",
   "apeirix:raw_tin",
   "apeirix:redstone_dust_pure",
+  "apeirix:silver_ingot_dust",
+  "apeirix:silver_ingot_dust_pure",
   "apeirix:steel_alloy_dust",
   "apeirix:steel_alloy_dust_pure",
   "apeirix:tin_ingot_dust",
