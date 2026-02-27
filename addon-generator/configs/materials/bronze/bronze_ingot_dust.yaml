@@ -20,14 +20,14 @@ recipes:
     craftingTags:
       - alloy_mixing_crafting
   - type: shaped
-    id: bronze_ingot_from_dust
+    id: raw_bronze_from_dust
     pattern:
       - "###"
       - "###"
       - "###"
     ingredients:
       "#": apeirix:bronze_ingot_dust
-    result: apeirix:bronze_ingot
+    result: apeirix:raw_bronze
     count: 1
     craftingTags:
       - alloy_mixing_crafting

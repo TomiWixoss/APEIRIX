@@ -10,7 +10,10 @@ import:
   - diamond_dust.yaml
   - emerald_dust.yaml
   - lapis_block_dust.yaml
-  - bronze_ingot_dust_pure.yaml
+  - raw_coal.yaml
+  - raw_diamond.yaml
+  - raw_emerald.yaml
+  - raw_lapis.yaml
   - coal_dust_pure.yaml
   - copper_ingot_dust_pure.yaml
   - diamond_dust_pure.yaml

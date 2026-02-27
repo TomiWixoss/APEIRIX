@@ -10,3 +10,7 @@ import:
   - diamond_dust.test.yaml
   - emerald_dust.test.yaml
   - lapis_block_dust.test.yaml
+  - raw_coal.test.yaml
+  - raw_diamond.test.yaml
+  - raw_emerald.test.yaml
+  - raw_lapis.test.yaml

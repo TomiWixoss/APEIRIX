@@ -1,0 +1,17 @@
+id: raw_emerald
+name: lang:materials.raw_emerald
+texture: ../../../assets/items/raw_emerald.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: smelting
+    id: emerald_from_raw_smelting
+    input: apeirix:raw_emerald
+    output: minecraft:emerald
+    count: 1
+  - type: blasting
+    id: emerald_from_raw_blasting
+    input: apeirix:raw_emerald
+    output: minecraft:emerald
+    count: 1

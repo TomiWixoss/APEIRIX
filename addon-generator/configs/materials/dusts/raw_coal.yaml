@@ -1,0 +1,17 @@
+id: raw_coal
+name: lang:materials.raw_coal
+texture: ../../../assets/items/raw_coal.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: smelting
+    id: coal_from_raw_smelting
+    input: apeirix:raw_coal
+    output: minecraft:coal
+    count: 1
+  - type: blasting
+    id: coal_from_raw_blasting
+    input: apeirix:raw_coal
+    output: minecraft:coal
+    count: 1

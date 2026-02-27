@@ -13,6 +13,7 @@ materials:
   bronze_nugget: Bronze Nugget
   bronze_block: Block of Bronze
   bronze_ingot_dust: Bronze Dust
+  raw_bronze: Raw Bronze
 
   # Dusts
   cobblestone_dust: Cobblestone Dust
@@ -26,6 +27,10 @@ materials:
   diamond_dust: Diamond Dust
   emerald_dust: Emerald Dust
   lapis_block_dust: Lapis Lazuli Dust
+  raw_coal: Raw Coal
+  raw_diamond: Raw Diamond
+  raw_emerald: Raw Emerald
+  raw_lapis: Raw Lapis Lazuli
 
   # Pure Dusts
   bronze_ingot_dust_pure: Pure Bronze Dust
@@ -45,6 +50,7 @@ materials:
   steel_alloy_block: Steel Alloy Block
   steel_alloy_dust: Steel Alloy Dust
   steel_alloy_dust_pure: Pure Steel Alloy Dust
+  raw_steel: Raw Steel Alloy
   steel_alloy_base_plate: Steel Plate
   steel_alloy_base_rod: Steel Rod
   steel_alloy_base_gear: Steel Gear

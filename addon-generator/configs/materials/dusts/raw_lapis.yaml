@@ -1,0 +1,17 @@
+id: raw_lapis
+name: lang:materials.raw_lapis
+texture: ../../../assets/items/raw_lapis.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: smelting
+    id: lapis_lazuli_from_raw_smelting
+    input: apeirix:raw_lapis
+    output: minecraft:lapis_lazuli
+    count: 1
+  - type: blasting
+    id: lapis_lazuli_from_raw_blasting
+    input: apeirix:raw_lapis
+    output: minecraft:lapis_lazuli
+    count: 1

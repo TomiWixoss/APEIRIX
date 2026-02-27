@@ -3,4 +3,6 @@ import:
   - bronze_nugget.test.yaml
   - bronze_block.test.yaml
   - bronze_mixture.test.yaml
+  - bronze_ingot_dust_pure.test.yaml
+  - raw_bronze.test.yaml
   - alloy_mixing_table.test.yaml

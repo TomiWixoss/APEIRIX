@@ -13,6 +13,7 @@ materials:
   bronze_nugget: Mảnh Đồng Thanh
   bronze_block: Khối Đồng Thanh
   bronze_ingot_dust: Bụi Đồng Thanh
+  raw_bronze: Đồng Thanh Thô
 
   # Dusts
   cobblestone_dust: Bụi Đá Cuội
@@ -26,6 +27,10 @@ materials:
   diamond_dust: Bụi Kim Cương
   emerald_dust: Bụi Ngọc Lục Bảo
   lapis_block_dust: Bụi Lưu Ly
+  raw_coal: Than Thô
+  raw_diamond: Kim Cương Thô
+  raw_emerald: Ngọc Lục Bảo Thô
+  raw_lapis: Lưu Ly Thô
 
   # Pure Dusts
   bronze_ingot_dust_pure: Bụi Đồng Thanh Tinh Khiết
@@ -45,6 +50,7 @@ materials:
   steel_alloy_block: Khối Hợp Kim Thép
   steel_alloy_dust: Bụi Hợp Kim Thép
   steel_alloy_dust_pure: Bụi Hợp Kim Thép Tinh Khiết
+  raw_steel: Hợp Kim Thép Thô
   steel_alloy_base_plate: Tấm Thép
   steel_alloy_base_rod: Thanh Thép
   steel_alloy_base_gear: Bánh Răng Thép

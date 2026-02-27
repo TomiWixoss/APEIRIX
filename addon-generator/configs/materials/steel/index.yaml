@@ -4,6 +4,7 @@ import:
   - steel_alloy_block.yaml
   - steel_alloy_dust.yaml
   - steel_alloy_dust_pure.yaml
+  - raw_steel.yaml
   - steel_alloy_base_plate.yaml
   - steel_alloy_base_rod.yaml
   - steel_alloy_base_gear.yaml

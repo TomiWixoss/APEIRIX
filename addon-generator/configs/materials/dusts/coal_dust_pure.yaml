@@ -6,13 +6,13 @@ maxStackSize: 64
 edibleByRustMite: true
 recipes:
   - type: shaped
-    id: coal_from_pure_dust
+    id: raw_coal_from_pure_dust
     pattern:
       - "##"
       - "##"
     ingredients:
       "#": apeirix:coal_dust_pure
-    result: minecraft:coal
+    result: apeirix:raw_coal
     count: 1
     craftingTags:
       - alloy_mixing_crafting

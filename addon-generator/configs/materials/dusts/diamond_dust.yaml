@@ -6,14 +6,14 @@ maxStackSize: 64
 edibleByRustMite: true
 recipes:
   - type: shaped
-    id: diamond_from_dust
+    id: raw_diamond_from_dust
     pattern:
       - "###"
       - "###"
       - "###"
     ingredients:
       "#": apeirix:diamond_dust
-    result: minecraft:diamond
+    result: apeirix:raw_diamond
     count: 1
     craftingTags:
       - alloy_mixing_crafting

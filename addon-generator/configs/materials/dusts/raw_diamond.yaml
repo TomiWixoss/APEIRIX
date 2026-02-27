@@ -1,0 +1,17 @@
+id: raw_diamond
+name: lang:materials.raw_diamond
+texture: ../../../assets/items/raw_diamond.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: smelting
+    id: diamond_from_raw_smelting
+    input: apeirix:raw_diamond
+    output: minecraft:diamond
+    count: 1
+  - type: blasting
+    id: diamond_from_raw_blasting
+    input: apeirix:raw_diamond
+    output: minecraft:diamond
+    count: 1

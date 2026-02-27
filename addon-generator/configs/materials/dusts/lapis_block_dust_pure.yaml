@@ -6,13 +6,13 @@ maxStackSize: 64
 edibleByRustMite: true
 recipes:
   - type: shaped
-    id: lapis_lazuli_from_pure_dust
+    id: raw_lapis_from_pure_dust
     pattern:
       - "##"
       - "##"
     ingredients:
       "#": apeirix:lapis_block_dust_pure
-    result: minecraft:lapis_lazuli
+    result: apeirix:raw_lapis
     count: 1
     craftingTags:
       - alloy_mixing_crafting

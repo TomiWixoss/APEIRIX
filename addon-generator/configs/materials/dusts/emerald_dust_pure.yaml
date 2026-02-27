@@ -6,13 +6,13 @@ maxStackSize: 64
 edibleByRustMite: true
 recipes:
   - type: shaped
-    id: emerald_from_pure_dust
+    id: raw_emerald_from_pure_dust
     pattern:
       - "##"
       - "##"
     ingredients:
       "#": apeirix:emerald_dust_pure
-    result: minecraft:emerald
+    result: apeirix:raw_emerald
     count: 1
     craftingTags:
       - alloy_mixing_crafting
