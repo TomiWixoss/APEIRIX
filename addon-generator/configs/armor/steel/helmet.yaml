@@ -9,7 +9,7 @@ group: itemGroup.name.helmet
 slot: slot.armor.head
 enchantSlot: armor_head
 geometry: geometry.humanoid.armor.helmet
-armorLayer: steel_alloy_layer_1
+armorLayer: steel_alloy_1
 armorLayerTexturePath: ../../../assets/steel_alloy/steel_alloy_1.png
 tags:
   - minecraft:trimmable_armors

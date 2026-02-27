@@ -16,12 +16,13 @@ recipes:
   - type: shaped
     id: steel_alloy_ingot_from_pure_dust
     pattern:
-      - "###"
-      - "###"
-      - "###"
+      - "##"
+      - "##"
     ingredients:
       "#": apeirix:steel_alloy_dust_pure
     result: apeirix:steel_alloy_ingot
     count: 1
+    craftingTags:
+      - alloy_mixing_crafting
     unlock:
       - apeirix:steel_alloy_dust_pure

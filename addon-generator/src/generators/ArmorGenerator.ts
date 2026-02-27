@@ -121,7 +121,13 @@ export class ArmorGenerator {
     
     // Xác định layer texture (layer_1 cho helmet/chestplate/boots, layer_2 cho leggings)
     const layerNum = config.piece === 'leggings' ? 2 : 1;
-    const layerTextureName = config.armorLayerTexturePath.replace(/\.(png|jpg)$/i, '').replace(/.*[\/\\]/, '');
+    let layerTextureName = config.armorLayerTexturePath.replace(/\.(png|jpg)$/i, '').replace(/.*[\/\\]/, '');
+    
+    // Tự động thêm "_layer" vào tên nếu chưa có (để khớp với tên file texture)
+    // Ví dụ: steel_alloy_1 -> steel_alloy_layer_1
+    if (!layerTextureName.includes('_layer_')) {
+      layerTextureName = layerTextureName.replace(/_(\d+)$/, '_layer_$1');
+    }
 
     const attachableData = {
       format_version: "1.20.80",

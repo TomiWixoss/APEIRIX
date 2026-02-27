@@ -249,10 +249,37 @@ export class AssetCopier {
 
   /**
    * Copy armor layer texture (auto-detect layer_1 and layer_2)
+   * Automatically adds "_layer" to filename if not present
+   * Example: steel_alloy_1.png -> steel_alloy_layer_1.png
    */
   private static copyArmorLayerTexture(configPath: string, layerPath: string, outputDir: string): void {
     const armorDir = path.join(outputDir, 'RP', 'textures', 'models', 'armor');
-    this.copyTexture(configPath, layerPath, armorDir);
+    const sourcePath = PathResolver.resolveTexture(configPath, layerPath);
+    
+    if (!existsSync(sourcePath)) {
+      console.warn(`⚠ Armor layer texture not found: ${sourcePath}`);
+      console.warn(`  Config path: ${configPath}`);
+      console.warn(`  Texture path: ${layerPath}`);
+      return;
+    }
+
+    this.ensureDir(armorDir);
+    
+    // Get original filename
+    let filename = path.basename(layerPath);
+    
+    // Auto-add "_layer" if not present (e.g., steel_alloy_1.png -> steel_alloy_layer_1.png)
+    if (!filename.includes('_layer_')) {
+      filename = filename.replace(/(_\d+)(\.png|\.jpg)$/i, '_layer$1$2');
+    }
+    
+    const destPath = path.join(armorDir, filename);
+    
+    try {
+      copyFileSync(sourcePath, destPath);
+    } catch (error) {
+      console.error(`  ✗ Failed to copy armor layer texture ${filename}: ${error}`);
+    }
   }
 
   /**

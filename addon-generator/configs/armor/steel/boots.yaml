@@ -9,7 +9,7 @@ group: itemGroup.name.boots
 slot: slot.armor.feet
 enchantSlot: armor_feet
 geometry: geometry.humanoid.armor.boots
-armorLayer: steel_alloy_layer_1
+armorLayer: steel_alloy_1
 armorLayerTexturePath: ../../../assets/steel_alloy/steel_alloy_1.png
 tags:
   - minecraft:trimmable_armors

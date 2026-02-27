@@ -6,7 +6,7 @@ destroyTime: 16.65
 explosionResistance: 6
 mapColor: "#8c8c8c"
 requiresTool: true
-toolTier: stone
+toolTier: iron
 miningSpeed: 5
 drops: apeirix:steel_alloy_block
 recipes:

@@ -2,11 +2,11 @@ type: hammer
 id: steel_alloy_hammer
 name: lang:tools.steel_alloy_hammer
 texture: ../../../assets/steel_alloy/steel_alloy_hammer.png
-damage: 4
+damage: 6
 category: equipment
 materialId: apeirix:steel_alloy_ingot
 durability: 750
-enchantability: 18
+enchantability: 22
 efficiency: 8
 tier: diamond
 diggerTags:

@@ -9,7 +9,7 @@ group: itemGroup.name.leggings
 slot: slot.armor.legs
 enchantSlot: armor_legs
 geometry: geometry.humanoid.armor.leggings
-armorLayer: steel_alloy_layer_2
+armorLayer: steel_alloy_2
 armorLayerTexturePath: ../../../assets/steel_alloy/steel_alloy_2.png
 tags:
   - minecraft:trimmable_armors

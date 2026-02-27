@@ -9,7 +9,7 @@ group: itemGroup.name.chestplate
 slot: slot.armor.chest
 enchantSlot: armor_torso
 geometry: geometry.humanoid.armor.chestplate
-armorLayer: steel_alloy_layer_1
+armorLayer: steel_alloy_1
 armorLayerTexturePath: ../../../assets/steel_alloy/steel_alloy_1.png
 tags:
   - minecraft:trimmable_armors
