@@ -103,7 +103,7 @@ export class BrassSifterSystem {
   private static toProcessingRecipe(recipe: BrassSifterRecipe): ProcessingRecipe {
     return {
       inputId: recipe.inputId,
-      outputId: `${recipe.pureDust}:1,${recipe.stoneDust}:2`, // Encode outputs
+      outputId: `${recipe.pureDust},1;${recipe.stoneDust},2`, // Format: item,count;item,count
       processingTime: this.PROCESSING_TIME
     };
   }

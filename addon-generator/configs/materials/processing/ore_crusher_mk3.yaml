@@ -1,8 +1,12 @@
 id: ore_crusher_mk3
 name: lang:blocks.ore_crusher_mk3
-textureFront: ../../../assets/blocks/orecrushermk3front.png
-textureSide: ../../../assets/blocks/orecrushermk1allothersides.png
-textureTop: ../../../assets/blocks/orecrushermk1allothersides.png
+textures:
+  up: ../../../assets/blocks/orecrushermk1allothersides.png
+  down: ../../../assets/blocks/orecrushermk1allothersides.png
+  north: ../../../assets/blocks/orecrushermk3front.png
+  south: ../../../assets/blocks/orecrushermk3front.png
+  east: ../../../assets/blocks/orecrushermk1allothersides.png
+  west: ../../../assets/blocks/orecrushermk1allothersides.png
 category: equipment
 destroyTime: 5.0
 explosionResistance: 20.0

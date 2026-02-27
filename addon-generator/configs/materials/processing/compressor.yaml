@@ -1,8 +1,12 @@
 id: compressor
 name: lang:blocks.compressor
-textureTop: ../../../assets/blocks/compressor_top.png
-textureSide: ../../../assets/blocks/compressor_side.png
-textureFront: ../../../assets/blocks/compressor_front.png
+textures:
+  up: ../../../assets/blocks/compressor_top.png
+  down: ../../../assets/blocks/compressor_top.png
+  north: ../../../assets/blocks/compressor_front.png
+  south: ../../../assets/blocks/compressor_side.png
+  east: ../../../assets/blocks/compressor_side.png
+  west: ../../../assets/blocks/compressor_side.png
 category: equipment
 destroyTime: 5.0
 explosionResistance: 10.0

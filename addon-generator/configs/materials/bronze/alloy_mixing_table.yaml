@@ -1,8 +1,12 @@
 id: alloy_mixing_table
 name: lang:blocks.alloy_mixing_table
-textureTop: ../../../assets/blocks/alloy_mixing_table_top.png
-textureSide: ../../../assets/blocks/alloy_mixing_table_side.png
-textureFront: ../../../assets/blocks/alloy_mixing_table_front.png
+textures:
+  up: ../../../assets/blocks/alloy_mixing_table_top.png
+  down: ../../../assets/blocks/alloy_mixing_table_top.png
+  north: ../../../assets/blocks/alloy_mixing_table_front.png
+  south: ../../../assets/blocks/alloy_mixing_table_front.png
+  east: ../../../assets/blocks/alloy_mixing_table_side.png
+  west: ../../../assets/blocks/alloy_mixing_table_side.png
 category: equipment
 destroyTime: 3.5
 explosionResistance: 6.0

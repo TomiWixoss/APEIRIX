@@ -147,23 +147,37 @@ export class RPCompiler {
     // Add separate texture entries for blocks with multi-face textures
     if (config.blocks) {
       for (const block of config.blocks) {
-        if (block.textureTop) {
-          allBlocks.push({
-            id: `${block.id}_top`,
-            name: `${block.name} Top`
-          });
-        }
-        if (block.textureSide) {
-          allBlocks.push({
-            id: `${block.id}_side`,
-            name: `${block.name} Side`
-          });
-        }
-        if (block.textureFront) {
-          allBlocks.push({
-            id: `${block.id}_front`,
-            name: `${block.name} Front`
-          });
+        if (block.textures) {
+          // New format - individual faces
+          const faces = ['up', 'down', 'north', 'south', 'east', 'west'] as const;
+          for (const face of faces) {
+            if ((block.textures as any)[face]) {
+              allBlocks.push({
+                id: `${block.id}_${face}`,
+                name: `${block.name} ${face.charAt(0).toUpperCase() + face.slice(1)}`
+              });
+            }
+          }
+        } else {
+          // Legacy format - backward compatibility
+          if (block.textureTop) {
+            allBlocks.push({
+              id: `${block.id}_top`,
+              name: `${block.name} Top`
+            });
+          }
+          if (block.textureSide) {
+            allBlocks.push({
+              id: `${block.id}_side`,
+              name: `${block.name} Side`
+            });
+          }
+          if (block.textureFront) {
+            allBlocks.push({
+              id: `${block.id}_front`,
+              name: `${block.name} Front`
+            });
+          }
         }
       }
     }
@@ -301,7 +315,7 @@ export class RPCompiler {
     if (config.blocks) {
       for (const block of config.blocks) {
         if (block.flipbook) {
-          const textureToAnimate = block.flipbook.texture || 'front';
+          const textureToAnimate = block.flipbook.texture || 'north';
           const frames = block.flipbook.frames || [0, 1, 2, 3, 4, 5, 6, 7];
           const ticksPerFrame = block.flipbook.ticksPerFrame || 2;
           const blendFrames = block.flipbook.blendFrames !== undefined ? block.flipbook.blendFrames : false;
@@ -311,12 +325,12 @@ export class RPCompiler {
           
           if (textureToAnimate === 'all') {
             texturesToAnimate.push(block.id);
-          } else if (textureToAnimate === 'front' && block.textureFront) {
-            texturesToAnimate.push(`${block.id}_front`);
-          } else if (textureToAnimate === 'top' && block.textureTop) {
-            texturesToAnimate.push(`${block.id}_top`);
-          } else if (textureToAnimate === 'side' && block.textureSide) {
-            texturesToAnimate.push(`${block.id}_side`);
+          } else if (block.textures) {
+            // Check individual faces
+            const faceName = textureToAnimate as 'up' | 'down' | 'north' | 'south' | 'east' | 'west';
+            if (block.textures[faceName]) {
+              texturesToAnimate.push(`${block.id}_${faceName}`);
+            }
           }
 
           // Add flipbook config for each texture

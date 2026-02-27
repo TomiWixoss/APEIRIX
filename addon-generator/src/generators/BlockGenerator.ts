@@ -6,9 +6,15 @@ export interface BlockConfig {
   id: string;
   name: string;
   texturePath: string;
-  textureTop?: string;
-  textureSide?: string;
-  textureFront?: string;
+  // Individual face textures (REQUIRED for multi-face blocks)
+  textures?: {
+    up?: string;
+    down?: string;
+    north?: string;
+    south?: string;
+    east?: string;
+    west?: string;
+  };
   category?: 'construction' | 'nature' | 'equipment' | 'items' | 'none';
   destroyTime?: number;
   explosionResistance?: number;
@@ -33,32 +39,33 @@ export class BlockGenerator {
   generate(config: BlockConfig): void {
     // Determine material instances based on available textures
     let materialInstances: any;
+    const hasDirectionalFace = !!(config.textures?.north || config.textures?.south);
     
-    if (config.textureTop || config.textureSide || config.textureFront) {
-      // Multi-face textures
+    if (config.textures) {
+      // Individual face textures
       materialInstances = {
         "up": {
-          texture: config.textureTop ? `${config.id}_top` : config.id,
+          texture: config.textures.up ? `${config.id}_up` : config.id,
           render_method: "opaque"
         },
         "down": {
-          texture: config.textureTop ? `${config.id}_top` : config.id,
+          texture: config.textures.down ? `${config.id}_down` : config.id,
           render_method: "opaque"
         },
         "north": {
-          texture: config.textureFront ? `${config.id}_front` : config.id,
+          texture: config.textures.north ? `${config.id}_north` : config.id,
           render_method: "opaque"
         },
         "south": {
-          texture: config.textureFront ? `${config.id}_front` : config.id,
+          texture: config.textures.south ? `${config.id}_south` : config.id,
           render_method: "opaque"
         },
         "east": {
-          texture: config.textureSide ? `${config.id}_side` : config.id,
+          texture: config.textures.east ? `${config.id}_east` : config.id,
           render_method: "opaque"
         },
         "west": {
-          texture: config.textureSide ? `${config.id}_side` : config.id,
+          texture: config.textures.west ? `${config.id}_west` : config.id,
           render_method: "opaque"
         }
       };
@@ -83,12 +90,6 @@ export class BlockGenerator {
       "minecraft:material_instances": materialInstances
     };
 
-    // Add placement_direction if block has front texture (directional block)
-    if (config.textureFront) {
-      // Use states + permutations instead of deprecated placement_direction
-      // States will be added to description, permutations will handle rotation
-    }
-
     // Add crafting table component if specified
     if (config.craftingTable) {
       components["minecraft:crafting_table"] = {
@@ -110,7 +111,7 @@ export class BlockGenerator {
             }
           } : {}),
           // Add custom direction state for directional blocks (can't use minecraft: namespace)
-          ...(config.textureFront ? {
+          ...(hasDirectionalFace ? {
             states: {
               "apeirix:direction": [0, 1, 2, 3]  // 0=south, 1=west, 2=north, 3=east
             }
@@ -118,7 +119,7 @@ export class BlockGenerator {
         },
         components,
         // Add permutations for rotation if directional
-        ...(config.textureFront ? {
+        ...(hasDirectionalFace ? {
           permutations: [
             {
               condition: "query.block_state('apeirix:direction') == 0",

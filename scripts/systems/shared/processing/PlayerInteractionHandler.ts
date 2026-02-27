@@ -104,7 +104,7 @@ export class PlayerInteractionHandler {
       } catch (e) {}
       
     } catch (error) {
-      console.warn('[ProcessingMachine] Failed to start processing:', error);
+      // Failed to start processing
     }
   }
 }

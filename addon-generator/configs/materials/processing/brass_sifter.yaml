@@ -1,8 +1,12 @@
 id: brass_sifter
 name: lang:blocks.brass_sifter
-textureTop: ../../../assets/blocks/brass_sifter_top.png
-textureSide: ../../../assets/blocks/brass_sifter_side_powered.png
-textureFront: ../../../assets/blocks/brass_sifter_side_powered.png
+textures:
+  up: ../../../assets/blocks/brass_sifter_top.png
+  down: ../../../assets/blocks/brass_sifter_top.png
+  north: ../../../assets/blocks/brass_sifter_side_powered.png
+  south: ../../../assets/blocks/brass_sifter_side_powered.png
+  east: ../../../assets/blocks/brass_sifter_side_powered.png
+  west: ../../../assets/blocks/brass_sifter_side_powered.png
 category: equipment
 destroyTime: 4.0
 explosionResistance: 8.0
