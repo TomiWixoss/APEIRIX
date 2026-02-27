@@ -49,3 +49,12 @@ materials:
   steel_alloy_base_rod: Steel Rod
   steel_alloy_base_gear: Steel Gear
   engineering_hammer: Engineering Hammer
+
+blocks:
+  alloy_mixing_table: Alloy Mixing Table
+  ore_crusher_mk1: Ore Crusher MK1
+  ore_crusher_mk2: Ore Crusher MK2
+  ore_crusher_mk3: Ore Crusher MK3
+  brass_sifter: Brass Sifter
+  compressor: Compressor
+  compressor_on: Compressor (Running)

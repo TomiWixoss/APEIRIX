@@ -1,4 +1,5 @@
 import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, HammerMiningData, BrassSifterData } from '../../generators/GameDataGenerator.js';
+import { ProcessingRecipeGenerator, ProcessingRecipeData } from '../../generators/ProcessingRecipeGenerator.js';
 import { WikiDataBPGenerator } from './WikiDataBPGenerator.js';
 import path from 'path';
 
@@ -196,6 +197,29 @@ export class GameDataBPGenerator {
 
     // Generate file to project root (for development)
     generator.generate(tools, foods, ores, wikiItems, hammerMining, brassSifter, allItems);
+    
+    // Collect processing recipes
+    const processingRecipes: ProcessingRecipeData[] = [];
+    if (config.blocks) {
+      for (const block of config.blocks) {
+        if (block.processingRecipes && Array.isArray(block.processingRecipes)) {
+          for (const recipe of block.processingRecipes) {
+            processingRecipes.push({
+              machineType: block.id,
+              input: recipe.input,
+              output: recipe.output,
+              processingTime: recipe.processingTime || 60
+            });
+          }
+        }
+      }
+    }
+    
+    // Generate processing recipes file
+    if (processingRecipes.length > 0) {
+      const processingGenerator = new ProcessingRecipeGenerator(projectRoot);
+      processingGenerator.generate(processingRecipes);
+    }
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);

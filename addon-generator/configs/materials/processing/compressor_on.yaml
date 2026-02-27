@@ -1,0 +1,17 @@
+id: compressor_on
+name: lang:blocks.compressor_on
+textureTop: ../../../assets/blocks/compressor_top.png
+textureSide: ../../../assets/blocks/compressor_side.png
+textureFront: ../../../assets/blocks/compressor_front_on.png
+category: equipment
+destroyTime: 5.0
+explosionResistance: 10.0
+mapColor: "#4A4A4A"
+requiresTool: true
+toolTier: stone
+flipbook:
+  texture: front
+  frames: [0, 1, 2, 3, 4, 5, 6, 7]
+  ticksPerFrame: 2
+  blendFrames: false
+# Không có recipe - block này chỉ được spawn bởi script

@@ -49,3 +49,12 @@ materials:
   steel_alloy_base_rod: Thanh Thép
   steel_alloy_base_gear: Bánh Răng Thép
   engineering_hammer: Búa Kỹ Thuật
+
+blocks:
+  alloy_mixing_table: Bàn Trộn Hợp Kim
+  ore_crusher_mk1: Máy Nghiền Quặng MK1
+  ore_crusher_mk2: Máy Nghiền Quặng MK2
+  ore_crusher_mk3: Máy Nghiền Quặng MK3
+  brass_sifter: Rây Lọc Đồng Thau
+  compressor: Máy Nén
+  compressor_on: Máy Nén (Đang Hoạt Động)

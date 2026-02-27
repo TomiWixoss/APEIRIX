@@ -4,6 +4,7 @@ import { ToolRegistry } from "./tools/ToolRegistry";
 import { FoodRegistry } from "./foods/FoodRegistry";
 import { HammerRegistry } from "./mining/HammerRegistry";
 import { BrassSifterRegistry } from "./mining/BrassSifterRegistry";
+import { CompressorRegistry } from "./mining/CompressorRegistry";
 import { GENERATED_ORES, GENERATED_TOOLS, GENERATED_FOODS, GENERATED_HAMMER_MINING, GENERATED_HAMMER_IDS, GENERATED_BRASS_SIFTER } from "./GeneratedGameData";
 
 /**
@@ -17,6 +18,7 @@ export class GameData {
     this.registerFoods();
     this.registerHammerMining();
     this.registerBrassSifter();
+    this.registerCompressor();
   }
 
   private static registerOres(): void {
@@ -74,5 +76,17 @@ export class GameData {
     }
 
     // Thêm custom brass sifter recipes ở đây (không được generate từ CLI)...
+  }
+
+  private static registerCompressor(): void {
+    // Register compressor recipes
+    // Steel Ingot → Steel Plate (3 seconds)
+    CompressorRegistry.registerRecipe({
+      inputId: 'apeirix:steel_alloy_ingot',
+      outputId: 'apeirix:steel_alloy_base_plate',
+      processingTime: 60 // 3 seconds (60 ticks)
+    });
+
+    // Thêm custom compressor recipes ở đây...
   }
 }

@@ -3,6 +3,7 @@ import { mkdirSync, existsSync } from 'fs';
 import { LangGenerator } from '../generators/LangGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { EntityRPGenerator } from './rp/EntityRPGenerator.js';
+import { FlipbookGenerator } from '../generators/FlipbookGenerator.js';
 
 export interface RPConfig {
   items?: any[];
@@ -39,6 +40,9 @@ export class RPCompiler {
 
     // Generate texture registries
     stats.textures = await this.generateTextureRegistries(config, rpPath);
+
+    // Generate flipbook animations
+    await this.generateFlipbookAnimations(config, rpPath);
 
     // Generate attachables (armor)
     if (config.armor && config.armor.length > 0) {
@@ -285,6 +289,52 @@ export class RPCompiler {
   private static generateLanguagesJson(rpPath: string): void {
     const generator = new LangGenerator(rpPath);
     generator.generateLanguagesJson('RP');
+  }
+
+  /**
+   * Generate flipbook animations for blocks
+   */
+  private static async generateFlipbookAnimations(config: RPConfig, rpPath: string): Promise<void> {
+    const flipbookGen = new FlipbookGenerator();
+
+    // Collect all blocks with flipbook animation
+    if (config.blocks) {
+      for (const block of config.blocks) {
+        if (block.flipbook) {
+          const textureToAnimate = block.flipbook.texture || 'front';
+          const frames = block.flipbook.frames || [0, 1, 2, 3, 4, 5, 6, 7];
+          const ticksPerFrame = block.flipbook.ticksPerFrame || 2;
+          const blendFrames = block.flipbook.blendFrames !== undefined ? block.flipbook.blendFrames : false;
+
+          // Determine which texture(s) to animate
+          const texturesToAnimate: string[] = [];
+          
+          if (textureToAnimate === 'all') {
+            texturesToAnimate.push(block.id);
+          } else if (textureToAnimate === 'front' && block.textureFront) {
+            texturesToAnimate.push(`${block.id}_front`);
+          } else if (textureToAnimate === 'top' && block.textureTop) {
+            texturesToAnimate.push(`${block.id}_top`);
+          } else if (textureToAnimate === 'side' && block.textureSide) {
+            texturesToAnimate.push(`${block.id}_side`);
+          }
+
+          // Add flipbook config for each texture
+          for (const textureId of texturesToAnimate) {
+            flipbookGen.addFlipbookTexture({
+              flipbook_texture: `textures/blocks/${textureId}`,
+              atlas_tile: textureId,
+              frames,
+              ticks_per_frame: ticksPerFrame,
+              blend_frames: blendFrames
+            });
+          }
+        }
+      }
+    }
+
+    // Generate flipbook_textures.json
+    flipbookGen.generate(path.dirname(rpPath));
   }
 
   /**

@@ -12,12 +12,14 @@ import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
-import { AnvilInteractionSystem } from "../systems/items/AnvilInteractionSystem";
 import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { BrassSifterSystem } from "../systems/mining/BrassSifterSystem";
+import { CompressorSystem } from "../systems/mining/CompressorSystem";
 import { RustMiteItemEatingSystem } from "../systems/entities/RustMiteItemEatingSystem";
 import { GameData } from "../data/GameData";
+import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
+import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
 
 // Import achievements
 import { FirstOreAchievement } from "../data/achievements/categories/metallurgy/FirstOreAchievement";
@@ -40,6 +42,7 @@ export class GameManager {
         console.warn("Initializing APEIRIX...");
 
         GameData.initialize();
+        ProcessingRecipeRegistry.loadFromGenerated(GENERATED_PROCESSING_RECIPES);
         this.registerCategories();
         this.registerAchievements();
         this.initializeSystems();
@@ -130,10 +133,10 @@ export class GameManager {
         CustomToolSystem.getInstance();
         FoodEffectsSystem.getInstance();
         CanWashingSystem.initialize();
-        AnvilInteractionSystem.initialize();
         HammerMiningSystem.initialize();
         OreCrusherSystem.initialize();
         BrassSifterSystem.initialize();
+        CompressorSystem.initialize();
         RustMiteItemEatingSystem.initialize();
     }
 

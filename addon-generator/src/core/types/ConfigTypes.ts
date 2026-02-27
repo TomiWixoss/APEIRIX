@@ -98,6 +98,22 @@ export interface BlockConfig {
   explosionResistance?: number;
   friction?: number;
   lightEmission?: number;
+  
+  // Flipbook animation
+  flipbook?: {
+    texture?: string;
+    frames?: number[];
+    ticksPerFrame?: number;
+    blendFrames?: boolean;
+  };
+  
+  // Processing recipes (for processing machines)
+  processingRecipes?: Array<{
+    input: string;
+    output: string;
+    processingTime: number;
+  }>;
+  
   mapColor?: string;
   requiresTool?: boolean;
   toolTier?: string;

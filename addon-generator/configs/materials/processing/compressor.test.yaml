@@ -1,0 +1,5 @@
+testCommands:
+  - give @s apeirix:compressor 1
+  - give @s apeirix:steel_alloy_ingot 64
+  - say "Đặt máy nén xuống, cầm Steel Ingot và click vào máy!"
+  - say "Hoặc đặt hopper phía trên/bên cạnh để tự động nén"
