@@ -45,3 +45,7 @@ materials:
   steel_alloy_block: Steel Alloy Block
   steel_alloy_dust: Steel Alloy Dust
   steel_alloy_dust_pure: Pure Steel Alloy Dust
+  steel_alloy_base_plate: Steel Plate
+  steel_alloy_base_rod: Steel Rod
+  steel_alloy_base_gear: Steel Gear
+  engineering_hammer: Engineering Hammer

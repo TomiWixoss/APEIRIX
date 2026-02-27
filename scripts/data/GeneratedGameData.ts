@@ -163,12 +163,14 @@ export const GENERATED_FOODS = [
   {
     itemId: "apeirix:cannedmeal",
     effects: [
-      { name: "regeneration", duration: 5 * 20, amplifier: 1, chance: 1 }
+      { name: "regeneration", duration: 3 * 20, amplifier: 0, chance: 1 }
     ],
   },
   {
     itemId: "apeirix:cannedsalad",
-    removeEffects: true,
+    effects: [
+      { name: "health_boost", duration: 10 * 20, amplifier: 0, chance: 1 }
+    ],
   },
   {
     itemId: "apeirix:luncheonmeat",

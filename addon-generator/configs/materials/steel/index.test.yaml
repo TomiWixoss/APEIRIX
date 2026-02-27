@@ -4,3 +4,7 @@ import:
   - steel_alloy_block.test.yaml
   - steel_alloy_dust.test.yaml
   - steel_alloy_dust_pure.test.yaml
+  - steel_alloy_base_plate.test.yaml
+  - steel_alloy_base_rod.test.yaml
+  - steel_alloy_base_gear.test.yaml
+  - engineering_hammer.test.yaml

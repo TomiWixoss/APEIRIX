@@ -12,6 +12,7 @@ import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
+import { AnvilInteractionSystem } from "../systems/items/AnvilInteractionSystem";
 import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { BrassSifterSystem } from "../systems/mining/BrassSifterSystem";
@@ -129,6 +130,7 @@ export class GameManager {
         CustomToolSystem.getInstance();
         FoodEffectsSystem.getInstance();
         CanWashingSystem.initialize();
+        AnvilInteractionSystem.initialize();
         HammerMiningSystem.initialize();
         OreCrusherSystem.initialize();
         BrassSifterSystem.initialize();

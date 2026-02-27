@@ -13,15 +13,17 @@ recipes:
   - type: shaped
     id: ore_crusher_mk1
     pattern:
-      - "IBI"
-      - "IPI"
-      - "OOO"
+      - "PHP"
+      - "GPG"
+      - "CRC"
     ingredients:
-      I: minecraft:iron_ingot
-      B: minecraft:iron_block
-      P: minecraft:piston
-      O: minecraft:obsidian
+      P: apeirix:steel_alloy_base_plate
+      H: apeirix:engineering_hammer
+      G: apeirix:steel_alloy_base_gear
+      C: minecraft:cobblestone
+      R: minecraft:redstone
     result: apeirix:ore_crusher_mk1
     count: 1
     unlock:
-      - minecraft:obsidian
+      - apeirix:steel_alloy_base_plate
+      - apeirix:engineering_hammer
