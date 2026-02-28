@@ -1,0 +1,27 @@
+type: hoe
+id: silver_hoe
+name: lang:tools.silver_hoe
+texture: ../../../assets/silver/silver_hoe.png
+damage: 1
+category: equipment
+group: itemGroup.name.hoe
+diggerTags:
+  - minecraft:is_hoe_item_destructible
+recipe:
+  type: shaped
+  id: silver_hoe
+  pattern:
+    - "##"
+    - " S"
+    - " S"
+  ingredients:
+    "#": apeirix:silver_ingot
+    S: minecraft:stick
+  result: apeirix:silver_hoe
+  count: 1
+  unlock:
+    - apeirix:silver_ingot
+materialId: apeirix:silver_ingot
+durability: 375
+enchantability: 18
+tier: iron

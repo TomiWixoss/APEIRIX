@@ -1,0 +1,5 @@
+tests:
+  - command: give @s apeirix:silver_helmet
+  - command: give @s apeirix:silver_chestplate
+  - command: give @s apeirix:silver_leggings
+  - command: give @s apeirix:silver_boots

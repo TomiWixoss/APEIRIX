@@ -98,6 +98,36 @@ export const GENERATED_TOOLS = [
     durability: 750
   },
   {
+    id: "apeirix:silver_pickaxe",
+    type: "pickaxe" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:silver_axe",
+    type: "axe" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:silver_shovel",
+    type: "shovel" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:silver_hoe",
+    type: "hoe" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:silver_sword",
+    type: "sword" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:silver_hammer",
+    type: "hammer" as const,
+    durability: 375
+  },
+  {
     id: "apeirix:wooden_hammer",
     type: "hammer" as const,
     durability: 59
@@ -1476,6 +1506,7 @@ export const GENERATED_HAMMER_MINING = [
  * Generated hammer tool IDs
  */
 export const GENERATED_HAMMER_IDS = [
+  "apeirix:silver_hammer",
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
   "apeirix:copper_hammer",

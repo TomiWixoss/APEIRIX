@@ -1,0 +1,7 @@
+tests:
+  - command: give @s apeirix:silver_pickaxe
+  - command: give @s apeirix:silver_axe
+  - command: give @s apeirix:silver_shovel
+  - command: give @s apeirix:silver_hoe
+  - command: give @s apeirix:silver_sword
+  - command: give @s apeirix:silver_hammer

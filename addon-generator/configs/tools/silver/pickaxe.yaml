@@ -1,0 +1,32 @@
+type: pickaxe
+id: silver_pickaxe
+name: lang:tools.silver_pickaxe
+texture: ../../../assets/silver/silver_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: silver_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:silver_ingot
+    S: minecraft:stick
+  result: apeirix:silver_pickaxe
+  count: 1
+  unlock:
+    - apeirix:silver_ingot
+materialId: apeirix:silver_ingot
+durability: 375
+enchantability: 18
+tier: iron

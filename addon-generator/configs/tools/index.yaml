@@ -1,4 +1,5 @@
 import:
   - bronze/index.yaml
   - steel/index.yaml
+  - silver/index.yaml
   - hammer/index.yaml
