@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="A" hex="#495561FF" />
+    <color k="B" hex="#97A6B3FF" />
+    <color k="C" hex="#EDF2F7FF" />
+    <color k="D" hex="#C3D0DBFF" />
+    <color k="E" hex="#2C353DFF" />
+    <color k="F" hex="#687682FF" />
+    <color k="G" hex="#493615FF" />
+    <color k="H" hex="#684E1EFF" />
+    <color k="I" hex="#896727FF" />
+    <color k="J" hex="#281E0BFF" />
+  </palette>
+  <layer id="main">
+    <rect x="10" y="3" w="1" h="4" c="B" />
+    <rect x="11" y="4" w="1" h="4" c="B" />
+    <row y="0" x1="9" x2="10" c="A" />
+    <row y="6" x1="12" x2="13" c="B" />
+    <row y="8" x1="11" x2="12" c="F" />
+    <row y="9" x1="11" x2="12" c="E" />
+    <row y="12" x1="1" x2="2" c="G" />
+    <row y="14" x1="1" x2="2" c="J" />
+    <dots c="A" pts="8,1 11,1 7,2 12,2 6,3 13,3 14,4 15,5" />
+    <dots c="B" pts="9,1 8,2 7,3 9,4 9,5 12,5 12,7" />
+    <dots c="C" pts="10,1 9,2 11,2 8,3 12,3 7,4 13,4 14,5" />
+    <dots c="D" pts="10,2 9,3 11,3 8,4 12,4 13,5 14,6 2,13" />
+    <dots c="E" pts="6,4 7,5 8,6 15,6 9,7 14,7 10,8 13,8" />
+    <dots c="F" pts="8,5 9,6 10,7 13,7" />
+    <dots c="G" pts="7,7 6,8 5,9 4,10 3,11 1,13 3,14" />
+    <dots c="H" pts="8,7 6,9 4,11" />
+    <dots c="I" pts="7,8 5,10 3,12" />
+    <dots c="J" pts="8,8 7,9 6,10 5,11 4,12 3,13" />
+  </layer>
+</pxvg>
