@@ -94,6 +94,14 @@ materials:
   electrum_ingot_dust: Bụi Electrum
   electrum_ingot_dust_pure: Bụi Electrum Tinh Khiết
 
+  # Invar
+  raw_invar: Invar Thô
+  invar_ingot: Thỏi Invar
+  invar_nugget: Mảnh Invar
+  invar_block: Khối Invar
+  invar_ingot_dust: Bụi Invar
+  invar_ingot_dust_pure: Bụi Invar Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

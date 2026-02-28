@@ -5,4 +5,5 @@ import:
   - nickel/index.yaml
   - lead/index.yaml
   - electrum/index.yaml
+  - invar/index.yaml
   - hammer/index.yaml

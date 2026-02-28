@@ -1,0 +1,17 @@
+id: raw_invar
+name: lang:materials.raw_invar
+texture: ../../../assets/invar/raw_invar.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: smelting
+    id: invar_ingot_from_raw_smelting
+    input: apeirix:raw_invar
+    output: apeirix:invar_ingot
+    count: 1
+  - type: blasting
+    id: invar_ingot_from_raw_blasting
+    input: apeirix:raw_invar
+    output: apeirix:invar_ingot
+    count: 1

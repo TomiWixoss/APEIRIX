@@ -1,0 +1,32 @@
+type: hammer
+id: invar_hammer
+name: lang:tools.invar_hammer
+texture: ../../../assets/invar/invar_hammer.png
+damage: 4
+category: equipment
+group: itemGroup.name.hammer
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+recipe:
+  type: shaped
+  id: invar_hammer
+  pattern:
+    - "###"
+    - "###"
+    - " S "
+  ingredients:
+    "#": apeirix:invar_ingot
+    S: minecraft:stick
+  result: apeirix:invar_hammer
+  count: 1
+  unlock:
+    - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+durability: 750
+enchantability: 10
+tier: iron
+miningSpeed: 8.0
+areaOfEffect: 3x3

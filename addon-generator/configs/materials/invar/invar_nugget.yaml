@@ -1,0 +1,14 @@
+id: invar_nugget
+name: lang:materials.invar_nugget
+texture: ../../../assets/invar/invar_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: invar_nugget_from_ingot
+    ingredients:
+      - apeirix:invar_ingot
+    result: apeirix:invar_nugget
+    count: 9
+    unlock:
+      - apeirix:invar_ingot

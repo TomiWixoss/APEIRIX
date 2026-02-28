@@ -1,0 +1,32 @@
+type: pickaxe
+id: invar_pickaxe
+name: lang:tools.invar_pickaxe
+texture: ../../../assets/invar/invar_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: invar_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:invar_ingot
+    S: minecraft:stick
+  result: apeirix:invar_pickaxe
+  count: 1
+  unlock:
+    - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+durability: 500
+enchantability: 10
+tier: iron

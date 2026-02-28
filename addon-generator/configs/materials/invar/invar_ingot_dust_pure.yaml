@@ -1,0 +1,20 @@
+id: invar_ingot_dust_pure
+name: lang:materials.invar_ingot_dust_pure
+texture: ../../../assets/invar/invar_ingot_dust_pure.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: shaped
+    id: raw_invar_from_pure_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:invar_ingot_dust_pure
+    result: apeirix:raw_invar
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:invar_ingot_dust_pure

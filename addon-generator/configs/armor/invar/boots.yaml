@@ -1,0 +1,29 @@
+type: boots
+id: invar_boots
+name: lang:armor.invar_boots
+texture: ../../../assets/invar/invar_boots.png
+durability: 260
+protection: 1
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: invar_layer_1
+armorLayerTexturePath: ../../../assets/invar/invar_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: invar_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:invar_ingot
+    result: apeirix:invar_boots
+    count: 1
+    unlock:
+      - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+enchantability: 10

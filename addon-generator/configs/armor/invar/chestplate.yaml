@@ -1,0 +1,30 @@
+type: chestplate
+id: invar_chestplate
+name: lang:armor.invar_chestplate
+texture: ../../../assets/invar/invar_chestplate.png
+durability: 320
+protection: 5
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: invar_layer_1
+armorLayerTexturePath: ../../../assets/invar/invar_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: invar_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:invar_ingot
+    result: apeirix:invar_chestplate
+    count: 1
+    unlock:
+      - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+enchantability: 10

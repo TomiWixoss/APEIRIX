@@ -209,6 +209,7 @@ export const GENERATED_ORE_WASHER_RECIPES: OreWasherRecipe[] = [
   { inputId: "apeirix:nickel_ingot_dust", pureDust: "apeirix:nickel_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:lead_ingot_dust", pureDust: "apeirix:lead_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:electrum_ingot_dust", pureDust: "apeirix:electrum_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:invar_ingot_dust", pureDust: "apeirix:invar_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:bronze_ingot_dust", pureDust: "apeirix:bronze_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" }
 ];
 
