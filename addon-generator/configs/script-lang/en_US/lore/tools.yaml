@@ -1,0 +1,5 @@
+# English Lore - Tools
+# Format: item_id: "line1|line2|line3"
+
+# Swords - Undead Slayer attribute
+silver_sword: "§c§lUndead Slayer§r|§7Deals +50% damage to undead mobs|§7(Zombie, Skeleton, Wither, Phantom...)"

@@ -31,6 +31,7 @@ export interface WikiItemData {
   category: string;
   name?: string;
   description?: string;
+  lore?: string[]; // Attribute lore lines
   icon?: string;
   info?: Record<string, string | number | boolean>;
 }
@@ -266,6 +267,17 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
       
       if (item.description) {
         lines.push(`    description: "${item.description}",`);
+      }
+      
+      if (item.lore && item.lore.length > 0) {
+        lines.push(`    lore: [`);
+        item.lore.forEach((loreLine, index) => {
+          const isLast = index === item.lore!.length - 1;
+          // Escape double quotes in lore text
+          const escapedLine = loreLine.replace(/"/g, '\\"');
+          lines.push(`      "${escapedLine}"${isLast ? '' : ','}`);
+        });
+        lines.push(`    ],`);
       }
       
       if (item.icon) {

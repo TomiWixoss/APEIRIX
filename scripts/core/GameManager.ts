@@ -19,6 +19,7 @@ import { OreWasherSystem } from "../systems/mining/OreWasherSystem";
 import { CompressorSystem } from "../systems/mining/CompressorSystem";
 import { CrusherSystem } from "../systems/mining/CrusherSystem";
 import { DisplayHandler } from "../systems/shared/processing/DisplayHandler";
+import { LoreSystem } from "../systems/lore/LoreSystem";
 import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
@@ -186,6 +187,9 @@ export class GameManager {
     private static initializeSystems(): void {
         // Initialize attribute system FIRST (other systems may depend on it)
         AttributeSystem.initialize();
+        
+        // Initialize lore system (auto-applies lore to items in inventory)
+        LoreSystem.initialize();
         
         ItemSystem.initialize();
         FortuneSystem.getInstance();

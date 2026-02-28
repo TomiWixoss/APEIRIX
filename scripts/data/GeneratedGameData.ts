@@ -2963,6 +2963,11 @@ export const GENERATED_WIKI_ITEMS = [
     category: "tools",
     name: "Kiếm Bạc",
     description: "Thanh gươm Bạc diệt tà. Vũ khí chuyên dụng gây Sát Thương Cộng Thêm cực lớn lên các sinh vật Undead.",
+    lore: [
+      "§c§lSát Thủ Undead§r",
+      "§7Gây +50% sát thương lên quái vật undead",
+      "§7(Zombie, Skeleton, Wither, Phantom...)"
+    ],
     icon: "textures/items/silver_sword",
     info: {
       "Độ bền": 375,

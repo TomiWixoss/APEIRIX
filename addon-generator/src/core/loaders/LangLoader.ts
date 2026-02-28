@@ -83,6 +83,27 @@ export class LangLoader {
           }
         }
       }
+      
+      // Load lore subdirectory files (lore/attributes.yaml, etc.)
+      const loreDir = path.join(scriptLangDir, 'lore');
+      if (fs.existsSync(loreDir)) {
+        const loreFiles = fs.readdirSync(loreDir).filter(f => f.endsWith('.yaml'));
+        for (const file of loreFiles) {
+          const filePath = path.join(loreDir, file);
+          try {
+            const content = fs.readFileSync(filePath, 'utf-8');
+            const data = yaml.load(content) as Record<string, string>;
+            
+            // Nest under lore.{category} key
+            // e.g., attributes.yaml → lore.attributes.hammer_mining
+            const category = file.replace('.yaml', '');
+            if (!langData.lore) langData.lore = {};
+            langData.lore[category] = data;
+          } catch (error) {
+            Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
+          }
+        }
+      }
     }
 
     this.langCache.set(cacheKey, langData);

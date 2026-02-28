@@ -223,6 +223,9 @@ export class WikiDataBPGenerator {
       }
     }
     
+    // Resolve lore from attributes field
+    const lore = this.resolveLore(entity, configDir);
+    
     const icon = this.extractIcon(entity);
     const info = this.buildInfo(entity, category, configDir);
     
@@ -233,9 +236,45 @@ export class WikiDataBPGenerator {
       category,
       name,
       description,
+      lore,
       icon,
       info: Object.keys(info).length > 0 ? info : undefined
     };
+  }
+  
+  /**
+   * Resolve lore from explicit lore field only
+   * 
+   * Supports:
+   * - lang:lore.category.item_id (recommended)
+   * - Direct text with pipe separator (backward compatibility)
+   * 
+   * Returns array of lore lines (pipe-separated in YAML)
+   */
+  private static resolveLore(entity: any, configDir: string): string[] | undefined {
+    if (!entity.lore) {
+      return undefined;
+    }
+    
+    const loreLines: string[] = [];
+    
+    if (entity.lore.startsWith('lang:')) {
+      // Extract lang key from "lang:lore.category.item_id" format
+      const langKey = entity.lore.replace('lang:', '');
+      const loreText = langLoader.get(langKey, configDir, undefined);
+      
+      if (loreText && loreText !== langKey) {
+        // Split by pipe separator (format: "line1|line2|line3")
+        const lines = loreText.split('|').map((line: string) => line.trim());
+        loreLines.push(...lines);
+      }
+    } else {
+      // Direct text (backward compatibility)
+      const lines = entity.lore.split('|').map((line: string) => line.trim());
+      loreLines.push(...lines);
+    }
+    
+    return loreLines.length > 0 ? loreLines : undefined;
   }
   
   /**
