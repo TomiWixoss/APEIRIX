@@ -1826,6 +1826,208 @@ export const GENERATED_WIKI_ITEMS = [
 ];
 
 /**
+ * Generated block info data
+ * Used by DisplayHandler to show block information
+ */
+export const GENERATED_BLOCKS = [
+  {
+    blockId: "apeirix:tin_ore",
+    blockType: "ore",
+    displayName: "Quặng Thiếc"
+  },
+  {
+    blockId: "apeirix:deepslate_tin_ore",
+    blockType: "ore",
+    displayName: "Quặng Thiếc Đá Sâu"
+  },
+  {
+    blockId: "apeirix:silver_ore",
+    blockType: "ore",
+    displayName: "Quặng Bạc"
+  },
+  {
+    blockId: "apeirix:deepslate_silver_ore",
+    blockType: "ore",
+    displayName: "Quặng Bạc Đá Sâu"
+  },
+  {
+    blockId: "apeirix:nickel_ore",
+    blockType: "ore",
+    displayName: "Quặng Niken"
+  },
+  {
+    blockId: "apeirix:deepslate_nickel_ore",
+    blockType: "ore",
+    displayName: "Quặng Niken Đá Sâu"
+  },
+  {
+    blockId: "apeirix:lead_ore",
+    blockType: "ore",
+    displayName: "Quặng Chì"
+  },
+  {
+    blockId: "apeirix:deepslate_lead_ore",
+    blockType: "ore",
+    displayName: "Quặng Chì Đá Sâu"
+  },
+  {
+    blockId: "apeirix:platinum_ore",
+    blockType: "ore",
+    displayName: "Quặng Bạch Kim"
+  },
+  {
+    blockId: "apeirix:deepslate_platinum_ore",
+    blockType: "ore",
+    displayName: "Quặng Bạch Kim Đá Sâu"
+  },
+  {
+    blockId: "apeirix:cobalt_ore",
+    blockType: "ore",
+    displayName: "Quặng Cobalt"
+  },
+  {
+    blockId: "apeirix:deepslate_cobalt_ore",
+    blockType: "ore",
+    displayName: "deepslate_cobalt_ore"
+  },
+  {
+    blockId: "apeirix:ardite_ore",
+    blockType: "ore",
+    displayName: "Quặng Ardite"
+  },
+  {
+    blockId: "apeirix:deepslate_ardite_ore",
+    blockType: "ore",
+    displayName: "deepslate_ardite_ore"
+  },
+  {
+    blockId: "apeirix:tin_block",
+    blockType: "storage",
+    displayName: "Khối Thiếc"
+  },
+  {
+    blockId: "apeirix:bronze_block",
+    blockType: "storage",
+    displayName: "Khối Đồng Thanh"
+  },
+  {
+    blockId: "apeirix:alloy_mixing_table",
+    blockType: "other",
+    displayName: "alloy_mixing_table"
+  },
+  {
+    blockId: "apeirix:steel_alloy_block",
+    blockType: "storage",
+    displayName: "Khối Hợp Kim Thép"
+  },
+  {
+    blockId: "apeirix:silver_block",
+    blockType: "storage",
+    displayName: "Khối Bạc"
+  },
+  {
+    blockId: "apeirix:nickel_block",
+    blockType: "storage",
+    displayName: "Khối Niken"
+  },
+  {
+    blockId: "apeirix:lead_block",
+    blockType: "storage",
+    displayName: "Khối Chì"
+  },
+  {
+    blockId: "apeirix:electrum_block",
+    blockType: "storage",
+    displayName: "Khối Electrum"
+  },
+  {
+    blockId: "apeirix:invar_block",
+    blockType: "storage",
+    displayName: "Khối Invar"
+  },
+  {
+    blockId: "apeirix:platinum_block",
+    blockType: "storage",
+    displayName: "Khối Bạch Kim"
+  },
+  {
+    blockId: "apeirix:cobalt_block",
+    blockType: "storage",
+    displayName: "Khối Cobalt"
+  },
+  {
+    blockId: "apeirix:ardite_block",
+    blockType: "storage",
+    displayName: "Khối Ardite"
+  },
+  {
+    blockId: "apeirix:manyullyn_block",
+    blockType: "storage",
+    displayName: "Khối Manyullyn"
+  },
+  {
+    blockId: "apeirix:ore_crusher_mk1",
+    blockType: "machine",
+    machineType: "ore_crusher_mk1",
+    displayName: "Máy Nghiền Quặng MK1"
+  },
+  {
+    blockId: "apeirix:ore_crusher_mk2",
+    blockType: "machine",
+    machineType: "ore_crusher_mk2",
+    displayName: "Máy Nghiền Quặng MK2"
+  },
+  {
+    blockId: "apeirix:ore_crusher_mk3",
+    blockType: "machine",
+    machineType: "ore_crusher_mk3",
+    displayName: "Máy Nghiền Quặng MK3"
+  },
+  {
+    blockId: "apeirix:ore_sieve",
+    blockType: "machine",
+    machineType: "ore_sieve",
+    displayName: "Rây Sàng Quặng"
+  },
+  {
+    blockId: "apeirix:ore_sieve_on",
+    blockType: "machine",
+    machineType: "ore_sieve",
+    displayName: "Rây Sàng Quặng"
+  },
+  {
+    blockId: "apeirix:ore_washer",
+    blockType: "machine",
+    machineType: "ore_washer",
+    displayName: "Máy Rửa Quặng"
+  },
+  {
+    blockId: "apeirix:compressor",
+    blockType: "machine",
+    machineType: "compressor",
+    displayName: "Máy Nén"
+  },
+  {
+    blockId: "apeirix:compressor_on",
+    blockType: "machine",
+    machineType: "compressor",
+    displayName: "Máy Nén"
+  },
+  {
+    blockId: "apeirix:crusher",
+    blockType: "machine",
+    machineType: "crusher",
+    displayName: "Máy Nghiền"
+  },
+  {
+    blockId: "apeirix:crusher_on",
+    blockType: "machine",
+    machineType: "crusher",
+    displayName: "Máy Nghiền"
+  }
+];
+
+/**
  * Generated hammer mining data
  */
 export const GENERATED_HAMMER_MINING = [

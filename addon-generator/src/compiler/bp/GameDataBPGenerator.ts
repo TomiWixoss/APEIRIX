@@ -1,7 +1,9 @@
-import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData } from '../../generators/GameDataGenerator.js';
+import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, BlockInfoData } from '../../generators/GameDataGenerator.js';
 import { ProcessingRecipeGenerator, ProcessingRecipeData } from '../../generators/ProcessingRecipeGenerator.js';
 import { AttributeGenerator, AttributeMapping } from '../../generators/AttributeGenerator.js';
 import { WikiDataBPGenerator } from './WikiDataBPGenerator.js';
+import { langLoader } from '../../core/loaders/LangLoader.js';
+import { Logger } from '../../utils/Logger.js';
 import path from 'path';
 
 /**
@@ -78,6 +80,79 @@ export class GameDataBPGenerator {
     // Collect wiki items from script-lang YAML files
     const wikiItems = await WikiDataBPGenerator.generate(configDir, buildDir);
     
+    // Load lang data for resolving display names
+    const language = config.language || 'vi_VN';
+    langLoader.setLanguage(language);
+    const langData = langLoader.loadLanguage(configDir, language);
+    
+    // Collect block info for DisplayHandler
+    // ONLY blocks with explicit displayType in YAML will be included
+    const blocks: BlockInfoData[] = [];
+    
+    // Collect from config.ores (auto-assign displayType: 'ore')
+    if (config.ores) {
+      for (const ore of config.ores) {
+        // Main ore
+        const oreKey = `materials.${ore.id}`;
+        const oreName = langLoader.get(oreKey, configDir, ore.id);
+        blocks.push({
+          blockId: `apeirix:${ore.id}`,
+          blockType: 'ore',
+          displayName: oreName
+        });
+        
+        // Deepslate variant
+        const deepslateKey = `materials.deepslate_${ore.id}`;
+        const deepslateName = langLoader.get(deepslateKey, configDir, `deepslate_${ore.id}`);
+        blocks.push({
+          blockId: `apeirix:deepslate_${ore.id}`,
+          blockType: 'ore',
+          displayName: deepslateName
+        });
+      }
+    }
+    
+    // Collect from config.blocks (ONLY if displayType is specified)
+    if (config.blocks) {
+      for (const block of config.blocks) {
+        // Skip if no displayType specified
+        if (!block.displayType) continue;
+        
+        const blockId = `apeirix:${block.id}`;
+        const displayType = block.displayType as 'machine' | 'ore' | 'storage' | 'other';
+        
+        // Determine lang key and resolve display name
+        let langKey: string;
+        if (displayType === 'machine') {
+          // Both OFF and ON blocks use same langKey (remove _on suffix for display name)
+          const baseMachineId = block.id.replace('_on', '');
+          langKey = `blocks.${baseMachineId}`;
+        } else {
+          langKey = `materials.${block.id}`;
+        }
+        
+        // Resolve display name from lang data
+        const displayName = langLoader.get(langKey, configDir, block.id);
+        
+        // Add block
+        const blockInfo: BlockInfoData = {
+          blockId: blockId,
+          blockType: displayType,
+          displayName: displayName
+        };
+        
+        // If machine, add machineType
+        // Both OFF and ON blocks need SAME machineType for MachineStateManager lookup
+        if (displayType === 'machine') {
+          blockInfo.machineType = block.id.replace('_on', '');
+        }
+        
+        blocks.push(blockInfo);
+      }
+    }
+    
+    Logger.log(`✅ Collected ${blocks.length} blocks for DisplayHandler (only blocks with displayType)`);
+    
     // Collect all items for wiki
     const allItems: string[] = [];
     
@@ -142,7 +217,7 @@ export class GameDataBPGenerator {
     }
 
     // Generate file to project root (for development)
-    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, []);
+    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks);
     
     // Collect processing recipes
     const processingRecipes: ProcessingRecipeData[] = [];
@@ -229,7 +304,7 @@ export class GameDataBPGenerator {
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, 'BP/scripts/data');
     
     const buildAttributeGenerator = new AttributeGenerator(buildDir);
     buildAttributeGenerator.generate(attributeMapping, 'BP/scripts/data');

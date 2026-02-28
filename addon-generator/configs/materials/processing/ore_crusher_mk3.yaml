@@ -1,4 +1,5 @@
 id: ore_crusher_mk3
+displayType: machine
 name: lang:blocks.ore_crusher_mk3
 textures:
   up: ../../../assets/blocks/orecrushermk1allothersides.png

@@ -1,4 +1,5 @@
 id: alloy_mixing_table
+displayType: other
 name: lang:blocks.alloy_mixing_table
 textures:
   up: ../../../assets/blocks/alloy_mixing_table_top.png

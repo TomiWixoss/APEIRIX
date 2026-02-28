@@ -1,4 +1,5 @@
 id: nickel_block
+displayType: storage
 name: lang:materials.nickel_block
 texture: ../../../assets/nickel/nickel_block.png
 category: construction

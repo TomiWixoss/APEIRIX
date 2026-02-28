@@ -1,4 +1,5 @@
 id: manyullyn_block
+displayType: storage
 name: lang:materials.manyullyn_block
 texture: ../../../assets/manyullyn/manyullyn_block.png
 category: construction

@@ -1,4 +1,5 @@
 id: lead_block
+displayType: storage
 name: lang:materials.lead_block
 texture: ../../../assets/lead/lead_block.png
 category: construction

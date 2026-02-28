@@ -1,4 +1,5 @@
 id: steel_alloy_block
+displayType: storage
 name: lang:materials.steel_alloy_block
 texture: ../../../assets/steel_alloy/steel_alloy_block.png
 category: construction

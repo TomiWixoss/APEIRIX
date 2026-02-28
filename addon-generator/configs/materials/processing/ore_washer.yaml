@@ -1,4 +1,5 @@
 id: ore_washer
+displayType: machine
 name: lang:blocks.ore_washer
 textures:
   up: ../../../assets/blocks/brass_sifter_top.png

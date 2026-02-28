@@ -1,4 +1,5 @@
 id: crusher
+displayType: machine
 name: lang:blocks.crusher
 textures:
   up: ../../../assets/blocks/crusher_top.png

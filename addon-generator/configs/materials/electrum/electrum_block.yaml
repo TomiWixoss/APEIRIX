@@ -1,4 +1,5 @@
 id: electrum_block
+displayType: storage
 name: lang:materials.electrum_block
 texture: ../../../assets/electrum/electrum_block.png
 category: construction

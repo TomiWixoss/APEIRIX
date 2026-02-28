@@ -1,4 +1,5 @@
 id: cobalt_block
+displayType: storage
 name: lang:materials.cobalt_block
 texture: ../../../assets/cobalt/cobalt_block.png
 category: construction

@@ -1,4 +1,5 @@
 id: silver_block
+displayType: storage
 name: lang:materials.silver_block
 texture: ../../../assets/silver/silver_block.png
 category: construction

@@ -1,4 +1,5 @@
 id: invar_block
+displayType: storage
 name: lang:materials.invar_block
 texture: ../../../assets/invar/invar_block.png
 category: construction

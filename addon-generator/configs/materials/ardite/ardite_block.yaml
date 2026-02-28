@@ -1,4 +1,5 @@
 id: ardite_block
+displayType: storage
 name: lang:materials.ardite_block
 texture: ../../../assets/ardite/ardite_block.png
 category: construction

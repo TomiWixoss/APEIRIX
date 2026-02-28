@@ -1,4 +1,5 @@
 id: tin_block
+displayType: storage
 name: lang:materials.tin_block
 texture: ../../../assets/blocks/tin_block.png
 category: construction
