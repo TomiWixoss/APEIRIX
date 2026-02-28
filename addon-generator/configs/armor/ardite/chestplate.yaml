@@ -1,0 +1,30 @@
+type: chestplate
+id: ardite_chestplate
+name: lang:armor.ardite_chestplate
+texture: ../../../assets/ardite/ardite_chestplate.png
+durability: 320
+protection: 5
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: ardite_layer_1
+armorLayerTexturePath: ../../../assets/ardite/ardite_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: ardite_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:ardite_ingot
+    result: apeirix:ardite_chestplate
+    count: 1
+    unlock:
+      - apeirix:ardite_ingot
+materialId: apeirix:ardite_ingot
+enchantability: 16

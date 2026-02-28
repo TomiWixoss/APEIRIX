@@ -1,0 +1,29 @@
+type: helmet
+id: ardite_helmet
+name: lang:armor.ardite_helmet
+texture: ../../../assets/ardite/ardite_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: ardite_layer_1
+armorLayerTexturePath: ../../../assets/ardite/ardite_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: ardite_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:ardite_ingot
+    result: apeirix:ardite_helmet
+    count: 1
+    unlock:
+      - apeirix:ardite_ingot
+materialId: apeirix:ardite_ingot
+enchantability: 16

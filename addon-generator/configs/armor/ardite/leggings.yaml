@@ -1,0 +1,30 @@
+type: leggings
+id: ardite_leggings
+name: lang:armor.ardite_leggings
+texture: ../../../assets/ardite/ardite_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: ardite_layer_2
+armorLayerTexturePath: ../../../assets/ardite/ardite_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: ardite_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:ardite_ingot
+    result: apeirix:ardite_leggings
+    count: 1
+    unlock:
+      - apeirix:ardite_ingot
+materialId: apeirix:ardite_ingot
+enchantability: 16

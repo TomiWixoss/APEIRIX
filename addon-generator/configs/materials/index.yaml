@@ -9,5 +9,6 @@ import:
   - invar/index.yaml
   - platinum/index.yaml
   - cobalt/index.yaml
+  - ardite/index.yaml
   - dusts/index.yaml
   - processing/index.yaml

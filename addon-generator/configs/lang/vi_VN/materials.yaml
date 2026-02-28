@@ -121,6 +121,15 @@ materials:
   cobalt_ingot_dust: Bụi Cobalt
   cobalt_ingot_dust_pure: Bụi Cobalt Tinh Khiết
 
+  # Ardite
+  raw_ardite: Ardite Thô
+  ardite_ingot: Thỏi Ardite
+  ardite_nugget: Mảnh Ardite
+  ardite_block: Khối Ardite
+  ardite_ore: Quặng Ardite
+  ardite_ingot_dust: Bụi Ardite
+  ardite_ingot_dust_pure: Bụi Ardite Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

@@ -180,6 +180,12 @@ processingRecipes:
     stoneDustCount: 4
     oreDust: apeirix:cobalt_ingot_dust
     oreDustCount: 9
+  # Custom ores - Ardite (Nether ore)
+  - input: apeirix:ardite_ore
+    stoneDust: apeirix:netherrack_dust
+    stoneDustCount: 4
+    oreDust: apeirix:ardite_ingot_dust
+    oreDustCount: 9
 recipes:
   - type: shaped
     id: ore_crusher_mk3

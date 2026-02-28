@@ -1,0 +1,32 @@
+type: pickaxe
+id: ardite_pickaxe
+name: lang:tools.ardite_pickaxe
+texture: ../../../assets/ardite/ardite_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: ardite_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:ardite_ingot
+    S: minecraft:stick
+  result: apeirix:ardite_pickaxe
+  count: 1
+  unlock:
+    - apeirix:ardite_ingot
+materialId: apeirix:ardite_ingot
+durability: 500
+enchantability: 16
+tier: iron

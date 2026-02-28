@@ -83,6 +83,18 @@ export const GENERATED_ORES = [
     dropItem: "apeirix:raw_cobalt",
     dropCount: 1,
     fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:ardite_ore",
+    dropItem: "apeirix:raw_ardite",
+    dropCount: 1,
+    fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:deepslate_ardite_ore",
+    dropItem: "apeirix:raw_ardite",
+    dropCount: 1,
+    fortuneEnabled: true
   }
 ];
 
@@ -352,6 +364,36 @@ export const GENERATED_TOOLS = [
   },
   {
     id: "apeirix:cobalt_hammer",
+    type: "hammer" as const,
+    durability: 750
+  },
+  {
+    id: "apeirix:ardite_pickaxe",
+    type: "pickaxe" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:ardite_axe",
+    type: "axe" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:ardite_shovel",
+    type: "shovel" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:ardite_hoe",
+    type: "hoe" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:ardite_sword",
+    type: "sword" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:ardite_hammer",
     type: "hammer" as const,
     durability: 750
   },
@@ -1741,6 +1783,7 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:invar_hammer",
   "apeirix:platinum_hammer",
   "apeirix:cobalt_hammer",
+  "apeirix:ardite_hammer",
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
   "apeirix:copper_hammer",
@@ -1764,6 +1807,8 @@ export const GENERATED_BRASS_SIFTER = [
  * YAML-DRIVEN: Items explicitly marked with edibleByRustMite: true
  */
 export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
+  "apeirix:ardite_ingot_dust",
+  "apeirix:ardite_ingot_dust_pure",
   "apeirix:bronze_ingot_dust",
   "apeirix:bronze_ingot_dust_pure",
   "apeirix:candirty",

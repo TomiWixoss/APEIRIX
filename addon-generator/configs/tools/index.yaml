@@ -8,4 +8,5 @@ import:
   - invar/index.yaml
   - platinum/index.yaml
   - cobalt/index.yaml
+  - ardite/index.yaml
   - hammer/index.yaml

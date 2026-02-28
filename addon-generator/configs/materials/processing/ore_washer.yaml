@@ -78,6 +78,10 @@ processingRecipes:
   - input: apeirix:cobalt_ingot_dust
     pureDust: apeirix:cobalt_ingot_dust_pure
     stoneDust: apeirix:netherrack_dust
+  # Ardite dust
+  - input: apeirix:ardite_ingot_dust
+    pureDust: apeirix:ardite_ingot_dust_pure
+    stoneDust: apeirix:netherrack_dust
 recipes:
   - type: shaped
     id: ore_washer

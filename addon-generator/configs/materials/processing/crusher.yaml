@@ -148,6 +148,11 @@ processingRecipes:
     output: apeirix:cobalt_ingot_dust
     outputCount: 9
     processingTime: 60
+  # Custom ores - Ardite (Nether ore)
+  - input: apeirix:ardite_ore
+    output: apeirix:ardite_ingot_dust
+    outputCount: 9
+    processingTime: 60
 recipes:
   - type: shaped
     id: crusher
