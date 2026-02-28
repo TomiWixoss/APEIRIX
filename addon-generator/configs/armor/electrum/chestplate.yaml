@@ -1,0 +1,30 @@
+type: chestplate
+id: electrum_chestplate
+name: lang:armor.electrum_chestplate
+texture: ../../../assets/electrum/electrum_chestplate.png
+durability: 320
+protection: 5
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: electrum_layer_1
+armorLayerTexturePath: ../../../assets/electrum/electrum_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: electrum_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:electrum_ingot
+    result: apeirix:electrum_chestplate
+    count: 1
+    unlock:
+      - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+enchantability: 20

@@ -1,0 +1,29 @@
+type: boots
+id: electrum_boots
+name: lang:armor.electrum_boots
+texture: ../../../assets/electrum/electrum_boots.png
+durability: 260
+protection: 1
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: electrum_layer_1
+armorLayerTexturePath: ../../../assets/electrum/electrum_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: electrum_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:electrum_ingot
+    result: apeirix:electrum_boots
+    count: 1
+    unlock:
+      - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+enchantability: 20

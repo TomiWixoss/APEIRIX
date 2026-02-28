@@ -1,0 +1,32 @@
+type: pickaxe
+id: electrum_pickaxe
+name: lang:tools.electrum_pickaxe
+texture: ../../../assets/electrum/electrum_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: electrum_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:electrum_ingot
+    S: minecraft:stick
+  result: apeirix:electrum_pickaxe
+  count: 1
+  unlock:
+    - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+durability: 425
+enchantability: 20
+tier: iron

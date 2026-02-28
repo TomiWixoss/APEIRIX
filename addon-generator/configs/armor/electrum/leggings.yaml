@@ -1,0 +1,30 @@
+type: leggings
+id: electrum_leggings
+name: lang:armor.electrum_leggings
+texture: ../../../assets/electrum/electrum_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: electrum_layer_2
+armorLayerTexturePath: ../../../assets/electrum/electrum_layer_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: electrum_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:electrum_ingot
+    result: apeirix:electrum_leggings
+    count: 1
+    unlock:
+      - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+enchantability: 20

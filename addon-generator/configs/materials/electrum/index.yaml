@@ -1,0 +1,7 @@
+import:
+  - electrum_ingot.yaml
+  - electrum_nugget.yaml
+  - electrum_block.yaml
+  - electrum_ingot_dust.yaml
+  - electrum_ingot_dust_pure.yaml
+  - raw_electrum.yaml

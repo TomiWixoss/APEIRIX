@@ -212,6 +212,36 @@ export const GENERATED_TOOLS = [
     durability: 600
   },
   {
+    id: "apeirix:electrum_pickaxe",
+    type: "pickaxe" as const,
+    durability: 425
+  },
+  {
+    id: "apeirix:electrum_axe",
+    type: "axe" as const,
+    durability: 425
+  },
+  {
+    id: "apeirix:electrum_shovel",
+    type: "shovel" as const,
+    durability: 425
+  },
+  {
+    id: "apeirix:electrum_hoe",
+    type: "hoe" as const,
+    durability: 425
+  },
+  {
+    id: "apeirix:electrum_sword",
+    type: "sword" as const,
+    durability: 425
+  },
+  {
+    id: "apeirix:electrum_hammer",
+    type: "hammer" as const,
+    durability: 640
+  },
+  {
     id: "apeirix:wooden_hammer",
     type: "hammer" as const,
     durability: 59
@@ -1593,6 +1623,7 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:silver_hammer",
   "apeirix:nickel_hammer",
   "apeirix:lead_hammer",
+  "apeirix:electrum_hammer",
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
   "apeirix:copper_hammer",
@@ -1640,6 +1671,8 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:deepslate_dust",
   "apeirix:diamond_dust",
   "apeirix:diamond_dust_pure",
+  "apeirix:electrum_ingot_dust",
+  "apeirix:electrum_ingot_dust_pure",
   "apeirix:emerald_dust",
   "apeirix:emerald_dust_pure",
   "apeirix:fruit_salad",
@@ -1658,6 +1691,7 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:raw_bronze",
   "apeirix:raw_coal",
   "apeirix:raw_diamond",
+  "apeirix:raw_electrum",
   "apeirix:raw_emerald",
   "apeirix:raw_lapis",
   "apeirix:raw_silver",

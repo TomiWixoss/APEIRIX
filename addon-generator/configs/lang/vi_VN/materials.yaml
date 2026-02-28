@@ -86,6 +86,14 @@ materials:
   lead_ingot_dust: Bụi Chì
   lead_ingot_dust_pure: Bụi Chì Tinh Khiết
 
+  # Electrum
+  raw_electrum: Electrum Thô
+  electrum_ingot: Thỏi Electrum
+  electrum_nugget: Mảnh Electrum
+  electrum_block: Khối Electrum
+  electrum_ingot_dust: Bụi Electrum
+  electrum_ingot_dust_pure: Bụi Electrum Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

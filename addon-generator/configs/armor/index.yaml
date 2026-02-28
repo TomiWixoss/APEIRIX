@@ -4,3 +4,4 @@ import:
   - silver/index.yaml
   - nickel/index.yaml
   - lead/index.yaml
+  - electrum/index.yaml

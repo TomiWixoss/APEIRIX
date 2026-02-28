@@ -1,0 +1,30 @@
+type: axe
+id: electrum_axe
+name: lang:tools.electrum_axe
+texture: ../../../assets/electrum/electrum_axe.png
+damage: 5
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: electrum_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:electrum_ingot
+    S: minecraft:stick
+  result: apeirix:electrum_axe
+  count: 1
+  unlock:
+    - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+durability: 425
+enchantability: 20
+tier: iron
