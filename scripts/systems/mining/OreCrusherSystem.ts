@@ -1,7 +1,7 @@
 import { world, system, Block, ItemStack, Vector3 } from '@minecraft/server';
 import { EventBus } from '../../core/EventBus';
 import { GENERATED_ORE_CRUSHER_RECIPES, OreCrusherRecipe, GENERATED_FUEL_CONFIGS } from '../../data/GeneratedProcessingRecipes';
-import { FuelHandler, FuelData } from '../shared/processing/FuelHandler';
+import { HopperHandler, FuelItem } from '../shared/processing/HopperHandler';
 
 /**
  * OreCrusherSystem - Tự động nghiền quặng chạm vào ore_crusher
@@ -14,10 +14,11 @@ import { FuelHandler, FuelData } from '../shared/processing/FuelHandler';
  *   + MK2: 40 ticks (2s), x1.5 dust
  *   + MK3: 20 ticks (1s), x2 dust
  * 
- * FUEL SYSTEM (YAML-DRIVEN):
- * - Cấu hình nhiên liệu từ YAML (fuel.blockId, fuel.usesPerBlock, fuel.detectFaces)
- * - Phát hiện nhiên liệu ở tất cả 6 mặt (hoặc chỉ đáy tùy config)
- * - Mỗi lần nghiền tiêu hao fuel
+ * FUEL SYSTEM (HOPPER-BASED):
+ * - Nhiên liệu được input qua hopper (trên + bên có facing vào máy)
+ * - Hỗ trợ nhiều loại fuel items (coal, coal_block, etc.)
+ * - Mỗi fuel item có số lần sử dụng riêng
+ * - Tiêu hao fuel mỗi lần nghiền
  * 
  * YAML-DRIVEN:
  * - Recipes được định nghĩa trong YAML configs
@@ -42,11 +43,14 @@ export class OreCrusherSystem {
     location: Vector3; 
     blockId: string; 
     tickCounter: number;
-    fuelData: FuelData;
+    fuelRemaining: number; // Số lần sử dụng còn lại từ fuel hiện tại
   }> = new Map();
   
   // Recipe maps for each crusher type
   private static recipesByMachine: Map<string, Map<string, OreCrusherRecipe>> = new Map();
+
+  // Fuel configs for each crusher type (converted from YAML)
+  private static fuelConfigsByMachine: Map<string, FuelItem[]> = new Map();
 
   /**
    * Chuyển đổi rotation của player thành direction state (0-3)
@@ -78,6 +82,9 @@ export class OreCrusherSystem {
     // Load recipes from generated data
     this.loadRecipes();
     
+    // Load fuel configs from YAML
+    this.loadFuelConfigs();
+    
     // Track khi player đặt crusher
     world.afterEvents.playerPlaceBlock.subscribe((event) => {
       if (this.CRUSHER_BLOCK_IDS.includes(event.block.typeId)) {
@@ -97,7 +104,7 @@ export class OreCrusherSystem {
       this.processAllCrushers();
     }, 1);
     
-    console.warn('[OreCrusherSystem] Initialized - 3-tier system (MK1/MK2/MK3) - YAML-driven');
+    console.warn('[OreCrusherSystem] Initialized - 3-tier system (MK1/MK2/MK3) - Hopper-based fuel');
   }
 
   /**
@@ -112,6 +119,23 @@ export class OreCrusherSystem {
       this.recipesByMachine.set(`apeirix:${machineType}`, recipeMap);
     }
     console.warn(`[OreCrusherSystem] Loaded ${this.recipesByMachine.size} crusher types with recipes`);
+  }
+
+  /**
+   * Load fuel configs từ YAML và convert sang FuelItem[]
+   */
+  private static loadFuelConfigs(): void {
+    for (const [blockId, config] of Object.entries(GENERATED_FUEL_CONFIGS)) {
+      // Convert blockId thành itemId (minecraft:coal_block → minecraft:coal_block)
+      // usesPerBlock → usesPerItem
+      const fuelItems: FuelItem[] = [{
+        itemId: config.blockId,
+        usesPerItem: config.usesPerBlock
+      }];
+      
+      this.fuelConfigsByMachine.set(blockId, fuelItems);
+    }
+    console.warn(`[OreCrusherSystem] Loaded ${this.fuelConfigsByMachine.size} fuel configs`);
   }
 
   /**
@@ -140,7 +164,7 @@ export class OreCrusherSystem {
       location: block.location,
       blockId: block.typeId,
       tickCounter: 0,
-      fuelData: { fuelRemaining: 0 } // Sẽ check fuel khi bắt đầu nghiền
+      fuelRemaining: 0 // Sẽ check fuel từ hopper khi cần
     });
     console.warn(`[OreCrusherSystem] Added ${block.typeId} at ${key}`);
   }
@@ -170,7 +194,6 @@ export class OreCrusherSystem {
         const dimension = world.getDimension(data.dimension);
         
         // CRITICAL: Check if chunk is loaded before accessing block
-        // Accessing unloaded chunks can cause lag or errors
         const block = dimension.getBlock(data.location);
         
         // Verify block vẫn là crusher (có thể bị phá bằng explosion, etc)
@@ -190,15 +213,8 @@ export class OreCrusherSystem {
         if (data.tickCounter >= config.interval) {
           data.tickCounter = 0;
           
-          // Lấy fuel config từ YAML
-          const fuelConfig = GENERATED_FUEL_CONFIGS[block.typeId];
-          if (!fuelConfig) {
-            console.warn(`[OreCrusherSystem] No fuel config for ${block.typeId}`);
-            continue;
-          }
-          
-          // Check fuel trước khi nghiền (sử dụng FuelHandler)
-          if (!FuelHandler.checkAndConsumeFuel(block, data.fuelData, fuelConfig)) {
+          // Check fuel trước khi nghiền
+          if (!this.checkAndConsumeFuel(block, data)) {
             continue; // Không đủ fuel, bỏ qua
           }
           
@@ -206,10 +222,50 @@ export class OreCrusherSystem {
         }
       } catch (error) {
         // Block không load (chunk unloaded) hoặc dimension không tồn tại
-        // Giữ lại trong list, sẽ check lại lần sau khi chunk load
-        // KHÔNG log error để tránh spam console
       }
     }
+  }
+
+  /**
+   * Kiểm tra và tiêu hao fuel (từ hopper hoặc fuel còn lại)
+   */
+  private static checkAndConsumeFuel(block: Block, data: { fuelRemaining: number; blockId: string }): boolean {
+    // Nếu còn fuel từ lần trước, tiêu hao
+    if (data.fuelRemaining > 0) {
+      data.fuelRemaining--;
+      return true;
+    }
+
+    // Hết fuel, lấy fuel mới từ hopper
+    const fuelItems = this.fuelConfigsByMachine.get(data.blockId);
+    if (!fuelItems || fuelItems.length === 0) {
+      console.warn(`[OreCrusherSystem] No fuel config for ${data.blockId}`);
+      return false;
+    }
+
+    const fuelItem = HopperHandler.checkAndTakeFuel(block, fuelItems);
+    if (!fuelItem) {
+      return false; // Không tìm thấy fuel trong hopper
+    }
+
+    // Nạp fuel mới
+    data.fuelRemaining = fuelItem.usesPerItem - 1; // -1 vì lần này đã dùng
+
+    // Particle effect khi nạp fuel
+    try {
+      block.dimension.spawnParticle(
+        'minecraft:lava_particle',
+        {
+          x: block.location.x + 0.5,
+          y: block.location.y + 0.5,
+          z: block.location.z + 0.5
+        }
+      );
+    } catch (e) {
+      // Particle không spawn được
+    }
+
+    return true;
   }
 
   /**

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pxvg w="16" h="16" xmlns="http://pixci.dev/pxvg">
+  <palette>
+    <color k="0" hex="#4A3712FF" />
+    <color k="A" hex="#C9A537FF" />
+    <color k="B" hex="#AA872AFF" />
+    <color k="C" hex="#C9AF37FF" />
+    <color k="D" hex="#6A3E1AFF" />
+    <color k="E" hex="#42180DFF" />
+    <color k="F" hex="#4D2913FF" />
+    <color k="G" hex="#534115FF" />
+    <color k="H" hex="#926F24FF" />
+    <color k="I" hex="#968026FF" />
+    <color k="J" hex="#7B671FFF" />
+    <color k="K" hex="#6E581CFF" />
+    <color k="L" hex="#625118FF" />
+    <color k="M" hex="#533A15FF" />
+    <color k="N" hex="#6E541CFF" />
+    <color k="O" hex="#5A4316FF" />
+    <color k="P" hex="#463412FF" />
+    <color k="Q" hex="#E6E39CFF" />
+    <color k="R" hex="#75611DFF" />
+    <color k="S" hex="#68551AFF" />
+    <color k="T" hex="#68511AFF" />
+    <color k="U" hex="#4E3A14FF" />
+    <color k="V" hex="#663A1AFF" />
+    <color k="W" hex="#584616FF" />
+    <color k="X" hex="#564916FF" />
+    <color k="Y" hex="#4B3B13FF" />
+    <color k="Z" hex="#4E3C14FF" />
+    <color k="a" hex="#6A5D1AFF" />
+    <color k="b" hex="#72651CFF" />
+    <color k="c" hex="#7A491EFF" />
+    <color k="d" hex="#E2C29CFF" />
+    <color k="e" hex="#E5DF9BFF" />
+    <color k="f" hex="#6E411CFF" />
+    <color k="g" hex="#432111FF" />
+    <color k="h" hex="#725D1CFF" />
+    <color k="i" hex="#6A541AFF" />
+    <color k="j" hex="#E7E7A3FF" />
+    <color k="k" hex="#755F1DFF" />
+    <color k="l" hex="#7D631FFF" />
+    <color k="m" hex="#633819FF" />
+    <color k="n" hex="#6D591BFF" />
+    <color k="o" hex="#583016FF" />
+    <color k="p" hex="#584116FF" />
+    <color k="q" hex="#654D19FF" />
+    <color k="r" hex="#5B4517FF" />
+    <color k="s" hex="#765A1EFF" />
+    <color k="t" hex="#5B3217FF" />
+    <color k="u" hex="#70571CFF" />
+    <color k="v" hex="#7E6720FF" />
+    <color k="w" hex="#604D18FF" />
+    <color k="x" hex="#6D571BFF" />
+    <color k="y" hex="#855221FF" />
+    <color k="z" hex="#422110FF" />
+  </palette>
+  <layer id="main">
+    <row y="0" x1="11" x2="14" c="B" />
+    <row y="1" x1="3" x2="5" c="C" />
+    <row y="2" x1="10" x2="11" c="A" />
+    <row y="2" x1="14" x2="15" c="A" />
+    <row y="3" x1="8" x2="9" c="N" />
+    <row y="3" x1="12" x2="14" c="B" />
+    <row y="5" x1="0" x2="1" c="B" />
+    <row y="5" x1="2" x2="4" c="A" />
+    <row y="7" x1="0" x2="1" c="A" />
+    <row y="7" x1="6" x2="7" c="B" />
+    <row y="11" x1="1" x2="3" c="A" />
+    <row y="13" x1="2" x2="3" c="C" />
+    <row y="13" x1="12" x2="13" c="A" />
+    <row y="14" x1="0" x2="1" c="A" />
+    <dots c="0" pts="7,14" />
+    <dots c="A" pts="0,0 10,0 0,2 15,3 8,5 9,6 11,6 5,11 12,11 15,14" />
+    <dots c="B" pts="1,0 8,1 3,4 11,7 5,8 4,11 11,13" />
+    <dots c="C" pts="9,0 9,1 14,6 4,8 13,11 15,13" />
+    <dots c="D" pts="7,1" />
+    <dots c="E" pts="11,1 0,6 15,9 7,12" />
+    <dots c="F" pts="12,1 11,14" />
+    <dots c="G" pts="13,1" />
+    <dots c="H" pts="1,2 9,5 15,6 9,7 3,8 0,11" />
+    <dots c="I" pts="5,2 6,5" />
+    <dots c="J" pts="6,2 7,5 10,7" />
+    <dots c="K" pts="7,2 8,6 7,10 9,10 11,10 7,13" />
+    <dots c="L" pts="8,2" />
+    <dots c="M" pts="9,2" />
+    <dots c="O" pts="10,3" />
+    <dots c="P" pts="11,3 12,10 3,12 6,14 10,14" />
+    <dots c="Q" pts="0,4" />
+    <dots c="R" pts="10,4 5,5" />
+    <dots c="S" pts="11,4" />
+    <dots c="T" pts="12,4" />
+    <dots c="U" pts="13,4 9,14" />
+    <dots c="V" pts="14,4" />
+    <dots c="W" pts="10,5 14,9" />
+    <dots c="X" pts="11,5" />
+    <dots c="Y" pts="6,6 13,6 12,7" />
+    <dots c="Z" pts="7,6" />
+    <dots c="a" pts="10,6" />
+    <dots c="b" pts="12,6" />
+    <dots c="c" pts="15,7" />
+    <dots c="d" pts="14,8" />
+    <dots c="e" pts="15,8" />
+    <dots c="f" pts="3,9" />
+    <dots c="g" pts="4,9" />
+    <dots c="h" pts="6,9" />
+    <dots c="i" pts="7,9" />
+    <dots c="j" pts="8,9" />
+    <dots c="k" pts="12,9" />
+    <dots c="l" pts="13,9 8,10" />
+    <dots c="m" pts="1,10" />
+    <dots c="n" pts="10,10" />
+    <dots c="o" pts="14,10" />
+    <dots c="p" pts="9,11 11,11 8,14" />
+    <dots c="q" pts="10,11 2,12" />
+    <dots c="r" pts="4,12" />
+    <dots c="s" pts="5,12" />
+    <dots c="t" pts="11,12" />
+    <dots c="u" pts="4,13" />
+    <dots c="v" pts="5,13" />
+    <dots c="w" pts="6,13" />
+    <dots c="x" pts="8,13" />
+    <dots c="y" pts="9,13" />
+    <dots c="z" pts="4,14" />
+  </layer>
+</pxvg>
