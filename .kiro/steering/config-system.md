@@ -8,13 +8,11 @@ description: "Config system overview - auto-included when editing YAML configs"
 
 ## Structure
 
-Each entity typically has:
+Each entity has:
 - `entity.yaml` - Main definition
-- `entity.test.yaml` - Test commands (optional)
 
 Each directory has:
 - `index.yaml` - Imports entity files
-- `index.test.yaml` - Imports test files
 
 ## Key Concepts
 
@@ -35,7 +33,6 @@ Each directory has:
 
 - Use `lang:` prefix for names
 - Follow existing file patterns
-- Test after changes
 - Don't edit generated JSON
 
 ## Asset Path Handling

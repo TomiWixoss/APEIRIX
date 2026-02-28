@@ -3,5 +3,6 @@ import:
   - bronze/index.yaml
   - steel/index.yaml
   - silver/index.yaml
+  - nickel/index.yaml
   - dusts/index.yaml
   - processing/index.yaml

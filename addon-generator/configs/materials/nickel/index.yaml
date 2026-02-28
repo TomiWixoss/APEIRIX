@@ -1,0 +1,8 @@
+import:
+  - nickel_ore.yaml
+  - raw_nickel.yaml
+  - nickel_ingot.yaml
+  - nickel_nugget.yaml
+  - nickel_block.yaml
+  - nickel_ingot_dust.yaml
+  - nickel_ingot_dust_pure.yaml

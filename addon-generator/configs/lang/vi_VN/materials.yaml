@@ -66,6 +66,16 @@ materials:
   silver_ingot_dust: Bụi Bạc
   silver_ingot_dust_pure: Bụi Bạc Tinh Khiết
 
+  # Nickel
+  raw_nickel: Niken Thô
+  nickel_ingot: Thỏi Niken
+  nickel_nugget: Mảnh Niken
+  nickel_block: Khối Niken
+  nickel_ore: Quặng Niken
+  deepslate_nickel_ore: Quặng Niken Đá Sâu
+  nickel_ingot_dust: Bụi Niken
+  nickel_ingot_dust_pure: Bụi Niken Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

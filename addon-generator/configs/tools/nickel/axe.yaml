@@ -1,0 +1,30 @@
+type: axe
+id: nickel_axe
+name: lang:tools.nickel_axe
+texture: ../../../assets/nickel/nickel_axe.png
+damage: 5
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: nickel_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:nickel_ingot
+    S: minecraft:stick
+  result: apeirix:nickel_axe
+  count: 1
+  unlock:
+    - apeirix:nickel_ingot
+materialId: apeirix:nickel_ingot
+durability: 450
+enchantability: 14
+tier: iron

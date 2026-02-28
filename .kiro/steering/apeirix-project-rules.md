@@ -48,10 +48,9 @@ Rules are high-level guidelines only. After gathering context:
    - Modify only what's necessary
    - Keep architecture consistent
 
-3. **Testing Phase**
+3. **Build Phase**
    - Compile YAML configs
    - Build TypeScript
-   - Test in-game with /reload
 
 ## Key Principles
 

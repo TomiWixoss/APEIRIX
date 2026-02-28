@@ -141,6 +141,17 @@ processingRecipes:
     stoneDustCount: 4
     oreDust: apeirix:silver_ingot_dust
     oreDustCount: 9
+  # Custom ores - Nickel
+  - input: apeirix:nickel_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:nickel_ingot_dust
+    oreDustCount: 9
+  - input: apeirix:deepslate_nickel_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:nickel_ingot_dust
+    oreDustCount: 9
 recipes:
   - type: shaped
     id: ore_crusher_mk1

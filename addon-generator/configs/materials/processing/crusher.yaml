@@ -116,6 +116,15 @@ processingRecipes:
     output: apeirix:silver_ingot_dust
     outputCount: 9
     processingTime: 60
+  # Custom ores - Nickel
+  - input: apeirix:nickel_ore
+    output: apeirix:nickel_ingot_dust
+    outputCount: 9
+    processingTime: 60
+  - input: apeirix:deepslate_nickel_ore
+    output: apeirix:nickel_ingot_dust
+    outputCount: 9
+    processingTime: 60
 recipes:
   - type: shaped
     id: crusher

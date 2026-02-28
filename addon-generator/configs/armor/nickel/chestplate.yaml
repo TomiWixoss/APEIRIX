@@ -1,0 +1,30 @@
+type: chestplate
+id: nickel_chestplate
+name: lang:armor.nickel_chestplate
+texture: ../../../assets/nickel/nickel_chestplate.png
+durability: 320
+protection: 5
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: nickel_layer_1
+armorLayerTexturePath: ../../../assets/nickel/nickel_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: nickel_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:nickel_ingot
+    result: apeirix:nickel_chestplate
+    count: 1
+    unlock:
+      - apeirix:nickel_ingot
+materialId: apeirix:nickel_ingot
+enchantability: 14

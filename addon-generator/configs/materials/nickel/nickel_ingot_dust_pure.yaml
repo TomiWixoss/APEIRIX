@@ -1,0 +1,30 @@
+id: nickel_ingot_dust_pure
+name: lang:materials.nickel_ingot_dust_pure
+texture: ../../../assets/nickel/nickel_ingot_dust_pure.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: shaped
+    id: raw_nickel_from_pure_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:nickel_ingot_dust_pure
+    result: apeirix:raw_nickel
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:nickel_ingot_dust_pure
+  - type: smelting
+    id: nickel_ingot_from_dust_smelting
+    input: apeirix:nickel_ingot_dust_pure
+    output: apeirix:nickel_ingot
+    count: 1
+  - type: blasting
+    id: nickel_ingot_from_dust_blasting
+    input: apeirix:nickel_ingot_dust_pure
+    output: apeirix:nickel_ingot
+    count: 1

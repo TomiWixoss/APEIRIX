@@ -18,14 +18,12 @@ description: "APEIRIX quick reference"
 1. Edit YAML in `configs/`
 2. Compile: `bun run dev compile configs/addon.yaml --clean`
 3. Build: `.\build-and-deploy.ps1`
-4. Test: `/reload` in-game
 
 ## Key Principles
 
 - Edit YAML configs, not generated JSON
 - Use `lang:` prefix for all names
 - Follow existing patterns when adding features
-- Test incrementally
 
 ## Project Info
 

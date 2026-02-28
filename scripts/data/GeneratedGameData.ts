@@ -35,6 +35,18 @@ export const GENERATED_ORES = [
     dropItem: "apeirix:raw_silver",
     dropCount: 1,
     fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:nickel_ore",
+    dropItem: "apeirix:raw_nickel",
+    dropCount: 1,
+    fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:deepslate_nickel_ore",
+    dropItem: "apeirix:raw_nickel",
+    dropCount: 1,
+    fortuneEnabled: true
   }
 ];
 
@@ -126,6 +138,36 @@ export const GENERATED_TOOLS = [
     id: "apeirix:silver_hammer",
     type: "hammer" as const,
     durability: 375
+  },
+  {
+    id: "apeirix:nickel_pickaxe",
+    type: "pickaxe" as const,
+    durability: 450
+  },
+  {
+    id: "apeirix:nickel_axe",
+    type: "axe" as const,
+    durability: 450
+  },
+  {
+    id: "apeirix:nickel_shovel",
+    type: "shovel" as const,
+    durability: 450
+  },
+  {
+    id: "apeirix:nickel_hoe",
+    type: "hoe" as const,
+    durability: 450
+  },
+  {
+    id: "apeirix:nickel_sword",
+    type: "sword" as const,
+    durability: 450
+  },
+  {
+    id: "apeirix:nickel_hammer",
+    type: "hammer" as const,
+    durability: 675
   },
   {
     id: "apeirix:wooden_hammer",
@@ -1507,6 +1549,7 @@ export const GENERATED_HAMMER_MINING = [
  */
 export const GENERATED_HAMMER_IDS = [
   "apeirix:silver_hammer",
+  "apeirix:nickel_hammer",
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
   "apeirix:copper_hammer",
@@ -1565,6 +1608,8 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:lapis_block_dust_pure",
   "apeirix:luncheonmeat",
   "apeirix:netherrack_dust",
+  "apeirix:nickel_ingot_dust",
+  "apeirix:nickel_ingot_dust_pure",
   "apeirix:raw_bronze",
   "apeirix:raw_coal",
   "apeirix:raw_diamond",
