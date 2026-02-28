@@ -1,0 +1,29 @@
+type: boots
+id: bronze_boots
+name: lang:armor.bronze_boots
+texture: ../assets/items/bronze_boots.png
+durability: 260
+protection: 1
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: bronze_layer_1
+armorLayerTexturePath: ../assets/layers/bronze_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: bronze_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:bronze_ingot
+    result: apeirix:bronze_boots
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+materialId: apeirix:bronze_ingot
+enchantability: 18

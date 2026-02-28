@@ -1,6 +1,6 @@
 id: redstone_dust_pure
 name: lang:materials.redstone_dust_pure
-texture: ../../../assets/items/redstone_dust_pure.png
+texture: ../assets/dusts/redstone_dust_pure.png
 category: items
 maxStackSize: 64
 attributes:

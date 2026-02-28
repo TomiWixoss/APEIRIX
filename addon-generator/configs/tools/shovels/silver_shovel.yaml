@@ -1,0 +1,31 @@
+type: shovel
+id: silver_shovel
+name: lang:tools.silver_shovel
+texture: ../assets/silver_shovel.png
+damage: 3
+category: equipment
+group: itemGroup.name.shovel
+diggerTags:
+  - minecraft:is_shovel_item_destructible
+  - dirt
+  - sand
+  - gravel
+  - snow
+recipe:
+  type: shaped
+  id: silver_shovel
+  pattern:
+    - "#"
+    - S
+    - S
+  ingredients:
+    "#": apeirix:silver_ingot
+    S: minecraft:stick
+  result: apeirix:silver_shovel
+  count: 1
+  unlock:
+    - apeirix:silver_ingot
+materialId: apeirix:silver_ingot
+durability: 375
+enchantability: 18
+tier: iron

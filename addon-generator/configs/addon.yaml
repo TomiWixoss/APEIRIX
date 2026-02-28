@@ -13,13 +13,14 @@ addon:
     - 21
     - 50
   icons:
-    bp: ../assets/icons/pack_icon_bp.png
-    rp: ../assets/icons/pack_icon_rp.png
+    bp: ./assets/icons/pack_icon_bp.png
+    rp: ./assets/icons/pack_icon_rp.png
 import:
   - materials/index.yaml
   - tools/index.yaml
   - armor/index.yaml
   - foods/index.yaml
+  - machines/index.yaml
   - special/index.yaml
   - entities/index.yaml
   - structure/index.yaml

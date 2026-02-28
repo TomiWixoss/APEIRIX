@@ -1,0 +1,32 @@
+id: canempty
+name: lang:foods.canempty
+texture: ../assets/canempty.png
+category: items
+stackSize: 64
+attributes:
+  - rust_mite_edible
+recipes:
+  - type: shaped
+    id: canempty
+    pattern:
+      - T T
+      - " T "
+    key:
+      T: apeirix:tin_ingot
+    result: apeirix:canempty
+    resultCount: 4
+    unlock:
+      - apeirix:tin_ingot
+  - type: shaped
+    id: apeirix:candirty_to_canempty
+    pattern:
+      - C
+      - W
+    key:
+      C: apeirix:candirty
+      W: minecraft:water_bucket
+    result: apeirix:canempty
+    resultExtra:
+      - minecraft:bucket
+    unlock:
+      - apeirix:candirty

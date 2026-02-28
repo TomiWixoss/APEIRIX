@@ -1,0 +1,13 @@
+import:
+  - ardite_shovel.yaml
+  - bronze_shovel.yaml
+  - cobalt_shovel.yaml
+  - electrum_shovel.yaml
+  - invar_shovel.yaml
+  - lead_shovel.yaml
+  - manyullyn_shovel.yaml
+  - nickel_shovel.yaml
+  - platinum_shovel.yaml
+  - silver_shovel.yaml
+  - steel_shovel.yaml
+  - tin_shovel.yaml

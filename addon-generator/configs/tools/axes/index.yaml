@@ -1,0 +1,13 @@
+import:
+  - ardite_axe.yaml
+  - bronze_axe.yaml
+  - cobalt_axe.yaml
+  - electrum_axe.yaml
+  - invar_axe.yaml
+  - lead_axe.yaml
+  - manyullyn_axe.yaml
+  - nickel_axe.yaml
+  - platinum_axe.yaml
+  - silver_axe.yaml
+  - steel_axe.yaml
+  - tin_axe.yaml

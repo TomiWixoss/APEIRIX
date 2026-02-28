@@ -1,0 +1,14 @@
+id: silver_nugget
+name: lang:materials.silver_nugget
+texture: ../assets/nuggets/silver_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: silver_nugget_from_ingot
+    ingredients:
+      - apeirix:silver_ingot
+    result: apeirix:silver_nugget
+    count: 9
+    unlock:
+      - apeirix:silver_ingot

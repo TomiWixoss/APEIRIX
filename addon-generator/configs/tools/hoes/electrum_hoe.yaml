@@ -1,0 +1,38 @@
+type: hoe
+id: electrum_hoe
+name: lang:tools.electrum_hoe
+texture: ../assets/electrum_hoe.png
+damage: 4
+category: equipment
+group: itemGroup.name.hoe
+tags:
+  - minecraft:is_hoe
+diggerTags:
+  - plant
+  - crop
+  - leaves
+  - hay_block
+  - sponge
+  - sculk
+  - nether_wart_block
+  - warped_wart_block
+  - shroomlight
+  - target
+recipe:
+  type: shaped
+  id: electrum_hoe
+  pattern:
+    - "##"
+    - " S"
+    - " S"
+  ingredients:
+    "#": apeirix:electrum_ingot
+    S: minecraft:stick
+  result: apeirix:electrum_hoe
+  count: 1
+  unlock:
+    - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+durability: 425
+enchantability: 20
+tier: iron

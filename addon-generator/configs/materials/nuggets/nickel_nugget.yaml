@@ -1,0 +1,14 @@
+id: nickel_nugget
+name: lang:materials.nickel_nugget
+texture: ../assets/nuggets/nickel_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: nickel_nugget_from_ingot
+    ingredients:
+      - apeirix:nickel_ingot
+    result: apeirix:nickel_nugget
+    count: 9
+    unlock:
+      - apeirix:nickel_ingot

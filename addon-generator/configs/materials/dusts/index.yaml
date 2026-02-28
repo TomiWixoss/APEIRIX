@@ -1,25 +1,47 @@
 import:
-  - cobblestone_dust.yaml
-  - deepslate_dust.yaml
-  - netherrack_dust.yaml
+  - ardite_ingot_dust.yaml
+  - ardite_ingot_dust_pure.yaml
+  - bronze_ingot_dust.yaml
+  - bronze_ingot_dust_pure.yaml
   - coal_dust.yaml
+  - coal_dust_pure.yaml
+  - cobalt_ingot_dust.yaml
+  - cobalt_ingot_dust_pure.yaml
+  - cobblestone_dust.yaml
   - copper_ingot_dust.yaml
-  - iron_ingot_dust.yaml
-  - gold_ingot_dust.yaml
-  - tin_ingot_dust.yaml
+  - copper_ingot_dust_pure.yaml
+  - deepslate_dust.yaml
   - diamond_dust.yaml
+  - diamond_dust_pure.yaml
+  - electrum_ingot_dust.yaml
+  - electrum_ingot_dust_pure.yaml
   - emerald_dust.yaml
+  - emerald_dust_pure.yaml
+  - gold_ingot_dust.yaml
+  - gold_ingot_dust_pure.yaml
+  - invar_ingot_dust.yaml
+  - invar_ingot_dust_pure.yaml
+  - iron_ingot_dust.yaml
+  - iron_ingot_dust_pure.yaml
   - lapis_block_dust.yaml
+  - lapis_block_dust_pure.yaml
+  - lead_ingot_dust.yaml
+  - lead_ingot_dust_pure.yaml
+  - manyullyn_ingot_dust.yaml
+  - manyullyn_ingot_dust_pure.yaml
+  - netherrack_dust.yaml
+  - nickel_ingot_dust.yaml
+  - nickel_ingot_dust_pure.yaml
+  - platinum_ingot_dust.yaml
+  - platinum_ingot_dust_pure.yaml
   - raw_coal.yaml
   - raw_diamond.yaml
   - raw_emerald.yaml
   - raw_lapis.yaml
-  - coal_dust_pure.yaml
-  - copper_ingot_dust_pure.yaml
-  - diamond_dust_pure.yaml
-  - emerald_dust_pure.yaml
-  - gold_ingot_dust_pure.yaml
-  - iron_ingot_dust_pure.yaml
-  - lapis_block_dust_pure.yaml
   - redstone_dust_pure.yaml
+  - silver_ingot_dust.yaml
+  - silver_ingot_dust_pure.yaml
+  - steel_alloy_dust.yaml
+  - steel_alloy_dust_pure.yaml
+  - tin_ingot_dust.yaml
   - tin_ingot_dust_pure.yaml

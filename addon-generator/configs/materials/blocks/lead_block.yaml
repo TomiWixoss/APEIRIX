@@ -1,0 +1,33 @@
+id: lead_block
+displayType: storage
+name: lang:materials.lead_block
+texture: ../assets/blocks/lead_block.png
+category: construction
+destroyTime: 18.0
+explosionResistance: 6
+mapColor: "#5c5c70"
+requiresTool: true
+toolTier: iron
+miningSpeed: 5
+drops: apeirix:lead_block
+recipes:
+  - type: shaped
+    id: lead_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:lead_ingot
+    result: apeirix:lead_block
+    count: 1
+    unlock:
+      - apeirix:lead_ingot
+  - type: shapeless
+    id: apeirix:lead_ingot_from_block
+    ingredients:
+      - apeirix:lead_block
+    result: apeirix:lead_ingot
+    count: 9
+    unlock:
+      - apeirix:lead_block

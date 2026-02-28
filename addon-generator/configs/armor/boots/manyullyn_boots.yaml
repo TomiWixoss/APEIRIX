@@ -1,0 +1,29 @@
+type: boots
+id: manyullyn_boots
+name: lang:armor.manyullyn_boots
+texture: ../assets/items/manyullyn_boots.png
+durability: 325
+protection: 2
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: manyullyn_alloy_layer_1
+armorLayerTexturePath: ../assets/layers/manyullyn_alloy_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: manyullyn_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:manyullyn_ingot
+    result: apeirix:manyullyn_boots
+    count: 1
+    unlock:
+      - apeirix:manyullyn_ingot
+materialId: apeirix:manyullyn_ingot
+enchantability: 18

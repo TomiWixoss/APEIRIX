@@ -1,0 +1,23 @@
+id: bronze_spear
+name: lang:tools.bronze_spear
+type: spear
+texture: ../assets/bronze_spear.png
+materialId: apeirix:bronze_ingot
+durability: 375
+damage: 3
+enchantability: 18
+tier: iron
+recipe:
+  id: bronze_spear
+  type: shaped
+  result: apeirix:bronze_spear
+  count: 1
+  pattern:
+    - "  I"
+    - " S "
+    - "S  "
+  key:
+    I: apeirix:bronze_ingot
+    S: minecraft:stick
+  unlock:
+    - apeirix:bronze_ingot

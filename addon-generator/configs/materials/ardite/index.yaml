@@ -1,8 +1,0 @@
-import:
-  - ardite_ore.yaml
-  - raw_ardite.yaml
-  - ardite_ingot.yaml
-  - ardite_nugget.yaml
-  - ardite_block.yaml
-  - ardite_ingot_dust.yaml
-  - ardite_ingot_dust_pure.yaml

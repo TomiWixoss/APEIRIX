@@ -1,0 +1,29 @@
+type: boots
+id: tin_boots
+name: lang:armor.tin_boots
+texture: ../assets/items/tin_boots.png
+durability: 260
+protection: 1
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: tin_alloy_layer_1
+armorLayerTexturePath: ../assets/layers/tin_alloy_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: tin_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:tin_ingot
+    result: apeirix:tin_boots
+    count: 1
+    unlock:
+      - apeirix:tin_ingot
+materialId: apeirix:tin_ingot
+enchantability: 18

@@ -1,0 +1,29 @@
+type: helmet
+id: electrum_helmet
+name: lang:armor.electrum_helmet
+texture: ../assets/items/electrum_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: electrum_layer_1
+armorLayerTexturePath: ../assets/layers/electrum_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: electrum_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:electrum_ingot
+    result: apeirix:electrum_helmet
+    count: 1
+    unlock:
+      - apeirix:electrum_ingot
+materialId: apeirix:electrum_ingot
+enchantability: 20

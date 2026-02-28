@@ -1,3 +1,0 @@
-id: copper_ingot_dust_test
-commands:
-  - give @s apeirix:copper_ingot_dust 64

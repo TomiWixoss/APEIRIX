@@ -1,7 +1,0 @@
-import:
-  - raw_tin.yaml
-  - tin_ingot.yaml
-  - tin_nugget.yaml
-  - tin_block.yaml
-  - tin_ore.yaml
-  - index.test.yaml

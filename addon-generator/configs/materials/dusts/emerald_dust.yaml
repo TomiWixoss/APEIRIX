@@ -1,6 +1,6 @@
 id: emerald_dust
 name: lang:materials.emerald_dust
-texture: ../../../assets/items/emerald_dust.png
+texture: ../assets/dusts/emerald_dust.png
 category: items
 maxStackSize: 64
 attributes:

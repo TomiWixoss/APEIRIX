@@ -1,14 +1,8 @@
 import:
-  - bronze/index.yaml
-  - steel/index.yaml
-  - silver/index.yaml
-  - nickel/index.yaml
-  - lead/index.yaml
-  - electrum/index.yaml
-  - invar/index.yaml
-  - platinum/index.yaml
-  - tin/index.yaml
-  - cobalt/index.yaml
-  - ardite/index.yaml
-  - manyullyn/index.yaml
-  - hammer/index.yaml
+  - axes/index.yaml
+  - hammers/index.yaml
+  - hoes/index.yaml
+  - pickaxes/index.yaml
+  - shovels/index.yaml
+  - spears/index.yaml
+  - swords/index.yaml

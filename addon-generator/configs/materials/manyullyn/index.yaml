@@ -1,7 +1,0 @@
-import:
-  - raw_manyullyn.yaml
-  - manyullyn_ingot.yaml
-  - manyullyn_nugget.yaml
-  - manyullyn_block.yaml
-  - manyullyn_ingot_dust.yaml
-  - manyullyn_ingot_dust_pure.yaml

@@ -1,0 +1,21 @@
+id: cannedbread
+name: lang:foods.cannedbread
+texture: ../assets/cannedbread.png
+category: items
+stackSize: 64
+attributes:
+  - rust_mite_edible
+nutrition: 5
+saturation: 6
+canAlwaysEat: false
+usingConvertsTo: candirty
+recipe:
+  type: shapeless
+  id: cannedbread
+  ingredients:
+    - apeirix:canempty
+    - minecraft:bread
+  result: apeirix:cannedbread
+  unlock:
+    - apeirix:canempty
+    - minecraft:bread

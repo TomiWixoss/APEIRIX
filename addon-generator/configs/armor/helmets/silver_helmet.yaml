@@ -1,0 +1,29 @@
+type: helmet
+id: silver_helmet
+name: lang:armor.silver_helmet
+texture: ../assets/items/silver_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: silver_layer_1
+armorLayerTexturePath: ../assets/layers/silver_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: silver_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:silver_ingot
+    result: apeirix:silver_helmet
+    count: 1
+    unlock:
+      - apeirix:silver_ingot
+materialId: apeirix:silver_ingot
+enchantability: 18

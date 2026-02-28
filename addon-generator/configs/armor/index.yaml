@@ -1,13 +1,5 @@
 import:
-  - bronze/index.yaml
-  - steel/index.yaml
-  - silver/index.yaml
-  - nickel/index.yaml
-  - lead/index.yaml
-  - electrum/index.yaml
-  - invar/index.yaml
-  - platinum/index.yaml
-  - tin/index.yaml
-  - cobalt/index.yaml
-  - ardite/index.yaml
-  - manyullyn/index.yaml
+  - boots/index.yaml
+  - chestplates/index.yaml
+  - helmets/index.yaml
+  - leggings/index.yaml

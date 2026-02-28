@@ -1,3 +1,0 @@
-id: silver_ingot
-tests:
-  - command: give @s apeirix:silver_ingot 64

@@ -1,0 +1,27 @@
+id: luncheonmeat
+name: lang:foods.luncheonmeat
+texture: ../assets/luncheonmeat.png
+category: items
+maxStackSize: 64
+nutrition: 8
+saturation: 10.4
+canAlwaysEat: false
+usingConvertsTo: candirty
+attributes:
+  - rust_mite_edible
+effects:
+  - name: saturation
+    duration: 1
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: luncheonmeat
+  ingredients:
+    - apeirix:canempty
+    - minecraft:cooked_porkchop
+    - minecraft:cooked_chicken
+  result: apeirix:luncheonmeat
+  unlock:
+    - apeirix:canempty
+    - minecraft:cooked_porkchop

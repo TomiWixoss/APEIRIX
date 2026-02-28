@@ -1,0 +1,29 @@
+type: helmet
+id: invar_helmet
+name: lang:armor.invar_helmet
+texture: ../assets/items/invar_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: invar_layer_1
+armorLayerTexturePath: ../assets/layers/invar_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: invar_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:invar_ingot
+    result: apeirix:invar_helmet
+    count: 1
+    unlock:
+      - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+enchantability: 10

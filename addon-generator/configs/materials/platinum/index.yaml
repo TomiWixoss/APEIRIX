@@ -1,8 +1,0 @@
-import:
-  - platinum_ore.yaml
-  - raw_platinum.yaml
-  - platinum_ingot.yaml
-  - platinum_nugget.yaml
-  - platinum_block.yaml
-  - platinum_ingot_dust.yaml
-  - platinum_ingot_dust_pure.yaml

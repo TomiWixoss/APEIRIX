@@ -1,0 +1,26 @@
+id: manyullyn_ingot
+name: lang:materials.manyullyn_ingot
+texture: ../assets/ingots/manyullyn_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: apeirix:manyullyn_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:manyullyn_nugget
+    result: apeirix:manyullyn_ingot
+    count: 1
+    unlock:
+      - apeirix:manyullyn_nugget
+  - type: shapeless
+    id: apeirix:manyullyn_ingot_from_block
+    ingredients:
+      - apeirix:manyullyn_block
+    result: apeirix:manyullyn_ingot
+    count: 9
+    unlock:
+      - apeirix:manyullyn_block

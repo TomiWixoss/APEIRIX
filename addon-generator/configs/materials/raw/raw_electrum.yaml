@@ -1,0 +1,18 @@
+id: raw_electrum
+name: lang:materials.raw_electrum
+texture: ../assets/raw/raw_electrum.png
+category: items
+maxStackSize: 64
+attributes:
+  - rust_mite_edible
+recipes:
+  - type: smelting
+    id: electrum_ingot_from_raw_smelting
+    input: apeirix:raw_electrum
+    output: apeirix:electrum_ingot
+    count: 1
+  - type: blasting
+    id: electrum_ingot_from_raw_blasting
+    input: apeirix:raw_electrum
+    output: apeirix:electrum_ingot
+    count: 1

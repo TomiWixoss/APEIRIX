@@ -1,0 +1,30 @@
+type: axe
+id: steel_alloy_axe
+name: lang:tools.steel_alloy_axe
+texture: ../assets/steel_alloy_axe.png
+damage: 6
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: steel_alloy_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:steel_alloy_ingot
+    S: minecraft:stick
+  result: apeirix:steel_alloy_axe
+  count: 1
+  unlock:
+    - apeirix:steel_alloy_ingot
+materialId: apeirix:steel_alloy_ingot
+durability: 750
+enchantability: 22
+tier: diamond

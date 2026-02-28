@@ -1,0 +1,34 @@
+type: hammer
+id: iron_hammer
+name: lang:tools.iron_hammer
+texture: ../assets/iron_hammer.png
+damage: 3
+category: equipment
+materialId: minecraft:iron_ingot
+durability: 250
+enchantability: 14
+efficiency: 6
+tier: iron
+attributes:
+  - hammer_mining
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: iron_hammer
+  pattern:
+    - "###"
+    - "#S#"
+    - " S "
+  ingredients:
+    "#": minecraft:iron_ingot
+    S: minecraft:stick
+  result: apeirix:iron_hammer
+  count: 1
+  unlock:
+    - minecraft:iron_ingot

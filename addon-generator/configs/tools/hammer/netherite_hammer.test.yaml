@@ -1,5 +1,0 @@
-type: test
-id: netherite_hammer
-commands:
-  - give @s apeirix:netherite_hammer
-  - give @s minecraft:netherite_ingot 64

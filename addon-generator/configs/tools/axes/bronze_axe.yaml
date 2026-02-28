@@ -1,0 +1,30 @@
+type: axe
+id: bronze_axe
+name: lang:tools.bronze_axe
+texture: ../assets/bronze_axe.png
+damage: 5
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: bronze_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:bronze_ingot
+    S: minecraft:stick
+  result: apeirix:bronze_axe
+  count: 1
+  unlock:
+    - apeirix:bronze_ingot
+materialId: apeirix:bronze_ingot
+durability: 375
+enchantability: 18
+tier: iron

@@ -1,0 +1,33 @@
+id: cobalt_block
+displayType: storage
+name: lang:materials.cobalt_block
+texture: ../assets/blocks/cobalt_block.png
+category: construction
+destroyTime: 20.0
+explosionResistance: 6
+mapColor: "#2E5A9E"
+requiresTool: true
+toolTier: iron
+miningSpeed: 5
+drops: apeirix:cobalt_block
+recipes:
+  - type: shaped
+    id: cobalt_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:cobalt_ingot
+    result: apeirix:cobalt_block
+    count: 1
+    unlock:
+      - apeirix:cobalt_ingot
+  - type: shapeless
+    id: apeirix:cobalt_ingot_from_block
+    ingredients:
+      - apeirix:cobalt_block
+    result: apeirix:cobalt_ingot
+    count: 9
+    unlock:
+      - apeirix:cobalt_block

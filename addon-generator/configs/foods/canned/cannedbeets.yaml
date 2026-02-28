@@ -1,0 +1,21 @@
+id: cannedbeets
+name: lang:foods.cannedbeets
+texture: ../assets/cannedbeets.png
+category: items
+stackSize: 64
+attributes:
+  - rust_mite_edible
+nutrition: 6
+saturation: 7.2
+canAlwaysEat: false
+usingConvertsTo: candirty
+recipe:
+  type: shapeless
+  id: cannedbeets
+  ingredients:
+    - apeirix:canempty
+    - minecraft:beetroot_soup
+  result: apeirix:cannedbeets
+  unlock:
+    - apeirix:canempty
+    - minecraft:beetroot_soup

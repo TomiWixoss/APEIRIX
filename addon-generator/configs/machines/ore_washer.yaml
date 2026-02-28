@@ -1,0 +1,105 @@
+id: ore_washer
+displayType: machine
+name: lang:blocks.ore_washer
+textures:
+  up: ./assets/brass_sifter_top.png
+  down: ./assets/brass_sifter_top.png
+  north: ./assets/ore_washer.png
+  south: ./assets/ore_washer.png
+  east: ./assets/ore_washer.png
+  west: ./assets/ore_washer.png
+category: equipment
+destroyTime: 4.0
+explosionResistance: 8.0
+mapColor: "#B8860B"
+requiresTool: true
+toolTier: stone
+processingRecipes:
+  # Coal dust
+  - input: apeirix:coal_dust
+    pureDust: apeirix:coal_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Iron dust
+  - input: apeirix:iron_ingot_dust
+    pureDust: apeirix:iron_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Copper dust
+  - input: apeirix:copper_ingot_dust
+    pureDust: apeirix:copper_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Gold dust
+  - input: apeirix:gold_ingot_dust
+    pureDust: apeirix:gold_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Diamond dust
+  - input: apeirix:diamond_dust
+    pureDust: apeirix:diamond_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Emerald dust
+  - input: apeirix:emerald_dust
+    pureDust: apeirix:emerald_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Lapis dust
+  - input: apeirix:lapis_block_dust
+    pureDust: apeirix:lapis_block_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Tin dust
+  - input: apeirix:tin_ingot_dust
+    pureDust: apeirix:tin_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Silver dust
+  - input: apeirix:silver_ingot_dust
+    pureDust: apeirix:silver_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Nickel dust
+  - input: apeirix:nickel_ingot_dust
+    pureDust: apeirix:nickel_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Lead dust
+  - input: apeirix:lead_ingot_dust
+    pureDust: apeirix:lead_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Electrum dust
+  - input: apeirix:electrum_ingot_dust
+    pureDust: apeirix:electrum_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Invar dust
+  - input: apeirix:invar_ingot_dust
+    pureDust: apeirix:invar_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Platinum dust
+  - input: apeirix:platinum_ingot_dust
+    pureDust: apeirix:platinum_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Bronze dust
+  - input: apeirix:bronze_ingot_dust
+    pureDust: apeirix:bronze_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+  # Cobalt dust
+  - input: apeirix:cobalt_ingot_dust
+    pureDust: apeirix:cobalt_ingot_dust_pure
+    stoneDust: apeirix:netherrack_dust
+  # Ardite dust
+  - input: apeirix:ardite_ingot_dust
+    pureDust: apeirix:ardite_ingot_dust_pure
+    stoneDust: apeirix:netherrack_dust
+  # Manyullyn dust
+  - input: apeirix:manyullyn_ingot_dust
+    pureDust: apeirix:manyullyn_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
+recipes:
+  - type: shaped
+    id: ore_washer
+    pattern:
+      - "BBB"
+      - "BIB"
+      - "SSS"
+    ingredients:
+      B: apeirix:bronze_ingot
+      I: minecraft:iron_bars
+      S: minecraft:smooth_stone
+    result: apeirix:ore_washer
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+      - minecraft:iron_bars

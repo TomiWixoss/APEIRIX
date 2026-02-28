@@ -1,0 +1,33 @@
+type: pickaxe
+id: bronze_pickaxe
+name: lang:tools.bronze_pickaxe
+texture: ../assets/bronze_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+wikiDescription: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt."
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: bronze_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:bronze_ingot
+    S: minecraft:stick
+  result: apeirix:bronze_pickaxe
+  count: 1
+  unlock:
+    - apeirix:bronze_ingot
+materialId: apeirix:bronze_ingot
+durability: 375
+enchantability: 18
+tier: iron

@@ -1,6 +1,6 @@
 id: raw_coal
 name: lang:materials.raw_coal
-texture: ../../../assets/items/raw_coal.png
+texture: ../assets/raw/raw_coal.png
 category: items
 maxStackSize: 64
 attributes:

@@ -1,3 +1,0 @@
-id: silver_ingot_dust_pure
-tests:
-  - command: give @s apeirix:silver_ingot_dust_pure 64

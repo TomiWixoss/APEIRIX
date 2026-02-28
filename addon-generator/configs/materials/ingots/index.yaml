@@ -1,0 +1,13 @@
+import:
+  - ardite_ingot.yaml
+  - bronze_ingot.yaml
+  - cobalt_ingot.yaml
+  - electrum_ingot.yaml
+  - invar_ingot.yaml
+  - lead_ingot.yaml
+  - manyullyn_ingot.yaml
+  - nickel_ingot.yaml
+  - platinum_ingot.yaml
+  - silver_ingot.yaml
+  - steel_alloy_ingot.yaml
+  - tin_ingot.yaml

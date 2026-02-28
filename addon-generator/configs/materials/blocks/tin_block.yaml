@@ -1,0 +1,33 @@
+id: tin_block
+displayType: storage
+name: lang:materials.tin_block
+texture: ../assets/blocks/tin_block.png
+category: construction
+destroyTime: 16.65
+explosionResistance: 6
+mapColor: "#d4d4d4"
+requiresTool: true
+toolTier: stone
+miningSpeed: 5
+drops: apeirix:tin_block
+recipes:
+  - type: shaped
+    id: tin_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:tin_ingot
+    result: apeirix:tin_block
+    count: 1
+    unlock:
+      - apeirix:tin_ingot
+  - type: shapeless
+    id: apeirix:tin_ingot_from_block
+    ingredients:
+      - apeirix:tin_block
+    result: apeirix:tin_ingot
+    count: 9
+    unlock:
+      - apeirix:tin_block

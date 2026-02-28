@@ -1,12 +1,12 @@
 id: rust_mite
 name: lang:entities.rust_mite
 spawnEgg:
-  texture: ../../assets/entities/spawn_egg_rust_mite.png
+  texture: assets/entities/spawn_egg_rust_mite.png
   baseColor: "#8B4513"
   overlayColor: "#FF8C00"
-model: ../../assets/entities/silverfish.geo.json
-texture: ../../assets/entities/rust_mite.png
-animation: ../../assets/entities/silverfish.animation.json
+model: assets/entities/silverfish.geo.json
+texture: assets/entities/rust_mite.png
+animation: assets/entities/silverfish.animation.json
 animationName: move
 health: 8
 movement: 0.25

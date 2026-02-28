@@ -1,0 +1,30 @@
+type: chestplate
+id: manyullyn_chestplate
+name: lang:armor.manyullyn_chestplate
+texture: ../assets/items/manyullyn_chestplate.png
+durability: 400
+protection: 7
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: manyullyn_alloy_layer_1
+armorLayerTexturePath: ../assets/layers/manyullyn_alloy_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: manyullyn_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:manyullyn_ingot
+    result: apeirix:manyullyn_chestplate
+    count: 1
+    unlock:
+      - apeirix:manyullyn_ingot
+materialId: apeirix:manyullyn_ingot
+enchantability: 18

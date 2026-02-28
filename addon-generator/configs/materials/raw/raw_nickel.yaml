@@ -1,0 +1,16 @@
+id: raw_nickel
+name: lang:materials.raw_nickel
+texture: ../assets/raw/raw_nickel.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: nickel_ingot_from_raw_smelting
+    input: apeirix:raw_nickel
+    output: apeirix:nickel_ingot
+    count: 1
+  - type: blasting
+    id: nickel_ingot_from_raw_blasting
+    input: apeirix:raw_nickel
+    output: apeirix:nickel_ingot
+    count: 1

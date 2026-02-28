@@ -1,0 +1,30 @@
+type: chestplate
+id: lead_chestplate
+name: lang:armor.lead_chestplate
+texture: ../assets/items/lead_chestplate.png
+durability: 320
+protection: 5
+category: equipment
+group: itemGroup.name.chestplate
+slot: slot.armor.chest
+enchantSlot: armor_torso
+geometry: geometry.humanoid.armor.chestplate
+armorLayer: lead_layer_1
+armorLayerTexturePath: ../assets/layers/lead_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: lead_chestplate
+    pattern:
+      - "# #"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:lead_ingot
+    result: apeirix:lead_chestplate
+    count: 1
+    unlock:
+      - apeirix:lead_ingot
+materialId: apeirix:lead_ingot
+enchantability: 12

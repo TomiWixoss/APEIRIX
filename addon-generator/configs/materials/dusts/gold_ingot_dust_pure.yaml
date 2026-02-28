@@ -1,6 +1,6 @@
 id: gold_ingot_dust_pure
 name: lang:materials.gold_ingot_dust_pure
-texture: ../../../assets/items/gold_ingot_dust_pure.png
+texture: ../assets/dusts/gold_ingot_dust_pure.png
 category: items
 maxStackSize: 64
 attributes:

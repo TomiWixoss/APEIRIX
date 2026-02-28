@@ -1,0 +1,13 @@
+import:
+  - raw_ardite.yaml
+  - raw_bronze.yaml
+  - raw_cobalt.yaml
+  - raw_electrum.yaml
+  - raw_invar.yaml
+  - raw_lead.yaml
+  - raw_manyullyn.yaml
+  - raw_nickel.yaml
+  - raw_platinum.yaml
+  - raw_silver.yaml
+  - raw_steel.yaml
+  - raw_tin.yaml

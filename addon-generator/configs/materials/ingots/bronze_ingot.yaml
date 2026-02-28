@@ -1,0 +1,27 @@
+id: bronze_ingot
+name: lang:materials.bronze_ingot
+texture: ../assets/ingots/bronze_ingot.png
+category: items
+maxStackSize: 64
+wikiDescription: "Hợp kim đồng thanh được tạo từ đồng (copper) và thiếc. Bền hơn đồng nguyên chất, dùng để chế tạo công cụ và giáp."
+recipes:
+  - type: shaped
+    id: apeirix:bronze_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:bronze_nugget
+    result: apeirix:bronze_ingot
+    count: 1
+    unlock:
+      - apeirix:bronze_nugget
+  - type: shapeless
+    id: apeirix:bronze_ingot_from_block
+    ingredients:
+      - apeirix:bronze_block
+    result: apeirix:bronze_ingot
+    count: 9
+    unlock:
+      - apeirix:bronze_block

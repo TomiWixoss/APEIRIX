@@ -1,0 +1,36 @@
+id: bronze_ingot_dust
+name: lang:materials.bronze_ingot_dust
+texture: ../assets/dusts/bronze_ingot_dust.png
+category: items
+maxStackSize: 64
+attributes:
+  - rust_mite_edible
+recipes:
+  - type: shapeless
+    id: bronze_ingot_dust_from_copper_tin_dust
+    ingredients:
+      - apeirix:copper_ingot_dust
+      - apeirix:copper_ingot_dust
+      - apeirix:copper_ingot_dust
+      - apeirix:tin_ingot_dust
+    result: apeirix:bronze_ingot_dust
+    count: 4
+    unlock:
+      - apeirix:tin_ingot_dust
+      - apeirix:copper_ingot_dust
+    craftingTags:
+      - alloy_mixing_crafting
+  - type: shaped
+    id: raw_bronze_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:bronze_ingot_dust
+    result: apeirix:raw_bronze
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:bronze_ingot_dust

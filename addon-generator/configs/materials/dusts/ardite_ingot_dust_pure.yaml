@@ -1,0 +1,31 @@
+id: ardite_ingot_dust_pure
+name: lang:materials.ardite_ingot_dust_pure
+texture: ../assets/dusts/ardite_ingot_dust_pure.png
+category: items
+maxStackSize: 64
+attributes:
+  - rust_mite_edible
+recipes:
+  - type: shaped
+    id: raw_ardite_from_pure_dust
+    pattern:
+      - "##"
+      - "##"
+    ingredients:
+      "#": apeirix:ardite_ingot_dust_pure
+    result: apeirix:raw_ardite
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:ardite_ingot_dust_pure
+  - type: smelting
+    id: ardite_ingot_from_dust_smelting
+    input: apeirix:ardite_ingot_dust_pure
+    output: apeirix:ardite_ingot
+    count: 1
+  - type: blasting
+    id: ardite_ingot_from_dust_blasting
+    input: apeirix:ardite_ingot_dust_pure
+    output: apeirix:ardite_ingot
+    count: 1

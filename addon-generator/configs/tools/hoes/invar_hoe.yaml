@@ -1,0 +1,38 @@
+type: hoe
+id: invar_hoe
+name: lang:tools.invar_hoe
+texture: ../assets/invar_hoe.png
+damage: 4
+category: equipment
+group: itemGroup.name.hoe
+tags:
+  - minecraft:is_hoe
+diggerTags:
+  - plant
+  - crop
+  - leaves
+  - hay_block
+  - sponge
+  - sculk
+  - nether_wart_block
+  - warped_wart_block
+  - shroomlight
+  - target
+recipe:
+  type: shaped
+  id: invar_hoe
+  pattern:
+    - "##"
+    - " S"
+    - " S"
+  ingredients:
+    "#": apeirix:invar_ingot
+    S: minecraft:stick
+  result: apeirix:invar_hoe
+  count: 1
+  unlock:
+    - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+durability: 500
+enchantability: 10
+tier: iron

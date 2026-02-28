@@ -1,0 +1,28 @@
+id: cannedmeal
+name: lang:foods.cannedmeal
+texture: ../assets/cannedmeal.png
+category: items
+stackSize: 64
+attributes:
+  - rust_mite_edible
+nutrition: 12
+saturation: 16
+canAlwaysEat: false
+usingConvertsTo: candirty
+effects:
+  - name: regeneration
+    duration: 3
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: cannedmeal
+  ingredients:
+    - apeirix:canempty
+    - minecraft:bread
+    - minecraft:cooked_beef
+    - minecraft:carrot
+  result: apeirix:cannedmeal
+  unlock:
+    - apeirix:canempty
+    - minecraft:bread

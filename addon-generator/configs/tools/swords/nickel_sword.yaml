@@ -1,0 +1,30 @@
+type: sword
+id: nickel_sword
+name: lang:tools.nickel_sword
+texture: ../assets/nickel_sword.png
+damage: 6
+category: equipment
+group: itemGroup.name.sword
+specialBlocks:
+  - block: minecraft:web
+    speed: 15
+  - block: minecraft:bamboo
+    speed: 6
+recipe:
+  type: shaped
+  id: nickel_sword
+  pattern:
+    - "#"
+    - "#"
+    - S
+  ingredients:
+    "#": apeirix:nickel_ingot
+    S: minecraft:stick
+  result: apeirix:nickel_sword
+  count: 1
+  unlock:
+    - apeirix:nickel_ingot
+materialId: apeirix:nickel_ingot
+durability: 450
+enchantability: 14
+tier: iron

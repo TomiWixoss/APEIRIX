@@ -1,6 +1,6 @@
 id: coal_dust
 name: lang:materials.coal_dust
-texture: ../../../assets/items/coal_dust.png
+texture: ../assets/dusts/coal_dust.png
 category: items
 maxStackSize: 64
 attributes:

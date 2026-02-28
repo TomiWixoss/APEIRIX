@@ -1,4 +1,0 @@
-type: test
-id: copper_hammer
-commands:
-  - give @s apeirix:copper_hammer

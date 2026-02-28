@@ -1,0 +1,30 @@
+type: leggings
+id: silver_leggings
+name: lang:armor.silver_leggings
+texture: ../assets/items/silver_leggings.png
+durability: 300
+protection: 5
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: silver_layer_2
+armorLayerTexturePath: ../assets/layers/silver_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: silver_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:silver_ingot
+    result: apeirix:silver_leggings
+    count: 1
+    unlock:
+      - apeirix:silver_ingot
+materialId: apeirix:silver_ingot
+enchantability: 18

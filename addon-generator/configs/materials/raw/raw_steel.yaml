@@ -1,0 +1,18 @@
+id: raw_steel
+name: lang:materials.raw_steel
+texture: ../assets/raw/raw_steel.png
+category: items
+maxStackSize: 64
+attributes:
+  - rust_mite_edible
+recipes:
+  - type: smelting
+    id: steel_alloy_ingot_from_raw_smelting
+    input: apeirix:raw_steel
+    output: apeirix:steel_alloy_ingot
+    count: 1
+  - type: blasting
+    id: steel_alloy_ingot_from_raw_blasting
+    input: apeirix:raw_steel
+    output: apeirix:steel_alloy_ingot
+    count: 1

@@ -1,0 +1,14 @@
+id: platinum_nugget
+name: lang:materials.platinum_nugget
+texture: ../assets/nuggets/platinum_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: platinum_nugget_from_ingot
+    ingredients:
+      - apeirix:platinum_ingot
+    result: apeirix:platinum_nugget
+    count: 9
+    unlock:
+      - apeirix:platinum_ingot

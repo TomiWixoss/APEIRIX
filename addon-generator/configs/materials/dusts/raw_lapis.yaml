@@ -1,6 +1,6 @@
 id: raw_lapis
 name: lang:materials.raw_lapis
-texture: ../../../assets/items/raw_lapis.png
+texture: ../assets/raw/raw_lapis.png
 category: items
 maxStackSize: 64
 attributes:

@@ -1,0 +1,11 @@
+import:
+  - compressor.yaml
+  - compressor_on.yaml
+  - crusher.yaml
+  - crusher_on.yaml
+  - ore_crusher_mk1.yaml
+  - ore_crusher_mk2.yaml
+  - ore_crusher_mk3.yaml
+  - ore_sieve.yaml
+  - ore_sieve_on.yaml
+  - ore_washer.yaml

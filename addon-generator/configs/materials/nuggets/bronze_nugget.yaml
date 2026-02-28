@@ -1,0 +1,14 @@
+id: bronze_nugget
+name: lang:materials.bronze_nugget
+texture: ../assets/nuggets/bronze_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: bronze_nugget_from_ingot
+    ingredients:
+      - apeirix:bronze_ingot
+    result: apeirix:bronze_nugget
+    count: 9
+    unlock:
+      - apeirix:bronze_ingot

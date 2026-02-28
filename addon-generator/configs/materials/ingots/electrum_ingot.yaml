@@ -1,0 +1,26 @@
+id: electrum_ingot
+name: lang:materials.electrum_ingot
+texture: ../assets/ingots/electrum_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: apeirix:electrum_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:electrum_nugget
+    result: apeirix:electrum_ingot
+    count: 1
+    unlock:
+      - apeirix:electrum_nugget
+  - type: shapeless
+    id: apeirix:electrum_ingot_from_block
+    ingredients:
+      - apeirix:electrum_block
+    result: apeirix:electrum_ingot
+    count: 9
+    unlock:
+      - apeirix:electrum_block

@@ -1,0 +1,32 @@
+type: pickaxe
+id: nickel_pickaxe
+name: lang:tools.nickel_pickaxe
+texture: ../assets/nickel_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: nickel_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:nickel_ingot
+    S: minecraft:stick
+  result: apeirix:nickel_pickaxe
+  count: 1
+  unlock:
+    - apeirix:nickel_ingot
+materialId: apeirix:nickel_ingot
+durability: 450
+enchantability: 14
+tier: iron

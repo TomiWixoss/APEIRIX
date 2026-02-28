@@ -1,0 +1,13 @@
+import:
+  - ardite_block.yaml
+  - bronze_block.yaml
+  - cobalt_block.yaml
+  - electrum_block.yaml
+  - invar_block.yaml
+  - lead_block.yaml
+  - manyullyn_block.yaml
+  - nickel_block.yaml
+  - platinum_block.yaml
+  - silver_block.yaml
+  - steel_alloy_block.yaml
+  - tin_block.yaml

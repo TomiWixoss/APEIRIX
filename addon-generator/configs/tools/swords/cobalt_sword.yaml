@@ -1,0 +1,30 @@
+type: sword
+id: cobalt_sword
+name: lang:tools.cobalt_sword
+texture: ../assets/cobalt_sword.png
+damage: 6
+category: equipment
+group: itemGroup.name.sword
+specialBlocks:
+  - block: minecraft:web
+    speed: 15
+  - block: minecraft:bamboo
+    speed: 6
+recipe:
+  type: shaped
+  id: cobalt_sword
+  pattern:
+    - "#"
+    - "#"
+    - S
+  ingredients:
+    "#": apeirix:cobalt_ingot
+    S: minecraft:stick
+  result: apeirix:cobalt_sword
+  count: 1
+  unlock:
+    - apeirix:cobalt_ingot
+materialId: apeirix:cobalt_ingot
+durability: 500
+enchantability: 16
+tier: iron

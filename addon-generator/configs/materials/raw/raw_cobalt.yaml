@@ -1,0 +1,16 @@
+id: raw_cobalt
+name: lang:materials.raw_cobalt
+texture: ../assets/raw/raw_cobalt.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: cobalt_ingot_from_raw_smelting
+    input: apeirix:raw_cobalt
+    output: apeirix:cobalt_ingot
+    count: 1
+  - type: blasting
+    id: cobalt_ingot_from_raw_blasting
+    input: apeirix:raw_cobalt
+    output: apeirix:cobalt_ingot
+    count: 1

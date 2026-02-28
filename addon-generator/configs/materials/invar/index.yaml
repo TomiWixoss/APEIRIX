@@ -1,7 +1,0 @@
-import:
-  - invar_ingot.yaml
-  - invar_nugget.yaml
-  - invar_block.yaml
-  - invar_ingot_dust.yaml
-  - invar_ingot_dust_pure.yaml
-  - raw_invar.yaml

@@ -1,6 +1,6 @@
 id: raw_emerald
 name: lang:materials.raw_emerald
-texture: ../../../assets/items/raw_emerald.png
+texture: ../assets/raw/raw_emerald.png
 category: items
 maxStackSize: 64
 attributes:

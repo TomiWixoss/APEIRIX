@@ -1,6 +1,6 @@
 id: netherrack_dust
 name: lang:materials.netherrack_dust
-texture: ../../../assets/items/netherrack_dust.png
+texture: ../assets/dusts/netherrack_dust.png
 category: items
 maxStackSize: 64
 attributes:

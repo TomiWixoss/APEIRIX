@@ -1,0 +1,30 @@
+type: leggings
+id: nickel_leggings
+name: lang:armor.nickel_leggings
+texture: ../assets/items/nickel_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: nickel_layer_2
+armorLayerTexturePath: ../assets/layers/nickel_layer_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: nickel_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:nickel_ingot
+    result: apeirix:nickel_leggings
+    count: 1
+    unlock:
+      - apeirix:nickel_ingot
+materialId: apeirix:nickel_ingot
+enchantability: 14

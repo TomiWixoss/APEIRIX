@@ -1,0 +1,56 @@
+id: lead_ingot
+name: lang:materials.lead_ingot
+texture: ../assets/ingots/lead_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: lead_ingot_from_ore_smelting
+    input: apeirix:lead_ore
+    output: apeirix:lead_ingot
+    count: 1
+  - type: blasting
+    id: lead_ingot_from_ore_blasting
+    input: apeirix:lead_ore
+    output: apeirix:lead_ingot
+    count: 1
+  - type: smelting
+    id: lead_ingot_from_deepslate_ore_smelting
+    input: apeirix:deepslate_lead_ore
+    output: apeirix:lead_ingot
+    count: 1
+  - type: blasting
+    id: lead_ingot_from_deepslate_ore_blasting
+    input: apeirix:deepslate_lead_ore
+    output: apeirix:lead_ingot
+    count: 1
+  - type: smelting
+    id: lead_ingot_from_smelting
+    input: apeirix:raw_lead
+    output: apeirix:lead_ingot
+    count: 1
+  - type: blasting
+    id: lead_ingot_from_blasting
+    input: apeirix:raw_lead
+    output: apeirix:lead_ingot
+    count: 1
+  - type: shaped
+    id: lead_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:lead_nugget
+    result: apeirix:lead_ingot
+    count: 1
+    unlock:
+      - apeirix:lead_nugget
+  - type: shapeless
+    id: apeirix:lead_ingot_from_block
+    ingredients:
+      - apeirix:lead_block
+    result: apeirix:lead_ingot
+    count: 9
+    unlock:
+      - apeirix:lead_block

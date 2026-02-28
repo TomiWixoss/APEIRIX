@@ -1,0 +1,38 @@
+type: hoe
+id: ardite_hoe
+name: lang:tools.ardite_hoe
+texture: ../assets/ardite_hoe.png
+damage: 4
+category: equipment
+group: itemGroup.name.hoe
+tags:
+  - minecraft:is_hoe
+diggerTags:
+  - plant
+  - crop
+  - leaves
+  - hay_block
+  - sponge
+  - sculk
+  - nether_wart_block
+  - warped_wart_block
+  - shroomlight
+  - target
+recipe:
+  type: shaped
+  id: ardite_hoe
+  pattern:
+    - "##"
+    - " S"
+    - " S"
+  ingredients:
+    "#": apeirix:ardite_ingot
+    S: minecraft:stick
+  result: apeirix:ardite_hoe
+  count: 1
+  unlock:
+    - apeirix:ardite_ingot
+materialId: apeirix:ardite_ingot
+durability: 500
+enchantability: 16
+tier: iron

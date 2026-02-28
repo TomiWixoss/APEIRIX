@@ -1,0 +1,55 @@
+id: ore_sieve
+displayType: machine
+name: lang:blocks.ore_sieve
+textures:
+  up: ./assets/brass_sifter_top.png
+  down: ./assets/brass_sifter_top.png
+  north: ./assets/ore_sieve_off.png
+  south: ./assets/ore_sieve_off.png
+  east: ./assets/ore_sieve_off.png
+  west: ./assets/ore_sieve_off.png
+category: equipment
+destroyTime: 4.0
+explosionResistance: 8.0
+mapColor: "#B8860B"
+requiresTool: true
+toolTier: stone
+processingRecipes:
+  # Gravel -> Ore dusts (random chance)
+  - input: minecraft:gravel
+    outputs:
+      - item: apeirix:iron_ingot_dust
+        chance: 0.15
+      - item: apeirix:coal_dust
+        chance: 0.20
+      - item: apeirix:copper_ingot_dust
+        chance: 0.10
+      - item: apeirix:gold_ingot_dust
+        chance: 0.05
+      - item: apeirix:tin_ingot_dust
+        chance: 0.08
+  # Sand -> Ore dusts (lower chance)
+  - input: minecraft:sand
+    outputs:
+      - item: apeirix:copper_ingot_dust
+        chance: 0.10
+      - item: apeirix:gold_ingot_dust
+        chance: 0.03
+      - item: apeirix:diamond_dust
+        chance: 0.02
+      - item: apeirix:emerald_dust
+        chance: 0.01
+recipes:
+  - type: shaped
+    id: ore_sieve
+    pattern:
+      - "BBB"
+      - "B B"
+      - "SSS"
+    ingredients:
+      B: apeirix:bronze_ingot
+      S: minecraft:smooth_stone
+    result: apeirix:ore_sieve
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot

@@ -1,3 +1,0 @@
-id: raw_silver
-tests:
-  - command: give @s apeirix:raw_silver 64

@@ -1,4 +1,0 @@
-type: test
-id: steel_alloy_hammer
-commands:
-  - give @s apeirix:steel_alloy_hammer

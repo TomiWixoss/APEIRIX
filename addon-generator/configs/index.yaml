@@ -1,0 +1,11 @@
+import:
+  - materials/index.yaml
+  - tools/index.yaml
+  - armor/index.yaml
+  - foods/index.yaml
+  - machines/index.yaml
+  - special/index.yaml
+  - entities/index.yaml
+  - biomes/index.yaml
+  - structure/index.yaml
+  - ui/index.yaml

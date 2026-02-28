@@ -1,6 +1,6 @@
 id: diamond_dust
 name: lang:materials.diamond_dust
-texture: ../../../assets/items/diamond_dust.png
+texture: ../assets/dusts/diamond_dust.png
 category: items
 maxStackSize: 64
 attributes:

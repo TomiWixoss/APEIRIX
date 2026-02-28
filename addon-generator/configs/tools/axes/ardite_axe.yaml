@@ -1,0 +1,30 @@
+type: axe
+id: ardite_axe
+name: lang:tools.ardite_axe
+texture: ../assets/ardite_axe.png
+damage: 5
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: ardite_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:ardite_ingot
+    S: minecraft:stick
+  result: apeirix:ardite_axe
+  count: 1
+  unlock:
+    - apeirix:ardite_ingot
+materialId: apeirix:ardite_ingot
+durability: 500
+enchantability: 16
+tier: iron

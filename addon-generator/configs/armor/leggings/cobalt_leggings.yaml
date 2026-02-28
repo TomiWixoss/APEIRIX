@@ -1,0 +1,30 @@
+type: leggings
+id: cobalt_leggings
+name: lang:armor.cobalt_leggings
+texture: ../assets/items/cobalt_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: cobalt_layer_2
+armorLayerTexturePath: ../assets/layers/cobalt_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: cobalt_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:cobalt_ingot
+    result: apeirix:cobalt_leggings
+    count: 1
+    unlock:
+      - apeirix:cobalt_ingot
+materialId: apeirix:cobalt_ingot
+enchantability: 16

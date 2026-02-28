@@ -1,0 +1,18 @@
+id: raw_bronze
+name: lang:materials.raw_bronze
+texture: ../assets/raw/raw_bronze.png
+category: items
+maxStackSize: 64
+attributes:
+  - rust_mite_edible
+recipes:
+  - type: smelting
+    id: bronze_ingot_from_raw_smelting
+    input: apeirix:raw_bronze
+    output: apeirix:bronze_ingot
+    count: 1
+  - type: blasting
+    id: bronze_ingot_from_raw_blasting
+    input: apeirix:raw_bronze
+    output: apeirix:bronze_ingot
+    count: 1

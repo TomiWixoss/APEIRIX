@@ -1,0 +1,32 @@
+type: pickaxe
+id: manyullyn_pickaxe
+name: lang:tools.manyullyn_pickaxe
+texture: ../assets/manyullyn_pickaxe.png
+damage: 5
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: manyullyn_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:manyullyn_ingot
+    S: minecraft:stick
+  result: apeirix:manyullyn_pickaxe
+  count: 1
+  unlock:
+    - apeirix:manyullyn_ingot
+materialId: apeirix:manyullyn_ingot
+durability: 800
+enchantability: 18
+tier: diamond

@@ -1,7 +1,7 @@
 id: item_bait_marker
 name: "Item Bait Marker"
-model: ../../assets/entities/silverfish.geo.json
-texture: ../../assets/entities/rust_mite.png
+model: assets/entities/silverfish.geo.json
+texture: assets/entities/rust_mite.png
 health: 1
 movement: 0
 collisionBox:

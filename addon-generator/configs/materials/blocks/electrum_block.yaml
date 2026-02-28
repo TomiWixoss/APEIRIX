@@ -1,0 +1,33 @@
+id: electrum_block
+displayType: storage
+name: lang:materials.electrum_block
+texture: ../assets/blocks/electrum_block.png
+category: construction
+destroyTime: 17.0
+explosionResistance: 6
+mapColor: "#f4e4a0"
+requiresTool: true
+toolTier: stone
+miningSpeed: 5
+drops: apeirix:electrum_block
+recipes:
+  - type: shaped
+    id: electrum_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:electrum_ingot
+    result: apeirix:electrum_block
+    count: 1
+    unlock:
+      - apeirix:electrum_ingot
+  - type: shapeless
+    id: apeirix:electrum_ingot_from_block
+    ingredients:
+      - apeirix:electrum_block
+    result: apeirix:electrum_ingot
+    count: 9
+    unlock:
+      - apeirix:electrum_block

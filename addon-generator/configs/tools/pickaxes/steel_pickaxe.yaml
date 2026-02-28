@@ -1,0 +1,32 @@
+type: pickaxe
+id: steel_alloy_pickaxe
+name: lang:tools.steel_alloy_pickaxe
+texture: ../assets/steel_alloy_pickaxe.png
+damage: 5
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: steel_alloy_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:steel_alloy_ingot
+    S: minecraft:stick
+  result: apeirix:steel_alloy_pickaxe
+  count: 1
+  unlock:
+    - apeirix:steel_alloy_ingot
+materialId: apeirix:steel_alloy_ingot
+durability: 750
+enchantability: 22
+tier: diamond

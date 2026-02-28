@@ -1,0 +1,34 @@
+type: hammer
+id: cobalt_hammer
+name: lang:tools.cobalt_hammer
+texture: ../assets/cobalt_hammer.png
+damage: 4
+category: equipment
+group: itemGroup.name.hammer
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+recipe:
+  type: shaped
+  id: cobalt_hammer
+  pattern:
+    - "###"
+    - "###"
+    - " S "
+  ingredients:
+    "#": apeirix:cobalt_ingot
+    S: minecraft:stick
+  result: apeirix:cobalt_hammer
+  count: 1
+  unlock:
+    - apeirix:cobalt_ingot
+materialId: apeirix:cobalt_ingot
+durability: 750
+enchantability: 16
+tier: iron
+attributes:
+  - hammer_mining
+miningSpeed: 8.0
+areaOfEffect: 3x3

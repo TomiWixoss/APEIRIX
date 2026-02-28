@@ -1,0 +1,13 @@
+import:
+  - ardite_nugget.yaml
+  - bronze_nugget.yaml
+  - cobalt_nugget.yaml
+  - electrum_nugget.yaml
+  - invar_nugget.yaml
+  - lead_nugget.yaml
+  - manyullyn_nugget.yaml
+  - nickel_nugget.yaml
+  - platinum_nugget.yaml
+  - silver_nugget.yaml
+  - steel_alloy_nugget.yaml
+  - tin_nugget.yaml

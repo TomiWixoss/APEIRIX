@@ -1,0 +1,33 @@
+id: bronze_block
+displayType: storage
+name: lang:materials.bronze_block
+texture: ../assets/blocks/bronze_block.png
+category: construction
+destroyTime: 16.65
+explosionResistance: 6
+mapColor: "#cd7f32"
+requiresTool: true
+toolTier: stone
+miningSpeed: 5
+drops: apeirix:bronze_block
+recipes:
+  - type: shaped
+    id: bronze_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:bronze_ingot
+    result: apeirix:bronze_block
+    count: 1
+    unlock:
+      - apeirix:bronze_ingot
+  - type: shapeless
+    id: apeirix:bronze_ingot_from_block
+    ingredients:
+      - apeirix:bronze_block
+    result: apeirix:bronze_ingot
+    count: 9
+    unlock:
+      - apeirix:bronze_block

@@ -1,0 +1,30 @@
+type: leggings
+id: invar_leggings
+name: lang:armor.invar_leggings
+texture: ../assets/items/invar_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: invar_layer_2
+armorLayerTexturePath: ../assets/layers/invar_layer_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: invar_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:invar_ingot
+    result: apeirix:invar_leggings
+    count: 1
+    unlock:
+      - apeirix:invar_ingot
+materialId: apeirix:invar_ingot
+enchantability: 10

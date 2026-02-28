@@ -1,0 +1,30 @@
+type: axe
+id: manyullyn_axe
+name: lang:tools.manyullyn_axe
+texture: ../assets/manyullyn_axe.png
+damage: 7
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: manyullyn_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:manyullyn_ingot
+    S: minecraft:stick
+  result: apeirix:manyullyn_axe
+  count: 1
+  unlock:
+    - apeirix:manyullyn_ingot
+materialId: apeirix:manyullyn_ingot
+durability: 800
+enchantability: 18
+tier: diamond

@@ -1,0 +1,27 @@
+id: cannedfish
+name: lang:foods.cannedfish
+texture: ../assets/cannedfish.png
+category: items
+stackSize: 64
+attributes:
+  - rust_mite_edible
+nutrition: 5
+saturation: 6
+canAlwaysEat: false
+usingConvertsTo: candirty
+effects:
+  - name: water_breathing
+    duration: 30
+    amplifier: 0
+    chance: 1
+recipe:
+  type: shapeless
+  id: cannedfish
+  ingredients:
+    - apeirix:canempty
+    - minecraft:cooked_cod
+    - minecraft:cooked_cod
+  result: apeirix:cannedfish
+  unlock:
+    - apeirix:canempty
+    - minecraft:cooked_cod

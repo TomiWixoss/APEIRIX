@@ -1,0 +1,8 @@
+import:
+  - ardite_ore.yaml
+  - cobalt_ore.yaml
+  - lead_ore.yaml
+  - nickel_ore.yaml
+  - platinum_ore.yaml
+  - silver_ore.yaml
+  - tin_ore.yaml

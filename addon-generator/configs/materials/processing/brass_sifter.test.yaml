@@ -1,6 +1,0 @@
-id: brass_sifter
-testCommands:
-  - give @s apeirix:brass_sifter 1
-  - give @s apeirix:coal_dust 64
-  - give @s apeirix:iron_ingot_dust 64
-  - give @s apeirix:diamond_dust 64

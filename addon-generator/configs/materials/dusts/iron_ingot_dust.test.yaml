@@ -1,3 +1,0 @@
-id: iron_ingot_dust_test
-commands:
-  - give @s apeirix:iron_ingot_dust 64

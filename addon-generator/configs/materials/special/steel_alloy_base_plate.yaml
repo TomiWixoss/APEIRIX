@@ -1,0 +1,5 @@
+id: steel_alloy_base_plate
+name: lang:materials.steel_alloy_base_plate
+texture: ../assets/special/steel_alloy_base_plate.png
+category: items
+maxStackSize: 64

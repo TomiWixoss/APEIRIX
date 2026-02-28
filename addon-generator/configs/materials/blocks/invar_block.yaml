@@ -1,0 +1,33 @@
+id: invar_block
+displayType: storage
+name: lang:materials.invar_block
+texture: ../assets/blocks/invar_block.png
+category: construction
+destroyTime: 19.0
+explosionResistance: 8
+mapColor: "#b8b8a0"
+requiresTool: true
+toolTier: iron
+miningSpeed: 5
+drops: apeirix:invar_block
+recipes:
+  - type: shaped
+    id: invar_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:invar_ingot
+    result: apeirix:invar_block
+    count: 1
+    unlock:
+      - apeirix:invar_ingot
+  - type: shapeless
+    id: apeirix:invar_ingot_from_block
+    ingredients:
+      - apeirix:invar_block
+    result: apeirix:invar_ingot
+    count: 9
+    unlock:
+      - apeirix:invar_block

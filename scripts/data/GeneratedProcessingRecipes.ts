@@ -49,10 +49,6 @@ export interface FuelConfig {
  * Generated processing recipes grouped by machine type
  */
 export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = {
-  "ore_sieve": [
-    { inputId: "minecraft:gravel", outputId: "", processingTime: 60 },
-    { inputId: "minecraft:sand", outputId: "", processingTime: 60 }
-  ],
   "compressor": [
     { inputId: "apeirix:steel_alloy_ingot", outputId: "apeirix:steel_alloy_base_plate", processingTime: 60 }
   ],
@@ -88,6 +84,10 @@ export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = 
     { inputId: "apeirix:deepslate_platinum_ore", outputId: "apeirix:platinum_ingot_dust", processingTime: 60 },
     { inputId: "apeirix:cobalt_ore", outputId: "apeirix:cobalt_ingot_dust", processingTime: 60 },
     { inputId: "apeirix:ardite_ore", outputId: "apeirix:ardite_ingot_dust", processingTime: 60 }
+  ],
+  "ore_sieve": [
+    { inputId: "minecraft:gravel", outputId: "", processingTime: 60 },
+    { inputId: "minecraft:sand", outputId: "", processingTime: 60 }
   ],
 };
 

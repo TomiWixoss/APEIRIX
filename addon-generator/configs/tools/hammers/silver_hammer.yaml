@@ -1,0 +1,35 @@
+type: hammer
+id: silver_hammer
+name: lang:tools.silver_hammer
+texture: ../assets/silver_hammer.png
+damage: 5
+category: equipment
+group: itemGroup.name.hammer
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - minecraft:is_axe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: silver_hammer
+  pattern:
+    - "###"
+    - "###"
+    - " S "
+  ingredients:
+    "#": apeirix:silver_ingot
+    S: minecraft:stick
+  result: apeirix:silver_hammer
+  count: 1
+  unlock:
+    - apeirix:silver_ingot
+materialId: apeirix:silver_ingot
+durability: 375
+enchantability: 18
+tier: iron
+attributes:
+  - hammer_mining

@@ -1,6 +1,6 @@
 id: iron_ingot_dust_pure
 name: lang:materials.iron_ingot_dust_pure
-texture: ../../../assets/items/iron_ingot_dust_pure.png
+texture: ../assets/dusts/iron_ingot_dust_pure.png
 category: items
 maxStackSize: 64
 attributes:

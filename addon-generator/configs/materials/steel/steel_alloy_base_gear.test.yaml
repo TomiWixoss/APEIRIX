@@ -1,3 +1,0 @@
-tests:
-  - command: give @s apeirix:steel_alloy_base_gear 64
-    description: Give 64 Steel Gears

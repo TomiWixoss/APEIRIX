@@ -1,8 +1,0 @@
-import:
-  - cobalt_ore.yaml
-  - raw_cobalt.yaml
-  - cobalt_ingot.yaml
-  - cobalt_nugget.yaml
-  - cobalt_block.yaml
-  - cobalt_ingot_dust.yaml
-  - cobalt_ingot_dust_pure.yaml

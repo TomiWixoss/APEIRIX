@@ -1,4 +1,0 @@
-type: test
-id: bronze_hammer
-commands:
-  - give @s apeirix:bronze_hammer

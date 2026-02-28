@@ -1,6 +1,6 @@
 id: tin_ingot_dust
 name: lang:materials.tin_ingot_dust
-texture: ../../../assets/items/tin_ingot_dust.png
+texture: ../assets/dusts/tin_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:

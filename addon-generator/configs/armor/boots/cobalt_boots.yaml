@@ -1,0 +1,29 @@
+type: boots
+id: cobalt_boots
+name: lang:armor.cobalt_boots
+texture: ../assets/items/cobalt_boots.png
+durability: 260
+protection: 1
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: cobalt_layer_1
+armorLayerTexturePath: ../assets/layers/cobalt_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: cobalt_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:cobalt_ingot
+    result: apeirix:cobalt_boots
+    count: 1
+    unlock:
+      - apeirix:cobalt_ingot
+materialId: apeirix:cobalt_ingot
+enchantability: 16

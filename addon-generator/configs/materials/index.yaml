@@ -1,15 +1,8 @@
 import:
-  - tin/index.yaml
-  - bronze/index.yaml
-  - steel/index.yaml
-  - silver/index.yaml
-  - nickel/index.yaml
-  - lead/index.yaml
-  - electrum/index.yaml
-  - invar/index.yaml
-  - platinum/index.yaml
-  - cobalt/index.yaml
-  - ardite/index.yaml
-  - manyullyn/index.yaml
+  - blocks/index.yaml
   - dusts/index.yaml
-  - processing/index.yaml
+  - ingots/index.yaml
+  - nuggets/index.yaml
+  - ores/index.yaml
+  - raw/index.yaml
+  - special/index.yaml

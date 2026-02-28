@@ -1,0 +1,56 @@
+id: silver_ingot
+name: lang:materials.silver_ingot
+texture: ../assets/ingots/silver_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: smelting
+    id: silver_ingot_from_ore_smelting
+    input: apeirix:silver_ore
+    output: apeirix:silver_ingot
+    count: 1
+  - type: blasting
+    id: silver_ingot_from_ore_blasting
+    input: apeirix:silver_ore
+    output: apeirix:silver_ingot
+    count: 1
+  - type: smelting
+    id: silver_ingot_from_deepslate_ore_smelting
+    input: apeirix:deepslate_silver_ore
+    output: apeirix:silver_ingot
+    count: 1
+  - type: blasting
+    id: silver_ingot_from_deepslate_ore_blasting
+    input: apeirix:deepslate_silver_ore
+    output: apeirix:silver_ingot
+    count: 1
+  - type: smelting
+    id: silver_ingot_from_smelting
+    input: apeirix:raw_silver
+    output: apeirix:silver_ingot
+    count: 1
+  - type: blasting
+    id: silver_ingot_from_blasting
+    input: apeirix:raw_silver
+    output: apeirix:silver_ingot
+    count: 1
+  - type: shaped
+    id: silver_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:silver_nugget
+    result: apeirix:silver_ingot
+    count: 1
+    unlock:
+      - apeirix:silver_nugget
+  - type: shapeless
+    id: apeirix:silver_ingot_from_block
+    ingredients:
+      - apeirix:silver_block
+    result: apeirix:silver_ingot
+    count: 9
+    unlock:
+      - apeirix:silver_block

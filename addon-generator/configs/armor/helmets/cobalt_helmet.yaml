@@ -1,0 +1,29 @@
+type: helmet
+id: cobalt_helmet
+name: lang:armor.cobalt_helmet
+texture: ../assets/items/cobalt_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: cobalt_layer_1
+armorLayerTexturePath: ../assets/layers/cobalt_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: cobalt_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:cobalt_ingot
+    result: apeirix:cobalt_helmet
+    count: 1
+    unlock:
+      - apeirix:cobalt_ingot
+materialId: apeirix:cobalt_ingot
+enchantability: 16

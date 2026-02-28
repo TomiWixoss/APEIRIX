@@ -1,0 +1,30 @@
+type: leggings
+id: manyullyn_leggings
+name: lang:armor.manyullyn_leggings
+texture: ../assets/items/manyullyn_leggings.png
+durability: 375
+protection: 5
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: manyullyn_alloy_layer_2
+armorLayerTexturePath: ../assets/layers/manyullyn_alloy_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: manyullyn_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:manyullyn_ingot
+    result: apeirix:manyullyn_leggings
+    count: 1
+    unlock:
+      - apeirix:manyullyn_ingot
+materialId: apeirix:manyullyn_ingot
+enchantability: 18

@@ -1,0 +1,18 @@
+id: steel_alloy_base_rod
+name: lang:materials.steel_alloy_base_rod
+texture: ../assets/special/steel_alloy_base_rod.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: apeirix:steel_alloy_base_rod
+    pattern:
+      - " # "
+      - " # "
+      - "   "
+    ingredients:
+      "#": apeirix:steel_alloy_ingot
+    result: apeirix:steel_alloy_base_rod
+    count: 4
+    unlock:
+      - apeirix:steel_alloy_ingot

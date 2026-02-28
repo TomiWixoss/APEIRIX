@@ -1,6 +1,6 @@
 id: lapis_block_dust
 name: lang:materials.lapis_block_dust
-texture: ../../../assets/items/lapis_block_dust.png
+texture: ../assets/dusts/lapis_block_dust.png
 category: items
 maxStackSize: 64
 attributes:

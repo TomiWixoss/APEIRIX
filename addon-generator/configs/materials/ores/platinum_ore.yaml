@@ -1,0 +1,48 @@
+id: platinum_ore
+name: lang:materials.platinum_ore
+texturePath: ../assets/ores/platinum_ore.png
+deepslateTexturePath: ../assets/ores/deepslate_platinum_ore.png
+rawItemId: raw_platinum
+destroyTime: 15.0
+deepslateDestroyTime: 22.5
+explosionResistance: 6
+toolTier: diamond
+minY: -64
+maxY: -32
+veinSize: 4
+veinsPerChunk: 3
+fortuneMultiplier: 2
+dustItemId: platinum_ingot_dust
+stoneDustCount: 4
+oreDustCount: 9
+recipes:
+  - type: smelting
+    id: platinum_ingot_from_ore_smelting
+    input: apeirix:platinum_ore
+    output: apeirix:platinum_ingot
+    count: 1
+  - type: blasting
+    id: platinum_ingot_from_ore_blasting
+    input: apeirix:platinum_ore
+    output: apeirix:platinum_ingot
+    count: 1
+  - type: smelting
+    id: platinum_ingot_from_deepslate_ore_smelting
+    input: apeirix:deepslate_platinum_ore
+    output: apeirix:platinum_ingot
+    count: 1
+  - type: blasting
+    id: platinum_ingot_from_deepslate_ore_blasting
+    input: apeirix:deepslate_platinum_ore
+    output: apeirix:platinum_ingot
+    count: 1
+  - type: smelting
+    id: platinum_ingot_from_smelting
+    input: apeirix:raw_platinum
+    output: apeirix:platinum_ingot
+    count: 1
+  - type: blasting
+    id: platinum_ingot_from_blasting
+    input: apeirix:raw_platinum
+    output: apeirix:platinum_ingot
+    count: 1
