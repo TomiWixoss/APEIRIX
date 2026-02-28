@@ -17,6 +17,7 @@ temp_mcaddon/
 # Samples và docs không cần
 bedrock-samples-v1.26.0.2-full/
 minecraft-scripting-samples-main/
+minecraft-creator/
 
 # Reference addons từ người khác (chỉ để tham khảo local)
 reference_addons/*
