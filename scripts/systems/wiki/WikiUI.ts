@@ -18,8 +18,11 @@ interface WikiItem {
 }
 
 export class WikiUI {
+    /**
+     * Show wiki for items in inventory (excludes blocks)
+     */
     static async show(player: Player): Promise<void> {
-        const items = this.scanInventory(player);
+        const items = this.scanInventory(player, true); // true = exclude blocks
 
         if (items.length === 0) {
             await this.showEmptyWiki(player);
@@ -27,6 +30,35 @@ export class WikiUI {
         }
 
         await this.showItemList(player, items);
+    }
+
+    /**
+     * Show wiki for a specific block (when player interacts with block while holding wiki book)
+     */
+    static async showBlock(player: Player, blockId: string): Promise<void> {
+        // Find block in wiki data
+        const wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === blockId);
+        
+        if (!wikiData) {
+            player.sendMessage("§cKhông tìm thấy thông tin về khối này trong wiki.");
+            return;
+        }
+
+        const shortId = blockId.replace("apeirix:", "");
+        const name = wikiData.name || shortId;
+        const description = wikiData.description || "";
+        const info = (wikiData.info || {}) as unknown as Record<string, string | number | boolean>;
+
+        const blockItem: WikiItem = {
+            id: blockId,
+            name: name,
+            category: wikiData.category,
+            icon: "", // Blocks don't need icon in detail view
+            description: description,
+            info: info
+        };
+
+        await this.showBlockDetail(player, blockItem);
     }
 
     /**
@@ -47,8 +79,9 @@ export class WikiUI {
 
     /**
      * Scan player inventory for APEIRIX items
+     * @param excludeBlocks - If true, exclude blocks from results
      */
-    private static scanInventory(player: Player): WikiItem[] {
+    private static scanInventory(player: Player, excludeBlocks: boolean = false): WikiItem[] {
         const items: WikiItem[] = [];
         const container = player.getComponent("inventory")?.container as Container;
         if (!container) return items;
@@ -68,6 +101,11 @@ export class WikiUI {
             // Get wiki data from generated data
             const wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === fullId);
             if (wikiData) {
+                // Skip blocks if excludeBlocks is true
+                if (excludeBlocks && this.isBlock(fullId)) {
+                    continue;
+                }
+
                 const shortId = fullId.replace("apeirix:", "");
                 
                 // Get name from wiki data (already translated in YAML)
@@ -97,6 +135,14 @@ export class WikiUI {
         }
 
         return items;
+    }
+
+    /**
+     * Check if an item ID is a block
+     */
+    private static isBlock(itemId: string): boolean {
+        const blockKeywords = ['_ore', '_block', 'crusher', 'compressor', 'sieve', 'washer', 'sifter', 'table'];
+        return blockKeywords.some(keyword => itemId.includes(keyword));
     }
 
     /**
@@ -188,6 +234,46 @@ export class WikiUI {
             await this.showItemList(player, allItems);
         } catch (error) {
             console.error("Error showing wiki item detail:", error);
+        }
+    }
+
+    /**
+     * Show block detail (no icon, plain text title)
+     */
+    private static async showBlockDetail(player: Player, block: WikiItem): Promise<void> {
+        // Plain text title for blocks (no icon)
+        const plainTitle = `apeirix:list:${block.name}`;
+
+        // Build body text
+        let body = "";
+
+        // Description (if exists)
+        if (block.description) {
+            body += `${LangManager.get("wiki.description")}\n§r§8${block.description}\n\n`;
+        }
+
+        // Additional info
+        if (block.info && Object.keys(block.info).length > 0) {
+            body += `${LangManager.get("wiki.information")}:\n`;
+            for (const [key, value] of Object.entries(block.info)) {
+                body += `§r§0${key}:§r §8${value}\n`;
+            }
+            body += "\n";
+        }
+
+        // Category
+        const categoryKey = `wiki.categories.${block.category}`;
+        body += `${LangManager.get("wiki.category")} ${LangManager.get(categoryKey)}`;
+
+        const form = new ActionFormData()
+            .title(plainTitle)
+            .body(body)
+            .button(LangManager.get("wiki.back"));
+
+        try {
+            await form.show(player);
+        } catch (error) {
+            console.error("Error showing block detail:", error);
         }
     }
 }
