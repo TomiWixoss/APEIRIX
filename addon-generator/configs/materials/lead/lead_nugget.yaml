@@ -1,0 +1,14 @@
+id: lead_nugget
+name: lang:materials.lead_nugget
+texture: ../../../assets/lead/lead_nugget.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shapeless
+    id: lead_nugget_from_ingot
+    ingredients:
+      - apeirix:lead_ingot
+    result: apeirix:lead_nugget
+    count: 9
+    unlock:
+      - apeirix:lead_ingot

@@ -1,0 +1,32 @@
+type: pickaxe
+id: lead_pickaxe
+name: lang:tools.lead_pickaxe
+texture: ../../../assets/lead/lead_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: lead_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:lead_ingot
+    S: minecraft:stick
+  result: apeirix:lead_pickaxe
+  count: 1
+  unlock:
+    - apeirix:lead_ingot
+materialId: apeirix:lead_ingot
+durability: 400
+enchantability: 12
+tier: iron

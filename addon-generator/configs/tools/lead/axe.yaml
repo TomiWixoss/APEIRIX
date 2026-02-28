@@ -1,0 +1,30 @@
+type: axe
+id: lead_axe
+name: lang:tools.lead_axe
+texture: ../../../assets/lead/lead_axe.png
+damage: 5
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: lead_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:lead_ingot
+    S: minecraft:stick
+  result: apeirix:lead_axe
+  count: 1
+  unlock:
+    - apeirix:lead_ingot
+materialId: apeirix:lead_ingot
+durability: 400
+enchantability: 12
+tier: iron

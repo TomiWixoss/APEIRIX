@@ -76,6 +76,16 @@ materials:
   nickel_ingot_dust: Bụi Niken
   nickel_ingot_dust_pure: Bụi Niken Tinh Khiết
 
+  # Lead
+  raw_lead: Chì Thô
+  lead_ingot: Thỏi Chì
+  lead_nugget: Mảnh Chì
+  lead_block: Khối Chì
+  lead_ore: Quặng Chì
+  deepslate_lead_ore: Quặng Chì Đá Sâu
+  lead_ingot_dust: Bụi Chì
+  lead_ingot_dust_pure: Bụi Chì Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

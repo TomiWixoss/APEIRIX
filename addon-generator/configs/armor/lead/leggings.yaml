@@ -1,0 +1,30 @@
+type: leggings
+id: lead_leggings
+name: lang:armor.lead_leggings
+texture: ../../../assets/lead/lead_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: lead_layer_2
+armorLayerTexturePath: ../../../assets/lead/lead_layer_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: lead_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:lead_ingot
+    result: apeirix:lead_leggings
+    count: 1
+    unlock:
+      - apeirix:lead_ingot
+materialId: apeirix:lead_ingot
+enchantability: 12

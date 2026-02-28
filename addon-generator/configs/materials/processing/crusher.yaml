@@ -125,6 +125,15 @@ processingRecipes:
     output: apeirix:nickel_ingot_dust
     outputCount: 9
     processingTime: 60
+  # Custom ores - Lead
+  - input: apeirix:lead_ore
+    output: apeirix:lead_ingot_dust
+    outputCount: 9
+    processingTime: 60
+  - input: apeirix:deepslate_lead_ore
+    output: apeirix:lead_ingot_dust
+    outputCount: 9
+    processingTime: 60
 recipes:
   - type: shaped
     id: crusher

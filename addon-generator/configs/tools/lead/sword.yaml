@@ -1,0 +1,30 @@
+type: sword
+id: lead_sword
+name: lang:tools.lead_sword
+texture: ../../../assets/lead/lead_sword.png
+damage: 6
+category: equipment
+group: itemGroup.name.sword
+specialBlocks:
+  - block: minecraft:web
+    speed: 15
+  - block: minecraft:bamboo
+    speed: 6
+recipe:
+  type: shaped
+  id: lead_sword
+  pattern:
+    - "#"
+    - "#"
+    - S
+  ingredients:
+    "#": apeirix:lead_ingot
+    S: minecraft:stick
+  result: apeirix:lead_sword
+  count: 1
+  unlock:
+    - apeirix:lead_ingot
+materialId: apeirix:lead_ingot
+durability: 400
+enchantability: 12
+tier: iron

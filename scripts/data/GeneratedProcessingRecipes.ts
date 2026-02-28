@@ -81,7 +81,9 @@ export const GENERATED_PROCESSING_RECIPES: Record<string, ProcessingRecipe[]> = 
     { inputId: "apeirix:silver_ore", outputId: "apeirix:silver_ingot_dust", processingTime: 60 },
     { inputId: "apeirix:deepslate_silver_ore", outputId: "apeirix:silver_ingot_dust", processingTime: 60 },
     { inputId: "apeirix:nickel_ore", outputId: "apeirix:nickel_ingot_dust", processingTime: 60 },
-    { inputId: "apeirix:deepslate_nickel_ore", outputId: "apeirix:nickel_ingot_dust", processingTime: 60 }
+    { inputId: "apeirix:deepslate_nickel_ore", outputId: "apeirix:nickel_ingot_dust", processingTime: 60 },
+    { inputId: "apeirix:lead_ore", outputId: "apeirix:lead_ingot_dust", processingTime: 60 },
+    { inputId: "apeirix:deepslate_lead_ore", outputId: "apeirix:lead_ingot_dust", processingTime: 60 }
   ],
 };
 
@@ -116,7 +118,9 @@ export const GENERATED_ORE_CRUSHER_RECIPES: Record<string, OreCrusherRecipe[]> =
     { inputId: "apeirix:silver_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:silver_ingot_dust", oreDustCount: 9 },
     { inputId: "apeirix:deepslate_silver_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:silver_ingot_dust", oreDustCount: 9 },
     { inputId: "apeirix:nickel_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 },
-    { inputId: "apeirix:deepslate_nickel_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 }
+    { inputId: "apeirix:deepslate_nickel_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:lead_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:lead_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:deepslate_lead_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:lead_ingot_dust", oreDustCount: 9 }
   ],
   "ore_crusher_mk2": [
     { inputId: "minecraft:stone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
@@ -145,7 +149,9 @@ export const GENERATED_ORE_CRUSHER_RECIPES: Record<string, OreCrusherRecipe[]> =
     { inputId: "apeirix:silver_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:silver_ingot_dust", oreDustCount: 9 },
     { inputId: "apeirix:deepslate_silver_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:silver_ingot_dust", oreDustCount: 9 },
     { inputId: "apeirix:nickel_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 },
-    { inputId: "apeirix:deepslate_nickel_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 }
+    { inputId: "apeirix:deepslate_nickel_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:lead_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:lead_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:deepslate_lead_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:lead_ingot_dust", oreDustCount: 9 }
   ],
   "ore_crusher_mk3": [
     { inputId: "minecraft:stone", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4 },
@@ -174,7 +180,9 @@ export const GENERATED_ORE_CRUSHER_RECIPES: Record<string, OreCrusherRecipe[]> =
     { inputId: "apeirix:silver_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:silver_ingot_dust", oreDustCount: 9 },
     { inputId: "apeirix:deepslate_silver_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:silver_ingot_dust", oreDustCount: 9 },
     { inputId: "apeirix:nickel_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 },
-    { inputId: "apeirix:deepslate_nickel_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 }
+    { inputId: "apeirix:deepslate_nickel_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:nickel_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:lead_ore", stoneDust: "apeirix:cobblestone_dust", stoneDustCount: 4, oreDust: "apeirix:lead_ingot_dust", oreDustCount: 9 },
+    { inputId: "apeirix:deepslate_lead_ore", stoneDust: "apeirix:deepslate_dust", stoneDustCount: 4, oreDust: "apeirix:lead_ingot_dust", oreDustCount: 9 }
   ],
 };
 
@@ -199,6 +207,7 @@ export const GENERATED_ORE_WASHER_RECIPES: OreWasherRecipe[] = [
   { inputId: "apeirix:tin_ingot_dust", pureDust: "apeirix:tin_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:silver_ingot_dust", pureDust: "apeirix:silver_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:nickel_ingot_dust", pureDust: "apeirix:nickel_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
+  { inputId: "apeirix:lead_ingot_dust", pureDust: "apeirix:lead_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" },
   { inputId: "apeirix:bronze_ingot_dust", pureDust: "apeirix:bronze_ingot_dust_pure", stoneDust: "apeirix:cobblestone_dust" }
 ];
 
