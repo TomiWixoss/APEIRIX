@@ -71,6 +71,18 @@ export const GENERATED_ORES = [
     dropItem: "apeirix:raw_platinum",
     dropCount: 1,
     fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:cobalt_ore",
+    dropItem: "apeirix:raw_cobalt",
+    dropCount: 1,
+    fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:deepslate_cobalt_ore",
+    dropItem: "apeirix:raw_cobalt",
+    dropCount: 1,
+    fortuneEnabled: true
   }
 ];
 
@@ -312,6 +324,36 @@ export const GENERATED_TOOLS = [
     id: "apeirix:platinum_hammer",
     type: "hammer" as const,
     durability: 2400
+  },
+  {
+    id: "apeirix:cobalt_pickaxe",
+    type: "pickaxe" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:cobalt_axe",
+    type: "axe" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:cobalt_shovel",
+    type: "shovel" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:cobalt_hoe",
+    type: "hoe" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:cobalt_sword",
+    type: "sword" as const,
+    durability: 500
+  },
+  {
+    id: "apeirix:cobalt_hammer",
+    type: "hammer" as const,
+    durability: 750
   },
   {
     id: "apeirix:wooden_hammer",
@@ -1698,6 +1740,7 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:electrum_hammer",
   "apeirix:invar_hammer",
   "apeirix:platinum_hammer",
+  "apeirix:cobalt_hammer",
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
   "apeirix:copper_hammer",
@@ -1738,6 +1781,8 @@ export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   "apeirix:chickensoup",
   "apeirix:coal_dust",
   "apeirix:coal_dust_pure",
+  "apeirix:cobalt_ingot_dust",
+  "apeirix:cobalt_ingot_dust_pure",
   "apeirix:cobblestone_dust",
   "apeirix:cookies",
   "apeirix:copper_ingot_dust",

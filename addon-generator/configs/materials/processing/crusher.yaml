@@ -143,6 +143,11 @@ processingRecipes:
     output: apeirix:platinum_ingot_dust
     outputCount: 9
     processingTime: 60
+  # Custom ores - Cobalt (Nether ore)
+  - input: apeirix:cobalt_ore
+    output: apeirix:cobalt_ingot_dust
+    outputCount: 9
+    processingTime: 60
 recipes:
   - type: shaped
     id: crusher

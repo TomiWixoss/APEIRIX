@@ -112,6 +112,15 @@ materials:
   platinum_ingot_dust: Bụi Bạch Kim
   platinum_ingot_dust_pure: Bụi Bạch Kim Tinh Khiết
 
+  # Cobalt
+  raw_cobalt: Cobalt Thô
+  cobalt_ingot: Thỏi Cobalt
+  cobalt_nugget: Mảnh Cobalt
+  cobalt_block: Khối Cobalt
+  cobalt_ore: Quặng Cobalt
+  cobalt_ingot_dust: Bụi Cobalt
+  cobalt_ingot_dust_pure: Bụi Cobalt Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

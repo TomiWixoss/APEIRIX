@@ -1,0 +1,38 @@
+type: hoe
+id: cobalt_hoe
+name: lang:tools.cobalt_hoe
+texture: ../../../assets/cobalt/cobalt_hoe.png
+damage: 4
+category: equipment
+group: itemGroup.name.hoe
+tags:
+  - minecraft:is_hoe
+diggerTags:
+  - plant
+  - crop
+  - leaves
+  - hay_block
+  - sponge
+  - sculk
+  - nether_wart_block
+  - warped_wart_block
+  - shroomlight
+  - target
+recipe:
+  type: shaped
+  id: cobalt_hoe
+  pattern:
+    - "##"
+    - " S"
+    - " S"
+  ingredients:
+    "#": apeirix:cobalt_ingot
+    S: minecraft:stick
+  result: apeirix:cobalt_hoe
+  count: 1
+  unlock:
+    - apeirix:cobalt_ingot
+materialId: apeirix:cobalt_ingot
+durability: 500
+enchantability: 16
+tier: iron

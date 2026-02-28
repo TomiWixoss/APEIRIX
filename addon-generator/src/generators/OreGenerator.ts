@@ -21,6 +21,8 @@ export interface OreConfig {
   maxY?: number;
   veinSize?: number;
   veinsPerChunk?: number;
+  biome?: 'overworld' | 'nether' | 'end';
+  replaceBlocks?: string[];
   
   // Fortune support
   fortuneMultiplier?: number;
@@ -185,6 +187,33 @@ export class OreGenerator {
     const featureId = `${config.id}_scatter`;
     const ruleId = `${config.id}_feature`;
 
+    // Determine biome and replace blocks
+    const biome = config.biome || 'overworld';
+    let defaultReplaceBlocks: any[];
+    
+    if (biome === 'nether') {
+      defaultReplaceBlocks = [
+        { name: "minecraft:netherrack", states: {} }
+      ];
+    } else if (biome === 'end') {
+      defaultReplaceBlocks = [
+        { name: "minecraft:end_stone", states: {} }
+      ];
+    } else {
+      // overworld default
+      defaultReplaceBlocks = [
+        { name: "minecraft:stone", states: { stone_type: "stone" } },
+        { name: "minecraft:stone", states: { stone_type: "andesite" } },
+        { name: "minecraft:stone", states: { stone_type: "granite" } },
+        { name: "minecraft:stone", states: { stone_type: "diorite" } }
+      ];
+    }
+
+    // Use custom replaceBlocks if provided
+    const replaceBlocks = config.replaceBlocks 
+      ? config.replaceBlocks.map(block => ({ name: block, states: {} }))
+      : defaultReplaceBlocks;
+
     // Feature
     const feature: any = {
       format_version: "1.21.80",
@@ -199,19 +228,14 @@ export class OreGenerator {
               name: `apeirix:${config.id}`,
               states: {}
             },
-            may_replace: [
-              { name: "minecraft:stone", states: { stone_type: "stone" } },
-              { name: "minecraft:stone", states: { stone_type: "andesite" } },
-              { name: "minecraft:stone", states: { stone_type: "granite" } },
-              { name: "minecraft:stone", states: { stone_type: "diorite" } }
-            ]
+            may_replace: replaceBlocks
           }
         ]
       }
     };
 
-    // Thêm deepslate rule nếu có
-    if (config.deepslateTexturePath) {
+    // Thêm deepslate rule nếu có (chỉ cho overworld)
+    if (config.deepslateTexturePath && biome === 'overworld') {
       feature["minecraft:ore_feature"].replace_rules.push({
         places_block: {
           name: `apeirix:deepslate_${config.id}`,
@@ -227,10 +251,40 @@ export class OreGenerator {
     FileManager.writeJSON(featurePath, feature);
     Logger.log(`✅ Đã tạo: BP/features/${featureId}.json`);
 
-    // Feature Rule
+    // Feature Rule with biome filter
     const minY = config.minY || 0;
     const maxY = config.maxY || 64;
     const iterations = config.veinsPerChunk || 20;
+
+    let biomeFilter: any[];
+    if (biome === 'nether') {
+      biomeFilter = [
+        {
+          any_of: [
+            { test: "has_biome_tag", operator: "==", value: "nether" },
+            { test: "has_biome_tag", operator: "==", value: "nether_generation" }
+          ]
+        }
+      ];
+    } else if (biome === 'end') {
+      biomeFilter = [
+        {
+          any_of: [
+            { test: "has_biome_tag", operator: "==", value: "the_end" }
+          ]
+        }
+      ];
+    } else {
+      // overworld default
+      biomeFilter = [
+        {
+          any_of: [
+            { test: "has_biome_tag", operator: "==", value: "overworld" },
+            { test: "has_biome_tag", operator: "==", value: "overworld_generation" }
+          ]
+        }
+      ];
+    }
 
     const featureRule = {
       format_version: "1.21.80",
@@ -241,14 +295,7 @@ export class OreGenerator {
         },
         conditions: {
           placement_pass: "underground_pass",
-          "minecraft:biome_filter": [
-            {
-              any_of: [
-                { test: "has_biome_tag", operator: "==", value: "overworld" },
-                { test: "has_biome_tag", operator: "==", value: "overworld_generation" }
-              ]
-            }
-          ]
+          "minecraft:biome_filter": biomeFilter
         },
         distribution: {
           iterations: iterations,

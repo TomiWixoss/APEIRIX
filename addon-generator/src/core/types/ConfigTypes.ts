@@ -160,6 +160,8 @@ export interface OreConfig {
   maxY?: number;
   veinSize?: number;
   veinsPerChunk?: number;
+  biome?: 'overworld' | 'nether' | 'end';
+  replaceBlocks?: string[];
   toolTier?: string;
   testCommands?: string[];
   recipes?: RecipeConfig[];

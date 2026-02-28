@@ -1,0 +1,39 @@
+id: cobalt_ore
+name: lang:materials.cobalt_ore
+texturePath: ../../../assets/cobalt/cobalt_ore.png
+rawItemId: raw_cobalt
+destroyTime: 15.0
+explosionResistance: 4
+toolTier: iron
+biome: nether
+minY: 10
+maxY: 120
+veinSize: 5
+veinsPerChunk: 6
+fortuneMultiplier: 2
+dustItemId: cobalt_ingot_dust
+stoneDustCount: 4
+oreDustCount: 9
+replaceBlocks:
+  - minecraft:netherrack
+recipes:
+  - type: smelting
+    id: cobalt_ingot_from_ore_smelting
+    input: apeirix:cobalt_ore
+    output: apeirix:cobalt_ingot
+    count: 1
+  - type: blasting
+    id: cobalt_ingot_from_ore_blasting
+    input: apeirix:cobalt_ore
+    output: apeirix:cobalt_ingot
+    count: 1
+  - type: smelting
+    id: cobalt_ingot_from_smelting
+    input: apeirix:raw_cobalt
+    output: apeirix:cobalt_ingot
+    count: 1
+  - type: blasting
+    id: cobalt_ingot_from_blasting
+    input: apeirix:raw_cobalt
+    output: apeirix:cobalt_ingot
+    count: 1

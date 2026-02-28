@@ -1,0 +1,26 @@
+id: cobalt_ingot
+name: lang:materials.cobalt_ingot
+texture: ../../../assets/cobalt/cobalt_ingot.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: apeirix:cobalt_ingot_from_nuggets
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:cobalt_nugget
+    result: apeirix:cobalt_ingot
+    count: 1
+    unlock:
+      - apeirix:cobalt_nugget
+  - type: shapeless
+    id: apeirix:cobalt_ingot_from_block
+    ingredients:
+      - apeirix:cobalt_block
+    result: apeirix:cobalt_ingot
+    count: 9
+    unlock:
+      - apeirix:cobalt_block

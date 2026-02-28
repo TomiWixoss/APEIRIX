@@ -1,0 +1,21 @@
+id: cobalt_ingot_dust
+name: lang:materials.cobalt_ingot_dust
+texture: ../../../assets/cobalt/cobalt_ingot_dust.png
+category: items
+maxStackSize: 64
+edibleByRustMite: true
+recipes:
+  - type: shaped
+    id: raw_cobalt_from_dust
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:cobalt_ingot_dust
+    result: apeirix:raw_cobalt
+    count: 1
+    craftingTags:
+      - alloy_mixing_crafting
+    unlock:
+      - apeirix:cobalt_ingot_dust

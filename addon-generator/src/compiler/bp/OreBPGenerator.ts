@@ -25,6 +25,8 @@ export class OreBPGenerator {
           maxY: ore.maxY,
           veinSize: ore.veinSize,
           veinsPerChunk: ore.veinsPerChunk,
+          biome: ore.biome,
+          replaceBlocks: ore.replaceBlocks,
           fortuneMultiplier: ore.fortuneMultiplier,
           dustItemId: ore.dustItemId,
           stoneDustCount: ore.stoneDustCount,

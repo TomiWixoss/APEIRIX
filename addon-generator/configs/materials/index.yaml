@@ -8,5 +8,6 @@ import:
   - electrum/index.yaml
   - invar/index.yaml
   - platinum/index.yaml
+  - cobalt/index.yaml
   - dusts/index.yaml
   - processing/index.yaml

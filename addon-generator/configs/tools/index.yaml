@@ -7,4 +7,5 @@ import:
   - electrum/index.yaml
   - invar/index.yaml
   - platinum/index.yaml
+  - cobalt/index.yaml
   - hammer/index.yaml
