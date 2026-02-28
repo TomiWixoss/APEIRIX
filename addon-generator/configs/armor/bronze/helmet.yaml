@@ -11,6 +11,7 @@ enchantSlot: armor_head
 geometry: geometry.humanoid.armor.helmet
 armorLayer: bronze_layer_1
 armorLayerTexturePath: ../../../assets/armor/layers/bronze_layer_1.png
+wikiDescription: "Mũ giáp đồng thanh bảo vệ đầu. Tương đương với mũ sắt."
 tags:
   - minecraft:trimmable_armors
 recipes:

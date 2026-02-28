@@ -16,3 +16,15 @@ foods:
   fruit_salad: Canned Fruit Salad
   chickensoup: Canned Chicken Soup
   cookies: Canned Cookies
+
+# Effect names for wiki
+effects:
+  regeneration: "Regeneration"
+  speed: "Speed"
+  strength: "Strength"
+  resistance: "Resistance"
+  fire_resistance: "Fire Resistance"
+  water_breathing: "Water Breathing"
+  night_vision: "Night Vision"
+  haste: "Haste"
+  saturation: "Saturation"

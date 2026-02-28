@@ -575,934 +575,1905 @@ export const GENERATED_FOODS = [
  */
 export const GENERATED_WIKI_ITEMS = [
   {
-    id: "apeirix:bronze_ingot",
-    category: "materials",
-    name: "Thỏi Đồng Thanh",
-    description: "Hợp kim đồng thanh được tạo từ đồng (copper) và thiếc. Bền hơn đồng nguyên chất, dùng để chế tạo công cụ và giáp.",
-    info: {
-      "Độ hiếm": "Phổ biến",
-      "Chế tạo": "3 copper ingot + 1 tin ingot = 4 bronze",
-      "Độ bền công cụ": "375",
-      "Độ phù phép": "18"
-    },
-  },
-  {
-    id: "apeirix:bronze_nugget",
-    category: "materials",
-    name: "Mảnh Đồng Thanh",
-    description: "Mảnh nhỏ của đồng thanh. 9 mảnh tạo thành 1 thỏi đồng thanh.",
-    info: {
-      "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chia nhỏ thỏi đồng thanh",
-      "Chế tạo": "1 thỏi = 9 mảnh"
-    },
-  },
-  {
-    id: "apeirix:bronze_block",
-    category: "materials",
-    name: "Khối Đồng Thanh",
-    description: "Khối đồng thanh dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi.",
-    info: {
-      "Độ hiếm": "Phổ biến",
-      "Độ cứng": "16.65",
-      "Chế tạo": "9 thỏi đồng thanh",
-      "Công cụ": "Cần cuốc đá trở lên"
-    },
-  },
-  {
-    id: "apeirix:raw_coal",
-    category: "materials",
-    name: "Than Thô",
-    description: "Quặng than đã nghiền. Có thể nung hoặc chế biến thành bụi than tinh khiết.",
-    info: {
-      "Loại": "Nguyên Liệu Thô",
-      "Nguồn": "Nghiền quặng than",
-      "Chế Biến": "Nung hoặc sàng để tinh khiết"
-    },
-  },
-  {
-    id: "apeirix:raw_diamond",
-    category: "materials",
-    name: "Kim Cương Thô",
-    description: "Quặng kim cương đã nghiền. Chế biến để có bụi kim cương.",
-    info: {
-      "Loại": "Nguyên Liệu Thô",
-      "Nguồn": "Nghiền quặng kim cương",
-      "Chế Biến": "Sàng hoặc rửa để tinh khiết"
-    },
-  },
-  {
-    id: "apeirix:raw_emerald",
-    category: "materials",
-    name: "Ngọc Lục Bảo Thô",
-    description: "Quặng ngọc lục bảo đã nghiền. Chế biến để có bụi ngọc lục bảo.",
-    info: {
-      "Loại": "Nguyên Liệu Thô",
-      "Nguồn": "Nghiền quặng ngọc lục bảo",
-      "Chế Biến": "Sàng hoặc rửa để tinh khiết"
-    },
-  },
-  {
-    id: "apeirix:raw_lapis",
-    category: "materials",
-    name: "Lapis Thô",
-    description: "Quặng lapis đã nghiền. Chế biến để có bụi lapis.",
-    info: {
-      "Loại": "Nguyên Liệu Thô",
-      "Nguồn": "Nghiền quặng lapis",
-      "Chế Biến": "Sàng hoặc rửa để tinh khiết"
-    },
-  },
-  {
-    id: "apeirix:iron_ingot_dust",
-    category: "materials",
-    name: "Bụi Sắt",
-    description: "Bụi sắt từ nghiền quặng. Nung để có thỏi sắt với sản lượng cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại",
-      "Nguồn": "Nghiền quặng sắt",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      Nung: "1 bụi = 1 thỏi"
-    },
-  },
-  {
-    id: "apeirix:iron_ingot_dust_pure",
-    category: "materials",
-    name: "Bụi Sắt Tinh Khiết",
-    description: "Bụi sắt đã tinh chế. Hiệu suất nung cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi sắt",
-      "Sản Lượng": "Kinh nghiệm thưởng",
-      Nung: "1 bụi = 1 thỏi + XP thưởng"
-    },
-  },
-  {
-    id: "apeirix:copper_ingot_dust",
-    category: "materials",
-    name: "Bụi Đồng",
-    description: "Bụi đồng từ nghiền quặng. Nung để có thỏi đồng với sản lượng cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại",
-      "Nguồn": "Nghiền quặng đồng",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      Nung: "1 bụi = 1 thỏi"
-    },
-  },
-  {
-    id: "apeirix:copper_ingot_dust_pure",
-    category: "materials",
-    name: "Bụi Đồng Tinh Khiết",
-    description: "Bụi đồng đã tinh chế. Hiệu suất nung cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi đồng",
-      "Sản Lượng": "Kinh nghiệm thưởng",
-      Nung: "1 bụi = 1 thỏi + XP thưởng"
-    },
-  },
-  {
-    id: "apeirix:gold_ingot_dust",
-    category: "materials",
-    name: "Bụi Vàng",
-    description: "Bụi vàng từ nghiền quặng. Nung để có thỏi vàng với sản lượng cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại",
-      "Nguồn": "Nghiền quặng vàng",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      Nung: "1 bụi = 1 thỏi"
-    },
-  },
-  {
-    id: "apeirix:gold_ingot_dust_pure",
-    category: "materials",
-    name: "Bụi Vàng Tinh Khiết",
-    description: "Bụi vàng đã tinh chế. Hiệu suất nung cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi vàng",
-      "Sản Lượng": "Kinh nghiệm thưởng",
-      Nung: "1 bụi = 1 thỏi + XP thưởng"
-    },
-  },
-  {
-    id: "apeirix:tin_ingot_dust",
-    category: "materials",
-    name: "Bụi Thiếc",
-    description: "Bụi thiếc từ nghiền quặng. Nung để có thỏi thiếc với sản lượng cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại",
-      "Nguồn": "Nghiền quặng thiếc",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      Nung: "1 bụi = 1 thỏi"
-    },
-  },
-  {
-    id: "apeirix:tin_ingot_dust_pure",
-    category: "materials",
-    name: "Bụi Thiếc Tinh Khiết",
-    description: "Bụi thiếc đã tinh chế. Hiệu suất nung cao hơn.",
-    info: {
-      "Loại": "Bụi Kim Loại Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi thiếc",
-      "Sản Lượng": "Kinh nghiệm thưởng",
-      Nung: "1 bụi = 1 thỏi + XP thưởng"
-    },
-  },
-  {
-    id: "apeirix:diamond_dust",
-    category: "materials",
-    name: "Bụi Kim Cương",
-    description: "Bụi kim cương từ nghiền quặng. Có thể nén lại thành kim cương.",
-    info: {
-      "Loại": "Bụi Đá Quý",
-      "Nguồn": "Nghiền quặng kim cương",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      "Chế Tạo": "Dùng trong công thức nâng cao"
-    },
-  },
-  {
-    id: "apeirix:diamond_dust_pure",
-    category: "materials",
-    name: "Bụi Kim Cương Tinh Khiết",
-    description: "Bụi kim cương đã tinh chế. Chất lượng cao hơn cho chế tạo.",
-    info: {
-      "Loại": "Bụi Đá Quý Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi kim cương",
-      "Chất Lượng": "Cao cấp",
-      "Chế Tạo": "Kết quả tốt hơn"
-    },
-  },
-  {
-    id: "apeirix:emerald_dust",
-    category: "materials",
-    name: "Bụi Ngọc Lục Bảo",
-    description: "Bụi ngọc lục bảo từ nghiền quặng. Có thể nén lại thành ngọc lục bảo.",
-    info: {
-      "Loại": "Bụi Đá Quý",
-      "Nguồn": "Nghiền quặng ngọc lục bảo",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      "Chế Tạo": "Dùng trong công thức nâng cao"
-    },
-  },
-  {
-    id: "apeirix:emerald_dust_pure",
-    category: "materials",
-    name: "Bụi Ngọc Lục Bảo Tinh Khiết",
-    description: "Bụi ngọc lục bảo đã tinh chế. Chất lượng cao hơn cho chế tạo.",
-    info: {
-      "Loại": "Bụi Đá Quý Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi ngọc lục bảo",
-      "Chất Lượng": "Cao cấp",
-      "Chế Tạo": "Kết quả tốt hơn"
-    },
-  },
-  {
-    id: "apeirix:lapis_block_dust",
-    category: "materials",
-    name: "Bụi Lapis",
-    description: "Bụi lapis từ nghiền quặng. Có thể nén lại thành lapis.",
-    info: {
-      "Loại": "Bụi Đá Quý",
-      "Nguồn": "Nghiền quặng lapis",
-      "Sản Lượng": "Nhiều bụi mỗi quặng",
-      "Chế Tạo": "Dùng cho thuốc nhuộm và công thức"
-    },
-  },
-  {
-    id: "apeirix:lapis_block_dust_pure",
-    category: "materials",
-    name: "Bụi Lapis Tinh Khiết",
-    description: "Bụi lapis đã tinh chế. Chất lượng cao hơn cho chế tạo.",
-    info: {
-      "Loại": "Bụi Đá Quý Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi lapis",
-      "Chất Lượng": "Cao cấp",
-      "Chế Tạo": "Thuốc nhuộm tốt hơn"
-    },
-  },
-  {
-    id: "apeirix:coal_dust",
-    category: "materials",
-    name: "Bụi Than",
-    description: "Bụi than từ nghiền quặng. Có thể nung hoặc dùng làm nhiên liệu.",
-    info: {
-      "Loại": "Bụi Nhiên Liệu",
-      "Nguồn": "Nghiền quặng than",
-      "Sản Lượng": "2 bụi mỗi quặng",
-      "Công Dụng": "Nhiên liệu, nung, chế tạo"
-    },
-  },
-  {
-    id: "apeirix:coal_dust_pure",
-    category: "materials",
-    name: "Bụi Than Tinh Khiết",
-    description: "Bụi than đã tinh chế. Cháy lâu hơn và nóng hơn.",
-    info: {
-      "Loại": "Bụi Nhiên Liệu Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi than",
-      "Thời Gian Cháy": "Kéo dài",
-      "Hiệu Suất": "Cao hơn"
-    },
-  },
-  {
-    id: "apeirix:redstone_dust_pure",
-    category: "materials",
-    name: "Bụi Redstone Tinh Khiết",
-    description: "Bụi redstone đã tinh chế. Tốt hơn cho mạch redstone.",
-    info: {
-      "Loại": "Redstone Tinh Khiết",
-      "Nguồn": "Sàng/rửa redstone",
-      "Chất Lượng": "Cao cấp",
-      "Tín Hiệu": "Mạnh hơn"
-    },
-  },
-  {
-    id: "apeirix:cobblestone_dust",
-    category: "materials",
-    name: "Bụi Đá Cuội",
-    description: "Đá cuội đã nghiền. Có thể nén thành cát hoặc dùng trong công thức.",
-    info: {
-      "Loại": "Bụi Đá",
-      "Nguồn": "Nghiền đá cuội",
-      "Công Dụng": "Chế tạo, nén",
-      "Đầu Ra": "Cát khi nén"
-    },
-  },
-  {
-    id: "apeirix:deepslate_dust",
-    category: "materials",
-    name: "Bụi Đá Sâu",
-    description: "Đá sâu đã nghiền. Khó chế biến hơn nhưng hữu ích cho chế tạo.",
-    info: {
-      "Loại": "Bụi Đá",
-      "Nguồn": "Nghiền đá sâu",
-      "Công Dụng": "Chế tạo, nén",
-      "Độ Hiếm": "Phổ biến ở tầng sâu"
-    },
-  },
-  {
-    id: "apeirix:netherrack_dust",
-    category: "materials",
-    name: "Bụi Netherrack",
-    description: "Netherrack đã nghiền. Dùng trong công thức liên quan đến Nether.",
-    info: {
-      "Loại": "Bụi Nether",
-      "Nguồn": "Nghiền netherrack",
-      "Công Dụng": "Chế tạo Nether",
-      "Đặc Biệt": "Công thức chống lửa"
-    },
-  },
-  {
-    id: "apeirix:bronze_ingot_dust",
-    category: "materials",
-    name: "Bụi Đồng",
-    description: "Bụi hợp kim đồng. Nung để có thỏi đồng.",
-    info: {
-      "Loại": "Bụi Hợp Kim",
-      "Nguồn": "Nghiền đồ đồng",
-      Nung: "1 bụi = 1 thỏi",
-      "Tái Chế": "Thu hồi đồng từ công cụ"
-    },
-  },
-  {
-    id: "apeirix:bronze_ingot_dust_pure",
-    category: "materials",
-    name: "Bụi Đồng Tinh Khiết",
-    description: "Bụi đồng đã tinh chế. Nung chất lượng cao hơn.",
-    info: {
-      "Loại": "Bụi Hợp Kim Tinh Khiết",
-      "Nguồn": "Sàng/rửa bụi đồng",
-      "Chất Lượng": "Cao cấp",
-      Nung: "Kinh nghiệm thưởng"
-    },
-  },
-  {
-    id: "apeirix:ore_crusher_mk1",
-    category: "materials",
-    name: "Máy Nghiền Quặng MK1",
-    description: "Máy nghiền quặng cơ bản. Nghiền quặng thành bụi để chế biến tiếp.",
-    icon: "textures/blocks/orecrushermk1front",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Chậm (10 giây/lần)",
-      "Nhiên Liệu": "Than, Than củi",
-      "Đầu Vào": "Quặng thô",
-      "Đầu Ra": "Bụi quặng",
-      "Chế Tạo": "4 thỏi sắt + 4 đá cuội + 1 piston"
-    },
-  },
-  {
-    id: "apeirix:ore_crusher_mk2",
-    category: "materials",
-    name: "Máy Nghiền Quặng MK2",
-    description: "Máy nghiền quặng cải tiến với tốc độ xử lý nhanh hơn.",
-    icon: "textures/blocks/orecrushermk2front",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Trung bình (7 giây/lần)",
-      "Nhiên Liệu": "Than, Than củi",
-      "Đầu Vào": "Quặng thô",
-      "Đầu Ra": "Bụi quặng",
-      "Chế Tạo": "4 thỏi đồng + 4 đá + 1 máy nghiền MK1"
-    },
-  },
-  {
-    id: "apeirix:ore_crusher_mk3",
-    category: "materials",
-    name: "Máy Nghiền Quặng MK3",
-    description: "Máy nghiền quặng tiên tiến với tốc độ xử lý nhanh nhất.",
-    icon: "textures/blocks/orecrushermk3front",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Nhanh (5 giây/lần)",
-      "Nhiên Liệu": "Than, Than củi",
-      "Đầu Vào": "Quặng thô",
-      "Đầu Ra": "Bụi quặng",
-      "Chế Tạo": "4 thỏi thép + 4 đá sâu + 1 máy nghiền MK2"
-    },
-  },
-  {
-    id: "apeirix:ore_sieve",
-    category: "materials",
-    name: "Rây Quặng",
-    description: "Sàng lọc bụi quặng để loại bỏ tạp chất. Tạo ra bụi tinh khiết.",
-    icon: "textures/blocks/ore_sieve",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Trung bình (8 giây/lần)",
-      "Nhiên Liệu": "Không cần",
-      "Đầu Vào": "Bụi quặng",
-      "Đầu Ra": "Bụi quặng tinh khiết",
-      "Chế Tạo": "4 thỏi sắt + 4 sợi dây + 1 phễu"
-    },
-  },
-  {
-    id: "apeirix:ore_washer",
-    category: "materials",
-    name: "Máy Rửa Quặng",
-    description: "Rửa bụi quặng bằng nước để làm sạch. Cần nguồn nước.",
-    icon: "textures/blocks/ore_washer",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Nhanh (5 giây/lần)",
-      "Nhiên Liệu": "Không cần",
-      "Đầu Vào": "Bụi quặng + Nước",
-      "Đầu Ra": "Bụi quặng tinh khiết",
-      "Chế Tạo": "4 thỏi sắt + 4 thủy tinh + 1 vạc"
-    },
-  },
-  {
-    id: "apeirix:crusher",
-    category: "materials",
-    name: "Máy Nghiền",
-    description: "Máy nghiền đa năng. Nghiền nhiều loại vật liệu thành bụi hoặc mảnh nhỏ.",
-    icon: "textures/blocks/crusher_front",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Trung bình (7 giây/lần)",
-      "Nhiên Liệu": "Than, Than củi",
-      "Đầu Vào": "Nhiều loại vật liệu",
-      "Đầu Ra": "Bụi, mảnh vỡ",
-      "Chế Tạo": "4 thỏi sắt + 4 đá cuội + 1 piston"
-    },
-  },
-  {
-    id: "apeirix:compressor",
-    category: "materials",
-    name: "Máy Nén",
-    description: "Nén vật liệu thành dạng đặc hơn. Dùng cho chế tạo nâng cao.",
-    icon: "textures/blocks/compressor_front",
-    info: {
-      "Loại": "Máy Chế Biến",
-      "Tốc Độ": "Chậm (10 giây/lần)",
-      "Nhiên Liệu": "Than, Than củi",
-      "Đầu Vào": "Nhiều loại vật liệu",
-      "Đầu Ra": "Vật liệu nén",
-      "Chế Tạo": "4 thỏi sắt + 4 khối sắt + 1 piston"
-    },
-  },
-  {
-    id: "apeirix:alloy_mixing_table",
-    category: "materials",
-    name: "Bàn Trộn Hợp Kim",
-    description: "Trộn kim loại để tạo hợp kim. Thiết yếu cho sản xuất đồng và thép.",
-    icon: "textures/blocks/alloy_mixing_table_front",
-    info: {
-      "Loại": "Trạm Chế Tạo",
-      "Tốc Độ": "Tức thì",
-      "Nhiên Liệu": "Không cần",
-      "Đầu Vào": "Thỏi kim loại",
-      "Đầu Ra": "Thỏi hợp kim",
-      "Chế Tạo": "4 thỏi đồng + 4 đá mịn + 1 bàn chế tạo"
-    },
-  },
-  {
-    id: "apeirix:raw_silver",
-    category: "materials",
-    name: "Bạc Thô",
-    description: "Bạc thô được khai thác từ quặng bạc. Nấu luyện để có thỏi bạc.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Nguồn": "Khai thác quặng bạc",
-      "Chế tạo": "Nấu trong lò hoặc lò cao"
-    },
-  },
-  {
-    id: "apeirix:silver_ingot",
-    category: "materials",
-    name: "Thỏi Bạc",
-    description: "Thỏi bạc tinh luyện. Dùng để chế tạo công cụ và vật trang trí.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Nguồn": "Nấu quặng bạc hoặc bạc thô",
-      "Chế tạo": "9 mảnh bạc hoặc 1 khối bạc"
-    },
-  },
-  {
-    id: "apeirix:silver_nugget",
-    category: "materials",
-    name: "Mảnh Bạc",
-    description: "Mảnh nhỏ của bạc. 9 mảnh tạo thành 1 thỏi bạc.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Nguồn": "Chia nhỏ thỏi bạc",
-      "Chế tạo": "1 thỏi bạc = 9 mảnh"
-    },
-  },
-  {
-    id: "apeirix:silver_block",
-    category: "materials",
-    name: "Khối Bạc",
-    description: "Khối bạc dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Độ cứng": "16.65",
-      "Chế tạo": "9 thỏi bạc",
-      "Công cụ": "Cần cuốc sắt trở lên"
-    },
-  },
-  {
-    id: "apeirix:silver_ore",
-    category: "materials",
-    name: "Quặng Bạc",
-    description: "Quặng bạc tìm thấy dưới lòng đất. Khai thác để có bạc thô.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Độ sâu": "Y: -64 đến 32",
-      "Kích thước mạch": "6 khối",
-      "Tần suất": "8 mạch/chunk",
-      "Công cụ": "Cần cuốc sắt trở lên"
-    },
-  },
-  {
-    id: "apeirix:deepslate_silver_ore",
-    category: "materials",
-    name: "Quặng Bạc Đá Sâu",
-    description: "Biến thể đá sâu của quặng bạc. Cứng hơn nhưng cho cùng lượng bạc.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Độ sâu": "Y: -64 đến 32",
-      "Độ cứng": "14.985",
-      "Công cụ": "Cần cuốc sắt trở lên"
-    },
-  },
-  {
-    id: "apeirix:silver_ingot_dust",
-    category: "materials",
-    name: "Bụi Bạc",
-    description: "Bụi bạc thu được từ xử lý quặng. Có thể rửa để có bụi tinh khiết.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Nguồn": "Máy Nghiền Quặng, Rây Sàng Quặng",
-      "Xử lý": "Rửa trong Máy Rửa Quặng để có bụi tinh khiết"
-    },
-  },
-  {
-    id: "apeirix:silver_ingot_dust_pure",
-    category: "materials",
-    name: "Bụi Bạc Tinh Khiết",
-    description: "Bụi bạc tinh khiết sẵn sàng nấu luyện. Cho 1 thỏi bạc.",
-    info: {
-      "Độ hiếm": "Hiếm",
-      "Nguồn": "Rửa bụi bạc",
-      "Chế tạo": "Nấu để có thỏi bạc"
-    },
-  },
-  {
-    id: "apeirix:steel_alloy_ingot",
-    category: "materials",
-    name: "Thỏi Hợp Kim Thép",
-    description: "Hợp kim thép cao cấp được tạo từ sắt và than. Mạnh hơn nhiều so với đồng thanh, dùng để chế tạo công cụ và giáp cao cấp.",
-    info: {
-      "Độ Hiếm": "Hiếm",
-      "Chế Tạo": "Hợp kim từ sắt và than",
-      "Độ Bền Công Cụ": "750",
-      "Khả Năng Phù Phép": "22"
-    },
-  },
-  {
-    id: "apeirix:steel_alloy_nugget",
-    category: "materials",
-    name: "Mảnh Hợp Kim Thép",
-    description: "Mảnh nhỏ của hợp kim thép. 9 mảnh tạo thành 1 thỏi.",
-    info: {
-      "Độ Hiếm": "Hiếm",
-      "Nguồn": "Phân rã thỏi hợp kim thép",
-      "Chế Tạo": "1 thỏi = 9 mảnh"
-    },
-  },
-  {
-    id: "apeirix:steel_alloy_block",
-    category: "materials",
-    name: "Khối Hợp Kim Thép",
-    description: "Khối hợp kim thép dùng để lưu trữ hoặc trang trí. Có thể phá thành 9 thỏi.",
-    info: {
-      "Độ Hiếm": "Hiếm",
-      "Độ Cứng": "5.0",
-      "Chế Tạo": "9 thỏi hợp kim thép",
-      "Công Cụ": "Cần cuốc đá trở lên"
-    },
-  },
-  {
-    id: "apeirix:steel_alloy_dust",
-    category: "materials",
-    name: "Bụi Hợp Kim Thép",
-    description: "Bụi hợp kim thép nghiền từ quặng. Có thể rửa để lấy bụi tinh khiết.",
-    info: {
-      "Độ Hiếm": "Hiếm",
-      "Nguồn": "Nghiền quặng bằng Ore Crusher",
-      "Xử Lý": "Rửa để lấy bụi tinh khiết"
-    },
-  },
-  {
-    id: "apeirix:steel_alloy_dust_pure",
-    category: "materials",
-    name: "Bụi Hợp Kim Thép Tinh Khiết",
-    description: "Bụi hợp kim thép đã được rửa sạch. Nung để lấy thỏi hợp kim thép.",
-    info: {
-      "Độ Hiếm": "Hiếm",
-      "Nguồn": "Rửa bụi hợp kim thép",
-      "Xử Lý": "Nung trong lò để lấy thỏi"
-    },
-  },
-  {
     id: "apeirix:raw_tin",
     category: "materials",
     name: "Thiếc Thô",
-    description: "Thiếc thô được khai thác từ quặng thiếc. Nấu luyện để có thỏi thiếc.",
-    info: {
-      "Độ hiếm": "Phổ biến",
-      "Nguồn": "Khai thác quặng thiếc",
-      "Chế tạo": "Nấu trong lò hoặc lò cao"
-    },
+    icon: "textures/items/raw_tin",
   },
   {
     id: "apeirix:tin_ingot",
     category: "materials",
     name: "Thỏi Thiếc",
-    description: "Thỏi thiếc tinh luyện. Kết hợp với đồng để tạo hợp kim đồng (bronze).",
-    info: {
-      "Độ hiếm": "Phổ biến",
-      "Nguồn": "Nấu quặng thiếc hoặc thiếc thô",
-      "Chế tạo": "9 mảnh thiếc hoặc 1 khối thiếc"
-    },
+    icon: "textures/items/tin_ingot",
   },
   {
     id: "apeirix:tin_nugget",
     category: "materials",
     name: "Mảnh Thiếc",
-    description: "Mảnh nhỏ của thiếc. 9 mảnh tạo thành 1 thỏi thiếc.",
+    icon: "textures/items/tin_nugget",
     info: {
-      "Độ hiếm": "Phổ biến",
-      "Nguồn": "Chia nhỏ thỏi thiếc",
-      "Chế tạo": "1 thỏi thiếc = 9 mảnh"
+      "Chế tạo": "1 nguyên liệu"
     },
   },
   {
     id: "apeirix:tin_block",
     category: "materials",
     name: "Khối Thiếc",
-    description: "Khối thiếc dùng để lưu trữ hoặc trang trí. Có thể chia thành 9 thỏi.",
-    info: {
-      "Độ hiếm": "Phổ biến",
-      "Độ cứng": "16.65",
-      "Chế tạo": "9 thỏi thiếc",
-      "Công cụ": "Cần cuốc đá trở lên"
-    },
   },
   {
     id: "apeirix:tin_ore",
     category: "materials",
     name: "Quặng Thiếc",
-    description: "Quặng thiếc tìm thấy dưới lòng đất. Khai thác để có thiếc thô.",
+  },
+  {
+    id: "apeirix:bronze_ingot",
+    category: "materials",
+    name: "Thỏi Đồng Thanh",
+    description: "Hợp kim đồng thanh được tạo từ đồng (copper) và thiếc. Bền hơn đồng nguyên chất, dùng để chế tạo công cụ và giáp.",
+    icon: "textures/items/bronze_ingot",
     info: {
-      "Độ hiếm": "Phổ biến",
-      "Độ sâu": "Y: 0 đến 64",
-      "Kích thước mạch": "9 khối",
-      "Tần suất": "20 mạch/chunk",
-      "Công cụ": "Cần cuốc đá trở lên"
+      "Chế tạo": "1 nguyên liệu"
     },
   },
   {
-    id: "apeirix:deepslate_tin_ore",
+    id: "apeirix:bronze_nugget",
     category: "materials",
-    name: "Quặng Thiếc Deepslate",
-    description: "Biến thể deepslate của quặng thiếc. Cứng hơn nhưng cho cùng lượng thiếc.",
+    name: "Mảnh Đồng Thanh",
+    icon: "textures/items/bronze_nugget",
     info: {
-      "Độ hiếm": "Phổ biến",
-      "Độ sâu": "Y: 0 đến 64",
-      "Độ cứng": "14.985",
-      "Công cụ": "Cần cuốc đá trở lên"
+      "Chế tạo": "1 nguyên liệu"
     },
+  },
+  {
+    id: "apeirix:bronze_ingot_dust",
+    category: "materials",
+    name: "Bụi Đồng Thanh",
+    icon: "textures/items/bronze_ingot_dust",
+    info: {
+      "Chế tạo": "4 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:bronze_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Đồng Thanh Tinh Khiết",
+    icon: "textures/items/bronze_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_bronze",
+    category: "materials",
+    name: "Đồng Thanh Thô",
+    icon: "textures/items/raw_bronze",
+  },
+  {
+    id: "apeirix:bronze_block",
+    category: "materials",
+    name: "Khối Đồng Thanh",
+  },
+  {
+    id: "apeirix:alloy_mixing_table",
+    category: "materials",
+    name: "alloy_mixing_table",
+  },
+  {
+    id: "apeirix:steel_alloy_ingot",
+    category: "materials",
+    name: "Thỏi Hợp Kim Thép",
+    icon: "textures/steel_alloy/steel_alloy_ingot",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_nugget",
+    category: "materials",
+    name: "Mảnh Hợp Kim Thép",
+    icon: "textures/steel_alloy/steel_alloy_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_dust",
+    category: "materials",
+    name: "Bụi Hợp Kim Thép",
+    icon: "textures/steel_alloy/steel_alloy_dust",
+    info: {
+      "Chế tạo": "4 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_dust_pure",
+    category: "materials",
+    name: "Bụi Hợp Kim Thép Tinh Khiết",
+    icon: "textures/steel_alloy/steel_alloy_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_steel",
+    category: "materials",
+    name: "Hợp Kim Thép Thô",
+    icon: "textures/items/raw_steel",
+  },
+  {
+    id: "apeirix:steel_alloy_base_plate",
+    category: "materials",
+    name: "Tấm Thép",
+    icon: "textures/steel_alloy/steel_alloy_base_plate",
+  },
+  {
+    id: "apeirix:steel_alloy_base_rod",
+    category: "materials",
+    name: "Thanh Thép",
+    icon: "textures/steel_alloy/steel_alloy_base_rod",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_base_gear",
+    category: "materials",
+    name: "Bánh Răng Thép",
+    icon: "textures/steel_alloy/steel_alloy_base_gear",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:engineering_hammer",
+    category: "materials",
+    name: "Búa Kỹ Thuật",
+    icon: "textures/steel_alloy/engineering_hammer",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:steel_alloy_block",
+    category: "materials",
+    name: "Khối Hợp Kim Thép",
+  },
+  {
+    id: "apeirix:raw_silver",
+    category: "materials",
+    name: "Bạc Thô",
+    icon: "textures/silver/raw_silver",
+  },
+  {
+    id: "apeirix:silver_ingot",
+    category: "materials",
+    name: "Thỏi Bạc",
+    icon: "textures/silver/silver_ingot",
+  },
+  {
+    id: "apeirix:silver_nugget",
+    category: "materials",
+    name: "Mảnh Bạc",
+    icon: "textures/silver/silver_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:silver_ingot_dust",
+    category: "materials",
+    name: "Bụi Bạc",
+    icon: "textures/silver/silver_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:silver_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Bạc Tinh Khiết",
+    icon: "textures/silver/silver_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:silver_block",
+    category: "materials",
+    name: "Khối Bạc",
+  },
+  {
+    id: "apeirix:silver_ore",
+    category: "materials",
+    name: "Quặng Bạc",
+  },
+  {
+    id: "apeirix:raw_nickel",
+    category: "materials",
+    name: "Niken Thô",
+    icon: "textures/nickel/raw_nickel",
+  },
+  {
+    id: "apeirix:nickel_ingot",
+    category: "materials",
+    name: "Thỏi Niken",
+    icon: "textures/nickel/nickel_ingot",
+  },
+  {
+    id: "apeirix:nickel_nugget",
+    category: "materials",
+    name: "Mảnh Niken",
+    icon: "textures/nickel/nickel_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:nickel_ingot_dust",
+    category: "materials",
+    name: "Bụi Niken",
+    icon: "textures/nickel/nickel_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:nickel_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Niken Tinh Khiết",
+    icon: "textures/nickel/nickel_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_lead",
+    category: "materials",
+    name: "Chì Thô",
+    icon: "textures/lead/raw_lead",
+  },
+  {
+    id: "apeirix:lead_ingot",
+    category: "materials",
+    name: "Thỏi Chì",
+    icon: "textures/lead/lead_ingot",
+  },
+  {
+    id: "apeirix:lead_nugget",
+    category: "materials",
+    name: "Mảnh Chì",
+    icon: "textures/lead/lead_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:lead_ingot_dust",
+    category: "materials",
+    name: "Bụi Chì",
+    icon: "textures/lead/lead_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:lead_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Chì Tinh Khiết",
+    icon: "textures/lead/lead_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:electrum_ingot",
+    category: "materials",
+    name: "Thỏi Electrum",
+    icon: "textures/electrum/electrum_ingot",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:electrum_nugget",
+    category: "materials",
+    name: "Mảnh Electrum",
+    icon: "textures/electrum/electrum_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:electrum_ingot_dust",
+    category: "materials",
+    name: "Bụi Electrum",
+    icon: "textures/electrum/electrum_ingot_dust",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:electrum_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Electrum Tinh Khiết",
+    icon: "textures/electrum/electrum_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_electrum",
+    category: "materials",
+    name: "Electrum Thô",
+    icon: "textures/electrum/raw_electrum",
+  },
+  {
+    id: "apeirix:invar_ingot",
+    category: "materials",
+    name: "Thỏi Invar",
+    icon: "textures/invar/invar_ingot",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:invar_nugget",
+    category: "materials",
+    name: "Mảnh Invar",
+    icon: "textures/invar/invar_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:invar_ingot_dust",
+    category: "materials",
+    name: "Bụi Invar",
+    icon: "textures/invar/invar_ingot_dust",
+    info: {
+      "Chế tạo": "3 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:invar_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Invar Tinh Khiết",
+    icon: "textures/invar/invar_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_invar",
+    category: "materials",
+    name: "Invar Thô",
+    icon: "textures/invar/raw_invar",
+  },
+  {
+    id: "apeirix:raw_platinum",
+    category: "materials",
+    name: "Bạch Kim Thô",
+    icon: "textures/platinum/raw_platinum",
+  },
+  {
+    id: "apeirix:platinum_ingot",
+    category: "materials",
+    name: "Thỏi Bạch Kim",
+    icon: "textures/platinum/platinum_ingot",
+  },
+  {
+    id: "apeirix:platinum_nugget",
+    category: "materials",
+    name: "Mảnh Bạch Kim",
+    icon: "textures/platinum/platinum_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:platinum_ingot_dust",
+    category: "materials",
+    name: "Bụi Bạch Kim",
+    icon: "textures/platinum/platinum_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:platinum_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Bạch Kim Tinh Khiết",
+    icon: "textures/platinum/platinum_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_cobalt",
+    category: "materials",
+    name: "Cobalt Thô",
+    icon: "textures/cobalt/raw_cobalt",
+  },
+  {
+    id: "apeirix:cobalt_ingot",
+    category: "materials",
+    name: "Thỏi Cobalt",
+    icon: "textures/cobalt/cobalt_ingot",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:cobalt_nugget",
+    category: "materials",
+    name: "Mảnh Cobalt",
+    icon: "textures/cobalt/cobalt_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:cobalt_ingot_dust",
+    category: "materials",
+    name: "Bụi Cobalt",
+    icon: "textures/cobalt/cobalt_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:cobalt_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Cobalt Tinh Khiết",
+    icon: "textures/cobalt/cobalt_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_ardite",
+    category: "materials",
+    name: "Ardite Thô",
+    icon: "textures/ardite/raw_ardite",
+  },
+  {
+    id: "apeirix:ardite_ingot",
+    category: "materials",
+    name: "Thỏi Ardite",
+    icon: "textures/ardite/ardite_ingot",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ardite_nugget",
+    category: "materials",
+    name: "Mảnh Ardite",
+    icon: "textures/ardite/ardite_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ardite_ingot_dust",
+    category: "materials",
+    name: "Bụi Ardite",
+    icon: "textures/ardite/ardite_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ardite_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Ardite Tinh Khiết",
+    icon: "textures/ardite/ardite_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_manyullyn",
+    category: "materials",
+    name: "Manyullyn Thô",
+    icon: "textures/manyullyn/raw_manyullyn",
+  },
+  {
+    id: "apeirix:manyullyn_ingot",
+    category: "materials",
+    name: "Thỏi Manyullyn",
+    icon: "textures/manyullyn/manyullyn_ingot",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_nugget",
+    category: "materials",
+    name: "Mảnh Manyullyn",
+    icon: "textures/manyullyn/manyullyn_nugget",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_ingot_dust",
+    category: "materials",
+    name: "Bụi Manyullyn",
+    icon: "textures/manyullyn/manyullyn_ingot_dust",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Manyullyn Tinh Khiết",
+    icon: "textures/manyullyn/manyullyn_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:cobblestone_dust",
+    category: "materials",
+    name: "Bụi Đá Cuội",
+    icon: "textures/items/cobblestone_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:deepslate_dust",
+    category: "materials",
+    name: "Bụi Đá Sâu",
+    icon: "textures/items/deepslate_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:netherrack_dust",
+    category: "materials",
+    name: "Bụi Đá Địa Ngục",
+    icon: "textures/items/netherrack_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:coal_dust",
+    category: "materials",
+    name: "Bụi Than",
+    icon: "textures/items/coal_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:copper_ingot_dust",
+    category: "materials",
+    name: "Bụi Đồng",
+    icon: "textures/items/copper_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:iron_ingot_dust",
+    category: "materials",
+    name: "Bụi Sắt",
+    icon: "textures/items/iron_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:gold_ingot_dust",
+    category: "materials",
+    name: "Bụi Vàng",
+    icon: "textures/items/gold_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:tin_ingot_dust",
+    category: "materials",
+    name: "Bụi Thiếc",
+    icon: "textures/items/tin_ingot_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:diamond_dust",
+    category: "materials",
+    name: "Bụi Kim Cương",
+    icon: "textures/items/diamond_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:emerald_dust",
+    category: "materials",
+    name: "Bụi Ngọc Lục Bảo",
+    icon: "textures/items/emerald_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:lapis_block_dust",
+    category: "materials",
+    name: "Bụi Lưu Ly",
+    icon: "textures/items/lapis_block_dust",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:raw_coal",
+    category: "materials",
+    name: "Than Thô",
+    icon: "textures/items/raw_coal",
+  },
+  {
+    id: "apeirix:raw_diamond",
+    category: "materials",
+    name: "Kim Cương Thô",
+    icon: "textures/items/raw_diamond",
+  },
+  {
+    id: "apeirix:raw_emerald",
+    category: "materials",
+    name: "Ngọc Lục Bảo Thô",
+    icon: "textures/items/raw_emerald",
+  },
+  {
+    id: "apeirix:raw_lapis",
+    category: "materials",
+    name: "Lưu Ly Thô",
+    icon: "textures/items/raw_lapis",
+  },
+  {
+    id: "apeirix:coal_dust_pure",
+    category: "materials",
+    name: "Bụi Than Tinh Khiết",
+    icon: "textures/items/coal_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:copper_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Đồng Tinh Khiết",
+    icon: "textures/items/copper_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:diamond_dust_pure",
+    category: "materials",
+    name: "Bụi Kim Cương Tinh Khiết",
+    icon: "textures/items/diamond_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:emerald_dust_pure",
+    category: "materials",
+    name: "Bụi Ngọc Lục Bảo Tinh Khiết",
+    icon: "textures/items/emerald_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:gold_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Vàng Tinh Khiết",
+    icon: "textures/items/gold_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:iron_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Sắt Tinh Khiết",
+    icon: "textures/items/iron_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:lapis_block_dust_pure",
+    category: "materials",
+    name: "Bụi Lưu Ly Tinh Khiết",
+    icon: "textures/items/lapis_block_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:redstone_dust_pure",
+    category: "materials",
+    name: "Bụi Đá Đỏ Tinh Khiết",
+    icon: "textures/items/redstone_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:tin_ingot_dust_pure",
+    category: "materials",
+    name: "Bụi Thiếc Tinh Khiết",
+    icon: "textures/items/tin_ingot_dust_pure",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher",
+    category: "materials",
+    name: "ore_crusher",
+  },
+  {
+    id: "apeirix:bronze_pickaxe",
+    category: "materials",
+    name: "bronze_pickaxe",
+  },
+  {
+    id: "apeirix:bronze_axe",
+    category: "materials",
+    name: "bronze_axe",
+  },
+  {
+    id: "apeirix:bronze_shovel",
+    category: "materials",
+    name: "bronze_shovel",
+  },
+  {
+    id: "apeirix:bronze_hoe",
+    category: "materials",
+    name: "bronze_hoe",
+  },
+  {
+    id: "apeirix:bronze_sword",
+    category: "materials",
+    name: "bronze_sword",
+  },
+  {
+    id: "apeirix:bronze_spear",
+    category: "materials",
+    name: "bronze_spear",
+  },
+  {
+    id: "apeirix:steel_alloy_pickaxe",
+    category: "materials",
+    name: "steel_alloy_pickaxe",
+  },
+  {
+    id: "apeirix:steel_alloy_axe",
+    category: "materials",
+    name: "steel_alloy_axe",
+  },
+  {
+    id: "apeirix:steel_alloy_shovel",
+    category: "materials",
+    name: "steel_alloy_shovel",
+  },
+  {
+    id: "apeirix:steel_alloy_hoe",
+    category: "materials",
+    name: "steel_alloy_hoe",
+  },
+  {
+    id: "apeirix:steel_alloy_sword",
+    category: "materials",
+    name: "steel_alloy_sword",
+  },
+  {
+    id: "apeirix:copper_hammer",
+    category: "materials",
+    name: "copper_hammer",
+  },
+  {
+    id: "apeirix:bronze_hammer",
+    category: "materials",
+    name: "bronze_hammer",
+  },
+  {
+    id: "apeirix:steel_alloy_hammer",
+    category: "materials",
+    name: "steel_alloy_hammer",
+  },
+  {
+    id: "apeirix:netherite_hammer",
+    category: "materials",
+    name: "netherite_hammer",
+  },
+  {
+    id: "apeirix:bronze_helmet",
+    category: "materials",
+    name: "bronze_helmet",
+  },
+  {
+    id: "apeirix:bronze_chestplate",
+    category: "materials",
+    name: "bronze_chestplate",
+  },
+  {
+    id: "apeirix:bronze_leggings",
+    category: "materials",
+    name: "bronze_leggings",
+  },
+  {
+    id: "apeirix:bronze_boots",
+    category: "materials",
+    name: "bronze_boots",
+  },
+  {
+    id: "apeirix:steel_alloy_helmet",
+    category: "materials",
+    name: "steel_alloy_helmet",
+  },
+  {
+    id: "apeirix:steel_alloy_chestplate",
+    category: "materials",
+    name: "steel_alloy_chestplate",
+  },
+  {
+    id: "apeirix:steel_alloy_leggings",
+    category: "materials",
+    name: "steel_alloy_leggings",
+  },
+  {
+    id: "apeirix:steel_alloy_boots",
+    category: "materials",
+    name: "steel_alloy_boots",
+  },
+  {
+    id: "apeirix:canempty",
+    category: "materials",
+    name: "Vỏ Đồ Hộp Rỗng",
+    icon: "textures/foods/canempty",
+    info: {
+      "Chế tạo": "Có công thức chế tạo"
+    },
+  },
+  {
+    id: "apeirix:candirty",
+    category: "materials",
+    name: "Vỏ Đồ Hộp Bẩn",
+    icon: "textures/foods/candirty",
+  },
+  {
+    id: "apeirix:canned_food",
+    category: "materials",
+    name: "canned_food",
+  },
+  {
+    id: "apeirix:canned_pumpkin",
+    category: "materials",
+    name: "canned_pumpkin",
+  },
+  {
+    id: "apeirix:cannedbeets",
+    category: "materials",
+    name: "cannedbeets",
+  },
+  {
+    id: "apeirix:cannedbread",
+    category: "materials",
+    name: "cannedbread",
+  },
+  {
+    id: "apeirix:cannedcarrots",
+    category: "materials",
+    name: "cannedcarrots",
+  },
+  {
+    id: "apeirix:canneddogfood",
+    category: "materials",
+    name: "canneddogfood",
+  },
+  {
+    id: "apeirix:cannedfish",
+    category: "materials",
+    name: "cannedfish",
+  },
+  {
+    id: "apeirix:cannedmeal",
+    category: "materials",
+    name: "cannedmeal",
+  },
+  {
+    id: "apeirix:cannedmushroomsoup",
+    category: "materials",
+    name: "cannedmushroomsoup",
+  },
+  {
+    id: "apeirix:cannedsalad",
+    category: "materials",
+    name: "cannedsalad",
+  },
+  {
+    id: "apeirix:achievement_book",
+    category: "materials",
+    name: "Sách Thành Tựu",
+    icon: "textures/items/achievement_book",
+  },
+  {
+    id: "apeirix:wiki_book",
+    category: "materials",
+    name: "Bách Khoa Toàn Thư",
+    icon: "textures/items/wiki_book",
   },
   {
     id: "apeirix:bronze_pickaxe",
     category: "tools",
     name: "Cuốc Đồng Thanh",
     description: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt.",
+    icon: "textures/tools/bronze_pickaxe",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "375",
-      "Sát thương": "+4",
-      "Độ phù phép": "18",
-      "Chế tạo": "3 thỏi đồng thanh + 2 gậy"
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:bronze_axe",
     category: "tools",
     name: "Rìu Đồng Thanh",
-    description: "Rìu đồng thanh dùng để chặt gỗ. Cũng có thể dùng làm vũ khí.",
+    icon: "textures/tools/bronze_axe",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "375",
-      "Sát thương": "+5",
-      "Độ phù phép": "18",
-      "Chế tạo": "3 thỏi đồng thanh + 2 gậy"
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:bronze_shovel",
     category: "tools",
     name: "Xẻng Đồng Thanh",
-    description: "Xẻng đồng thanh dùng để đào đất, cát, sỏi và các khối mềm khác.",
+    icon: "textures/tools/bronze_shovel",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "375",
-      "Sát thương": "+3",
-      "Độ phù phép": "18",
-      "Chế tạo": "1 thỏi đồng thanh + 2 gậy"
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:bronze_hoe",
     category: "tools",
-    name: "Cuốc Cày Đồng Thanh",
-    description: "Cuốc cày đồng thanh dùng để làm đất trồng trọt và thu hoạch nhanh cây trồng.",
+    name: "Cuốc Đồng Thanh",
+    icon: "textures/tools/bronze_hoe",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "375",
-      "Sát thương": "+4",
-      "Độ phù phép": "18",
-      "Chế tạo": "2 thỏi đồng thanh + 2 gậy"
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:bronze_sword",
     category: "tools",
     name: "Kiếm Đồng Thanh",
-    description: "Kiếm đồng thanh dùng để chiến đấu. Chặt mạng nhện và tre nhanh hơn.",
+    icon: "textures/tools/bronze_sword",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "375",
-      "Sát thương": "+6",
-      "Độ phù phép": "18",
-      "Chế tạo": "2 thỏi đồng thanh + 1 gậy"
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:bronze_spear",
     category: "tools",
     name: "Giáo Đồng Thanh",
-    description: "Giáo đồng thanh có thể ném xa để tấn công từ khoảng cách an toàn.",
+    icon: "textures/tools/bronze_spear",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "375",
-      "Sát thương": "+3",
-      "Độ phù phép": "18",
-      "Chế tạo": "1 thỏi đồng thanh + 2 gậy"
-    },
-  },
-  {
-    id: "apeirix:wooden_hammer",
-    category: "tools",
-    name: "Búa Gỗ",
-    description: "Búa gỗ cơ bản. Đập khối thành bụi thay vì rơi vật phẩm thường.",
-    info: {
-      "Vật Liệu": "Gỗ",
-      "Độ Bền": "59",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Chế Tạo": "5 ván gỗ + 2 que"
-    },
-  },
-  {
-    id: "apeirix:stone_hammer",
-    category: "tools",
-    name: "Búa Đá",
-    description: "Búa đá để nghiền. Đập khối thành bụi để chế biến.",
-    info: {
-      "Vật Liệu": "Đá",
-      "Độ Bền": "131",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Chế Tạo": "5 đá cuội + 2 que"
-    },
-  },
-  {
-    id: "apeirix:bronze_hammer",
-    category: "tools",
-    name: "Búa Đồng",
-    description: "Búa đồng với độ bền tốt. Đập khối thành bụi hiệu quả.",
-    info: {
-      "Vật Liệu": "Đồng",
-      "Độ Bền": "375",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Chế Tạo": "5 thỏi đồng + 2 que"
-    },
-  },
-  {
-    id: "apeirix:iron_hammer",
-    category: "tools",
-    name: "Búa Sắt",
-    description: "Búa sắt để nghiền nặng. Đập hầu hết các khối thành bụi.",
-    info: {
-      "Vật Liệu": "Sắt",
-      "Độ Bền": "250",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Chế Tạo": "5 thỏi sắt + 2 que"
-    },
-  },
-  {
-    id: "apeirix:diamond_hammer",
-    category: "tools",
-    name: "Búa Kim Cương",
-    description: "Búa kim cương với độ bền xuất sắc. Đập mọi khối thành bụi.",
-    info: {
-      "Vật Liệu": "Kim Cương",
-      "Độ Bền": "1561",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Chế Tạo": "5 kim cương + 2 que"
-    },
-  },
-  {
-    id: "apeirix:netherite_hammer",
-    category: "tools",
-    name: "Búa Netherite",
-    description: "Búa tối thượng với khả năng chống lửa. Đập khối thành bụi, không bao giờ cháy trong dung nham.",
-    info: {
-      "Vật Liệu": "Netherite",
-      "Độ Bền": "2031",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Đặc Biệt": "Chống lửa",
-      "Chế Tạo": "Nâng cấp búa kim cương với thỏi netherite"
-    },
-  },
-  {
-    id: "apeirix:steel_alloy_hammer",
-    category: "tools",
-    name: "Búa Hợp Kim Thép",
-    description: "Búa thép với độ bền vượt trội. Đập khối thành bụi rất hiệu quả.",
-    info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "500",
-      "Chức Năng": "Đập khối → bụi",
-      Fortune: "Tăng sản lượng bụi quặng",
-      "Chế Tạo": "5 thỏi hợp kim thép + 2 que"
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:steel_alloy_pickaxe",
     category: "tools",
     name: "Cuốc Hợp Kim Thép",
-    description: "Cuốc hợp kim thép để đào đá và quặng. Tương đương với cuốc kim cương.",
+    icon: "textures/steel_alloy/steel_alloy_pickaxe",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "750",
-      "Sát Thương": "+5",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "3 thỏi hợp kim thép + 2 que gỗ"
+      "Độ bền": 750,
+      "Độ phù phép": 22,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
     },
   },
   {
     id: "apeirix:steel_alloy_axe",
     category: "tools",
     name: "Rìu Hợp Kim Thép",
-    description: "Rìu hợp kim thép để chặt gỗ. Cũng có thể dùng làm vũ khí.",
+    icon: "textures/steel_alloy/steel_alloy_axe",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "750",
-      "Sát Thương": "+6",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "3 thỏi hợp kim thép + 2 que gỗ"
+      "Độ bền": 750,
+      "Độ phù phép": 22,
+      "Sát thương": 6,
+      "Cấp độ": "diamond"
     },
   },
   {
     id: "apeirix:steel_alloy_shovel",
     category: "tools",
     name: "Xẻng Hợp Kim Thép",
-    description: "Xẻng hợp kim thép để đào đất, cát, sỏi và các khối mềm khác.",
+    icon: "textures/steel_alloy/steel_alloy_shovel",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "750",
-      "Sát Thương": "+4",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "1 thỏi hợp kim thép + 2 que gỗ"
+      "Độ bền": 750,
+      "Độ phù phép": 22,
+      "Sát thương": 4,
+      "Cấp độ": "diamond"
     },
   },
   {
     id: "apeirix:steel_alloy_hoe",
     category: "tools",
     name: "Cuốc Hợp Kim Thép",
-    description: "Cuốc hợp kim thép để làm đất và thu hoạch cây trồng nhanh chóng.",
+    icon: "textures/steel_alloy/steel_alloy_hoe",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "750",
-      "Sát Thương": "+5",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "2 thỏi hợp kim thép + 2 que gỗ"
+      "Độ bền": 750,
+      "Độ phù phép": 22,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
     },
   },
   {
     id: "apeirix:steel_alloy_sword",
     category: "tools",
     name: "Kiếm Hợp Kim Thép",
-    description: "Kiếm hợp kim thép để chiến đấu. Chặt mạng nhện và tre nhanh hơn.",
+    icon: "textures/steel_alloy/steel_alloy_sword",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "750",
-      "Sát Thương": "+7",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "2 thỏi hợp kim thép + 1 que gỗ"
+      "Độ bền": 750,
+      "Độ phù phép": 22,
+      "Sát thương": 7,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:silver_pickaxe",
+    category: "tools",
+    name: "Cuốc Bạc",
+    icon: "textures/silver/silver_pickaxe",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:silver_axe",
+    category: "tools",
+    name: "Rìu Bạc",
+    icon: "textures/silver/silver_axe",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 7,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:silver_shovel",
+    category: "tools",
+    name: "Xẻng Bạc",
+    icon: "textures/silver/silver_shovel",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:silver_hoe",
+    category: "tools",
+    name: "Cuốc Bạc",
+    icon: "textures/silver/silver_hoe",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 1,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:silver_sword",
+    category: "tools",
+    name: "Kiếm Bạc",
+    icon: "textures/silver/silver_sword",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:silver_hammer",
+    category: "tools",
+    name: "Búa Bạc",
+    icon: "textures/silver/silver_hammer",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:nickel_pickaxe",
+    category: "tools",
+    name: "Cuốc Niken",
+    icon: "textures/nickel/nickel_pickaxe",
+    info: {
+      "Độ bền": 450,
+      "Độ phù phép": 14,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:nickel_axe",
+    category: "tools",
+    name: "Rìu Niken",
+    icon: "textures/nickel/nickel_axe",
+    info: {
+      "Độ bền": 450,
+      "Độ phù phép": 14,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:nickel_shovel",
+    category: "tools",
+    name: "Xẻng Niken",
+    icon: "textures/nickel/nickel_shovel",
+    info: {
+      "Độ bền": 450,
+      "Độ phù phép": 14,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:nickel_hoe",
+    category: "tools",
+    name: "Cuốc Niken",
+    icon: "textures/nickel/nickel_hoe",
+    info: {
+      "Độ bền": 450,
+      "Độ phù phép": 14,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:nickel_sword",
+    category: "tools",
+    name: "Kiếm Niken",
+    icon: "textures/nickel/nickel_sword",
+    info: {
+      "Độ bền": 450,
+      "Độ phù phép": 14,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:nickel_hammer",
+    category: "tools",
+    name: "Búa Niken",
+    icon: "textures/nickel/nickel_hammer",
+    info: {
+      "Độ bền": 675,
+      "Độ phù phép": 14,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:lead_pickaxe",
+    category: "tools",
+    name: "Cuốc Chì",
+    icon: "textures/lead/lead_pickaxe",
+    info: {
+      "Độ bền": 400,
+      "Độ phù phép": 12,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:lead_axe",
+    category: "tools",
+    name: "Rìu Chì",
+    icon: "textures/lead/lead_axe",
+    info: {
+      "Độ bền": 400,
+      "Độ phù phép": 12,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:lead_shovel",
+    category: "tools",
+    name: "Xẻng Chì",
+    icon: "textures/lead/lead_shovel",
+    info: {
+      "Độ bền": 400,
+      "Độ phù phép": 12,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:lead_hoe",
+    category: "tools",
+    name: "Cuốc Chì",
+    icon: "textures/lead/lead_hoe",
+    info: {
+      "Độ bền": 400,
+      "Độ phù phép": 12,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:lead_sword",
+    category: "tools",
+    name: "Kiếm Chì",
+    icon: "textures/lead/lead_sword",
+    info: {
+      "Độ bền": 400,
+      "Độ phù phép": 12,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:lead_hammer",
+    category: "tools",
+    name: "Búa Chì",
+    icon: "textures/lead/lead_hammer",
+    info: {
+      "Độ bền": 600,
+      "Độ phù phép": 12,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:electrum_pickaxe",
+    category: "tools",
+    name: "Cuốc Electrum",
+    icon: "textures/electrum/electrum_pickaxe",
+    info: {
+      "Độ bền": 425,
+      "Độ phù phép": 20,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:electrum_axe",
+    category: "tools",
+    name: "Rìu Electrum",
+    icon: "textures/electrum/electrum_axe",
+    info: {
+      "Độ bền": 425,
+      "Độ phù phép": 20,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:electrum_shovel",
+    category: "tools",
+    name: "Xẻng Electrum",
+    icon: "textures/electrum/electrum_shovel",
+    info: {
+      "Độ bền": 425,
+      "Độ phù phép": 20,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:electrum_hoe",
+    category: "tools",
+    name: "Cuốc Electrum",
+    icon: "textures/electrum/electrum_hoe",
+    info: {
+      "Độ bền": 425,
+      "Độ phù phép": 20,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:electrum_sword",
+    category: "tools",
+    name: "Kiếm Electrum",
+    icon: "textures/electrum/electrum_sword",
+    info: {
+      "Độ bền": 425,
+      "Độ phù phép": 20,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:electrum_hammer",
+    category: "tools",
+    name: "Búa Electrum",
+    icon: "textures/electrum/electrum_hammer",
+    info: {
+      "Độ bền": 640,
+      "Độ phù phép": 20,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:invar_pickaxe",
+    category: "tools",
+    name: "Cuốc Invar",
+    icon: "textures/invar/invar_pickaxe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 10,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:invar_axe",
+    category: "tools",
+    name: "Rìu Invar",
+    icon: "textures/invar/invar_axe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 10,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:invar_shovel",
+    category: "tools",
+    name: "Xẻng Invar",
+    icon: "textures/invar/invar_shovel",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 10,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:invar_hoe",
+    category: "tools",
+    name: "Cuốc Invar",
+    icon: "textures/invar/invar_hoe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 10,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:invar_sword",
+    category: "tools",
+    name: "Kiếm Invar",
+    icon: "textures/invar/invar_sword",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 10,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:invar_hammer",
+    category: "tools",
+    name: "Búa Invar",
+    icon: "textures/invar/invar_hammer",
+    info: {
+      "Độ bền": 750,
+      "Độ phù phép": 10,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:platinum_pickaxe",
+    category: "tools",
+    name: "Cuốc Bạch Kim",
+    icon: "textures/platinum/platinum_pickaxe",
+    info: {
+      "Độ bền": 1600,
+      "Độ phù phép": 22,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:platinum_axe",
+    category: "tools",
+    name: "Rìu Bạch Kim",
+    icon: "textures/platinum/platinum_axe",
+    info: {
+      "Độ bền": 1600,
+      "Độ phù phép": 22,
+      "Sát thương": 7,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:platinum_shovel",
+    category: "tools",
+    name: "Xẻng Bạch Kim",
+    icon: "textures/platinum/platinum_shovel",
+    info: {
+      "Độ bền": 1600,
+      "Độ phù phép": 22,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:platinum_hoe",
+    category: "tools",
+    name: "Cuốc Bạch Kim",
+    icon: "textures/platinum/platinum_hoe",
+    info: {
+      "Độ bền": 1600,
+      "Độ phù phép": 22,
+      "Sát thương": 6,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:platinum_sword",
+    category: "tools",
+    name: "Kiếm Bạch Kim",
+    icon: "textures/platinum/platinum_sword",
+    info: {
+      "Độ bền": 1600,
+      "Độ phù phép": 22,
+      "Sát thương": 8,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:platinum_hammer",
+    category: "tools",
+    name: "Búa Bạch Kim",
+    icon: "textures/platinum/platinum_hammer",
+    info: {
+      "Độ bền": 2400,
+      "Độ phù phép": 22,
+      "Sát thương": 6,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:tin_pickaxe",
+    category: "tools",
+    name: "Cuốc Thiếc",
+    icon: "textures/tin_tool/tin_pickaxe",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:tin_axe",
+    category: "tools",
+    name: "Rìu Thiếc",
+    icon: "textures/tin_tool/tin_axe",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:tin_shovel",
+    category: "tools",
+    name: "Xẻng Thiếc",
+    icon: "textures/tin_tool/tin_shovel",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:tin_hoe",
+    category: "tools",
+    name: "Cuốc Thiếc",
+    icon: "textures/tin_tool/tin_hoe",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:tin_sword",
+    category: "tools",
+    name: "Kiếm Thiếc",
+    icon: "textures/tin_tool/tin_sword",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 18,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:tin_hammer",
+    category: "tools",
+    name: "Búa Thiếc",
+    icon: "textures/tin_tool/tin_hammer",
+    info: {
+      "Độ bền": 562,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:cobalt_pickaxe",
+    category: "tools",
+    name: "Cuốc Cobalt",
+    icon: "textures/cobalt/cobalt_pickaxe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:cobalt_axe",
+    category: "tools",
+    name: "Rìu Cobalt",
+    icon: "textures/cobalt/cobalt_axe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:cobalt_shovel",
+    category: "tools",
+    name: "Xẻng Cobalt",
+    icon: "textures/cobalt/cobalt_shovel",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:cobalt_hoe",
+    category: "tools",
+    name: "Cuốc Cobalt",
+    icon: "textures/cobalt/cobalt_hoe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:cobalt_sword",
+    category: "tools",
+    name: "Kiếm Cobalt",
+    icon: "textures/cobalt/cobalt_sword",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:cobalt_hammer",
+    category: "tools",
+    name: "Búa Cobalt",
+    icon: "textures/cobalt/cobalt_hammer",
+    info: {
+      "Độ bền": 750,
+      "Độ phù phép": 16,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:ardite_pickaxe",
+    category: "tools",
+    name: "Cuốc Ardite",
+    icon: "textures/ardite/ardite_pickaxe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:ardite_axe",
+    category: "tools",
+    name: "Rìu Ardite",
+    icon: "textures/ardite/ardite_axe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 5,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:ardite_shovel",
+    category: "tools",
+    name: "Xẻng Ardite",
+    icon: "textures/ardite/ardite_shovel",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:ardite_hoe",
+    category: "tools",
+    name: "Cuốc Ardite",
+    icon: "textures/ardite/ardite_hoe",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:ardite_sword",
+    category: "tools",
+    name: "Kiếm Ardite",
+    icon: "textures/ardite/ardite_sword",
+    info: {
+      "Độ bền": 500,
+      "Độ phù phép": 16,
+      "Sát thương": 6,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:ardite_hammer",
+    category: "tools",
+    name: "Búa Ardite",
+    icon: "textures/ardite/ardite_hammer",
+    info: {
+      "Độ bền": 750,
+      "Độ phù phép": 16,
+      "Sát thương": 4,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_pickaxe",
+    category: "tools",
+    name: "Cuốc Manyullyn",
+    icon: "textures/manyullyn/manyullyn_pickaxe",
+    info: {
+      "Độ bền": 800,
+      "Độ phù phép": 18,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_axe",
+    category: "tools",
+    name: "Rìu Manyullyn",
+    icon: "textures/manyullyn/manyullyn_axe",
+    info: {
+      "Độ bền": 800,
+      "Độ phù phép": 18,
+      "Sát thương": 7,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_shovel",
+    category: "tools",
+    name: "Xẻng Manyullyn",
+    icon: "textures/manyullyn/manyullyn_shovel",
+    info: {
+      "Độ bền": 800,
+      "Độ phù phép": 18,
+      "Sát thương": 4,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_hoe",
+    category: "tools",
+    name: "Cuốc Manyullyn",
+    icon: "textures/manyullyn/manyullyn_hoe",
+    info: {
+      "Độ bền": 800,
+      "Độ phù phép": 18,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_sword",
+    category: "tools",
+    name: "Kiếm Manyullyn",
+    icon: "textures/manyullyn/manyullyn_sword",
+    info: {
+      "Độ bền": 800,
+      "Độ phù phép": 18,
+      "Sát thương": 8,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_hammer",
+    category: "tools",
+    name: "Búa Manyullyn",
+    icon: "textures/manyullyn/manyullyn_hammer",
+    info: {
+      "Độ bền": 1200,
+      "Độ phù phép": 18,
+      "Sát thương": 5,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:wooden_hammer",
+    category: "tools",
+    name: "Búa Gỗ",
+    icon: "textures/tools/wooden_hammer",
+    info: {
+      "Độ bền": 59,
+      "Độ phù phép": 15,
+      "Sát thương": 1,
+      "Cấp độ": "wooden"
+    },
+  },
+  {
+    id: "apeirix:stone_hammer",
+    category: "tools",
+    name: "Búa Đá",
+    icon: "textures/tools/stone_hammer",
+    info: {
+      "Độ bền": 131,
+      "Độ phù phép": 5,
+      "Sát thương": 2,
+      "Cấp độ": "stone"
+    },
+  },
+  {
+    id: "apeirix:copper_hammer",
+    category: "tools",
+    name: "Búa Đồng",
+    icon: "textures/tools/copper_hammer",
+    info: {
+      "Độ bền": 200,
+      "Độ phù phép": 12,
+      "Sát thương": 2,
+      "Cấp độ": "stone"
+    },
+  },
+  {
+    id: "apeirix:iron_hammer",
+    category: "tools",
+    name: "Búa Sắt",
+    icon: "textures/tools/iron_hammer",
+    info: {
+      "Độ bền": 250,
+      "Độ phù phép": 14,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
+    },
+  },
+  {
+    id: "apeirix:golden_hammer",
+    category: "tools",
+    name: "Búa Vàng",
+    icon: "textures/tools/golden_hammer",
+    info: {
+      "Độ bền": 32,
+      "Độ phù phép": 22,
+      "Sát thương": 1,
+      "Cấp độ": "golden"
+    },
+  },
+  {
+    id: "apeirix:bronze_hammer",
+    category: "tools",
+    name: "Búa Đồng Thanh",
+    icon: "textures/tools/bronze_hammer",
+    info: {
+      "Độ bền": 375,
+      "Độ phù phép": 14,
+      "Sát thương": 3,
+      "Cấp độ": "iron"
     },
   },
   {
     id: "apeirix:steel_alloy_hammer",
     category: "tools",
     name: "Búa Hợp Kim Thép",
-    description: "Búa hợp kim thép mạnh mẽ để đào vùng 3x3. Hiệu quả cao cho khai thác quy mô lớn.",
+    icon: "textures/steel_alloy/steel_alloy_hammer",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "750",
-      "Sát Thương": "+6",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "6 thỏi hợp kim thép + 1 que gỗ",
-      "Đặc Biệt": "Đào vùng 3x3"
+      "Độ bền": 750,
+      "Độ phù phép": 22,
+      "Sát thương": 6,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:diamond_hammer",
+    category: "tools",
+    name: "Búa Kim Cương",
+    icon: "textures/tools/diamond_hammer",
+    info: {
+      "Độ bền": 1561,
+      "Độ phù phép": 10,
+      "Sát thương": 4,
+      "Cấp độ": "diamond"
+    },
+  },
+  {
+    id: "apeirix:netherite_hammer",
+    category: "tools",
+    name: "Búa Netherite",
+    icon: "textures/tools/netherite_hammer",
+    info: {
+      "Độ bền": 2031,
+      "Độ phù phép": 15,
+      "Sát thương": 5,
+      "Cấp độ": "netherite"
     },
   },
   {
@@ -1510,317 +2481,727 @@ export const GENERATED_WIKI_ITEMS = [
     category: "armor",
     name: "Mũ Đồng Thanh",
     description: "Mũ giáp đồng thanh bảo vệ đầu. Tương đương với mũ sắt.",
+    icon: "textures/armor/items/bronze_helmet",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "220",
-      "Giáp": "+2",
-      "Độ phù phép": "18",
-      "Chế tạo": "5 thỏi đồng thanh"
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 18,
+      "Loại": "Mũ"
     },
   },
   {
     id: "apeirix:bronze_chestplate",
     category: "armor",
     name: "Áo Giáp Đồng Thanh",
-    description: "Áo giáp đồng thanh bảo vệ ngực. Cung cấp bảo vệ tốt nhất.",
+    icon: "textures/armor/items/bronze_chestplate",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "320",
-      "Giáp": "+5",
-      "Độ phù phép": "18",
-      "Chế tạo": "8 thỏi đồng thanh"
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 18,
+      "Loại": "Áo giáp"
     },
   },
   {
     id: "apeirix:bronze_leggings",
     category: "armor",
-    name: "Quần Giáp Đồng Thanh",
-    description: "Quần giáp đồng thanh bảo vệ chân. Bảo vệ tốt thứ hai sau áo giáp.",
+    name: "Quần Đồng Thanh",
+    icon: "textures/armor/items/bronze_leggings",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "300",
-      "Giáp": "+4",
-      "Độ phù phép": "18",
-      "Chế tạo": "7 thỏi đồng thanh"
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 18,
+      "Loại": "Quần"
     },
   },
   {
     id: "apeirix:bronze_boots",
     category: "armor",
-    name: "Giày Giáp Đồng Thanh",
-    description: "Giày giáp đồng thanh bảo vệ bàn chân. Giảm sát thương khi rơi.",
+    name: "Giày Đồng Thanh",
+    icon: "textures/armor/items/bronze_boots",
     info: {
-      "Chất liệu": "Đồng Thanh (Bronze)",
-      "Độ bền": "260",
-      "Giáp": "+1",
-      "Độ phù phép": "18",
-      "Chế tạo": "4 thỏi đồng thanh"
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 18,
+      "Loại": "Giày"
     },
   },
   {
     id: "apeirix:steel_alloy_helmet",
     category: "armor",
     name: "Mũ Hợp Kim Thép",
-    description: "Mũ hợp kim thép bảo vệ đầu. Tương đương với mũ kim cương.",
+    icon: "textures/steel_alloy/steel_alloy_helmet",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "440",
-      "Giáp": "+3",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "5 thỏi hợp kim thép"
+      "Độ bền": 440,
+      "Giáp": 3,
+      "Độ phù phép": 22,
+      "Loại": "Mũ"
     },
   },
   {
     id: "apeirix:steel_alloy_chestplate",
     category: "armor",
     name: "Áo Giáp Hợp Kim Thép",
-    description: "Áo giáp hợp kim thép bảo vệ thân. Cung cấp khả năng bảo vệ tốt nhất.",
+    icon: "textures/steel_alloy/steel_alloy_chestplate",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "640",
-      "Giáp": "+8",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "8 thỏi hợp kim thép"
+      "Độ bền": 640,
+      "Giáp": 8,
+      "Độ phù phép": 22,
+      "Loại": "Áo giáp"
     },
   },
   {
     id: "apeirix:steel_alloy_leggings",
     category: "armor",
     name: "Quần Hợp Kim Thép",
-    description: "Quần hợp kim thép bảo vệ chân. Khả năng bảo vệ tốt thứ hai sau áo giáp.",
+    icon: "textures/steel_alloy/steel_alloy_leggings",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "600",
-      "Giáp": "+6",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "7 thỏi hợp kim thép"
+      "Độ bền": 600,
+      "Giáp": 6,
+      "Độ phù phép": 22,
+      "Loại": "Quần"
     },
   },
   {
     id: "apeirix:steel_alloy_boots",
     category: "armor",
     name: "Giày Hợp Kim Thép",
-    description: "Giày hợp kim thép bảo vệ bàn chân. Giảm sát thương rơi.",
+    icon: "textures/steel_alloy/steel_alloy_boots",
     info: {
-      "Vật Liệu": "Hợp Kim Thép",
-      "Độ Bền": "520",
-      "Giáp": "+3",
-      "Khả Năng Phù Phép": "22",
-      "Chế Tạo": "4 thỏi hợp kim thép"
+      "Độ bền": 520,
+      "Giáp": 3,
+      "Độ phù phép": 22,
+      "Loại": "Giày"
     },
   },
   {
-    id: "apeirix:canempty",
-    category: "foods",
-    name: "Hộp Rỗng",
-    description: "Hộp thiếc rỗng dùng để đóng hộp thức ăn. Có thể chế tạo hoặc rửa hộp bẩn.",
+    id: "apeirix:silver_helmet",
+    category: "armor",
+    name: "Mũ Bạc",
+    icon: "textures/silver/silver_helmet",
     info: {
-      "Loại": "Vật liệu",
-      "Chế tạo": "4 thỏi thiếc",
-      "Tái chế": "Rửa hộp bẩn với xô nước"
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 18,
+      "Loại": "Mũ"
     },
   },
   {
-    id: "apeirix:candirty",
-    category: "foods",
-    name: "Hộp Bẩn",
-    description: "Hộp thiếc đã sử dụng. Cần rửa sạch trước khi dùng lại.",
+    id: "apeirix:silver_chestplate",
+    category: "armor",
+    name: "Áo Giáp Bạc",
+    icon: "textures/silver/silver_chestplate",
     info: {
-      "Loại": "Vật liệu",
-      "Nguồn": "Sau khi ăn đồ hộp",
-      "Tái chế": "Rửa với xô nước hoặc thả vào nước"
+      "Độ bền": 320,
+      "Giáp": 6,
+      "Độ phù phép": 18,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:silver_leggings",
+    category: "armor",
+    name: "Quần Bạc",
+    icon: "textures/silver/silver_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 5,
+      "Độ phù phép": 18,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:silver_boots",
+    category: "armor",
+    name: "Giày Bạc",
+    icon: "textures/silver/silver_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 2,
+      "Độ phù phép": 18,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:nickel_helmet",
+    category: "armor",
+    name: "Mũ Niken",
+    icon: "textures/nickel/nickel_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 14,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:nickel_chestplate",
+    category: "armor",
+    name: "Áo Giáp Niken",
+    icon: "textures/nickel/nickel_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 14,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:nickel_leggings",
+    category: "armor",
+    name: "Quần Niken",
+    icon: "textures/nickel/nickel_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 14,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:nickel_boots",
+    category: "armor",
+    name: "Giày Niken",
+    icon: "textures/nickel/nickel_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 14,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:lead_helmet",
+    category: "armor",
+    name: "Mũ Chì",
+    icon: "textures/lead/lead_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 12,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:lead_chestplate",
+    category: "armor",
+    name: "Áo Giáp Chì",
+    icon: "textures/lead/lead_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 12,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:lead_leggings",
+    category: "armor",
+    name: "Quần Chì",
+    icon: "textures/lead/lead_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 12,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:lead_boots",
+    category: "armor",
+    name: "Giày Chì",
+    icon: "textures/lead/lead_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 12,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:electrum_helmet",
+    category: "armor",
+    name: "Mũ Electrum",
+    icon: "textures/electrum/electrum_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 20,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:electrum_chestplate",
+    category: "armor",
+    name: "Áo Giáp Electrum",
+    icon: "textures/electrum/electrum_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 20,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:electrum_leggings",
+    category: "armor",
+    name: "Quần Electrum",
+    icon: "textures/electrum/electrum_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 20,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:electrum_boots",
+    category: "armor",
+    name: "Giày Electrum",
+    icon: "textures/electrum/electrum_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 20,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:invar_helmet",
+    category: "armor",
+    name: "Mũ Invar",
+    icon: "textures/invar/invar_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 10,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:invar_chestplate",
+    category: "armor",
+    name: "Áo Giáp Invar",
+    icon: "textures/invar/invar_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 10,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:invar_leggings",
+    category: "armor",
+    name: "Quần Invar",
+    icon: "textures/invar/invar_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 10,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:invar_boots",
+    category: "armor",
+    name: "Giày Invar",
+    icon: "textures/invar/invar_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 10,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:platinum_helmet",
+    category: "armor",
+    name: "Mũ Bạch Kim",
+    icon: "textures/platinum/platinum_helmet",
+    info: {
+      "Độ bền": 440,
+      "Giáp": 3,
+      "Độ phù phép": 22,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:platinum_chestplate",
+    category: "armor",
+    name: "Áo Giáp Bạch Kim",
+    icon: "textures/platinum/platinum_chestplate",
+    info: {
+      "Độ bền": 640,
+      "Giáp": 8,
+      "Độ phù phép": 22,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:platinum_leggings",
+    category: "armor",
+    name: "Quần Bạch Kim",
+    icon: "textures/platinum/platinum_leggings",
+    info: {
+      "Độ bền": 600,
+      "Giáp": 6,
+      "Độ phù phép": 22,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:platinum_boots",
+    category: "armor",
+    name: "Giày Bạch Kim",
+    icon: "textures/platinum/platinum_boots",
+    info: {
+      "Độ bền": 520,
+      "Giáp": 3,
+      "Độ phù phép": 22,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:tin_helmet",
+    category: "armor",
+    name: "Mũ Thiếc",
+    icon: "textures/tin_tool/tin_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 18,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:tin_chestplate",
+    category: "armor",
+    name: "Áo Giáp Thiếc",
+    icon: "textures/tin_tool/tin_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 18,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:tin_leggings",
+    category: "armor",
+    name: "Quần Thiếc",
+    icon: "textures/tin_tool/tin_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 18,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:tin_boots",
+    category: "armor",
+    name: "Giày Thiếc",
+    icon: "textures/tin_tool/tin_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 18,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:cobalt_helmet",
+    category: "armor",
+    name: "Mũ Cobalt",
+    icon: "textures/cobalt/cobalt_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 16,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:cobalt_chestplate",
+    category: "armor",
+    name: "Áo Giáp Cobalt",
+    icon: "textures/cobalt/cobalt_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 16,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:cobalt_leggings",
+    category: "armor",
+    name: "Quần Cobalt",
+    icon: "textures/cobalt/cobalt_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 16,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:cobalt_boots",
+    category: "armor",
+    name: "Giày Cobalt",
+    icon: "textures/cobalt/cobalt_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 16,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:ardite_helmet",
+    category: "armor",
+    name: "Mũ Ardite",
+    icon: "textures/ardite/ardite_helmet",
+    info: {
+      "Độ bền": 220,
+      "Giáp": 2,
+      "Độ phù phép": 16,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:ardite_chestplate",
+    category: "armor",
+    name: "Áo Giáp Ardite",
+    icon: "textures/ardite/ardite_chestplate",
+    info: {
+      "Độ bền": 320,
+      "Giáp": 5,
+      "Độ phù phép": 16,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:ardite_leggings",
+    category: "armor",
+    name: "Quần Ardite",
+    icon: "textures/ardite/ardite_leggings",
+    info: {
+      "Độ bền": 300,
+      "Giáp": 4,
+      "Độ phù phép": 16,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:ardite_boots",
+    category: "armor",
+    name: "Giày Ardite",
+    icon: "textures/ardite/ardite_boots",
+    info: {
+      "Độ bền": 260,
+      "Giáp": 1,
+      "Độ phù phép": 16,
+      "Loại": "Giày"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_helmet",
+    category: "armor",
+    name: "Mũ Manyullyn",
+    icon: "textures/manyullyn/manyullyn_helmet",
+    info: {
+      "Độ bền": 280,
+      "Giáp": 3,
+      "Độ phù phép": 18,
+      "Loại": "Mũ"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_chestplate",
+    category: "armor",
+    name: "Áo Giáp Manyullyn",
+    icon: "textures/manyullyn/manyullyn_chestplate",
+    info: {
+      "Độ bền": 400,
+      "Giáp": 7,
+      "Độ phù phép": 18,
+      "Loại": "Áo giáp"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_leggings",
+    category: "armor",
+    name: "Quần Manyullyn",
+    icon: "textures/manyullyn/manyullyn_leggings",
+    info: {
+      "Độ bền": 375,
+      "Giáp": 5,
+      "Độ phù phép": 18,
+      "Loại": "Quần"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_boots",
+    category: "armor",
+    name: "Giày Manyullyn",
+    icon: "textures/manyullyn/manyullyn_boots",
+    info: {
+      "Độ bền": 325,
+      "Giáp": 2,
+      "Độ phù phép": 18,
+      "Loại": "Giày"
     },
   },
   {
     id: "apeirix:canned_food",
     category: "foods",
-    name: "Thức Ăn Đóng Hộp",
-    description: "Thức ăn đóng hộp cơ bản. Bổ dưỡng và bảo quản lâu.",
+    name: "Đồ Hộp Thịt",
+    icon: "textures/foods/canned_food",
     info: {
-      "Dinh dưỡng": "10 (5 thanh)",
-      "Độ no": "12.8",
-      "Chế tạo": "Hộp rỗng + 2 thịt nấu chín",
-      "Sau khi dùng": "Hộp bẩn"
+      "Dinh dưỡng": 10,
+      "Độ no": 12.8
     },
   },
   {
     id: "apeirix:canned_pumpkin",
     category: "foods",
-    name: "Bí Ngô Đóng Hộp",
-    description: "Bí ngô đóng hộp. Cho hiệu ứng kháng lửa.",
+    name: "Đồ Hộp Bí Ngô",
+    icon: "textures/foods/canned_pumpkin",
     info: {
-      "Dinh dưỡng": "4 (2 thanh)",
-      "Độ no": "4.8",
-      "Hiệu ứng": "Kháng lửa 15s",
-      "Chế tạo": "Hộp rỗng + bí ngô + đường"
+      "Dinh dưỡng": 4,
+      "Độ no": 4.8,
+      "Hiệu ứng": "Kháng lửa"
     },
   },
   {
     id: "apeirix:cannedbeets",
     category: "foods",
-    name: "Súp Củ Cải Đóng Hộp",
-    description: "Súp củ cải đường đóng hộp. Bổ dưỡng và bảo quản lâu dài.",
+    name: "Đồ Hộp Củ Dền",
+    icon: "textures/foods/cannedbeets",
     info: {
-      "Dinh dưỡng": "6 (3 thanh)",
-      "Độ no": "7.2",
-      "Chế tạo": "Hộp rỗng + súp củ cải",
-      "Sau khi dùng": "Hộp bẩn"
+      "Dinh dưỡng": 6,
+      "Độ no": 7.2
     },
   },
   {
     id: "apeirix:cannedbread",
     category: "foods",
-    name: "Bánh Mì Đóng Hộp",
-    description: "Bánh mì đóng hộp. Tiện lợi và bảo quản lâu.",
+    name: "Đồ Hộp Bánh Mì",
+    icon: "textures/foods/cannedbread",
     info: {
-      "Dinh dưỡng": "5 (2.5 thanh)",
-      "Độ no": "6",
-      "Chế tạo": "Hộp rỗng + bánh mì",
-      "Sau khi dùng": "Hộp bẩn"
+      "Dinh dưỡng": 5,
+      "Độ no": 6
     },
   },
   {
     id: "apeirix:cannedcarrots",
     category: "foods",
-    name: "Cà Rốt Đóng Hộp",
-    description: "Cà rốt đóng hộp. Cho hiệu ứng nhìn đêm.",
+    name: "Đồ Hộp Cà Rốt",
+    icon: "textures/foods/cannedcarrots",
     info: {
-      "Dinh dưỡng": "4 (2 thanh)",
-      "Độ no": "4.8",
-      "Hiệu ứng": "Nhìn đêm 15s",
-      "Chế tạo": "Hộp rỗng + 3 cà rốt"
+      "Dinh dưỡng": 4,
+      "Độ no": 4.8,
+      "Hiệu ứng": "Nhìn đêm"
     },
   },
   {
     id: "apeirix:canneddogfood",
     category: "foods",
-    name: "Thức Ăn Chó Đóng Hộp",
-    description: "Thức ăn cho chó đóng hộp. Không nên ăn!",
+    name: "Đồ Hộp Thức Ăn Chó",
+    icon: "textures/foods/canneddogfood",
     info: {
-      "Dinh dưỡng": "2 (1 thanh)",
-      "Độ no": "0.4",
-      "Hiệu ứng": "Buồn nôn 10s",
-      "Chế tạo": "Hộp rỗng + 2 thịt thối + xương"
+      "Dinh dưỡng": 2,
+      "Độ no": 0.4,
+      "Hiệu ứng": "nausea"
     },
   },
   {
     id: "apeirix:cannedfish",
     category: "foods",
-    name: "Cá Đóng Hộp",
-    description: "Cá đóng hộp. Cho hiệu ứng thở dưới nước.",
+    name: "Đồ Hộp Cá",
+    icon: "textures/foods/cannedfish",
     info: {
-      "Dinh dưỡng": "5 (2.5 thanh)",
-      "Độ no": "6",
-      "Hiệu ứng": "Thở dưới nước 30s",
-      "Chế tạo": "Hộp rỗng + 2 cá nấu chín"
+      "Dinh dưỡng": 5,
+      "Độ no": 6,
+      "Hiệu ứng": "Thở dưới nước"
     },
   },
   {
     id: "apeirix:cannedmeal",
     category: "foods",
-    name: "Bữa Ăn Đóng Hộp",
-    description: "Bữa ăn đầy đủ đóng hộp. Cho hiệu ứng hồi máu.",
+    name: "Đồ Hộp Bữa Ăn",
+    icon: "textures/foods/cannedmeal",
     info: {
-      "Dinh dưỡng": "12 (6 thanh)",
-      "Độ no": "16",
-      "Hiệu ứng": "Hồi máu II 5s",
-      "Chế tạo": "Hộp rỗng + bánh mì + thịt bò + cà rốt"
+      "Dinh dưỡng": 12,
+      "Độ no": 16,
+      "Hiệu ứng": "Hồi máu"
     },
   },
   {
     id: "apeirix:cannedmushroomsoup",
     category: "foods",
-    name: "Súp Nấm Đóng Hộp",
-    description: "Súp nấm đóng hộp. Bổ dưỡng và ngon miệng.",
+    name: "Đồ Hộp Súp Nấm",
+    icon: "textures/foods/cannedmushroomsoup",
     info: {
-      "Dinh dưỡng": "6 (3 thanh)",
-      "Độ no": "7.2",
-      "Chế tạo": "Hộp rỗng + súp nấm",
-      "Sau khi dùng": "Hộp bẩn"
+      "Dinh dưỡng": 6,
+      "Độ no": 7.2
     },
   },
   {
     id: "apeirix:cannedsalad",
     category: "foods",
-    name: "Salad Đóng Hộp",
-    description: "Salad đóng hộp. Loại bỏ tất cả hiệu ứng.",
+    name: "Đồ Hộp Salad",
+    icon: "textures/foods/cannedsalad",
     info: {
-      "Dinh dưỡng": "3 (1.5 thanh)",
-      "Độ no": "3.6",
-      "Đặc biệt": "Xóa tất cả hiệu ứng",
-      "Chế tạo": "Hộp rỗng + táo + dâu + lá sồi"
+      "Dinh dưỡng": 3,
+      "Độ no": 3.6,
+      "Hiệu ứng": "health_boost"
     },
   },
   {
     id: "apeirix:luncheonmeat",
     category: "foods",
-    name: "Thịt Nguội Đóng Hộp",
-    description: "Thịt nguội đóng hộp. Cho hiệu ứng no lâu.",
+    name: "Đồ Hộp Thịt Nguội",
+    icon: "textures/foods/luncheonmeat",
     info: {
-      "Dinh dưỡng": "8 (4 thanh)",
-      "Độ no": "10.4",
-      "Hiệu ứng": "No lâu 10s",
-      "Chế tạo": "Hộp rỗng + thịt lợn + thịt gà"
+      "Dinh dưỡng": 8,
+      "Độ no": 10.4,
+      "Hiệu ứng": "No lâu"
     },
   },
   {
     id: "apeirix:fruit_salad",
     category: "foods",
-    name: "Salad Trái Cây Đóng Hộp",
-    description: "Salad trái cây đóng hộp. Cho hiệu ứng tăng tốc.",
+    name: "Đồ Hộp Salad Trái Cây",
+    icon: "textures/foods/fruit_salad",
     info: {
-      "Dinh dưỡng": "6 (3 thanh)",
-      "Độ no": "7.2",
-      "Hiệu ứng": "Tăng tốc 20s",
-      "Chế tạo": "Hộp rỗng + táo + dưa + dâu"
+      "Dinh dưỡng": 6,
+      "Độ no": 7.2,
+      "Hiệu ứng": "Tăng tốc"
     },
   },
   {
     id: "apeirix:chickensoup",
     category: "foods",
-    name: "Súp Gà Đóng Hộp",
+    name: "Đồ Hộp Súp Gà",
     description: "Súp gà đóng hộp. Cho hiệu ứng hồi máu.",
+    icon: "textures/foods/chickensoup",
     info: {
-      "Dinh dưỡng": "7 (3.5 thanh)",
-      "Độ no": "8.4",
-      "Hiệu ứng": "Hồi máu 10s",
-      "Chế tạo": "Hộp rỗng + thịt gà + cà rốt + khoai tây"
+      "Dinh dưỡng": 7,
+      "Độ no": 8.4,
+      "Hiệu ứng": "Hồi máu"
     },
   },
   {
     id: "apeirix:cookies",
     category: "foods",
-    name: "Bánh Quy Đóng Hộp",
-    description: "Bánh quy đóng hộp. Cho hiệu ứng đào nhanh.",
+    name: "Đồ Hộp Bánh Quy",
+    icon: "textures/foods/cookies",
     info: {
-      "Dinh dưỡng": "4 (2 thanh)",
-      "Độ no": "4.8",
-      "Hiệu ứng": "Đào nhanh 15s",
-      "Chế tạo": "Hộp rỗng + 3 bánh quy"
-    },
-  },
-  {
-    id: "apeirix:achievement_book",
-    category: "special",
-    name: "Sổ Thành Tựu",
-    description: "Cuốn sổ ghi chép các thành tựu của bạn trong APEIRIX. Sử dụng để xem tiến trình và mở khóa phần thưởng.",
-    info: {
-      "Loại": "Đặc biệt",
-      "Chức năng": "Xem thành tựu",
-      "Xếp chồng": "1",
-      "Độ hiếm": "Độc nhất"
-    },
-  },
-  {
-    id: "apeirix:wiki_book",
-    category: "special",
-    name: "Bách Khoa Toàn Thư",
-    description: "Cuốn sách chứa thông tin về tất cả vật phẩm trong APEIRIX. Sử dụng để tìm hiểu về các vật phẩm trong túi đồ.",
-    info: {
-      "Loại": "Đặc biệt",
-      "Chức năng": "Xem thông tin vật phẩm",
-      "Xếp chồng": "1",
-      "Độ hiếm": "Độc nhất"
+      "Dinh dưỡng": 4,
+      "Độ no": 4.8,
+      "Hiệu ứng": "Đào nhanh"
     },
   }
 ];

@@ -16,3 +16,15 @@ foods:
   fruit_salad: Đồ Hộp Salad Trái Cây
   chickensoup: Đồ Hộp Súp Gà
   cookies: Đồ Hộp Bánh Quy
+
+# Effect names for wiki
+effects:
+  regeneration: "Hồi máu"
+  speed: "Tăng tốc"
+  strength: "Sức mạnh"
+  resistance: "Kháng sát thương"
+  fire_resistance: "Kháng lửa"
+  water_breathing: "Thở dưới nước"
+  night_vision: "Nhìn đêm"
+  haste: "Đào nhanh"
+  saturation: "No lâu"

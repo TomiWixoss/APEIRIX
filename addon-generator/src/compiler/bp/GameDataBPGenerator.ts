@@ -77,13 +77,13 @@ export class GameDataBPGenerator {
       }
     }
 
-    // Collect wiki items from script-lang YAML files
-    const wikiItems = await WikiDataBPGenerator.generate(configDir, buildDir);
-    
     // Load lang data for resolving display names
     const language = config.language || 'vi_VN';
     langLoader.setLanguage(language);
     const langData = langLoader.loadLanguage(configDir, language);
+
+    // Collect wiki items from entity configs + wiki descriptions
+    const wikiItems = await WikiDataBPGenerator.generate(config, configDir, buildDir, language);
     
     // Collect block info for DisplayHandler
     // ONLY blocks with explicit displayType in YAML will be included
