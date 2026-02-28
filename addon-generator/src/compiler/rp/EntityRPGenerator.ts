@@ -1,5 +1,6 @@
-import path from 'path';
+﻿import path from 'path';
 import { FileManager } from '../../core/FileManager.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Entity RP Generator
@@ -14,7 +15,7 @@ export class EntityRPGenerator {
       return 0;
     }
 
-    console.log(`  🎨 Generating ${entities.length} entity clients...`);
+    Logger.log(`  🎨 Generating ${entities.length} entity clients...`);
     
     let count = 0;
 
@@ -23,7 +24,7 @@ export class EntityRPGenerator {
         this.generateEntityClient(entity, rpPath);
         count++;
       } catch (error) {
-        console.error(`  ❌ Error generating entity client ${entity.id}:`, error);
+        Logger.error(`  ❌ Error generating entity client ${entity.id}: ${error}`);
       }
     }
 
@@ -101,6 +102,6 @@ export class EntityRPGenerator {
 
     const outputPath = path.join(rpPath, `entity/${entity.id}.json`);
     FileManager.writeJSON(outputPath, clientData);
-    console.log(`  ✅ Đã tạo: RP/entity/${entity.id}.json`);
+    Logger.log(`  ✅ Đã tạo: RP/entity/${entity.id}.json`);
   }
 }

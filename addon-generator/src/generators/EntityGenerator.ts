@@ -1,7 +1,8 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { Validator } from '../core/Validator.js';
 import { SpawnRuleGenerator } from './SpawnRuleGenerator.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface EntityConfig {
   id: string;
@@ -380,7 +381,7 @@ export class EntityGenerator {
 
     const outputPath = join(this.projectRoot, `entities/${config.id}.json`);
     FileManager.writeJSON(outputPath, entityData);
-    console.log(`✅ Đã tạo: BP/entities/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/entities/${config.id}.json`);
   }
 
   /**
@@ -395,7 +396,7 @@ export class EntityGenerator {
 
     const outputPath = join(this.projectRoot, `loot_tables/entities/${config.id}.json`);
     FileManager.writeJSON(outputPath, lootData);
-    console.log(`✅ Đã tạo: BP/loot_tables/entities/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/loot_tables/entities/${config.id}.json`);
   }
 
   /**

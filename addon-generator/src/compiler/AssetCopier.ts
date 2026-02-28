@@ -1,6 +1,7 @@
-import path from 'path';
+﻿import path from 'path';
 import { copyFileSync, existsSync, mkdirSync } from 'fs';
 import { PathResolver } from '../utils/PathResolver.js';
+import { Logger } from '../utils/Logger.js';
 
 export interface AssetConfig {
   configPath: string;
@@ -45,7 +46,7 @@ export class AssetCopier {
    * Copy all assets from config
    */
   static async copy(config: AssetConfig, outputDir: string): Promise<void> {
-    console.log('\n📦 Copying assets...');
+    Logger.log('\n📦 Copying assets...');
 
     // Copy pack icons
     if (config.icons?.bp) {
@@ -179,7 +180,7 @@ export class AssetCopier {
       }
     }
 
-    console.log('✓ Assets copied successfully');
+    Logger.log('✓ Assets copied successfully');
   }
 
   /**
@@ -189,7 +190,7 @@ export class AssetCopier {
     const sourcePath = PathResolver.resolveTexture(configPath, iconPath);
     
     if (!existsSync(sourcePath)) {
-      console.warn(`⚠ Pack icon not found: ${sourcePath}`);
+      Logger.warn(`⚠ Pack icon not found: ${sourcePath}`);
       return;
     }
 
@@ -198,9 +199,9 @@ export class AssetCopier {
     
     try {
       copyFileSync(sourcePath, destPath);
-      console.log(`  ✓ Copied pack icon: ${path.basename(iconPath)}`);
+      Logger.log(`  ✓ Copied pack icon: ${path.basename(iconPath)}`);
     } catch (error) {
-      console.error(`  ✗ Failed to copy pack icon: ${error}`);
+      Logger.error(`  ✗ Failed to copy pack icon: ${error}`);
     }
   }
 
@@ -211,9 +212,9 @@ export class AssetCopier {
     const sourcePath = PathResolver.resolveTexture(configPath, texturePath);
     
     if (!existsSync(sourcePath)) {
-      console.warn(`⚠ Texture not found: ${sourcePath}`);
-      console.warn(`  Config path: ${configPath}`);
-      console.warn(`  Texture path: ${texturePath}`);
+      Logger.warn(`⚠ Texture not found: ${sourcePath}`);
+      Logger.warn(`  Config path: ${configPath}`);
+      Logger.warn(`  Texture path: ${texturePath}`);
       return;
     }
 
@@ -223,7 +224,7 @@ export class AssetCopier {
     try {
       copyFileSync(sourcePath, destPath);
     } catch (error) {
-      console.error(`  ✗ Failed to copy texture ${destFilename}: ${error}`);
+      Logger.error(`  ✗ Failed to copy texture ${destFilename}: ${error}`);
     }
   }
 
@@ -234,9 +235,9 @@ export class AssetCopier {
     const sourcePath = PathResolver.resolveTexture(configPath, texturePath);
     
     if (!existsSync(sourcePath)) {
-      console.warn(`⚠ Texture not found: ${sourcePath}`);
-      console.warn(`  Config path: ${configPath}`);
-      console.warn(`  Texture path: ${texturePath}`);
+      Logger.warn(`⚠ Texture not found: ${sourcePath}`);
+      Logger.warn(`  Config path: ${configPath}`);
+      Logger.warn(`  Texture path: ${texturePath}`);
       return;
     }
 
@@ -246,7 +247,7 @@ export class AssetCopier {
     try {
       copyFileSync(sourcePath, destPath);
     } catch (error) {
-      console.error(`  ✗ Failed to copy texture ${path.basename(texturePath)}: ${error}`);
+      Logger.error(`  ✗ Failed to copy texture ${path.basename(texturePath)}: ${error}`);
     }
   }
 
@@ -274,9 +275,9 @@ export class AssetCopier {
     const sourcePath = PathResolver.resolveTexture(configPath, layerPath);
     
     if (!existsSync(sourcePath)) {
-      console.warn(`⚠ Armor layer texture not found: ${sourcePath}`);
-      console.warn(`  Config path: ${configPath}`);
-      console.warn(`  Texture path: ${layerPath}`);
+      Logger.warn(`⚠ Armor layer texture not found: ${sourcePath}`);
+      Logger.warn(`  Config path: ${configPath}`);
+      Logger.warn(`  Texture path: ${layerPath}`);
       return;
     }
 
@@ -295,7 +296,7 @@ export class AssetCopier {
     try {
       copyFileSync(sourcePath, destPath);
     } catch (error) {
-      console.error(`  ✗ Failed to copy armor layer texture ${filename}: ${error}`);
+      Logger.error(`  ✗ Failed to copy armor layer texture ${filename}: ${error}`);
     }
   }
 
@@ -306,9 +307,9 @@ export class AssetCopier {
     const sourcePath = PathResolver.resolveTexture(configPath, assetPath);
     
     if (!existsSync(sourcePath)) {
-      console.warn(`⚠ Entity asset not found: ${sourcePath}`);
-      console.warn(`  Config path: ${configPath}`);
-      console.warn(`  Asset path: ${assetPath}`);
+      Logger.warn(`⚠ Entity asset not found: ${sourcePath}`);
+      Logger.warn(`  Config path: ${configPath}`);
+      Logger.warn(`  Asset path: ${assetPath}`);
       return;
     }
 
@@ -318,7 +319,7 @@ export class AssetCopier {
     try {
       copyFileSync(sourcePath, destPath);
     } catch (error) {
-      console.error(`  ✗ Failed to copy entity asset ${path.basename(assetPath)}: ${error}`);
+      Logger.error(`  ✗ Failed to copy entity asset ${path.basename(assetPath)}: ${error}`);
     }
   }
 

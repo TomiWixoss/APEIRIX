@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 /**
  * Recipe Generator - HOÀN TOÀN ĐỘNG từ CLI
@@ -84,13 +85,14 @@ export class RecipeGenerator {
     
     // Validate filename không rỗng
     if (!filename || filename.trim() === '') {
-      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      Logger.error(`Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
       return;
     }
     
     const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipeData);
-    console.log(`✅ Đã tạo shaped recipe: ${config.id}`);
+    Logger.log(`✅ Đã tạo shaped recipe: ${config.id}`);
+    Logger.incrementFileCount();
   }
 
   /**
@@ -126,13 +128,14 @@ export class RecipeGenerator {
     
     // Validate filename không rỗng
     if (!filename || filename.trim() === '') {
-      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      Logger.error(`Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
       return;
     }
     
     const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipeData);
-    console.log(`✅ Đã tạo shapeless recipe: ${config.id}`);
+    Logger.log(`✅ Đã tạo shapeless recipe: ${config.id}`);
+    Logger.incrementFileCount();
   }
 
   /**
@@ -156,13 +159,14 @@ export class RecipeGenerator {
     
     // Validate filename không rỗng
     if (!filename || filename.trim() === '') {
-      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      Logger.error(`Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
       return;
     }
     
     const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipe);
-    console.log(`✅ Đã tạo smelting recipe: ${config.id}`);
+    Logger.log(`✅ Đã tạo smelting recipe: ${config.id}`);
+    Logger.incrementFileCount();
   }
 
   /**
@@ -188,13 +192,13 @@ export class RecipeGenerator {
     
     // Validate filename không rỗng
     if (!filename || filename.trim() === '') {
-      console.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
+      Logger.error(`❌ Recipe ID không hợp lệ: "${config.id}" -> filename rỗng`);
       return;
     }
     
     const path = join(this.projectRoot, `recipes/${filename}.json`);
     FileManager.writeJSON(path, recipe);
-    console.log(`✅ Đã tạo smithing_transform recipe: ${config.id}`);
+    Logger.log(`✅ Đã tạo smithing_transform recipe: ${config.id}`);
   }
 
   private formatItem(item: string): string {

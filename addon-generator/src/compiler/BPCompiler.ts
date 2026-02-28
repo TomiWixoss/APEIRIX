@@ -14,6 +14,7 @@ import { LanguageConfigBPGenerator } from './bp/LanguageConfigBPGenerator.js';
 import { ScriptLangBPGenerator } from './bp/ScriptLangBPGenerator.js';
 import { EntityBPGenerator } from './bp/EntityBPGenerator.js';
 import { StructureBPGenerator } from './bp/StructureBPGenerator.js';
+import { Logger } from '../utils/Logger.js';
 
 export interface BPConfig {
   addon?: {
@@ -40,7 +41,7 @@ export class BPCompiler {
    * Compile complete Behavior Pack
    */
   static async compile(config: BPConfig, outputDir: string, configDir: string = ''): Promise<void> {
-    console.log('\n🔨 Compiling Behavior Pack...');
+    Logger.log('\n🔨 Compiling Behavior Pack...');
     
     const bpPath = path.join(outputDir, 'BP');
     const rpPath = path.join(outputDir, 'RP');
@@ -89,13 +90,13 @@ export class BPCompiler {
     // Generate entities
     if (config.entities?.length) {
       const entityCount = await EntityBPGenerator.generate(config.entities, bpPath);
-      console.log(`  ✓ Generated ${entityCount} entities`);
+      Logger.log(`  ✓ Generated ${entityCount} entities`);
     }
 
     // Generate structures
     if (config.structures?.length) {
       const structureCount = await StructureBPGenerator.generate(config.structures, bpPath, configDir);
-      console.log(`  ✓ Generated ${structureCount} structures`);
+      Logger.log(`  ✓ Generated ${structureCount} structures`);
     }
 
     // Generate recipes
@@ -119,6 +120,6 @@ export class BPCompiler {
     // Generate Script Lang files from YAML (both vi_VN and en_US)
     await ScriptLangBPGenerator.generate(configDir, outputDir, config);
 
-    console.log(`✓ BP compiled: ${stats.items} items, ${stats.blocks} blocks, ${stats.recipes} recipes`);
+    Logger.log(`✓ BP compiled: ${stats.items} items, ${stats.blocks} blocks, ${stats.recipes} recipes`);
   }
 }

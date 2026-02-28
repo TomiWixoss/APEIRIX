@@ -1,6 +1,7 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { PickaxeScanner } from '../core/PickaxeScanner.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface BlockConfig {
   id: string;
@@ -160,7 +161,7 @@ export class BlockGenerator {
 
     const outputPath = join(this.projectRoot, `blocks/${config.id}.json`);
     FileManager.writeJSON(outputPath, blockData);
-    console.log(`✅ Đã tạo: BP/blocks/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/blocks/${config.id}.json`);
 
     // Tạo loot table
     this.generateLootTable(config);
@@ -218,7 +219,7 @@ export class BlockGenerator {
 
     const outputPath = join(this.projectRoot, `loot_tables/blocks/${config.id}.json`);
     FileManager.writeJSON(outputPath, lootTable);
-    console.log(`✅ Đã tạo: BP/loot_tables/blocks/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/loot_tables/blocks/${config.id}.json`);
   }
 
   updateTerrainTextureRegistry(blockId: string): void {
@@ -236,9 +237,9 @@ export class BlockGenerator {
         textures: `textures/blocks/${blockId}`
       };
       FileManager.writeJSON(filePath, data);
-      console.log(`✅ Đã thêm "${blockId}" vào terrain_texture.json`);
+      Logger.log(`✅ Đã thêm "${blockId}" vào terrain_texture.json`);
     } else {
-      console.log(`⚠️  Texture "${blockId}" đã tồn tại trong terrain_texture.json`);
+      Logger.log(`⚠️  Texture "${blockId}" đã tồn tại trong terrain_texture.json`);
     }
   }
 }

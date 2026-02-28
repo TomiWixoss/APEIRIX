@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface RecipeTestConfig {
   id: string;
@@ -75,7 +76,7 @@ export class RecipeTestFunctionGenerator {
     const content = commands.join('\n') + '\n';
     FileManager.writeText(functionPath, content);
     
-    console.log(`✅ Đã tạo recipe test function: BP/functions/tests/recipes/${config.id}.mcfunction`);
+    Logger.log(`✅ Đã tạo recipe test function: BP/functions/tests/recipes/${config.id}.mcfunction`);
   }
 
   /**
@@ -137,7 +138,7 @@ export class RecipeTestFunctionGenerator {
     const content = commands.join('\n') + '\n';
     FileManager.writeText(functionPath, content);
     
-    console.log(`✅ Đã tạo bulk recipe test function: BP/functions/tests/recipes/${fileName}.mcfunction`);
+    Logger.log(`✅ Đã tạo bulk recipe test function: BP/functions/tests/recipes/${fileName}.mcfunction`);
   }
 
   /**

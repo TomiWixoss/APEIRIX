@@ -1,5 +1,6 @@
-import path from 'path';
+﻿import path from 'path';
 import { ArmorGenerator } from '../../generators/ArmorGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP armor
@@ -30,7 +31,7 @@ export class ArmorBPGenerator {
         });
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate armor ${armorPiece.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate armor ${armorPiece.id}: ${error}`);
       }
     }
     

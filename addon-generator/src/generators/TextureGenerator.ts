@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 /**
  * Generator cho Texture - copy texture và update registry
@@ -18,7 +19,7 @@ export class TextureGenerator {
     const displayPath = itemId.includes('/')
       ? `RP/${type}/${itemId}.png`
       : `RP/textures/${type}/${itemId}.png`;
-    console.log(`✅ Đã copy texture: ${displayPath}`);
+    Logger.log(`✅ Đã copy texture: ${displayPath}`);
   }
 
   updateItemTextureRegistry(itemId: string): void {
@@ -34,9 +35,9 @@ export class TextureGenerator {
         textures: `textures/items/${itemId}`
       };
       FileManager.writeJSON(filePath, data);
-      console.log(`✅ Đã thêm "${itemId}" vào item_texture.json`);
+      Logger.log(`✅ Đã thêm "${itemId}" vào item_texture.json`);
     } else {
-      console.log(`⚠️  Texture "${itemId}" đã tồn tại trong item_texture.json`);
+      Logger.log(`⚠️  Texture "${itemId}" đã tồn tại trong item_texture.json`);
     }
   }
 
@@ -98,7 +99,7 @@ export class TextureGenerator {
     }
 
     FileManager.writeJSON(filePath, data);
-    console.log(`✅ Đã tạo item_texture.json với ${items.length} textures`);
+    Logger.log(`✅ Đã tạo item_texture.json với ${items.length} textures`);
   }
 
   /**
@@ -121,6 +122,6 @@ export class TextureGenerator {
     }
 
     FileManager.writeJSON(filePath, data);
-    console.log(`✅ Đã tạo terrain_texture.json với ${blocks.length} textures`);
+    Logger.log(`✅ Đã tạo terrain_texture.json với ${blocks.length} textures`);
   }
 }

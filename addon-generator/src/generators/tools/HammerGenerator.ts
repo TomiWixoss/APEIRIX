@@ -1,6 +1,7 @@
 import { FileManager } from '../../core/FileManager.js';
 import { join } from 'path';
 import { ToolRegistryHelper } from './ToolRegistryHelper.js';
+import { Logger } from '../../utils/Logger.js';
 
 export interface HammerConfig {
   id: string;
@@ -113,7 +114,8 @@ export class HammerGenerator {
 
     const outputPath = join(this.projectRoot, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
-    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/items/${config.id}.json`);
+    Logger.incrementFileCount();
 
     // Auto-registration disabled - using GeneratedGameData.ts instead
     // ToolRegistryHelper.addToGameData(this.projectRoot, config.id, 'hammer', durability);

@@ -1,6 +1,7 @@
-import { readFileSync, writeFileSync } from 'fs';
+﻿import { readFileSync, writeFileSync } from 'fs';
 import { join } from 'path';
 import { FoodConfig } from './FoodGenerator.js';
+import { Logger } from '../utils/Logger.js';
 
 /**
  * Helper để tự động thêm food vào scripts/data/GameData.ts
@@ -23,14 +24,14 @@ export class FoodRegistryHelper {
       const registerFoodsRegex = /private static registerFoods\(\): void \{[\s\S]*?\/\/ Thêm food mới ở đây\.\.\./;
       
       if (!registerFoodsRegex.test(content)) {
-        console.warn('⚠️  Không tìm thấy registerFoods() method trong GameData.ts');
+        Logger.warn('⚠️  Không tìm thấy registerFoods() method trong GameData.ts');
         return;
       }
       
       // Check if food already exists
       const foodId = `apeirix:${config.id}`;
       if (content.includes(`itemId: "${foodId}"`)) {
-        console.log(`ℹ️  Food ${foodId} đã tồn tại trong GameData.ts`);
+        Logger.log(`ℹ️  Food ${foodId} đã tồn tại trong GameData.ts`);
         return;
       }
       
@@ -41,10 +42,10 @@ export class FoodRegistryHelper {
       );
       
       writeFileSync(gameDataPath, content, 'utf-8');
-      console.log(`✅ Đã thêm ${foodId} vào GameData.ts`);
+      Logger.log(`✅ Đã thêm ${foodId} vào GameData.ts`);
       
     } catch (error) {
-      console.error('❌ Lỗi khi cập nhật GameData.ts:', error);
+      Logger.error(`❌ Lỗi khi cập nhật GameData.ts: ${error}`);
     }
   }
 
@@ -101,10 +102,10 @@ export class FoodRegistryHelper {
       content = content.replace(registrationRegex, '');
       
       writeFileSync(gameDataPath, content, 'utf-8');
-      console.log(`✅ Đã xóa ${fullId} khỏi GameData.ts`);
+      Logger.log(`✅ Đã xóa ${fullId} khỏi GameData.ts`);
       
     } catch (error) {
-      console.error('❌ Lỗi khi xóa khỏi GameData.ts:', error);
+      Logger.error(`❌ Lỗi khi xóa khỏi GameData.ts: ${error}`);
     }
   }
 }

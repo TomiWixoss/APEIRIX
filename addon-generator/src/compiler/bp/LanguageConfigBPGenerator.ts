@@ -1,5 +1,6 @@
-import path from 'path';
+﻿import path from 'path';
 import { mkdirSync, existsSync, writeFileSync } from 'fs';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate language config file for scripts
@@ -30,6 +31,6 @@ export const GENERATED_LANGUAGE = '${language}';
     const filePath = path.join(scriptsDataDir, 'GeneratedLanguage.ts');
     writeFileSync(filePath, content, 'utf-8');
     
-    console.log(`✅ Đã tạo: scripts/data/GeneratedLanguage.ts (language: ${language})`);
+    Logger.log(`✅ Đã tạo: scripts/data/GeneratedLanguage.ts (language: ${language})`);
   }
 }

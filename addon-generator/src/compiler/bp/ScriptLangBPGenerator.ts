@@ -1,6 +1,7 @@
-import path from 'path';
+﻿import path from 'path';
 import { mkdirSync, existsSync, writeFileSync, readFileSync } from 'fs';
 import * as yaml from 'js-yaml';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate TypeScript lang files for scripts from YAML
@@ -36,7 +37,7 @@ export class ScriptLangBPGenerator {
         const uiData = yaml.load(uiContent) as Record<string, any>;
         langData = { ...langData, ...uiData };
       } else {
-        console.warn(`[ScriptLangBPGenerator] UI lang file not found: ${uiYamlPath}`);
+        Logger.warn(`[ScriptLangBPGenerator] UI lang file not found: ${uiYamlPath}`);
       }
 
       // Load Wiki YAML
@@ -74,7 +75,7 @@ export class ScriptLangBPGenerator {
       }
 
       if (Object.keys(langData).length === 0) {
-        console.warn(`[ScriptLangBPGenerator] No lang data found for ${lang}`);
+        Logger.warn(`[ScriptLangBPGenerator] No lang data found for ${lang}`);
         continue;
       }
 
@@ -85,7 +86,7 @@ export class ScriptLangBPGenerator {
       const outputPath = path.join(scriptsLangDir, `${lang}.ts`);
       writeFileSync(outputPath, tsContent, 'utf-8');
       
-      console.log(`✅ Đã tạo: scripts/lang/${lang}.ts`);
+      Logger.log(`✅ Đã tạo: scripts/lang/${lang}.ts`);
     }
   }
 

@@ -1,6 +1,7 @@
 import { randomUUID } from 'crypto';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import path from 'path';
+import { Logger } from './Logger.js';
 
 interface UUIDCache {
   version: string;
@@ -64,7 +65,7 @@ export class UUIDGenerator {
       const content = readFileSync(this.cacheFile, 'utf-8');
       return JSON.parse(content);
     } catch (error) {
-      console.warn('⚠️  Không thể đọc UUID cache, sẽ tạo mới');
+      Logger.log('⚠️  Không thể đọc UUID cache, sẽ tạo mới');
       return null;
     }
   }
@@ -76,7 +77,7 @@ export class UUIDGenerator {
     try {
       writeFileSync(this.cacheFile, JSON.stringify(cache, null, 2), 'utf-8');
     } catch (error) {
-      console.warn('⚠️  Không thể lưu UUID cache');
+      Logger.warn('Không thể lưu UUID cache');
     }
   }
 
@@ -97,12 +98,12 @@ export class UUIDGenerator {
 
     // Nếu version giống cache → dùng UUID cũ
     if (cache && cache.version === versionString) {
-      console.log(`📌 Dùng UUID cache cho version ${versionString} (dễ debug)`);
+      Logger.log(`📌 Dùng UUID cache cho version ${versionString} (dễ debug)`);
       return cache.uuids;
     }
 
     // Version khác → generate UUID mới
-    console.log(`🆕 Generate UUID mới cho version ${versionString}`);
+    Logger.log(`🆕 Generate UUID mới cho version ${versionString}`);
     const newUUIDs = {
       bp: this.generate(),
       rp: this.generate(),

@@ -1,4 +1,5 @@
-import { RecipeGenerator } from '../../generators/RecipeGenerator.js';
+﻿import { RecipeGenerator } from '../../generators/RecipeGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP recipes
@@ -53,12 +54,12 @@ export class RecipeBPGenerator {
             });
             break;
           default:
-            console.warn(`  ⚠ Unknown recipe type: ${recipe.type}`);
+            Logger.warn(`  ⚠ Unknown recipe type: ${recipe.type}`);
             continue;
         }
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate recipe ${recipe.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate recipe ${recipe.id}: ${error}`);
       }
     }
 

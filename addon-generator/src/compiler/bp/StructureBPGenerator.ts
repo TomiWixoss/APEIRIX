@@ -1,7 +1,8 @@
-import path from 'path';
+﻿import path from 'path';
 import { copyFileSync, existsSync } from 'fs';
 import type { StructureConfig } from '../../core/types/ConfigTypes.js';
 import { StructureGenerator } from '../../generators/StructureGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate structure files for BP
@@ -11,12 +12,12 @@ export class StructureBPGenerator {
    * Generate structure files
    */
   static async generate(structures: StructureConfig[], bpPath: string, configDir: string): Promise<number> {
-    console.log('\n🏗️  Generating structures...');
-    console.log(`  📁 Config dir: ${configDir}`);
-    console.log(`  📦 Structures count: ${structures?.length || 0}`);
+    Logger.log('\n🏗️  Generating structures...');
+    Logger.log(`  📁 Config dir: ${configDir}`);
+    Logger.log(`  📦 Structures count: ${structures?.length || 0}`);
     
     if (!structures || structures.length === 0) {
-      console.log('  ⓘ No structures to generate');
+      Logger.log('  ⓘ No structures to generate');
       return 0;
     }
     
@@ -37,11 +38,11 @@ export class StructureBPGenerator {
         
         const structureSourcePath = path.resolve(structureConfigDir, filePath);
         
-        console.log(`  📁 Resolving: ${structure.file} from ${structureConfigDir}`);
-        console.log(`  📄 Full path: ${structureSourcePath}`);
+        Logger.log(`  📁 Resolving: ${structure.file} from ${structureConfigDir}`);
+        Logger.log(`  📄 Full path: ${structureSourcePath}`);
         
         if (!existsSync(structureSourcePath)) {
-          console.warn(`  ⚠️  Structure file not found: ${structureSourcePath}`);
+          Logger.warn(`  ⚠️  Structure file not found: ${structureSourcePath}`);
           continue;
         }
         
@@ -59,10 +60,10 @@ export class StructureBPGenerator {
         const featureRulePath = path.join(bpPath, 'feature_rules', `${structure.id}_placement.json`);
         StructureGenerator.generateFeatureRule(structure, featureRulePath);
         
-        console.log(`  ✓ ${structure.id}.mcstructure + feature + rule`);
+        Logger.log(`  ✓ ${structure.id}.mcstructure + feature + rule`);
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate structure ${structure.id}:`, error);
+        Logger.error(`  ✗ Failed to generate structure ${structure.id}: ${error}`);
       }
     }
     

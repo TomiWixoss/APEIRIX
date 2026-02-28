@@ -1,6 +1,7 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { Validator } from '../core/Validator.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface ItemConfig {
   id: string;
@@ -54,6 +55,6 @@ export class ItemGenerator {
 
     const outputPath = join(this.projectRoot, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
-    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
 }

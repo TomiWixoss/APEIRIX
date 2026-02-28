@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface ToolData {
   id: string;
@@ -83,7 +84,7 @@ export class GameDataGenerator {
     const displayPath = customPath 
       ? `${customPath}/GeneratedGameData.ts`
       : 'scripts/data/GeneratedGameData.ts';
-    console.log(`✅ Đã tạo: ${displayPath}`);
+    Logger.log(`✅ Đã tạo: ${displayPath}`);
   }
 
   /**

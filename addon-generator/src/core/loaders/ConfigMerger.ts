@@ -1,5 +1,6 @@
-import { ContentConfig } from '../types/ConfigTypes.js';
+﻿import { ContentConfig } from '../types/ConfigTypes.js';
 import { EntityNormalizer } from './EntityNormalizer.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Merge multiple configs together
@@ -29,7 +30,7 @@ export class ConfigMerger {
           // Entity already exists - merge properties
           const existingEntity = combined.find(e => e.id === importedEntity.id);
           if (existingEntity) {
-            // console.log(`[ConfigMerger] Merging ${importedEntity.id}: existing has name=${!!existingEntity.name}, imported has name=${!!importedEntity.name}`);
+            // Logger.log(`[ConfigMerger] Merging ${importedEntity.id}: existing has name=${!!existingEntity.name}, imported has name=${!!importedEntity.name}`);
             // Merge properties (imported properties override existing ones)
             // But only merge non-undefined properties to avoid overwriting with undefined
             for (const key in importedEntity) {
@@ -40,7 +41,7 @@ export class ConfigMerger {
           }
         } else {
           // New entity - add to array
-          // console.log(`[ConfigMerger] Adding new entity ${importedEntity.id}: has name=${!!importedEntity.name}`);
+          // Logger.log(`[ConfigMerger] Adding new entity ${importedEntity.id}: has name=${!!importedEntity.name}`);
           combined.push(importedEntity);
           seenIds.add(importedEntity.id);
         }

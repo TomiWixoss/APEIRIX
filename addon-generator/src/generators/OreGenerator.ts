@@ -1,6 +1,7 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { PickaxeScanner } from '../core/PickaxeScanner.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface OreConfig {
   id: string;
@@ -107,7 +108,7 @@ export class OreGenerator {
 
     const blockPath = join(this.projectRoot, `blocks/${id}.json`);
     FileManager.writeJSON(blockPath, blockData);
-    console.log(`✅ Đã tạo: BP/blocks/${id}.json`);
+    Logger.log(`✅ Đã tạo: BP/blocks/${id}.json`);
 
     // Tạo loot table
     this.generateOreLootTable(config, id);
@@ -177,7 +178,7 @@ export class OreGenerator {
 
     const lootPath = join(this.projectRoot, `loot_tables/blocks/${oreId}.json`);
     FileManager.writeJSON(lootPath, lootTable);
-    console.log(`✅ Đã tạo: BP/loot_tables/blocks/${oreId}.json`);
+    Logger.log(`✅ Đã tạo: BP/loot_tables/blocks/${oreId}.json`);
   }
 
   private generateWorldGen(config: OreConfig): void {
@@ -224,7 +225,7 @@ export class OreGenerator {
 
     const featurePath = join(this.projectRoot, `features/${featureId}.json`);
     FileManager.writeJSON(featurePath, feature);
-    console.log(`✅ Đã tạo: BP/features/${featureId}.json`);
+    Logger.log(`✅ Đã tạo: BP/features/${featureId}.json`);
 
     // Feature Rule
     const minY = config.minY || 0;
@@ -261,7 +262,7 @@ export class OreGenerator {
 
     const rulePath = join(this.projectRoot, `feature_rules/${ruleId}.json`);
     FileManager.writeJSON(rulePath, featureRule);
-    console.log(`✅ Đã tạo: BP/feature_rules/${ruleId}.json`);
+    Logger.log(`✅ Đã tạo: BP/feature_rules/${ruleId}.json`);
   }
 
   private addToFortuneRegistry(config: OreConfig): void {
@@ -269,7 +270,7 @@ export class OreGenerator {
     const content = FileManager.readText(registryPath);
     
     if (!content) {
-      console.log(`⚠️  Không tìm thấy OreRegistry.ts`);
+      Logger.log(`⚠️  Không tìm thấy OreRegistry.ts`);
       return;
     }
 
@@ -286,7 +287,7 @@ export class OreGenerator {
     const insertIndex = content.indexOf(insertMarker);
     
     if (insertIndex === -1) {
-      console.log(`⚠️  Không tìm thấy registerOres() trong OreRegistry.ts`);
+      Logger.log(`⚠️  Không tìm thấy registerOres() trong OreRegistry.ts`);
       return;
     }
 
@@ -294,7 +295,7 @@ export class OreGenerator {
     const newContent = content.slice(0, insertPos) + registerCode + '\n' + content.slice(insertPos);
     
     FileManager.writeText(registryPath, newContent);
-    console.log(`✅ Đã thêm "${config.id}" vào OreRegistry.ts`);
+    Logger.log(`✅ Đã thêm "${config.id}" vào OreRegistry.ts`);
   }
 
   updateTerrainTextureRegistry(oreId: string, hasDeepslate: boolean): void {
@@ -320,6 +321,6 @@ export class OreGenerator {
     }
 
     FileManager.writeJSON(filePath, data);
-    console.log(`✅ Đã cập nhật terrain_texture.json`);
+    Logger.log(`✅ Đã cập nhật terrain_texture.json`);
   }
 }

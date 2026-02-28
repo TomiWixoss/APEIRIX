@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface TestFunctionConfig {
   id: string;
@@ -30,7 +31,7 @@ export class TestFunctionGenerator {
       // Filter out non-string commands (YAML parsing errors)
       const validCommands = config.commands.filter(cmd => {
         if (typeof cmd !== 'string') {
-          console.warn(`⚠️  Skipping non-string command in ${config.id}:`, cmd);
+          Logger.warn(`Skipping non-string command in ${config.id}: ${JSON.stringify(cmd)}`);
           return false;
         }
         return true;
@@ -48,7 +49,7 @@ export class TestFunctionGenerator {
     const outputPath = join(this.projectRoot, `functions/tests/${category}/${config.id}.mcfunction`);
     
     FileManager.writeText(outputPath, content);
-    console.log(`✅ Đã tạo test function: BP/functions/tests/${category}/${config.id}.mcfunction`);
+    Logger.log(`✅ Đã tạo test function: BP/functions/tests/${category}/${config.id}.mcfunction`);
   }
 
   /**
@@ -76,7 +77,7 @@ export class TestFunctionGenerator {
     const outputPath = join(this.projectRoot, `functions/tests/run_all_${category}.mcfunction`);
     
     FileManager.writeText(outputPath, content);
-    console.log(`✅ Đã tạo master test: BP/functions/tests/run_all_${category}.mcfunction`);
+    Logger.log(`✅ Đã tạo master test: BP/functions/tests/run_all_${category}.mcfunction`);
   }
 
   /**
@@ -108,7 +109,7 @@ export class TestFunctionGenerator {
       const filteredCommands = entity.commands.filter(cmd => {
         // Skip non-string commands (YAML parsing errors)
         if (typeof cmd !== 'string') {
-          console.warn(`⚠️  Skipping non-string command in ${entity.id}:`, cmd);
+          Logger.warn(`⚠️  Skipping non-string command in ${entity.id}: ${JSON.stringify(cmd)}`);
           return false;
         }
         const trimmed = cmd.trim().toLowerCase();
@@ -127,6 +128,6 @@ export class TestFunctionGenerator {
     const outputPath = join(this.projectRoot, `functions/tests/${category}_all.mcfunction`);
     
     FileManager.writeText(outputPath, content);
-    console.log(`✅ Đã tạo group test: BP/functions/tests/${category}_all.mcfunction`);
+    Logger.log(`✅ Đã tạo group test: BP/functions/tests/${category}_all.mcfunction`);
   }
 }

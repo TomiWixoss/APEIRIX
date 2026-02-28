@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface FoodConfig {
   id: string;
@@ -89,6 +90,6 @@ export class FoodGenerator {
     // Effects sẽ được tự động thêm vào scripts/data/GameData.ts
 
     FileManager.writeJSON(itemPath, itemData);
-    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
 }

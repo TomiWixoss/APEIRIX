@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface FlipbookTextureConfig {
   flipbook_texture: string;
@@ -27,13 +28,13 @@ export class FlipbookGenerator {
    */
   generate(outputPath: string): void {
     if (this.flipbookTextures.length === 0) {
-      console.log('⚠️  No flipbook textures to generate');
+      Logger.log('⚠️  No flipbook textures to generate');
       return;
     }
 
     const filePath = join(outputPath, 'RP/textures/flipbook_textures.json');
     FileManager.writeJSON(filePath, this.flipbookTextures);
-    console.log(`✅ Đã tạo flipbook_textures.json với ${this.flipbookTextures.length} animations`);
+    Logger.log(`✅ Đã tạo flipbook_textures.json với ${this.flipbookTextures.length} animations`);
   }
 
   /**

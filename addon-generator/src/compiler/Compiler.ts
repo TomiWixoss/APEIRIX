@@ -8,6 +8,7 @@ import { RPCompiler } from './RPCompiler.js';
 import { AssetCopier } from './AssetCopier.js';
 import { UUIDGenerator } from '../utils/UUIDGenerator.js';
 import { langLoader } from '../core/loaders/LangLoader.js';
+import { Logger } from '../utils/Logger.js';
 
 export interface CompileOptions {
   config?: string;
@@ -49,6 +50,10 @@ export class Compiler {
     this.configPath = options.config || 'configs/addon.yaml';
     this.outputDir = options.output || 'build';
     this.verbose = options.verbose || false;
+    
+    // Configure logger
+    Logger.setVerbose(this.verbose);
+    Logger.reset();
   }
 
   /**
@@ -58,9 +63,9 @@ export class Compiler {
     const startTime = Date.now();
 
     try {
-      console.log('🚀 APEIRIX Addon Compiler\n');
-      console.log(`📄 Config: ${this.configPath}`);
-      console.log(`📁 Output: ${this.outputDir}\n`);
+      Logger.log('🚀 APEIRIX Addon Compiler\n');
+      Logger.log(`📄 Config: ${this.configPath}`);
+      Logger.log(`📁 Output: ${this.outputDir}\n`);
 
       // 1. Load config
       const config = await this.loadConfig();
@@ -103,10 +108,11 @@ export class Compiler {
       }, this.outputDir);
 
       // 8. Print summary
-      this.printSummary(startTime);
+      const duration = ((Date.now() - startTime) / 1000).toFixed(2);
+      Logger.printSummary(parseFloat(duration));
 
     } catch (error) {
-      console.error('\n❌ Compilation failed:', error);
+      Logger.error(`Compilation failed: ${error}`);
       throw error;
     }
   }
@@ -115,14 +121,14 @@ export class Compiler {
    * Load and merge config files
    */
   private async loadConfig(): Promise<AddonConfig> {
-    console.log('📖 Loading configuration...');
+    Logger.log('📖 Loading configuration...');
 
     if (!existsSync(this.configPath)) {
       throw new Error(`Config file not found: ${this.configPath}`);
     }
 
     const config = ConfigLoader.load(this.configPath);
-    console.log('✓ Configuration loaded\n');
+    Logger.log('✓ Configuration loaded\n');
 
     return config as AddonConfig;
   }
@@ -131,7 +137,7 @@ export class Compiler {
    * Validate configuration
    */
   private validateConfig(config: AddonConfig): void {
-    console.log('🔍 Validating configuration...');
+    Logger.log('🔍 Validating configuration...');
 
     // Basic validation
     if (!config.addon) {
@@ -170,18 +176,18 @@ export class Compiler {
       }
     }
 
-    console.log('✓ Configuration valid\n');
+    Logger.log('✓ Configuration valid\n');
   }
 
   /**
    * Clean output directory
    */
   private cleanOutput(): void {
-    console.log('🧹 Cleaning output directory...');
+    Logger.log('🧹 Cleaning output directory...');
 
     if (existsSync(this.outputDir)) {
       rmSync(this.outputDir, { recursive: true, force: true });
-      console.log('✓ Output directory cleaned\n');
+      Logger.log('✓ Output directory cleaned\n');
     }
   }
 
@@ -189,7 +195,7 @@ export class Compiler {
    * Generate manifest files
    */
   private async generateManifests(config: AddonConfig): Promise<void> {
-    console.log('📋 Generating manifests...');
+    Logger.log('📋 Generating manifests...');
 
     // Resolve description from lang if it starts with "lang:"
     let description = config.addon.description;
@@ -197,7 +203,7 @@ export class Compiler {
       const langKey = description.substring(5); // Remove "lang:" prefix
       const configDir = path.dirname(this.configPath);
       description = langLoader.get(langKey, configDir, description);
-      console.log(`[Compiler] Resolved description: ${langKey} -> ${description}`);
+      Logger.log(`[Compiler] Resolved description: ${langKey} -> ${description}`);
     }
 
     const metadata: AddonMetadata = {
@@ -216,22 +222,6 @@ export class Compiler {
     ManifestGenerator.generateBP(metadata, uuids, this.outputDir);
     ManifestGenerator.generateRP(metadata, uuids, this.outputDir);
 
-    console.log('✓ Manifests generated\n');
-  }
-
-  /**
-   * Print build summary
-   */
-  private printSummary(startTime: number): void {
-    const duration = ((Date.now() - startTime) / 1000).toFixed(2);
-
-    console.log('\n' + '='.repeat(50));
-    console.log('✅ Compilation completed successfully!');
-    console.log('='.repeat(50));
-    console.log(`\n📦 Output: ${path.resolve(this.outputDir)}`);
-    console.log(`⏱️  Build time: ${duration}s`);
-    console.log('\n📋 Next steps:');
-    console.log('   1. Run: regolith run');
-    console.log('   2. Test in game with /reload\n');
+    Logger.log('✓ Manifests generated\n');
   }
 }

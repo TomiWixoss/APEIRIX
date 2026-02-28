@@ -1,4 +1,5 @@
-import { OreGenerator } from '../../generators/OreGenerator.js';
+﻿import { OreGenerator } from '../../generators/OreGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP ores (blocks + world gen)
@@ -33,7 +34,7 @@ export class OreBPGenerator {
         generator.generate(oreConfig);
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate ore ${ore.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate ore ${ore.id}: ${error}`);
       }
     }
 

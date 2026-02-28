@@ -1,5 +1,6 @@
-import path from 'path';
+﻿import path from 'path';
 import { EntityGenerator } from '../../generators/EntityGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Entity BP Generator
@@ -14,7 +15,7 @@ export class EntityBPGenerator {
       return 0;
     }
 
-    console.log(`  📦 Generating ${entities.length} entities...`);
+    Logger.log(`  📦 Generating ${entities.length} entities...`);
     
     const generator = new EntityGenerator(bpPath);
     let count = 0;
@@ -26,7 +27,7 @@ export class EntityBPGenerator {
         generator.generateSpawnRules(entity);
         count++;
       } catch (error) {
-        console.error(`  ❌ Error generating entity ${entity.id}:`, error);
+        Logger.error(`  ❌ Error generating entity ${entity.id}: ${error}`);
       }
     }
 

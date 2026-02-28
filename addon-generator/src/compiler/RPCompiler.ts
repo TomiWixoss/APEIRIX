@@ -4,6 +4,7 @@ import { LangGenerator } from '../generators/LangGenerator.js';
 import { TextureGenerator } from '../generators/TextureGenerator.js';
 import { EntityRPGenerator } from './rp/EntityRPGenerator.js';
 import { FlipbookGenerator } from '../generators/FlipbookGenerator.js';
+import { Logger } from '../utils/Logger.js';
 
 export interface RPConfig {
   items?: any[];
@@ -25,7 +26,7 @@ export class RPCompiler {
    * Compile complete Resource Pack
    */
   static async compile(config: RPConfig, outputDir: string, configDir: string = ''): Promise<void> {
-    console.log('\n🎨 Compiling Resource Pack...');
+    Logger.log('\n🎨 Compiling Resource Pack...');
     
     const rpPath = path.join(outputDir, 'RP');
     
@@ -65,7 +66,7 @@ export class RPCompiler {
       await this.copyUIFiles(rpPath, configDir);
     }
 
-    console.log(`✓ RP compiled: ${stats.textures} textures, ${stats.attachables} attachables`);
+    Logger.log(`✓ RP compiled: ${stats.textures} textures, ${stats.attachables} attachables`);
   }
 
   /**
@@ -377,11 +378,11 @@ export class RPCompiler {
     
     // Check if UI source directories exist
     if (!existsSync(uiSourceDir)) {
-      console.log('  ⓘ No UI files found in configs/ui/, skipping UI copy');
+      Logger.log('  ⓘ No UI files found in configs/ui/, skipping UI copy');
       return;
     }
     
-    console.log('  📋 Copying JSON UI files...');
+    Logger.log('  📋 Copying JSON UI files...');
     
     // Copy UI JSON files
     this.copyDirectoryRecursive(uiSourceDir, uiDestDir);
@@ -392,7 +393,7 @@ export class RPCompiler {
       this.copyDirectoryRecursive(uiTexturesSourceDir, uiTexturesDestDir);
     }
     
-    console.log('  ✓ JSON UI files copied');
+    Logger.log('  ✓ JSON UI files copied');
   }
 
   /**

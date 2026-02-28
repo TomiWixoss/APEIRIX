@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface ArmorPieceConfig {
   id: string;
@@ -113,7 +114,7 @@ export class ArmorGenerator {
 
     const outputPath = join(this.bpPath, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
-    console.log(`✅ Đã tạo: BP/items/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: BP/items/${config.id}.json`);
   }
 
   private generateAttachable(config: ArmorPieceConfig): void {
@@ -155,7 +156,7 @@ export class ArmorGenerator {
 
     const outputPath = join(this.rpPath!, `attachables/${config.id}.json`);
     FileManager.writeJSON(outputPath, attachableData);
-    console.log(`✅ Đã tạo: RP/attachables/${config.id}.json`);
+    Logger.log(`✅ Đã tạo: RP/attachables/${config.id}.json`);
   }
 
   private getArmorStats(piece: string) {
@@ -234,7 +235,7 @@ export class ArmorGenerator {
       });
     });
 
-    console.log(`\n✨ Đã tạo full armor set: ${config.baseName}\n`);
+    Logger.log(`\n✨ Đã tạo full armor set: ${config.baseName}\n`);
   }
 
   private capitalize(str: string): string {

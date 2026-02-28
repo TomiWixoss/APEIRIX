@@ -1,4 +1,4 @@
-import path from 'path';
+﻿import path from 'path';
 import { PickaxeGenerator } from '../../generators/tools/PickaxeGenerator.js';
 import { AxeGenerator } from '../../generators/tools/AxeGenerator.js';
 import { ShovelGenerator } from '../../generators/tools/ShovelGenerator.js';
@@ -6,6 +6,7 @@ import { HoeGenerator } from '../../generators/tools/HoeGenerator.js';
 import { SwordGenerator } from '../../generators/tools/SwordGenerator.js';
 import { SpearGenerator } from '../../generators/tools/SpearGenerator.js';
 import { HammerGenerator } from '../../generators/tools/HammerGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP tools
@@ -53,12 +54,12 @@ export class ToolBPGenerator {
             new HammerGenerator(bpPath).generate(toolConfig);
             break;
           default:
-            console.warn(`  ⚠ Unknown tool type: ${tool.type}`);
+            Logger.warn(`  ⚠ Unknown tool type: ${tool.type}`);
             continue;
         }
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate tool ${tool.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate tool ${tool.id}: ${error}`);
       }
     }
     

@@ -1,4 +1,5 @@
-import { FoodGenerator } from '../../generators/FoodGenerator.js';
+﻿import { FoodGenerator } from '../../generators/FoodGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP foods
@@ -13,7 +14,7 @@ export class FoodBPGenerator {
         generator.generate(food);
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate food ${food.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate food ${food.id}: ${error}`);
       }
     }
 

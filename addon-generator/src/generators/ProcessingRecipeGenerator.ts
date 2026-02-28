@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface ProcessingRecipeData {
   machineType: string;
@@ -48,7 +49,7 @@ export class ProcessingRecipeGenerator {
     const displayPath = customPath 
       ? `${customPath}/GeneratedProcessingRecipes.ts`
       : 'scripts/data/GeneratedProcessingRecipes.ts';
-    console.log(`✅ Đã tạo: ${displayPath}`);
+    Logger.log(`✅ Đã tạo: ${displayPath}`);
   }
 
   /**

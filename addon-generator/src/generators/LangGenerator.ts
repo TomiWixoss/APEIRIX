@@ -1,6 +1,7 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import { join, dirname } from 'path';
 import { langLoader } from '../core/loaders/LangLoader.js';
+import { Logger } from '../utils/Logger.js';
 
 /**
  * Generator cho Language files - update en_US.lang
@@ -43,9 +44,9 @@ export class LangGenerator {
       
       lines.splice(insertIndex, 0, langKey);
       FileManager.writeLines(filePath, lines);
-      console.log(`✅ Đã thêm "${displayName}" vào ${packType}/texts/en_US.lang`);
+      Logger.log(`✅ Đã thêm "${displayName}" vào ${packType}/texts/en_US.lang`);
     } else {
-      console.log(`⚠️  ${prefix === 'item' ? 'Item' : 'Block'} "${itemId}" đã tồn tại trong ${packType}/texts/en_US.lang`);
+      Logger.log(`⚠️  ${prefix === 'item' ? 'Item' : 'Block'} "${itemId}" đã tồn tại trong ${packType}/texts/en_US.lang`);
     }
   }
 
@@ -87,7 +88,7 @@ export class LangGenerator {
     }
 
     FileManager.writeLines(filePath, lines);
-    console.log(`✅ Đã tạo ${packType}/texts/en_US.lang với ${Object.keys(entries).length} entries`);
+    Logger.log(`✅ Đã tạo ${packType}/texts/en_US.lang với ${Object.keys(entries).length} entries`);
   }
 
   /**

@@ -1,5 +1,6 @@
-import path from 'path';
+﻿import path from 'path';
 import { ItemGenerator } from '../../generators/ItemGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP items
@@ -20,7 +21,7 @@ export class ItemBPGenerator {
         });
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate item ${item.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate item ${item.id}: ${error}`);
       }
     }
     

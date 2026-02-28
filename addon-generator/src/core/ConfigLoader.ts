@@ -4,6 +4,7 @@ import { YamlLoader } from './loaders/YamlLoader.js';
 import { JsonLoader } from './loaders/JsonLoader.js';
 import { ConfigMerger } from './loaders/ConfigMerger.js';
 import { langLoader } from './loaders/LangLoader.js';
+import { Logger } from '../utils/Logger.js';
 
 // Re-export types for backward compatibility
 export * from './types/ConfigTypes.js';
@@ -30,7 +31,7 @@ export class ConfigLoader {
     // Set language from addon config
     if (config.addon?.language) {
       langLoader.setLanguage(config.addon.language);
-      console.log(`[ConfigLoader] Language set to: ${config.addon.language}`);
+      Logger.log(`[ConfigLoader] Language set to: ${config.addon.language}`);
     }
     
     // Load imported files nếu có

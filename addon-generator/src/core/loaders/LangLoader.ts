@@ -1,6 +1,7 @@
-import * as fs from 'fs';
+﻿import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * LangLoader - Load language files from configs/lang/
@@ -31,7 +32,7 @@ export class LangLoader {
     const langDir = path.join(configDir, 'lang', language);
     
     if (!fs.existsSync(langDir)) {
-      console.warn(`[LangLoader] Language directory not found: ${langDir}`);
+      Logger.warn(`[LangLoader] Language directory not found: ${langDir}`);
       return {};
     }
 
@@ -45,7 +46,7 @@ export class LangLoader {
         const data = yaml.load(content) as Record<string, any>;
         Object.assign(langData, data);
       } catch (error) {
-        console.error(`[LangLoader] Failed to load ${filePath}:`, error);
+        Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
       }
     }
 

@@ -1,5 +1,6 @@
-import { FileManager } from '../../core/FileManager.js';
+﻿import { FileManager } from '../../core/FileManager.js';
 import { join } from 'path';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Helper để tự động đăng ký tools vào GameData.ts
@@ -34,14 +35,14 @@ export class ToolRegistryHelper {
     }
     
     if (!content) {
-      console.log(`⚠️  Không tìm thấy GameData.ts`);
+      Logger.log(`⚠️  Không tìm thấy GameData.ts`);
       return;
     }
 
     // Check xem tool đã tồn tại chưa
     const toolIdPattern = `id: "apeirix:${toolId}"`;
     if (content.includes(toolIdPattern)) {
-      console.log(`ℹ️  Tool "${toolId}" đã tồn tại trong GameData.ts, bỏ qua`);
+      Logger.log(`ℹ️  Tool "${toolId}" đã tồn tại trong GameData.ts, bỏ qua`);
       return;
     }
 
@@ -57,13 +58,13 @@ export class ToolRegistryHelper {
     const insertIndex = content.indexOf(insertMarker);
     
     if (insertIndex === -1) {
-      console.log(`⚠️  Không tìm thấy marker "// Thêm tool mới ở đây..." trong GameData.ts`);
+      Logger.log(`⚠️  Không tìm thấy marker "// Thêm tool mới ở đây..." trong GameData.ts`);
       return;
     }
 
     const newContent = content.slice(0, insertIndex) + '    ' + registerCode + content.slice(insertIndex);
     
     FileManager.writeText(registryPath, newContent);
-    console.log(`✅ Đã thêm "${toolId}" vào GameData.ts`);
+    Logger.log(`✅ Đã thêm "${toolId}" vào GameData.ts`);
   }
 }

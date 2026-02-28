@@ -1,7 +1,8 @@
-import path from 'path';
+﻿import path from 'path';
 import { readFileSync } from 'fs';
 import { FileManager } from '../core/FileManager.js';
 import { UUIDGenerator } from '../utils/UUIDGenerator.js';
+import { Logger } from '../utils/Logger.js';
 
 export interface AddonMetadata {
   name: string;
@@ -54,7 +55,7 @@ export class ManifestGenerator {
     const manifestPath = path.join(outputDir, 'BP', 'manifest.json');
     FileManager.writeJSON(manifestPath, manifestObj);
 
-    console.log(`✓ Generated BP manifest: ${manifestPath}`);
+    Logger.log(`✓ Generated BP manifest: ${manifestPath}`);
   }
 
   /**
@@ -86,6 +87,6 @@ export class ManifestGenerator {
     const manifestPath = path.join(outputDir, 'RP', 'manifest.json');
     FileManager.writeJSON(manifestPath, manifestObj);
 
-    console.log(`✓ Generated RP manifest: ${manifestPath}`);
+    Logger.log(`✓ Generated RP manifest: ${manifestPath}`);
   }
 }

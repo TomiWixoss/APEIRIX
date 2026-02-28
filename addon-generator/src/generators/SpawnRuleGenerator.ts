@@ -1,5 +1,6 @@
-import { FileManager } from '../core/FileManager.js';
+﻿import { FileManager } from '../core/FileManager.js';
 import path from 'path';
+import { Logger } from '../utils/Logger.js';
 
 export interface SpawnRuleConfig {
   id: string;
@@ -96,6 +97,6 @@ export class SpawnRuleGenerator {
 
     const outputPath = path.join(this.projectRoot, `spawn_rules/${config.id}.json`);
     FileManager.writeJSON(outputPath, spawnRuleData);
-    console.log(`  ✅ Đã tạo: BP/spawn_rules/${config.id}.json`);
+    Logger.log(`  ✅ Đã tạo: BP/spawn_rules/${config.id}.json`);
   }
 }

@@ -1,4 +1,5 @@
-import { BlockGenerator } from '../../generators/BlockGenerator.js';
+﻿import { BlockGenerator } from '../../generators/BlockGenerator.js';
+import { Logger } from '../../utils/Logger.js';
 
 /**
  * Generate BP blocks
@@ -25,7 +26,7 @@ export class BlockBPGenerator {
         });
         count++;
       } catch (error) {
-        console.error(`  ✗ Failed to generate block ${block.id}: ${error}`);
+        Logger.error(`  ✗ Failed to generate block ${block.id}: ${error}`);
       }
     }
 
