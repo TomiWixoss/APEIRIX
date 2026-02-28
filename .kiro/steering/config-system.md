@@ -1,69 +1,139 @@
 ---
-description: "Config system overview - auto-included when editing YAML configs"
+description: "Config system - YAML structure & patterns"
 ---
 
-# Config System Overview
-
-**Note: Read existing YAML files to understand exact format.**
+# Config System
 
 ## Structure
-
-Each entity has:
-- `entity.yaml` - Main definition
-
-Each directory has:
-- `index.yaml` - Imports entity files
-
-## Key Concepts
-
-- All names use `lang:` prefix
-- Texture paths are relative to config file
-- Recipes defined in entity YAML
-- Main config is `addon.yaml`
+```
+configs/{category}/
+├── index.yaml           # Import entities
+├── assets/              # Textures
+└── {subcategory}/
+    ├── index.yaml
+    └── {entity}.yaml    # Entity definition
+```
 
 ## Entity Types
 
-- Materials (items, ores, blocks)
-- Tools (pickaxe, axe, shovel, hoe, sword, spear)
-- Armor (helmet, chestplate, leggings, boots)
-- Foods (with effects)
-- Special items
+### Materials (`configs/materials/`)
+- `ores/` - Ore blocks + world gen
+- `ingots/`, `nuggets/`, `blocks/` - Material items
+- `dusts/`, `raw/` - Processing items
+- `processing/` - Machine recipes
 
-## Rules
+### Tools (`configs/tools/`)
+Types: pickaxes, axes, shovels, hoes, swords, hammers, spears
 
-- Use `lang:` prefix for names
-- Follow existing file patterns
-- Don't edit generated JSON
+### Armor (`configs/armor/`)
+Types: helmets, chestplates, leggings, boots
 
-## Asset Path Handling
+### Foods (`configs/foods/`)
+Subcategory: `canned/`
 
-**CRITICAL: When adding new items and getting "asset not found" warnings:**
+### Machines (`configs/machines/`)
+Processing machines (crusher, compressor, ore_washer, etc.)
 
-❌ DON'T: Edit logic/code to fix paths
-✅ DO: Fix the path in YAML config file
+### Special (`configs/special/`)
+Special items (achievement_book, wiki_book)
 
-Asset paths in YAML are relative to the config file location. Number of `../` depends on folder depth:
+## Key Concepts
 
-**2 levels deep** (`configs/category/item.yaml`):
-- `texture: ../../assets/items/achievement_book.png`
-- Examples: `special/`, `tools/` (root level items)
+### Lang Prefix
+All names: `name: lang:category.entity_id`
 
-**3 levels deep** (`configs/category/subcategory/item.yaml`):
-- `texture: ../../../assets/items/tin_ingot.png`
-- Examples: `materials/bronze/`, `foods/canned-food/`, `armor/bronze/`, `tools/bronze/`
+### Asset Paths (relative to config file)
+- **2 levels** (`configs/category/entity.yaml`): `../../assets/`
+- **3 levels** (`configs/category/subcategory/entity.yaml`): `../../../assets/`
 
-If compilation shows missing asset warnings:
-1. Check the actual asset file location
-2. Count folder depth from config file to `configs/`
-3. Update the `texture:` path with correct number of `../`
-4. Recompile - don't modify PathResolver or generator logic
+### Recipes
+Types: shaped, shapeless, smelting, blasting
+```yaml
+recipes:
+  - type: shaped
+    id: tin_block
+    pattern: ["###", "###", "###"]
+    ingredients:
+      "#": apeirix:tin_ingot
+    result: apeirix:tin_block
+    count: 1
+```
 
-**Common patterns:**
-- Items: `../../assets/items/` or `../../../assets/items/`
-- Tools: `../../assets/tools/` or `../../../assets/tools/`
-- Armor items: `../../../assets/armor/items/`
-- Armor layers: `../../../assets/armor/layers/`
-- Foods: `../../../assets/foods/`
-- Blocks: `../../../assets/blocks/`
+## Common Patterns
 
-**Read existing YAML files for exact format and structure.**
+### Material Set (Ore)
+```
+materials/{material}/
+├── {material}_ore.yaml
+├── raw_{material}.yaml
+├── {material}_ingot.yaml
+├── {material}_nugget.yaml
+├── {material}_block.yaml
+├── {material}_ingot_dust.yaml
+└── {material}_ingot_dust_pure.yaml
+```
+
+### Tool Set
+```
+tools/{material}/
+├── pickaxe.yaml
+├── axe.yaml
+├── shovel.yaml
+├── hoe.yaml
+├── sword.yaml
+└── hammer.yaml
+```
+
+### Armor Set
+```
+armor/{material}/
+├── helmet.yaml
+├── chestplate.yaml
+├── leggings.yaml
+└── boots.yaml
+```
+
+## Examples
+
+### Material
+```yaml
+id: tin_ingot
+name: lang:materials.tin_ingot
+lore: lang:lore.materials.tin_ingot
+texture: ../../../assets/ingots/tin_ingot.png
+category: items
+maxStackSize: 64
+recipes: [...]
+```
+
+### Tool
+```yaml
+type: pickaxe
+id: tin_pickaxe
+name: lang:tools.tin_pickaxe
+texture: ../../../assets/tin_pickaxe.png
+damage: 4
+durability: 375
+tier: iron
+materialId: apeirix:tin_ingot
+recipe: {...}
+```
+
+### Armor
+```yaml
+type: helmet
+id: tin_helmet
+name: lang:armor.tin_helmet
+texture: ../../../assets/items/tin_helmet.png
+armorLayerTexturePath: ../../../assets/layers/tin_layer_1.png
+durability: 220
+protection: 2
+slot: slot.armor.head
+materialId: apeirix:tin_ingot
+```
+
+## Troubleshooting
+
+**Asset not found**: Count `../` correctly based on folder depth
+**Duplicate ID**: Check ID unique across all entities
+**Invalid lang key**: Verify key exists in `configs/lang/`

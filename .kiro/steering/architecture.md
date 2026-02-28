@@ -1,52 +1,98 @@
 ---
-description: "Architecture overview - auto-included when editing TypeScript"
+description: "Architecture - CLI tool + Game systems"
 ---
 
-# Architecture Overview
+# Architecture
 
-**Note: Read actual code for implementation details.**
+## Overview
+**CLI Tool** (addon-generator): YAML → JSON
+**Game Systems** (scripts): TypeScript runtime
 
-## CLI Tool (addon-generator)
+## CLI Tool
 
-### Compilation Pipeline
+### Pipeline
 ConfigLoader → Loaders → Compilers → Generators → Output
 
-### Key Directories
-- `src/generators/` - Content generators
-- `src/compiler/` - BP/RP compilers
-- `src/core/loaders/` - YAML/config loaders
-- `configs/` - Source YAML files
-- `build/` - Generated output
+### Key Parts
+- `src/compiler/` - BPCompiler, RPCompiler, Compiler
+- `src/generators/` - ItemGenerator, BlockGenerator, RecipeGenerator, GameDataGenerator, etc.
+- `src/core/loaders/` - MaterialLoader, ToolLoader, ArmorLoader, LangLoader, etc.
+- `configs/` - YAML source (EDIT)
+- `build/` - JSON output (NEVER EDIT)
 
-## Game Systems (scripts)
+### Flow
+1. Load YAML configs
+2. Parse entities (materials, tools, armor, foods, etc.)
+3. Generate BP JSON (items, blocks, recipes, features, loot_tables)
+4. Generate RP JSON (attachables, textures)
+5. Generate TypeScript (GeneratedGameData.ts, GeneratedProcessingRecipes.ts, lang files)
+6. Copy assets
 
-### Core Architecture
-- Registry Pattern for data management
-- Event-driven with EventBus
-- System-based organization
-- Auto-generated data integration
+### Key Generators
+- **GameDataGenerator**: → `GeneratedGameData.ts` (ores, tools, foods, wiki items, lore, blocks)
+- **ProcessingRecipeGenerator**: → `GeneratedProcessingRecipes.ts` (machine recipes)
+- **LangGenerator**: → `build/BP/texts/*.lang`, `scripts/lang/*.ts`
 
-### Key Directories
-- `scripts/core/` - GameManager, EventBus
-- `scripts/systems/` - Game systems
-- `scripts/data/` - Registries + GeneratedGameData
-- `scripts/lang/` - LangManager + generated lang files
+## Game Systems
+
+### Architecture
+- **Event-Driven**: EventBus + Minecraft events
+- **Registry Pattern**: Centralized data (OreRegistry, ToolRegistry, FoodRegistry, etc.)
+- **System-Based**: Modular systems (AchievementSystem, LoreSystem, WikiUI, etc.)
+- **Auto-Generated Integration**: Load from GeneratedGameData.ts
+
+### Key Parts
+- `core/` - GameManager, EventBus
+- `systems/` - achievements, attributes, blocks, items, lore, mining, wiki
+- `data/` - Registries, GeneratedGameData.ts, GeneratedProcessingRecipes.ts
+- `lang/` - LangManager, generated lang files
+
+### Initialization
+```typescript
+GameManager.initialize():
+  1. GameData.initialize()
+  2. ProcessingRecipeRegistry.loadFromGenerated()
+  3. registerCategories()
+  4. registerAchievements()
+  5. initializeSystems()
+  6. setupEventListeners()
+```
+
+### System Pattern
+```typescript
+export class MySystem {
+  static initialize(): void {
+    // Load from generated data
+    // Subscribe to events
+  }
+}
+```
+
+### Registry Pattern
+```typescript
+OreRegistry.register(ore);
+const ore = OreRegistry.get('apeirix:tin_ore');
+```
+
+## Integration Flow
+```
+YAML Config
+  ↓ Compile
+Generated Files (JSON + TypeScript)
+  ↓ Runtime
+Systems load data → Registries populate → Event handlers setup
+  ↓
+In-Game Behavior
+```
 
 ## Auto-Generated Files
-
-**Never Edit:**
-- `build/BP/` and `build/RP/`
+**NEVER EDIT**:
+- `build/BP/**/*.json`
+- `build/RP/**/*.json`
 - `scripts/data/GeneratedGameData.ts`
-- Generated lang files
+- `scripts/data/GeneratedProcessingRecipes.ts`
+- `scripts/lang/*.ts`
 
-**Edit These:**
+**EDIT**:
 - `configs/**/*.yaml`
 - `scripts/**/*.ts` (except generated)
-
-## Design Patterns
-
-Read existing implementations to understand:
-- How registries work
-- How systems initialize
-- How UI is structured
-- How handlers are registered

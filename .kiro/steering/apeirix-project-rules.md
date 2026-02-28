@@ -1,76 +1,81 @@
 ---
-description: "APEIRIX project rules and development guidelines"
+description: "APEIRIX core rules - read code for details"
 ---
 
-ALLWAYS RESPOND AS VIETNAMESE!
+LUÔN TRẢ LỜI TIẾNG VIỆT!
 
-# APEIRIX - Development Rules
+# APEIRIX - Core Rules
 
-## ⚠️ CRITICAL PRINCIPLES
+## Critical Principles
 
-### 1. ALWAYS USE CONTEXT-GATHERER FIRST
+### 1. Context-Gatherer First
+**MANDATORY**: Use context-gatherer subagent trước khi implement (trừ khi task cực đơn giản)
 
-**MANDATORY: Before implementing ANY request, you MUST use context-gatherer subagent to:**
-- Understand the relevant codebase structure
-- Find necessary files
-- Identify existing patterns
-- Gather complete context
+### 2. Code Is Truth
+Rules = overview only. Sau khi gather context:
+- Đọc similar implementations
+- Follow exact patterns
+- Never invent new structures
 
-**Only skip this step when:**
-- Request is extremely simple (e.g., changing 1 line of text)
-- You already know ALL related files with certainty
+## Structure
 
-### 2. CODE IS THE SOURCE OF TRUTH
+```
+addon-generator/configs/  → YAML (EDIT)
+addon-generator/build/    → JSON (NEVER EDIT)
+scripts/                  → TypeScript game logic
+scripts/data/Generated*.ts → AUTO-GENERATED
+```
 
-**CODE IS THE SOURCE OF TRUTH - NOT RULES**
+## Workflow
 
-Rules are high-level guidelines only. After gathering context:
-1. Read existing similar implementations
-2. Follow established patterns exactly
-3. Never invent new structures without checking codebase first
+1. **Context**: Tìm similar feature, đọc files
+2. **Implement**: Copy pattern, modify minimal
+3. **Build**: `bun run dev compile configs/addon.yaml --clean` → `.\build-and-deploy.ps1`
 
-## Project Structure
+## Key Concepts
 
-- **addon-generator/** - CLI tool for YAML → JSON compilation
-- **scripts/** - Game logic (TypeScript)
-- **configs/** - YAML source files (edit these)
-- **build/** - Generated output (never edit)
+### Lang System (3 types)
+- **Pack Lang**: `configs/lang/` → in-game names → `build/BP/texts/`
+- **Script UI Lang**: `configs/script-lang/` → UI text → `scripts/lang/*.ts`
+- **Lore**: `configs/script-lang/lore/` → item descriptions → `GeneratedGameData.ts`
+- Usage: `name: lang:category.item_id`, `lore: lang:lore.category.item_id`
 
-## Development Workflow
+### Asset Paths
+- Relative to config file
+- **2 levels**: `../../assets/`
+- **3 levels**: `../../../assets/`
+- Fix in YAML, not code
 
-1. **Context Gathering Phase**
-   - Find similar existing feature
-   - Read all related files thoroughly
-   - Understand the exact pattern used
+### Generated Files
+**Never edit**: `build/`, `GeneratedGameData.ts`, `GeneratedProcessingRecipes.ts`, `scripts/lang/*.ts`
 
-2. **Implementation Phase**
-   - Copy structure from existing code
-   - Modify only what's necessary
-   - Keep architecture consistent
+## Common Tasks
 
-3. **Build Phase**
-   - Compile YAML configs
-   - Build TypeScript
+### Add Material
+1. Read `docs/how-to-add-new-material.md`
+2. Create textures in `configs/materials/assets/`
+3. Create YAMLs in `configs/materials/{material}/`
+4. Update `configs/materials/index.yaml`
+5. Add lang entries
+6. Compile & test
 
-## Key Principles
+### Add Tool/Armor
+Find similar → copy pattern → update textures/stats → update index → compile
 
-- **CLI-First**: Edit YAML in configs/, not JSON in build/
-- **Pattern Consistency**: Follow existing code patterns exactly
-- **No Assumptions**: Read code before making decisions
-- **Incremental Testing**: Test after each small change
+### Add Processing Recipe
+Edit `configs/materials/processing/*.yaml` → compile → auto-loads
 
-## Build Commands
+## Troubleshooting
 
-- `.\build-and-deploy.ps1` - Full pipeline
-- `.\compile-only.ps1` - YAML compilation only
-- `regolith run` - TypeScript build only
+- **Asset not found**: Check `../` count in YAML path
+- **Lang missing**: Verify key in `configs/lang/` or `configs/script-lang/`
+- **In-game issue**: `/reload`, check console, verify generated files
 
-## Documentation Files
+## Official Minecraft Bedrock Documentation
 
-Other steering files provide context but are NOT authoritative:
-- apeirix-overview.md - Quick reference
-- config-system.md - YAML format guide
-- lang-system.md - Language system guide
-- architecture.md - Architecture overview
+**Local Clone**: `C:\Users\tomis\Docs\APEIRIX\minecraft-creator\`
 
-**Always verify information by reading actual code.**
+Khi cần tài liệu về components, behaviors, hoặc JSON schemas, explore thư mục này:
+- `creator/Documents/` - Tutorials & guides
+- `creator/Reference/Content/` - JSON schema references
+- `creator/ScriptAPI/` - Script API docs

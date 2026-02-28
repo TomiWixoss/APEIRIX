@@ -1,84 +1,95 @@
 ---
-description: "Language system overview - auto-included when editing YAML"
+description: "Lang system - 3 types: Pack, Script UI, Lore + Wiki"
 ---
 
-# Language System Overview
+# Lang System
 
-**Note: Read existing lang files to understand exact structure.**
+## 3 Systems
 
-## Two Separate Systems
+### 1. Pack Lang
+- `configs/lang/{lang}/` → `build/BP/texts/` (in-game names)
+- Usage: `name: lang:materials.tin_ingot`
+- Categories: materials, tools, armor, foods, special, blocks
 
-### 1. Pack Lang (YAML → Pack Lang Files)
-- Location: `configs/lang/{language}/`
-- Purpose: Item/block names in-game
-- Output: `build/BP/texts/` and `build/RP/texts/`
-- Usage: `name: lang:category.item_id` in entity YAML
+### 2. Script UI Lang
+- `configs/script-lang/{lang}/` → `scripts/lang/{lang}.ts` (UI text)
+- Usage: `LangManager.get('ui.wiki.title')`
+- Categories: ui, achievements, wiki
 
-### 2. Script UI Lang (YAML → TypeScript)
-- Location: `configs/script-lang/{language}/`
-- Purpose: UI text in scripts
-- Output: `scripts/lang/{language}.ts`
-- Usage: `LangManager.get('key')` in TypeScript
-
-## Key Concepts
-
-- Language selected in `addon.yaml`
-- All entity names use `lang:` prefix
-- Lang keys format: `category.entity_id`
-- Auto-generated files, don't edit output
-
-## Categories
-
-- materials, tools, armor, foods, special (pack lang)
-- ui, achievements, wiki (script UI lang)
+### 3. Lore
+- `configs/script-lang/{lang}/lore/` → `GeneratedGameData.ts` (item descriptions)
+- Usage: `lore: lang:lore.materials.tin_ingot`
+- Auto-applies to items in inventory
+- Categories: materials, tools, armor, foods
 
 ## Wiki System
 
+Wiki có 2 phần:
+
 ### Wiki UI Text
-- Location: `configs/script-lang/{language}/wiki.yaml`
+- Location: `configs/script-lang/{lang}/wiki.yaml`
 - Purpose: UI labels (title, buttons, category names)
-- Output: `scripts/lang/{language}.ts` (under `wiki` key)
+- Output: `scripts/lang/{lang}.ts`
 - Usage: `LangManager.get('wiki.title')`
 
-### Wiki Item Descriptions
-- Location: `configs/script-lang/{language}/wiki/{category}.yaml`
-  - `wiki/materials.yaml` - Material descriptions
-  - `wiki/tools.yaml` - Tool descriptions
-  - `wiki/armor.yaml` - Armor descriptions
-  - `wiki/foods.yaml` - Food descriptions
-- Format: `item_id: "description text"`
+### Wiki Descriptions
+- Location: `configs/script-lang/{lang}/wiki/{category}.yaml`
 - Purpose: Item descriptions for wiki display
-- Output: `scripts/data/GeneratedGameData.ts` (GENERATED_WIKI_ITEMS)
+- Output: `GeneratedGameData.ts` (GENERATED_WIKI_ITEMS)
+- Usage: `wikiDescription: lang:wiki.materials.tin_ingot`
+- Categories: materials, tools, armor, foods
 
-### Using Wiki Descriptions in Entity YAMLs
+**Difference from Lore:**
+- **Lore**: Shows on item tooltip (multi-line with colors)
+- **Wiki**: Shows in wiki UI when viewing item details (single paragraph)
 
-Add `wikiDescription` field with lang key prefix:
+## Examples
 
+### Pack Lang
 ```yaml
-# configs/materials/ingots/tin_ingot.yaml
-id: tin_ingot
-name: lang:materials.tin_ingot
-wikiDescription: lang:wiki.materials.tin_ingot  # References wiki lang file
-texture: ../assets/ingots/tin_ingot.png
+# configs/lang/vi_VN/materials.yaml
+materials:
+  tin_ingot: "Thỏi Thiếc"
 ```
+→ `build/BP/texts/vi_VN.lang`: `item.apeirix:tin_ingot=Thỏi Thiếc`
 
-Then add descriptions to wiki lang files:
+### Script UI Lang
+```yaml
+# configs/script-lang/vi_VN/ui.yaml
+ui:
+  wiki:
+    title: "§l§0BÁCH KHOA TOÀN THƯ"
+```
+→ `scripts/lang/vi_VN.ts`: `{ ui: { wiki: { title: "..." } } }`
+→ Usage: `LangManager.get('ui.wiki.title')`
 
+### Lore
+```yaml
+# configs/script-lang/vi_VN/lore/materials.yaml
+tin_ingot:
+  - "§7Thỏi thiếc sáng bóng"
+  - "§6Loại: §fVật Liệu"
+```
+→ Entity YAML: `lore: lang:lore.materials.tin_ingot`
+→ Auto-applies to items in inventory
+
+### Wiki Description
 ```yaml
 # configs/script-lang/vi_VN/wiki/materials.yaml
-tin_ingot: "Thỏi thiếc dùng để chế tạo hợp kim đồng thanh."
+tin_ingot: "Thỏi Thiếc cơ bản. Vật liệu nền tảng để chế tạo đồ hộp hoặc nấu hợp kim Đồng Thanh."
 ```
+→ Entity YAML: `wikiDescription: lang:wiki.materials.tin_ingot`
+→ Shows in wiki UI detail view
 
-```yaml
-# configs/script-lang/en_US/wiki/materials.yaml
-tin_ingot: "Tin ingot used to craft bronze alloy."
-```
+## Format Codes
+- Colors: `§0-9,a-f` (0=black, 7=gray, a=green, c=red, e=yellow, f=white)
+- Format: `§l`=bold, `§o`=italic, `§r`=reset
 
-Compile: `bun run dev compile configs/addon.yaml`
-
-### Benefits
-
-- Centralized description management
-- Easy multi-language support
-- Consistent with name field pattern (`lang:` prefix)
-- Descriptions stay in sync across languages
+## Workflow
+1. Add to `configs/lang/` or `configs/script-lang/`
+2. Reference in YAML:
+   - `name: lang:category.id`
+   - `lore: lang:lore.category.id`
+   - `wikiDescription: lang:wiki.category.id`
+3. Compile: `bun run dev compile configs/addon.yaml`
+4. Auto-generates output files

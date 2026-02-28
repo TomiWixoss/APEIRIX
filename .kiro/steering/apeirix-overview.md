@@ -9,7 +9,6 @@ description: "APEIRIX quick reference"
 ## Build Commands
 
 - `.\build-and-deploy.ps1` - Full pipeline
-- `.\compile-only.ps1` - YAML compilation only
 - `regolith run` - TypeScript build only
 - `.\export-release.ps1` - Export .mcaddon
 
