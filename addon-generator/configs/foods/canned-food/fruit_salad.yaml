@@ -2,11 +2,13 @@ id: fruit_salad
 name: lang:foods.fruit_salad
 texture: ../../../assets/foods/fruit_salad.png
 category: items
-stackSize: 64
+maxStackSize: 64
 nutrition: 6
 saturation: 7.2
 canAlwaysEat: false
 usingConvertsTo: candirty
+attributes:
+  - rust_mite_edible
 effects:
   - name: speed
     duration: 20

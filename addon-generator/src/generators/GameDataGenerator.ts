@@ -138,9 +138,11 @@ ${this.generateHammerMiningData(hammerMining)}
 
 /**
  * Generated hammer tool IDs
+ * DEPRECATED: Use AttributeSystem with 'hammer_mining' attribute instead
+ * Kept for backward compatibility only
  */
 export const GENERATED_HAMMER_IDS = [
-${this.generateHammerIds(tools)}
+  // DEPRECATED - Use GENERATED_ATTRIBUTES['hammer_mining'] instead
 ];
 
 /**
@@ -152,10 +154,11 @@ ${this.generateBrassSifterData(brassSifter)}
 
 /**
  * Generated Rust Mite edible items
- * YAML-DRIVEN: Items explicitly marked with edibleByRustMite: true
+ * DEPRECATED: Use AttributeSystem with 'rust_mite_edible' attribute instead
+ * Kept for backward compatibility only
  */
 export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
-${this.generateRustMiteEdibleItems(edibleItems)}
+  // DEPRECATED - Use GENERATED_ATTRIBUTES['rust_mite_edible'] instead
 ];
 `;
   }

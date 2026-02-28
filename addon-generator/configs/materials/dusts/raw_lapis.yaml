@@ -3,7 +3,8 @@ name: lang:materials.raw_lapis
 texture: ../../../assets/items/raw_lapis.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: smelting
     id: lapis_lazuli_from_raw_smelting

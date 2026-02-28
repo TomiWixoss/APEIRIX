@@ -3,7 +3,8 @@ name: lang:materials.raw_silver
 texture: ../../../assets/silver/raw_silver.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: smelting
     id: silver_ingot_from_raw_smelting

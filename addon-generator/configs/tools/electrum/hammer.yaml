@@ -28,5 +28,7 @@ materialId: apeirix:electrum_ingot
 durability: 640
 enchantability: 20
 tier: iron
+attributes:
+  - hammer_mining
 miningSpeed: 8.0
 areaOfEffect: 3x3

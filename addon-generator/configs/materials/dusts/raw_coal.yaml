@@ -3,7 +3,8 @@ name: lang:materials.raw_coal
 texture: ../../../assets/items/raw_coal.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: smelting
     id: coal_from_raw_smelting

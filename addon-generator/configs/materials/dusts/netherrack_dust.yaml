@@ -3,7 +3,8 @@ name: lang:materials.netherrack_dust
 texture: ../../../assets/items/netherrack_dust.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: shaped
     id: netherrack_from_dust

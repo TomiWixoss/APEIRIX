@@ -3,7 +3,8 @@ name: lang:materials.raw_emerald
 texture: ../../../assets/items/raw_emerald.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: smelting
     id: emerald_from_raw_smelting

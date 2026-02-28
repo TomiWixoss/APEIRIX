@@ -3,7 +3,6 @@ name: lang:materials.raw_ardite
 texture: ../../../assets/ardite/raw_ardite.png
 category: items
 maxStackSize: 64
-edibleByRustMite: false
 recipes:
   - type: smelting
     id: ardite_ingot_from_raw_smelting

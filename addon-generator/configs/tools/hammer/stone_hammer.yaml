@@ -9,6 +9,8 @@ durability: 131
 enchantability: 5
 efficiency: 4
 tier: stone
+attributes:
+  - hammer_mining
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

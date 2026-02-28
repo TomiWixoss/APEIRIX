@@ -3,7 +3,8 @@ name: lang:materials.ardite_ingot_dust_pure
 texture: ../../../assets/ardite/ardite_ingot_dust_pure.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: shaped
     id: raw_ardite_from_pure_dust

@@ -28,5 +28,7 @@ materialId: apeirix:nickel_ingot
 durability: 675
 enchantability: 14
 tier: iron
+attributes:
+  - hammer_mining
 miningSpeed: 8.0
 areaOfEffect: 3x3

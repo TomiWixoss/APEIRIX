@@ -28,5 +28,7 @@ materialId: apeirix:invar_ingot
 durability: 750
 enchantability: 10
 tier: iron
+attributes:
+  - hammer_mining
 miningSpeed: 8.0
 areaOfEffect: 3x3

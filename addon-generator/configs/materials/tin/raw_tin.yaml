@@ -3,4 +3,5 @@ name: lang:materials.raw_tin
 texture: ../../../assets/items/raw_tin.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible

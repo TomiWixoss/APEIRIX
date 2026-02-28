@@ -9,6 +9,8 @@ durability: 2031
 enchantability: 15
 efficiency: 9
 tier: netherite
+attributes:
+  - hammer_mining
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

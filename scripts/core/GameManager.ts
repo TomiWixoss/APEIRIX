@@ -12,13 +12,12 @@ import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
-import { HammerMiningSystem } from "../systems/mining/HammerMiningSystem";
+import { AttributeSystem } from "../systems/attributes/AttributeSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { OreSieveSystem } from "../systems/mining/OreSieveSystem";
 import { OreWasherSystem } from "../systems/mining/OreWasherSystem";
 import { CompressorSystem } from "../systems/mining/CompressorSystem";
 import { CrusherSystem } from "../systems/mining/CrusherSystem";
-import { RustMiteItemEatingSystem } from "../systems/entities/RustMiteItemEatingSystem";
 import { DisplayHandler } from "../systems/shared/processing/DisplayHandler";
 import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
@@ -185,20 +184,21 @@ export class GameManager {
     }
 
     private static initializeSystems(): void {
-        // AchievementTracker removed - each achievement handles its own tracking
+        // Initialize attribute system FIRST (other systems may depend on it)
+        AttributeSystem.initialize();
+        
         ItemSystem.initialize();
         FortuneSystem.getInstance();
         CustomToolSystem.getInstance();
         FoodEffectsSystem.getInstance();
         CanWashingSystem.initialize();
-        HammerMiningSystem.initialize();
+        
         OreCrusherSystem.initialize();
         OreSieveSystem.initialize();
         OreWasherSystem.initialize();
         CompressorSystem.initialize();
         CrusherSystem.initialize();
-        RustMiteItemEatingSystem.initialize();
-        DisplayHandler.initialize(); // Hiển thị thông tin máy xử lý
+        DisplayHandler.initialize();
     }
 
     private static setupEventListeners(): void {

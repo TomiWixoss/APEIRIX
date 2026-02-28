@@ -2,11 +2,13 @@ id: chickensoup
 name: lang:foods.chickensoup
 texture: ../../../assets/foods/chickensoup.png
 category: items
-stackSize: 64
+maxStackSize: 64
 nutrition: 7
 saturation: 8.4
 canAlwaysEat: false
 usingConvertsTo: candirty
+attributes:
+  - rust_mite_edible
 effects:
   - name: regeneration
     duration: 10

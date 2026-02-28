@@ -28,5 +28,7 @@ materialId: apeirix:platinum_ingot
 durability: 2400
 enchantability: 22
 tier: diamond
+attributes:
+  - hammer_mining
 miningSpeed: 9.0
 areaOfEffect: 3x3

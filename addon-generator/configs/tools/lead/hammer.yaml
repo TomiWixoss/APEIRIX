@@ -28,5 +28,7 @@ materialId: apeirix:lead_ingot
 durability: 600
 enchantability: 12
 tier: iron
+attributes:
+  - hammer_mining
 miningSpeed: 8.0
 areaOfEffect: 3x3

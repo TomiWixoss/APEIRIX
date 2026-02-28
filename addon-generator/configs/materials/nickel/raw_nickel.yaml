@@ -3,7 +3,6 @@ name: lang:materials.raw_nickel
 texture: ../../../assets/nickel/raw_nickel.png
 category: items
 maxStackSize: 64
-edibleByRustMite: false
 recipes:
   - type: smelting
     id: nickel_ingot_from_raw_smelting

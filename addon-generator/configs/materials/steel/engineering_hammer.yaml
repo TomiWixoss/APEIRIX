@@ -3,6 +3,8 @@ name: lang:materials.engineering_hammer
 texture: ../../../assets/steel_alloy/engineering_hammer.png
 category: items
 maxStackSize: 1
+attributes:
+  - hammer_mining
 recipes:
   - type: shaped
     id: apeirix:engineering_hammer

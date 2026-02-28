@@ -3,7 +3,6 @@ name: lang:materials.platinum_ingot_dust
 texture: ../../../assets/platinum/platinum_ingot_dust.png
 category: items
 maxStackSize: 64
-edibleByRustMite: false
 recipes:
   - type: shaped
     id: raw_platinum_from_dust

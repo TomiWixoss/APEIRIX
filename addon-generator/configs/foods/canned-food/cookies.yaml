@@ -2,11 +2,13 @@ id: cookies
 name: lang:foods.cookies
 texture: ../../../assets/foods/cookies.png
 category: items
-stackSize: 64
+maxStackSize: 64
 nutrition: 4
 saturation: 4.8
 canAlwaysEat: false
 usingConvertsTo: candirty
+attributes:
+  - rust_mite_edible
 effects:
   - name: haste
     duration: 15

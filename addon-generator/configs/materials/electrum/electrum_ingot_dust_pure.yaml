@@ -3,7 +3,8 @@ name: lang:materials.electrum_ingot_dust_pure
 texture: ../../../assets/electrum/electrum_ingot_dust_pure.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: shaped
     id: raw_electrum_from_pure_dust

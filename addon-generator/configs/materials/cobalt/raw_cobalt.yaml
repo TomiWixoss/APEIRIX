@@ -3,7 +3,6 @@ name: lang:materials.raw_cobalt
 texture: ../../../assets/cobalt/raw_cobalt.png
 category: items
 maxStackSize: 64
-edibleByRustMite: false
 recipes:
   - type: smelting
     id: cobalt_ingot_from_raw_smelting

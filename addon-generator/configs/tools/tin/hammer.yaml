@@ -28,5 +28,7 @@ materialId: apeirix:tin_ingot
 durability: 562
 enchantability: 18
 tier: iron
+attributes:
+  - hammer_mining
 miningSpeed: 8.0
 areaOfEffect: 3x3

@@ -3,7 +3,6 @@ name: lang:materials.raw_lead
 texture: ../../../assets/lead/raw_lead.png
 category: items
 maxStackSize: 64
-edibleByRustMite: false
 recipes:
   - type: smelting
     id: lead_ingot_from_raw_smelting

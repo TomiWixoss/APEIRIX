@@ -1834,27 +1834,11 @@ export const GENERATED_HAMMER_MINING = [
 
 /**
  * Generated hammer tool IDs
+ * DEPRECATED: Use AttributeSystem with 'hammer_mining' attribute instead
+ * Kept for backward compatibility only
  */
 export const GENERATED_HAMMER_IDS = [
-  "apeirix:silver_hammer",
-  "apeirix:nickel_hammer",
-  "apeirix:lead_hammer",
-  "apeirix:electrum_hammer",
-  "apeirix:invar_hammer",
-  "apeirix:platinum_hammer",
-  "apeirix:tin_hammer",
-  "apeirix:cobalt_hammer",
-  "apeirix:ardite_hammer",
-  "apeirix:manyullyn_hammer",
-  "apeirix:wooden_hammer",
-  "apeirix:stone_hammer",
-  "apeirix:copper_hammer",
-  "apeirix:iron_hammer",
-  "apeirix:golden_hammer",
-  "apeirix:bronze_hammer",
-  "apeirix:steel_alloy_hammer",
-  "apeirix:diamond_hammer",
-  "apeirix:netherite_hammer"
+  // DEPRECATED - Use GENERATED_ATTRIBUTES['hammer_mining'] instead
 ];
 
 /**
@@ -1866,74 +1850,9 @@ export const GENERATED_BRASS_SIFTER = [
 
 /**
  * Generated Rust Mite edible items
- * YAML-DRIVEN: Items explicitly marked with edibleByRustMite: true
+ * DEPRECATED: Use AttributeSystem with 'rust_mite_edible' attribute instead
+ * Kept for backward compatibility only
  */
 export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
-  "apeirix:ardite_ingot_dust",
-  "apeirix:ardite_ingot_dust_pure",
-  "apeirix:bronze_ingot_dust",
-  "apeirix:bronze_ingot_dust_pure",
-  "apeirix:candirty",
-  "apeirix:canempty",
-  "apeirix:canned_food",
-  "apeirix:canned_pumpkin",
-  "apeirix:cannedbeets",
-  "apeirix:cannedbread",
-  "apeirix:cannedcarrots",
-  "apeirix:canneddogfood",
-  "apeirix:cannedfish",
-  "apeirix:cannedmeal",
-  "apeirix:cannedmushroomsoup",
-  "apeirix:cannedsalad",
-  "apeirix:chickensoup",
-  "apeirix:coal_dust",
-  "apeirix:coal_dust_pure",
-  "apeirix:cobalt_ingot_dust",
-  "apeirix:cobalt_ingot_dust_pure",
-  "apeirix:cobblestone_dust",
-  "apeirix:cookies",
-  "apeirix:copper_ingot_dust",
-  "apeirix:copper_ingot_dust_pure",
-  "apeirix:deepslate_dust",
-  "apeirix:diamond_dust",
-  "apeirix:diamond_dust_pure",
-  "apeirix:electrum_ingot_dust",
-  "apeirix:electrum_ingot_dust_pure",
-  "apeirix:emerald_dust",
-  "apeirix:emerald_dust_pure",
-  "apeirix:fruit_salad",
-  "apeirix:gold_ingot_dust",
-  "apeirix:gold_ingot_dust_pure",
-  "apeirix:invar_ingot_dust",
-  "apeirix:invar_ingot_dust_pure",
-  "apeirix:iron_ingot_dust",
-  "apeirix:iron_ingot_dust_pure",
-  "apeirix:lapis_block_dust",
-  "apeirix:lapis_block_dust_pure",
-  "apeirix:lead_ingot_dust",
-  "apeirix:lead_ingot_dust_pure",
-  "apeirix:luncheonmeat",
-  "apeirix:manyullyn_ingot_dust",
-  "apeirix:manyullyn_ingot_dust_pure",
-  "apeirix:netherrack_dust",
-  "apeirix:nickel_ingot_dust",
-  "apeirix:nickel_ingot_dust_pure",
-  "apeirix:raw_bronze",
-  "apeirix:raw_coal",
-  "apeirix:raw_diamond",
-  "apeirix:raw_electrum",
-  "apeirix:raw_emerald",
-  "apeirix:raw_invar",
-  "apeirix:raw_lapis",
-  "apeirix:raw_manyullyn",
-  "apeirix:raw_silver",
-  "apeirix:raw_steel",
-  "apeirix:raw_tin",
-  "apeirix:redstone_dust_pure",
-  "apeirix:silver_ingot_dust",
-  "apeirix:silver_ingot_dust_pure",
-  "apeirix:steel_alloy_dust",
-  "apeirix:steel_alloy_dust_pure",
-  "apeirix:tin_ingot_dust",
-  "apeirix:tin_ingot_dust_pure"
+  // DEPRECATED - Use GENERATED_ATTRIBUTES['rust_mite_edible'] instead
 ];

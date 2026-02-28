@@ -3,7 +3,8 @@ name: lang:materials.raw_electrum
 texture: ../../../assets/electrum/raw_electrum.png
 category: items
 maxStackSize: 64
-edibleByRustMite: true
+attributes:
+  - rust_mite_edible
 recipes:
   - type: smelting
     id: electrum_ingot_from_raw_smelting

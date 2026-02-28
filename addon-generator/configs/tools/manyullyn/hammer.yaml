@@ -28,5 +28,7 @@ materialId: apeirix:manyullyn_ingot
 durability: 1200
 enchantability: 18
 tier: diamond
+attributes:
+  - hammer_mining
 miningSpeed: 10.0
 areaOfEffect: 3x3

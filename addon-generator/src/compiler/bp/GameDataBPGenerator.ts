@@ -1,5 +1,6 @@
 import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData } from '../../generators/GameDataGenerator.js';
 import { ProcessingRecipeGenerator, ProcessingRecipeData } from '../../generators/ProcessingRecipeGenerator.js';
+import { AttributeGenerator, AttributeMapping } from '../../generators/AttributeGenerator.js';
 import { WikiDataBPGenerator } from './WikiDataBPGenerator.js';
 import path from 'path';
 
@@ -79,30 +80,69 @@ export class GameDataBPGenerator {
     
     // Collect all items for wiki
     const allItems: string[] = [];
-    const edibleItems: string[] = []; // Items edible by Rust Mite
+    
+    // Collect attributes from all entities
+    const attributeMapping: AttributeMapping = {};
+    
+    // Helper to add attribute
+    const addAttribute = (itemId: string, attributes: string[] | undefined) => {
+      if (!attributes || !Array.isArray(attributes)) return;
+      
+      for (const attr of attributes) {
+        if (!attributeMapping[attr]) {
+          attributeMapping[attr] = [];
+        }
+        if (!attributeMapping[attr].includes(itemId)) {
+          attributeMapping[attr].push(itemId);
+        }
+      }
+    };
     
     if (config.items) {
       for (const item of config.items) {
         allItems.push(`apeirix:${item.id}`);
-        // Collect items with edibleByRustMite: true
-        if (item.edibleByRustMite === true) {
-          edibleItems.push(`apeirix:${item.id}`);
-        }
+        addAttribute(`apeirix:${item.id}`, item.attributes);
       }
     }
     
-    // Add foods to allItems (foods are always edible by Rust Mite)
+    // Add foods to allItems
     if (config.foods) {
       for (const food of config.foods) {
         allItems.push(`apeirix:${food.id}`);
-        // Foods are always edible by Rust Mite
-        edibleItems.push(`apeirix:${food.id}`);
+        addAttribute(`apeirix:${food.id}`, food.attributes);
+      }
+    }
+    
+    // Collect attributes from tools
+    if (config.tools) {
+      for (const tool of config.tools) {
+        addAttribute(`apeirix:${tool.id}`, tool.attributes);
+      }
+    }
+    
+    // Collect attributes from armor
+    if (config.armor) {
+      for (const armor of config.armor) {
+        addAttribute(`apeirix:${armor.id}`, armor.attributes);
+      }
+    }
+    
+    // Collect attributes from blocks
+    if (config.blocks) {
+      for (const block of config.blocks) {
+        addAttribute(`apeirix:${block.id}`, block.attributes);
+      }
+    }
+    
+    // Collect attributes from entities
+    if (config.entities) {
+      for (const entity of config.entities) {
+        addAttribute(`apeirix:${entity.id}`, entity.attributes);
       }
     }
 
     // Generate file to project root (for development)
-    // Note: hammerMining and brassSifter are now empty arrays - data moved to YAML
-    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, edibleItems);
+    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, []);
     
     // Collect processing recipes
     const processingRecipes: ProcessingRecipeData[] = [];
@@ -183,8 +223,15 @@ export class GameDataBPGenerator {
       processingGenerator.generate(processingRecipes);
     }
     
+    // Generate attributes file
+    const attributeGenerator = new AttributeGenerator(projectRoot);
+    attributeGenerator.generate(attributeMapping);
+    
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, edibleItems, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], 'BP/scripts/data');
+    
+    const buildAttributeGenerator = new AttributeGenerator(buildDir);
+    buildAttributeGenerator.generate(attributeMapping, 'BP/scripts/data');
   }
 }

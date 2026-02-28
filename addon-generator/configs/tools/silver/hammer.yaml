@@ -31,3 +31,5 @@ materialId: apeirix:silver_ingot
 durability: 375
 enchantability: 18
 tier: iron
+attributes:
+  - hammer_mining
