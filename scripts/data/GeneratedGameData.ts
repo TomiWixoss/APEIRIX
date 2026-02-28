@@ -662,7 +662,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_ingot",
     category: "materials",
     name: "Thỏi Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_ingot",
+    icon: "textures/items/steel_alloy_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -671,7 +671,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_nugget",
     category: "materials",
     name: "Mảnh Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_nugget",
+    icon: "textures/items/steel_alloy_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -680,7 +680,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_dust",
     category: "materials",
     name: "Bụi Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_dust",
+    icon: "textures/items/steel_alloy_dust",
     info: {
       "Chế tạo": "4 nguyên liệu"
     },
@@ -689,7 +689,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_dust_pure",
     category: "materials",
     name: "Bụi Hợp Kim Thép Tinh Khiết",
-    icon: "textures/steel_alloy/steel_alloy_dust_pure",
+    icon: "textures/items/steel_alloy_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -704,13 +704,13 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_base_plate",
     category: "materials",
     name: "Tấm Thép",
-    icon: "textures/steel_alloy/steel_alloy_base_plate",
+    icon: "textures/items/steel_alloy_base_plate",
   },
   {
     id: "apeirix:steel_alloy_base_rod",
     category: "materials",
     name: "Thanh Thép",
-    icon: "textures/steel_alloy/steel_alloy_base_rod",
+    icon: "textures/items/steel_alloy_base_rod",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -719,7 +719,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_base_gear",
     category: "materials",
     name: "Bánh Răng Thép",
-    icon: "textures/steel_alloy/steel_alloy_base_gear",
+    icon: "textures/items/steel_alloy_base_gear",
     info: {
       "Chế tạo": "2 nguyên liệu"
     },
@@ -728,7 +728,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:engineering_hammer",
     category: "materials",
     name: "Búa Kỹ Thuật",
-    icon: "textures/steel_alloy/engineering_hammer",
+    icon: "textures/items/engineering_hammer",
     info: {
       "Chế tạo": "2 nguyên liệu"
     },
@@ -742,19 +742,19 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_silver",
     category: "materials",
     name: "Bạc Thô",
-    icon: "textures/silver/raw_silver",
+    icon: "textures/items/raw_silver",
   },
   {
     id: "apeirix:silver_ingot",
     category: "materials",
     name: "Thỏi Bạc",
-    icon: "textures/silver/silver_ingot",
+    icon: "textures/items/silver_ingot",
   },
   {
     id: "apeirix:silver_nugget",
     category: "materials",
     name: "Mảnh Bạc",
-    icon: "textures/silver/silver_nugget",
+    icon: "textures/items/silver_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -763,7 +763,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_ingot_dust",
     category: "materials",
     name: "Bụi Bạc",
-    icon: "textures/silver/silver_ingot_dust",
+    icon: "textures/items/silver_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -772,7 +772,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_ingot_dust_pure",
     category: "materials",
     name: "Bụi Bạc Tinh Khiết",
-    icon: "textures/silver/silver_ingot_dust_pure",
+    icon: "textures/items/silver_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -791,19 +791,19 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_nickel",
     category: "materials",
     name: "Niken Thô",
-    icon: "textures/nickel/raw_nickel",
+    icon: "textures/items/raw_nickel",
   },
   {
     id: "apeirix:nickel_ingot",
     category: "materials",
     name: "Thỏi Niken",
-    icon: "textures/nickel/nickel_ingot",
+    icon: "textures/items/nickel_ingot",
   },
   {
     id: "apeirix:nickel_nugget",
     category: "materials",
     name: "Mảnh Niken",
-    icon: "textures/nickel/nickel_nugget",
+    icon: "textures/items/nickel_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -812,7 +812,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_ingot_dust",
     category: "materials",
     name: "Bụi Niken",
-    icon: "textures/nickel/nickel_ingot_dust",
+    icon: "textures/items/nickel_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -821,7 +821,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_ingot_dust_pure",
     category: "materials",
     name: "Bụi Niken Tinh Khiết",
-    icon: "textures/nickel/nickel_ingot_dust_pure",
+    icon: "textures/items/nickel_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -830,19 +830,19 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_lead",
     category: "materials",
     name: "Chì Thô",
-    icon: "textures/lead/raw_lead",
+    icon: "textures/items/raw_lead",
   },
   {
     id: "apeirix:lead_ingot",
     category: "materials",
     name: "Thỏi Chì",
-    icon: "textures/lead/lead_ingot",
+    icon: "textures/items/lead_ingot",
   },
   {
     id: "apeirix:lead_nugget",
     category: "materials",
     name: "Mảnh Chì",
-    icon: "textures/lead/lead_nugget",
+    icon: "textures/items/lead_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -851,7 +851,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_ingot_dust",
     category: "materials",
     name: "Bụi Chì",
-    icon: "textures/lead/lead_ingot_dust",
+    icon: "textures/items/lead_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -860,7 +860,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_ingot_dust_pure",
     category: "materials",
     name: "Bụi Chì Tinh Khiết",
-    icon: "textures/lead/lead_ingot_dust_pure",
+    icon: "textures/items/lead_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -869,7 +869,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_ingot",
     category: "materials",
     name: "Thỏi Electrum",
-    icon: "textures/electrum/electrum_ingot",
+    icon: "textures/items/electrum_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -878,7 +878,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_nugget",
     category: "materials",
     name: "Mảnh Electrum",
-    icon: "textures/electrum/electrum_nugget",
+    icon: "textures/items/electrum_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -887,7 +887,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_ingot_dust",
     category: "materials",
     name: "Bụi Electrum",
-    icon: "textures/electrum/electrum_ingot_dust",
+    icon: "textures/items/electrum_ingot_dust",
     info: {
       "Chế tạo": "2 nguyên liệu"
     },
@@ -896,7 +896,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_ingot_dust_pure",
     category: "materials",
     name: "Bụi Electrum Tinh Khiết",
-    icon: "textures/electrum/electrum_ingot_dust_pure",
+    icon: "textures/items/electrum_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -905,13 +905,13 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_electrum",
     category: "materials",
     name: "Electrum Thô",
-    icon: "textures/electrum/raw_electrum",
+    icon: "textures/items/raw_electrum",
   },
   {
     id: "apeirix:invar_ingot",
     category: "materials",
     name: "Thỏi Invar",
-    icon: "textures/invar/invar_ingot",
+    icon: "textures/items/invar_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -920,7 +920,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_nugget",
     category: "materials",
     name: "Mảnh Invar",
-    icon: "textures/invar/invar_nugget",
+    icon: "textures/items/invar_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -929,7 +929,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_ingot_dust",
     category: "materials",
     name: "Bụi Invar",
-    icon: "textures/invar/invar_ingot_dust",
+    icon: "textures/items/invar_ingot_dust",
     info: {
       "Chế tạo": "3 nguyên liệu"
     },
@@ -938,7 +938,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_ingot_dust_pure",
     category: "materials",
     name: "Bụi Invar Tinh Khiết",
-    icon: "textures/invar/invar_ingot_dust_pure",
+    icon: "textures/items/invar_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -947,25 +947,25 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_invar",
     category: "materials",
     name: "Invar Thô",
-    icon: "textures/invar/raw_invar",
+    icon: "textures/items/raw_invar",
   },
   {
     id: "apeirix:raw_platinum",
     category: "materials",
     name: "Bạch Kim Thô",
-    icon: "textures/platinum/raw_platinum",
+    icon: "textures/items/raw_platinum",
   },
   {
     id: "apeirix:platinum_ingot",
     category: "materials",
     name: "Thỏi Bạch Kim",
-    icon: "textures/platinum/platinum_ingot",
+    icon: "textures/items/platinum_ingot",
   },
   {
     id: "apeirix:platinum_nugget",
     category: "materials",
     name: "Mảnh Bạch Kim",
-    icon: "textures/platinum/platinum_nugget",
+    icon: "textures/items/platinum_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -974,7 +974,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_ingot_dust",
     category: "materials",
     name: "Bụi Bạch Kim",
-    icon: "textures/platinum/platinum_ingot_dust",
+    icon: "textures/items/platinum_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -983,7 +983,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_ingot_dust_pure",
     category: "materials",
     name: "Bụi Bạch Kim Tinh Khiết",
-    icon: "textures/platinum/platinum_ingot_dust_pure",
+    icon: "textures/items/platinum_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -992,13 +992,13 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_cobalt",
     category: "materials",
     name: "Cobalt Thô",
-    icon: "textures/cobalt/raw_cobalt",
+    icon: "textures/items/raw_cobalt",
   },
   {
     id: "apeirix:cobalt_ingot",
     category: "materials",
     name: "Thỏi Cobalt",
-    icon: "textures/cobalt/cobalt_ingot",
+    icon: "textures/items/cobalt_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1007,7 +1007,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_nugget",
     category: "materials",
     name: "Mảnh Cobalt",
-    icon: "textures/cobalt/cobalt_nugget",
+    icon: "textures/items/cobalt_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1016,7 +1016,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_ingot_dust",
     category: "materials",
     name: "Bụi Cobalt",
-    icon: "textures/cobalt/cobalt_ingot_dust",
+    icon: "textures/items/cobalt_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1025,7 +1025,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_ingot_dust_pure",
     category: "materials",
     name: "Bụi Cobalt Tinh Khiết",
-    icon: "textures/cobalt/cobalt_ingot_dust_pure",
+    icon: "textures/items/cobalt_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1034,13 +1034,13 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_ardite",
     category: "materials",
     name: "Ardite Thô",
-    icon: "textures/ardite/raw_ardite",
+    icon: "textures/items/raw_ardite",
   },
   {
     id: "apeirix:ardite_ingot",
     category: "materials",
     name: "Thỏi Ardite",
-    icon: "textures/ardite/ardite_ingot",
+    icon: "textures/items/ardite_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1049,7 +1049,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_nugget",
     category: "materials",
     name: "Mảnh Ardite",
-    icon: "textures/ardite/ardite_nugget",
+    icon: "textures/items/ardite_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1058,7 +1058,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_ingot_dust",
     category: "materials",
     name: "Bụi Ardite",
-    icon: "textures/ardite/ardite_ingot_dust",
+    icon: "textures/items/ardite_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1067,7 +1067,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_ingot_dust_pure",
     category: "materials",
     name: "Bụi Ardite Tinh Khiết",
-    icon: "textures/ardite/ardite_ingot_dust_pure",
+    icon: "textures/items/ardite_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1076,13 +1076,13 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_manyullyn",
     category: "materials",
     name: "Manyullyn Thô",
-    icon: "textures/manyullyn/raw_manyullyn",
+    icon: "textures/items/raw_manyullyn",
   },
   {
     id: "apeirix:manyullyn_ingot",
     category: "materials",
     name: "Thỏi Manyullyn",
-    icon: "textures/manyullyn/manyullyn_ingot",
+    icon: "textures/items/manyullyn_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1091,7 +1091,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_nugget",
     category: "materials",
     name: "Mảnh Manyullyn",
-    icon: "textures/manyullyn/manyullyn_nugget",
+    icon: "textures/items/manyullyn_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1100,7 +1100,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_ingot_dust",
     category: "materials",
     name: "Bụi Manyullyn",
-    icon: "textures/manyullyn/manyullyn_ingot_dust",
+    icon: "textures/items/manyullyn_ingot_dust",
     info: {
       "Chế tạo": "2 nguyên liệu"
     },
@@ -1109,7 +1109,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_ingot_dust_pure",
     category: "materials",
     name: "Bụi Manyullyn Tinh Khiết",
-    icon: "textures/manyullyn/manyullyn_ingot_dust_pure",
+    icon: "textures/items/manyullyn_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
     },
@@ -1324,184 +1324,19 @@ export const GENERATED_WIKI_ITEMS = [
     name: "ore_crusher",
   },
   {
-    id: "apeirix:bronze_pickaxe",
-    category: "materials",
-    name: "bronze_pickaxe",
-  },
-  {
-    id: "apeirix:bronze_axe",
-    category: "materials",
-    name: "bronze_axe",
-  },
-  {
-    id: "apeirix:bronze_shovel",
-    category: "materials",
-    name: "bronze_shovel",
-  },
-  {
-    id: "apeirix:bronze_hoe",
-    category: "materials",
-    name: "bronze_hoe",
-  },
-  {
-    id: "apeirix:bronze_sword",
-    category: "materials",
-    name: "bronze_sword",
-  },
-  {
-    id: "apeirix:bronze_spear",
-    category: "materials",
-    name: "bronze_spear",
-  },
-  {
-    id: "apeirix:steel_alloy_pickaxe",
-    category: "materials",
-    name: "steel_alloy_pickaxe",
-  },
-  {
-    id: "apeirix:steel_alloy_axe",
-    category: "materials",
-    name: "steel_alloy_axe",
-  },
-  {
-    id: "apeirix:steel_alloy_shovel",
-    category: "materials",
-    name: "steel_alloy_shovel",
-  },
-  {
-    id: "apeirix:steel_alloy_hoe",
-    category: "materials",
-    name: "steel_alloy_hoe",
-  },
-  {
-    id: "apeirix:steel_alloy_sword",
-    category: "materials",
-    name: "steel_alloy_sword",
-  },
-  {
-    id: "apeirix:copper_hammer",
-    category: "materials",
-    name: "copper_hammer",
-  },
-  {
-    id: "apeirix:bronze_hammer",
-    category: "materials",
-    name: "bronze_hammer",
-  },
-  {
-    id: "apeirix:steel_alloy_hammer",
-    category: "materials",
-    name: "steel_alloy_hammer",
-  },
-  {
-    id: "apeirix:netherite_hammer",
-    category: "materials",
-    name: "netherite_hammer",
-  },
-  {
-    id: "apeirix:bronze_helmet",
-    category: "materials",
-    name: "bronze_helmet",
-  },
-  {
-    id: "apeirix:bronze_chestplate",
-    category: "materials",
-    name: "bronze_chestplate",
-  },
-  {
-    id: "apeirix:bronze_leggings",
-    category: "materials",
-    name: "bronze_leggings",
-  },
-  {
-    id: "apeirix:bronze_boots",
-    category: "materials",
-    name: "bronze_boots",
-  },
-  {
-    id: "apeirix:steel_alloy_helmet",
-    category: "materials",
-    name: "steel_alloy_helmet",
-  },
-  {
-    id: "apeirix:steel_alloy_chestplate",
-    category: "materials",
-    name: "steel_alloy_chestplate",
-  },
-  {
-    id: "apeirix:steel_alloy_leggings",
-    category: "materials",
-    name: "steel_alloy_leggings",
-  },
-  {
-    id: "apeirix:steel_alloy_boots",
-    category: "materials",
-    name: "steel_alloy_boots",
-  },
-  {
     id: "apeirix:canempty",
     category: "materials",
     name: "Vỏ Đồ Hộp Rỗng",
-    icon: "textures/foods/canempty",
+    icon: "textures/items/canempty",
     info: {
-      "Chế tạo": "Có công thức chế tạo"
+      "Chế tạo": "0 nguyên liệu"
     },
   },
   {
     id: "apeirix:candirty",
     category: "materials",
     name: "Vỏ Đồ Hộp Bẩn",
-    icon: "textures/foods/candirty",
-  },
-  {
-    id: "apeirix:canned_food",
-    category: "materials",
-    name: "canned_food",
-  },
-  {
-    id: "apeirix:canned_pumpkin",
-    category: "materials",
-    name: "canned_pumpkin",
-  },
-  {
-    id: "apeirix:cannedbeets",
-    category: "materials",
-    name: "cannedbeets",
-  },
-  {
-    id: "apeirix:cannedbread",
-    category: "materials",
-    name: "cannedbread",
-  },
-  {
-    id: "apeirix:cannedcarrots",
-    category: "materials",
-    name: "cannedcarrots",
-  },
-  {
-    id: "apeirix:canneddogfood",
-    category: "materials",
-    name: "canneddogfood",
-  },
-  {
-    id: "apeirix:cannedfish",
-    category: "materials",
-    name: "cannedfish",
-  },
-  {
-    id: "apeirix:cannedmeal",
-    category: "materials",
-    name: "cannedmeal",
-  },
-  {
-    id: "apeirix:cannedmushroomsoup",
-    category: "materials",
-    name: "cannedmushroomsoup",
-  },
-  {
-    id: "apeirix:cannedsalad",
-    category: "materials",
-    name: "cannedsalad",
+    icon: "textures/items/candirty",
   },
   {
     id: "apeirix:achievement_book",
@@ -1520,11 +1355,11 @@ export const GENERATED_WIKI_ITEMS = [
     category: "tools",
     name: "Cuốc Đồng Thanh",
     description: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt.",
-    icon: "textures/tools/bronze_pickaxe",
+    icon: "textures/items/bronze_pickaxe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1532,11 +1367,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_axe",
     category: "tools",
     name: "Rìu Đồng Thanh",
-    icon: "textures/tools/bronze_axe",
+    icon: "textures/items/bronze_axe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 5,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1544,11 +1379,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_shovel",
     category: "tools",
     name: "Xẻng Đồng Thanh",
-    icon: "textures/tools/bronze_shovel",
+    icon: "textures/items/bronze_shovel",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 3,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1556,11 +1391,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_hoe",
     category: "tools",
     name: "Cuốc Đồng Thanh",
-    icon: "textures/tools/bronze_hoe",
+    icon: "textures/items/bronze_hoe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1568,11 +1403,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_sword",
     category: "tools",
     name: "Kiếm Đồng Thanh",
-    icon: "textures/tools/bronze_sword",
+    icon: "textures/items/bronze_sword",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 6,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1580,11 +1415,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_spear",
     category: "tools",
     name: "Giáo Đồng Thanh",
-    icon: "textures/tools/bronze_spear",
+    icon: "textures/items/bronze_spear",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 3,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1592,11 +1427,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_pickaxe",
     category: "tools",
     name: "Cuốc Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_pickaxe",
+    icon: "textures/items/steel_alloy_pickaxe",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 22,
       "Sát thương": 5,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -1604,11 +1439,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_axe",
     category: "tools",
     name: "Rìu Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_axe",
+    icon: "textures/items/steel_alloy_axe",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 22,
       "Sát thương": 6,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -1616,11 +1451,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_shovel",
     category: "tools",
     name: "Xẻng Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_shovel",
+    icon: "textures/items/steel_alloy_shovel",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 22,
       "Sát thương": 4,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -1628,11 +1463,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_hoe",
     category: "tools",
     name: "Cuốc Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_hoe",
+    icon: "textures/items/steel_alloy_hoe",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 22,
       "Sát thương": 5,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -1640,11 +1475,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_sword",
     category: "tools",
     name: "Kiếm Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_sword",
+    icon: "textures/items/steel_alloy_sword",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 22,
       "Sát thương": 7,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -1652,11 +1487,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_pickaxe",
     category: "tools",
     name: "Cuốc Bạc",
-    icon: "textures/silver/silver_pickaxe",
+    icon: "textures/items/silver_pickaxe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1664,11 +1499,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_axe",
     category: "tools",
     name: "Rìu Bạc",
-    icon: "textures/silver/silver_axe",
+    icon: "textures/items/silver_axe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 7,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1676,11 +1511,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_shovel",
     category: "tools",
     name: "Xẻng Bạc",
-    icon: "textures/silver/silver_shovel",
+    icon: "textures/items/silver_shovel",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 3,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1688,11 +1523,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_hoe",
     category: "tools",
     name: "Cuốc Bạc",
-    icon: "textures/silver/silver_hoe",
+    icon: "textures/items/silver_hoe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 1,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1700,11 +1535,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_sword",
     category: "tools",
     name: "Kiếm Bạc",
-    icon: "textures/silver/silver_sword",
+    icon: "textures/items/silver_sword",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 6,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1712,11 +1547,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_hammer",
     category: "tools",
     name: "Búa Bạc",
-    icon: "textures/silver/silver_hammer",
+    icon: "textures/items/silver_hammer",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 5,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -1724,11 +1559,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_pickaxe",
     category: "tools",
     name: "Cuốc Niken",
-    icon: "textures/nickel/nickel_pickaxe",
+    icon: "textures/items/nickel_pickaxe",
     info: {
       "Độ bền": 450,
-      "Độ phù phép": 14,
       "Sát thương": 4,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -1736,11 +1571,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_axe",
     category: "tools",
     name: "Rìu Niken",
-    icon: "textures/nickel/nickel_axe",
+    icon: "textures/items/nickel_axe",
     info: {
       "Độ bền": 450,
-      "Độ phù phép": 14,
       "Sát thương": 5,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -1748,11 +1583,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_shovel",
     category: "tools",
     name: "Xẻng Niken",
-    icon: "textures/nickel/nickel_shovel",
+    icon: "textures/items/nickel_shovel",
     info: {
       "Độ bền": 450,
-      "Độ phù phép": 14,
       "Sát thương": 3,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -1760,11 +1595,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_hoe",
     category: "tools",
     name: "Cuốc Niken",
-    icon: "textures/nickel/nickel_hoe",
+    icon: "textures/items/nickel_hoe",
     info: {
       "Độ bền": 450,
-      "Độ phù phép": 14,
       "Sát thương": 4,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -1772,11 +1607,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_sword",
     category: "tools",
     name: "Kiếm Niken",
-    icon: "textures/nickel/nickel_sword",
+    icon: "textures/items/nickel_sword",
     info: {
       "Độ bền": 450,
-      "Độ phù phép": 14,
       "Sát thương": 6,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -1784,11 +1619,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_hammer",
     category: "tools",
     name: "Búa Niken",
-    icon: "textures/nickel/nickel_hammer",
+    icon: "textures/items/nickel_hammer",
     info: {
       "Độ bền": 675,
-      "Độ phù phép": 14,
       "Sát thương": 4,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -1796,11 +1631,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_pickaxe",
     category: "tools",
     name: "Cuốc Chì",
-    icon: "textures/lead/lead_pickaxe",
+    icon: "textures/items/lead_pickaxe",
     info: {
       "Độ bền": 400,
-      "Độ phù phép": 12,
       "Sát thương": 4,
+      "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
   },
@@ -1808,11 +1643,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_axe",
     category: "tools",
     name: "Rìu Chì",
-    icon: "textures/lead/lead_axe",
+    icon: "textures/items/lead_axe",
     info: {
       "Độ bền": 400,
-      "Độ phù phép": 12,
       "Sát thương": 5,
+      "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
   },
@@ -1820,11 +1655,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_shovel",
     category: "tools",
     name: "Xẻng Chì",
-    icon: "textures/lead/lead_shovel",
+    icon: "textures/items/lead_shovel",
     info: {
       "Độ bền": 400,
-      "Độ phù phép": 12,
       "Sát thương": 3,
+      "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
   },
@@ -1832,11 +1667,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_hoe",
     category: "tools",
     name: "Cuốc Chì",
-    icon: "textures/lead/lead_hoe",
+    icon: "textures/items/lead_hoe",
     info: {
       "Độ bền": 400,
-      "Độ phù phép": 12,
       "Sát thương": 4,
+      "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
   },
@@ -1844,11 +1679,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_sword",
     category: "tools",
     name: "Kiếm Chì",
-    icon: "textures/lead/lead_sword",
+    icon: "textures/items/lead_sword",
     info: {
       "Độ bền": 400,
-      "Độ phù phép": 12,
       "Sát thương": 6,
+      "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
   },
@@ -1856,11 +1691,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_hammer",
     category: "tools",
     name: "Búa Chì",
-    icon: "textures/lead/lead_hammer",
+    icon: "textures/items/lead_hammer",
     info: {
       "Độ bền": 600,
-      "Độ phù phép": 12,
       "Sát thương": 4,
+      "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
   },
@@ -1868,11 +1703,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_pickaxe",
     category: "tools",
     name: "Cuốc Electrum",
-    icon: "textures/electrum/electrum_pickaxe",
+    icon: "textures/items/electrum_pickaxe",
     info: {
       "Độ bền": 425,
-      "Độ phù phép": 20,
       "Sát thương": 4,
+      "Độ phù phép": 20,
       "Cấp độ": "iron"
     },
   },
@@ -1880,11 +1715,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_axe",
     category: "tools",
     name: "Rìu Electrum",
-    icon: "textures/electrum/electrum_axe",
+    icon: "textures/items/electrum_axe",
     info: {
       "Độ bền": 425,
-      "Độ phù phép": 20,
       "Sát thương": 5,
+      "Độ phù phép": 20,
       "Cấp độ": "iron"
     },
   },
@@ -1892,11 +1727,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_shovel",
     category: "tools",
     name: "Xẻng Electrum",
-    icon: "textures/electrum/electrum_shovel",
+    icon: "textures/items/electrum_shovel",
     info: {
       "Độ bền": 425,
-      "Độ phù phép": 20,
       "Sát thương": 3,
+      "Độ phù phép": 20,
       "Cấp độ": "iron"
     },
   },
@@ -1904,11 +1739,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_hoe",
     category: "tools",
     name: "Cuốc Electrum",
-    icon: "textures/electrum/electrum_hoe",
+    icon: "textures/items/electrum_hoe",
     info: {
       "Độ bền": 425,
-      "Độ phù phép": 20,
       "Sát thương": 4,
+      "Độ phù phép": 20,
       "Cấp độ": "iron"
     },
   },
@@ -1916,11 +1751,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_sword",
     category: "tools",
     name: "Kiếm Electrum",
-    icon: "textures/electrum/electrum_sword",
+    icon: "textures/items/electrum_sword",
     info: {
       "Độ bền": 425,
-      "Độ phù phép": 20,
       "Sát thương": 6,
+      "Độ phù phép": 20,
       "Cấp độ": "iron"
     },
   },
@@ -1928,11 +1763,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_hammer",
     category: "tools",
     name: "Búa Electrum",
-    icon: "textures/electrum/electrum_hammer",
+    icon: "textures/items/electrum_hammer",
     info: {
       "Độ bền": 640,
-      "Độ phù phép": 20,
       "Sát thương": 4,
+      "Độ phù phép": 20,
       "Cấp độ": "iron"
     },
   },
@@ -1940,11 +1775,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_pickaxe",
     category: "tools",
     name: "Cuốc Invar",
-    icon: "textures/invar/invar_pickaxe",
+    icon: "textures/items/invar_pickaxe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 10,
       "Sát thương": 4,
+      "Độ phù phép": 10,
       "Cấp độ": "iron"
     },
   },
@@ -1952,11 +1787,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_axe",
     category: "tools",
     name: "Rìu Invar",
-    icon: "textures/invar/invar_axe",
+    icon: "textures/items/invar_axe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 10,
       "Sát thương": 5,
+      "Độ phù phép": 10,
       "Cấp độ": "iron"
     },
   },
@@ -1964,11 +1799,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_shovel",
     category: "tools",
     name: "Xẻng Invar",
-    icon: "textures/invar/invar_shovel",
+    icon: "textures/items/invar_shovel",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 10,
       "Sát thương": 3,
+      "Độ phù phép": 10,
       "Cấp độ": "iron"
     },
   },
@@ -1976,11 +1811,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_hoe",
     category: "tools",
     name: "Cuốc Invar",
-    icon: "textures/invar/invar_hoe",
+    icon: "textures/items/invar_hoe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 10,
       "Sát thương": 4,
+      "Độ phù phép": 10,
       "Cấp độ": "iron"
     },
   },
@@ -1988,11 +1823,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_sword",
     category: "tools",
     name: "Kiếm Invar",
-    icon: "textures/invar/invar_sword",
+    icon: "textures/items/invar_sword",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 10,
       "Sát thương": 6,
+      "Độ phù phép": 10,
       "Cấp độ": "iron"
     },
   },
@@ -2000,11 +1835,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_hammer",
     category: "tools",
     name: "Búa Invar",
-    icon: "textures/invar/invar_hammer",
+    icon: "textures/items/invar_hammer",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 10,
       "Sát thương": 4,
+      "Độ phù phép": 10,
       "Cấp độ": "iron"
     },
   },
@@ -2012,11 +1847,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_pickaxe",
     category: "tools",
     name: "Cuốc Bạch Kim",
-    icon: "textures/platinum/platinum_pickaxe",
+    icon: "textures/items/platinum_pickaxe",
     info: {
       "Độ bền": 1600,
-      "Độ phù phép": 22,
       "Sát thương": 5,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2024,11 +1859,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_axe",
     category: "tools",
     name: "Rìu Bạch Kim",
-    icon: "textures/platinum/platinum_axe",
+    icon: "textures/items/platinum_axe",
     info: {
       "Độ bền": 1600,
-      "Độ phù phép": 22,
       "Sát thương": 7,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2036,11 +1871,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_shovel",
     category: "tools",
     name: "Xẻng Bạch Kim",
-    icon: "textures/platinum/platinum_shovel",
+    icon: "textures/items/platinum_shovel",
     info: {
       "Độ bền": 1600,
-      "Độ phù phép": 22,
       "Sát thương": 5,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2048,11 +1883,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_hoe",
     category: "tools",
     name: "Cuốc Bạch Kim",
-    icon: "textures/platinum/platinum_hoe",
+    icon: "textures/items/platinum_hoe",
     info: {
       "Độ bền": 1600,
-      "Độ phù phép": 22,
       "Sát thương": 6,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2060,11 +1895,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_sword",
     category: "tools",
     name: "Kiếm Bạch Kim",
-    icon: "textures/platinum/platinum_sword",
+    icon: "textures/items/platinum_sword",
     info: {
       "Độ bền": 1600,
-      "Độ phù phép": 22,
       "Sát thương": 8,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2072,11 +1907,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_hammer",
     category: "tools",
     name: "Búa Bạch Kim",
-    icon: "textures/platinum/platinum_hammer",
+    icon: "textures/items/platinum_hammer",
     info: {
       "Độ bền": 2400,
-      "Độ phù phép": 22,
       "Sát thương": 6,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2084,11 +1919,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_pickaxe",
     category: "tools",
     name: "Cuốc Thiếc",
-    icon: "textures/tin_tool/tin_pickaxe",
+    icon: "textures/items/tin_pickaxe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -2096,11 +1931,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_axe",
     category: "tools",
     name: "Rìu Thiếc",
-    icon: "textures/tin_tool/tin_axe",
+    icon: "textures/items/tin_axe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 5,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -2108,11 +1943,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_shovel",
     category: "tools",
     name: "Xẻng Thiếc",
-    icon: "textures/tin_tool/tin_shovel",
+    icon: "textures/items/tin_shovel",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 3,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -2120,11 +1955,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_hoe",
     category: "tools",
     name: "Cuốc Thiếc",
-    icon: "textures/tin_tool/tin_hoe",
+    icon: "textures/items/tin_hoe",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -2132,11 +1967,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_sword",
     category: "tools",
     name: "Kiếm Thiếc",
-    icon: "textures/tin_tool/tin_sword",
+    icon: "textures/items/tin_sword",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 18,
       "Sát thương": 6,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -2144,11 +1979,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_hammer",
     category: "tools",
     name: "Búa Thiếc",
-    icon: "textures/tin_tool/tin_hammer",
+    icon: "textures/items/tin_hammer",
     info: {
       "Độ bền": 562,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
   },
@@ -2156,11 +1991,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_pickaxe",
     category: "tools",
     name: "Cuốc Cobalt",
-    icon: "textures/cobalt/cobalt_pickaxe",
+    icon: "textures/items/cobalt_pickaxe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 4,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2168,11 +2003,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_axe",
     category: "tools",
     name: "Rìu Cobalt",
-    icon: "textures/cobalt/cobalt_axe",
+    icon: "textures/items/cobalt_axe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 5,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2180,11 +2015,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_shovel",
     category: "tools",
     name: "Xẻng Cobalt",
-    icon: "textures/cobalt/cobalt_shovel",
+    icon: "textures/items/cobalt_shovel",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 3,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2192,11 +2027,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_hoe",
     category: "tools",
     name: "Cuốc Cobalt",
-    icon: "textures/cobalt/cobalt_hoe",
+    icon: "textures/items/cobalt_hoe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 4,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2204,11 +2039,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_sword",
     category: "tools",
     name: "Kiếm Cobalt",
-    icon: "textures/cobalt/cobalt_sword",
+    icon: "textures/items/cobalt_sword",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 6,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2216,11 +2051,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_hammer",
     category: "tools",
     name: "Búa Cobalt",
-    icon: "textures/cobalt/cobalt_hammer",
+    icon: "textures/items/cobalt_hammer",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 16,
       "Sát thương": 4,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2228,11 +2063,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_pickaxe",
     category: "tools",
     name: "Cuốc Ardite",
-    icon: "textures/ardite/ardite_pickaxe",
+    icon: "textures/items/ardite_pickaxe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 4,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2240,11 +2075,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_axe",
     category: "tools",
     name: "Rìu Ardite",
-    icon: "textures/ardite/ardite_axe",
+    icon: "textures/items/ardite_axe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 5,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2252,11 +2087,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_shovel",
     category: "tools",
     name: "Xẻng Ardite",
-    icon: "textures/ardite/ardite_shovel",
+    icon: "textures/items/ardite_shovel",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 3,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2264,11 +2099,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_hoe",
     category: "tools",
     name: "Cuốc Ardite",
-    icon: "textures/ardite/ardite_hoe",
+    icon: "textures/items/ardite_hoe",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 4,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2276,11 +2111,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_sword",
     category: "tools",
     name: "Kiếm Ardite",
-    icon: "textures/ardite/ardite_sword",
+    icon: "textures/items/ardite_sword",
     info: {
       "Độ bền": 500,
-      "Độ phù phép": 16,
       "Sát thương": 6,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2288,11 +2123,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_hammer",
     category: "tools",
     name: "Búa Ardite",
-    icon: "textures/ardite/ardite_hammer",
+    icon: "textures/items/ardite_hammer",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 16,
       "Sát thương": 4,
+      "Độ phù phép": 16,
       "Cấp độ": "iron"
     },
   },
@@ -2300,11 +2135,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_pickaxe",
     category: "tools",
     name: "Cuốc Manyullyn",
-    icon: "textures/manyullyn/manyullyn_pickaxe",
+    icon: "textures/items/manyullyn_pickaxe",
     info: {
       "Độ bền": 800,
-      "Độ phù phép": 18,
       "Sát thương": 5,
+      "Độ phù phép": 18,
       "Cấp độ": "diamond"
     },
   },
@@ -2312,11 +2147,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_axe",
     category: "tools",
     name: "Rìu Manyullyn",
-    icon: "textures/manyullyn/manyullyn_axe",
+    icon: "textures/items/manyullyn_axe",
     info: {
       "Độ bền": 800,
-      "Độ phù phép": 18,
       "Sát thương": 7,
+      "Độ phù phép": 18,
       "Cấp độ": "diamond"
     },
   },
@@ -2324,11 +2159,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_shovel",
     category: "tools",
     name: "Xẻng Manyullyn",
-    icon: "textures/manyullyn/manyullyn_shovel",
+    icon: "textures/items/manyullyn_shovel",
     info: {
       "Độ bền": 800,
-      "Độ phù phép": 18,
       "Sát thương": 4,
+      "Độ phù phép": 18,
       "Cấp độ": "diamond"
     },
   },
@@ -2336,11 +2171,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_hoe",
     category: "tools",
     name: "Cuốc Manyullyn",
-    icon: "textures/manyullyn/manyullyn_hoe",
+    icon: "textures/items/manyullyn_hoe",
     info: {
       "Độ bền": 800,
-      "Độ phù phép": 18,
       "Sát thương": 5,
+      "Độ phù phép": 18,
       "Cấp độ": "diamond"
     },
   },
@@ -2348,11 +2183,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_sword",
     category: "tools",
     name: "Kiếm Manyullyn",
-    icon: "textures/manyullyn/manyullyn_sword",
+    icon: "textures/items/manyullyn_sword",
     info: {
       "Độ bền": 800,
-      "Độ phù phép": 18,
       "Sát thương": 8,
+      "Độ phù phép": 18,
       "Cấp độ": "diamond"
     },
   },
@@ -2360,11 +2195,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_hammer",
     category: "tools",
     name: "Búa Manyullyn",
-    icon: "textures/manyullyn/manyullyn_hammer",
+    icon: "textures/items/manyullyn_hammer",
     info: {
       "Độ bền": 1200,
-      "Độ phù phép": 18,
       "Sát thương": 5,
+      "Độ phù phép": 18,
       "Cấp độ": "diamond"
     },
   },
@@ -2372,11 +2207,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:wooden_hammer",
     category: "tools",
     name: "Búa Gỗ",
-    icon: "textures/tools/wooden_hammer",
+    icon: "textures/items/wooden_hammer",
     info: {
       "Độ bền": 59,
-      "Độ phù phép": 15,
       "Sát thương": 1,
+      "Độ phù phép": 15,
       "Cấp độ": "wooden"
     },
   },
@@ -2384,11 +2219,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:stone_hammer",
     category: "tools",
     name: "Búa Đá",
-    icon: "textures/tools/stone_hammer",
+    icon: "textures/items/stone_hammer",
     info: {
       "Độ bền": 131,
-      "Độ phù phép": 5,
       "Sát thương": 2,
+      "Độ phù phép": 5,
       "Cấp độ": "stone"
     },
   },
@@ -2396,11 +2231,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:copper_hammer",
     category: "tools",
     name: "Búa Đồng",
-    icon: "textures/tools/copper_hammer",
+    icon: "textures/items/copper_hammer",
     info: {
       "Độ bền": 200,
-      "Độ phù phép": 12,
       "Sát thương": 2,
+      "Độ phù phép": 12,
       "Cấp độ": "stone"
     },
   },
@@ -2408,11 +2243,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:iron_hammer",
     category: "tools",
     name: "Búa Sắt",
-    icon: "textures/tools/iron_hammer",
+    icon: "textures/items/iron_hammer",
     info: {
       "Độ bền": 250,
-      "Độ phù phép": 14,
       "Sát thương": 3,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -2420,11 +2255,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:golden_hammer",
     category: "tools",
     name: "Búa Vàng",
-    icon: "textures/tools/golden_hammer",
+    icon: "textures/items/golden_hammer",
     info: {
       "Độ bền": 32,
-      "Độ phù phép": 22,
       "Sát thương": 1,
+      "Độ phù phép": 22,
       "Cấp độ": "golden"
     },
   },
@@ -2432,11 +2267,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_hammer",
     category: "tools",
     name: "Búa Đồng Thanh",
-    icon: "textures/tools/bronze_hammer",
+    icon: "textures/items/bronze_hammer",
     info: {
       "Độ bền": 375,
-      "Độ phù phép": 14,
       "Sát thương": 3,
+      "Độ phù phép": 14,
       "Cấp độ": "iron"
     },
   },
@@ -2444,11 +2279,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_hammer",
     category: "tools",
     name: "Búa Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_hammer",
+    icon: "textures/items/steel_alloy_hammer",
     info: {
       "Độ bền": 750,
-      "Độ phù phép": 22,
       "Sát thương": 6,
+      "Độ phù phép": 22,
       "Cấp độ": "diamond"
     },
   },
@@ -2456,11 +2291,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:diamond_hammer",
     category: "tools",
     name: "Búa Kim Cương",
-    icon: "textures/tools/diamond_hammer",
+    icon: "textures/items/diamond_hammer",
     info: {
       "Độ bền": 1561,
-      "Độ phù phép": 10,
       "Sát thương": 4,
+      "Độ phù phép": 10,
       "Cấp độ": "diamond"
     },
   },
@@ -2468,11 +2303,11 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:netherite_hammer",
     category: "tools",
     name: "Búa Netherite",
-    icon: "textures/tools/netherite_hammer",
+    icon: "textures/items/netherite_hammer",
     info: {
       "Độ bền": 2031,
-      "Độ phù phép": 15,
       "Sát thương": 5,
+      "Độ phù phép": 15,
       "Cấp độ": "netherite"
     },
   },
@@ -2481,8 +2316,9 @@ export const GENERATED_WIKI_ITEMS = [
     category: "armor",
     name: "Mũ Đồng Thanh",
     description: "Mũ giáp đồng thanh bảo vệ đầu. Tương đương với mũ sắt.",
-    icon: "textures/armor/items/bronze_helmet",
+    icon: "textures/items/bronze_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2493,8 +2329,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_chestplate",
     category: "armor",
     name: "Áo Giáp Đồng Thanh",
-    icon: "textures/armor/items/bronze_chestplate",
+    icon: "textures/items/bronze_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -2505,8 +2342,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_leggings",
     category: "armor",
     name: "Quần Đồng Thanh",
-    icon: "textures/armor/items/bronze_leggings",
+    icon: "textures/items/bronze_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 18,
@@ -2517,8 +2355,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_boots",
     category: "armor",
     name: "Giày Đồng Thanh",
-    icon: "textures/armor/items/bronze_boots",
+    icon: "textures/items/bronze_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 18,
@@ -2529,8 +2368,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_helmet",
     category: "armor",
     name: "Mũ Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_helmet",
+    icon: "textures/items/steel_alloy_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 440,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2541,8 +2381,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_chestplate",
     category: "armor",
     name: "Áo Giáp Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_chestplate",
+    icon: "textures/items/steel_alloy_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 640,
       "Giáp": 8,
       "Độ phù phép": 22,
@@ -2553,8 +2394,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_leggings",
     category: "armor",
     name: "Quần Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_leggings",
+    icon: "textures/items/steel_alloy_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 600,
       "Giáp": 6,
       "Độ phù phép": 22,
@@ -2565,8 +2407,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_boots",
     category: "armor",
     name: "Giày Hợp Kim Thép",
-    icon: "textures/steel_alloy/steel_alloy_boots",
+    icon: "textures/items/steel_alloy_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 520,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2577,8 +2420,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_helmet",
     category: "armor",
     name: "Mũ Bạc",
-    icon: "textures/silver/silver_helmet",
+    icon: "textures/items/silver_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2589,8 +2433,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_chestplate",
     category: "armor",
     name: "Áo Giáp Bạc",
-    icon: "textures/silver/silver_chestplate",
+    icon: "textures/items/silver_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 6,
       "Độ phù phép": 18,
@@ -2601,8 +2446,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_leggings",
     category: "armor",
     name: "Quần Bạc",
-    icon: "textures/silver/silver_leggings",
+    icon: "textures/items/silver_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -2613,8 +2459,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_boots",
     category: "armor",
     name: "Giày Bạc",
-    icon: "textures/silver/silver_boots",
+    icon: "textures/items/silver_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2625,8 +2472,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_helmet",
     category: "armor",
     name: "Mũ Niken",
-    icon: "textures/nickel/nickel_helmet",
+    icon: "textures/items/nickel_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 14,
@@ -2637,8 +2485,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_chestplate",
     category: "armor",
     name: "Áo Giáp Niken",
-    icon: "textures/nickel/nickel_chestplate",
+    icon: "textures/items/nickel_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 14,
@@ -2649,8 +2498,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_leggings",
     category: "armor",
     name: "Quần Niken",
-    icon: "textures/nickel/nickel_leggings",
+    icon: "textures/items/nickel_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 14,
@@ -2661,8 +2511,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_boots",
     category: "armor",
     name: "Giày Niken",
-    icon: "textures/nickel/nickel_boots",
+    icon: "textures/items/nickel_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 14,
@@ -2673,8 +2524,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_helmet",
     category: "armor",
     name: "Mũ Chì",
-    icon: "textures/lead/lead_helmet",
+    icon: "textures/items/lead_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 12,
@@ -2685,8 +2537,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_chestplate",
     category: "armor",
     name: "Áo Giáp Chì",
-    icon: "textures/lead/lead_chestplate",
+    icon: "textures/items/lead_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 12,
@@ -2697,8 +2550,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_leggings",
     category: "armor",
     name: "Quần Chì",
-    icon: "textures/lead/lead_leggings",
+    icon: "textures/items/lead_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 12,
@@ -2709,8 +2563,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_boots",
     category: "armor",
     name: "Giày Chì",
-    icon: "textures/lead/lead_boots",
+    icon: "textures/items/lead_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 12,
@@ -2721,8 +2576,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_helmet",
     category: "armor",
     name: "Mũ Electrum",
-    icon: "textures/electrum/electrum_helmet",
+    icon: "textures/items/electrum_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 20,
@@ -2733,8 +2589,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_chestplate",
     category: "armor",
     name: "Áo Giáp Electrum",
-    icon: "textures/electrum/electrum_chestplate",
+    icon: "textures/items/electrum_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 20,
@@ -2745,8 +2602,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_leggings",
     category: "armor",
     name: "Quần Electrum",
-    icon: "textures/electrum/electrum_leggings",
+    icon: "textures/items/electrum_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 20,
@@ -2757,8 +2615,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_boots",
     category: "armor",
     name: "Giày Electrum",
-    icon: "textures/electrum/electrum_boots",
+    icon: "textures/items/electrum_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 20,
@@ -2769,8 +2628,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_helmet",
     category: "armor",
     name: "Mũ Invar",
-    icon: "textures/invar/invar_helmet",
+    icon: "textures/items/invar_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 10,
@@ -2781,8 +2641,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_chestplate",
     category: "armor",
     name: "Áo Giáp Invar",
-    icon: "textures/invar/invar_chestplate",
+    icon: "textures/items/invar_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 10,
@@ -2793,8 +2654,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_leggings",
     category: "armor",
     name: "Quần Invar",
-    icon: "textures/invar/invar_leggings",
+    icon: "textures/items/invar_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 10,
@@ -2805,8 +2667,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_boots",
     category: "armor",
     name: "Giày Invar",
-    icon: "textures/invar/invar_boots",
+    icon: "textures/items/invar_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 10,
@@ -2817,8 +2680,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_helmet",
     category: "armor",
     name: "Mũ Bạch Kim",
-    icon: "textures/platinum/platinum_helmet",
+    icon: "textures/items/platinum_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 440,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2829,8 +2693,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_chestplate",
     category: "armor",
     name: "Áo Giáp Bạch Kim",
-    icon: "textures/platinum/platinum_chestplate",
+    icon: "textures/items/platinum_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 640,
       "Giáp": 8,
       "Độ phù phép": 22,
@@ -2841,8 +2706,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_leggings",
     category: "armor",
     name: "Quần Bạch Kim",
-    icon: "textures/platinum/platinum_leggings",
+    icon: "textures/items/platinum_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 600,
       "Giáp": 6,
       "Độ phù phép": 22,
@@ -2853,8 +2719,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_boots",
     category: "armor",
     name: "Giày Bạch Kim",
-    icon: "textures/platinum/platinum_boots",
+    icon: "textures/items/platinum_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 520,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2865,8 +2732,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_helmet",
     category: "armor",
     name: "Mũ Thiếc",
-    icon: "textures/tin_tool/tin_helmet",
+    icon: "textures/items/tin_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2877,8 +2745,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_chestplate",
     category: "armor",
     name: "Áo Giáp Thiếc",
-    icon: "textures/tin_tool/tin_chestplate",
+    icon: "textures/items/tin_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -2889,8 +2758,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_leggings",
     category: "armor",
     name: "Quần Thiếc",
-    icon: "textures/tin_tool/tin_leggings",
+    icon: "textures/items/tin_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 18,
@@ -2901,8 +2771,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_boots",
     category: "armor",
     name: "Giày Thiếc",
-    icon: "textures/tin_tool/tin_boots",
+    icon: "textures/items/tin_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 18,
@@ -2913,8 +2784,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_helmet",
     category: "armor",
     name: "Mũ Cobalt",
-    icon: "textures/cobalt/cobalt_helmet",
+    icon: "textures/items/cobalt_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 16,
@@ -2925,8 +2797,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_chestplate",
     category: "armor",
     name: "Áo Giáp Cobalt",
-    icon: "textures/cobalt/cobalt_chestplate",
+    icon: "textures/items/cobalt_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 16,
@@ -2937,8 +2810,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_leggings",
     category: "armor",
     name: "Quần Cobalt",
-    icon: "textures/cobalt/cobalt_leggings",
+    icon: "textures/items/cobalt_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 16,
@@ -2949,8 +2823,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_boots",
     category: "armor",
     name: "Giày Cobalt",
-    icon: "textures/cobalt/cobalt_boots",
+    icon: "textures/items/cobalt_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 16,
@@ -2961,8 +2836,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_helmet",
     category: "armor",
     name: "Mũ Ardite",
-    icon: "textures/ardite/ardite_helmet",
+    icon: "textures/items/ardite_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 16,
@@ -2973,8 +2849,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_chestplate",
     category: "armor",
     name: "Áo Giáp Ardite",
-    icon: "textures/ardite/ardite_chestplate",
+    icon: "textures/items/ardite_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 16,
@@ -2985,8 +2862,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_leggings",
     category: "armor",
     name: "Quần Ardite",
-    icon: "textures/ardite/ardite_leggings",
+    icon: "textures/items/ardite_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 16,
@@ -2997,8 +2875,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_boots",
     category: "armor",
     name: "Giày Ardite",
-    icon: "textures/ardite/ardite_boots",
+    icon: "textures/items/ardite_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 16,
@@ -3009,8 +2888,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_helmet",
     category: "armor",
     name: "Mũ Manyullyn",
-    icon: "textures/manyullyn/manyullyn_helmet",
+    icon: "textures/items/manyullyn_helmet",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 280,
       "Giáp": 3,
       "Độ phù phép": 18,
@@ -3021,8 +2901,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_chestplate",
     category: "armor",
     name: "Áo Giáp Manyullyn",
-    icon: "textures/manyullyn/manyullyn_chestplate",
+    icon: "textures/items/manyullyn_chestplate",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 400,
       "Giáp": 7,
       "Độ phù phép": 18,
@@ -3033,8 +2914,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_leggings",
     category: "armor",
     name: "Quần Manyullyn",
-    icon: "textures/manyullyn/manyullyn_leggings",
+    icon: "textures/items/manyullyn_leggings",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 375,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -3045,8 +2927,9 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_boots",
     category: "armor",
     name: "Giày Manyullyn",
-    icon: "textures/manyullyn/manyullyn_boots",
+    icon: "textures/items/manyullyn_boots",
     info: {
+      "Chế tạo": "1 nguyên liệu",
       "Độ bền": 325,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -3057,7 +2940,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canned_food",
     category: "foods",
     name: "Đồ Hộp Thịt",
-    icon: "textures/foods/canned_food",
+    icon: "textures/items/canned_food",
     info: {
       "Dinh dưỡng": 10,
       "Độ no": 12.8
@@ -3067,7 +2950,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canned_pumpkin",
     category: "foods",
     name: "Đồ Hộp Bí Ngô",
-    icon: "textures/foods/canned_pumpkin",
+    icon: "textures/items/canned_pumpkin",
     info: {
       "Dinh dưỡng": 4,
       "Độ no": 4.8,
@@ -3078,7 +2961,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedbeets",
     category: "foods",
     name: "Đồ Hộp Củ Dền",
-    icon: "textures/foods/cannedbeets",
+    icon: "textures/items/cannedbeets",
     info: {
       "Dinh dưỡng": 6,
       "Độ no": 7.2
@@ -3088,7 +2971,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedbread",
     category: "foods",
     name: "Đồ Hộp Bánh Mì",
-    icon: "textures/foods/cannedbread",
+    icon: "textures/items/cannedbread",
     info: {
       "Dinh dưỡng": 5,
       "Độ no": 6
@@ -3098,7 +2981,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedcarrots",
     category: "foods",
     name: "Đồ Hộp Cà Rốt",
-    icon: "textures/foods/cannedcarrots",
+    icon: "textures/items/cannedcarrots",
     info: {
       "Dinh dưỡng": 4,
       "Độ no": 4.8,
@@ -3109,7 +2992,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canneddogfood",
     category: "foods",
     name: "Đồ Hộp Thức Ăn Chó",
-    icon: "textures/foods/canneddogfood",
+    icon: "textures/items/canneddogfood",
     info: {
       "Dinh dưỡng": 2,
       "Độ no": 0.4,
@@ -3120,7 +3003,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedfish",
     category: "foods",
     name: "Đồ Hộp Cá",
-    icon: "textures/foods/cannedfish",
+    icon: "textures/items/cannedfish",
     info: {
       "Dinh dưỡng": 5,
       "Độ no": 6,
@@ -3131,7 +3014,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedmeal",
     category: "foods",
     name: "Đồ Hộp Bữa Ăn",
-    icon: "textures/foods/cannedmeal",
+    icon: "textures/items/cannedmeal",
     info: {
       "Dinh dưỡng": 12,
       "Độ no": 16,
@@ -3142,7 +3025,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedmushroomsoup",
     category: "foods",
     name: "Đồ Hộp Súp Nấm",
-    icon: "textures/foods/cannedmushroomsoup",
+    icon: "textures/items/cannedmushroomsoup",
     info: {
       "Dinh dưỡng": 6,
       "Độ no": 7.2
@@ -3152,7 +3035,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedsalad",
     category: "foods",
     name: "Đồ Hộp Salad",
-    icon: "textures/foods/cannedsalad",
+    icon: "textures/items/cannedsalad",
     info: {
       "Dinh dưỡng": 3,
       "Độ no": 3.6,
@@ -3163,7 +3046,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:luncheonmeat",
     category: "foods",
     name: "Đồ Hộp Thịt Nguội",
-    icon: "textures/foods/luncheonmeat",
+    icon: "textures/items/luncheonmeat",
     info: {
       "Dinh dưỡng": 8,
       "Độ no": 10.4,
@@ -3174,7 +3057,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:fruit_salad",
     category: "foods",
     name: "Đồ Hộp Salad Trái Cây",
-    icon: "textures/foods/fruit_salad",
+    icon: "textures/items/fruit_salad",
     info: {
       "Dinh dưỡng": 6,
       "Độ no": 7.2,
@@ -3186,7 +3069,7 @@ export const GENERATED_WIKI_ITEMS = [
     category: "foods",
     name: "Đồ Hộp Súp Gà",
     description: "Súp gà đóng hộp. Cho hiệu ứng hồi máu.",
-    icon: "textures/foods/chickensoup",
+    icon: "textures/items/chickensoup",
     info: {
       "Dinh dưỡng": 7,
       "Độ no": 8.4,
@@ -3197,12 +3080,237 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cookies",
     category: "foods",
     name: "Đồ Hộp Bánh Quy",
-    icon: "textures/foods/cookies",
+    icon: "textures/items/cookies",
     info: {
       "Dinh dưỡng": 4,
       "Độ no": 4.8,
       "Hiệu ứng": "Đào nhanh"
     },
+  },
+  {
+    id: "apeirix:nickel_block",
+    category: "materials",
+    name: "Khối Niken",
+    icon: "textures/items/nickel_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:lead_block",
+    category: "materials",
+    name: "Khối Chì",
+    icon: "textures/items/lead_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:electrum_block",
+    category: "materials",
+    name: "Khối Electrum",
+    icon: "textures/items/electrum_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:invar_block",
+    category: "materials",
+    name: "Khối Invar",
+    icon: "textures/items/invar_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:platinum_block",
+    category: "materials",
+    name: "Khối Bạch Kim",
+    icon: "textures/items/platinum_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:cobalt_block",
+    category: "materials",
+    name: "Khối Cobalt",
+    icon: "textures/items/cobalt_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ardite_block",
+    category: "materials",
+    name: "Khối Ardite",
+    icon: "textures/items/ardite_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:manyullyn_block",
+    category: "materials",
+    name: "Khối Manyullyn",
+    icon: "textures/items/manyullyn_block",
+    info: {
+      "Chế tạo": "1 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher_mk1",
+    category: "materials",
+    name: "Máy Nghiền Quặng MK1",
+    icon: "textures/blocks/orecrushermk1allothersides",
+    info: {
+      "Chế tạo": "5 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher_mk2",
+    category: "materials",
+    name: "Máy Nghiền Quặng MK2",
+    icon: "textures/blocks/orecrushermk1allothersides",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ore_crusher_mk3",
+    category: "materials",
+    name: "Máy Nghiền Quặng MK3",
+    icon: "textures/blocks/orecrushermk1allothersides",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ore_sieve",
+    category: "materials",
+    name: "Rây Sàng Quặng",
+    icon: "textures/blocks/ore_sieve_off",
+    info: {
+      "Chế tạo": "2 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:ore_sieve_on",
+    category: "materials",
+    name: "Rây Sàng Quặng (Đang Hoạt Động)",
+    icon: "textures/blocks/ore_sieve",
+  },
+  {
+    id: "apeirix:ore_washer",
+    category: "materials",
+    name: "Máy Rửa Quặng",
+    icon: "textures/blocks/ore_washer",
+    info: {
+      "Chế tạo": "3 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:compressor",
+    category: "materials",
+    name: "Máy Nén",
+    icon: "textures/blocks/compressor_side",
+    info: {
+      "Chế tạo": "5 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:compressor_on",
+    category: "materials",
+    name: "Máy Nén (Đang Hoạt Động)",
+    icon: "textures/blocks/compressor_side",
+  },
+  {
+    id: "apeirix:crusher",
+    category: "materials",
+    name: "Máy Nghiền",
+    icon: "textures/blocks/crusher_side",
+    info: {
+      "Chế tạo": "5 nguyên liệu"
+    },
+  },
+  {
+    id: "apeirix:crusher_on",
+    category: "materials",
+    name: "Máy Nghiền (Đang Hoạt Động)",
+    icon: "textures/blocks/crusher_side",
+  },
+  {
+    id: "apeirix:deepslate_tin_ore",
+    category: "materials",
+    name: "Quặng Thiếc Đá Sâu",
+    icon: "textures/blocks/deepslate_tin_ore",
+  },
+  {
+    id: "apeirix:deepslate_silver_ore",
+    category: "materials",
+    name: "Quặng Bạc Đá Sâu",
+    icon: "textures/items/deepslate_silver_ore",
+  },
+  {
+    id: "apeirix:nickel_ore",
+    category: "materials",
+    name: "Quặng Niken",
+    icon: "textures/items/nickel_ore",
+  },
+  {
+    id: "apeirix:deepslate_nickel_ore",
+    category: "materials",
+    name: "Quặng Niken Đá Sâu",
+    icon: "textures/items/deepslate_nickel_ore",
+  },
+  {
+    id: "apeirix:lead_ore",
+    category: "materials",
+    name: "Quặng Chì",
+    icon: "textures/items/lead_ore",
+  },
+  {
+    id: "apeirix:deepslate_lead_ore",
+    category: "materials",
+    name: "Quặng Chì Đá Sâu",
+    icon: "textures/items/deepslate_lead_ore",
+  },
+  {
+    id: "apeirix:platinum_ore",
+    category: "materials",
+    name: "Quặng Bạch Kim",
+    icon: "textures/items/platinum_ore",
+  },
+  {
+    id: "apeirix:deepslate_platinum_ore",
+    category: "materials",
+    name: "Quặng Bạch Kim Đá Sâu",
+    icon: "textures/items/deepslate_platinum_ore",
+  },
+  {
+    id: "apeirix:cobalt_ore",
+    category: "materials",
+    name: "Quặng Cobalt",
+    icon: "textures/items/cobalt_ore",
+  },
+  {
+    id: "apeirix:ardite_ore",
+    category: "materials",
+    name: "Quặng Ardite",
+    icon: "textures/items/ardite_ore",
+  },
+  {
+    id: "apeirix:rust_mite",
+    category: "materials",
+    name: "Bọ Ăn Rỉ Sét",
+    icon: "textures/items/rust_mite",
+  },
+  {
+    id: "apeirix:item_bait_marker",
+    category: "materials",
+    name: "item_bait_marker",
+    icon: "textures/items/rust_mite",
   }
 ];
 

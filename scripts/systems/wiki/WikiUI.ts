@@ -62,6 +62,35 @@ export class WikiUI {
     }
 
     /**
+     * Show wiki for a specific entity (when player interacts with entity while holding wiki book)
+     */
+    static async showEntity(player: Player, entityId: string): Promise<void> {
+        // Find entity in wiki data
+        const wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === entityId);
+        
+        if (!wikiData) {
+            player.sendMessage("§cKhông tìm thấy thông tin về sinh vật này trong wiki.");
+            return;
+        }
+
+        const shortId = entityId.replace("apeirix:", "");
+        const name = wikiData.name || shortId;
+        const description = wikiData.description || "";
+        const info = (wikiData.info || {}) as unknown as Record<string, string | number | boolean>;
+
+        const entityItem: WikiItem = {
+            id: entityId,
+            name: name,
+            category: wikiData.category,
+            icon: "", // Entities don't need icon in detail view
+            description: description,
+            info: info
+        };
+
+        await this.showEntityDetail(player, entityItem);
+    }
+
+    /**
      * Show wiki UI when inventory is empty
      */
     private static async showEmptyWiki(player: Player): Promise<void> {
@@ -112,10 +141,10 @@ export class WikiUI {
                 const name = wikiData.name || shortId;
                 
                 // Get description from wiki data
-                const description = wikiData.description || "";
+                const description = wikiData.description;
                 
                 // Info already in generated data (no need to look up in lang)
-                const info = (wikiData.info || {}) as unknown as Record<string, string | number | boolean>;
+                const info = wikiData.info as Record<string, string | number | boolean> | undefined;
 
                 // Use icon from wiki data or default to full texture path
                 const hasIcon = "icon" in wikiData;
@@ -194,9 +223,8 @@ export class WikiUI {
     ): Promise<void> {
         // Build title with item icon (padded to 200 chars)
         // Format: apeirix:wiki:<icon_texture_padded_200>$<item_name>
-        // Use direct texture path to PNG file (JSON UI can load this)
-        const shortId = item.id.replace("apeirix:", "");
-        const iconTexturePath = `textures/items/${shortId}`;
+        // Use icon from wiki data (already has correct path)
+        const iconTexturePath = item.icon || `textures/items/${item.id.replace("apeirix:", "")}`;
         const paddedIcon = iconTexturePath.padEnd(200, "$");
         const jsonUITitle = `apeirix:wiki:${paddedIcon}${item.name}`;
 
@@ -244,7 +272,7 @@ export class WikiUI {
         // Plain text title for blocks (no icon)
         const plainTitle = `apeirix:list:${block.name}`;
 
-        // Build body text
+        // Build body text - ALWAYS show at least category
         let body = "";
 
         // Description (if exists)
@@ -261,9 +289,15 @@ export class WikiUI {
             body += "\n";
         }
 
-        // Category
+        // Category - ALWAYS show this
         const categoryKey = `wiki.categories.${block.category}`;
-        body += `${LangManager.get("wiki.category")} ${LangManager.get(categoryKey)}`;
+        const categoryName = LangManager.get(categoryKey);
+        body += `${LangManager.get("wiki.category")} ${categoryName}`;
+        
+        // If no description and no info, add a helpful message
+        if (!block.description && (!block.info || Object.keys(block.info).length === 0)) {
+            body = `${LangManager.get("wiki.category")} ${categoryName}\n\n§8Thông tin chi tiết sẽ được cập nhật sau.`;
+        }
 
         const form = new ActionFormData()
             .title(plainTitle)
@@ -274,6 +308,52 @@ export class WikiUI {
             await form.show(player);
         } catch (error) {
             console.error("Error showing block detail:", error);
+        }
+    }
+
+    /**
+     * Show entity detail (no icon, plain text title)
+     */
+    private static async showEntityDetail(player: Player, entity: WikiItem): Promise<void> {
+        // Plain text title for entities (no icon)
+        const plainTitle = `apeirix:list:${entity.name}`;
+
+        // Build body text - ALWAYS show at least category
+        let body = "";
+
+        // Description (if exists)
+        if (entity.description) {
+            body += `${LangManager.get("wiki.description")}\n§r§8${entity.description}\n\n`;
+        }
+
+        // Additional info
+        if (entity.info && Object.keys(entity.info).length > 0) {
+            body += `${LangManager.get("wiki.information")}:\n`;
+            for (const [key, value] of Object.entries(entity.info)) {
+                body += `§r§0${key}:§r §8${value}\n`;
+            }
+            body += "\n";
+        }
+
+        // Category - ALWAYS show this
+        const categoryKey = `wiki.categories.${entity.category}`;
+        const categoryName = LangManager.get(categoryKey);
+        body += `${LangManager.get("wiki.category")} ${categoryName}`;
+        
+        // If no description and no info, add a helpful message
+        if (!entity.description && (!entity.info || Object.keys(entity.info).length === 0)) {
+            body = `${LangManager.get("wiki.category")} ${categoryName}\n\n§8Thông tin chi tiết sẽ được cập nhật sau.`;
+        }
+
+        const form = new ActionFormData()
+            .title(plainTitle)
+            .body(body)
+            .button(LangManager.get("wiki.back"));
+
+        try {
+            await form.show(player);
+        } catch (error) {
+            console.error("Error showing entity detail:", error);
         }
     }
 }
