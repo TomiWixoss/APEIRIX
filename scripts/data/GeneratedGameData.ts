@@ -3951,7 +3951,7 @@ export const GENERATED_WIKI_ITEMS = [
     info: {
       "Dinh dưỡng": 3,
       "Độ no": 3.6,
-      "Hiệu ứng": "health_boost"
+      "Hiệu ứng": "Tăng máu tối đa"
     },
   },
   {
@@ -4995,7 +4995,7 @@ export const GENERATED_BLOCKS = [
   {
     blockId: "apeirix:alloy_mixing_table",
     blockType: "other",
-    displayName: "alloy_mixing_table"
+    displayName: "Bàn Trộn Hợp Kim"
   },
   {
     blockId: "apeirix:compressor",

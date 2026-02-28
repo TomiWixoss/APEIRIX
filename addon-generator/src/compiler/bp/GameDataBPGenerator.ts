@@ -127,7 +127,11 @@ export class GameDataBPGenerator {
           // Both OFF and ON blocks use same langKey (remove _on suffix for display name)
           const baseMachineId = block.id.replace('_on', '');
           langKey = `blocks.${baseMachineId}`;
+        } else if (displayType === 'other') {
+          // Other blocks (like alloy_mixing_table) use blocks.* lang key
+          langKey = `blocks.${block.id}`;
         } else {
+          // Storage blocks use materials.* lang key
           langKey = `materials.${block.id}`;
         }
         
