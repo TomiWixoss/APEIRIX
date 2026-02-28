@@ -119,7 +119,10 @@ export const LANG_EN = {
             "tools": "§0Tools",
             "armor": "§0Armor",
             "foods": "§0Foods",
-            "special": "§0Special"
+            "special": "§0Special",
+            "blocks": "§0Blocks",
+            "ores": "§0Ores",
+            "entities": "§0Entities"
         }
     }
 };

@@ -581,7 +581,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Ardite thô thu được từ việc đập nát quặng. Cần qua bàn trộn để tạo hợp kim hoặc đem đi rửa.",
     icon: "textures/items/ardite_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Ardite",
+      recipe_count: 1
     },
   },
   {
@@ -591,7 +595,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Ardite tinh khiết đã qua máy rửa. Loại bỏ hoàn toàn đá vụn, sẵn sàng nung thành thỏi chất lượng.",
     icon: "textures/items/ardite_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Ardite Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Ardite Tinh Khiết → 1x Thỏi Ardite",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Ardite Tinh Khiết → 1x Thỏi Ardite",
+      recipe_count: 3
     },
   },
   {
@@ -601,7 +613,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đồng Thanh thô, hỗn hợp vừa được nghiền ra từ đồng và thiếc.",
     icon: "textures/items/bronze_ingot_dust",
     info: {
-      "Chế tạo": "4 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Bụi Đồng, Bụi Đồng, Bụi Đồng, Bụi Thiếc",
+      recipe_1_result: "4x",
+      recipe_2_type: "shaped",
+      recipe_2_label: "Bàn chế tạo (có hình)",
+      recipe_2_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_2_ingredients: "#=Bụi Đồng Thanh",
+      recipe_count: 2
     },
   },
   {
@@ -611,7 +631,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đồng Thanh tinh khiết, sạch sẽ và sẵn sàng để đúc thành thỏi.",
     icon: "textures/items/bronze_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Đồng Thanh Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -621,7 +645,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Than thô. Rất dễ bắt lửa, thành phần quan trọng để nhào lặn với bột sắt tạo thành thép.",
     icon: "textures/items/coal_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Than",
+      recipe_count: 1
     },
   },
   {
@@ -631,7 +659,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Than tinh khiết, đen tuyền và cung cấp nhiệt lượng tối đa khi nung.",
     icon: "textures/items/coal_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Than Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -641,7 +673,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Cobalt thô. Bụi xanh bám dính, nhẹ bay trong không khí.",
     icon: "textures/items/cobalt_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Cobalt",
+      recipe_count: 1
     },
   },
   {
@@ -651,7 +687,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Cobalt tinh khiết, đã loại bỏ tro xỉ Nether, chờ nung thành thỏi.",
     icon: "textures/items/cobalt_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Cobalt Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Cobalt Tinh Khiết → 1x Thỏi Cobalt",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Cobalt Tinh Khiết → 1x Thỏi Cobalt",
+      recipe_count: 3
     },
   },
   {
@@ -661,7 +705,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đá Cuội. Cặn bã thu được khi nghiền hoặc rửa các loại quặng thô.",
     icon: "textures/items/cobblestone_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Đá Cuội",
+      recipe_count: 1
     },
   },
   {
@@ -671,7 +719,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đồng thô. Dùng trên Bàn kỹ thuật kết hợp với bột thiếc để tạo ra Đồng Thanh.",
     icon: "textures/items/copper_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Đồng",
+      recipe_count: 1
     },
   },
   {
@@ -681,7 +733,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đồng tinh khiết, màu cam sáng, nung lên sẽ cho sản lượng thỏi đồng cao nhất.",
     icon: "textures/items/copper_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Đồng Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -691,7 +747,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đá sâu (Deepslate). Sản phẩm phụ đen sẫm sinh ra từ việc nghiền các quặng dưới tầng sâu.",
     icon: "textures/items/deepslate_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Đá Sâu",
+      recipe_count: 1
     },
   },
   {
@@ -701,7 +761,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Kim cương thô. Dù bị nghiền nát, những mạt vụn này vẫn cực kỳ sắc bén.",
     icon: "textures/items/diamond_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Kim Cương",
+      recipe_count: 1
     },
   },
   {
@@ -711,7 +775,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Kim cương tinh khiết hoàn hảo, lấp lánh như ngàn vì sao.",
     icon: "textures/items/diamond_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Kim Cương Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -721,7 +789,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Electrum thô, bột hỗn hợp giữa vàng và bạc sau khi trộn.",
     icon: "textures/items/electrum_ingot_dust",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Bụi Vàng, Bụi Bạc",
+      recipe_1_result: "2x",
+      recipe_2_type: "shaped",
+      recipe_2_label: "Bàn chế tạo (có hình)",
+      recipe_2_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_2_ingredients: "#=Bụi Electrum",
+      recipe_count: 2
     },
   },
   {
@@ -731,7 +807,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Electrum tinh khiết, hạt bột vàng chanh phản ứng mạnh với các bàn phù phép.",
     icon: "textures/items/electrum_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Electrum Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -741,7 +821,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Ngọc lục bảo thô, bột xanh lục rơi vãi khi nghiền ngọc.",
     icon: "textures/items/emerald_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Ngọc Lục Bảo",
+      recipe_count: 1
     },
   },
   {
@@ -751,7 +835,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Ngọc lục bảo tinh khiết, hạt bột mịn trong vắt không tì vết.",
     icon: "textures/items/emerald_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Ngọc Lục Bảo Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -761,7 +849,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Vàng thô. Dùng làm nguyên liệu trộn với Bụi Bạc để tạo ra Electrum.",
     icon: "textures/items/gold_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Vàng",
+      recipe_count: 1
     },
   },
   {
@@ -771,7 +863,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Vàng tinh khiết rực rỡ, sẵn sàng để nung thành thỏi vàng ròng.",
     icon: "textures/items/gold_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Vàng Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -781,7 +877,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Invar thô, bột hỗn hợp Sắt và Niken nằm chờ được nung nấu.",
     icon: "textures/items/invar_ingot_dust",
     info: {
-      "Chế tạo": "3 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Bụi Sắt, Bụi Sắt, Bụi Niken",
+      recipe_1_result: "3x",
+      recipe_2_type: "shaped",
+      recipe_2_label: "Bàn chế tạo (có hình)",
+      recipe_2_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_2_ingredients: "#=Bụi Invar",
+      recipe_count: 2
     },
   },
   {
@@ -791,7 +895,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Invar tinh khiết, sạch cặn, đảm bảo chất lượng siêu cứng của thỏi khi đúc.",
     icon: "textures/items/invar_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Invar Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -801,7 +909,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Sắt thô. Rất đa dụng, trộn với bột than để luyện thép, hoặc niken để làm Invar.",
     icon: "textures/items/iron_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Sắt",
+      recipe_count: 1
     },
   },
   {
@@ -811,7 +923,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Sắt tinh khiết, không bị gỉ, nung thành sắt dễ dàng.",
     icon: "textures/items/iron_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Sắt Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -821,7 +937,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Lưu Ly thô, những hạt bột xanh biếc ma thuật dính đầy sỏi vụn.",
     icon: "textures/items/lapis_block_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Lưu Ly",
+      recipe_count: 1
     },
   },
   {
@@ -831,7 +951,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Lưu Ly tinh khiết, tỏa ra nguồn ma lực nguyên thủy mạnh mẽ.",
     icon: "textures/items/lapis_block_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Lưu Ly Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -841,7 +965,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Chì thô. Bột xám đen độc hại, cẩn thận khi hít phải.",
     icon: "textures/items/lead_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Chì",
+      recipe_count: 1
     },
   },
   {
@@ -851,7 +979,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Chì tinh khiết. Đã rửa sạch, sẵn sàng nung thành những thỏi chì siêu nặng.",
     icon: "textures/items/lead_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Chì Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Chì Tinh Khiết → 1x Thỏi Chì",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Chì Tinh Khiết → 1x Thỏi Chì",
+      recipe_count: 3
     },
   },
   {
@@ -861,7 +997,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Manyullyn thô. Bột tím chết chóc tỏa ra sát khí dù chưa được nung.",
     icon: "textures/items/manyullyn_ingot_dust",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Bụi Cobalt, Bụi Ardite",
+      recipe_1_result: "2x",
+      recipe_2_type: "shaped",
+      recipe_2_label: "Bàn chế tạo (có hình)",
+      recipe_2_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_2_ingredients: "#=Bụi Manyullyn",
+      recipe_count: 2
     },
   },
   {
@@ -871,7 +1015,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Manyullyn tinh khiết. Nguyên liệu cốt lõi tạo ra thứ kim loại thống trị thế giới.",
     icon: "textures/items/manyullyn_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Manyullyn Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Manyullyn Tinh Khiết → 1x Thỏi Manyullyn",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Manyullyn Tinh Khiết → 1x Thỏi Manyullyn",
+      recipe_count: 3
     },
   },
   {
@@ -881,7 +1033,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đá Địa ngục. Cặn xốp rỗng sinh ra từ việc nghiền các quặng ở Nether.",
     icon: "textures/items/netherrack_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Đá Địa Ngục",
+      recipe_count: 1
     },
   },
   {
@@ -891,7 +1047,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Niken thô. Dùng để trộn với sắt trên bàn kỹ thuật nhằm tạo ra Invar.",
     icon: "textures/items/nickel_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Niken",
+      recipe_count: 1
     },
   },
   {
@@ -901,7 +1061,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Niken tinh khiết, sáng lấp lánh như bột nhôm.",
     icon: "textures/items/nickel_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Niken Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Niken Tinh Khiết → 1x Thỏi Niken",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Niken Tinh Khiết → 1x Thỏi Niken",
+      recipe_count: 3
     },
   },
   {
@@ -911,7 +1079,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Bạch Kim thô, lấm lem bùn đất nhưng vẫn ánh lên sự vương giả.",
     icon: "textures/items/platinum_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Bạch Kim",
+      recipe_count: 1
     },
   },
   {
@@ -921,7 +1093,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Bạch Kim tinh khiết, sạch hoàn toàn, thứ bột đắt đỏ bậc nhất.",
     icon: "textures/items/platinum_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Bạch Kim Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Bạch Kim Tinh Khiết → 1x Thỏi Bạch Kim",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Bạch Kim Tinh Khiết → 1x Thỏi Bạch Kim",
+      recipe_count: 3
     },
   },
   {
@@ -930,6 +1110,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Than Thô",
     description: "Than thô thu được từ việc gộp các bụi than lại. Có thể nung thành viên than.",
     icon: "textures/items/raw_coal",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Than Thô → 1x Coal",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Than Thô → 1x Coal",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_diamond",
@@ -937,6 +1124,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Kim Cương Thô",
     description: "Kim cương thô sơ, tái tạo từ những hạt bụi kim cương li ti.",
     icon: "textures/items/raw_diamond",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Kim Cương Thô → 1x Diamond",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Kim Cương Thô → 1x Diamond",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_emerald",
@@ -944,6 +1138,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Ngọc Lục Bảo Thô",
     description: "Ngọc lục bảo thô sần sùi, cần nung để tạo thành ngọc hoàn chỉnh.",
     icon: "textures/items/raw_emerald",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Ngọc Lục Bảo Thô → 1x Emerald",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Ngọc Lục Bảo Thô → 1x Emerald",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_lapis",
@@ -951,6 +1152,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Lưu Ly Thô",
     description: "Lưu ly thô, kết tủa từ bột lưu ly, mang đậm chất ma thuật.",
     icon: "textures/items/raw_lapis",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Lưu Ly Thô → 1x lapis_lazuli",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Lưu Ly Thô → 1x lapis_lazuli",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:redstone_dust_pure",
@@ -959,7 +1167,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Đá đỏ tinh khiết. Đã loại bỏ hoàn toàn đá vụn, mạch điện truyền dẫn cực tốt.",
     icon: "textures/items/redstone_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Đá Đỏ Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -969,7 +1181,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Bạc thô. Nguyên liệu thiết yếu trộn với vàng để ra bột Electrum.",
     icon: "textures/items/silver_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Bạc",
+      recipe_count: 1
     },
   },
   {
@@ -979,7 +1195,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Bạc tinh khiết, mang ánh sáng thanh tẩy tà khí ngay cả ở dạng bột.",
     icon: "textures/items/silver_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Bạc Tinh Khiết",
+      recipe_2_type: "smelting",
+      recipe_2_text: "Lò nung: Bụi Bạc Tinh Khiết → 1x Thỏi Bạc",
+      recipe_3_type: "blasting",
+      recipe_3_text: "Lò cao: Bụi Bạc Tinh Khiết → 1x Thỏi Bạc",
+      recipe_count: 3
     },
   },
   {
@@ -989,7 +1213,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Thép thô. Bột hỗn hợp than và sắt đã hòa quyện vào nhau.",
     icon: "textures/items/steel_alloy_dust",
     info: {
-      "Chế tạo": "4 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Bụi Sắt, Bụi Sắt, Bụi Sắt, Bụi Than",
+      recipe_1_result: "4x",
+      recipe_2_type: "shaped",
+      recipe_2_label: "Bàn chế tạo (có hình)",
+      recipe_2_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_2_ingredients: "#=Bụi Hợp Kim Thép",
+      recipe_count: 2
     },
   },
   {
@@ -999,7 +1231,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Thép tinh khiết, sẵn sàng bước vào lò nung để đúc thành Thép công nghiệp.",
     icon: "textures/items/steel_alloy_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Hợp Kim Thép Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -1009,7 +1245,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Thiếc thô. Dùng để trộn với bột đồng tạo ra hợp kim Đồng Thanh.",
     icon: "textures/items/tin_ingot_dust",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Bụi Thiếc",
+      recipe_count: 1
     },
   },
   {
@@ -1019,7 +1259,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bụi Thiếc tinh khiết. Mềm mịn, dễ dàng đúc thành vỏ hộp thiếc hoặc thỏi.",
     icon: "textures/items/tin_ingot_dust_pure",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]|[#][#]",
+      recipe_1_ingredients: "#=Bụi Thiếc Tinh Khiết",
+      recipe_count: 1
     },
   },
   {
@@ -1029,7 +1273,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Ardite. Vật liệu đặc trưng của Nether với khả năng hấp thụ chấn động và độ bền khổng lồ.",
     icon: "textures/items/ardite_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Ardite",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Ardite",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1039,7 +1291,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Đồng Thanh. Hợp kim đáng tin cậy ở giai đoạn đầu, lý tưởng để thay thế toàn bộ công cụ đá.",
     icon: "textures/items/bronze_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Đồng Thanh",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Đồng Thanh",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1049,7 +1309,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Cobalt. Trọng lượng siêu nhẹ mang lại tốc độ không tưởng cho bất kỳ công cụ nào được rèn từ nó.",
     icon: "textures/items/cobalt_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Cobalt",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Cobalt",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1059,7 +1327,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Electrum. Sự dung hợp hoàn hảo của Vàng và Bạc, cung cấp khả năng kết nối phép thuật tuyệt đỉnh.",
     icon: "textures/items/electrum_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Electrum",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Electrum",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1069,7 +1345,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Invar. Vật liệu kiên cố bất biến trước nhiệt năng, cực kỳ phù hợp để làm áo giáp siêu bền.",
     icon: "textures/items/invar_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Invar",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Invar",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1078,6 +1362,29 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thỏi Chì",
     description: "Thỏi Chì đặc. Nặng nề và cồng kềnh, nhưng cung cấp sự chống chịu lực đẩy lùi (Knockback) xuất sắc.",
     icon: "textures/items/lead_ingot",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Chì → 1x Thỏi Chì",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Chì → 1x Thỏi Chì",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Chì Đá Sâu → 1x Thỏi Chì",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Chì Đá Sâu → 1x Thỏi Chì",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Chì Thô → 1x Thỏi Chì",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Chì Thô → 1x Thỏi Chì",
+      recipe_7_type: "shaped",
+      recipe_7_label: "Bàn chế tạo (có hình)",
+      recipe_7_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_7_ingredients: "#=Mảnh Chì",
+      recipe_8_type: "shapeless",
+      recipe_8_label: "Bàn chế tạo (tự do)",
+      recipe_8_ingredients: "Khối Chì",
+      recipe_8_result: "9x",
+      recipe_count: 8
+    },
   },
   {
     id: "apeirix:manyullyn_ingot",
@@ -1086,7 +1393,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Manyullyn ma quái. Hợp kim tối thượng vượt xa Netherite, hội tụ cả tốc độ và sức tàn phá tột đỉnh.",
     icon: "textures/items/manyullyn_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Manyullyn",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Manyullyn",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1095,6 +1410,29 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thỏi Niken",
     description: "Thỏi Niken trơn nhẵn. Thành phần quan trọng để tạo ra Invar, hoặc dùng làm công cụ chống rỉ sét.",
     icon: "textures/items/nickel_ingot",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Niken → 1x Thỏi Niken",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Niken → 1x Thỏi Niken",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Niken Đá Sâu → 1x Thỏi Niken",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Niken Đá Sâu → 1x Thỏi Niken",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Niken Thô → 1x Thỏi Niken",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Niken Thô → 1x Thỏi Niken",
+      recipe_7_type: "shaped",
+      recipe_7_label: "Bàn chế tạo (có hình)",
+      recipe_7_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_7_ingredients: "#=Mảnh Niken",
+      recipe_8_type: "shapeless",
+      recipe_8_label: "Bàn chế tạo (tự do)",
+      recipe_8_ingredients: "Khối Niken",
+      recipe_8_result: "9x",
+      recipe_count: 8
+    },
   },
   {
     id: "apeirix:platinum_ingot",
@@ -1102,6 +1440,29 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thỏi Bạch Kim",
     description: "Thỏi Bạch Kim danh giá. Vượt qua giới hạn của kim cương, mang lại hiệu năng cao nhất thế giới khoáng thạch.",
     icon: "textures/items/platinum_ingot",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Bạch Kim → 1x Thỏi Bạch Kim",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Bạch Kim → 1x Thỏi Bạch Kim",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Bạch Kim Đá Sâu → 1x Thỏi Bạch Kim",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Bạch Kim Đá Sâu → 1x Thỏi Bạch Kim",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_7_type: "shaped",
+      recipe_7_label: "Bàn chế tạo (có hình)",
+      recipe_7_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_7_ingredients: "#=Mảnh Bạch Kim",
+      recipe_8_type: "shapeless",
+      recipe_8_label: "Bàn chế tạo (tự do)",
+      recipe_8_ingredients: "Khối Bạch Kim",
+      recipe_8_result: "9x",
+      recipe_count: 8
+    },
   },
   {
     id: "apeirix:silver_ingot",
@@ -1109,6 +1470,29 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thỏi Bạc",
     description: "Thỏi Bạc thuần khiết. Vũ khí rèn từ nó khắc chế hoàn toàn quái vật Undead, dù độ bền khá kém.",
     icon: "textures/items/silver_ingot",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Bạc → 1x Thỏi Bạc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Bạc → 1x Thỏi Bạc",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Bạc Đá Sâu → 1x Thỏi Bạc",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Bạc Đá Sâu → 1x Thỏi Bạc",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Bạc Thô → 1x Thỏi Bạc",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Bạc Thô → 1x Thỏi Bạc",
+      recipe_7_type: "shaped",
+      recipe_7_label: "Bàn chế tạo (có hình)",
+      recipe_7_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_7_ingredients: "#=Mảnh Bạc",
+      recipe_8_type: "shapeless",
+      recipe_8_label: "Bàn chế tạo (tự do)",
+      recipe_8_ingredients: "Khối Bạc",
+      recipe_8_result: "9x",
+      recipe_count: 8
+    },
   },
   {
     id: "apeirix:steel_alloy_ingot",
@@ -1117,7 +1501,15 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thỏi Thép. Trái tim của cuộc cách mạng công nghiệp, cứng cáp, sắc bén và là vật liệu xây dựng máy móc.",
     icon: "textures/items/steel_alloy_ingot",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Mảnh Hợp Kim Thép",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Hợp Kim Thép",
+      recipe_2_result: "9x",
+      recipe_count: 2
     },
   },
   {
@@ -1126,6 +1518,29 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thỏi Thiếc",
     description: "Thỏi Thiếc cơ bản. Vật liệu nền tảng rẻ tiền để chế tạo đồ hộp hoặc nấu hợp kim Đồng Thanh.",
     icon: "textures/items/tin_ingot",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Thiếc → 1x Thỏi Thiếc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Thiếc → 1x Thỏi Thiếc",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Thiếc Đá Sâu → 1x Thỏi Thiếc",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Thiếc Đá Sâu → 1x Thỏi Thiếc",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Thiếc Thô → 1x Thỏi Thiếc",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Thiếc Thô → 1x Thỏi Thiếc",
+      recipe_7_type: "shaped",
+      recipe_7_label: "Bàn chế tạo (có hình)",
+      recipe_7_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_7_ingredients: "#=Mảnh Thiếc",
+      recipe_8_type: "shapeless",
+      recipe_8_label: "Bàn chế tạo (tự do)",
+      recipe_8_ingredients: "Khối Thiếc",
+      recipe_8_result: "9x",
+      recipe_count: 8
+    },
   },
   {
     id: "apeirix:ardite_nugget",
@@ -1134,7 +1549,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Ardite nhỏ, một mảnh vụn vỡ ra từ thỏi Ardite nóng hổi.",
     icon: "textures/items/ardite_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Ardite",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1144,7 +1563,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Đồng Thanh nhỏ, có thể nung lại hoặc gom lại thành thỏi hoàn chỉnh.",
     icon: "textures/items/bronze_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Đồng Thanh",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1154,7 +1577,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Cobalt màu lam nhỏ gọn, nhẹ tựa lông hồng.",
     icon: "textures/items/cobalt_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Cobalt",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1164,7 +1591,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Electrum lấp lánh, thường được dùng như một loại tiền tệ trao đổi phép thuật.",
     icon: "textures/items/electrum_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Electrum",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1174,7 +1605,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Invar cứng ngắc, đập búa vào cũng không hề sứt mẻ.",
     icon: "textures/items/invar_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Invar",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1184,7 +1619,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Chì vụn, tuy nhỏ nhưng rơi xuống chân cũng đủ khiến bạn đau điếng.",
     icon: "textures/items/lead_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Chì",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1194,7 +1633,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Manyullyn tím. Chỉ một hạt vụn này cũng chứa đựng sát khí đáng sợ.",
     icon: "textures/items/manyullyn_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Manyullyn",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1204,7 +1647,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Niken trơn tuột, rất dễ bị trượt khỏi tay nếu không cẩn thận.",
     icon: "textures/items/nickel_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Niken",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1214,7 +1661,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Bạch Kim cực kỳ quý giá, sáng rực rỡ và đắt đỏ.",
     icon: "textures/items/platinum_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Bạch Kim",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1224,7 +1675,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Bạc nhỏ, xua đuổi tà khí và thường được dùng làm bùa hộ mệnh mini.",
     icon: "textures/items/silver_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Bạc",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1234,7 +1689,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh vụn Thép công nghiệp, cứng và sắc bén, cẩn thận đứt tay.",
     icon: "textures/items/steel_alloy_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Hợp Kim Thép",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1244,7 +1703,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mảnh Thiếc vụn vặt, mềm và không có giá trị cao.",
     icon: "textures/items/tin_nugget",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Thỏi Thiếc",
+      recipe_1_result: "9x",
+      recipe_count: 1
     },
   },
   {
@@ -1253,6 +1716,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Ardite Thô",
     description: "Khoáng thạch Ardite thô vừa được khai thác. Cầm trên tay vẫn có thể cảm nhận được hơi nóng từ nó.",
     icon: "textures/items/raw_ardite",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Ardite Thô → 1x Thỏi Ardite",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Ardite Thô → 1x Thỏi Ardite",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_bronze",
@@ -1260,6 +1730,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồng Thanh Thô",
     description: "Mảnh Đồng Thanh thô ráp được nặn ra từ việc trộn bụi hợp kim. Cần nung chảy để trở thành thỏi.",
     icon: "textures/items/raw_bronze",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Đồng Thanh Thô → 1x Thỏi Đồng Thanh",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Đồng Thanh Thô → 1x Thỏi Đồng Thanh",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_cobalt",
@@ -1267,6 +1744,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Cobalt Thô",
     description: "Khoáng thạch Cobalt thô màu lam. Trọng lượng nhẹ bẫng so với kích thước của nó.",
     icon: "textures/items/raw_cobalt",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Cobalt Thô → 1x Thỏi Cobalt",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Cobalt Thô → 1x Thỏi Cobalt",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_electrum",
@@ -1274,6 +1758,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Electrum Thô",
     description: "Cục hợp kim Electrum thô chưa qua tôi luyện. Sự pha trộn giữa bụi bạc và vàng.",
     icon: "textures/items/raw_electrum",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Electrum Thô → 1x Thỏi Electrum",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Electrum Thô → 1x Thỏi Electrum",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_invar",
@@ -1281,6 +1772,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Invar Thô",
     description: "Cục hợp kim Invar thô cứng ngắc. Tiền thân của thứ vật liệu thách thức mọi nhiệt độ.",
     icon: "textures/items/raw_invar",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Invar Thô → 1x Thỏi Invar",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Invar Thô → 1x Thỏi Invar",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_lead",
@@ -1288,6 +1786,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Chì Thô",
     description: "Cục Chì thô cực nặng. Rất khó để vác theo số lượng lớn trong ba lô.",
     icon: "textures/items/raw_lead",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Chì Thô → 1x Thỏi Chì",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Chì Thô → 1x Thỏi Chì",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_manyullyn",
@@ -1295,6 +1800,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Manyullyn Thô",
     description: "Mảnh hợp kim Manyullyn thô ráp. Ánh tím phát ra những tia sét nhỏ báo hiệu một sức mạnh kinh hoàng.",
     icon: "textures/items/raw_manyullyn",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Manyullyn Thô → 1x Thỏi Manyullyn",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Manyullyn Thô → 1x Thỏi Manyullyn",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_nickel",
@@ -1302,6 +1814,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Niken Thô",
     description: "Khoáng thạch Niken thô sáng lóa, không dính bất kỳ hạt bụi bẩn nào trên bề mặt.",
     icon: "textures/items/raw_nickel",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Niken Thô → 1x Thỏi Niken",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Niken Thô → 1x Thỏi Niken",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_platinum",
@@ -1309,6 +1828,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bạch Kim Thô",
     description: "Cục Bạch Kim thô giá trị. Thường bị nhầm với sắt rỉ, nhưng gõ vào phát ra âm thanh vang vọng.",
     icon: "textures/items/raw_platinum",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_silver",
@@ -1316,6 +1842,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bạc Thô",
     description: "Khoáng thạch Bạc thô. Những cạnh sắc lẻm của nó phản chiếu ánh sáng tuyệt đẹp.",
     icon: "textures/items/raw_silver",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Bạc Thô → 1x Thỏi Bạc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Bạc Thô → 1x Thỏi Bạc",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_steel",
@@ -1323,6 +1856,13 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Hợp Kim Thép Thô",
     description: "Cục Thép thô nhám đen. Bụi sắt và than đã hòa quyện, chờ ngọn lửa biến nó thành thép cứng.",
     icon: "textures/items/raw_steel",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Hợp Kim Thép Thô → 1x Thỏi Hợp Kim Thép",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Hợp Kim Thép Thô → 1x Thỏi Hợp Kim Thép",
+      recipe_count: 2
+    },
   },
   {
     id: "apeirix:raw_tin",
@@ -1338,7 +1878,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Chiếc búa nặng trịch của kỹ sư. Dùng làm nguyên liệu thiết yếu để chế tạo và lắp ráp các cỗ máy công nghiệp.",
     icon: "textures/items/engineering_hammer",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[S][S][ ]|[ ][R][S]|[ ][R][ ]",
+      recipe_1_ingredients: "S=Thỏi Hợp Kim Thép, R=Thanh Thép",
+      recipe_count: 1
     },
   },
   {
@@ -1348,7 +1892,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Bánh răng đúc từ hợp kim thép. Phụ kiện truyền động cơ bản không thể thiếu trong cấu tạo máy nghiền và máy nén.",
     icon: "textures/items/steel_alloy_base_gear",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[ ][P][ ]|[P][R][P]|[ ][P][ ]",
+      recipe_1_ingredients: "P=Tấm Thép, R=Thanh Thép",
+      recipe_count: 1
     },
   },
   {
@@ -1365,7 +1913,12 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Thanh trụ thép liền khối. Dùng làm trục quay cho bánh răng hoặc lõi truyền động chịu lực.",
     icon: "textures/items/steel_alloy_base_rod",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[ ][#][ ]|[ ][#][ ]|[ ][ ][ ]",
+      recipe_1_ingredients: "#=Thỏi Hợp Kim Thép",
+      recipe_1_result: "4x",
+      recipe_count: 1
     },
   },
   {
@@ -1382,19 +1935,25 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Vỏ đồ hộp rỗng sạch sẽ, được làm từ thiếc. Dụng cụ thiết yếu để đóng gói và bảo quản thực phẩm vô thời hạn.",
     icon: "textures/items/canempty",
     info: {
-      "Chế tạo": "0 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[T][ ][T]|[ ][T][ ]",
+      recipe_2_type: "shaped",
+      recipe_2_label: "Bàn chế tạo (có hình)",
+      recipe_2_pattern: "[C]|[W]",
+      recipe_count: 2
     },
   },
   {
     id: "apeirix:achievement_book",
-    category: "materials",
+    category: "special",
     name: "Sách Thành Tựu",
     description: "Cuốn sách bìa vàng ghi chép lại mọi cột mốc và thành tựu bạn đã đạt được trong hành trình chinh phục thế giới APEIRIX.",
     icon: "textures/items/achievement_book",
   },
   {
     id: "apeirix:wiki_book",
-    category: "materials",
+    category: "special",
     name: "Bách Khoa Toàn Thư",
     description: "Bách khoa toàn thư toàn tập. Cầm trên tay và tương tác với bất kỳ vật phẩm, khối hay sinh vật nào để xem thông tin chi tiết.",
     icon: "textures/items/wiki_book",
@@ -2445,7 +3004,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Ardite. Lớp đế nóng rực dập tắt lửa nhỏ dưới gót chân.",
     icon: "textures/items/ardite_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Ardite",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 16,
@@ -2459,7 +3022,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Đồng Thanh. Bảo vệ bàn chân khỏi gai nhọn, tốt hơn đồ da rất nhiều.",
     icon: "textures/items/bronze_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Đồng Thanh",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 18,
@@ -2473,7 +3040,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Cobalt. Nhẹ tựa lông hồng, bước chân lả lướt thoát khỏi truy đuổi.",
     icon: "textures/items/cobalt_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Cobalt",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 16,
@@ -2487,7 +3058,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Electrum. Gót kim loại ma thuật lấp lánh theo mỗi bước đi.",
     icon: "textures/items/electrum_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Electrum",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 20,
@@ -2501,7 +3076,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Invar. Đế thép dày cui dẫm nát sọ nhện độc dễ dàng.",
     icon: "textures/items/invar_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Invar",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 10,
@@ -2515,7 +3094,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Chì. Nặng trịch, giúp bạn đứng vững như bàn thạch không bị hất văng.",
     icon: "textures/items/lead_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Chì",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 12,
@@ -2529,7 +3112,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Manyullyn. Bước chân của chúa tể, mang theo sát khí kinh hoàng.",
     icon: "textures/items/manyullyn_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Manyullyn",
+      recipe_count: 1,
       "Độ bền": 325,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2543,7 +3130,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Niken. Chống bám bẩn hoàn toàn khi lội qua vùng sình lầy.",
     icon: "textures/items/nickel_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Niken",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 14,
@@ -2557,7 +3148,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Bạch Kim. Bước đi quyền uy, kiên cố đến mức không gai nhọn nào đâm thủng.",
     icon: "textures/items/platinum_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Bạch Kim",
+      recipe_count: 1,
       "Độ bền": 520,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2571,7 +3166,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Bạc. Nhẹ nhàng, êm ái, bùa chú bảo vệ rơi rớt cực kỳ ăn khớp.",
     icon: "textures/items/silver_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Bạc",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2585,7 +3184,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Thép quân sự. Chà đạp mọi chướng ngại vật một cách tàn bạo.",
     icon: "textures/items/steel_alloy_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Hợp Kim Thép",
+      recipe_count: 1,
       "Độ bền": 520,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2599,7 +3202,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Giày Thiếc. Mỏng tanh, chỉ dùng để đỡ cước chân khi ngã nhẹ.",
     icon: "textures/items/tin_boots",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Thiếc",
+      recipe_count: 1,
       "Độ bền": 260,
       "Giáp": 1,
       "Độ phù phép": 18,
@@ -2613,7 +3220,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Ardite. Tấm khiên đỏ rực hấp thụ và phân tán lực chấn động cực tốt.",
     icon: "textures/items/ardite_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Ardite",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 16,
@@ -2627,7 +3238,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Đồng Thanh. Lớp giáp vững chãi che chắn thân trên an toàn đầu game.",
     icon: "textures/items/bronze_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Đồng Thanh",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -2641,7 +3256,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Cobalt. Bọc lấy cơ thể nhưng nhẹ bẫng, giúp né đòn cực tốt.",
     icon: "textures/items/cobalt_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Cobalt",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 16,
@@ -2655,7 +3274,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Electrum. Mỏng manh nhưng tỏa hào quang ma thuật bảo vệ người mặc.",
     icon: "textures/items/electrum_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Electrum",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 20,
@@ -2669,7 +3292,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Invar. Bức tường thành hợp kim bất khả xâm phạm trước quái vật thú.",
     icon: "textures/items/invar_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Invar",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 10,
@@ -2683,7 +3310,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Chì. Chặn đứng sát thương vật lý và bức xạ, tuy nhiên khoác lên rất nặng.",
     icon: "textures/items/lead_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Chì",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 12,
@@ -2697,7 +3328,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Manyullyn. Tấm chiến bào ma quỷ, răn đe mọi thực thể dám lại gần.",
     icon: "textures/items/manyullyn_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Manyullyn",
+      recipe_count: 1,
       "Độ bền": 400,
       "Giáp": 7,
       "Độ phù phép": 18,
@@ -2711,7 +3346,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Niken. Chống ăn mòn, luôn sáng loáng như mới sau hàng vạn trận đánh.",
     icon: "textures/items/nickel_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Niken",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 14,
@@ -2725,7 +3364,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Bạch Kim. Tấm khiên vương giả từ chối những đòn đâm chí mạng nhất.",
     icon: "textures/items/platinum_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Bạch Kim",
+      recipe_count: 1,
       "Độ bền": 640,
       "Giáp": 8,
       "Độ phù phép": 22,
@@ -2739,7 +3382,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Bạc. Ánh bạc thanh tẩy khiến bè lũ Thây Ma phải dè chừng.",
     icon: "textures/items/silver_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Bạc",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 6,
       "Độ phù phép": 18,
@@ -2753,7 +3400,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Thép. Đúc nguyên khối đặc chắc, lớp phòng thủ tối thượng của chiến binh.",
     icon: "textures/items/steel_alloy_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Hợp Kim Thép",
+      recipe_count: 1,
       "Độ bền": 640,
       "Giáp": 8,
       "Độ phù phép": 22,
@@ -2767,7 +3418,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Áo ngực Thiếc. Lớp tôn mỏng che gió lạnh hơn là che đao kiếm.",
     icon: "textures/items/tin_chestplate",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Thiếc",
+      recipe_count: 1,
       "Độ bền": 320,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -2781,7 +3436,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Ardite. Xốp rỗng nhưng dẻo dai, bảo vệ hộp sọ khỏi đá rơi cực tốt.",
     icon: "textures/items/ardite_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Ardite",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 16,
@@ -2795,7 +3454,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ giáp đồng thanh bảo vệ đầu. Tương đương với mũ sắt.",
     icon: "textures/items/bronze_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Đồng Thanh",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2809,7 +3472,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Cobalt. Ôm gọn đầu mà không cản trở tầm nhìn, linh hoạt mọi góc độ.",
     icon: "textures/items/cobalt_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Cobalt",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 16,
@@ -2823,7 +3490,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Electrum. Nhạy bén với bùa chú Hô Hấp hoặc Nhìn Đêm cực mạnh.",
     icon: "textures/items/electrum_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Electrum",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 20,
@@ -2837,7 +3508,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Invar. Bị búa tạ nện vào cũng không hề móp méo.",
     icon: "textures/items/invar_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Invar",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 10,
@@ -2851,7 +3526,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Chì. Đeo hơi mỏi cổ, nhưng chặn mọi đòn tấn công vật lý vào đầu.",
     icon: "textures/items/lead_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Chì",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 12,
@@ -2865,7 +3544,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Manyullyn. Chiếc vương miện tím tàn bạo của địa ngục.",
     icon: "textures/items/manyullyn_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Manyullyn",
+      recipe_count: 1,
       "Độ bền": 280,
       "Giáp": 3,
       "Độ phù phép": 18,
@@ -2879,7 +3562,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Niken. Chói lóa dưới ánh nắng, không bao giờ rỉ sét khi đi mưa.",
     icon: "textures/items/nickel_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Niken",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 14,
@@ -2893,7 +3580,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Bạch Kim. Che chắn đỉnh đầu bằng vẻ đẹp và sự kiên cố vĩnh cửu.",
     icon: "textures/items/platinum_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Bạch Kim",
+      recipe_count: 1,
       "Độ bền": 440,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2907,7 +3598,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Bạc. Tinh khiết, thanh lọc tâm trí người mặc khỏi các luồng tà khí.",
     icon: "textures/items/silver_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Bạc",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2921,7 +3616,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Thép. Giáp đầu quân sự tiêu chuẩn, chịu lực va đập cực đoan.",
     icon: "textures/items/steel_alloy_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Hợp Kim Thép",
+      recipe_count: 1,
       "Độ bền": 440,
       "Giáp": 3,
       "Độ phù phép": 22,
@@ -2935,7 +3634,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Mũ Thiếc. Trông như đội một cái xoong nồi lên đầu, gõ nhẹ là móp.",
     icon: "textures/items/tin_helmet",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Thiếc",
+      recipe_count: 1,
       "Độ bền": 220,
       "Giáp": 2,
       "Độ phù phép": 18,
@@ -2949,7 +3652,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Ardite. Che chắn phần dưới cơ thể khỏi vụ nổ bò sát Creeper.",
     icon: "textures/items/ardite_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Ardite",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 16,
@@ -2963,7 +3670,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Đồng Thanh. Khớp nối chắc chắn, an tâm lao vào hang ổ quái vật.",
     icon: "textures/items/bronze_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Đồng Thanh",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 18,
@@ -2977,7 +3688,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Cobalt. Ôm sát cơ bắp, hỗ trợ những pha bật nhảy chớp nhoáng.",
     icon: "textures/items/cobalt_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Cobalt",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 16,
@@ -2991,7 +3706,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Electrum. Tích tụ kinh nghiệm và ma lực chạy dọc theo hai chân.",
     icon: "textures/items/electrum_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Electrum",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 20,
@@ -3005,7 +3724,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Invar. Cản phá triệt để những cú đớp cắn của lũ nhện và sói.",
     icon: "textures/items/invar_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Invar",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 10,
@@ -3019,7 +3742,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Chì. Tựa như đeo tạ, chạy chậm nhưng đứng như tượng đài.",
     icon: "textures/items/lead_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Chì",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 12,
@@ -3033,7 +3760,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Manyullyn. Dòng năng lượng tím bảo vệ thân dưới trước mọi sát thương.",
     icon: "textures/items/manyullyn_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Manyullyn",
+      recipe_count: 1,
       "Độ bền": 375,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -3047,7 +3778,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Niken. Bùn đất dơ bẩn trơn tuột khỏi lớp mạ nhẵn bóng này.",
     icon: "textures/items/nickel_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Niken",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 14,
@@ -3061,7 +3796,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Bạch Kim. Bọc hai chân bằng thứ khoáng sản uy quyền bậc nhất.",
     icon: "textures/items/platinum_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Bạch Kim",
+      recipe_count: 1,
       "Độ bền": 600,
       "Giáp": 6,
       "Độ phù phép": 22,
@@ -3075,7 +3814,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Bạc. Mềm dẻo, linh hoạt chạy trốn và dễ dàng yểm bùa bảo vệ.",
     icon: "textures/items/silver_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Bạc",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 5,
       "Độ phù phép": 18,
@@ -3089,7 +3832,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Thép. Khớp nối cơ khí che phủ hoàn toàn hai chân trước mưa tên.",
     icon: "textures/items/steel_alloy_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Hợp Kim Thép",
+      recipe_count: 1,
       "Độ bền": 600,
       "Giáp": 6,
       "Độ phù phép": 22,
@@ -3103,7 +3850,11 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Quần Thiếc. Lỏng lẻo, phát ra tiếng tôn kêu cọt kẹt khi bạn di chuyển.",
     icon: "textures/items/tin_leggings",
     info: {
-      "Chế tạo": "1 nguyên liệu",
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
+      recipe_1_ingredients: "#=Thỏi Thiếc",
+      recipe_count: 1,
       "Độ bền": 300,
       "Giáp": 4,
       "Độ phù phép": 18,
@@ -3276,320 +4027,831 @@ export const GENERATED_WIKI_ITEMS = [
   },
   {
     id: "apeirix:ardite_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Ardite",
     description: "Khối kim loại đúc từ 9 thỏi Ardite. Nặng nề, đỏ rực và tỏa ra khí nóng âm ỉ của địa ngục.",
     icon: "textures/blocks/ardite_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Ardite",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Ardite",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 20,
+      "Công cụ yêu cầu": "Sắt"
     },
   },
   {
     id: "apeirix:bronze_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Đồng Thanh",
     description: "Khối Đồng Thanh nguyên khối. Thích hợp để lưu trữ hoặc xây dựng những công trình mang nét cổ điển.",
     icon: "textures/blocks/bronze_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Đồng Thanh",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Đồng Thanh",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 16.65,
+      "Công cụ yêu cầu": "Đá"
     },
   },
   {
     id: "apeirix:cobalt_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Cobalt",
     description: "Khối kim loại đúc từ Cobalt. Màu xanh biếc bắt mắt, nhẹ nhưng cực kỳ cứng chắc.",
     icon: "textures/blocks/cobalt_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Cobalt",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Cobalt",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 20,
+      "Công cụ yêu cầu": "Sắt"
     },
   },
   {
     id: "apeirix:electrum_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Electrum",
     description: "Khối Electrum rực rỡ. Sự kết hợp giữa Vàng và Bạc khiến nó trở thành một khối trang trí mang đậm tính ma thuật.",
     icon: "textures/blocks/electrum_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Electrum",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Electrum",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 17,
+      "Công cụ yêu cầu": "Đá"
     },
   },
   {
     id: "apeirix:invar_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Invar",
     description: "Khối hợp kim Invar. Một khối lập phương siêu chịu nhiệt, không thể bị biến dạng bởi lửa hay dung nham.",
     icon: "textures/blocks/invar_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Invar",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Invar",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 19,
+      "Công cụ yêu cầu": "Sắt"
     },
   },
   {
     id: "apeirix:lead_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Chì",
     description: "Khối Chì đặc. Nặng đến mức khó tin, dùng làm rào cản hoàn hảo chống lại các vụ nổ cực mạnh.",
     icon: "textures/blocks/lead_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Chì",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Chì",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 18,
+      "Công cụ yêu cầu": "Sắt"
     },
   },
   {
     id: "apeirix:manyullyn_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Manyullyn",
     description: "Khối Manyullyn ánh tím. Phát ra nguồn năng lượng hủy diệt, biểu tượng của sự thống trị tuyệt đối.",
     icon: "textures/blocks/manyullyn_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Manyullyn",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Manyullyn",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 22,
+      "Công cụ yêu cầu": "Kim cương"
     },
   },
   {
     id: "apeirix:nickel_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Niken",
     description: "Khối Niken lấp lánh. Bề mặt nhẵn bóng không bao giờ bị xỉn màu hay gỉ sét theo thời gian.",
     icon: "textures/blocks/nickel_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Niken",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Niken",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 18,
+      "Công cụ yêu cầu": "Sắt"
     },
   },
   {
     id: "apeirix:platinum_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Bạch Kim",
     description: "Khối Bạch Kim xa hoa. Vẻ đẹp hoàn mỹ của nó khiến những vương miện kim cương cũng phải lu mờ.",
     icon: "textures/blocks/platinum_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Bạch Kim",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Bạch Kim",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 20,
+      "Công cụ yêu cầu": "Kim cương"
     },
   },
   {
     id: "apeirix:silver_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Bạc",
     description: "Khối Bạc tinh khiết. Ánh sáng bàng bạc của nó khiến những sinh vật hắc ám không dám tới gần.",
     icon: "textures/blocks/silver_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Bạc",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Bạc",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 16.65,
+      "Công cụ yêu cầu": "Đá"
     },
   },
   {
     id: "apeirix:steel_alloy_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Hợp Kim Thép",
     description: "Khối Thép công nghiệp. Biểu tượng của sự vững chãi, khó có tác động vật lý nào có thể phá vỡ nó.",
     icon: "textures/blocks/steel_alloy_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Hợp Kim Thép",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Hợp Kim Thép",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 20,
+      "Công cụ yêu cầu": "Sắt"
     },
   },
   {
     id: "apeirix:tin_block",
-    category: "materials",
+    category: "blocks",
     name: "Khối Thiếc",
     description: "Khối Thiếc cơ bản. Khá mềm để làm vật liệu xây dựng, chủ yếu dùng để tiết kiệm không gian lưu trữ.",
     icon: "textures/blocks/tin_block",
     info: {
-      "Chế tạo": "1 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#][#]|[#][#][#]|[#][#][#]",
+      recipe_1_ingredients: "#=Thỏi Thiếc",
+      recipe_2_type: "shapeless",
+      recipe_2_label: "Bàn chế tạo (tự do)",
+      recipe_2_ingredients: "Khối Thiếc",
+      recipe_2_result: "9x",
+      recipe_count: 2,
+      "Độ cứng": 16.65,
+      "Công cụ yêu cầu": "Đá"
     },
   },
   {
     id: "apeirix:alloy_mixing_table",
-    category: "materials",
+    category: "blocks",
     name: "Bàn Trộn Hợp Kim",
     description: "Bàn kỹ thuật chuyên dụng. Dùng để pha trộn các loại bụi nguyên chất thành các loại bụi hợp kim mới trước khi đem nung.",
     icon: "textures/items/alloy_mixing_table_front",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[D][D][D]|[D][C][D]|[D][D][D]",
+      recipe_1_ingredients: "D=Cobbled Deepslate, C=Crafting Table",
+      recipe_count: 1,
+      "Độ cứng": 3.5,
+      "Công cụ yêu cầu": "Gỗ"
     },
   },
   {
     id: "apeirix:compressor",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nén",
     description: "Máy nén áp suất cao. Chuyên dùng để ép các thỏi kim loại thành các tấm kim loại (Plate) đặc chắc.",
     icon: "textures/items/compressor_side",
     info: {
-      "Chế tạo": "5 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[I][H][I]|[I][P][I]|[C][R][C]",
+      recipe_1_ingredients: "I=Thỏi Hợp Kim Thép, H=Búa Kỹ Thuật, P=Piston, C=Block of Iron, R=Redstone Dust",
+      recipe_count: 1,
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Đá",
+      processing_recipe_count: 1,
+      processing_1: "Thỏi Hợp Kim Thép → 1x Tấm Thép (3s)"
     },
   },
   {
     id: "apeirix:compressor_on",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nén (Đang Hoạt Động)",
     description: "Máy nén đang trong trạng thái hoạt động, tỏa ra sức nóng và tiếng búa đập chát chúa để ép kim loại.",
     icon: "textures/items/compressor_side",
+    info: {
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Đá"
+    },
   },
   {
     id: "apeirix:crusher",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nghiền",
     description: "Máy nghiền khoáng sản cơ bản. Nghiền nát quặng thô và đá thành các loại bụi kim loại để dễ dàng xử lý.",
     icon: "textures/items/crusher_side",
     info: {
-      "Chế tạo": "5 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[I][H][I]|[I][P][I]|[C][R][C]",
+      recipe_1_ingredients: "I=Thỏi Đồng Thanh, H=Búa Đồng Thanh, P=Piston, C=Block of Iron, R=Redstone Dust",
+      recipe_count: 1,
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Đá",
+      processing_recipe_count: 31,
+      processing_1: "stone → 4x Bụi Đá Cuội (2s)",
+      processing_2: "Cobblestone → 4x Bụi Đá Cuội (2s)",
+      processing_3: "Deepslate → 4x Bụi Đá Sâu (2s)",
+      processing_4: "Cobbled Deepslate → 4x Bụi Đá Sâu (2s)",
+      processing_5: "Netherrack → 4x Bụi Đá Địa Ngục (2s)",
+      processing_6: "Coal Ore → 9x Bụi Than (3s)",
+      processing_7: "Deepslate Coal Ore → 9x Bụi Than (3s)",
+      processing_8: "Iron Ore → 9x Bụi Sắt (3s)",
+      processing_9: "Deepslate Iron Ore → 9x Bụi Sắt (3s)",
+      processing_10: "Copper Ore → 9x Bụi Đồng (3s)",
+      processing_11: "Deepslate Copper Ore → 9x Bụi Đồng (3s)",
+      processing_12: "Gold Ore → 9x Bụi Vàng (3s)",
+      processing_13: "Deepslate Gold Ore → 9x Bụi Vàng (3s)",
+      processing_14: "Diamond Ore → 9x Bụi Kim Cương (3s)",
+      processing_15: "Deepslate Diamond Ore → 9x Bụi Kim Cương (3s)",
+      processing_16: "Emerald Ore → 9x Bụi Ngọc Lục Bảo (3s)",
+      processing_17: "Deepslate Emerald Ore → 9x Bụi Ngọc Lục Bảo (3s)",
+      processing_18: "Lapis Lazuli Ore → 9x Bụi Lưu Ly (3s)",
+      processing_19: "Deepslate Lapis Lazuli Ore → 9x Bụi Lưu Ly (3s)",
+      processing_20: "Quặng Thiếc → 9x Bụi Thiếc (3s)",
+      processing_21: "Quặng Thiếc Đá Sâu → 9x Bụi Thiếc (3s)",
+      processing_22: "Quặng Bạc → 9x Bụi Bạc (3s)",
+      processing_23: "Quặng Bạc Đá Sâu → 9x Bụi Bạc (3s)",
+      processing_24: "Quặng Niken → 9x Bụi Niken (3s)",
+      processing_25: "Quặng Niken Đá Sâu → 9x Bụi Niken (3s)",
+      processing_26: "Quặng Chì → 9x Bụi Chì (3s)",
+      processing_27: "Quặng Chì Đá Sâu → 9x Bụi Chì (3s)",
+      processing_28: "Quặng Bạch Kim → 9x Bụi Bạch Kim (3s)",
+      processing_29: "Quặng Bạch Kim Đá Sâu → 9x Bụi Bạch Kim (3s)",
+      processing_30: "Quặng Cobalt → 9x Bụi Cobalt (3s)",
+      processing_31: "Quặng Ardite → 9x Bụi Ardite (3s)"
     },
   },
   {
     id: "apeirix:crusher_on",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nghiền (Đang Hoạt Động)",
     description: "Máy nghiền đang chạy. Các bánh răng bên trong đang nghiền nát mọi thứ được đưa vào thành bụi mịn.",
     icon: "textures/items/crusher_side",
+    info: {
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Đá"
+    },
   },
   {
     id: "apeirix:ore_crusher_mk1",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nghiền Quặng MK1",
     description: "Máy nghiền quặng tự động MK1. Hoạt động bằng nhiên liệu than, tự động nghiền quặng chạm vào nó thành bụi (x1 sản lượng).",
     icon: "textures/items/orecrushermk1allothersides",
     info: {
-      "Chế tạo": "5 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[P][H][P]|[G][P][G]|[C][R][C]",
+      recipe_1_ingredients: "P=Tấm Thép, H=Búa Kỹ Thuật, G=Bánh Răng Thép, C=Cobblestone, R=Redstone Dust",
+      recipe_count: 1,
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Đá",
+      "Nhiên liệu": "Block of Coal (64 lần)",
+      processing_recipe_count: 33,
+      processing_1: "stone → 4x Bụi Đá Cuội",
+      processing_2: "Cobblestone → 4x Bụi Đá Cuội",
+      processing_3: "Deepslate → 4x Bụi Đá Sâu",
+      processing_4: "Cobbled Deepslate → 4x Bụi Đá Sâu",
+      processing_5: "Netherrack → 4x Bụi Đá Địa Ngục",
+      processing_6: "Coal Ore → 4x Bụi Đá Cuội + 9x Bụi Than",
+      processing_7: "Deepslate Coal Ore → 4x Bụi Đá Sâu + 9x Bụi Than",
+      processing_8: "Iron Ore → 4x Bụi Đá Cuội + 9x Bụi Sắt",
+      processing_9: "Deepslate Iron Ore → 4x Bụi Đá Sâu + 9x Bụi Sắt",
+      processing_10: "Copper Ore → 4x Bụi Đá Cuội + 9x Bụi Đồng",
+      processing_11: "Deepslate Copper Ore → 4x Bụi Đá Sâu + 9x Bụi Đồng",
+      processing_12: "Gold Ore → 4x Bụi Đá Cuội + 9x Bụi Vàng",
+      processing_13: "Deepslate Gold Ore → 4x Bụi Đá Sâu + 9x Bụi Vàng",
+      processing_14: "Diamond Ore → 4x Bụi Đá Cuội + 9x Bụi Kim Cương",
+      processing_15: "Deepslate Diamond Ore → 4x Bụi Đá Sâu + 9x Bụi Kim Cương",
+      processing_16: "Emerald Ore → 4x Bụi Đá Cuội + 9x Bụi Ngọc Lục Bảo",
+      processing_17: "Deepslate Emerald Ore → 4x Bụi Đá Sâu + 9x Bụi Ngọc Lục Bảo",
+      processing_18: "Lapis Lazuli Ore → 4x Bụi Đá Cuội + 9x Bụi Lưu Ly",
+      processing_19: "Deepslate Lapis Lazuli Ore → 4x Bụi Đá Sâu + 9x Bụi Lưu Ly",
+      processing_20: "Redstone Ore → 4x Bụi Đá Cuội",
+      processing_21: "Deepslate Redstone Ore → 4x Bụi Đá Sâu",
+      processing_22: "Quặng Thiếc → 4x Bụi Đá Cuội + 9x Bụi Thiếc",
+      processing_23: "Quặng Thiếc Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Thiếc",
+      processing_24: "Quặng Bạc → 4x Bụi Đá Cuội + 9x Bụi Bạc",
+      processing_25: "Quặng Bạc Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạc",
+      processing_26: "Quặng Niken → 4x Bụi Đá Cuội + 9x Bụi Niken",
+      processing_27: "Quặng Niken Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Niken",
+      processing_28: "Quặng Chì → 4x Bụi Đá Cuội + 9x Bụi Chì",
+      processing_29: "Quặng Chì Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Chì",
+      processing_30: "Quặng Bạch Kim → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
+      processing_31: "Quặng Bạch Kim Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạch Kim",
+      processing_32: "Quặng Cobalt → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
+      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
     },
   },
   {
     id: "apeirix:ore_crusher_mk2",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nghiền Quặng MK2",
     description: "Máy nghiền quặng tự động MK2. Nâng cấp bằng kim cương, tốc độ nhanh hơn và cho sản lượng bụi kim loại lên tới x1.5.",
     icon: "textures/items/orecrushermk1allothersides",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[D][D][D]|[D][C][D]|[D][D][D]",
+      recipe_1_ingredients: "D=Diamond, C=Máy Nghiền Quặng MK1",
+      recipe_count: 1,
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Sắt",
+      "Nhiên liệu": "Block of Coal (32 lần)",
+      processing_recipe_count: 33,
+      processing_1: "stone → 4x Bụi Đá Cuội",
+      processing_2: "Cobblestone → 4x Bụi Đá Cuội",
+      processing_3: "Deepslate → 4x Bụi Đá Sâu",
+      processing_4: "Cobbled Deepslate → 4x Bụi Đá Sâu",
+      processing_5: "Netherrack → 4x Bụi Đá Địa Ngục",
+      processing_6: "Coal Ore → 4x Bụi Đá Cuội + 9x Bụi Than",
+      processing_7: "Deepslate Coal Ore → 4x Bụi Đá Sâu + 9x Bụi Than",
+      processing_8: "Iron Ore → 4x Bụi Đá Cuội + 9x Bụi Sắt",
+      processing_9: "Deepslate Iron Ore → 4x Bụi Đá Sâu + 9x Bụi Sắt",
+      processing_10: "Copper Ore → 4x Bụi Đá Cuội + 9x Bụi Đồng",
+      processing_11: "Deepslate Copper Ore → 4x Bụi Đá Sâu + 9x Bụi Đồng",
+      processing_12: "Gold Ore → 4x Bụi Đá Cuội + 9x Bụi Vàng",
+      processing_13: "Deepslate Gold Ore → 4x Bụi Đá Sâu + 9x Bụi Vàng",
+      processing_14: "Diamond Ore → 4x Bụi Đá Cuội + 9x Bụi Kim Cương",
+      processing_15: "Deepslate Diamond Ore → 4x Bụi Đá Sâu + 9x Bụi Kim Cương",
+      processing_16: "Emerald Ore → 4x Bụi Đá Cuội + 9x Bụi Ngọc Lục Bảo",
+      processing_17: "Deepslate Emerald Ore → 4x Bụi Đá Sâu + 9x Bụi Ngọc Lục Bảo",
+      processing_18: "Lapis Lazuli Ore → 4x Bụi Đá Cuội + 9x Bụi Lưu Ly",
+      processing_19: "Deepslate Lapis Lazuli Ore → 4x Bụi Đá Sâu + 9x Bụi Lưu Ly",
+      processing_20: "Redstone Ore → 4x Bụi Đá Cuội",
+      processing_21: "Deepslate Redstone Ore → 4x Bụi Đá Sâu",
+      processing_22: "Quặng Thiếc → 4x Bụi Đá Cuội + 9x Bụi Thiếc",
+      processing_23: "Quặng Thiếc Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Thiếc",
+      processing_24: "Quặng Bạc → 4x Bụi Đá Cuội + 9x Bụi Bạc",
+      processing_25: "Quặng Bạc Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạc",
+      processing_26: "Quặng Niken → 4x Bụi Đá Cuội + 9x Bụi Niken",
+      processing_27: "Quặng Niken Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Niken",
+      processing_28: "Quặng Chì → 4x Bụi Đá Cuội + 9x Bụi Chì",
+      processing_29: "Quặng Chì Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Chì",
+      processing_30: "Quặng Bạch Kim → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
+      processing_31: "Quặng Bạch Kim Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạch Kim",
+      processing_32: "Quặng Cobalt → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
+      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
     },
   },
   {
     id: "apeirix:ore_crusher_mk3",
-    category: "materials",
+    category: "blocks",
     name: "Máy Nghiền Quặng MK3",
     description: "Máy nghiền quặng tự động tối tân MK3. Lõi Netherite mang lại tốc độ chớp nhoáng và nhân đôi (x2) lượng bụi kim loại thu được.",
     icon: "textures/items/orecrushermk1allothersides",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[N][N][N]|[N][C][N]|[N][N][N]",
+      recipe_1_ingredients: "N=Netherite Ingot, C=Máy Nghiền Quặng MK2",
+      recipe_count: 1,
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Kim cương",
+      "Nhiên liệu": "Block of Coal (16 lần)",
+      processing_recipe_count: 33,
+      processing_1: "stone → 4x Bụi Đá Cuội",
+      processing_2: "Cobblestone → 4x Bụi Đá Cuội",
+      processing_3: "Deepslate → 4x Bụi Đá Sâu",
+      processing_4: "Cobbled Deepslate → 4x Bụi Đá Sâu",
+      processing_5: "Netherrack → 4x Bụi Đá Địa Ngục",
+      processing_6: "Coal Ore → 4x Bụi Đá Cuội + 9x Bụi Than",
+      processing_7: "Deepslate Coal Ore → 4x Bụi Đá Sâu + 9x Bụi Than",
+      processing_8: "Iron Ore → 4x Bụi Đá Cuội + 9x Bụi Sắt",
+      processing_9: "Deepslate Iron Ore → 4x Bụi Đá Sâu + 9x Bụi Sắt",
+      processing_10: "Copper Ore → 4x Bụi Đá Cuội + 9x Bụi Đồng",
+      processing_11: "Deepslate Copper Ore → 4x Bụi Đá Sâu + 9x Bụi Đồng",
+      processing_12: "Gold Ore → 4x Bụi Đá Cuội + 9x Bụi Vàng",
+      processing_13: "Deepslate Gold Ore → 4x Bụi Đá Sâu + 9x Bụi Vàng",
+      processing_14: "Diamond Ore → 4x Bụi Đá Cuội + 9x Bụi Kim Cương",
+      processing_15: "Deepslate Diamond Ore → 4x Bụi Đá Sâu + 9x Bụi Kim Cương",
+      processing_16: "Emerald Ore → 4x Bụi Đá Cuội + 9x Bụi Ngọc Lục Bảo",
+      processing_17: "Deepslate Emerald Ore → 4x Bụi Đá Sâu + 9x Bụi Ngọc Lục Bảo",
+      processing_18: "Lapis Lazuli Ore → 4x Bụi Đá Cuội + 9x Bụi Lưu Ly",
+      processing_19: "Deepslate Lapis Lazuli Ore → 4x Bụi Đá Sâu + 9x Bụi Lưu Ly",
+      processing_20: "Redstone Ore → 4x Bụi Đá Cuội",
+      processing_21: "Deepslate Redstone Ore → 4x Bụi Đá Sâu",
+      processing_22: "Quặng Thiếc → 4x Bụi Đá Cuội + 9x Bụi Thiếc",
+      processing_23: "Quặng Thiếc Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Thiếc",
+      processing_24: "Quặng Bạc → 4x Bụi Đá Cuội + 9x Bụi Bạc",
+      processing_25: "Quặng Bạc Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạc",
+      processing_26: "Quặng Niken → 4x Bụi Đá Cuội + 9x Bụi Niken",
+      processing_27: "Quặng Niken Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Niken",
+      processing_28: "Quặng Chì → 4x Bụi Đá Cuội + 9x Bụi Chì",
+      processing_29: "Quặng Chì Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Chì",
+      processing_30: "Quặng Bạch Kim → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
+      processing_31: "Quặng Bạch Kim Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạch Kim",
+      processing_32: "Quặng Cobalt → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
+      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
     },
   },
   {
     id: "apeirix:ore_sieve",
-    category: "materials",
+    category: "blocks",
     name: "Rây Sàng Quặng",
     description: "Rây sàng quặng. Dùng để lọc cát và sỏi một cách cơ học nhằm tìm kiếm những hạt bụi kim loại có giá trị.",
     icon: "textures/items/ore_sieve_off",
     info: {
-      "Chế tạo": "2 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[B][B][B]|[B][ ][B]|[S][S][S]",
+      recipe_1_ingredients: "B=Thỏi Đồng Thanh, S=Smooth Stone",
+      recipe_count: 1,
+      "Độ cứng": 4,
+      "Công cụ yêu cầu": "Đá",
+      processing_recipe_count: 2
     },
   },
   {
     id: "apeirix:ore_sieve_on",
-    category: "materials",
+    category: "blocks",
     name: "Rây Sàng Quặng (Đang Hoạt Động)",
     description: "Hệ thống rây sàng đang rung lắc dữ dội để lọc cặn bã khỏi sỏi cát.",
     icon: "textures/items/ore_sieve",
+    info: {
+      "Độ cứng": 4,
+      "Công cụ yêu cầu": "Đá"
+    },
   },
   {
     id: "apeirix:ore_washer",
-    category: "materials",
+    category: "blocks",
     name: "Máy Rửa Quặng",
     description: "Máy rửa quặng. Sử dụng nước để rửa sạch bụi khoáng sản thông thường thành Bụi Tinh Khiết (Pure Dust), chuẩn bị cho việc nung chảy.",
     icon: "textures/items/ore_washer",
     info: {
-      "Chế tạo": "3 nguyên liệu"
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[B][B][B]|[B][I][B]|[S][S][S]",
+      recipe_1_ingredients: "B=Thỏi Đồng Thanh, I=Iron Bars, S=Smooth Stone",
+      recipe_count: 1,
+      "Độ cứng": 4,
+      "Công cụ yêu cầu": "Đá",
+      processing_recipe_count: 18,
+      processing_1: "Bụi Than → Bụi Than Tinh Khiết + Bụi Đá Cuội",
+      processing_2: "Bụi Sắt → Bụi Sắt Tinh Khiết + Bụi Đá Cuội",
+      processing_3: "Bụi Đồng → Bụi Đồng Tinh Khiết + Bụi Đá Cuội",
+      processing_4: "Bụi Vàng → Bụi Vàng Tinh Khiết + Bụi Đá Cuội",
+      processing_5: "Bụi Kim Cương → Bụi Kim Cương Tinh Khiết + Bụi Đá Cuội",
+      processing_6: "Bụi Ngọc Lục Bảo → Bụi Ngọc Lục Bảo Tinh Khiết + Bụi Đá Cuội",
+      processing_7: "Bụi Lưu Ly → Bụi Lưu Ly Tinh Khiết + Bụi Đá Cuội",
+      processing_8: "Bụi Thiếc → Bụi Thiếc Tinh Khiết + Bụi Đá Cuội",
+      processing_9: "Bụi Bạc → Bụi Bạc Tinh Khiết + Bụi Đá Cuội",
+      processing_10: "Bụi Niken → Bụi Niken Tinh Khiết + Bụi Đá Cuội",
+      processing_11: "Bụi Chì → Bụi Chì Tinh Khiết + Bụi Đá Cuội",
+      processing_12: "Bụi Electrum → Bụi Electrum Tinh Khiết + Bụi Đá Cuội",
+      processing_13: "Bụi Invar → Bụi Invar Tinh Khiết + Bụi Đá Cuội",
+      processing_14: "Bụi Bạch Kim → Bụi Bạch Kim Tinh Khiết + Bụi Đá Cuội",
+      processing_15: "Bụi Đồng Thanh → Bụi Đồng Thanh Tinh Khiết + Bụi Đá Cuội",
+      processing_16: "Bụi Cobalt → Bụi Cobalt Tinh Khiết + Bụi Đá Địa Ngục",
+      processing_17: "Bụi Ardite → Bụi Ardite Tinh Khiết + Bụi Đá Địa Ngục",
+      processing_18: "Bụi Manyullyn → Bụi Manyullyn Tinh Khiết + Bụi Đá Cuội"
     },
   },
   {
     id: "apeirix:ardite_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Ardite",
     description: "Quặng Ardite ẩn mình trong đá Netherrack. Chứa đựng nguồn nhiệt lượng bạo tàn của Nether.",
     icon: "textures/items/ardite_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Ardite → 1x Thỏi Ardite",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Ardite → 1x Thỏi Ardite",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Ardite Thô → 1x Thỏi Ardite",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Ardite Thô → 1x Thỏi Ardite",
+      recipe_count: 4
+    },
   },
   {
     id: "apeirix:cobalt_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Cobalt",
     description: "Quặng Cobalt xanh rực mọc trên đá Nether. Nhẹ nhàng nhưng cực kỳ dẻo dai.",
     icon: "textures/items/cobalt_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Cobalt → 1x Thỏi Cobalt",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Cobalt → 1x Thỏi Cobalt",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Cobalt Thô → 1x Thỏi Cobalt",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Cobalt Thô → 1x Thỏi Cobalt",
+      recipe_count: 4
+    },
   },
   {
     id: "apeirix:lead_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Chì",
     description: "Quặng Chì thô bám trên đá thường. Có màu xám tối và tỏa ra khí tức nặng nề.",
     icon: "textures/items/lead_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Chì → 1x Thỏi Chì",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Chì → 1x Thỏi Chì",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Chì Đá Sâu → 1x Thỏi Chì",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Chì Đá Sâu → 1x Thỏi Chì",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Chì Thô → 1x Thỏi Chì",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Chì Thô → 1x Thỏi Chì",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:deepslate_lead_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Chì Đá Sâu",
     description: "Quặng Chì thô bám trên đá thường. Có màu xám tối và tỏa ra khí tức nặng nề.",
     icon: "textures/items/deepslate_lead_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Chì → 1x Thỏi Chì",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Chì → 1x Thỏi Chì",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Chì Đá Sâu → 1x Thỏi Chì",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Chì Đá Sâu → 1x Thỏi Chì",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Chì Thô → 1x Thỏi Chì",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Chì Thô → 1x Thỏi Chì",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:nickel_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Niken",
     description: "Quặng Niken lấp lánh. Thường được tìm thấy đan xen ở những tầng địa chất bậc trung.",
     icon: "textures/items/nickel_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Niken → 1x Thỏi Niken",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Niken → 1x Thỏi Niken",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Niken Đá Sâu → 1x Thỏi Niken",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Niken Đá Sâu → 1x Thỏi Niken",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Niken Thô → 1x Thỏi Niken",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Niken Thô → 1x Thỏi Niken",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:deepslate_nickel_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Niken Đá Sâu",
     description: "Quặng Niken lấp lánh. Thường được tìm thấy đan xen ở những tầng địa chất bậc trung.",
     icon: "textures/items/deepslate_nickel_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Niken → 1x Thỏi Niken",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Niken → 1x Thỏi Niken",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Niken Đá Sâu → 1x Thỏi Niken",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Niken Đá Sâu → 1x Thỏi Niken",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Niken Thô → 1x Thỏi Niken",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Niken Thô → 1x Thỏi Niken",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:platinum_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Bạch Kim",
     description: "Quặng Bạch Kim cực hiếm. Ẩn chứa tinh hoa khoáng sản quý giá nhất của thế giới ngầm.",
     icon: "textures/items/platinum_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Bạch Kim → 1x Thỏi Bạch Kim",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Bạch Kim → 1x Thỏi Bạch Kim",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Bạch Kim Đá Sâu → 1x Thỏi Bạch Kim",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Bạch Kim Đá Sâu → 1x Thỏi Bạch Kim",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:deepslate_platinum_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Bạch Kim Đá Sâu",
     description: "Quặng Bạch Kim cực hiếm. Ẩn chứa tinh hoa khoáng sản quý giá nhất của thế giới ngầm.",
     icon: "textures/items/deepslate_platinum_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Bạch Kim → 1x Thỏi Bạch Kim",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Bạch Kim → 1x Thỏi Bạch Kim",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Bạch Kim Đá Sâu → 1x Thỏi Bạch Kim",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Bạch Kim Đá Sâu → 1x Thỏi Bạch Kim",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Bạch Kim Thô → 1x Thỏi Bạch Kim",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:silver_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Bạc",
     description: "Quặng Bạc. Những tinh thể bàng bạc phát sáng nhẹ trong bóng tối, mang năng lượng thanh tẩy.",
     icon: "textures/items/silver_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Bạc → 1x Thỏi Bạc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Bạc → 1x Thỏi Bạc",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Bạc Đá Sâu → 1x Thỏi Bạc",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Bạc Đá Sâu → 1x Thỏi Bạc",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Bạc Thô → 1x Thỏi Bạc",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Bạc Thô → 1x Thỏi Bạc",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:deepslate_silver_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Bạc Đá Sâu",
     description: "Quặng Bạc. Những tinh thể bàng bạc phát sáng nhẹ trong bóng tối, mang năng lượng thanh tẩy.",
     icon: "textures/items/deepslate_silver_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Bạc → 1x Thỏi Bạc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Bạc → 1x Thỏi Bạc",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Bạc Đá Sâu → 1x Thỏi Bạc",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Bạc Đá Sâu → 1x Thỏi Bạc",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Bạc Thô → 1x Thỏi Bạc",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Bạc Thô → 1x Thỏi Bạc",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:tin_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Thiếc",
     description: "Quặng Thiếc cơ bản. Dễ dàng tìm thấy ở những tầng đất nông, khởi đầu cho mọi nhà thám hiểm.",
     icon: "textures/items/tin_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Thiếc → 1x Thỏi Thiếc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Thiếc → 1x Thỏi Thiếc",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Thiếc Đá Sâu → 1x Thỏi Thiếc",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Thiếc Đá Sâu → 1x Thỏi Thiếc",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Thiếc Thô → 1x Thỏi Thiếc",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Thiếc Thô → 1x Thỏi Thiếc",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:deepslate_tin_ore",
-    category: "materials",
+    category: "ores",
     name: "Quặng Thiếc Đá Sâu",
     description: "Quặng Thiếc cơ bản. Dễ dàng tìm thấy ở những tầng đất nông, khởi đầu cho mọi nhà thám hiểm.",
     icon: "textures/items/deepslate_tin_ore",
+    info: {
+      recipe_1_type: "smelting",
+      recipe_1_text: "Lò nung: Quặng Thiếc → 1x Thỏi Thiếc",
+      recipe_2_type: "blasting",
+      recipe_2_text: "Lò cao: Quặng Thiếc → 1x Thỏi Thiếc",
+      recipe_3_type: "smelting",
+      recipe_3_text: "Lò nung: Quặng Thiếc Đá Sâu → 1x Thỏi Thiếc",
+      recipe_4_type: "blasting",
+      recipe_4_text: "Lò cao: Quặng Thiếc Đá Sâu → 1x Thỏi Thiếc",
+      recipe_5_type: "smelting",
+      recipe_5_text: "Lò nung: Thiếc Thô → 1x Thỏi Thiếc",
+      recipe_6_type: "blasting",
+      recipe_6_text: "Lò cao: Thiếc Thô → 1x Thỏi Thiếc",
+      recipe_count: 6
+    },
   },
   {
     id: "apeirix:rust_mite",
-    category: "materials",
+    category: "entities",
     name: "Bọ Ăn Rỉ Sét",
     description: "Một loài sinh vật phiền toái sinh sống dưới lòng đất. Chúng bị thu hút mãnh liệt bởi đồ hộp bẩn và các loại bụi kim loại.",
     icon: "textures/items/rust_mite",
   },
   {
     id: "apeirix:item_bait_marker",
-    category: "materials",
-    name: "item_bait_marker",
+    category: "entities",
+    name: "Đánh Dấu Mồi Nhử",
     description: "Thực thể đánh dấu tàng hình, dùng để định vị các vật phẩm thu hút Bọ Ăn Rỉ Sét.",
     icon: "textures/items/rust_mite",
   }

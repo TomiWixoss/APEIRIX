@@ -368,10 +368,9 @@ export class RPCompiler {
     const { copyFileSync, readdirSync, statSync } = await import('fs');
     
     // UI JSON files are in configs/ui/
-    // UI textures are in assets/ui/ (outside configs/)
+    // UI textures are in configs/ui/assets/
     const uiSourceDir = path.join(configDir, 'ui');
-    const assetsDir = path.join(path.dirname(configDir), 'assets');
-    const uiTexturesSourceDir = path.join(assetsDir, 'ui');
+    const uiTexturesSourceDir = path.join(uiSourceDir, 'assets');
     
     const uiDestDir = path.join(rpPath, 'ui');
     const texturesDestDir = path.join(rpPath, 'textures');

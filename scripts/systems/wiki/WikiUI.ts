@@ -213,6 +213,123 @@ export class WikiUI {
     }
 
     /**
+     * Format info for display - handles special recipe formatting
+     */
+    private static formatInfo(info: Record<string, string | number | boolean>): string {
+        let result = "";
+        const processedKeys = new Set<string>();
+        
+        // Check if there are crafting recipes
+        const recipeCount = typeof info['recipe_count'] === 'number' ? info['recipe_count'] : 0;
+        
+        if (recipeCount > 0) {
+            result += `§l§0Công thức chế tạo:§r\n`;
+            
+            for (let i = 1; i <= recipeCount; i++) {
+                const type = info[`recipe_${i}_type`];
+                const label = info[`recipe_${i}_label`];
+                
+                if (type === 'shaped') {
+                    // Shaped recipe - show pattern as grid
+                    result += `\n§0${label}§r\n`;
+                    
+                    const pattern = info[`recipe_${i}_pattern`];
+                    if (pattern && typeof pattern === 'string') {
+                        const lines = pattern.split('|');
+                        lines.forEach(line => {
+                            result += `§8${line}§r\n`;
+                        });
+                    }
+                    
+                    const ingredients = info[`recipe_${i}_ingredients`];
+                    if (ingredients && typeof ingredients === 'string') {
+                        result += `§0Nguyên liệu:§r\n`;
+                        // Split by comma and show each ingredient on new line
+                        const items = ingredients.split(', ');
+                        items.forEach(item => {
+                            result += `§8${item}§r\n`;
+                        });
+                    }
+                    
+                    const resultCount = info[`recipe_${i}_result`];
+                    if (resultCount) {
+                        result += `§0Kết quả: §r§8${resultCount}§r\n`;
+                    }
+                    
+                    // Mark keys as processed
+                    processedKeys.add(`recipe_${i}_type`);
+                    processedKeys.add(`recipe_${i}_label`);
+                    processedKeys.add(`recipe_${i}_pattern`);
+                    processedKeys.add(`recipe_${i}_ingredients`);
+                    processedKeys.add(`recipe_${i}_result`);
+                } else if (type === 'shapeless') {
+                    // Shapeless recipe
+                    result += `\n§0${label}§r\n`;
+                    
+                    const ingredients = info[`recipe_${i}_ingredients`];
+                    if (ingredients && typeof ingredients === 'string') {
+                        result += `§0Nguyên liệu:§r\n`;
+                        // Split by comma and show each ingredient on new line
+                        const items = ingredients.split(', ');
+                        items.forEach(item => {
+                            result += `§8${item}§r\n`;
+                        });
+                    }
+                    
+                    const resultCount = info[`recipe_${i}_result`];
+                    if (resultCount) {
+                        result += `§0Kết quả: §r§8${resultCount}§r\n`;
+                    }
+                    
+                    processedKeys.add(`recipe_${i}_type`);
+                    processedKeys.add(`recipe_${i}_label`);
+                    processedKeys.add(`recipe_${i}_ingredients`);
+                    processedKeys.add(`recipe_${i}_result`);
+                } else if (type === 'smelting' || type === 'blasting') {
+                    // Smelting/blasting recipe
+                    const text = info[`recipe_${i}_text`];
+                    if (text) {
+                        result += `§8${text}§r\n`;
+                    }
+                    
+                    processedKeys.add(`recipe_${i}_type`);
+                    processedKeys.add(`recipe_${i}_text`);
+                }
+            }
+            
+            processedKeys.add('recipe_count');
+            result += "\n";
+        }
+        
+        // Check if there are processing recipes
+        const processingCount = typeof info['processing_recipe_count'] === 'number' ? info['processing_recipe_count'] : 0;
+        
+        if (processingCount > 0) {
+            result += `§l§0Công thức xử lý (${processingCount}):§r\n`;
+            
+            for (let i = 1; i <= processingCount; i++) {
+                const recipe = info[`processing_${i}`];
+                if (recipe) {
+                    result += `§8${i}. ${recipe}§r\n`;
+                    processedKeys.add(`processing_${i}`);
+                }
+            }
+            
+            processedKeys.add('processing_recipe_count');
+            result += "\n";
+        }
+        
+        // Show remaining info (non-recipe data)
+        for (const [key, value] of Object.entries(info)) {
+            if (!processedKeys.has(key)) {
+                result += `§r§0${key}:§r §8${value}\n`;
+            }
+        }
+        
+        return result;
+    }
+
+    /**
      * Show detailed information about an item with JSON UI book-style
      * Title format: apeirix:wiki:<icon_padded_200>$<title>
      */
@@ -236,12 +353,10 @@ export class WikiUI {
             body += `${LangManager.get("wiki.description")}\n§r§8${item.description}\n\n`;
         }
 
-        // Additional info - KHÔNG in hoa
+        // Additional info - use formatInfo for better display
         if (item.info && Object.keys(item.info).length > 0) {
             body += `${LangManager.get("wiki.information")}:\n`;
-            for (const [key, value] of Object.entries(item.info)) {
-                body += `§r§0${key}:§r §8${value}\n`;
-            }
+            body += this.formatInfo(item.info);
             body += "\n";
         }
 
@@ -280,12 +395,10 @@ export class WikiUI {
             body += `${LangManager.get("wiki.description")}\n§r§8${block.description}\n\n`;
         }
 
-        // Additional info
+        // Additional info - use formatInfo
         if (block.info && Object.keys(block.info).length > 0) {
             body += `${LangManager.get("wiki.information")}:\n`;
-            for (const [key, value] of Object.entries(block.info)) {
-                body += `§r§0${key}:§r §8${value}\n`;
-            }
+            body += this.formatInfo(block.info);
             body += "\n";
         }
 
@@ -326,12 +439,10 @@ export class WikiUI {
             body += `${LangManager.get("wiki.description")}\n§r§8${entity.description}\n\n`;
         }
 
-        // Additional info
+        // Additional info - use formatInfo
         if (entity.info && Object.keys(entity.info).length > 0) {
             body += `${LangManager.get("wiki.information")}:\n`;
-            for (const [key, value] of Object.entries(entity.info)) {
-                body += `§r§0${key}:§r §8${value}\n`;
-            }
+            body += this.formatInfo(entity.info);
             body += "\n";
         }
 

@@ -119,7 +119,10 @@ export const LANG_VI = {
             "tools": "§0Công cụ",
             "armor": "§0Giáp",
             "foods": "§0Thức ăn",
-            "special": "§0Đặc biệt"
+            "special": "§0Đặc biệt",
+            "blocks": "§0Khối",
+            "ores": "§0Quặng",
+            "entities": "§0Sinh vật"
         }
     }
 };
