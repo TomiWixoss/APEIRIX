@@ -1,6 +1,7 @@
 type: axe
 id: silver_axe
 name: lang:tools.silver_axe
+wikiDescription: lang:wiki.materials.silver_axe
 texture: ../assets/silver_axe.png
 damage: 7
 category: equipment

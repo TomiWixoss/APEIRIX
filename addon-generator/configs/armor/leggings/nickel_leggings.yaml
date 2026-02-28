@@ -1,6 +1,7 @@
 type: leggings
 id: nickel_leggings
 name: lang:armor.nickel_leggings
+wikiDescription: lang:wiki.materials.nickel_leggings
 texture: ../assets/items/nickel_leggings.png
 durability: 300
 protection: 4

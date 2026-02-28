@@ -1,6 +1,7 @@
 type: axe
 id: steel_alloy_axe
 name: lang:tools.steel_alloy_axe
+wikiDescription: lang:wiki.materials.steel_axe
 texture: ../assets/steel_alloy_axe.png
 damage: 6
 category: equipment

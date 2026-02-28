@@ -1,6 +1,7 @@
 type: hoe
 id: manyullyn_hoe
 name: lang:tools.manyullyn_hoe
+wikiDescription: lang:wiki.materials.manyullyn_hoe
 texture: ../assets/manyullyn_hoe.png
 damage: 5
 category: equipment

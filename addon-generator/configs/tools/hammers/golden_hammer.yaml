@@ -1,6 +1,7 @@
 type: hammer
 id: golden_hammer
 name: lang:tools.golden_hammer
+wikiDescription: lang:wiki.materials.golden_hammer
 texture: ../assets/golden_hammer.png
 damage: 1
 category: equipment

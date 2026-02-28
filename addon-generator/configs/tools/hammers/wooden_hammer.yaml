@@ -1,6 +1,7 @@
 type: hammer
 id: wooden_hammer
 name: lang:tools.wooden_hammer
+wikiDescription: lang:wiki.materials.wooden_hammer
 texture: ../assets/wooden_hammer.png
 damage: 1
 category: equipment

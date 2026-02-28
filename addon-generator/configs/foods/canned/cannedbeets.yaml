@@ -1,5 +1,6 @@
 id: cannedbeets
 name: lang:foods.cannedbeets
+wikiDescription: lang:wiki.materials.cannedbeets
 texture: ../assets/cannedbeets.png
 category: items
 stackSize: 64

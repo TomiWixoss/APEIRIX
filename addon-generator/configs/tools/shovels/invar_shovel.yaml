@@ -1,6 +1,7 @@
 type: shovel
 id: invar_shovel
 name: lang:tools.invar_shovel
+wikiDescription: lang:wiki.materials.invar_shovel
 texture: ../assets/invar_shovel.png
 damage: 3
 category: equipment

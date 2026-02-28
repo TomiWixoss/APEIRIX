@@ -1,5 +1,6 @@
 id: silver_nugget
 name: lang:materials.silver_nugget
+wikiDescription: lang:wiki.materials.silver_nugget
 texture: ../assets/nuggets/silver_nugget.png
 category: items
 maxStackSize: 64

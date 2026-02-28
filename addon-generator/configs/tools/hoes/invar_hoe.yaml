@@ -1,6 +1,7 @@
 type: hoe
 id: invar_hoe
 name: lang:tools.invar_hoe
+wikiDescription: lang:wiki.materials.invar_hoe
 texture: ../assets/invar_hoe.png
 damage: 4
 category: equipment

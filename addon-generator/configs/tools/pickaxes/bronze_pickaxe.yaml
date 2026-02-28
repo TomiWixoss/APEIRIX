@@ -5,7 +5,7 @@ texture: ../assets/bronze_pickaxe.png
 damage: 4
 category: equipment
 group: itemGroup.name.pickaxe
-wikiDescription: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt."
+wikiDescription: lang:wiki.tools.bronze_pickaxe
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

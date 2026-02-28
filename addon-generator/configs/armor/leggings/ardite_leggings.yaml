@@ -1,6 +1,7 @@
 type: leggings
 id: ardite_leggings
 name: lang:armor.ardite_leggings
+wikiDescription: lang:wiki.materials.ardite_leggings
 texture: ../assets/items/ardite_leggings.png
 durability: 300
 protection: 4

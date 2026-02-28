@@ -1,6 +1,7 @@
 type: boots
 id: electrum_boots
 name: lang:armor.electrum_boots
+wikiDescription: lang:wiki.materials.electrum_boots
 texture: ../assets/items/electrum_boots.png
 durability: 260
 protection: 1

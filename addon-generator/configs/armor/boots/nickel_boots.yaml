@@ -1,6 +1,7 @@
 type: boots
 id: nickel_boots
 name: lang:armor.nickel_boots
+wikiDescription: lang:wiki.materials.nickel_boots
 texture: ../assets/items/nickel_boots.png
 durability: 260
 protection: 1

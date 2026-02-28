@@ -1,5 +1,6 @@
 id: steel_alloy_nugget
 name: lang:materials.steel_alloy_nugget
+wikiDescription: lang:wiki.materials.steel_alloy_nugget
 texture: ../assets/nuggets/steel_alloy_nugget.png
 category: items
 maxStackSize: 64

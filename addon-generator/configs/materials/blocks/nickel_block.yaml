@@ -1,6 +1,7 @@
 id: nickel_block
 displayType: storage
 name: lang:materials.nickel_block
+wikiDescription: lang:wiki.materials.nickel_block
 texture: ../assets/blocks/nickel_block.png
 category: construction
 destroyTime: 18.0

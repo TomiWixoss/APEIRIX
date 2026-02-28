@@ -1,5 +1,6 @@
 id: raw_steel
 name: lang:materials.raw_steel
+wikiDescription: lang:wiki.materials.raw_steel
 texture: ../assets/raw/raw_steel.png
 category: items
 maxStackSize: 64

@@ -1,6 +1,7 @@
 type: chestplate
 id: bronze_chestplate
 name: lang:armor.bronze_chestplate
+wikiDescription: lang:wiki.materials.bronze_chestplate
 texture: ../assets/items/bronze_chestplate.png
 durability: 320
 protection: 5

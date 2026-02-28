@@ -1,5 +1,6 @@
 id: raw_invar
 name: lang:materials.raw_invar
+wikiDescription: lang:wiki.materials.raw_invar
 texture: ../assets/raw/raw_invar.png
 category: items
 maxStackSize: 64

@@ -1,6 +1,7 @@
 type: boots
 id: lead_boots
 name: lang:armor.lead_boots
+wikiDescription: lang:wiki.materials.lead_boots
 texture: ../assets/items/lead_boots.png
 durability: 260
 protection: 1

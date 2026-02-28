@@ -32,9 +32,7 @@ description: "Language system overview - auto-included when editing YAML"
 - materials, tools, armor, foods, special (pack lang)
 - ui, achievements, wiki (script UI lang)
 
-## Wiki System (Special Case)
-
-Wiki data is stored separately from regular script UI lang:
+## Wiki System
 
 ### Wiki UI Text
 - Location: `configs/script-lang/{language}/wiki.yaml`
@@ -42,8 +40,45 @@ Wiki data is stored separately from regular script UI lang:
 - Output: `scripts/lang/{language}.ts` (under `wiki` key)
 - Usage: `LangManager.get('wiki.title')`
 
-### Wiki Item Data
-- Location: `configs/script-lang/{language}/wiki/{category}/`
-- Structure: Mirrors config structure (materials/, tools/, armor/, foods/, special/)
-- Purpose: Item names, descriptions, and info for wiki display
+### Wiki Item Descriptions
+- Location: `configs/script-lang/{language}/wiki/{category}.yaml`
+  - `wiki/materials.yaml` - Material descriptions
+  - `wiki/tools.yaml` - Tool descriptions
+  - `wiki/armor.yaml` - Armor descriptions
+  - `wiki/foods.yaml` - Food descriptions
+- Format: `item_id: "description text"`
+- Purpose: Item descriptions for wiki display
 - Output: `scripts/data/GeneratedGameData.ts` (GENERATED_WIKI_ITEMS)
+
+### Using Wiki Descriptions in Entity YAMLs
+
+Add `wikiDescription` field with lang key prefix:
+
+```yaml
+# configs/materials/ingots/tin_ingot.yaml
+id: tin_ingot
+name: lang:materials.tin_ingot
+wikiDescription: lang:wiki.materials.tin_ingot  # References wiki lang file
+texture: ../assets/ingots/tin_ingot.png
+```
+
+Then add descriptions to wiki lang files:
+
+```yaml
+# configs/script-lang/vi_VN/wiki/materials.yaml
+tin_ingot: "Thỏi thiếc dùng để chế tạo hợp kim đồng thanh."
+```
+
+```yaml
+# configs/script-lang/en_US/wiki/materials.yaml
+tin_ingot: "Tin ingot used to craft bronze alloy."
+```
+
+Compile: `bun run dev compile configs/addon.yaml`
+
+### Benefits
+
+- Centralized description management
+- Easy multi-language support
+- Consistent with name field pattern (`lang:` prefix)
+- Descriptions stay in sync across languages

@@ -1,5 +1,6 @@
 id: raw_lead
 name: lang:materials.raw_lead
+wikiDescription: lang:wiki.materials.raw_lead
 texture: ../assets/raw/raw_lead.png
 category: items
 maxStackSize: 64

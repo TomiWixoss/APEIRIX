@@ -1,5 +1,6 @@
 id: nickel_ingot
 name: lang:materials.nickel_ingot
+wikiDescription: lang:wiki.materials.nickel_ingot
 texture: ../assets/ingots/nickel_ingot.png
 category: items
 maxStackSize: 64

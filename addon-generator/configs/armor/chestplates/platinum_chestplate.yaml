@@ -1,6 +1,7 @@
 type: chestplate
 id: platinum_chestplate
 name: lang:armor.platinum_chestplate
+wikiDescription: lang:wiki.materials.platinum_chestplate
 texture: ../assets/items/platinum_chestplate.png
 durability: 640
 protection: 8

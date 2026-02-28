@@ -1,6 +1,7 @@
 type: axe
 id: nickel_axe
 name: lang:tools.nickel_axe
+wikiDescription: lang:wiki.materials.nickel_axe
 texture: ../assets/nickel_axe.png
 damage: 5
 category: equipment

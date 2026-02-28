@@ -1,5 +1,6 @@
 id: raw_platinum
 name: lang:materials.raw_platinum
+wikiDescription: lang:wiki.materials.raw_platinum
 texture: ../assets/raw/raw_platinum.png
 category: items
 maxStackSize: 64

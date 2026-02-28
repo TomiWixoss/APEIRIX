@@ -1,5 +1,6 @@
 id: nickel_nugget
 name: lang:materials.nickel_nugget
+wikiDescription: lang:wiki.materials.nickel_nugget
 texture: ../assets/nuggets/nickel_nugget.png
 category: items
 maxStackSize: 64

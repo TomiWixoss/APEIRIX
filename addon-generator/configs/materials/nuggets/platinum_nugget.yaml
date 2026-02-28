@@ -1,5 +1,6 @@
 id: platinum_nugget
 name: lang:materials.platinum_nugget
+wikiDescription: lang:wiki.materials.platinum_nugget
 texture: ../assets/nuggets/platinum_nugget.png
 category: items
 maxStackSize: 64

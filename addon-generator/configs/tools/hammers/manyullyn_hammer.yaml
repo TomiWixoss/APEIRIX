@@ -1,6 +1,7 @@
 type: hammer
 id: manyullyn_hammer
 name: lang:tools.manyullyn_hammer
+wikiDescription: lang:wiki.materials.manyullyn_hammer
 texture: ../assets/manyullyn_hammer.png
 damage: 5
 category: equipment

@@ -1,6 +1,7 @@
 type: helmet
 id: platinum_helmet
 name: lang:armor.platinum_helmet
+wikiDescription: lang:wiki.materials.platinum_helmet
 texture: ../assets/items/platinum_helmet.png
 durability: 440
 protection: 3

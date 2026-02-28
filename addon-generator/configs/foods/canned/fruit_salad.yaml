@@ -1,5 +1,6 @@
 id: fruit_salad
 name: lang:foods.fruit_salad
+wikiDescription: lang:wiki.materials.fruit_salad
 texture: ../assets/fruit_salad.png
 category: items
 maxStackSize: 64

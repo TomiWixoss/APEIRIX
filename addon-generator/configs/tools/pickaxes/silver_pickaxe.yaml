@@ -1,6 +1,7 @@
 type: pickaxe
 id: silver_pickaxe
 name: lang:tools.silver_pickaxe
+wikiDescription: lang:wiki.materials.silver_pickaxe
 texture: ../assets/silver_pickaxe.png
 damage: 4
 category: equipment

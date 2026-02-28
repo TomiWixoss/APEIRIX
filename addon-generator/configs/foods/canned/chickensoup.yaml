@@ -7,7 +7,7 @@ nutrition: 7
 saturation: 8.4
 canAlwaysEat: false
 usingConvertsTo: candirty
-wikiDescription: "Súp gà đóng hộp. Cho hiệu ứng hồi máu."
+wikiDescription: lang:wiki.foods.chickensoup
 attributes:
   - rust_mite_edible
 effects:

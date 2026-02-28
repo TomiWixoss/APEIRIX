@@ -1,5 +1,6 @@
 id: steel_alloy_base_rod
 name: lang:materials.steel_alloy_base_rod
+wikiDescription: lang:wiki.materials.steel_alloy_base_rod
 texture: ../assets/special/steel_alloy_base_rod.png
 category: items
 maxStackSize: 64

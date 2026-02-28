@@ -1,6 +1,7 @@
 type: pickaxe
 id: electrum_pickaxe
 name: lang:tools.electrum_pickaxe
+wikiDescription: lang:wiki.materials.electrum_pickaxe
 texture: ../assets/electrum_pickaxe.png
 damage: 4
 category: equipment

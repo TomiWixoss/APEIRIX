@@ -1,5 +1,6 @@
 id: cannedmeal
 name: lang:foods.cannedmeal
+wikiDescription: lang:wiki.materials.cannedmeal
 texture: ../assets/cannedmeal.png
 category: items
 stackSize: 64

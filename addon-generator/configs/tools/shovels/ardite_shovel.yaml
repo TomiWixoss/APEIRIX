@@ -1,6 +1,7 @@
 type: shovel
 id: ardite_shovel
 name: lang:tools.ardite_shovel
+wikiDescription: lang:wiki.materials.ardite_shovel
 texture: ../assets/ardite_shovel.png
 damage: 3
 category: equipment

@@ -1,6 +1,7 @@
 type: hoe
 id: cobalt_hoe
 name: lang:tools.cobalt_hoe
+wikiDescription: lang:wiki.materials.cobalt_hoe
 texture: ../assets/cobalt_hoe.png
 damage: 4
 category: equipment

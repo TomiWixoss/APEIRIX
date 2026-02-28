@@ -1,6 +1,7 @@
 type: sword
 id: electrum_sword
 name: lang:tools.electrum_sword
+wikiDescription: lang:wiki.materials.electrum_sword
 texture: ../assets/electrum_sword.png
 damage: 6
 category: equipment

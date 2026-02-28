@@ -1,5 +1,6 @@
 id: cannedfish
 name: lang:foods.cannedfish
+wikiDescription: lang:wiki.materials.cannedfish
 texture: ../assets/cannedfish.png
 category: items
 stackSize: 64

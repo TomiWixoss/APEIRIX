@@ -1,6 +1,7 @@
 type: pickaxe
 id: tin_pickaxe
 name: lang:tools.tin_pickaxe
+wikiDescription: lang:wiki.materials.tin_pickaxe
 texture: ../assets/tin_pickaxe.png
 damage: 4
 category: equipment

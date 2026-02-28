@@ -1,5 +1,6 @@
 id: canned_food
 name: lang:foods.canned_food
+wikiDescription: lang:wiki.materials.canned_food
 texture: ../assets/canned_food.png
 category: items
 stackSize: 64

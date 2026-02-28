@@ -1,6 +1,7 @@
 type: hoe
 id: platinum_hoe
 name: lang:tools.platinum_hoe
+wikiDescription: lang:wiki.materials.platinum_hoe
 texture: ../assets/platinum_hoe.png
 damage: 6
 category: equipment

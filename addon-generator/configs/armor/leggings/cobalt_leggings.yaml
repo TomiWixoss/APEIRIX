@@ -1,6 +1,7 @@
 type: leggings
 id: cobalt_leggings
 name: lang:armor.cobalt_leggings
+wikiDescription: lang:wiki.materials.cobalt_leggings
 texture: ../assets/items/cobalt_leggings.png
 durability: 300
 protection: 4

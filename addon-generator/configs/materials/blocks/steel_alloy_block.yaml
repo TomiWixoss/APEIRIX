@@ -1,6 +1,7 @@
 id: steel_alloy_block
 displayType: storage
 name: lang:materials.steel_alloy_block
+wikiDescription: lang:wiki.materials.steel_alloy_block
 texture: ../assets/blocks/steel_alloy_block.png
 category: construction
 destroyTime: 20

@@ -1,6 +1,7 @@
 type: sword
 id: lead_sword
 name: lang:tools.lead_sword
+wikiDescription: lang:wiki.materials.lead_sword
 texture: ../assets/lead_sword.png
 damage: 6
 category: equipment

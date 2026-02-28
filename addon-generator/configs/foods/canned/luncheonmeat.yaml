@@ -1,5 +1,6 @@
 id: luncheonmeat
 name: lang:foods.luncheonmeat
+wikiDescription: lang:wiki.materials.luncheonmeat
 texture: ../assets/luncheonmeat.png
 category: items
 maxStackSize: 64

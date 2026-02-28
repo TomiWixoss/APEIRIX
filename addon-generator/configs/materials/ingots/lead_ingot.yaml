@@ -1,5 +1,6 @@
 id: lead_ingot
 name: lang:materials.lead_ingot
+wikiDescription: lang:wiki.materials.lead_ingot
 texture: ../assets/ingots/lead_ingot.png
 category: items
 maxStackSize: 64

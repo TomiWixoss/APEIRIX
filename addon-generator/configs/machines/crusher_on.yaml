@@ -1,6 +1,7 @@
 id: crusher_on
 displayType: machine
 name: lang:blocks.crusher_on
+wikiDescription: lang:wiki.materials.crusher_on
 textures:
   up: ./assets/crusher_top.png
   down: ./assets/crusher_top.png

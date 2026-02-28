@@ -1,6 +1,7 @@
 type: axe
 id: electrum_axe
 name: lang:tools.electrum_axe
+wikiDescription: lang:wiki.materials.electrum_axe
 texture: ../assets/electrum_axe.png
 damage: 5
 category: equipment

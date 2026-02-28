@@ -1,6 +1,7 @@
 type: shovel
 id: nickel_shovel
 name: lang:tools.nickel_shovel
+wikiDescription: lang:wiki.materials.nickel_shovel
 texture: ../assets/nickel_shovel.png
 damage: 3
 category: equipment

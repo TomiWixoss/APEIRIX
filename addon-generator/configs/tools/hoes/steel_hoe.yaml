@@ -1,6 +1,7 @@
 type: hoe
 id: steel_alloy_hoe
 name: lang:tools.steel_alloy_hoe
+wikiDescription: lang:wiki.materials.steel_hoe
 texture: ../assets/steel_alloy_hoe.png
 damage: 5
 category: equipment

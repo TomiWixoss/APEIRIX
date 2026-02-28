@@ -1,6 +1,7 @@
 type: boots
 id: ardite_boots
 name: lang:armor.ardite_boots
+wikiDescription: lang:wiki.materials.ardite_boots
 texture: ../assets/items/ardite_boots.png
 durability: 260
 protection: 1

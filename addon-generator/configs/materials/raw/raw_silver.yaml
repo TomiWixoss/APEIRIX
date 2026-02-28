@@ -1,5 +1,6 @@
 id: raw_silver
 name: lang:materials.raw_silver
+wikiDescription: lang:wiki.materials.raw_silver
 texture: ../assets/raw/raw_silver.png
 category: items
 maxStackSize: 64

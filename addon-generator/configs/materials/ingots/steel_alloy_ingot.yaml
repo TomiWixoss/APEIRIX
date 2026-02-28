@@ -1,5 +1,6 @@
 id: steel_alloy_ingot
 name: lang:materials.steel_alloy_ingot
+wikiDescription: lang:wiki.materials.steel_alloy_ingot
 texture: ../assets/ingots/steel_alloy_ingot.png
 category: items
 maxStackSize: 64

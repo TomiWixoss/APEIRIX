@@ -1,6 +1,7 @@
 id: silver_block
 displayType: storage
 name: lang:materials.silver_block
+wikiDescription: lang:wiki.materials.silver_block
 texture: ../assets/blocks/silver_block.png
 category: construction
 destroyTime: 16.65

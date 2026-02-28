@@ -1,5 +1,6 @@
 id: cannedsalad
 name: lang:foods.cannedsalad
+wikiDescription: lang:wiki.materials.cannedsalad
 texture: ../assets/cannedsalad.png
 category: items
 stackSize: 64

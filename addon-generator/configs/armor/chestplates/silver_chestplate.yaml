@@ -1,6 +1,7 @@
 type: chestplate
 id: silver_chestplate
 name: lang:armor.silver_chestplate
+wikiDescription: lang:wiki.materials.silver_chestplate
 texture: ../assets/items/silver_chestplate.png
 durability: 320
 protection: 6

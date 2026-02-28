@@ -1,5 +1,6 @@
 id: platinum_ore
 name: lang:materials.platinum_ore
+wikiDescription: lang:wiki.materials.platinum_ore
 texturePath: ../assets/ores/platinum_ore.png
 deepslateTexturePath: ../assets/ores/deepslate_platinum_ore.png
 rawItemId: raw_platinum

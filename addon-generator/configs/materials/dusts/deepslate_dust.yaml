@@ -1,5 +1,6 @@
 id: deepslate_dust
 name: lang:materials.deepslate_dust
+wikiDescription: lang:wiki.materials.deepslate_dust
 texture: ../assets/ores/deepslate_dust.png
 category: items
 maxStackSize: 64

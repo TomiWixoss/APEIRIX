@@ -1,6 +1,7 @@
 id: platinum_block
 displayType: storage
 name: lang:materials.platinum_block
+wikiDescription: lang:wiki.materials.platinum_block
 texture: ../assets/blocks/platinum_block.png
 category: construction
 destroyTime: 20.0

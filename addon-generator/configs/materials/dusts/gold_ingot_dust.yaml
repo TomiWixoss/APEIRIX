@@ -1,5 +1,6 @@
 id: gold_ingot_dust
 name: lang:materials.gold_ingot_dust
+wikiDescription: lang:wiki.materials.gold_ingot_dust
 texture: ../assets/dusts/gold_ingot_dust.png
 category: items
 maxStackSize: 64

@@ -1,6 +1,7 @@
 id: electrum_block
 displayType: storage
 name: lang:materials.electrum_block
+wikiDescription: lang:wiki.materials.electrum_block
 texture: ../assets/blocks/electrum_block.png
 category: construction
 destroyTime: 17.0

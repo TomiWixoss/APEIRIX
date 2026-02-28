@@ -1,6 +1,7 @@
 type: hoe
 id: ardite_hoe
 name: lang:tools.ardite_hoe
+wikiDescription: lang:wiki.materials.ardite_hoe
 texture: ../assets/ardite_hoe.png
 damage: 4
 category: equipment

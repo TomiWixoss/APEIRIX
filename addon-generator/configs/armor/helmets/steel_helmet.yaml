@@ -1,6 +1,7 @@
 type: helmet
 id: steel_alloy_helmet
 name: lang:armor.steel_alloy_helmet
+wikiDescription: lang:wiki.materials.steel_helmet
 texture: ../assets/items/steel_alloy_helmet.png
 durability: 440
 protection: 3

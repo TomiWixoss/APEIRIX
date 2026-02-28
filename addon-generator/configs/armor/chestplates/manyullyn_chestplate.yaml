@@ -1,6 +1,7 @@
 type: chestplate
 id: manyullyn_chestplate
 name: lang:armor.manyullyn_chestplate
+wikiDescription: lang:wiki.materials.manyullyn_chestplate
 texture: ../assets/items/manyullyn_chestplate.png
 durability: 400
 protection: 7

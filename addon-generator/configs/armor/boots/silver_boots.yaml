@@ -1,6 +1,7 @@
 type: boots
 id: silver_boots
 name: lang:armor.silver_boots
+wikiDescription: lang:wiki.materials.silver_boots
 texture: ../assets/items/silver_boots.png
 durability: 260
 protection: 2

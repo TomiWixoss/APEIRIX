@@ -1,6 +1,7 @@
 type: shovel
 id: silver_shovel
 name: lang:tools.silver_shovel
+wikiDescription: lang:wiki.materials.silver_shovel
 texture: ../assets/silver_shovel.png
 damage: 3
 category: equipment

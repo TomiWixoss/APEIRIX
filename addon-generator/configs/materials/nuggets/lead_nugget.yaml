@@ -1,5 +1,6 @@
 id: lead_nugget
 name: lang:materials.lead_nugget
+wikiDescription: lang:wiki.materials.lead_nugget
 texture: ../assets/nuggets/lead_nugget.png
 category: items
 maxStackSize: 64

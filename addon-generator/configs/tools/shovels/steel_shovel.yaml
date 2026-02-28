@@ -1,6 +1,7 @@
 type: shovel
 id: steel_alloy_shovel
 name: lang:tools.steel_alloy_shovel
+wikiDescription: lang:wiki.materials.steel_shovel
 texture: ../assets/steel_alloy_shovel.png
 damage: 4
 category: equipment

@@ -1,5 +1,6 @@
 id: electrum_nugget
 name: lang:materials.electrum_nugget
+wikiDescription: lang:wiki.materials.electrum_nugget
 texture: ../assets/nuggets/electrum_nugget.png
 category: items
 maxStackSize: 64

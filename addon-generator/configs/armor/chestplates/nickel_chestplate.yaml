@@ -1,6 +1,7 @@
 type: chestplate
 id: nickel_chestplate
 name: lang:armor.nickel_chestplate
+wikiDescription: lang:wiki.materials.nickel_chestplate
 texture: ../assets/items/nickel_chestplate.png
 durability: 320
 protection: 5

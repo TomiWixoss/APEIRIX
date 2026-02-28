@@ -1,6 +1,7 @@
 type: hammer
 id: silver_hammer
 name: lang:tools.silver_hammer
+wikiDescription: lang:wiki.materials.silver_hammer
 texture: ../assets/silver_hammer.png
 damage: 5
 category: equipment

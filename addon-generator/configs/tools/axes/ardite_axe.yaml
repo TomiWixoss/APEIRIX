@@ -1,6 +1,7 @@
 type: axe
 id: ardite_axe
 name: lang:tools.ardite_axe
+wikiDescription: lang:wiki.materials.ardite_axe
 texture: ../assets/ardite_axe.png
 damage: 5
 category: equipment

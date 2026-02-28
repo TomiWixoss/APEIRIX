@@ -1,6 +1,7 @@
 type: shovel
 id: manyullyn_shovel
 name: lang:tools.manyullyn_shovel
+wikiDescription: lang:wiki.materials.manyullyn_shovel
 texture: ../assets/manyullyn_shovel.png
 damage: 4
 category: equipment

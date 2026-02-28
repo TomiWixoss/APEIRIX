@@ -1,6 +1,7 @@
 type: pickaxe
 id: platinum_pickaxe
 name: lang:tools.platinum_pickaxe
+wikiDescription: lang:wiki.materials.platinum_pickaxe
 texture: ../assets/platinum_pickaxe.png
 damage: 5
 category: equipment

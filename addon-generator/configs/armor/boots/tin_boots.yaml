@@ -1,6 +1,7 @@
 type: boots
 id: tin_boots
 name: lang:armor.tin_boots
+wikiDescription: lang:wiki.materials.tin_boots
 texture: ../assets/items/tin_boots.png
 durability: 260
 protection: 1

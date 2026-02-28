@@ -1,6 +1,7 @@
 type: hoe
 id: nickel_hoe
 name: lang:tools.nickel_hoe
+wikiDescription: lang:wiki.materials.nickel_hoe
 texture: ../assets/nickel_hoe.png
 damage: 4
 category: equipment

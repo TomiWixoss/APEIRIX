@@ -1,6 +1,7 @@
 id: compressor
 displayType: machine
 name: lang:blocks.compressor
+wikiDescription: lang:wiki.materials.compressor
 textures:
   up: ./assets/compressor_top.png
   down: ./assets/compressor_top.png

@@ -1,6 +1,7 @@
 type: leggings
 id: steel_alloy_leggings
 name: lang:armor.steel_alloy_leggings
+wikiDescription: lang:wiki.materials.steel_leggings
 texture: ../assets/items/steel_alloy_leggings.png
 durability: 600
 protection: 6

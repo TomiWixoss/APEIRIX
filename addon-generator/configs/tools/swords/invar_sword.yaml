@@ -1,6 +1,7 @@
 type: sword
 id: invar_sword
 name: lang:tools.invar_sword
+wikiDescription: lang:wiki.materials.invar_sword
 texture: ../assets/invar_sword.png
 damage: 6
 category: equipment

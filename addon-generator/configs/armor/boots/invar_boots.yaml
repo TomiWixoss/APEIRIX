@@ -1,6 +1,7 @@
 type: boots
 id: invar_boots
 name: lang:armor.invar_boots
+wikiDescription: lang:wiki.materials.invar_boots
 texture: ../assets/items/invar_boots.png
 durability: 260
 protection: 1

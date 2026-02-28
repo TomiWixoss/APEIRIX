@@ -1,6 +1,7 @@
 type: helmet
 id: manyullyn_helmet
 name: lang:armor.manyullyn_helmet
+wikiDescription: lang:wiki.materials.manyullyn_helmet
 texture: ../assets/items/manyullyn_helmet.png
 durability: 280
 protection: 3

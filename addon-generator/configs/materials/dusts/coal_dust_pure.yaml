@@ -1,5 +1,6 @@
 id: coal_dust_pure
 name: lang:materials.coal_dust_pure
+wikiDescription: lang:wiki.materials.coal_dust_pure
 texture: ../assets/dusts/coal_dust_pure.png
 category: items
 maxStackSize: 64

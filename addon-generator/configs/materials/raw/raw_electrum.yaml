@@ -1,5 +1,6 @@
 id: raw_electrum
 name: lang:materials.raw_electrum
+wikiDescription: lang:wiki.materials.raw_electrum
 texture: ../assets/raw/raw_electrum.png
 category: items
 maxStackSize: 64

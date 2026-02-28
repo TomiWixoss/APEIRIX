@@ -1,5 +1,6 @@
 id: raw_coal
 name: lang:materials.raw_coal
+wikiDescription: lang:wiki.materials.raw_coal
 texture: ../assets/raw/raw_coal.png
 category: items
 maxStackSize: 64

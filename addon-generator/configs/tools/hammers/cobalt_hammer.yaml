@@ -1,6 +1,7 @@
 type: hammer
 id: cobalt_hammer
 name: lang:tools.cobalt_hammer
+wikiDescription: lang:wiki.materials.cobalt_hammer
 texture: ../assets/cobalt_hammer.png
 damage: 4
 category: equipment

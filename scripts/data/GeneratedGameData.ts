@@ -578,6 +578,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_ingot_dust",
     category: "materials",
     name: "Bụi Ardite",
+    description: "Bụi Ardite thô thu được từ việc đập nát quặng. Cần qua bàn trộn để tạo hợp kim hoặc đem đi rửa.",
     icon: "textures/items/ardite_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -587,6 +588,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_ingot_dust_pure",
     category: "materials",
     name: "Bụi Ardite Tinh Khiết",
+    description: "Bụi Ardite tinh khiết đã qua máy rửa. Loại bỏ hoàn toàn đá vụn, sẵn sàng nung thành thỏi chất lượng.",
     icon: "textures/items/ardite_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -596,6 +598,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_ingot_dust",
     category: "materials",
     name: "Bụi Đồng Thanh",
+    description: "Bụi Đồng Thanh thô, hỗn hợp vừa được nghiền ra từ đồng và thiếc.",
     icon: "textures/items/bronze_ingot_dust",
     info: {
       "Chế tạo": "4 nguyên liệu"
@@ -605,6 +608,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_ingot_dust_pure",
     category: "materials",
     name: "Bụi Đồng Thanh Tinh Khiết",
+    description: "Bụi Đồng Thanh tinh khiết, sạch sẽ và sẵn sàng để đúc thành thỏi.",
     icon: "textures/items/bronze_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -614,6 +618,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:coal_dust",
     category: "materials",
     name: "Bụi Than",
+    description: "Bụi Than thô. Rất dễ bắt lửa, thành phần quan trọng để nhào lặn với bột sắt tạo thành thép.",
     icon: "textures/items/coal_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -623,6 +628,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:coal_dust_pure",
     category: "materials",
     name: "Bụi Than Tinh Khiết",
+    description: "Bụi Than tinh khiết, đen tuyền và cung cấp nhiệt lượng tối đa khi nung.",
     icon: "textures/items/coal_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -632,6 +638,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_ingot_dust",
     category: "materials",
     name: "Bụi Cobalt",
+    description: "Bụi Cobalt thô. Bụi xanh bám dính, nhẹ bay trong không khí.",
     icon: "textures/items/cobalt_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -641,6 +648,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_ingot_dust_pure",
     category: "materials",
     name: "Bụi Cobalt Tinh Khiết",
+    description: "Bụi Cobalt tinh khiết, đã loại bỏ tro xỉ Nether, chờ nung thành thỏi.",
     icon: "textures/items/cobalt_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -650,6 +658,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobblestone_dust",
     category: "materials",
     name: "Bụi Đá Cuội",
+    description: "Bụi Đá Cuội. Cặn bã thu được khi nghiền hoặc rửa các loại quặng thô.",
     icon: "textures/items/cobblestone_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -659,6 +668,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:copper_ingot_dust",
     category: "materials",
     name: "Bụi Đồng",
+    description: "Bụi Đồng thô. Dùng trên Bàn kỹ thuật kết hợp với bột thiếc để tạo ra Đồng Thanh.",
     icon: "textures/items/copper_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -668,6 +678,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:copper_ingot_dust_pure",
     category: "materials",
     name: "Bụi Đồng Tinh Khiết",
+    description: "Bụi Đồng tinh khiết, màu cam sáng, nung lên sẽ cho sản lượng thỏi đồng cao nhất.",
     icon: "textures/items/copper_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -677,6 +688,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:deepslate_dust",
     category: "materials",
     name: "Bụi Đá Sâu",
+    description: "Bụi Đá sâu (Deepslate). Sản phẩm phụ đen sẫm sinh ra từ việc nghiền các quặng dưới tầng sâu.",
     icon: "textures/items/deepslate_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -686,6 +698,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:diamond_dust",
     category: "materials",
     name: "Bụi Kim Cương",
+    description: "Bụi Kim cương thô. Dù bị nghiền nát, những mạt vụn này vẫn cực kỳ sắc bén.",
     icon: "textures/items/diamond_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -695,6 +708,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:diamond_dust_pure",
     category: "materials",
     name: "Bụi Kim Cương Tinh Khiết",
+    description: "Bụi Kim cương tinh khiết hoàn hảo, lấp lánh như ngàn vì sao.",
     icon: "textures/items/diamond_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -704,6 +718,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_ingot_dust",
     category: "materials",
     name: "Bụi Electrum",
+    description: "Bụi Electrum thô, bột hỗn hợp giữa vàng và bạc sau khi trộn.",
     icon: "textures/items/electrum_ingot_dust",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -713,6 +728,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_ingot_dust_pure",
     category: "materials",
     name: "Bụi Electrum Tinh Khiết",
+    description: "Bụi Electrum tinh khiết, hạt bột vàng chanh phản ứng mạnh với các bàn phù phép.",
     icon: "textures/items/electrum_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -722,6 +738,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:emerald_dust",
     category: "materials",
     name: "Bụi Ngọc Lục Bảo",
+    description: "Bụi Ngọc lục bảo thô, bột xanh lục rơi vãi khi nghiền ngọc.",
     icon: "textures/items/emerald_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -731,6 +748,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:emerald_dust_pure",
     category: "materials",
     name: "Bụi Ngọc Lục Bảo Tinh Khiết",
+    description: "Bụi Ngọc lục bảo tinh khiết, hạt bột mịn trong vắt không tì vết.",
     icon: "textures/items/emerald_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -740,6 +758,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:gold_ingot_dust",
     category: "materials",
     name: "Bụi Vàng",
+    description: "Bụi Vàng thô. Dùng làm nguyên liệu trộn với Bụi Bạc để tạo ra Electrum.",
     icon: "textures/items/gold_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -749,6 +768,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:gold_ingot_dust_pure",
     category: "materials",
     name: "Bụi Vàng Tinh Khiết",
+    description: "Bụi Vàng tinh khiết rực rỡ, sẵn sàng để nung thành thỏi vàng ròng.",
     icon: "textures/items/gold_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -758,6 +778,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_ingot_dust",
     category: "materials",
     name: "Bụi Invar",
+    description: "Bụi Invar thô, bột hỗn hợp Sắt và Niken nằm chờ được nung nấu.",
     icon: "textures/items/invar_ingot_dust",
     info: {
       "Chế tạo": "3 nguyên liệu"
@@ -767,6 +788,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_ingot_dust_pure",
     category: "materials",
     name: "Bụi Invar Tinh Khiết",
+    description: "Bụi Invar tinh khiết, sạch cặn, đảm bảo chất lượng siêu cứng của thỏi khi đúc.",
     icon: "textures/items/invar_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -776,6 +798,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:iron_ingot_dust",
     category: "materials",
     name: "Bụi Sắt",
+    description: "Bụi Sắt thô. Rất đa dụng, trộn với bột than để luyện thép, hoặc niken để làm Invar.",
     icon: "textures/items/iron_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -785,6 +808,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:iron_ingot_dust_pure",
     category: "materials",
     name: "Bụi Sắt Tinh Khiết",
+    description: "Bụi Sắt tinh khiết, không bị gỉ, nung thành sắt dễ dàng.",
     icon: "textures/items/iron_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -794,6 +818,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lapis_block_dust",
     category: "materials",
     name: "Bụi Lưu Ly",
+    description: "Bụi Lưu Ly thô, những hạt bột xanh biếc ma thuật dính đầy sỏi vụn.",
     icon: "textures/items/lapis_block_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -803,6 +828,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lapis_block_dust_pure",
     category: "materials",
     name: "Bụi Lưu Ly Tinh Khiết",
+    description: "Bụi Lưu Ly tinh khiết, tỏa ra nguồn ma lực nguyên thủy mạnh mẽ.",
     icon: "textures/items/lapis_block_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -812,6 +838,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_ingot_dust",
     category: "materials",
     name: "Bụi Chì",
+    description: "Bụi Chì thô. Bột xám đen độc hại, cẩn thận khi hít phải.",
     icon: "textures/items/lead_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -821,6 +848,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_ingot_dust_pure",
     category: "materials",
     name: "Bụi Chì Tinh Khiết",
+    description: "Bụi Chì tinh khiết. Đã rửa sạch, sẵn sàng nung thành những thỏi chì siêu nặng.",
     icon: "textures/items/lead_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -830,6 +858,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_ingot_dust",
     category: "materials",
     name: "Bụi Manyullyn",
+    description: "Bụi Manyullyn thô. Bột tím chết chóc tỏa ra sát khí dù chưa được nung.",
     icon: "textures/items/manyullyn_ingot_dust",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -839,6 +868,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_ingot_dust_pure",
     category: "materials",
     name: "Bụi Manyullyn Tinh Khiết",
+    description: "Bụi Manyullyn tinh khiết. Nguyên liệu cốt lõi tạo ra thứ kim loại thống trị thế giới.",
     icon: "textures/items/manyullyn_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -848,6 +878,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:netherrack_dust",
     category: "materials",
     name: "Bụi Đá Địa Ngục",
+    description: "Bụi Đá Địa ngục. Cặn xốp rỗng sinh ra từ việc nghiền các quặng ở Nether.",
     icon: "textures/items/netherrack_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -857,6 +888,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_ingot_dust",
     category: "materials",
     name: "Bụi Niken",
+    description: "Bụi Niken thô. Dùng để trộn với sắt trên bàn kỹ thuật nhằm tạo ra Invar.",
     icon: "textures/items/nickel_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -866,6 +898,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_ingot_dust_pure",
     category: "materials",
     name: "Bụi Niken Tinh Khiết",
+    description: "Bụi Niken tinh khiết, sáng lấp lánh như bột nhôm.",
     icon: "textures/items/nickel_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -875,6 +908,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_ingot_dust",
     category: "materials",
     name: "Bụi Bạch Kim",
+    description: "Bụi Bạch Kim thô, lấm lem bùn đất nhưng vẫn ánh lên sự vương giả.",
     icon: "textures/items/platinum_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -884,6 +918,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_ingot_dust_pure",
     category: "materials",
     name: "Bụi Bạch Kim Tinh Khiết",
+    description: "Bụi Bạch Kim tinh khiết, sạch hoàn toàn, thứ bột đắt đỏ bậc nhất.",
     icon: "textures/items/platinum_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -893,30 +928,35 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_coal",
     category: "materials",
     name: "Than Thô",
+    description: "Than thô thu được từ việc gộp các bụi than lại. Có thể nung thành viên than.",
     icon: "textures/items/raw_coal",
   },
   {
     id: "apeirix:raw_diamond",
     category: "materials",
     name: "Kim Cương Thô",
+    description: "Kim cương thô sơ, tái tạo từ những hạt bụi kim cương li ti.",
     icon: "textures/items/raw_diamond",
   },
   {
     id: "apeirix:raw_emerald",
     category: "materials",
     name: "Ngọc Lục Bảo Thô",
+    description: "Ngọc lục bảo thô sần sùi, cần nung để tạo thành ngọc hoàn chỉnh.",
     icon: "textures/items/raw_emerald",
   },
   {
     id: "apeirix:raw_lapis",
     category: "materials",
     name: "Lưu Ly Thô",
+    description: "Lưu ly thô, kết tủa từ bột lưu ly, mang đậm chất ma thuật.",
     icon: "textures/items/raw_lapis",
   },
   {
     id: "apeirix:redstone_dust_pure",
     category: "materials",
     name: "Bụi Đá Đỏ Tinh Khiết",
+    description: "Bụi Đá đỏ tinh khiết. Đã loại bỏ hoàn toàn đá vụn, mạch điện truyền dẫn cực tốt.",
     icon: "textures/items/redstone_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -926,6 +966,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_ingot_dust",
     category: "materials",
     name: "Bụi Bạc",
+    description: "Bụi Bạc thô. Nguyên liệu thiết yếu trộn với vàng để ra bột Electrum.",
     icon: "textures/items/silver_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -935,6 +976,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_ingot_dust_pure",
     category: "materials",
     name: "Bụi Bạc Tinh Khiết",
+    description: "Bụi Bạc tinh khiết, mang ánh sáng thanh tẩy tà khí ngay cả ở dạng bột.",
     icon: "textures/items/silver_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -944,6 +986,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_dust",
     category: "materials",
     name: "Bụi Hợp Kim Thép",
+    description: "Bụi Thép thô. Bột hỗn hợp than và sắt đã hòa quyện vào nhau.",
     icon: "textures/items/steel_alloy_dust",
     info: {
       "Chế tạo": "4 nguyên liệu"
@@ -953,6 +996,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_dust_pure",
     category: "materials",
     name: "Bụi Hợp Kim Thép Tinh Khiết",
+    description: "Bụi Thép tinh khiết, sẵn sàng bước vào lò nung để đúc thành Thép công nghiệp.",
     icon: "textures/items/steel_alloy_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -962,6 +1006,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_ingot_dust",
     category: "materials",
     name: "Bụi Thiếc",
+    description: "Bụi Thiếc thô. Dùng để trộn với bột đồng tạo ra hợp kim Đồng Thanh.",
     icon: "textures/items/tin_ingot_dust",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -971,6 +1016,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_ingot_dust_pure",
     category: "materials",
     name: "Bụi Thiếc Tinh Khiết",
+    description: "Bụi Thiếc tinh khiết. Mềm mịn, dễ dàng đúc thành vỏ hộp thiếc hoặc thỏi.",
     icon: "textures/items/tin_ingot_dust_pure",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -980,6 +1026,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_ingot",
     category: "materials",
     name: "Thỏi Ardite",
+    description: "Thỏi Ardite. Vật liệu đặc trưng của Nether với khả năng hấp thụ chấn động và độ bền khổng lồ.",
     icon: "textures/items/ardite_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -989,7 +1036,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_ingot",
     category: "materials",
     name: "Thỏi Đồng Thanh",
-    description: "Hợp kim đồng thanh được tạo từ đồng (copper) và thiếc. Bền hơn đồng nguyên chất, dùng để chế tạo công cụ và giáp.",
+    description: "Thỏi Đồng Thanh. Hợp kim đáng tin cậy ở giai đoạn đầu, lý tưởng để thay thế toàn bộ công cụ đá.",
     icon: "textures/items/bronze_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -999,6 +1046,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_ingot",
     category: "materials",
     name: "Thỏi Cobalt",
+    description: "Thỏi Cobalt. Trọng lượng siêu nhẹ mang lại tốc độ không tưởng cho bất kỳ công cụ nào được rèn từ nó.",
     icon: "textures/items/cobalt_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1008,6 +1056,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_ingot",
     category: "materials",
     name: "Thỏi Electrum",
+    description: "Thỏi Electrum. Sự dung hợp hoàn hảo của Vàng và Bạc, cung cấp khả năng kết nối phép thuật tuyệt đỉnh.",
     icon: "textures/items/electrum_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1017,6 +1066,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_ingot",
     category: "materials",
     name: "Thỏi Invar",
+    description: "Thỏi Invar. Vật liệu kiên cố bất biến trước nhiệt năng, cực kỳ phù hợp để làm áo giáp siêu bền.",
     icon: "textures/items/invar_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1026,12 +1076,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_ingot",
     category: "materials",
     name: "Thỏi Chì",
+    description: "Thỏi Chì đặc. Nặng nề và cồng kềnh, nhưng cung cấp sự chống chịu lực đẩy lùi (Knockback) xuất sắc.",
     icon: "textures/items/lead_ingot",
   },
   {
     id: "apeirix:manyullyn_ingot",
     category: "materials",
     name: "Thỏi Manyullyn",
+    description: "Thỏi Manyullyn ma quái. Hợp kim tối thượng vượt xa Netherite, hội tụ cả tốc độ và sức tàn phá tột đỉnh.",
     icon: "textures/items/manyullyn_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1041,24 +1093,28 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_ingot",
     category: "materials",
     name: "Thỏi Niken",
+    description: "Thỏi Niken trơn nhẵn. Thành phần quan trọng để tạo ra Invar, hoặc dùng làm công cụ chống rỉ sét.",
     icon: "textures/items/nickel_ingot",
   },
   {
     id: "apeirix:platinum_ingot",
     category: "materials",
     name: "Thỏi Bạch Kim",
+    description: "Thỏi Bạch Kim danh giá. Vượt qua giới hạn của kim cương, mang lại hiệu năng cao nhất thế giới khoáng thạch.",
     icon: "textures/items/platinum_ingot",
   },
   {
     id: "apeirix:silver_ingot",
     category: "materials",
     name: "Thỏi Bạc",
+    description: "Thỏi Bạc thuần khiết. Vũ khí rèn từ nó khắc chế hoàn toàn quái vật Undead, dù độ bền khá kém.",
     icon: "textures/items/silver_ingot",
   },
   {
     id: "apeirix:steel_alloy_ingot",
     category: "materials",
     name: "Thỏi Hợp Kim Thép",
+    description: "Thỏi Thép. Trái tim của cuộc cách mạng công nghiệp, cứng cáp, sắc bén và là vật liệu xây dựng máy móc.",
     icon: "textures/items/steel_alloy_ingot",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1068,12 +1124,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_ingot",
     category: "materials",
     name: "Thỏi Thiếc",
+    description: "Thỏi Thiếc cơ bản. Vật liệu nền tảng rẻ tiền để chế tạo đồ hộp hoặc nấu hợp kim Đồng Thanh.",
     icon: "textures/items/tin_ingot",
   },
   {
     id: "apeirix:ardite_nugget",
     category: "materials",
     name: "Mảnh Ardite",
+    description: "Mảnh Ardite nhỏ, một mảnh vụn vỡ ra từ thỏi Ardite nóng hổi.",
     icon: "textures/items/ardite_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1083,6 +1141,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_nugget",
     category: "materials",
     name: "Mảnh Đồng Thanh",
+    description: "Mảnh Đồng Thanh nhỏ, có thể nung lại hoặc gom lại thành thỏi hoàn chỉnh.",
     icon: "textures/items/bronze_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1092,6 +1151,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_nugget",
     category: "materials",
     name: "Mảnh Cobalt",
+    description: "Mảnh Cobalt màu lam nhỏ gọn, nhẹ tựa lông hồng.",
     icon: "textures/items/cobalt_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1101,6 +1161,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_nugget",
     category: "materials",
     name: "Mảnh Electrum",
+    description: "Mảnh Electrum lấp lánh, thường được dùng như một loại tiền tệ trao đổi phép thuật.",
     icon: "textures/items/electrum_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1110,6 +1171,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_nugget",
     category: "materials",
     name: "Mảnh Invar",
+    description: "Mảnh Invar cứng ngắc, đập búa vào cũng không hề sứt mẻ.",
     icon: "textures/items/invar_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1119,6 +1181,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_nugget",
     category: "materials",
     name: "Mảnh Chì",
+    description: "Mảnh Chì vụn, tuy nhỏ nhưng rơi xuống chân cũng đủ khiến bạn đau điếng.",
     icon: "textures/items/lead_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1128,6 +1191,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_nugget",
     category: "materials",
     name: "Mảnh Manyullyn",
+    description: "Mảnh Manyullyn tím. Chỉ một hạt vụn này cũng chứa đựng sát khí đáng sợ.",
     icon: "textures/items/manyullyn_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1137,6 +1201,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_nugget",
     category: "materials",
     name: "Mảnh Niken",
+    description: "Mảnh Niken trơn tuột, rất dễ bị trượt khỏi tay nếu không cẩn thận.",
     icon: "textures/items/nickel_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1146,6 +1211,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_nugget",
     category: "materials",
     name: "Mảnh Bạch Kim",
+    description: "Mảnh Bạch Kim cực kỳ quý giá, sáng rực rỡ và đắt đỏ.",
     icon: "textures/items/platinum_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1155,6 +1221,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_nugget",
     category: "materials",
     name: "Mảnh Bạc",
+    description: "Mảnh Bạc nhỏ, xua đuổi tà khí và thường được dùng làm bùa hộ mệnh mini.",
     icon: "textures/items/silver_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1164,6 +1231,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_nugget",
     category: "materials",
     name: "Mảnh Hợp Kim Thép",
+    description: "Mảnh vụn Thép công nghiệp, cứng và sắc bén, cẩn thận đứt tay.",
     icon: "textures/items/steel_alloy_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1173,6 +1241,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_nugget",
     category: "materials",
     name: "Mảnh Thiếc",
+    description: "Mảnh Thiếc vụn vặt, mềm và không có giá trị cao.",
     icon: "textures/items/tin_nugget",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1182,78 +1251,91 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:raw_ardite",
     category: "materials",
     name: "Ardite Thô",
+    description: "Khoáng thạch Ardite thô vừa được khai thác. Cầm trên tay vẫn có thể cảm nhận được hơi nóng từ nó.",
     icon: "textures/items/raw_ardite",
   },
   {
     id: "apeirix:raw_bronze",
     category: "materials",
     name: "Đồng Thanh Thô",
+    description: "Mảnh Đồng Thanh thô ráp được nặn ra từ việc trộn bụi hợp kim. Cần nung chảy để trở thành thỏi.",
     icon: "textures/items/raw_bronze",
   },
   {
     id: "apeirix:raw_cobalt",
     category: "materials",
     name: "Cobalt Thô",
+    description: "Khoáng thạch Cobalt thô màu lam. Trọng lượng nhẹ bẫng so với kích thước của nó.",
     icon: "textures/items/raw_cobalt",
   },
   {
     id: "apeirix:raw_electrum",
     category: "materials",
     name: "Electrum Thô",
+    description: "Cục hợp kim Electrum thô chưa qua tôi luyện. Sự pha trộn giữa bụi bạc và vàng.",
     icon: "textures/items/raw_electrum",
   },
   {
     id: "apeirix:raw_invar",
     category: "materials",
     name: "Invar Thô",
+    description: "Cục hợp kim Invar thô cứng ngắc. Tiền thân của thứ vật liệu thách thức mọi nhiệt độ.",
     icon: "textures/items/raw_invar",
   },
   {
     id: "apeirix:raw_lead",
     category: "materials",
     name: "Chì Thô",
+    description: "Cục Chì thô cực nặng. Rất khó để vác theo số lượng lớn trong ba lô.",
     icon: "textures/items/raw_lead",
   },
   {
     id: "apeirix:raw_manyullyn",
     category: "materials",
     name: "Manyullyn Thô",
+    description: "Mảnh hợp kim Manyullyn thô ráp. Ánh tím phát ra những tia sét nhỏ báo hiệu một sức mạnh kinh hoàng.",
     icon: "textures/items/raw_manyullyn",
   },
   {
     id: "apeirix:raw_nickel",
     category: "materials",
     name: "Niken Thô",
+    description: "Khoáng thạch Niken thô sáng lóa, không dính bất kỳ hạt bụi bẩn nào trên bề mặt.",
     icon: "textures/items/raw_nickel",
   },
   {
     id: "apeirix:raw_platinum",
     category: "materials",
     name: "Bạch Kim Thô",
+    description: "Cục Bạch Kim thô giá trị. Thường bị nhầm với sắt rỉ, nhưng gõ vào phát ra âm thanh vang vọng.",
     icon: "textures/items/raw_platinum",
   },
   {
     id: "apeirix:raw_silver",
     category: "materials",
     name: "Bạc Thô",
+    description: "Khoáng thạch Bạc thô. Những cạnh sắc lẻm của nó phản chiếu ánh sáng tuyệt đẹp.",
     icon: "textures/items/raw_silver",
   },
   {
     id: "apeirix:raw_steel",
     category: "materials",
     name: "Hợp Kim Thép Thô",
+    description: "Cục Thép thô nhám đen. Bụi sắt và than đã hòa quyện, chờ ngọn lửa biến nó thành thép cứng.",
     icon: "textures/items/raw_steel",
   },
   {
     id: "apeirix:raw_tin",
     category: "materials",
     name: "Thiếc Thô",
+    description: "Khoáng thạch Thiếc thô. Rất mềm, có thể bóp méo nhẹ bằng tay trần.",
     icon: "textures/items/raw_tin",
   },
   {
     id: "apeirix:engineering_hammer",
     category: "materials",
     name: "Búa Kỹ Thuật",
+    description: "Chiếc búa nặng trịch của kỹ sư. Dùng làm nguyên liệu thiết yếu để chế tạo và lắp ráp các cỗ máy công nghiệp.",
     icon: "textures/items/engineering_hammer",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -1263,6 +1345,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_base_gear",
     category: "materials",
     name: "Bánh Răng Thép",
+    description: "Bánh răng đúc từ hợp kim thép. Phụ kiện truyền động cơ bản không thể thiếu trong cấu tạo máy nghiền và máy nén.",
     icon: "textures/items/steel_alloy_base_gear",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -1272,12 +1355,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_base_plate",
     category: "materials",
     name: "Tấm Thép",
+    description: "Tấm thép nén đặc. Cung cấp lớp vỏ bảo vệ cứng cáp tuyệt đối cho các hệ thống máy móc.",
     icon: "textures/items/steel_alloy_base_plate",
   },
   {
     id: "apeirix:steel_alloy_base_rod",
     category: "materials",
     name: "Thanh Thép",
+    description: "Thanh trụ thép liền khối. Dùng làm trục quay cho bánh răng hoặc lõi truyền động chịu lực.",
     icon: "textures/items/steel_alloy_base_rod",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -1287,12 +1372,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:candirty",
     category: "materials",
     name: "Vỏ Đồ Hộp Bẩn",
+    description: "Vỏ đồ hộp đã qua sử dụng, dính đầy thức ăn thừa. Sinh ra mùi hương đặc biệt thu hút lũ Bọ Ăn Rỉ Sét (Rust Mite).",
     icon: "textures/items/candirty",
   },
   {
     id: "apeirix:canempty",
     category: "materials",
     name: "Vỏ Đồ Hộp Rỗng",
+    description: "Vỏ đồ hộp rỗng sạch sẽ, được làm từ thiếc. Dụng cụ thiết yếu để đóng gói và bảo quản thực phẩm vô thời hạn.",
     icon: "textures/items/canempty",
     info: {
       "Chế tạo": "0 nguyên liệu"
@@ -1302,18 +1389,21 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:achievement_book",
     category: "materials",
     name: "Sách Thành Tựu",
+    description: "Cuốn sách bìa vàng ghi chép lại mọi cột mốc và thành tựu bạn đã đạt được trong hành trình chinh phục thế giới APEIRIX.",
     icon: "textures/items/achievement_book",
   },
   {
     id: "apeirix:wiki_book",
     category: "materials",
     name: "Bách Khoa Toàn Thư",
+    description: "Bách khoa toàn thư toàn tập. Cầm trên tay và tương tác với bất kỳ vật phẩm, khối hay sinh vật nào để xem thông tin chi tiết.",
     icon: "textures/items/wiki_book",
   },
   {
     id: "apeirix:ardite_axe",
     category: "tools",
     name: "Rìu Ardite",
+    description: "Rìu Ardite. Lưỡi rìu nóng bỏng, phang đứt mọi loại gỗ cứng.",
     icon: "textures/items/ardite_axe",
     info: {
       "Độ bền": 500,
@@ -1326,6 +1416,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_axe",
     category: "tools",
     name: "Rìu Đồng Thanh",
+    description: "Rìu Đồng Thanh. Đốn củi mượt mà, độ sắc bén giữ được khá lâu.",
     icon: "textures/items/bronze_axe",
     info: {
       "Độ bền": 375,
@@ -1338,6 +1429,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_axe",
     category: "tools",
     name: "Rìu Cobalt",
+    description: "Rìu Cobalt. Cú vung rìu siêu tốc, dọn dẹp rừng cây trong chớp mắt.",
     icon: "textures/items/cobalt_axe",
     info: {
       "Độ bền": 500,
@@ -1350,6 +1442,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_axe",
     category: "tools",
     name: "Rìu Electrum",
+    description: "Rìu Electrum. Công cụ đốn gỗ bóng bẩy, yểm bùa cực tốt.",
     icon: "textures/items/electrum_axe",
     info: {
       "Độ bền": 425,
@@ -1362,6 +1455,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_axe",
     category: "tools",
     name: "Rìu Invar",
+    description: "Rìu Invar. Không bao giờ mẻ lưỡi dù bạn có chặt nhầm vào đá.",
     icon: "textures/items/invar_axe",
     info: {
       "Độ bền": 500,
@@ -1374,6 +1468,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_axe",
     category: "tools",
     name: "Rìu Chì",
+    description: "Rìu Chì. Đòn bổ củi nặng ngàn cân, bù lại cho tốc độ vung rìu chậm.",
     icon: "textures/items/lead_axe",
     info: {
       "Độ bền": 400,
@@ -1386,6 +1481,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_axe",
     category: "tools",
     name: "Rìu Manyullyn",
+    description: "Rìu Manyullyn. Vũ khí/công cụ tàn bạo, san phẳng rừng rậm không thương tiếc.",
     icon: "textures/items/manyullyn_axe",
     info: {
       "Độ bền": 800,
@@ -1398,6 +1494,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_axe",
     category: "tools",
     name: "Rìu Niken",
+    description: "Rìu Niken. Cạnh trơn nhẵn, lưỡi rìu lướt qua thân cây cực ngọt.",
     icon: "textures/items/nickel_axe",
     info: {
       "Độ bền": 450,
@@ -1410,6 +1507,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_axe",
     category: "tools",
     name: "Rìu Bạch Kim",
+    description: "Rìu Bạch Kim. Thứ nông cụ vương giả với hiệu năng vô song.",
     icon: "textures/items/platinum_axe",
     info: {
       "Độ bền": 1600,
@@ -1422,6 +1520,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_axe",
     category: "tools",
     name: "Rìu Bạc",
+    description: "Rìu Bạc. Phạt đứt các loại gỗ mềm một cách thanh tao và êm ái.",
     icon: "textures/items/silver_axe",
     info: {
       "Độ bền": 375,
@@ -1434,6 +1533,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_axe",
     category: "tools",
     name: "Rìu Hợp Kim Thép",
+    description: "Rìu Thép. Lạnh lẽo và tàn nhẫn, không có khúc gỗ nào làm khó được nó.",
     icon: "textures/items/steel_alloy_axe",
     info: {
       "Độ bền": 750,
@@ -1446,6 +1546,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_axe",
     category: "tools",
     name: "Rìu Thiếc",
+    description: "Rìu Thiếc. Cạnh rìu mau cùn, dùng tạm để đốn vài cây gỗ gần nhà.",
     icon: "textures/items/tin_axe",
     info: {
       "Độ bền": 375,
@@ -1458,6 +1559,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_hammer",
     category: "tools",
     name: "Búa Ardite",
+    description: "Búa công nghiệp Ardite. Dùng để đập nát trực tiếp các khối đá và quặng thành dạng bụi mịn với độ bền khổng lồ.",
     icon: "textures/items/ardite_hammer",
     info: {
       "Độ bền": 750,
@@ -1470,6 +1572,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_hammer",
     category: "tools",
     name: "Búa Đồng Thanh",
+    description: "Búa đồng thanh. Giúp nghiền trực tiếp các khối quặng thành bụi một cách trơn tru ở giai đoạn đầu game.",
     icon: "textures/items/bronze_hammer",
     info: {
       "Độ bền": 375,
@@ -1482,6 +1585,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_hammer",
     category: "tools",
     name: "Búa Cobalt",
+    description: "Búa Cobalt. Món đồ nghề siêu nhẹ giúp gõ nát quặng và đá thành bụi với tốc độ cực kỳ nhanh chóng.",
     icon: "textures/items/cobalt_hammer",
     info: {
       "Độ bền": 750,
@@ -1494,6 +1598,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:copper_hammer",
     category: "tools",
     name: "Búa Đồng",
+    description: "Búa đồng nguyên chất. Giải pháp cơ bản để đập quặng ra bụi mịn khi bạn chưa có kim loại tốt hơn.",
     icon: "textures/items/copper_hammer",
     info: {
       "Độ bền": 200,
@@ -1506,6 +1611,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:diamond_hammer",
     category: "tools",
     name: "Búa Kim Cương",
+    description: "Búa kim cương. Khai thác bụi quặng tại chỗ với độ hiệu quả và kiên cố hoàn mỹ.",
     icon: "textures/items/diamond_hammer",
     info: {
       "Độ bền": 1561,
@@ -1518,6 +1624,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_hammer",
     category: "tools",
     name: "Búa Electrum",
+    description: "Búa Electrum. Nghiền quặng thành bụi với vận tốc tia chớp và rất tương thích với bùa Gia Tài (Fortune).",
     icon: "textures/items/electrum_hammer",
     info: {
       "Độ bền": 640,
@@ -1530,6 +1637,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:golden_hammer",
     category: "tools",
     name: "Búa Vàng",
+    description: "Búa vàng ròng. Đập quặng siêu nhanh nhưng cực kỳ mong manh, gần như gãy vụn ngay lập tức.",
     icon: "textures/items/golden_hammer",
     info: {
       "Độ bền": 32,
@@ -1542,6 +1650,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_hammer",
     category: "tools",
     name: "Búa Invar",
+    description: "Búa Invar siêu cứng. Dùng để đập nát quặng thành bụi cả ngày dài mà không lo mài mòn nhanh.",
     icon: "textures/items/invar_hammer",
     info: {
       "Độ bền": 750,
@@ -1554,6 +1663,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:iron_hammer",
     category: "tools",
     name: "Búa Sắt",
+    description: "Búa sắt tiêu chuẩn. Dụng cụ phổ thông nhất để thợ mỏ tự nghiền quặng thành bụi ngay dưới hầm.",
     icon: "textures/items/iron_hammer",
     info: {
       "Độ bền": 250,
@@ -1566,6 +1676,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_hammer",
     category: "tools",
     name: "Búa Chì",
+    description: "Búa Chì tạ. Rất nặng nề, mỗi nhát gõ mạnh bạo biến quặng tảng thành bụi mịn tức thì.",
     icon: "textures/items/lead_hammer",
     info: {
       "Độ bền": 600,
@@ -1578,6 +1689,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_hammer",
     category: "tools",
     name: "Búa Manyullyn",
+    description: "Búa hủy diệt Manyullyn. Quét sạch quặng thành bụi tím bằng sức mạnh bá đạo nhất, không gì cản nổi.",
     icon: "textures/items/manyullyn_hammer",
     info: {
       "Độ bền": 1200,
@@ -1590,6 +1702,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:netherite_hammer",
     category: "tools",
     name: "Búa Netherite",
+    description: "Búa Netherite vĩnh cửu. Đỉnh cao của dụng cụ nghiền quặng thành bụi, không sợ cháy và không thể phá hủy.",
     icon: "textures/items/netherite_hammer",
     info: {
       "Độ bền": 2031,
@@ -1602,6 +1715,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_hammer",
     category: "tools",
     name: "Búa Niken",
+    description: "Búa Niken sáng bóng. Gõ quặng ra bụi hiệu quả mà không bao giờ lo bề mặt búa bị xỉn màu gỉ sét.",
     icon: "textures/items/nickel_hammer",
     info: {
       "Độ bền": 675,
@@ -1614,6 +1728,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_hammer",
     category: "tools",
     name: "Búa Bạch Kim",
+    description: "Búa Bạch Kim hoàng gia. Cỗ tạ đập quặng thành bụi xa xỉ với hiệu năng vượt mọi loại kim cương.",
     icon: "textures/items/platinum_hammer",
     info: {
       "Độ bền": 2400,
@@ -1626,6 +1741,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_hammer",
     category: "tools",
     name: "Búa Bạc",
+    description: "Búa Bạc thanh mảnh. Đập quặng êm ái, rất phù hợp khi muốn áp dụng các bùa chú tăng sản lượng bụi.",
     icon: "textures/items/silver_hammer",
     info: {
       "Độ bền": 375,
@@ -1638,6 +1754,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_hammer",
     category: "tools",
     name: "Búa Hợp Kim Thép",
+    description: "Búa Thép công nghiệp. Bền bỉ và uy lực như một cỗ máy mini, đập quặng ra bụi không thương tiếc.",
     icon: "textures/items/steel_alloy_hammer",
     info: {
       "Độ bền": 750,
@@ -1650,6 +1767,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:stone_hammer",
     category: "tools",
     name: "Búa Đá",
+    description: "Búa tảng đá. Dụng cụ cực kỳ thô sơ để tự đập đá và quặng ra bụi, phù hợp cày cuốc lúc khốn khó.",
     icon: "textures/items/stone_hammer",
     info: {
       "Độ bền": 131,
@@ -1662,6 +1780,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_hammer",
     category: "tools",
     name: "Búa Thiếc",
+    description: "Búa Thiếc. Rất mềm và dễ móp méo, chỉ dùng chữa cháy để đập quặng ra bụi khi không còn gì khác.",
     icon: "textures/items/tin_hammer",
     info: {
       "Độ bền": 562,
@@ -1674,6 +1793,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:wooden_hammer",
     category: "tools",
     name: "Búa Gỗ",
+    description: "Búa gỗ tự chế. Nặng và kém cỏi, đập vài cục đá hay quặng thành bụi là vỡ nát ngay.",
     icon: "textures/items/wooden_hammer",
     info: {
       "Độ bền": 59,
@@ -1686,6 +1806,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_hoe",
     category: "tools",
     name: "Cuốc Ardite",
+    description: "Cuốc chim Ardite. Dùng cày cấy thì hơi lố, nhưng độ bền của nó là miễn bàn.",
     icon: "textures/items/ardite_hoe",
     info: {
       "Độ bền": 500,
@@ -1698,6 +1819,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_hoe",
     category: "tools",
     name: "Cuốc Đồng Thanh",
+    description: "Cuốc chim Đồng Thanh. Bạn đồng hành đáng tin cậy của nhà nông.",
     icon: "textures/items/bronze_hoe",
     info: {
       "Độ bền": 375,
@@ -1710,6 +1832,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_hoe",
     category: "tools",
     name: "Cuốc Cobalt",
+    description: "Cuốc chim Cobalt. Làm tơi xốp cả thửa ruộng trong vài giây lướt ngang.",
     icon: "textures/items/cobalt_hoe",
     info: {
       "Độ bền": 500,
@@ -1722,6 +1845,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_hoe",
     category: "tools",
     name: "Cuốc Electrum",
+    description: "Cuốc chim Electrum. Thường được sử dụng ở các khu vườn sinh thái sang trọng.",
     icon: "textures/items/electrum_hoe",
     info: {
       "Độ bền": 425,
@@ -1734,6 +1858,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_hoe",
     category: "tools",
     name: "Cuốc Invar",
+    description: "Cuốc chim Invar. Cày xới được những mảng đất cằn cỗi và cứng đầu nhất.",
     icon: "textures/items/invar_hoe",
     info: {
       "Độ bền": 500,
@@ -1746,6 +1871,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_hoe",
     category: "tools",
     name: "Cuốc Chì",
+    description: "Cuốc chim Chì. Không cần vung mạnh, sức nặng của chì tự ép lưỡi cuốc cắm xuống đất.",
     icon: "textures/items/lead_hoe",
     info: {
       "Độ bền": 400,
@@ -1758,6 +1884,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_hoe",
     category: "tools",
     name: "Cuốc Manyullyn",
+    description: "Cuốc chim Manyullyn. Món đồ nông nghiệp mang sát khí hủy diệt buồn cười nhất.",
     icon: "textures/items/manyullyn_hoe",
     info: {
       "Độ bền": 800,
@@ -1770,6 +1897,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_hoe",
     category: "tools",
     name: "Cuốc Niken",
+    description: "Cuốc chim Niken. Rửa trôi bùn đất nhanh chóng, luôn bóng loáng sau vụ mùa.",
     icon: "textures/items/nickel_hoe",
     info: {
       "Độ bền": 450,
@@ -1782,6 +1910,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_hoe",
     category: "tools",
     name: "Cuốc Bạch Kim",
+    description: "Cuốc chim Bạch Kim. Nông cụ quý tộc dành riêng để chăm sóc cây trồng quý hiếm.",
     icon: "textures/items/platinum_hoe",
     info: {
       "Độ bền": 1600,
@@ -1794,6 +1923,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_hoe",
     category: "tools",
     name: "Cuốc Bạc",
+    description: "Cuốc chim Bạc. Tương truyền giúp nông sản tránh khỏi tà khí đen tối.",
     icon: "textures/items/silver_hoe",
     info: {
       "Độ bền": 375,
@@ -1806,6 +1936,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_hoe",
     category: "tools",
     name: "Cuốc Hợp Kim Thép",
+    description: "Cuốc chim Thép. Trâu bò, bám vườn qua nhiều mùa vụ mà không sứt mẻ.",
     icon: "textures/items/steel_alloy_hoe",
     info: {
       "Độ bền": 750,
@@ -1818,6 +1949,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_hoe",
     category: "tools",
     name: "Cuốc Thiếc",
+    description: "Cuốc chim Thiếc. Đủ để xới mảng đất mềm cạnh sông, đừng ép nó làm việc quá sức.",
     icon: "textures/items/tin_hoe",
     info: {
       "Độ bền": 375,
@@ -1830,6 +1962,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_pickaxe",
     category: "tools",
     name: "Cuốc Ardite",
+    description: "Cuốc Ardite rực lửa. Độ bền đáng nể, sinh ra từ dòng dung nham Nether.",
     icon: "textures/items/ardite_pickaxe",
     info: {
       "Độ bền": 500,
@@ -1855,6 +1988,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_pickaxe",
     category: "tools",
     name: "Cuốc Cobalt",
+    description: "Cuốc Cobalt. Đào khoáng sản cực êm và tốc độ nhanh như thiểm điện.",
     icon: "textures/items/cobalt_pickaxe",
     info: {
       "Độ bền": 500,
@@ -1867,6 +2001,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_pickaxe",
     category: "tools",
     name: "Cuốc Electrum",
+    description: "Cuốc Electrum. Rất dễ phù phép bậc cao, khai thác đá nhanh chóng dù mỏng manh.",
     icon: "textures/items/electrum_pickaxe",
     info: {
       "Độ bền": 425,
@@ -1879,6 +2014,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_pickaxe",
     category: "tools",
     name: "Cuốc Invar",
+    description: "Cuốc Invar. Chống mài mòn cực tốt, bền hơn hẳn các loại cuốc sắt thường.",
     icon: "textures/items/invar_pickaxe",
     info: {
       "Độ bền": 500,
@@ -1891,6 +2027,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_pickaxe",
     category: "tools",
     name: "Cuốc Chì",
+    description: "Cuốc Chì. Đầm tay, chậm chạp nhưng mỗi nhát bổ vào đá đều mang uy lực lớn.",
     icon: "textures/items/lead_pickaxe",
     info: {
       "Độ bền": 400,
@@ -1903,6 +2040,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_pickaxe",
     category: "tools",
     name: "Cuốc Manyullyn",
+    description: "Cuốc Manyullyn. Sức mạnh hủy diệt vượt qua giới hạn của đồ Netherite.",
     icon: "textures/items/manyullyn_pickaxe",
     info: {
       "Độ bền": 800,
@@ -1915,6 +2053,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_pickaxe",
     category: "tools",
     name: "Cuốc Niken",
+    description: "Cuốc Niken. Sáng bóng, làm việc hiệu quả và không hề rỉ sét.",
     icon: "textures/items/nickel_pickaxe",
     info: {
       "Độ bền": 450,
@@ -1927,6 +2066,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_pickaxe",
     category: "tools",
     name: "Cuốc Bạch Kim",
+    description: "Cuốc Bạch Kim. Hiệu năng khai thác và độ bền đều bỏ xa Kim Cương.",
     icon: "textures/items/platinum_pickaxe",
     info: {
       "Độ bền": 1600,
@@ -1939,6 +2079,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_pickaxe",
     category: "tools",
     name: "Cuốc Bạc",
+    description: "Cuốc Bạc. Phản ứng ma thuật cực tốt, thích hợp làm cuốc đào Gia Tài (Fortune).",
     icon: "textures/items/silver_pickaxe",
     info: {
       "Độ bền": 375,
@@ -1951,6 +2092,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_pickaxe",
     category: "tools",
     name: "Cuốc Hợp Kim Thép",
+    description: "Cuốc Thép. Nền tảng của công nhân hầm mỏ, sắc bén và dai dẳng.",
     icon: "textures/items/steel_alloy_pickaxe",
     info: {
       "Độ bền": 750,
@@ -1963,6 +2105,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_pickaxe",
     category: "tools",
     name: "Cuốc Thiếc",
+    description: "Cuốc Thiếc. Khá yếu ớt, chỉ dùng làm phương án dự phòng khi đồ đá đã hỏng.",
     icon: "textures/items/tin_pickaxe",
     info: {
       "Độ bền": 375,
@@ -1975,6 +2118,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_shovel",
     category: "tools",
     name: "Xẻng Ardite",
+    description: "Xẻng Ardite. Lưỡi xẻng không hề nao núng trước sỏi đá hay dung nham khô.",
     icon: "textures/items/ardite_shovel",
     info: {
       "Độ bền": 500,
@@ -1987,6 +2131,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_shovel",
     category: "tools",
     name: "Xẻng Đồng Thanh",
+    description: "Xẻng Đồng Thanh. Đào bới nhịp nhàng, là bản nâng cấp xịn sò từ xẻng đá.",
     icon: "textures/items/bronze_shovel",
     info: {
       "Độ bền": 375,
@@ -1999,6 +2144,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_shovel",
     category: "tools",
     name: "Xẻng Cobalt",
+    description: "Xẻng Cobalt. Xúc đất cát trơn tru như đang lướt trên không khí.",
     icon: "textures/items/cobalt_shovel",
     info: {
       "Độ bền": 500,
@@ -2011,6 +2157,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_shovel",
     category: "tools",
     name: "Xẻng Electrum",
+    description: "Xẻng Electrum. Xúc đất nhanh, rất phù hợp khi yểm bùa Gia Tài đào sỏi.",
     icon: "textures/items/electrum_shovel",
     info: {
       "Độ bền": 425,
@@ -2023,6 +2170,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_shovel",
     category: "tools",
     name: "Xẻng Invar",
+    description: "Xẻng Invar. Xúc bùn lầy hay sỏi cứng đều không bao giờ lo cong móp.",
     icon: "textures/items/invar_shovel",
     info: {
       "Độ bền": 500,
@@ -2035,6 +2183,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_shovel",
     category: "tools",
     name: "Xẻng Chì",
+    description: "Xẻng Chì. Mang vác hơi nặng nhưng đào những khối rễ cây rất đầm tay.",
     icon: "textures/items/lead_shovel",
     info: {
       "Độ bền": 400,
@@ -2047,6 +2196,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_shovel",
     category: "tools",
     name: "Xẻng Manyullyn",
+    description: "Xẻng Manyullyn. Quét sạch cát sỏi dưới chân bạn thành hư vô.",
     icon: "textures/items/manyullyn_shovel",
     info: {
       "Độ bền": 800,
@@ -2059,6 +2209,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_shovel",
     category: "tools",
     name: "Xẻng Niken",
+    description: "Xẻng Niken. Mặt xẻng trơn bóng, đất bùn không thể bám lại trên đó.",
     icon: "textures/items/nickel_shovel",
     info: {
       "Độ bền": 450,
@@ -2071,6 +2222,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_shovel",
     category: "tools",
     name: "Xẻng Bạch Kim",
+    description: "Xẻng Bạch Kim. Năng suất tối thượng, dọn địa hình trơn tru hoàn hảo.",
     icon: "textures/items/platinum_shovel",
     info: {
       "Độ bền": 1600,
@@ -2083,6 +2235,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_shovel",
     category: "tools",
     name: "Xẻng Bạc",
+    description: "Xẻng Bạc. Thanh thoát, nhẹ nhàng, là lựa chọn số một cho các loại bùa chú.",
     icon: "textures/items/silver_shovel",
     info: {
       "Độ bền": 375,
@@ -2095,6 +2248,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_shovel",
     category: "tools",
     name: "Xẻng Hợp Kim Thép",
+    description: "Xẻng Thép. Bền như xe tăng, công cụ đào hầm hào quân sự chuyên nghiệp.",
     icon: "textures/items/steel_alloy_shovel",
     info: {
       "Độ bền": 750,
@@ -2107,6 +2261,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_shovel",
     category: "tools",
     name: "Xẻng Thiếc",
+    description: "Xẻng Thiếc. Mong manh, đào nhầm vào đá tảng là hỏng ngay.",
     icon: "textures/items/tin_shovel",
     info: {
       "Độ bền": 375,
@@ -2131,6 +2286,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_sword",
     category: "tools",
     name: "Kiếm Ardite",
+    description: "Kiếm Ardite. Lưỡi kiếm mang theo hơi nóng của Nether, chém gục kẻ địch bền bỉ.",
     icon: "textures/items/ardite_sword",
     info: {
       "Độ bền": 500,
@@ -2143,6 +2299,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_sword",
     category: "tools",
     name: "Kiếm Đồng Thanh",
+    description: "Kiếm Đồng Thanh. Vũ khí phòng thân sắc bén, cực kỳ hữu dụng lúc đầu game.",
     icon: "textures/items/bronze_sword",
     info: {
       "Độ bền": 375,
@@ -2155,6 +2312,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_sword",
     category: "tools",
     name: "Kiếm Cobalt",
+    description: "Kiếm Cobalt. Tốc độ vung đao siêu nhanh, ra đòn liên hoàn không để kẻ địch kịp thở.",
     icon: "textures/items/cobalt_sword",
     info: {
       "Độ bền": 500,
@@ -2167,6 +2325,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_sword",
     category: "tools",
     name: "Kiếm Electrum",
+    description: "Kiếm Electrum. Sát thương tốt và nhận bùa chú Tấn Công (Smite/Sharpness) hoàn hảo.",
     icon: "textures/items/electrum_sword",
     info: {
       "Độ bền": 425,
@@ -2179,6 +2338,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_sword",
     category: "tools",
     name: "Kiếm Invar",
+    description: "Kiếm Invar. Không rực rỡ nhưng trầm ổn, đòn chém nặng trịch không bao giờ mẻ lưỡi.",
     icon: "textures/items/invar_sword",
     info: {
       "Độ bền": 500,
@@ -2191,6 +2351,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_sword",
     category: "tools",
     name: "Kiếm Chì",
+    description: "Kiếm Chì. Đâm chém khá chậm nhưng khi trúng mục tiêu, tổn thương để lại cực lớn.",
     icon: "textures/items/lead_sword",
     info: {
       "Độ bền": 400,
@@ -2203,6 +2364,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_sword",
     category: "tools",
     name: "Kiếm Manyullyn",
+    description: "Kiếm ma thần Manyullyn. Sát thương đoạt mạng vượt xa Netherite, vũ khí tối thượng.",
     icon: "textures/items/manyullyn_sword",
     info: {
       "Độ bền": 800,
@@ -2215,6 +2377,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_sword",
     category: "tools",
     name: "Kiếm Niken",
+    description: "Kiếm Niken. Trơn láng, đâm xuyên lớp giáp nhẹ của kẻ địch rất mượt mà.",
     icon: "textures/items/nickel_sword",
     info: {
       "Độ bền": 450,
@@ -2227,6 +2390,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_sword",
     category: "tools",
     name: "Kiếm Bạch Kim",
+    description: "Kiếm Bạch Kim. Kiệt tác vũ khí hoàng gia, lưỡi kiếm lướt đi mang theo cái chết đẹp đẽ.",
     icon: "textures/items/platinum_sword",
     info: {
       "Độ bền": 1600,
@@ -2239,6 +2403,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_sword",
     category: "tools",
     name: "Kiếm Bạc",
+    description: "Thanh gươm Bạc diệt tà. Vũ khí chuyên dụng gây Sát Thương Cộng Thêm cực lớn lên các sinh vật Undead.",
     icon: "textures/items/silver_sword",
     info: {
       "Độ bền": 375,
@@ -2251,6 +2416,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_sword",
     category: "tools",
     name: "Kiếm Hợp Kim Thép",
+    description: "Kiếm Thép chiến thuật. Cứng cáp, tàn nhẫn, đủ sức chém vỡ cả lá chắn của xương khô.",
     icon: "textures/items/steel_alloy_sword",
     info: {
       "Độ bền": 750,
@@ -2263,6 +2429,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_sword",
     category: "tools",
     name: "Kiếm Thiếc",
+    description: "Kiếm Thiếc. Yếu ớt, chỉ dùng đuổi mấy con nhện chứ không thể ra chiến trường.",
     icon: "textures/items/tin_sword",
     info: {
       "Độ bền": 375,
@@ -2275,6 +2442,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_boots",
     category: "armor",
     name: "Giày Ardite",
+    description: "Giày Ardite. Lớp đế nóng rực dập tắt lửa nhỏ dưới gót chân.",
     icon: "textures/items/ardite_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2288,6 +2456,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_boots",
     category: "armor",
     name: "Giày Đồng Thanh",
+    description: "Giày Đồng Thanh. Bảo vệ bàn chân khỏi gai nhọn, tốt hơn đồ da rất nhiều.",
     icon: "textures/items/bronze_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2301,6 +2470,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_boots",
     category: "armor",
     name: "Giày Cobalt",
+    description: "Giày Cobalt. Nhẹ tựa lông hồng, bước chân lả lướt thoát khỏi truy đuổi.",
     icon: "textures/items/cobalt_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2314,6 +2484,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_boots",
     category: "armor",
     name: "Giày Electrum",
+    description: "Giày Electrum. Gót kim loại ma thuật lấp lánh theo mỗi bước đi.",
     icon: "textures/items/electrum_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2327,6 +2498,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_boots",
     category: "armor",
     name: "Giày Invar",
+    description: "Giày Invar. Đế thép dày cui dẫm nát sọ nhện độc dễ dàng.",
     icon: "textures/items/invar_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2340,6 +2512,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_boots",
     category: "armor",
     name: "Giày Chì",
+    description: "Giày Chì. Nặng trịch, giúp bạn đứng vững như bàn thạch không bị hất văng.",
     icon: "textures/items/lead_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2353,6 +2526,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_boots",
     category: "armor",
     name: "Giày Manyullyn",
+    description: "Giày Manyullyn. Bước chân của chúa tể, mang theo sát khí kinh hoàng.",
     icon: "textures/items/manyullyn_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2366,6 +2540,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_boots",
     category: "armor",
     name: "Giày Niken",
+    description: "Giày Niken. Chống bám bẩn hoàn toàn khi lội qua vùng sình lầy.",
     icon: "textures/items/nickel_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2379,6 +2554,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_boots",
     category: "armor",
     name: "Giày Bạch Kim",
+    description: "Giày Bạch Kim. Bước đi quyền uy, kiên cố đến mức không gai nhọn nào đâm thủng.",
     icon: "textures/items/platinum_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2392,6 +2568,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_boots",
     category: "armor",
     name: "Giày Bạc",
+    description: "Giày Bạc. Nhẹ nhàng, êm ái, bùa chú bảo vệ rơi rớt cực kỳ ăn khớp.",
     icon: "textures/items/silver_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2405,6 +2582,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_boots",
     category: "armor",
     name: "Giày Hợp Kim Thép",
+    description: "Giày Thép quân sự. Chà đạp mọi chướng ngại vật một cách tàn bạo.",
     icon: "textures/items/steel_alloy_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2418,6 +2596,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_boots",
     category: "armor",
     name: "Giày Thiếc",
+    description: "Giày Thiếc. Mỏng tanh, chỉ dùng để đỡ cước chân khi ngã nhẹ.",
     icon: "textures/items/tin_boots",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2431,6 +2610,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_chestplate",
     category: "armor",
     name: "Áo Giáp Ardite",
+    description: "Áo ngực Ardite. Tấm khiên đỏ rực hấp thụ và phân tán lực chấn động cực tốt.",
     icon: "textures/items/ardite_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2444,6 +2624,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_chestplate",
     category: "armor",
     name: "Áo Giáp Đồng Thanh",
+    description: "Áo ngực Đồng Thanh. Lớp giáp vững chãi che chắn thân trên an toàn đầu game.",
     icon: "textures/items/bronze_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2457,6 +2638,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_chestplate",
     category: "armor",
     name: "Áo Giáp Cobalt",
+    description: "Áo ngực Cobalt. Bọc lấy cơ thể nhưng nhẹ bẫng, giúp né đòn cực tốt.",
     icon: "textures/items/cobalt_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2470,6 +2652,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_chestplate",
     category: "armor",
     name: "Áo Giáp Electrum",
+    description: "Áo ngực Electrum. Mỏng manh nhưng tỏa hào quang ma thuật bảo vệ người mặc.",
     icon: "textures/items/electrum_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2483,6 +2666,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_chestplate",
     category: "armor",
     name: "Áo Giáp Invar",
+    description: "Áo ngực Invar. Bức tường thành hợp kim bất khả xâm phạm trước quái vật thú.",
     icon: "textures/items/invar_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2496,6 +2680,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_chestplate",
     category: "armor",
     name: "Áo Giáp Chì",
+    description: "Áo ngực Chì. Chặn đứng sát thương vật lý và bức xạ, tuy nhiên khoác lên rất nặng.",
     icon: "textures/items/lead_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2509,6 +2694,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_chestplate",
     category: "armor",
     name: "Áo Giáp Manyullyn",
+    description: "Áo ngực Manyullyn. Tấm chiến bào ma quỷ, răn đe mọi thực thể dám lại gần.",
     icon: "textures/items/manyullyn_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2522,6 +2708,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_chestplate",
     category: "armor",
     name: "Áo Giáp Niken",
+    description: "Áo ngực Niken. Chống ăn mòn, luôn sáng loáng như mới sau hàng vạn trận đánh.",
     icon: "textures/items/nickel_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2535,6 +2722,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_chestplate",
     category: "armor",
     name: "Áo Giáp Bạch Kim",
+    description: "Áo ngực Bạch Kim. Tấm khiên vương giả từ chối những đòn đâm chí mạng nhất.",
     icon: "textures/items/platinum_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2548,6 +2736,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_chestplate",
     category: "armor",
     name: "Áo Giáp Bạc",
+    description: "Áo ngực Bạc. Ánh bạc thanh tẩy khiến bè lũ Thây Ma phải dè chừng.",
     icon: "textures/items/silver_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2561,6 +2750,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_chestplate",
     category: "armor",
     name: "Áo Giáp Hợp Kim Thép",
+    description: "Áo ngực Thép. Đúc nguyên khối đặc chắc, lớp phòng thủ tối thượng của chiến binh.",
     icon: "textures/items/steel_alloy_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2574,6 +2764,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_chestplate",
     category: "armor",
     name: "Áo Giáp Thiếc",
+    description: "Áo ngực Thiếc. Lớp tôn mỏng che gió lạnh hơn là che đao kiếm.",
     icon: "textures/items/tin_chestplate",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2587,6 +2778,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_helmet",
     category: "armor",
     name: "Mũ Ardite",
+    description: "Mũ Ardite. Xốp rỗng nhưng dẻo dai, bảo vệ hộp sọ khỏi đá rơi cực tốt.",
     icon: "textures/items/ardite_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2614,6 +2806,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_helmet",
     category: "armor",
     name: "Mũ Cobalt",
+    description: "Mũ Cobalt. Ôm gọn đầu mà không cản trở tầm nhìn, linh hoạt mọi góc độ.",
     icon: "textures/items/cobalt_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2627,6 +2820,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_helmet",
     category: "armor",
     name: "Mũ Electrum",
+    description: "Mũ Electrum. Nhạy bén với bùa chú Hô Hấp hoặc Nhìn Đêm cực mạnh.",
     icon: "textures/items/electrum_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2640,6 +2834,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_helmet",
     category: "armor",
     name: "Mũ Invar",
+    description: "Mũ Invar. Bị búa tạ nện vào cũng không hề móp méo.",
     icon: "textures/items/invar_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2653,6 +2848,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_helmet",
     category: "armor",
     name: "Mũ Chì",
+    description: "Mũ Chì. Đeo hơi mỏi cổ, nhưng chặn mọi đòn tấn công vật lý vào đầu.",
     icon: "textures/items/lead_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2666,6 +2862,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_helmet",
     category: "armor",
     name: "Mũ Manyullyn",
+    description: "Mũ Manyullyn. Chiếc vương miện tím tàn bạo của địa ngục.",
     icon: "textures/items/manyullyn_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2679,6 +2876,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_helmet",
     category: "armor",
     name: "Mũ Niken",
+    description: "Mũ Niken. Chói lóa dưới ánh nắng, không bao giờ rỉ sét khi đi mưa.",
     icon: "textures/items/nickel_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2692,6 +2890,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_helmet",
     category: "armor",
     name: "Mũ Bạch Kim",
+    description: "Mũ Bạch Kim. Che chắn đỉnh đầu bằng vẻ đẹp và sự kiên cố vĩnh cửu.",
     icon: "textures/items/platinum_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2705,6 +2904,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_helmet",
     category: "armor",
     name: "Mũ Bạc",
+    description: "Mũ Bạc. Tinh khiết, thanh lọc tâm trí người mặc khỏi các luồng tà khí.",
     icon: "textures/items/silver_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2718,6 +2918,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_helmet",
     category: "armor",
     name: "Mũ Hợp Kim Thép",
+    description: "Mũ Thép. Giáp đầu quân sự tiêu chuẩn, chịu lực va đập cực đoan.",
     icon: "textures/items/steel_alloy_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2731,6 +2932,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_helmet",
     category: "armor",
     name: "Mũ Thiếc",
+    description: "Mũ Thiếc. Trông như đội một cái xoong nồi lên đầu, gõ nhẹ là móp.",
     icon: "textures/items/tin_helmet",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2744,6 +2946,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_leggings",
     category: "armor",
     name: "Quần Ardite",
+    description: "Quần Ardite. Che chắn phần dưới cơ thể khỏi vụ nổ bò sát Creeper.",
     icon: "textures/items/ardite_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2757,6 +2960,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_leggings",
     category: "armor",
     name: "Quần Đồng Thanh",
+    description: "Quần Đồng Thanh. Khớp nối chắc chắn, an tâm lao vào hang ổ quái vật.",
     icon: "textures/items/bronze_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2770,6 +2974,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_leggings",
     category: "armor",
     name: "Quần Cobalt",
+    description: "Quần Cobalt. Ôm sát cơ bắp, hỗ trợ những pha bật nhảy chớp nhoáng.",
     icon: "textures/items/cobalt_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2783,6 +2988,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_leggings",
     category: "armor",
     name: "Quần Electrum",
+    description: "Quần Electrum. Tích tụ kinh nghiệm và ma lực chạy dọc theo hai chân.",
     icon: "textures/items/electrum_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2796,6 +3002,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_leggings",
     category: "armor",
     name: "Quần Invar",
+    description: "Quần Invar. Cản phá triệt để những cú đớp cắn của lũ nhện và sói.",
     icon: "textures/items/invar_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2809,6 +3016,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_leggings",
     category: "armor",
     name: "Quần Chì",
+    description: "Quần Chì. Tựa như đeo tạ, chạy chậm nhưng đứng như tượng đài.",
     icon: "textures/items/lead_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2822,6 +3030,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_leggings",
     category: "armor",
     name: "Quần Manyullyn",
+    description: "Quần Manyullyn. Dòng năng lượng tím bảo vệ thân dưới trước mọi sát thương.",
     icon: "textures/items/manyullyn_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2835,6 +3044,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_leggings",
     category: "armor",
     name: "Quần Niken",
+    description: "Quần Niken. Bùn đất dơ bẩn trơn tuột khỏi lớp mạ nhẵn bóng này.",
     icon: "textures/items/nickel_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2848,6 +3058,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_leggings",
     category: "armor",
     name: "Quần Bạch Kim",
+    description: "Quần Bạch Kim. Bọc hai chân bằng thứ khoáng sản uy quyền bậc nhất.",
     icon: "textures/items/platinum_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2861,6 +3072,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_leggings",
     category: "armor",
     name: "Quần Bạc",
+    description: "Quần Bạc. Mềm dẻo, linh hoạt chạy trốn và dễ dàng yểm bùa bảo vệ.",
     icon: "textures/items/silver_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2874,6 +3086,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_leggings",
     category: "armor",
     name: "Quần Hợp Kim Thép",
+    description: "Quần Thép. Khớp nối cơ khí che phủ hoàn toàn hai chân trước mưa tên.",
     icon: "textures/items/steel_alloy_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2887,6 +3100,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_leggings",
     category: "armor",
     name: "Quần Thiếc",
+    description: "Quần Thiếc. Lỏng lẻo, phát ra tiếng tôn kêu cọt kẹt khi bạn di chuyển.",
     icon: "textures/items/tin_leggings",
     info: {
       "Chế tạo": "1 nguyên liệu",
@@ -2900,6 +3114,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedbeets",
     category: "foods",
     name: "Đồ Hộp Củ Dền",
+    description: "Củ dền đỏ ngâm đóng hộp. Hương vị ngọt gắt nhưng là nguồn năng lượng dự trữ tuyệt vời cho cơ thể.",
     icon: "textures/items/cannedbeets",
     info: {
       "Dinh dưỡng": 6,
@@ -2910,6 +3125,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedbread",
     category: "foods",
     name: "Đồ Hộp Bánh Mì",
+    description: "Bánh mì nén chặt trong hộp thiếc. Dù hơi khô khan nhưng đảm bảo không bao giờ bị nấm mốc làm hỏng.",
     icon: "textures/items/cannedbread",
     info: {
       "Dinh dưỡng": 5,
@@ -2920,6 +3136,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedcarrots",
     category: "foods",
     name: "Đồ Hộp Cà Rốt",
+    description: "Cà rốt đóng hộp. Lượng vitamin A dồi dào được bảo toàn, giúp mắt bạn sáng rõ trong bóng tối (hiệu ứng Nhìn Đêm).",
     icon: "textures/items/cannedcarrots",
     info: {
       "Dinh dưỡng": 4,
@@ -2931,6 +3148,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canneddogfood",
     category: "foods",
     name: "Đồ Hộp Thức Ăn Chó",
+    description: "Thức ăn vụn trộn xương đóng hộp, thường dành cho động vật. Ăn vào sẽ gây buồn nôn, chỉ nên dùng trong bước đường cùng.",
     icon: "textures/items/canneddogfood",
     info: {
       "Dinh dưỡng": 2,
@@ -2942,6 +3160,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedfish",
     category: "foods",
     name: "Đồ Hộp Cá",
+    description: "Cá mòi đóng hộp ngâm dầu. Cung cấp dưỡng chất đặc biệt giúp tăng cường khả năng nín thở dưới nước.",
     icon: "textures/items/cannedfish",
     info: {
       "Dinh dưỡng": 5,
@@ -2953,6 +3172,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedmeal",
     category: "foods",
     name: "Đồ Hộp Bữa Ăn",
+    description: "Khẩu phần ăn chiến thuật (MRE) đóng hộp. Một bữa ăn hoàn chỉnh và xa xỉ, kích hoạt khả năng Hồi Máu nhanh tức thì.",
     icon: "textures/items/cannedmeal",
     info: {
       "Dinh dưỡng": 12,
@@ -2964,6 +3184,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedmushroomsoup",
     category: "foods",
     name: "Đồ Hộp Súp Nấm",
+    description: "Súp nấm cô đặc đóng hộp. Thơm ngon, sánh mịn, làm no bụng và xua tan mệt mỏi rất hiệu quả.",
     icon: "textures/items/cannedmushroomsoup",
     info: {
       "Dinh dưỡng": 6,
@@ -2974,6 +3195,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cannedsalad",
     category: "foods",
     name: "Đồ Hộp Salad",
+    description: "Salad rau củ trộn đóng hộp. Thanh mát và tươi mọng, mang lại hiệu ứng Tăng máu tối đa (Health Boost) trong thời gian ngắn.",
     icon: "textures/items/cannedsalad",
     info: {
       "Dinh dưỡng": 3,
@@ -2985,6 +3207,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canned_food",
     category: "foods",
     name: "Đồ Hộp Thịt",
+    description: "Thịt hầm đóng hộp giàu đạm. Cung cấp lượng lớn độ no và dinh dưỡng cho những chuyến thám hiểm dài ngày.",
     icon: "textures/items/canned_food",
     info: {
       "Dinh dưỡng": 10,
@@ -2995,6 +3218,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:canned_pumpkin",
     category: "foods",
     name: "Đồ Hộp Bí Ngô",
+    description: "Bí ngô xay nhuyễn đóng hộp. Món ăn thanh đạm giúp cơ thể dịu mát, cung cấp hiệu ứng Kháng Lửa nhẹ.",
     icon: "textures/items/canned_pumpkin",
     info: {
       "Dinh dưỡng": 4,
@@ -3018,6 +3242,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cookies",
     category: "foods",
     name: "Đồ Hộp Bánh Quy",
+    description: "Bánh quy vụn giữ trong hộp thiếc. Lượng đường cực cao giúp cơ bắp hoạt động hết công suất (hiệu ứng Đào Nhanh).",
     icon: "textures/items/cookies",
     info: {
       "Dinh dưỡng": 4,
@@ -3029,6 +3254,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:fruit_salad",
     category: "foods",
     name: "Đồ Hộp Salad Trái Cây",
+    description: "Trái cây thập cẩm ngâm đường đóng hộp. Vị chua ngọt đem lại sự sảng khoái và bứt tốc độ chạy (Tăng tốc).",
     icon: "textures/items/fruit_salad",
     info: {
       "Dinh dưỡng": 6,
@@ -3040,6 +3266,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:luncheonmeat",
     category: "foods",
     name: "Đồ Hộp Thịt Nguội",
+    description: "Thịt hộp Spam nguyên khối (Luncheon Meat). Cực kỳ đậm đà và đặc thịt, giúp bạn no rất lâu không biết đói.",
     icon: "textures/items/luncheonmeat",
     info: {
       "Dinh dưỡng": 8,
@@ -3051,6 +3278,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_block",
     category: "materials",
     name: "Khối Ardite",
+    description: "Khối kim loại đúc từ 9 thỏi Ardite. Nặng nề, đỏ rực và tỏa ra khí nóng âm ỉ của địa ngục.",
     icon: "textures/blocks/ardite_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3060,6 +3288,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:bronze_block",
     category: "materials",
     name: "Khối Đồng Thanh",
+    description: "Khối Đồng Thanh nguyên khối. Thích hợp để lưu trữ hoặc xây dựng những công trình mang nét cổ điển.",
     icon: "textures/blocks/bronze_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3069,6 +3298,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:cobalt_block",
     category: "materials",
     name: "Khối Cobalt",
+    description: "Khối kim loại đúc từ Cobalt. Màu xanh biếc bắt mắt, nhẹ nhưng cực kỳ cứng chắc.",
     icon: "textures/blocks/cobalt_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3078,6 +3308,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:electrum_block",
     category: "materials",
     name: "Khối Electrum",
+    description: "Khối Electrum rực rỡ. Sự kết hợp giữa Vàng và Bạc khiến nó trở thành một khối trang trí mang đậm tính ma thuật.",
     icon: "textures/blocks/electrum_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3087,6 +3318,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:invar_block",
     category: "materials",
     name: "Khối Invar",
+    description: "Khối hợp kim Invar. Một khối lập phương siêu chịu nhiệt, không thể bị biến dạng bởi lửa hay dung nham.",
     icon: "textures/blocks/invar_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3096,6 +3328,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:lead_block",
     category: "materials",
     name: "Khối Chì",
+    description: "Khối Chì đặc. Nặng đến mức khó tin, dùng làm rào cản hoàn hảo chống lại các vụ nổ cực mạnh.",
     icon: "textures/blocks/lead_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3105,6 +3338,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:manyullyn_block",
     category: "materials",
     name: "Khối Manyullyn",
+    description: "Khối Manyullyn ánh tím. Phát ra nguồn năng lượng hủy diệt, biểu tượng của sự thống trị tuyệt đối.",
     icon: "textures/blocks/manyullyn_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3114,6 +3348,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:nickel_block",
     category: "materials",
     name: "Khối Niken",
+    description: "Khối Niken lấp lánh. Bề mặt nhẵn bóng không bao giờ bị xỉn màu hay gỉ sét theo thời gian.",
     icon: "textures/blocks/nickel_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3123,6 +3358,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:platinum_block",
     category: "materials",
     name: "Khối Bạch Kim",
+    description: "Khối Bạch Kim xa hoa. Vẻ đẹp hoàn mỹ của nó khiến những vương miện kim cương cũng phải lu mờ.",
     icon: "textures/blocks/platinum_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3132,6 +3368,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:silver_block",
     category: "materials",
     name: "Khối Bạc",
+    description: "Khối Bạc tinh khiết. Ánh sáng bàng bạc của nó khiến những sinh vật hắc ám không dám tới gần.",
     icon: "textures/blocks/silver_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3141,6 +3378,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:steel_alloy_block",
     category: "materials",
     name: "Khối Hợp Kim Thép",
+    description: "Khối Thép công nghiệp. Biểu tượng của sự vững chãi, khó có tác động vật lý nào có thể phá vỡ nó.",
     icon: "textures/blocks/steel_alloy_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3150,6 +3388,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:tin_block",
     category: "materials",
     name: "Khối Thiếc",
+    description: "Khối Thiếc cơ bản. Khá mềm để làm vật liệu xây dựng, chủ yếu dùng để tiết kiệm không gian lưu trữ.",
     icon: "textures/blocks/tin_block",
     info: {
       "Chế tạo": "1 nguyên liệu"
@@ -3159,6 +3398,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:alloy_mixing_table",
     category: "materials",
     name: "Bàn Trộn Hợp Kim",
+    description: "Bàn kỹ thuật chuyên dụng. Dùng để pha trộn các loại bụi nguyên chất thành các loại bụi hợp kim mới trước khi đem nung.",
     icon: "textures/items/alloy_mixing_table_front",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -3168,6 +3408,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:compressor",
     category: "materials",
     name: "Máy Nén",
+    description: "Máy nén áp suất cao. Chuyên dùng để ép các thỏi kim loại thành các tấm kim loại (Plate) đặc chắc.",
     icon: "textures/items/compressor_side",
     info: {
       "Chế tạo": "5 nguyên liệu"
@@ -3177,12 +3418,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:compressor_on",
     category: "materials",
     name: "Máy Nén (Đang Hoạt Động)",
+    description: "Máy nén đang trong trạng thái hoạt động, tỏa ra sức nóng và tiếng búa đập chát chúa để ép kim loại.",
     icon: "textures/items/compressor_side",
   },
   {
     id: "apeirix:crusher",
     category: "materials",
     name: "Máy Nghiền",
+    description: "Máy nghiền khoáng sản cơ bản. Nghiền nát quặng thô và đá thành các loại bụi kim loại để dễ dàng xử lý.",
     icon: "textures/items/crusher_side",
     info: {
       "Chế tạo": "5 nguyên liệu"
@@ -3192,12 +3435,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:crusher_on",
     category: "materials",
     name: "Máy Nghiền (Đang Hoạt Động)",
+    description: "Máy nghiền đang chạy. Các bánh răng bên trong đang nghiền nát mọi thứ được đưa vào thành bụi mịn.",
     icon: "textures/items/crusher_side",
   },
   {
     id: "apeirix:ore_crusher_mk1",
     category: "materials",
     name: "Máy Nghiền Quặng MK1",
+    description: "Máy nghiền quặng tự động MK1. Hoạt động bằng nhiên liệu than, tự động nghiền quặng chạm vào nó thành bụi (x1 sản lượng).",
     icon: "textures/items/orecrushermk1allothersides",
     info: {
       "Chế tạo": "5 nguyên liệu"
@@ -3207,6 +3452,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ore_crusher_mk2",
     category: "materials",
     name: "Máy Nghiền Quặng MK2",
+    description: "Máy nghiền quặng tự động MK2. Nâng cấp bằng kim cương, tốc độ nhanh hơn và cho sản lượng bụi kim loại lên tới x1.5.",
     icon: "textures/items/orecrushermk1allothersides",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -3216,6 +3462,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ore_crusher_mk3",
     category: "materials",
     name: "Máy Nghiền Quặng MK3",
+    description: "Máy nghiền quặng tự động tối tân MK3. Lõi Netherite mang lại tốc độ chớp nhoáng và nhân đôi (x2) lượng bụi kim loại thu được.",
     icon: "textures/items/orecrushermk1allothersides",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -3225,6 +3472,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ore_sieve",
     category: "materials",
     name: "Rây Sàng Quặng",
+    description: "Rây sàng quặng. Dùng để lọc cát và sỏi một cách cơ học nhằm tìm kiếm những hạt bụi kim loại có giá trị.",
     icon: "textures/items/ore_sieve_off",
     info: {
       "Chế tạo": "2 nguyên liệu"
@@ -3234,12 +3482,14 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ore_sieve_on",
     category: "materials",
     name: "Rây Sàng Quặng (Đang Hoạt Động)",
+    description: "Hệ thống rây sàng đang rung lắc dữ dội để lọc cặn bã khỏi sỏi cát.",
     icon: "textures/items/ore_sieve",
   },
   {
     id: "apeirix:ore_washer",
     category: "materials",
     name: "Máy Rửa Quặng",
+    description: "Máy rửa quặng. Sử dụng nước để rửa sạch bụi khoáng sản thông thường thành Bụi Tinh Khiết (Pure Dust), chuẩn bị cho việc nung chảy.",
     icon: "textures/items/ore_washer",
     info: {
       "Chế tạo": "3 nguyên liệu"
@@ -3249,84 +3499,98 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:ardite_ore",
     category: "materials",
     name: "Quặng Ardite",
+    description: "Quặng Ardite ẩn mình trong đá Netherrack. Chứa đựng nguồn nhiệt lượng bạo tàn của Nether.",
     icon: "textures/items/ardite_ore",
   },
   {
     id: "apeirix:cobalt_ore",
     category: "materials",
     name: "Quặng Cobalt",
+    description: "Quặng Cobalt xanh rực mọc trên đá Nether. Nhẹ nhàng nhưng cực kỳ dẻo dai.",
     icon: "textures/items/cobalt_ore",
   },
   {
     id: "apeirix:lead_ore",
     category: "materials",
     name: "Quặng Chì",
+    description: "Quặng Chì thô bám trên đá thường. Có màu xám tối và tỏa ra khí tức nặng nề.",
     icon: "textures/items/lead_ore",
   },
   {
     id: "apeirix:deepslate_lead_ore",
     category: "materials",
     name: "Quặng Chì Đá Sâu",
+    description: "Quặng Chì thô bám trên đá thường. Có màu xám tối và tỏa ra khí tức nặng nề.",
     icon: "textures/items/deepslate_lead_ore",
   },
   {
     id: "apeirix:nickel_ore",
     category: "materials",
     name: "Quặng Niken",
+    description: "Quặng Niken lấp lánh. Thường được tìm thấy đan xen ở những tầng địa chất bậc trung.",
     icon: "textures/items/nickel_ore",
   },
   {
     id: "apeirix:deepslate_nickel_ore",
     category: "materials",
     name: "Quặng Niken Đá Sâu",
+    description: "Quặng Niken lấp lánh. Thường được tìm thấy đan xen ở những tầng địa chất bậc trung.",
     icon: "textures/items/deepslate_nickel_ore",
   },
   {
     id: "apeirix:platinum_ore",
     category: "materials",
     name: "Quặng Bạch Kim",
+    description: "Quặng Bạch Kim cực hiếm. Ẩn chứa tinh hoa khoáng sản quý giá nhất của thế giới ngầm.",
     icon: "textures/items/platinum_ore",
   },
   {
     id: "apeirix:deepslate_platinum_ore",
     category: "materials",
     name: "Quặng Bạch Kim Đá Sâu",
+    description: "Quặng Bạch Kim cực hiếm. Ẩn chứa tinh hoa khoáng sản quý giá nhất của thế giới ngầm.",
     icon: "textures/items/deepslate_platinum_ore",
   },
   {
     id: "apeirix:silver_ore",
     category: "materials",
     name: "Quặng Bạc",
+    description: "Quặng Bạc. Những tinh thể bàng bạc phát sáng nhẹ trong bóng tối, mang năng lượng thanh tẩy.",
     icon: "textures/items/silver_ore",
   },
   {
     id: "apeirix:deepslate_silver_ore",
     category: "materials",
     name: "Quặng Bạc Đá Sâu",
+    description: "Quặng Bạc. Những tinh thể bàng bạc phát sáng nhẹ trong bóng tối, mang năng lượng thanh tẩy.",
     icon: "textures/items/deepslate_silver_ore",
   },
   {
     id: "apeirix:tin_ore",
     category: "materials",
     name: "Quặng Thiếc",
+    description: "Quặng Thiếc cơ bản. Dễ dàng tìm thấy ở những tầng đất nông, khởi đầu cho mọi nhà thám hiểm.",
     icon: "textures/items/tin_ore",
   },
   {
     id: "apeirix:deepslate_tin_ore",
     category: "materials",
     name: "Quặng Thiếc Đá Sâu",
+    description: "Quặng Thiếc cơ bản. Dễ dàng tìm thấy ở những tầng đất nông, khởi đầu cho mọi nhà thám hiểm.",
     icon: "textures/items/deepslate_tin_ore",
   },
   {
     id: "apeirix:rust_mite",
     category: "materials",
     name: "Bọ Ăn Rỉ Sét",
+    description: "Một loài sinh vật phiền toái sinh sống dưới lòng đất. Chúng bị thu hút mãnh liệt bởi đồ hộp bẩn và các loại bụi kim loại.",
     icon: "textures/items/rust_mite",
   },
   {
     id: "apeirix:item_bait_marker",
     category: "materials",
     name: "item_bait_marker",
+    description: "Thực thể đánh dấu tàng hình, dùng để định vị các vật phẩm thu hút Bọ Ăn Rỉ Sét.",
     icon: "textures/items/rust_mite",
   }
 ];

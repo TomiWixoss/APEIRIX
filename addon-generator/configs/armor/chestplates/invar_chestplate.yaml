@@ -1,6 +1,7 @@
 type: chestplate
 id: invar_chestplate
 name: lang:armor.invar_chestplate
+wikiDescription: lang:wiki.materials.invar_chestplate
 texture: ../assets/items/invar_chestplate.png
 durability: 320
 protection: 5

@@ -1,6 +1,7 @@
 type: pickaxe
 id: lead_pickaxe
 name: lang:tools.lead_pickaxe
+wikiDescription: lang:wiki.materials.lead_pickaxe
 texture: ../assets/lead_pickaxe.png
 damage: 4
 category: equipment

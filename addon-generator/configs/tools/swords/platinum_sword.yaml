@@ -1,6 +1,7 @@
 type: sword
 id: platinum_sword
 name: lang:tools.platinum_sword
+wikiDescription: lang:wiki.materials.platinum_sword
 texture: ../assets/platinum_sword.png
 damage: 8
 category: equipment

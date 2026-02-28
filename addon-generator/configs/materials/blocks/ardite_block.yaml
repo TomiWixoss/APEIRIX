@@ -1,6 +1,7 @@
 id: ardite_block
 displayType: storage
 name: lang:materials.ardite_block
+wikiDescription: lang:wiki.materials.ardite_block
 texture: ../assets/blocks/ardite_block.png
 category: construction
 destroyTime: 20.0

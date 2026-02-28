@@ -1,5 +1,6 @@
 id: nickel_ore
 name: lang:materials.nickel_ore
+wikiDescription: lang:wiki.materials.nickel_ore
 texturePath: ../assets/ores/nickel_ore.png
 deepslateTexturePath: ../assets/ores/deepslate_nickel_ore.png
 rawItemId: raw_nickel

@@ -7,7 +7,7 @@ import { langLoader } from '../../core/loaders/LangLoader.js';
  * 
  * Auto-generates:
  * - Names from lang files
- * - Descriptions from wikiDescription field
+ * - Descriptions from wikiDescription field (supports lang: prefix)
  * - Icons from texture paths
  * - Info from entity properties (durability, damage, nutrition, etc.)
  */
@@ -124,7 +124,20 @@ export class WikiDataBPGenerator {
     
     const id = `apeirix:${entity.id}`;
     const name = this.resolveName(entity, category, configDir);
-    const description = entity.wikiDescription;
+    
+    // Resolve description from wikiDescription field (supports lang: prefix)
+    let description: string | undefined;
+    if (entity.wikiDescription) {
+      if (entity.wikiDescription.startsWith('lang:')) {
+        // Extract lang key from "lang:wiki.category.item_id" format
+        const langKey = entity.wikiDescription.replace('lang:', '');
+        description = langLoader.get(langKey, configDir, undefined);
+      } else {
+        // Direct text (backward compatibility)
+        description = entity.wikiDescription;
+      }
+    }
+    
     const icon = this.extractIcon(entity);
     const info = this.buildInfo(entity, category, configDir);
     
@@ -133,7 +146,7 @@ export class WikiDataBPGenerator {
       Logger.warn(`⚠️  ${category} ${entity.id} missing icon`);
     }
     if (!description) {
-      Logger.warn(`⚠️  ${category} ${entity.id} missing description`);
+      Logger.warn(`⚠️  ${category} ${entity.id} missing wiki description`);
     }
     
     return {

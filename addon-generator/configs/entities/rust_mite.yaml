@@ -1,5 +1,6 @@
 id: rust_mite
 name: lang:entities.rust_mite
+wikiDescription: lang:wiki.materials.rust_mite
 spawnEgg:
   texture: assets/entities/spawn_egg_rust_mite.png
   baseColor: "#8B4513"

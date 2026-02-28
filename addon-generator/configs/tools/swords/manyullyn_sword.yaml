@@ -1,6 +1,7 @@
 type: sword
 id: manyullyn_sword
 name: lang:tools.manyullyn_sword
+wikiDescription: lang:wiki.materials.manyullyn_sword
 texture: ../assets/manyullyn_sword.png
 damage: 8
 category: equipment

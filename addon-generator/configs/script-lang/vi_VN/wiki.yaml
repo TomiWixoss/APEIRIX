@@ -1,5 +1,5 @@
 # Vietnamese Wiki UI Language
-# Wiki item data nằm trong thư mục wiki/ (materials/, tools/, armor/, foods/, special/)
+# Wiki item descriptions are stored in wiki/ subdirectory (materials.yaml, tools.yaml, armor.yaml, foods.yaml)
 
 wiki:
   # UI Text

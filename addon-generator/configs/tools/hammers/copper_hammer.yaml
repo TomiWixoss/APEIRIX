@@ -1,6 +1,7 @@
 type: hammer
 id: copper_hammer
 name: lang:tools.copper_hammer
+wikiDescription: lang:wiki.materials.copper_hammer
 texture: ../assets/copper_hammer.png
 damage: 2
 category: equipment

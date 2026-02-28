@@ -1,6 +1,7 @@
 id: alloy_mixing_table
 displayType: other
 name: lang:blocks.alloy_mixing_table
+wikiDescription: lang:wiki.materials.alloy_mixing_table
 textures:
   up: ../../machines/assets/alloy_mixing_table_top.png
   down: ../../machines/assets/alloy_mixing_table_top.png

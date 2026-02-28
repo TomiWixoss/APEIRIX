@@ -1,5 +1,6 @@
 id: electrum_ingot_dust_pure
 name: lang:materials.electrum_ingot_dust_pure
+wikiDescription: lang:wiki.materials.electrum_ingot_dust_pure
 texture: ../assets/dusts/electrum_ingot_dust_pure.png
 category: items
 maxStackSize: 64

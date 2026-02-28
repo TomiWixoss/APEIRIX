@@ -1,6 +1,7 @@
 type: axe
 id: platinum_axe
 name: lang:tools.platinum_axe
+wikiDescription: lang:wiki.materials.platinum_axe
 texture: ../assets/platinum_axe.png
 damage: 7
 category: equipment

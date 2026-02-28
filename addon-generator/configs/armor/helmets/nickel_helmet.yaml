@@ -1,6 +1,7 @@
 type: helmet
 id: nickel_helmet
 name: lang:armor.nickel_helmet
+wikiDescription: lang:wiki.materials.nickel_helmet
 texture: ../assets/items/nickel_helmet.png
 durability: 220
 protection: 2

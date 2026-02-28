@@ -1,6 +1,7 @@
 type: boots
 id: steel_alloy_boots
 name: lang:armor.steel_alloy_boots
+wikiDescription: lang:wiki.materials.steel_boots
 texture: ../assets/items/steel_alloy_boots.png
 durability: 520
 protection: 3

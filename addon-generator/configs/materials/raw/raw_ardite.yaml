@@ -1,5 +1,6 @@
 id: raw_ardite
 name: lang:materials.raw_ardite
+wikiDescription: lang:wiki.materials.raw_ardite
 texture: ../assets/raw/raw_ardite.png
 category: items
 maxStackSize: 64

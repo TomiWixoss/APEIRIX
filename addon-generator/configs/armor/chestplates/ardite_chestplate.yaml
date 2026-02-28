@@ -1,6 +1,7 @@
 type: chestplate
 id: ardite_chestplate
 name: lang:armor.ardite_chestplate
+wikiDescription: lang:wiki.materials.ardite_chestplate
 texture: ../assets/items/ardite_chestplate.png
 durability: 320
 protection: 5

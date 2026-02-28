@@ -1,5 +1,6 @@
 id: tin_nugget
 name: lang:materials.tin_nugget
+wikiDescription: lang:wiki.materials.tin_nugget
 texture: ../assets/nuggets/tin_nugget.png
 category: items
 maxStackSize: 64

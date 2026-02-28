@@ -1,5 +1,6 @@
 id: cobalt_nugget
 name: lang:materials.cobalt_nugget
+wikiDescription: lang:wiki.materials.cobalt_nugget
 texture: ../assets/nuggets/cobalt_nugget.png
 category: items
 maxStackSize: 64

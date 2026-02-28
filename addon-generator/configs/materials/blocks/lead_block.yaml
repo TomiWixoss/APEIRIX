@@ -1,6 +1,7 @@
 id: lead_block
 displayType: storage
 name: lang:materials.lead_block
+wikiDescription: lang:wiki.materials.lead_block
 texture: ../assets/blocks/lead_block.png
 category: construction
 destroyTime: 18.0

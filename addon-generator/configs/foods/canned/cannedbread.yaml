@@ -1,5 +1,6 @@
 id: cannedbread
 name: lang:foods.cannedbread
+wikiDescription: lang:wiki.materials.cannedbread
 texture: ../assets/cannedbread.png
 category: items
 stackSize: 64

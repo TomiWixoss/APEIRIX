@@ -1,5 +1,6 @@
 id: raw_bronze
 name: lang:materials.raw_bronze
+wikiDescription: lang:wiki.materials.raw_bronze
 texture: ../assets/raw/raw_bronze.png
 category: items
 maxStackSize: 64

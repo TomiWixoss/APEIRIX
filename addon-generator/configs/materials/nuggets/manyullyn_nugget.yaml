@@ -1,5 +1,6 @@
 id: manyullyn_nugget
 name: lang:materials.manyullyn_nugget
+wikiDescription: lang:wiki.materials.manyullyn_nugget
 texture: ../assets/nuggets/manyullyn_nugget.png
 category: items
 maxStackSize: 64

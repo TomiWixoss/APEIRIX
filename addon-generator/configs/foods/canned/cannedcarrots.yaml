@@ -1,5 +1,6 @@
 id: cannedcarrots
 name: lang:foods.cannedcarrots
+wikiDescription: lang:wiki.materials.cannedcarrots
 texture: ../assets/cannedcarrots.png
 category: items
 stackSize: 64

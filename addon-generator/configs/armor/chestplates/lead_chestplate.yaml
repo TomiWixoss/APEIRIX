@@ -1,6 +1,7 @@
 type: chestplate
 id: lead_chestplate
 name: lang:armor.lead_chestplate
+wikiDescription: lang:wiki.materials.lead_chestplate
 texture: ../assets/items/lead_chestplate.png
 durability: 320
 protection: 5

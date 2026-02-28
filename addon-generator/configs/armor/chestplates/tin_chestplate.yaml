@@ -1,6 +1,7 @@
 type: chestplate
 id: tin_chestplate
 name: lang:armor.tin_chestplate
+wikiDescription: lang:wiki.materials.tin_chestplate
 texture: ../assets/items/tin_chestplate.png
 durability: 320
 protection: 5

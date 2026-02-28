@@ -1,5 +1,6 @@
 id: raw_nickel
 name: lang:materials.raw_nickel
+wikiDescription: lang:wiki.materials.raw_nickel
 texture: ../assets/raw/raw_nickel.png
 category: items
 maxStackSize: 64

@@ -1,5 +1,6 @@
 id: steel_alloy_base_gear
 name: lang:materials.steel_alloy_base_gear
+wikiDescription: lang:wiki.materials.steel_alloy_base_gear
 texture: ../assets/special/steel_alloy_base_gear.png
 category: items
 maxStackSize: 64

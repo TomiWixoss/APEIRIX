@@ -1,6 +1,7 @@
 type: axe
 id: lead_axe
 name: lang:tools.lead_axe
+wikiDescription: lang:wiki.materials.lead_axe
 texture: ../assets/lead_axe.png
 damage: 5
 category: equipment

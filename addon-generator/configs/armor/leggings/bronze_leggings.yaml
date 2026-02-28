@@ -1,6 +1,7 @@
 type: leggings
 id: bronze_leggings
 name: lang:armor.bronze_leggings
+wikiDescription: lang:wiki.materials.bronze_leggings
 texture: ../assets/items/bronze_leggings.png
 durability: 300
 protection: 4

@@ -1,5 +1,6 @@
 id: cookies
 name: lang:foods.cookies
+wikiDescription: lang:wiki.materials.cookies
 texture: ../assets/cookies.png
 category: items
 maxStackSize: 64

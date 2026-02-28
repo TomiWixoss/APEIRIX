@@ -1,6 +1,7 @@
 type: shovel
 id: electrum_shovel
 name: lang:tools.electrum_shovel
+wikiDescription: lang:wiki.materials.electrum_shovel
 texture: ../assets/electrum_shovel.png
 damage: 3
 category: equipment

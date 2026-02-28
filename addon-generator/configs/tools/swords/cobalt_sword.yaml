@@ -1,6 +1,7 @@
 type: sword
 id: cobalt_sword
 name: lang:tools.cobalt_sword
+wikiDescription: lang:wiki.materials.cobalt_sword
 texture: ../assets/cobalt_sword.png
 damage: 6
 category: equipment

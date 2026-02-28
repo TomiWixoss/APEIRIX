@@ -1,5 +1,6 @@
 id: invar_ingot_dust
 name: lang:materials.invar_ingot_dust
+wikiDescription: lang:wiki.materials.invar_ingot_dust
 texture: ../assets/dusts/invar_ingot_dust.png
 category: items
 maxStackSize: 64

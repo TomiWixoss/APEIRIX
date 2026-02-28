@@ -1,6 +1,7 @@
 type: axe
 id: invar_axe
 name: lang:tools.invar_axe
+wikiDescription: lang:wiki.materials.invar_axe
 texture: ../assets/invar_axe.png
 damage: 5
 category: equipment

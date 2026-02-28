@@ -1,6 +1,7 @@
 type: hammer
 id: lead_hammer
 name: lang:tools.lead_hammer
+wikiDescription: lang:wiki.materials.lead_hammer
 texture: ../assets/lead_hammer.png
 damage: 4
 category: equipment

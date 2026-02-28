@@ -1,6 +1,7 @@
 type: hammer
 id: tin_hammer
 name: lang:tools.tin_hammer
+wikiDescription: lang:wiki.materials.tin_hammer
 texture: ../assets/tin_hammer.png
 damage: 4
 category: equipment

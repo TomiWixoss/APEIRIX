@@ -1,5 +1,6 @@
 id: redstone_dust_pure
 name: lang:materials.redstone_dust_pure
+wikiDescription: lang:wiki.materials.redstone_dust_pure
 texture: ../assets/dusts/redstone_dust_pure.png
 category: items
 maxStackSize: 64

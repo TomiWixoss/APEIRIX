@@ -1,5 +1,6 @@
 id: diamond_dust_pure
 name: lang:materials.diamond_dust_pure
+wikiDescription: lang:wiki.materials.diamond_dust_pure
 texture: ../assets/dusts/diamond_dust_pure.png
 category: items
 maxStackSize: 64

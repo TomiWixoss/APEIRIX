@@ -1,6 +1,7 @@
 type: sword
 id: bronze_sword
 name: lang:tools.bronze_sword
+wikiDescription: lang:wiki.materials.bronze_sword
 texture: ../assets/bronze_sword.png
 damage: 6
 category: equipment

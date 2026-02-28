@@ -1,6 +1,7 @@
 type: hoe
 id: electrum_hoe
 name: lang:tools.electrum_hoe
+wikiDescription: lang:wiki.materials.electrum_hoe
 texture: ../assets/electrum_hoe.png
 damage: 4
 category: equipment

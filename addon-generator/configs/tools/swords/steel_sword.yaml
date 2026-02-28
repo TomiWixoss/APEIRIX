@@ -1,6 +1,7 @@
 type: sword
 id: steel_alloy_sword
 name: lang:tools.steel_alloy_sword
+wikiDescription: lang:wiki.materials.steel_sword
 texture: ../assets/steel_alloy_sword.png
 damage: 7
 category: equipment

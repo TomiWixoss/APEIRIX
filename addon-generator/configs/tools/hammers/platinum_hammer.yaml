@@ -1,6 +1,7 @@
 type: hammer
 id: platinum_hammer
 name: lang:tools.platinum_hammer
+wikiDescription: lang:wiki.materials.platinum_hammer
 texture: ../assets/platinum_hammer.png
 damage: 6
 category: equipment

@@ -1,6 +1,7 @@
 type: axe
 id: tin_axe
 name: lang:tools.tin_axe
+wikiDescription: lang:wiki.materials.tin_axe
 texture: ../assets/tin_axe.png
 damage: 5
 category: equipment

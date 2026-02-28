@@ -1,6 +1,7 @@
 type: pickaxe
 id: ardite_pickaxe
 name: lang:tools.ardite_pickaxe
+wikiDescription: lang:wiki.materials.ardite_pickaxe
 texture: ../assets/ardite_pickaxe.png
 damage: 4
 category: equipment

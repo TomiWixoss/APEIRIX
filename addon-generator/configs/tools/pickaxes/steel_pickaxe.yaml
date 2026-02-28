@@ -1,6 +1,7 @@
 type: pickaxe
 id: steel_alloy_pickaxe
 name: lang:tools.steel_alloy_pickaxe
+wikiDescription: lang:wiki.materials.steel_pickaxe
 texture: ../assets/steel_alloy_pickaxe.png
 damage: 5
 category: equipment

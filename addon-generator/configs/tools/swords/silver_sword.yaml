@@ -1,6 +1,7 @@
 type: sword
 id: silver_sword
 name: lang:tools.silver_sword
+wikiDescription: lang:wiki.materials.silver_sword
 texture: ../assets/silver_sword.png
 damage: 6
 category: equipment

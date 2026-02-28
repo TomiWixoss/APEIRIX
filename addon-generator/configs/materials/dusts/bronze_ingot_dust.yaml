@@ -1,5 +1,6 @@
 id: bronze_ingot_dust
 name: lang:materials.bronze_ingot_dust
+wikiDescription: lang:wiki.materials.bronze_ingot_dust
 texture: ../assets/dusts/bronze_ingot_dust.png
 category: items
 maxStackSize: 64

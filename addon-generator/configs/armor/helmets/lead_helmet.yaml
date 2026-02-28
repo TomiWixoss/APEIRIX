@@ -1,6 +1,7 @@
 type: helmet
 id: lead_helmet
 name: lang:armor.lead_helmet
+wikiDescription: lang:wiki.materials.lead_helmet
 texture: ../assets/items/lead_helmet.png
 durability: 220
 protection: 2

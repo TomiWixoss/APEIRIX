@@ -1,6 +1,7 @@
 type: hammer
 id: nickel_hammer
 name: lang:tools.nickel_hammer
+wikiDescription: lang:wiki.materials.nickel_hammer
 texture: ../assets/nickel_hammer.png
 damage: 4
 category: equipment

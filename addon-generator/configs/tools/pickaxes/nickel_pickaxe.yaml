@@ -1,6 +1,7 @@
 type: pickaxe
 id: nickel_pickaxe
 name: lang:tools.nickel_pickaxe
+wikiDescription: lang:wiki.materials.nickel_pickaxe
 texture: ../assets/nickel_pickaxe.png
 damage: 4
 category: equipment

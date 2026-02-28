@@ -1,6 +1,7 @@
 type: chestplate
 id: steel_alloy_chestplate
 name: lang:armor.steel_alloy_chestplate
+wikiDescription: lang:wiki.materials.steel_chestplate
 texture: ../assets/items/steel_alloy_chestplate.png
 durability: 640
 protection: 8

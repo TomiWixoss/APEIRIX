@@ -1,5 +1,6 @@
 id: engineering_hammer
 name: lang:materials.engineering_hammer
+wikiDescription: lang:wiki.materials.engineering_hammer
 texture: ../../tools/assets/engineering_hammer.png
 category: items
 maxStackSize: 1

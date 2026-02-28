@@ -1,6 +1,7 @@
 type: shovel
 id: tin_shovel
 name: lang:tools.tin_shovel
+wikiDescription: lang:wiki.materials.tin_shovel
 texture: ../assets/tin_shovel.png
 damage: 3
 category: equipment

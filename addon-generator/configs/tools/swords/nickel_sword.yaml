@@ -1,6 +1,7 @@
 type: sword
 id: nickel_sword
 name: lang:tools.nickel_sword
+wikiDescription: lang:wiki.materials.nickel_sword
 texture: ../assets/nickel_sword.png
 damage: 6
 category: equipment

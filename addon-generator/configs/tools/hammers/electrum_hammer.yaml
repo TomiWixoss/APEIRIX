@@ -1,6 +1,7 @@
 type: hammer
 id: electrum_hammer
 name: lang:tools.electrum_hammer
+wikiDescription: lang:wiki.materials.electrum_hammer
 texture: ../assets/electrum_hammer.png
 damage: 4
 category: equipment

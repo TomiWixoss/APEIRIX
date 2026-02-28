@@ -1,6 +1,7 @@
 type: pickaxe
 id: cobalt_pickaxe
 name: lang:tools.cobalt_pickaxe
+wikiDescription: lang:wiki.materials.cobalt_pickaxe
 texture: ../assets/cobalt_pickaxe.png
 damage: 4
 category: equipment

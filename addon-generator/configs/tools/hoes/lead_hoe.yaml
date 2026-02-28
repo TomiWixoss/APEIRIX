@@ -1,6 +1,7 @@
 type: hoe
 id: lead_hoe
 name: lang:tools.lead_hoe
+wikiDescription: lang:wiki.materials.lead_hoe
 texture: ../assets/lead_hoe.png
 damage: 4
 category: equipment

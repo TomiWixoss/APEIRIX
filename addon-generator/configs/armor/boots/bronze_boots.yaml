@@ -1,6 +1,7 @@
 type: boots
 id: bronze_boots
 name: lang:armor.bronze_boots
+wikiDescription: lang:wiki.materials.bronze_boots
 texture: ../assets/items/bronze_boots.png
 durability: 260
 protection: 1

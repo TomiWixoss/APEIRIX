@@ -1,6 +1,7 @@
 type: hammer
 id: invar_hammer
 name: lang:tools.invar_hammer
+wikiDescription: lang:wiki.materials.invar_hammer
 texture: ../assets/invar_hammer.png
 damage: 4
 category: equipment

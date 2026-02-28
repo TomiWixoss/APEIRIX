@@ -1,5 +1,6 @@
 id: canned_pumpkin
 name: lang:foods.canned_pumpkin
+wikiDescription: lang:wiki.materials.canned_pumpkin
 texture: ../assets/canned_pumpkin.png
 category: items
 stackSize: 64

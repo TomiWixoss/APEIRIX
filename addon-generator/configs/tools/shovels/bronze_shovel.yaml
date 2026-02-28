@@ -1,6 +1,7 @@
 type: shovel
 id: bronze_shovel
 name: lang:tools.bronze_shovel
+wikiDescription: lang:wiki.materials.bronze_shovel
 texture: ../assets/bronze_shovel.png
 damage: 3
 category: equipment

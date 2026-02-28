@@ -1,5 +1,6 @@
 id: silver_ore
 name: lang:materials.silver_ore
+wikiDescription: lang:wiki.materials.silver_ore
 texturePath: ../assets/ores/silver_ore.png
 deepslateTexturePath: ../assets/ores/deepslate_silver_ore.png
 rawItemId: raw_silver

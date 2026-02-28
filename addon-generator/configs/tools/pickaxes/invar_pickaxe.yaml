@@ -1,6 +1,7 @@
 type: pickaxe
 id: invar_pickaxe
 name: lang:tools.invar_pickaxe
+wikiDescription: lang:wiki.materials.invar_pickaxe
 texture: ../assets/invar_pickaxe.png
 damage: 4
 category: equipment

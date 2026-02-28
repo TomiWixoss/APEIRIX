@@ -1,6 +1,7 @@
 type: leggings
 id: manyullyn_leggings
 name: lang:armor.manyullyn_leggings
+wikiDescription: lang:wiki.materials.manyullyn_leggings
 texture: ../assets/items/manyullyn_leggings.png
 durability: 375
 protection: 5

@@ -1,6 +1,7 @@
 type: boots
 id: platinum_boots
 name: lang:armor.platinum_boots
+wikiDescription: lang:wiki.materials.platinum_boots
 texture: ../assets/items/platinum_boots.png
 durability: 520
 protection: 3

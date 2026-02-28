@@ -1,6 +1,7 @@
 type: hammer
 id: stone_hammer
 name: lang:tools.stone_hammer
+wikiDescription: lang:wiki.materials.stone_hammer
 texture: ../assets/stone_hammer.png
 damage: 2
 category: equipment

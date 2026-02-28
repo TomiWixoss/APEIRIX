@@ -1,6 +1,7 @@
 type: shovel
 id: cobalt_shovel
 name: lang:tools.cobalt_shovel
+wikiDescription: lang:wiki.materials.cobalt_shovel
 texture: ../assets/cobalt_shovel.png
 damage: 3
 category: equipment

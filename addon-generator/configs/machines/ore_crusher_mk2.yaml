@@ -1,6 +1,7 @@
 id: ore_crusher_mk2
 displayType: machine
 name: lang:blocks.ore_crusher_mk2
+wikiDescription: lang:wiki.materials.ore_crusher_mk2
 textures:
   up: ./assets/orecrushermk1allothersides.png
   down: ./assets/orecrushermk1allothersides.png

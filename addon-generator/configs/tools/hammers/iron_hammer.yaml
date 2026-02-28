@@ -1,6 +1,7 @@
 type: hammer
 id: iron_hammer
 name: lang:tools.iron_hammer
+wikiDescription: lang:wiki.materials.iron_hammer
 texture: ../assets/iron_hammer.png
 damage: 3
 category: equipment

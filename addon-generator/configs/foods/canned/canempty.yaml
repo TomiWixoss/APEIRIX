@@ -1,5 +1,6 @@
 id: canempty
 name: lang:foods.canempty
+wikiDescription: lang:wiki.materials.canempty
 texture: ../assets/canempty.png
 category: items
 stackSize: 64

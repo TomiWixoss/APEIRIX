@@ -1,5 +1,6 @@
 id: lead_ingot_dust_pure
 name: lang:materials.lead_ingot_dust_pure
+wikiDescription: lang:wiki.materials.lead_ingot_dust_pure
 texture: ../assets/dusts/lead_ingot_dust_pure.png
 category: items
 maxStackSize: 64

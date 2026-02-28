@@ -1,5 +1,6 @@
 id: wiki_book
 name: lang:special.wiki_book
+wikiDescription: lang:wiki.materials.wiki_book
 texture: ./assets/wiki_book.png
 category: items
 group: itemGroup.name.book

@@ -1,6 +1,7 @@
 type: hammer
 id: steel_alloy_hammer
 name: lang:tools.steel_alloy_hammer
+wikiDescription: lang:wiki.materials.steel_alloy_hammer
 texture: ../assets/steel_alloy_hammer.png
 damage: 6
 category: equipment

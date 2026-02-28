@@ -1,6 +1,7 @@
 type: leggings
 id: electrum_leggings
 name: lang:armor.electrum_leggings
+wikiDescription: lang:wiki.materials.electrum_leggings
 texture: ../assets/items/electrum_leggings.png
 durability: 300
 protection: 4

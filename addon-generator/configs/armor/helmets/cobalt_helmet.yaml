@@ -1,6 +1,7 @@
 type: helmet
 id: cobalt_helmet
 name: lang:armor.cobalt_helmet
+wikiDescription: lang:wiki.materials.cobalt_helmet
 texture: ../assets/items/cobalt_helmet.png
 durability: 220
 protection: 2

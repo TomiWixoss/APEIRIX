@@ -1,5 +1,6 @@
 id: raw_cobalt
 name: lang:materials.raw_cobalt
+wikiDescription: lang:wiki.materials.raw_cobalt
 texture: ../assets/raw/raw_cobalt.png
 category: items
 maxStackSize: 64

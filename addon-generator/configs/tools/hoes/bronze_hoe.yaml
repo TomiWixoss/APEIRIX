@@ -1,6 +1,7 @@
 type: hoe
 id: bronze_hoe
 name: lang:tools.bronze_hoe
+wikiDescription: lang:wiki.materials.bronze_hoe
 texture: ../assets/bronze_hoe.png
 damage: 4
 category: equipment

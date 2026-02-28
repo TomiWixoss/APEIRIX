@@ -1,6 +1,7 @@
 type: chestplate
 id: electrum_chestplate
 name: lang:armor.electrum_chestplate
+wikiDescription: lang:wiki.materials.electrum_chestplate
 texture: ../assets/items/electrum_chestplate.png
 durability: 320
 protection: 5

@@ -1,5 +1,6 @@
 id: raw_diamond
 name: lang:materials.raw_diamond
+wikiDescription: lang:wiki.materials.raw_diamond
 texture: ../assets/raw/raw_diamond.png
 category: items
 maxStackSize: 64

@@ -1,6 +1,7 @@
 type: hammer
 id: diamond_hammer
 name: lang:tools.diamond_hammer
+wikiDescription: lang:wiki.materials.diamond_hammer
 texture: ../assets/diamond_hammer.png
 damage: 4
 category: equipment

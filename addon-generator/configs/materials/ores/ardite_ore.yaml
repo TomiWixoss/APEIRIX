@@ -1,5 +1,6 @@
 id: ardite_ore
 name: lang:materials.ardite_ore
+wikiDescription: lang:wiki.materials.ardite_ore
 texturePath: ../assets/ores/ardite_ore.png
 rawItemId: raw_ardite
 destroyTime: 15.0

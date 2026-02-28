@@ -1,5 +1,6 @@
 id: cobalt_ore
 name: lang:materials.cobalt_ore
+wikiDescription: lang:wiki.materials.cobalt_ore
 texturePath: ../assets/ores/cobalt_ore.png
 rawItemId: raw_cobalt
 destroyTime: 15.0

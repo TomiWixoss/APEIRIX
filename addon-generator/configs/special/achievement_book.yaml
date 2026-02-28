@@ -1,5 +1,6 @@
 id: achievement_book
 name: lang:special.achievement_book
+wikiDescription: lang:wiki.materials.achievement_book
 texture: ./assets/achievement_book.png
 category: items
 group: itemGroup.name.book

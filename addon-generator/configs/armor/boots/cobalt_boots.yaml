@@ -1,6 +1,7 @@
 type: boots
 id: cobalt_boots
 name: lang:armor.cobalt_boots
+wikiDescription: lang:wiki.materials.cobalt_boots
 texture: ../assets/items/cobalt_boots.png
 durability: 260
 protection: 1

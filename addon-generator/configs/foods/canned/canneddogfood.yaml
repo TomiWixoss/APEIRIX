@@ -1,5 +1,6 @@
 id: canneddogfood
 name: lang:foods.canneddogfood
+wikiDescription: lang:wiki.materials.canneddogfood
 texture: ../assets/canneddogfood.png
 category: items
 stackSize: 64

@@ -29,24 +29,59 @@ export class LangLoader {
       return this.langCache.get(cacheKey)!;
     }
 
-    const langDir = path.join(configDir, 'lang', language);
-    
-    if (!fs.existsSync(langDir)) {
-      Logger.warn(`[LangLoader] Language directory not found: ${langDir}`);
-      return {};
-    }
-
     const langData: Record<string, any> = {};
-    const langFiles = fs.readdirSync(langDir).filter(f => f.endsWith('.yaml'));
-
-    for (const file of langFiles) {
-      const filePath = path.join(langDir, file);
-      try {
-        const content = fs.readFileSync(filePath, 'utf-8');
-        const data = yaml.load(content) as Record<string, any>;
-        Object.assign(langData, data);
-      } catch (error) {
-        Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
+    
+    // Load pack lang files from configs/lang/{language}/
+    const packLangDir = path.join(configDir, 'lang', language);
+    if (fs.existsSync(packLangDir)) {
+      const langFiles = fs.readdirSync(packLangDir).filter(f => f.endsWith('.yaml'));
+      for (const file of langFiles) {
+        const filePath = path.join(packLangDir, file);
+        try {
+          const content = fs.readFileSync(filePath, 'utf-8');
+          const data = yaml.load(content) as Record<string, any>;
+          Object.assign(langData, data);
+        } catch (error) {
+          Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
+        }
+      }
+    }
+    
+    // Load script-lang files from configs/script-lang/{language}/
+    const scriptLangDir = path.join(configDir, 'script-lang', language);
+    if (fs.existsSync(scriptLangDir)) {
+      // Load root level script-lang files (ui.yaml, wiki.yaml, etc.)
+      const scriptLangFiles = fs.readdirSync(scriptLangDir).filter(f => f.endsWith('.yaml'));
+      for (const file of scriptLangFiles) {
+        const filePath = path.join(scriptLangDir, file);
+        try {
+          const content = fs.readFileSync(filePath, 'utf-8');
+          const data = yaml.load(content) as Record<string, any>;
+          Object.assign(langData, data);
+        } catch (error) {
+          Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
+        }
+      }
+      
+      // Load wiki subdirectory files (wiki/materials.yaml, wiki/tools.yaml, etc.)
+      const wikiDir = path.join(scriptLangDir, 'wiki');
+      if (fs.existsSync(wikiDir)) {
+        const wikiFiles = fs.readdirSync(wikiDir).filter(f => f.endsWith('.yaml'));
+        for (const file of wikiFiles) {
+          const filePath = path.join(wikiDir, file);
+          try {
+            const content = fs.readFileSync(filePath, 'utf-8');
+            const data = yaml.load(content) as Record<string, string>;
+            
+            // Nest under wiki.{category} key
+            // e.g., materials.yaml → wiki.materials.bronze_ingot
+            const category = file.replace('.yaml', '');
+            if (!langData.wiki) langData.wiki = {};
+            langData.wiki[category] = data;
+          } catch (error) {
+            Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
+          }
+        }
       }
     }
 

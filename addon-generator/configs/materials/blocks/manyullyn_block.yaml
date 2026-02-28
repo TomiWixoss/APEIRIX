@@ -1,6 +1,7 @@
 id: manyullyn_block
 displayType: storage
 name: lang:materials.manyullyn_block
+wikiDescription: lang:wiki.materials.manyullyn_block
 texture: ../assets/blocks/manyullyn_block.png
 category: construction
 destroyTime: 22.0

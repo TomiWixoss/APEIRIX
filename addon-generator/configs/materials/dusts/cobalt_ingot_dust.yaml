@@ -1,5 +1,6 @@
 id: cobalt_ingot_dust
 name: lang:materials.cobalt_ingot_dust
+wikiDescription: lang:wiki.materials.cobalt_ingot_dust
 texture: ../assets/dusts/cobalt_ingot_dust.png
 category: items
 maxStackSize: 64

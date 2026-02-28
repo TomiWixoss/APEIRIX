@@ -1,6 +1,7 @@
 type: hammer
 id: netherite_hammer
 name: lang:tools.netherite_hammer
+wikiDescription: lang:wiki.materials.netherite_hammer
 texture: ../assets/netherite_hammer.png
 damage: 5
 category: equipment

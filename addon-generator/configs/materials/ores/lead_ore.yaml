@@ -1,5 +1,6 @@
 id: lead_ore
 name: lang:materials.lead_ore
+wikiDescription: lang:wiki.materials.lead_ore
 texturePath: ../assets/ores/lead_ore.png
 deepslateTexturePath: ../assets/ores/deepslate_lead_ore.png
 rawItemId: raw_lead

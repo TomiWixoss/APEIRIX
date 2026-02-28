@@ -1,6 +1,7 @@
 type: leggings
 id: lead_leggings
 name: lang:armor.lead_leggings
+wikiDescription: lang:wiki.materials.lead_leggings
 texture: ../assets/items/lead_leggings.png
 durability: 300
 protection: 4

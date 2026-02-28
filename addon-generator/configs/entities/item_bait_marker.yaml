@@ -1,5 +1,6 @@
 id: item_bait_marker
 name: "Item Bait Marker"
+wikiDescription: lang:wiki.materials.item_bait_marker
 model: assets/entities/silverfish.geo.json
 texture: assets/entities/rust_mite.png
 health: 1

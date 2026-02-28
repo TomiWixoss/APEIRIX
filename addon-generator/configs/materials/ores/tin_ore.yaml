@@ -1,5 +1,6 @@
 id: tin_ore
 name: lang:materials.tin_ore
+wikiDescription: lang:wiki.materials.tin_ore
 texturePath: ../assets/ores/tin_ore.png
 deepslateTexturePath: ../assets/ores/deepslate_tin_ore.png
 rawItemId: raw_tin

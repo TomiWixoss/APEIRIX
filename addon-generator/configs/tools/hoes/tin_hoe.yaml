@@ -1,6 +1,7 @@
 type: hoe
 id: tin_hoe
 name: lang:tools.tin_hoe
+wikiDescription: lang:wiki.materials.tin_hoe
 texture: ../assets/tin_hoe.png
 damage: 4
 category: equipment

@@ -1,5 +1,6 @@
 id: steel_alloy_dust_pure
 name: lang:materials.steel_alloy_dust_pure
+wikiDescription: lang:wiki.materials.steel_alloy_dust_pure
 texture: ../assets/dusts/steel_alloy_dust_pure.png
 category: items
 maxStackSize: 64

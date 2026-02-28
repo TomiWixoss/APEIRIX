@@ -1,5 +1,6 @@
 id: nickel_ingot_dust_pure
 name: lang:materials.nickel_ingot_dust_pure
+wikiDescription: lang:wiki.materials.nickel_ingot_dust_pure
 texture: ../assets/dusts/nickel_ingot_dust_pure.png
 category: items
 maxStackSize: 64

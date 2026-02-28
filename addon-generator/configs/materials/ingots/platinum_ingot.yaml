@@ -1,5 +1,6 @@
 id: platinum_ingot
 name: lang:materials.platinum_ingot
+wikiDescription: lang:wiki.materials.platinum_ingot
 texture: ../assets/ingots/platinum_ingot.png
 category: items
 maxStackSize: 64

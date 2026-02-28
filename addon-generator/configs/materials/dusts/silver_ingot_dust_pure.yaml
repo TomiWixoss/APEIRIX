@@ -1,5 +1,6 @@
 id: silver_ingot_dust_pure
 name: lang:materials.silver_ingot_dust_pure
+wikiDescription: lang:wiki.materials.silver_ingot_dust_pure
 texture: ../assets/dusts/silver_ingot_dust_pure.png
 category: items
 maxStackSize: 64

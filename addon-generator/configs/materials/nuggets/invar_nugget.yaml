@@ -1,5 +1,6 @@
 id: invar_nugget
 name: lang:materials.invar_nugget
+wikiDescription: lang:wiki.materials.invar_nugget
 texture: ../assets/nuggets/invar_nugget.png
 category: items
 maxStackSize: 64

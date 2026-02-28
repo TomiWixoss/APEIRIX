@@ -1,6 +1,7 @@
 type: axe
 id: cobalt_axe
 name: lang:tools.cobalt_axe
+wikiDescription: lang:wiki.materials.cobalt_axe
 texture: ../assets/cobalt_axe.png
 damage: 5
 category: equipment

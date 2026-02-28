@@ -1,5 +1,6 @@
 id: raw_manyullyn
 name: lang:materials.raw_manyullyn
+wikiDescription: lang:wiki.materials.raw_manyullyn
 texture: ../assets/raw/raw_manyullyn.png
 category: items
 maxStackSize: 64

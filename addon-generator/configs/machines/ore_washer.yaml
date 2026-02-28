@@ -1,6 +1,7 @@
 id: ore_washer
 displayType: machine
 name: lang:blocks.ore_washer
+wikiDescription: lang:wiki.materials.ore_washer
 textures:
   up: ./assets/brass_sifter_top.png
   down: ./assets/brass_sifter_top.png

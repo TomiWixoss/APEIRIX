@@ -1,5 +1,6 @@
 id: ardite_ingot_dust_pure
 name: lang:materials.ardite_ingot_dust_pure
+wikiDescription: lang:wiki.materials.ardite_ingot_dust_pure
 texture: ../assets/dusts/ardite_ingot_dust_pure.png
 category: items
 maxStackSize: 64

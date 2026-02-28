@@ -1,5 +1,6 @@
 id: manyullyn_ingot_dust
 name: lang:materials.manyullyn_ingot_dust
+wikiDescription: lang:wiki.materials.manyullyn_ingot_dust
 texture: ../assets/dusts/manyullyn_ingot_dust.png
 category: items
 maxStackSize: 64

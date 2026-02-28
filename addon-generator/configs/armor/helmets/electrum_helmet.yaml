@@ -1,6 +1,7 @@
 type: helmet
 id: electrum_helmet
 name: lang:armor.electrum_helmet
+wikiDescription: lang:wiki.materials.electrum_helmet
 texture: ../assets/items/electrum_helmet.png
 durability: 220
 protection: 2

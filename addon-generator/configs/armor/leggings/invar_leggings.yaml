@@ -1,6 +1,7 @@
 type: leggings
 id: invar_leggings
 name: lang:armor.invar_leggings
+wikiDescription: lang:wiki.materials.invar_leggings
 texture: ../assets/items/invar_leggings.png
 durability: 300
 protection: 4

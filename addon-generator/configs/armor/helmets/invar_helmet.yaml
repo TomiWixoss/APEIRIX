@@ -1,6 +1,7 @@
 type: helmet
 id: invar_helmet
 name: lang:armor.invar_helmet
+wikiDescription: lang:wiki.materials.invar_helmet
 texture: ../assets/items/invar_helmet.png
 durability: 220
 protection: 2

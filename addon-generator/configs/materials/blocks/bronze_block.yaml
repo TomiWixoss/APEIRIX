@@ -1,6 +1,7 @@
 id: bronze_block
 displayType: storage
 name: lang:materials.bronze_block
+wikiDescription: lang:wiki.materials.bronze_block
 texture: ../assets/blocks/bronze_block.png
 category: construction
 destroyTime: 16.65

@@ -1,5 +1,6 @@
 id: cannedmushroomsoup
 name: lang:foods.cannedmushroomsoup
+wikiDescription: lang:wiki.materials.cannedmushroomsoup
 texture: ../assets/cannedmushroomsoup.png
 category: items
 stackSize: 64

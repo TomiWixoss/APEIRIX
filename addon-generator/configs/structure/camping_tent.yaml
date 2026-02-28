@@ -1,5 +1,6 @@
 id: camping_tent
 name: lang:structures.camping_tent
+wikiDescription: lang:wiki.materials.camping_tent
 description: lang:structures.camping_tent.description
 file: ./CampingTent.mcstructure
 category: structures

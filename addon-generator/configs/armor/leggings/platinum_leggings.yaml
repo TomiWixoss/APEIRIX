@@ -1,6 +1,7 @@
 type: leggings
 id: platinum_leggings
 name: lang:armor.platinum_leggings
+wikiDescription: lang:wiki.materials.platinum_leggings
 texture: ../assets/items/platinum_leggings.png
 durability: 600
 protection: 6

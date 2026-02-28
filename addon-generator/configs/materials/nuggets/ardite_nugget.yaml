@@ -1,5 +1,6 @@
 id: ardite_nugget
 name: lang:materials.ardite_nugget
+wikiDescription: lang:wiki.materials.ardite_nugget
 texture: ../assets/nuggets/ardite_nugget.png
 category: items
 maxStackSize: 64

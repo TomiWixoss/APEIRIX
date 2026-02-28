@@ -1,6 +1,7 @@
 type: pickaxe
 id: manyullyn_pickaxe
 name: lang:tools.manyullyn_pickaxe
+wikiDescription: lang:wiki.materials.manyullyn_pickaxe
 texture: ../assets/manyullyn_pickaxe.png
 damage: 5
 category: equipment
