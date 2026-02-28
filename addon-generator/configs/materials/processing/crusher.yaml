@@ -134,6 +134,15 @@ processingRecipes:
     output: apeirix:lead_ingot_dust
     outputCount: 9
     processingTime: 60
+  # Custom ores - Platinum
+  - input: apeirix:platinum_ore
+    output: apeirix:platinum_ingot_dust
+    outputCount: 9
+    processingTime: 60
+  - input: apeirix:deepslate_platinum_ore
+    output: apeirix:platinum_ingot_dust
+    outputCount: 9
+    processingTime: 60
 recipes:
   - type: shaped
     id: crusher

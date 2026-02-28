@@ -59,6 +59,18 @@ export const GENERATED_ORES = [
     dropItem: "apeirix:raw_lead",
     dropCount: 1,
     fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:platinum_ore",
+    dropItem: "apeirix:raw_platinum",
+    dropCount: 1,
+    fortuneEnabled: true
+  },
+  {
+    blockId: "apeirix:deepslate_platinum_ore",
+    dropItem: "apeirix:raw_platinum",
+    dropCount: 1,
+    fortuneEnabled: true
   }
 ];
 
@@ -270,6 +282,36 @@ export const GENERATED_TOOLS = [
     id: "apeirix:invar_hammer",
     type: "hammer" as const,
     durability: 750
+  },
+  {
+    id: "apeirix:platinum_pickaxe",
+    type: "pickaxe" as const,
+    durability: 1600
+  },
+  {
+    id: "apeirix:platinum_axe",
+    type: "axe" as const,
+    durability: 1600
+  },
+  {
+    id: "apeirix:platinum_shovel",
+    type: "shovel" as const,
+    durability: 1600
+  },
+  {
+    id: "apeirix:platinum_hoe",
+    type: "hoe" as const,
+    durability: 1600
+  },
+  {
+    id: "apeirix:platinum_sword",
+    type: "sword" as const,
+    durability: 1600
+  },
+  {
+    id: "apeirix:platinum_hammer",
+    type: "hammer" as const,
+    durability: 2400
   },
   {
     id: "apeirix:wooden_hammer",
@@ -1655,6 +1697,7 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:lead_hammer",
   "apeirix:electrum_hammer",
   "apeirix:invar_hammer",
+  "apeirix:platinum_hammer",
   "apeirix:wooden_hammer",
   "apeirix:stone_hammer",
   "apeirix:copper_hammer",

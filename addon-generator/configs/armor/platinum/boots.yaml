@@ -1,0 +1,29 @@
+type: boots
+id: platinum_boots
+name: lang:armor.platinum_boots
+texture: ../../../assets/platinum/platinum_boots.png
+durability: 520
+protection: 3
+category: equipment
+group: itemGroup.name.boots
+slot: slot.armor.feet
+enchantSlot: armor_feet
+geometry: geometry.humanoid.armor.boots
+armorLayer: platinum_layer_1
+armorLayerTexturePath: ../../../assets/platinum/platinum_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: platinum_boots
+    pattern:
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:platinum_ingot
+    result: apeirix:platinum_boots
+    count: 1
+    unlock:
+      - apeirix:platinum_ingot
+materialId: apeirix:platinum_ingot
+enchantability: 22

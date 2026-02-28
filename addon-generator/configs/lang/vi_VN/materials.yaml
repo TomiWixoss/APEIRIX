@@ -102,6 +102,16 @@ materials:
   invar_ingot_dust: Bụi Invar
   invar_ingot_dust_pure: Bụi Invar Tinh Khiết
 
+  # Platinum
+  raw_platinum: Bạch Kim Thô
+  platinum_ingot: Thỏi Bạch Kim
+  platinum_nugget: Mảnh Bạch Kim
+  platinum_block: Khối Bạch Kim
+  platinum_ore: Quặng Bạch Kim
+  deepslate_platinum_ore: Quặng Bạch Kim Đá Sâu
+  platinum_ingot_dust: Bụi Bạch Kim
+  platinum_ingot_dust_pure: Bụi Bạch Kim Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

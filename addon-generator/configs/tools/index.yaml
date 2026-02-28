@@ -6,4 +6,5 @@ import:
   - lead/index.yaml
   - electrum/index.yaml
   - invar/index.yaml
+  - platinum/index.yaml
   - hammer/index.yaml

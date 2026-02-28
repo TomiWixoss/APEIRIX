@@ -1,0 +1,30 @@
+type: sword
+id: platinum_sword
+name: lang:tools.platinum_sword
+texture: ../../../assets/platinum/platinum_sword.png
+damage: 8
+category: equipment
+group: itemGroup.name.sword
+specialBlocks:
+  - block: minecraft:web
+    speed: 15
+  - block: minecraft:bamboo
+    speed: 6
+recipe:
+  type: shaped
+  id: platinum_sword
+  pattern:
+    - "#"
+    - "#"
+    - S
+  ingredients:
+    "#": apeirix:platinum_ingot
+    S: minecraft:stick
+  result: apeirix:platinum_sword
+  count: 1
+  unlock:
+    - apeirix:platinum_ingot
+materialId: apeirix:platinum_ingot
+durability: 1600
+enchantability: 22
+tier: diamond

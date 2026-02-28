@@ -66,6 +66,10 @@ processingRecipes:
   - input: apeirix:invar_ingot_dust
     pureDust: apeirix:invar_ingot_dust_pure
     stoneDust: apeirix:cobblestone_dust
+  # Platinum dust
+  - input: apeirix:platinum_ingot_dust
+    pureDust: apeirix:platinum_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
   # Bronze dust
   - input: apeirix:bronze_ingot_dust
     pureDust: apeirix:bronze_ingot_dust_pure

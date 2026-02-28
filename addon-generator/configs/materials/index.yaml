@@ -7,5 +7,6 @@ import:
   - lead/index.yaml
   - electrum/index.yaml
   - invar/index.yaml
+  - platinum/index.yaml
   - dusts/index.yaml
   - processing/index.yaml

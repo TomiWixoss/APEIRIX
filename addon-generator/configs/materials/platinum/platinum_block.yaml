@@ -1,0 +1,32 @@
+id: platinum_block
+name: lang:materials.platinum_block
+texture: ../../../assets/platinum/platinum_block.png
+category: construction
+destroyTime: 20.0
+explosionResistance: 10
+mapColor: "#e5e4e2"
+requiresTool: true
+toolTier: diamond
+miningSpeed: 5
+drops: apeirix:platinum_block
+recipes:
+  - type: shaped
+    id: platinum_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:platinum_ingot
+    result: apeirix:platinum_block
+    count: 1
+    unlock:
+      - apeirix:platinum_ingot
+  - type: shapeless
+    id: apeirix:platinum_ingot_from_block
+    ingredients:
+      - apeirix:platinum_block
+    result: apeirix:platinum_ingot
+    count: 9
+    unlock:
+      - apeirix:platinum_block

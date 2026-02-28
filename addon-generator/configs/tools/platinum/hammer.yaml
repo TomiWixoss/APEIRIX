@@ -1,0 +1,32 @@
+type: hammer
+id: platinum_hammer
+name: lang:tools.platinum_hammer
+texture: ../../../assets/platinum/platinum_hammer.png
+damage: 6
+category: equipment
+group: itemGroup.name.hammer
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+recipe:
+  type: shaped
+  id: platinum_hammer
+  pattern:
+    - "###"
+    - "###"
+    - " S "
+  ingredients:
+    "#": apeirix:platinum_ingot
+    S: minecraft:stick
+  result: apeirix:platinum_hammer
+  count: 1
+  unlock:
+    - apeirix:platinum_ingot
+materialId: apeirix:platinum_ingot
+durability: 2400
+enchantability: 22
+tier: diamond
+miningSpeed: 9.0
+areaOfEffect: 3x3

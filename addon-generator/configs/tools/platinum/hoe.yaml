@@ -1,0 +1,38 @@
+type: hoe
+id: platinum_hoe
+name: lang:tools.platinum_hoe
+texture: ../../../assets/platinum/platinum_hoe.png
+damage: 6
+category: equipment
+group: itemGroup.name.hoe
+tags:
+  - minecraft:is_hoe
+diggerTags:
+  - plant
+  - crop
+  - leaves
+  - hay_block
+  - sponge
+  - sculk
+  - nether_wart_block
+  - warped_wart_block
+  - shroomlight
+  - target
+recipe:
+  type: shaped
+  id: platinum_hoe
+  pattern:
+    - "##"
+    - " S"
+    - " S"
+  ingredients:
+    "#": apeirix:platinum_ingot
+    S: minecraft:stick
+  result: apeirix:platinum_hoe
+  count: 1
+  unlock:
+    - apeirix:platinum_ingot
+materialId: apeirix:platinum_ingot
+durability: 1600
+enchantability: 22
+tier: diamond

@@ -163,6 +163,17 @@ processingRecipes:
     stoneDustCount: 4
     oreDust: apeirix:lead_ingot_dust
     oreDustCount: 9
+  # Custom ores - Platinum
+  - input: apeirix:platinum_ore
+    stoneDust: apeirix:cobblestone_dust
+    stoneDustCount: 4
+    oreDust: apeirix:platinum_ingot_dust
+    oreDustCount: 9
+  - input: apeirix:deepslate_platinum_ore
+    stoneDust: apeirix:deepslate_dust
+    stoneDustCount: 4
+    oreDust: apeirix:platinum_ingot_dust
+    oreDustCount: 9
 recipes:
   - type: shaped
     id: ore_crusher_mk1

@@ -1,0 +1,29 @@
+type: helmet
+id: platinum_helmet
+name: lang:armor.platinum_helmet
+texture: ../../../assets/platinum/platinum_helmet.png
+durability: 440
+protection: 3
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: platinum_layer_1
+armorLayerTexturePath: ../../../assets/platinum/platinum_layer_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: platinum_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:platinum_ingot
+    result: apeirix:platinum_helmet
+    count: 1
+    unlock:
+      - apeirix:platinum_ingot
+materialId: apeirix:platinum_ingot
+enchantability: 22
