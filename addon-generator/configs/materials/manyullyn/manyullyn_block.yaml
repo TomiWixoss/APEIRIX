@@ -1,0 +1,32 @@
+id: manyullyn_block
+name: lang:materials.manyullyn_block
+texture: ../../../assets/manyullyn/manyullyn_block.png
+category: construction
+destroyTime: 22.0
+explosionResistance: 8
+mapColor: "#5C2E91"
+requiresTool: true
+toolTier: diamond
+miningSpeed: 5
+drops: apeirix:manyullyn_block
+recipes:
+  - type: shaped
+    id: manyullyn_block_from_ingots
+    pattern:
+      - "###"
+      - "###"
+      - "###"
+    ingredients:
+      "#": apeirix:manyullyn_ingot
+    result: apeirix:manyullyn_block
+    count: 1
+    unlock:
+      - apeirix:manyullyn_ingot
+  - type: shapeless
+    id: apeirix:manyullyn_ingot_from_block
+    ingredients:
+      - apeirix:manyullyn_block
+    result: apeirix:manyullyn_ingot
+    count: 9
+    unlock:
+      - apeirix:manyullyn_block

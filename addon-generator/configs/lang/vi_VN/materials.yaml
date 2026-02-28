@@ -130,6 +130,14 @@ materials:
   ardite_ingot_dust: Bụi Ardite
   ardite_ingot_dust_pure: Bụi Ardite Tinh Khiết
 
+  # Manyullyn
+  raw_manyullyn: Manyullyn Thô
+  manyullyn_ingot: Thỏi Manyullyn
+  manyullyn_nugget: Mảnh Manyullyn
+  manyullyn_block: Khối Manyullyn
+  manyullyn_ingot_dust: Bụi Manyullyn
+  manyullyn_ingot_dust_pure: Bụi Manyullyn Tinh Khiết
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

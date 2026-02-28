@@ -82,6 +82,10 @@ processingRecipes:
   - input: apeirix:ardite_ingot_dust
     pureDust: apeirix:ardite_ingot_dust_pure
     stoneDust: apeirix:netherrack_dust
+  # Manyullyn dust
+  - input: apeirix:manyullyn_ingot_dust
+    pureDust: apeirix:manyullyn_ingot_dust_pure
+    stoneDust: apeirix:cobblestone_dust
 recipes:
   - type: shaped
     id: ore_washer
