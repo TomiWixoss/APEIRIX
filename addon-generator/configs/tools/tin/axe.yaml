@@ -1,0 +1,30 @@
+type: axe
+id: tin_axe
+name: lang:tools.tin_axe
+texture: ../../../assets/tin_tool/tin_axe.png
+damage: 5
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: tin_axe
+  pattern:
+    - "##"
+    - "#S"
+    - " S"
+  ingredients:
+    "#": apeirix:tin_ingot
+    S: minecraft:stick
+  result: apeirix:tin_axe
+  count: 1
+  unlock:
+    - apeirix:tin_ingot
+materialId: apeirix:tin_ingot
+durability: 375
+enchantability: 18
+tier: iron

@@ -1,0 +1,34 @@
+type: shovel
+id: tin_shovel
+name: lang:tools.tin_shovel
+texture: ../../../assets/tin_tool/tin_shovel.png
+damage: 3
+category: equipment
+group: itemGroup.name.shovel
+diggerTags:
+  - dirt
+  - sand
+  - gravel
+  - snow
+  - clay
+  - soul_sand
+  - soul_soil
+  - powder_snow
+recipe:
+  type: shaped
+  id: tin_shovel
+  pattern:
+    - "#"
+    - S
+    - S
+  ingredients:
+    "#": apeirix:tin_ingot
+    S: minecraft:stick
+  result: apeirix:tin_shovel
+  count: 1
+  unlock:
+    - apeirix:tin_ingot
+materialId: apeirix:tin_ingot
+durability: 375
+enchantability: 18
+tier: iron

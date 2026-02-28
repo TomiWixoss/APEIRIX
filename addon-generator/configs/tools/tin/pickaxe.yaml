@@ -1,0 +1,32 @@
+type: pickaxe
+id: tin_pickaxe
+name: lang:tools.tin_pickaxe
+texture: ../../../assets/tin_tool/tin_pickaxe.png
+damage: 4
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - metal
+  - rock
+  - wood
+  - log
+recipe:
+  type: shaped
+  id: tin_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " S "
+  ingredients:
+    "#": apeirix:tin_ingot
+    S: minecraft:stick
+  result: apeirix:tin_pickaxe
+  count: 1
+  unlock:
+    - apeirix:tin_ingot
+materialId: apeirix:tin_ingot
+durability: 375
+enchantability: 18
+tier: iron

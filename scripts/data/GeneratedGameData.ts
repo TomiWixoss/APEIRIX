@@ -338,6 +338,36 @@ export const GENERATED_TOOLS = [
     durability: 2400
   },
   {
+    id: "apeirix:tin_pickaxe",
+    type: "pickaxe" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:tin_axe",
+    type: "axe" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:tin_shovel",
+    type: "shovel" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:tin_hoe",
+    type: "hoe" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:tin_sword",
+    type: "sword" as const,
+    durability: 375
+  },
+  {
+    id: "apeirix:tin_hammer",
+    type: "hammer" as const,
+    durability: 562
+  },
+  {
     id: "apeirix:cobalt_pickaxe",
     type: "pickaxe" as const,
     durability: 500
@@ -1812,6 +1842,7 @@ export const GENERATED_HAMMER_IDS = [
   "apeirix:electrum_hammer",
   "apeirix:invar_hammer",
   "apeirix:platinum_hammer",
+  "apeirix:tin_hammer",
   "apeirix:cobalt_hammer",
   "apeirix:ardite_hammer",
   "apeirix:manyullyn_hammer",

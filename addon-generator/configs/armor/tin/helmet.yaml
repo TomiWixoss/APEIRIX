@@ -1,0 +1,29 @@
+type: helmet
+id: tin_helmet
+name: lang:armor.tin_helmet
+texture: ../../../assets/tin_tool/tin_helmet.png
+durability: 220
+protection: 2
+category: equipment
+group: itemGroup.name.helmet
+slot: slot.armor.head
+enchantSlot: armor_head
+geometry: geometry.humanoid.armor.helmet
+armorLayer: tin_alloy_layer_1
+armorLayerTexturePath: ../../../assets/tin_tool/tin_alloy_1.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: tin_helmet
+    pattern:
+      - "###"
+      - "# #"
+    ingredients:
+      "#": apeirix:tin_ingot
+    result: apeirix:tin_helmet
+    count: 1
+    unlock:
+      - apeirix:tin_ingot
+materialId: apeirix:tin_ingot
+enchantability: 18

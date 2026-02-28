@@ -1,0 +1,30 @@
+type: leggings
+id: tin_leggings
+name: lang:armor.tin_leggings
+texture: ../../../assets/tin_tool/tin_leggings.png
+durability: 300
+protection: 4
+category: equipment
+group: itemGroup.name.leggings
+slot: slot.armor.legs
+enchantSlot: armor_legs
+geometry: geometry.humanoid.armor.leggings
+armorLayer: tin_alloy_layer_2
+armorLayerTexturePath: ../../../assets/tin_tool/tin_alloy_2.png
+tags:
+  - minecraft:trimmable_armors
+recipes:
+  - type: shaped
+    id: tin_leggings
+    pattern:
+      - "###"
+      - "# #"
+      - "# #"
+    ingredients:
+      "#": apeirix:tin_ingot
+    result: apeirix:tin_leggings
+    count: 1
+    unlock:
+      - apeirix:tin_ingot
+materialId: apeirix:tin_ingot
+enchantability: 18
