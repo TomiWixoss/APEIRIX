@@ -204,10 +204,14 @@ export class DurabilityModifierHandler {
         const currentDurability = maxDurability - currentDamage;
         
         // Calculate damage per use
-        const damagePerUse = Math.ceil(maxDurability / configuredDurability);
+        // Use floor to ensure we get the full number of uses
+        // Example: 59 / 4 = 14.75 → floor = 14 → 4 uses possible (14×4=56 < 59)
+        const damagePerUse = Math.floor(maxDurability / configuredDurability);
         
-        // Calculate new damage
-        const newDamage = currentDamage + damagePerUse;
+        // Vanilla already consumed 1 durability before this handler runs
+        // So we only need to apply (damagePerUse - 1) additional damage
+        const additionalDamage = Math.max(0, damagePerUse - 1);
+        const newDamage = currentDamage + additionalDamage;
         
         console.warn(`[DurabilityModifierHandler] ${itemStack.typeId}: ${currentDurability}/${maxDurability} -> applying ${damagePerUse} damage (${configuredDurability} uses total)`);
         
@@ -236,14 +240,20 @@ export class DurabilityModifierHandler {
                   // Apply damage (safe - newDamage < maxDurability)
                   heldDurability.damage = newDamage;
                   
-                  // Update lore to reflect new durability
-                  LoreSystem.updateLore(heldItem);
+                  // Calculate remaining uses
+                  const remainingDurability = maxDurability - newDamage;
+                  const usesRemaining = Math.floor(remainingDurability / damagePerUse);
                   
-                  // Force client refresh by clearing and setting item
-                  container.setItem(selectedSlot, undefined);
-                  container.setItem(selectedSlot, heldItem);
-                  
-                  console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability}`);
+                  // If no uses remaining, break the item now
+                  if (usesRemaining <= 0) {
+                    this.breakItem(player, selectedSlot, heldItem);
+                    console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (0 uses remaining, damage: ${newDamage}/${maxDurability})`);
+                  } else {
+                    // Update lore and item
+                    LoreSystem.updateLore(heldItem);
+                    container.setItem(selectedSlot, heldItem);
+                    console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability} (${usesRemaining} uses remaining)`);
+                  }
                 }
               }
             }
