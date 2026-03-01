@@ -29,8 +29,9 @@
 import { world, ItemStack, Player, system, GameMode } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { BreakableHandler } from './BreakableHandler';
-import { LoreSystem } from '../../lore/LoreSystem';
+import { LoreRefreshSystem } from '../../lore/LoreRefreshSystem';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
+import { AttributeResolver } from '../AttributeResolver';
 
 interface DurabilityConfig {
   context?: string;
@@ -68,12 +69,23 @@ export class DurabilityModifierHandler {
    * Process lore placeholders for this attribute
    * Replaces: {durability}, {current_durability}, {max_durability}
    * 
+   * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
+   * 
    * @param itemId Item ID
    * @param line Lore line with placeholders
    * @param itemStack Optional ItemStack for dynamic values (current durability)
    */
-  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
-    const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: ItemStack): string {
+    let config: any;
+    
+    // If itemStack provided, resolve dynamic attributes
+    if (itemStack) {
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      config = resolved?.config;
+    } else {
+      // Fallback to static config (for compile-time generation)
+      config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+    }
     
     let processedLine = line;
     
@@ -177,9 +189,11 @@ export class DurabilityModifierHandler {
         return;
       }
       
-      // Check if item has durability modifier
-      const config = this.durabilityItems.get(itemId);
-      if (!config) return;
+      // DYNAMIC: Resolve attributes from ItemStack
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      if (!resolved) return;
+      
+      const config = resolved.config;
       
       // Skip if player is in creative mode
       if (player.getGameMode() === GameMode.Creative) {
@@ -262,9 +276,12 @@ export class DurabilityModifierHandler {
                     this.breakItem(player, selectedSlot, heldItem);
                     console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (0 uses remaining, damage: ${newDamage}/${maxDurability})`);
                   } else {
-                    // Update lore and item
-                    LoreSystem.updateLore(heldItem);
+                    // Refresh lore to update {current_durability} placeholder
+                    LoreRefreshSystem.refresh(heldItem);
+                    
+                    // Update item in container
                     container.setItem(selectedSlot, heldItem);
+                    
                     console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability} (${usesRemaining} uses remaining)`);
                   }
                 }
@@ -320,9 +337,13 @@ export class DurabilityModifierHandler {
       
       if (!itemStack) return;
       
-      const itemId = itemStack.typeId;
-      const config = this.durabilityItems.get(itemId);
-      if (!config) return;
+      const itemId = itemStack.typeId; // Store itemId for later use
+      
+      // DYNAMIC: Resolve attributes from ItemStack
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      if (!resolved) return;
+      
+      const config = resolved.config;
       
       // Skip if player is in creative mode
       if (player.getGameMode() === GameMode.Creative) {

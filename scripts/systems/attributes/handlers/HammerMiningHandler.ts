@@ -12,6 +12,7 @@
 import { world, Block, ItemStack, system } from '@minecraft/server';
 import { getItemsWithAttribute } from '../../../data/GeneratedAttributes';
 import { GENERATED_ORE_CRUSHER_RECIPES, OreCrusherRecipe } from '../../../data/GeneratedProcessingRecipes';
+import { AttributeResolver } from '../AttributeResolver';
 
 export class HammerMiningHandler {
   // ============================================
@@ -68,7 +69,10 @@ export class HammerMiningHandler {
   private static handleBlockBreak(event: any): void {
     const { block, brokenBlockPermutation, itemStackBeforeBreak } = event;
     
-    if (!itemStackBeforeBreak || !this.isHammer(itemStackBeforeBreak.typeId)) {
+    if (!itemStackBeforeBreak) return;
+    
+    // DYNAMIC: Check if item has hammer_mining attribute
+    if (!AttributeResolver.hasAttribute(itemStackBeforeBreak, this.ATTRIBUTE_ID, system.currentTick)) {
       return;
     }
     

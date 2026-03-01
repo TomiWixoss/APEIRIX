@@ -18,6 +18,7 @@ import { DurabilityModifierHandler } from './handlers/DurabilityModifierHandler'
 import { CombatDamageModifierHandler } from './handlers/CombatDamageModifierHandler';
 import { RequiresToolHandler } from './handlers/RequiresToolHandler';
 import { EmptyHandCombatHandler } from './handlers/EmptyHandCombatHandler';
+import { LoreRefreshSystem } from '../lore/LoreRefreshSystem';
 
 export class AttributeSystem {
   private static initialized = false;
@@ -37,6 +38,9 @@ export class AttributeSystem {
     const attributeCount = Object.keys(GENERATED_ATTRIBUTES).length;
     const totalItems = Object.values(GENERATED_ATTRIBUTES).reduce((sum, items) => sum + items.length, 0);
     console.warn(`[AttributeSystem] Loaded ${attributeCount} attributes for ${totalItems} items`);
+    
+    // Initialize lore refresh system FIRST
+    LoreRefreshSystem.initialize();
     
     // Initialize handlers
     RustMiteEdibleHandler.initialize();

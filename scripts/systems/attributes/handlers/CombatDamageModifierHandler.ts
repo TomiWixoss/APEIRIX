@@ -18,11 +18,12 @@
  * Example: Wooden pickaxe với damage: 0 (no combat damage)
  */
 
-import { world, EntityHurtBeforeEvent } from '@minecraft/server';
+import { world, EntityHurtBeforeEvent, ItemStack, system } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
+import { AttributeResolver } from '../AttributeResolver';
 
 interface CombatDamageConfig {
   context?: AttributeContext | string;
@@ -52,9 +53,20 @@ export class CombatDamageModifierHandler {
   /**
    * Process lore placeholders for this attribute
    * Replaces: {combat_damage}
+   * 
+   * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
    */
-  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
-    const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: ItemStack): string {
+    let config: any;
+    
+    // If itemStack provided, resolve dynamic attributes
+    if (itemStack) {
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      config = resolved?.config;
+    } else {
+      // Fallback to static config (for compile-time generation)
+      config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+    }
     
     if (config?.damage !== undefined) {
       return line.replace(/{combat_damage}/g, config.damage.toString());
@@ -129,13 +141,13 @@ export class CombatDamageModifierHandler {
       
       if (!heldItem) return;
       
-      const itemId = heldItem.typeId;
-      
-      // Check if item has combat damage modifier
-      const config = this.damageModifierItems.get(itemId);
-      if (!config) {
+      // DYNAMIC: Resolve attributes from ItemStack
+      const resolved = AttributeResolver.getAttribute(heldItem, this.ATTRIBUTE_ID, system.currentTick);
+      if (!resolved) {
         return;
       }
+      
+      const config = resolved.config;
       
       // Get entity tags for condition evaluation (from actual entity component)
       const entityFamilies = this.getEntityFamilies(hurtEntity);
@@ -168,7 +180,7 @@ export class CombatDamageModifierHandler {
       // Modify damage BEFORE it's applied (this is the key difference from afterEvents)
       if (modifiedDamage !== damage) {
         event.damage = modifiedDamage;
-        console.warn(`[CombatDamageModifierHandler] ${itemId} damage: ${damage} -> ${modifiedDamage}`);
+        console.warn(`[CombatDamageModifierHandler] ${heldItem.typeId} damage: ${damage} -> ${modifiedDamage}`);
       }
       
     } catch (error) {

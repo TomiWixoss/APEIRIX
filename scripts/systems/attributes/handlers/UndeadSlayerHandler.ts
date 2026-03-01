@@ -19,9 +19,10 @@
  * - Auto-cleanup damage history to prevent memory leaks
  */
 
-import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
+import { world, system, EntityHurtAfterEvent, ItemStack } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
+import { AttributeResolver } from '../AttributeResolver';
 
 interface DamageRecord {
   actualDamage: number;
@@ -63,9 +64,20 @@ export class UndeadSlayerHandler {
   /**
    * Process lore placeholders for this attribute
    * Replaces: {damageMultiplier}
+   * 
+   * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
    */
-  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
-    const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: ItemStack): string {
+    let config: any;
+    
+    // If itemStack provided, resolve dynamic attributes
+    if (itemStack) {
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      config = resolved?.config;
+    } else {
+      // Fallback to static config (for compile-time generation)
+      config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+    }
     
     if (config?.damageMultiplier) {
       const percentage = ((config.damageMultiplier - 1) * 100).toFixed(0);
@@ -145,11 +157,13 @@ export class UndeadSlayerHandler {
       const weapon = equipment.getEquipment('Mainhand' as any);
       if (!weapon) return;
       
-      // Check if weapon has undead_slayer attribute
-      const damageMultiplier = this.undeadSlayerWeapons.get(weapon.typeId);
-      if (!damageMultiplier) {
+      // DYNAMIC: Resolve attributes from ItemStack
+      const resolved = AttributeResolver.getAttribute(weapon, this.ATTRIBUTE_ID, system.currentTick);
+      if (!resolved) {
         return;
       }
+      
+      const damageMultiplier = resolved.config?.damageMultiplier || this.DEFAULT_DAMAGE_MULTIPLIER;
       
       // Calculate bonus damage based on ACTUAL damage dealt (after armor/resistance)
       const bonusDamage = damage * (damageMultiplier - 1);

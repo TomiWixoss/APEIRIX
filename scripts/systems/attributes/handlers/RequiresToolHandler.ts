@@ -13,6 +13,7 @@ import { world, Player, Block, ItemStack, system } from '@minecraft/server';
 import { hasAttribute, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { LangManager } from '../../../lang/LangManager';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
+import { AttributeResolver } from '../AttributeResolver';
 
 export class RequiresToolHandler {
   static readonly ATTRIBUTE_ID = 'requires_tool';
@@ -27,9 +28,21 @@ export class RequiresToolHandler {
 
   /**
    * Process lore placeholders
+   * 
+   * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
    */
-  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
-    const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: ItemStack): string {
+    let config: any;
+    
+    // If itemStack provided, resolve dynamic attributes
+    if (itemStack) {
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      config = resolved?.config;
+    } else {
+      // Fallback to static config (for compile-time generation)
+      config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+    }
+    
     if (!config) return line;
 
     const toolType = config.toolType || 'axe';

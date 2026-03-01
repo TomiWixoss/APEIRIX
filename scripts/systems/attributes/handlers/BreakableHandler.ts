@@ -21,6 +21,7 @@ import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAt
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
+import { AttributeResolver } from '../AttributeResolver';
 
 export class BreakableHandler {
   // ============================================
@@ -80,9 +81,21 @@ export class BreakableHandler {
   /**
    * Process lore placeholders for this attribute
    * Replaces: {breakable_value}, {breakable_condition}
+   * 
+   * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
    */
-  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
-    const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: ItemStack): string {
+    let config: any;
+    
+    // If itemStack provided, resolve dynamic attributes
+    if (itemStack) {
+      const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
+      config = resolved?.config;
+    } else {
+      // Fallback to static config (for compile-time generation)
+      config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+    }
+    
     let result = line;
     
     // Replace {breakable_value}
@@ -161,11 +174,11 @@ export class BreakableHandler {
       const heldItem = container.getItem(player.selectedSlotIndex);
       if (!heldItem) return;
       
-      const itemId = heldItem.typeId;
+      // DYNAMIC: Resolve attributes from ItemStack
+      const resolved = AttributeResolver.getAttribute(heldItem, this.ATTRIBUTE_ID, system.currentTick);
+      if (!resolved) return;
       
-      // Check if item has breakable attribute
-      const config = this.breakableItems.get(itemId);
-      if (!config) return;
+      const config = resolved.config;
       
       // Get block tags for condition evaluation (from actual block component)
       const blockTags = this.getBlockTags(block);
@@ -193,7 +206,7 @@ export class BreakableHandler {
         event.cancel = true;
         
         // Mark item as broken (for DurabilityModifier to skip)
-        this.markItemBroken(player.id, itemId);
+        this.markItemBroken(player.id, heldItem.typeId);
         
         // Defer item breaking to avoid restricted execution context
         system.run(() => {
