@@ -146,6 +146,11 @@ export class DurabilityModifierHandler {
       }
     });
     
+    // Listen to player interact with block (hoe tillage, axe stripping)
+    world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+      this.handlePlayerInteract(event);
+    });
+    
     console.warn('[DurabilityModifierHandler] Initialized');
   }
 
@@ -301,6 +306,102 @@ export class DurabilityModifierHandler {
       
     } catch (error) {
       console.warn('[DurabilityModifierHandler] Error breaking item:', error);
+    }
+  }
+
+  /**
+   * Handle player interact with block (hoe tillage, axe stripping)
+   */
+  private static handlePlayerInteract(event: any): void {
+    try {
+      const player = event.player;
+      const block = event.block;
+      const itemStack = event.itemStack;
+      
+      if (!itemStack) return;
+      
+      const itemId = itemStack.typeId;
+      const config = this.durabilityItems.get(itemId);
+      if (!config) return;
+      
+      // Skip if player is in creative mode
+      if (player.getGameMode() === GameMode.Creative) {
+        return;
+      }
+      
+      const blockId = block.typeId;
+      
+      // Check if it's hoe tillage (dirt/grass -> farmland)
+      const tillableBlocks = [
+        'minecraft:dirt',
+        'minecraft:grass_block',
+        'minecraft:dirt_path',
+        'minecraft:coarse_dirt'
+      ];
+      
+      // Check if it's axe stripping (log -> stripped_log)
+      const strippableBlocks = [
+        'minecraft:oak_log',
+        'minecraft:birch_log',
+        'minecraft:spruce_log',
+        'minecraft:jungle_log',
+        'minecraft:acacia_log',
+        'minecraft:dark_oak_log',
+        'minecraft:mangrove_log',
+        'minecraft:cherry_log',
+        'minecraft:pale_oak_log',
+        'minecraft:crimson_stem',
+        'minecraft:warped_stem'
+      ];
+      
+      const isHoeTillage = tillableBlocks.includes(blockId);
+      const isAxeStripping = strippableBlocks.includes(blockId);
+      
+      if (!isHoeTillage && !isAxeStripping) return;
+      
+      const blockLocation = { ...block.location };
+      const playerId = player.id;
+      
+      // Schedule durability damage in unrestricted context
+      system.run(() => {
+        try {
+          const currentPlayer = world.getAllPlayers().find(p => p.id === playerId);
+          if (!currentPlayer) return;
+          
+          // Verify action was successful
+          const currentBlock = currentPlayer.dimension.getBlock(blockLocation);
+          if (!currentBlock) return;
+          
+          let actionSuccessful = false;
+          
+          if (isHoeTillage && currentBlock.typeId === 'minecraft:farmland') {
+            actionSuccessful = true;
+          } else if (isAxeStripping && currentBlock.typeId.includes('stripped')) {
+            actionSuccessful = true;
+          }
+          
+          if (!actionSuccessful) return;
+          
+          // Apply durability damage
+          const inventory = currentPlayer.getComponent('minecraft:inventory');
+          if (!inventory) return;
+          
+          const container = inventory.container;
+          if (!container) return;
+          
+          const selectedSlot = currentPlayer.selectedSlotIndex;
+          const heldItem = container.getItem(selectedSlot);
+          
+          if (heldItem && heldItem.typeId === itemId) {
+            this.applyDurabilityModification(currentPlayer, heldItem, config);
+          }
+        } catch (error) {
+          console.warn('[DurabilityModifierHandler] Error in deferred interact handler:', error);
+        }
+      });
+      
+    } catch (error) {
+      console.warn('[DurabilityModifierHandler] Error in interact handler:', error);
     }
   }
 }

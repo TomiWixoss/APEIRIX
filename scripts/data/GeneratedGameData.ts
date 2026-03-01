@@ -580,6 +580,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Ardite",
     description: "Bụi Ardite thô thu được từ việc đập nát quặng. Cần qua bàn trộn để tạo hợp kim hoặc đem đi rửa.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/ardite_ingot_dust",
@@ -597,6 +598,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Ardite Tinh Khiết",
     description: "Bụi Ardite tinh khiết đã qua máy rửa. Loại bỏ hoàn toàn đá vụn, sẵn sàng nung thành thỏi chất lượng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/ardite_ingot_dust_pure",
@@ -618,6 +620,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đồng Thanh",
     description: "Bụi Đồng Thanh thô, hỗn hợp vừa được nghiền ra từ đồng và thiếc.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/bronze_ingot_dust",
@@ -639,6 +642,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đồng Thanh Tinh Khiết",
     description: "Bụi Đồng Thanh tinh khiết, sạch sẽ và sẵn sàng để đúc thành thỏi.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/bronze_ingot_dust_pure",
@@ -656,6 +660,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Than",
     description: "Bụi Than thô. Rất dễ bắt lửa, thành phần quan trọng để nhào lặn với bột sắt tạo thành thép.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/coal_dust",
@@ -673,6 +678,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Than Tinh Khiết",
     description: "Bụi Than tinh khiết, đen tuyền và cung cấp nhiệt lượng tối đa khi nung.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/coal_dust_pure",
@@ -690,6 +696,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Cobalt",
     description: "Bụi Cobalt thô. Bụi xanh bám dính, nhẹ bay trong không khí.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cobalt_ingot_dust",
@@ -707,6 +714,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Cobalt Tinh Khiết",
     description: "Bụi Cobalt tinh khiết, đã loại bỏ tro xỉ Nether, chờ nung thành thỏi.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cobalt_ingot_dust_pure",
@@ -728,6 +736,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đá Cuội",
     description: "Bụi Đá Cuội. Cặn bã thu được khi nghiền hoặc rửa các loại quặng thô.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cobblestone_dust",
@@ -745,6 +754,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đồng",
     description: "Bụi Đồng thô. Dùng trên Bàn kỹ thuật kết hợp với bột thiếc để tạo ra Đồng Thanh.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/copper_ingot_dust",
@@ -762,6 +772,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đồng Tinh Khiết",
     description: "Bụi Đồng tinh khiết, màu cam sáng, nung lên sẽ cho sản lượng thỏi đồng cao nhất.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/copper_ingot_dust_pure",
@@ -779,6 +790,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đá Sâu",
     description: "Bụi Đá sâu (Deepslate). Sản phẩm phụ đen sẫm sinh ra từ việc nghiền các quặng dưới tầng sâu.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/deepslate_dust",
@@ -796,6 +808,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Kim Cương",
     description: "Bụi Kim cương thô. Dù bị nghiền nát, những mạt vụn này vẫn cực kỳ sắc bén.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/diamond_dust",
@@ -813,6 +826,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Kim Cương Tinh Khiết",
     description: "Bụi Kim cương tinh khiết hoàn hảo, lấp lánh như ngàn vì sao.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/diamond_dust_pure",
@@ -830,6 +844,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Electrum",
     description: "Bụi Electrum thô, bột hỗn hợp giữa vàng và bạc sau khi trộn.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/electrum_ingot_dust",
@@ -851,6 +866,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Electrum Tinh Khiết",
     description: "Bụi Electrum tinh khiết, hạt bột vàng chanh phản ứng mạnh với các bàn phù phép.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/electrum_ingot_dust_pure",
@@ -868,6 +884,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Ngọc Lục Bảo",
     description: "Bụi Ngọc lục bảo thô, bột xanh lục rơi vãi khi nghiền ngọc.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/emerald_dust",
@@ -885,6 +902,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Ngọc Lục Bảo Tinh Khiết",
     description: "Bụi Ngọc lục bảo tinh khiết, hạt bột mịn trong vắt không tì vết.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/emerald_dust_pure",
@@ -902,6 +920,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Vàng",
     description: "Bụi Vàng thô. Dùng làm nguyên liệu trộn với Bụi Bạc để tạo ra Electrum.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/gold_ingot_dust",
@@ -919,6 +938,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Vàng Tinh Khiết",
     description: "Bụi Vàng tinh khiết rực rỡ, sẵn sàng để nung thành thỏi vàng ròng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/gold_ingot_dust_pure",
@@ -936,6 +956,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Invar",
     description: "Bụi Invar thô, bột hỗn hợp Sắt và Niken nằm chờ được nung nấu.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/invar_ingot_dust",
@@ -957,6 +978,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Invar Tinh Khiết",
     description: "Bụi Invar tinh khiết, sạch cặn, đảm bảo chất lượng siêu cứng của thỏi khi đúc.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/invar_ingot_dust_pure",
@@ -974,6 +996,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Sắt",
     description: "Bụi Sắt thô. Rất đa dụng, trộn với bột than để luyện thép, hoặc niken để làm Invar.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/iron_ingot_dust",
@@ -991,6 +1014,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Sắt Tinh Khiết",
     description: "Bụi Sắt tinh khiết, không bị gỉ, nung thành sắt dễ dàng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/iron_ingot_dust_pure",
@@ -1008,6 +1032,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Lưu Ly",
     description: "Bụi Lưu Ly thô, những hạt bột xanh biếc ma thuật dính đầy sỏi vụn.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/lapis_block_dust",
@@ -1025,6 +1050,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Lưu Ly Tinh Khiết",
     description: "Bụi Lưu Ly tinh khiết, tỏa ra nguồn ma lực nguyên thủy mạnh mẽ.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/lapis_block_dust_pure",
@@ -1042,6 +1068,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Chì",
     description: "Bụi Chì thô. Bột xám đen độc hại, cẩn thận khi hít phải.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/lead_ingot_dust",
@@ -1059,6 +1086,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Chì Tinh Khiết",
     description: "Bụi Chì tinh khiết. Đã rửa sạch, sẵn sàng nung thành những thỏi chì siêu nặng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/lead_ingot_dust_pure",
@@ -1080,6 +1108,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Manyullyn",
     description: "Bụi Manyullyn thô. Bột tím chết chóc tỏa ra sát khí dù chưa được nung.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/manyullyn_ingot_dust",
@@ -1101,6 +1130,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Manyullyn Tinh Khiết",
     description: "Bụi Manyullyn tinh khiết. Nguyên liệu cốt lõi tạo ra thứ kim loại thống trị thế giới.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/manyullyn_ingot_dust_pure",
@@ -1122,6 +1152,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đá Địa Ngục",
     description: "Bụi Đá Địa ngục. Cặn xốp rỗng sinh ra từ việc nghiền các quặng ở Nether.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/netherrack_dust",
@@ -1139,6 +1170,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Niken",
     description: "Bụi Niken thô. Dùng để trộn với sắt trên bàn kỹ thuật nhằm tạo ra Invar.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/nickel_ingot_dust",
@@ -1156,6 +1188,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Niken Tinh Khiết",
     description: "Bụi Niken tinh khiết, sáng lấp lánh như bột nhôm.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/nickel_ingot_dust_pure",
@@ -1209,6 +1242,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Than Thô",
     description: "Than thô thu được từ việc gộp các bụi than lại. Có thể nung thành viên than.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_coal",
@@ -1226,6 +1260,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Kim Cương Thô",
     description: "Kim cương thô sơ, tái tạo từ những hạt bụi kim cương li ti.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_diamond",
@@ -1243,6 +1278,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Ngọc Lục Bảo Thô",
     description: "Ngọc lục bảo thô sần sùi, cần nung để tạo thành ngọc hoàn chỉnh.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_emerald",
@@ -1260,6 +1296,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Lưu Ly Thô",
     description: "Lưu ly thô, kết tủa từ bột lưu ly, mang đậm chất ma thuật.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_lapis",
@@ -1277,6 +1314,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Đá Đỏ Tinh Khiết",
     description: "Bụi Đá đỏ tinh khiết. Đã loại bỏ hoàn toàn đá vụn, mạch điện truyền dẫn cực tốt.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/redstone_dust_pure",
@@ -1294,6 +1332,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Bạc",
     description: "Bụi Bạc thô. Nguyên liệu thiết yếu trộn với vàng để ra bột Electrum.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/silver_ingot_dust",
@@ -1311,6 +1350,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Bạc Tinh Khiết",
     description: "Bụi Bạc tinh khiết, mang ánh sáng thanh tẩy tà khí ngay cả ở dạng bột.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/silver_ingot_dust_pure",
@@ -1332,6 +1372,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Hợp Kim Thép",
     description: "Bụi Thép thô. Bột hỗn hợp than và sắt đã hòa quyện vào nhau.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/steel_alloy_dust",
@@ -1353,6 +1394,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Hợp Kim Thép Tinh Khiết",
     description: "Bụi Thép tinh khiết, sẵn sàng bước vào lò nung để đúc thành Thép công nghiệp.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/steel_alloy_dust_pure",
@@ -1370,6 +1412,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Thiếc",
     description: "Bụi Thiếc thô. Dùng để trộn với bột đồng tạo ra hợp kim Đồng Thanh.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/tin_ingot_dust",
@@ -1387,6 +1430,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bụi Thiếc Tinh Khiết",
     description: "Bụi Thiếc tinh khiết. Mềm mịn, dễ dàng đúc thành vỏ hộp thiếc hoặc thỏi.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/tin_ingot_dust_pure",
@@ -1862,6 +1906,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồng Thanh Thô",
     description: "Mảnh Đồng Thanh thô ráp được nặn ra từ việc trộn bụi hợp kim. Cần nung chảy để trở thành thỏi.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_bronze",
@@ -1893,6 +1938,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Electrum Thô",
     description: "Cục hợp kim Electrum thô chưa qua tôi luyện. Sự pha trộn giữa bụi bạc và vàng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_electrum",
@@ -1910,6 +1956,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Invar Thô",
     description: "Cục hợp kim Invar thô cứng ngắc. Tiền thân của thứ vật liệu thách thức mọi nhiệt độ.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_invar",
@@ -1941,6 +1988,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Manyullyn Thô",
     description: "Mảnh hợp kim Manyullyn thô ráp. Ánh tím phát ra những tia sét nhỏ báo hiệu một sức mạnh kinh hoàng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_manyullyn",
@@ -1986,6 +2034,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Bạc Thô",
     description: "Khoáng thạch Bạc thô. Những cạnh sắc lẻm của nó phản chiếu ánh sáng tuyệt đẹp.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_silver",
@@ -2003,6 +2052,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Hợp Kim Thép Thô",
     description: "Cục Thép thô nhám đen. Bụi sắt và than đã hòa quyện, chờ ngọn lửa biến nó thành thép cứng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_steel",
@@ -2020,6 +2070,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Thiếc Thô",
     description: "Khoáng thạch Thiếc thô. Rất mềm, có thể bóp méo nhẹ bằng tay trần.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/raw_tin",
@@ -2030,6 +2081,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Kỹ Thuật",
     description: "Chiếc búa nặng trịch của kỹ sư. Dùng làm nguyên liệu thiết yếu để chế tạo và lắp ráp các cỗ máy công nghiệp.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/engineering_hammer",
@@ -2083,6 +2135,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Vỏ Đồ Hộp Bẩn",
     description: "Vỏ đồ hộp đã qua sử dụng, dính đầy thức ăn thừa. Sinh ra mùi hương đặc biệt thu hút lũ Bọ Ăn Rỉ Sét (Rust Mite).",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/candirty",
@@ -2093,6 +2146,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Vỏ Đồ Hộp Rỗng",
     description: "Vỏ đồ hộp rỗng sạch sẽ, được làm từ thiếc. Dụng cụ thiết yếu để đóng gói và bảo quản thực phẩm vô thời hạn.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/canempty",
@@ -2579,6 +2633,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Ardite",
     description: "Búa công nghiệp Ardite. Dùng để đập nát trực tiếp các khối đá và quặng thành dạng bụi mịn với độ bền khổng lồ.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/ardite_hammer",
@@ -2595,6 +2650,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Đồng Thanh",
     description: "Búa đồng thanh. Giúp nghiền trực tiếp các khối quặng thành bụi một cách trơn tru ở giai đoạn đầu game.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/bronze_hammer",
@@ -2611,6 +2667,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Cobalt",
     description: "Búa Cobalt. Món đồ nghề siêu nhẹ giúp gõ nát quặng và đá thành bụi với tốc độ cực kỳ nhanh chóng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/cobalt_hammer",
@@ -2627,6 +2684,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Đồng",
     description: "Búa đồng nguyên chất. Giải pháp cơ bản để đập quặng ra bụi mịn khi bạn chưa có kim loại tốt hơn.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/copper_hammer",
@@ -2643,6 +2701,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Kim Cương",
     description: "Búa kim cương. Khai thác bụi quặng tại chỗ với độ hiệu quả và kiên cố hoàn mỹ.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/diamond_hammer",
@@ -2659,6 +2718,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Electrum",
     description: "Búa Electrum. Nghiền quặng thành bụi với vận tốc tia chớp và rất tương thích với bùa Gia Tài (Fortune).",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/electrum_hammer",
@@ -2675,6 +2735,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Vàng",
     description: "Búa vàng ròng. Đập quặng siêu nhanh nhưng cực kỳ mong manh, gần như gãy vụn ngay lập tức.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/golden_hammer",
@@ -2691,6 +2752,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Invar",
     description: "Búa Invar siêu cứng. Dùng để đập nát quặng thành bụi cả ngày dài mà không lo mài mòn nhanh.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/invar_hammer",
@@ -2707,6 +2769,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Sắt",
     description: "Búa sắt tiêu chuẩn. Dụng cụ phổ thông nhất để thợ mỏ tự nghiền quặng thành bụi ngay dưới hầm.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/iron_hammer",
@@ -2723,6 +2786,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Chì",
     description: "Búa Chì tạ. Rất nặng nề, mỗi nhát gõ mạnh bạo biến quặng tảng thành bụi mịn tức thì.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/lead_hammer",
@@ -2739,6 +2803,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Manyullyn",
     description: "Búa hủy diệt Manyullyn. Quét sạch quặng thành bụi tím bằng sức mạnh bá đạo nhất, không gì cản nổi.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/manyullyn_hammer",
@@ -2755,6 +2820,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Netherite",
     description: "Búa Netherite vĩnh cửu. Đỉnh cao của dụng cụ nghiền quặng thành bụi, không sợ cháy và không thể phá hủy.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/netherite_hammer",
@@ -2771,6 +2837,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Niken",
     description: "Búa Niken sáng bóng. Gõ quặng ra bụi hiệu quả mà không bao giờ lo bề mặt búa bị xỉn màu gỉ sét.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/nickel_hammer",
@@ -2787,6 +2854,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Bạch Kim",
     description: "Búa Bạch Kim hoàng gia. Cỗ tạ đập quặng thành bụi xa xỉ với hiệu năng vượt mọi loại kim cương.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/platinum_hammer",
@@ -2803,6 +2871,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Bạc",
     description: "Búa Bạc thanh mảnh. Đập quặng êm ái, rất phù hợp khi muốn áp dụng các bùa chú tăng sản lượng bụi.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/silver_hammer",
@@ -2819,6 +2888,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Hợp Kim Thép",
     description: "Búa Thép công nghiệp. Bền bỉ và uy lực như một cỗ máy mini, đập quặng ra bụi không thương tiếc.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/steel_alloy_hammer",
@@ -2835,6 +2905,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Đá",
     description: "Búa tảng đá. Dụng cụ cực kỳ thô sơ để tự đập đá và quặng ra bụi, phù hợp cày cuốc lúc khốn khó.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/stone_hammer",
@@ -2851,6 +2922,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Thiếc",
     description: "Búa Thiếc. Rất mềm và dễ móp méo, chỉ dùng chữa cháy để đập quặng ra bụi khi không còn gì khác.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi"
     ],
     icon: "textures/items/tin_hammer",
@@ -2867,6 +2939,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Gỗ",
     description: "Búa gỗ tự chế. Nặng và kém cỏi, đập vài cục đá hay quặng thành bụi là vỡ nát ngay.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:hammer_mining}: §aĐập block ra bụi",
       "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
       "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
@@ -4391,6 +4464,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Củ Dền",
     description: "Củ dền đỏ ngâm đóng hộp. Hương vị ngọt gắt nhưng là nguồn năng lượng dự trữ tuyệt vời cho cơ thể.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedbeets",
@@ -4405,6 +4479,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Bánh Mì",
     description: "Bánh mì nén chặt trong hộp thiếc. Dù hơi khô khan nhưng đảm bảo không bao giờ bị nấm mốc làm hỏng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedbread",
@@ -4419,6 +4494,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Cà Rốt",
     description: "Cà rốt đóng hộp. Lượng vitamin A dồi dào được bảo toàn, giúp mắt bạn sáng rõ trong bóng tối (hiệu ứng Nhìn Đêm).",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedcarrots",
@@ -4434,6 +4510,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Thức Ăn Chó",
     description: "Thức ăn vụn trộn xương đóng hộp, thường dành cho động vật. Ăn vào sẽ gây buồn nôn, chỉ nên dùng trong bước đường cùng.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/canneddogfood",
@@ -4449,6 +4526,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Cá",
     description: "Cá mòi đóng hộp ngâm dầu. Cung cấp dưỡng chất đặc biệt giúp tăng cường khả năng nín thở dưới nước.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedfish",
@@ -4464,6 +4542,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Bữa Ăn",
     description: "Khẩu phần ăn chiến thuật (MRE) đóng hộp. Một bữa ăn hoàn chỉnh và xa xỉ, kích hoạt khả năng Hồi Máu nhanh tức thì.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedmeal",
@@ -4479,6 +4558,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Súp Nấm",
     description: "Súp nấm cô đặc đóng hộp. Thơm ngon, sánh mịn, làm no bụng và xua tan mệt mỏi rất hiệu quả.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedmushroomsoup",
@@ -4493,6 +4573,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Salad",
     description: "Salad rau củ trộn đóng hộp. Thanh mát và tươi mọng, mang lại hiệu ứng Tăng máu tối đa (Health Boost) trong thời gian ngắn.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cannedsalad",
@@ -4508,6 +4589,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Thịt",
     description: "Thịt hầm đóng hộp giàu đạm. Cung cấp lượng lớn độ no và dinh dưỡng cho những chuyến thám hiểm dài ngày.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/canned_food",
@@ -4522,6 +4604,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Bí Ngô",
     description: "Bí ngô xay nhuyễn đóng hộp. Món ăn thanh đạm giúp cơ thể dịu mát, cung cấp hiệu ứng Kháng Lửa nhẹ.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/canned_pumpkin",
@@ -4537,6 +4620,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Súp Gà",
     description: "Súp gà đóng hộp. Cho hiệu ứng hồi máu.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/chickensoup",
@@ -4552,6 +4636,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Bánh Quy",
     description: "Bánh quy vụn giữ trong hộp thiếc. Lượng đường cực cao giúp cơ bắp hoạt động hết công suất (hiệu ứng Đào Nhanh).",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/cookies",
@@ -4567,6 +4652,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Salad Trái Cây",
     description: "Trái cây thập cẩm ngâm đường đóng hộp. Vị chua ngọt đem lại sự sảng khoái và bứt tốc độ chạy (Tăng tốc).",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/fruit_salad",
@@ -4582,6 +4668,7 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Đồ Hộp Thịt Nguội",
     description: "Thịt hộp Spam nguyên khối (Luncheon Meat). Cực kỳ đậm đà và đặc thịt, giúp bạn no rất lâu không biết đói.",
     lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     ],
     icon: "textures/items/luncheonmeat",

@@ -303,15 +303,11 @@ export class WikiDataBPGenerator {
     
     const loreLines: string[] = [];
     
-    // Check if this is a vanilla override item (ID starts with minecraft:)
-    const isVanillaOverride = entity.id && entity.id.startsWith('minecraft:');
-    
-    // Add vanilla override warning first
-    if (isVanillaOverride) {
-      const warningTemplate = langLoader.get('lore.attributes.vanilla_override_warning', configDir, undefined);
-      if (warningTemplate && warningTemplate !== 'lore.attributes.vanilla_override_warning') {
-        loreLines.push(warningTemplate);
-      }
+    // Add attribute override warning first for ALL items with attributes
+    // This indicates the item has custom attributes that modify its behavior
+    const warningTemplate = langLoader.get('lore.attributes.vanilla_override_warning', configDir, undefined);
+    if (warningTemplate && warningTemplate !== 'lore.attributes.vanilla_override_warning') {
+      loreLines.push(warningTemplate);
     }
     
     // Generate lore line for each attribute

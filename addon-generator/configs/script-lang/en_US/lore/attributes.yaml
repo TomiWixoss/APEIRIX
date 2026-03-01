@@ -2,7 +2,7 @@
 # Convention: {attribute_id}_template
 # Used when lore: lang:lore.auto
 
-# Vanilla override warning (shown first for items with materialId: minecraft:*)
+# Attribute override warning (shown first for ALL items with attributes)
 vanilla_override_warning: "§e⚠ Stats have been modified§r"
 
 breakable_template: "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
