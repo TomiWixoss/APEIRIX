@@ -124,5 +124,12 @@ export const LANG_VI = {
             "ores": "§0Quặng",
             "entities": "§0Sinh vật"
         }
+    },
+    "attributes": {
+        "breakable": "§cGẫy",
+        "durability": "§6Độ bền",
+        "combat_damage": "§6Sát thương",
+        "damage_multiplier": "§6Sát thương tăng",
+        "mining_speed": "§6Tốc độ đào"
     }
 };

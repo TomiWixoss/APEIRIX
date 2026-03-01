@@ -1,12 +1,3 @@
-# Attribute lore templates
-# Convention: {attribute_id}_template
-# Used when lore: lang:lore.auto
-
-breakable_template: "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
-durability_modifier_template: "{attr:durability}: §f{max_durability}"
-combat_damage_modifier_template: "{attr:combat_damage}: §f{combat_damage}"
-undead_slayer_template: "{attr:damage_multiplier}: §f+{damageMultiplier}%"
-
 # Attribute labels (used in templates via {attr:*})
 breakable: "§cBreakable"
 durability: "§6Durability"

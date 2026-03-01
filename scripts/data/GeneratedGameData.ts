@@ -1963,6 +1963,12 @@ export const GENERATED_WIKI_ITEMS = [
     category: "materials",
     name: "Cuốc Gỗ",
     description: "wiki.tools.wooden_pickaxe",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r|§7Thông tin vanilla không còn chính xác",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{max_durability}",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
   },
   {
     id: "apeirix:ardite_axe",

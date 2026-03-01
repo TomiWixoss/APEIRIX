@@ -28,6 +28,7 @@ export class ScriptLangBPGenerator {
       // Look in script-lang folder
       const uiYamlPath = path.join(configDir, 'script-lang', lang, 'ui.yaml');
       const wikiYamlPath = path.join(configDir, 'script-lang', lang, 'wiki.yaml');
+      const attributesYamlPath = path.join(configDir, 'script-lang', lang, 'attributes.yaml');
       
       let langData: Record<string, any> = {};
 
@@ -45,6 +46,13 @@ export class ScriptLangBPGenerator {
         const wikiContent = readFileSync(wikiYamlPath, 'utf-8');
         const wikiData = yaml.load(wikiContent) as Record<string, any>;
         langData = { ...langData, ...wikiData };
+      }
+
+      // Load Attributes YAML (for lore placeholders)
+      if (existsSync(attributesYamlPath)) {
+        const attributesContent = readFileSync(attributesYamlPath, 'utf-8');
+        const attributesData = yaml.load(attributesContent) as Record<string, any>;
+        langData = { ...langData, attributes: attributesData };
       }
 
       if (Object.keys(langData).length === 0) {

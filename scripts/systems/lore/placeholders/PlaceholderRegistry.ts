@@ -37,6 +37,7 @@ type AttributeHandler = {
 
 export class PlaceholderRegistry {
   private static processors: PlaceholderProcessor[] = [];
+  private static attributeHandlers: Map<string, AttributeHandler> = new Map();
   private static initialized = false;
   
   /**
@@ -48,9 +49,22 @@ export class PlaceholderRegistry {
     // Register attribute label processor (must run FIRST)
     this.register(new AttributeLabelPlaceholder());
     
+    // Register all attribute handlers for lore placeholder processing
+    // Only register handlers that have processLorePlaceholders method
+    for (const handler of ATTRIBUTE_HANDLERS) {
+      if (handler.ATTRIBUTE_ID) {
+        // Type-safe check for processLorePlaceholders
+        const h = handler as any;
+        if (typeof h.processLorePlaceholders === 'function') {
+          this.attributeHandlers.set(handler.ATTRIBUTE_ID, h as AttributeHandler);
+          console.warn(`[PlaceholderRegistry] Registered handler: ${handler.ATTRIBUTE_ID}`);
+        }
+      }
+    }
+    
     this.initialized = true;
     
-    console.warn(`[PlaceholderRegistry] Initialized with ${this.processors.length} processors + ${ATTRIBUTE_HANDLERS.length} attribute handlers`);
+    console.warn(`[PlaceholderRegistry] Initialized with ${this.processors.length} processors + ${this.attributeHandlers.size} attribute handlers`);
   }
   
   /**
@@ -82,16 +96,13 @@ export class PlaceholderRegistry {
       }
       
       // Run through attribute handlers for value placeholders
-      // Only process handlers for attributes this item actually has
-      const itemAttributes = getItemAttributes(itemId);
-      for (const handler of ATTRIBUTE_HANDLERS) {
-        const h = handler as unknown as AttributeHandler;
-        
-        // Check if item has this attribute
-        if (itemAttributes.includes(h.ATTRIBUTE_ID)) {
-          // Check if handler has lore processing method (some handlers are runtime-only)
-          if (h.processLorePlaceholders) {
-            processedLine = h.processLorePlaceholders(itemId, processedLine);
+      // Get item attributes to find which handlers to use
+      const attributes = getItemAttributes(itemId);
+      if (attributes && attributes.length > 0) {
+        for (const attrId of attributes) {
+          const handler = this.attributeHandlers.get(attrId);
+          if (handler && handler.processLorePlaceholders) {
+            processedLine = handler.processLorePlaceholders(itemId, processedLine);
           }
         }
       }

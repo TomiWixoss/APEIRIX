@@ -56,9 +56,12 @@ export interface ContentConfig {
 export interface ItemConfig {
   id: string;
   name: string;
+  lore?: string; // Lore text or lang key
+  wikiDescription?: string; // Wiki description or lang key
   texture: string;
   category?: string;
   maxStackSize?: number;
+  attributes?: Record<string, any>; // Attribute configs for auto-generated lore
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
   testCommands?: string[];
@@ -67,6 +70,8 @@ export interface ItemConfig {
 export interface FoodConfig {
   id: string;
   name: string;
+  lore?: string; // Lore text or lang key
+  wikiDescription?: string; // Wiki description or lang key
   texture: string;
   nutrition: number;
   saturation: number;
@@ -75,6 +80,7 @@ export interface FoodConfig {
   stackSize?: number;
   cooldown?: number;
   cooldownType?: string;
+  attributes?: Record<string, any>; // Attribute configs for auto-generated lore
   effects?: Array<{
     name: string;
     duration: number;
@@ -89,11 +95,14 @@ export interface FoodConfig {
 export interface BlockConfig {
   id: string;
   name: string;
+  lore?: string; // Lore text or lang key
+  wikiDescription?: string; // Wiki description or lang key
   texture: string;
   textureTop?: string;
   textureSide?: string;
   textureFront?: string;
   category?: string;
+  attributes?: Record<string, any>; // Attribute configs for auto-generated lore
   destroyTime?: number;
   explosionResistance?: number;
   friction?: number;
@@ -150,12 +159,15 @@ export interface BlockConfig {
 export interface OreConfig {
   id: string;
   name: string;
+  lore?: string; // Lore text or lang key
+  wikiDescription?: string; // Wiki description or lang key
   texturePath: string;
   deepslateTexturePath: string;
   rawItemId: string;
   rawItemName: string;
   rawItemTexture: string;
   drops: string;
+  attributes?: Record<string, any>; // Attribute configs for auto-generated lore
   minY?: number;
   maxY?: number;
   veinSize?: number;
@@ -170,6 +182,8 @@ export interface OreConfig {
 export interface ToolConfig {
   id: string;
   name: string;
+  lore?: string; // Lore text or lang key (e.g., "lang:lore.tools.item_id" or "lang:lore.auto")
+  wikiDescription?: string; // Wiki description or lang key
   texture: string;
   type: 'pickaxe' | 'axe' | 'shovel' | 'hoe' | 'sword' | 'spear' | 'hammer';
   materialId: string;
@@ -178,6 +192,7 @@ export interface ToolConfig {
   efficiency?: number;
   enchantability?: number;
   tier?: string;
+  attributes?: Record<string, any>; // Attribute configs for auto-generated lore
   testCommands?: string[];
   recipe?: RecipeConfig;
   recipes?: RecipeConfig[];
@@ -193,6 +208,9 @@ export interface ArmorSetConfig {
   durabilityMultiplier?: number;
   protectionMultiplier?: number;
   enchantability?: number;
+  lore?: string; // Lore text or lang key
+  wikiDescription?: string; // Wiki description or lang key
+  attributes?: Record<string, any>; // Attribute configs for auto-generated lore
   testCommands?: string[];
   type?: 'helmet' | 'chestplate' | 'leggings' | 'boots';
   id?: string;

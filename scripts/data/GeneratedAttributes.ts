@@ -7,7 +7,7 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T09:43:11.102Z
+ * Generated: 2026-03-01T10:59:14.932Z
  * Total attributes: 6
  * Total items with attributes: 91
  */

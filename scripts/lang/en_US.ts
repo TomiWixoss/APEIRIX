@@ -124,5 +124,12 @@ export const LANG_EN = {
             "ores": "§0Ores",
             "entities": "§0Entities"
         }
+    },
+    "attributes": {
+        "breakable": "§cBreakable",
+        "durability": "§6Durability",
+        "combat_damage": "§6Damage",
+        "damage_multiplier": "§6Damage Bonus",
+        "mining_speed": "§6Mining Speed"
     }
 };

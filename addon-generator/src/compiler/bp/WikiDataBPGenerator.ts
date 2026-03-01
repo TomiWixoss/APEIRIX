@@ -255,6 +255,10 @@ export class WikiDataBPGenerator {
    */
   private static resolveLore(entity: any, configDir: string): string[] | undefined {
     if (!entity.lore) {
+      // Log missing lore for debugging (only if entity has attributes that could auto-generate)
+      if (entity.attributes && Object.keys(entity.attributes).length > 0) {
+        Logger.warn(`[WikiDataBPGenerator] Entity ${entity.id} has attributes but no lore field. Consider adding 'lore: lang:lore.auto'`);
+      }
       return undefined;
     }
     
@@ -288,6 +292,9 @@ export class WikiDataBPGenerator {
   /**
    * Auto-generate lore from entity attributes
    * Automatically discovers template keys from attribute IDs
+   * 
+   * For vanilla override items (materialId starts with minecraft:),
+   * adds a warning line first
    */
   private static autoGenerateLore(entity: any, configDir: string): string[] | undefined {
     if (!entity.attributes) {
@@ -296,15 +303,29 @@ export class WikiDataBPGenerator {
     
     const loreLines: string[] = [];
     
+    // Check if this is a vanilla override item (ID starts with minecraft:)
+    const isVanillaOverride = entity.id && entity.id.startsWith('minecraft:');
+    
+    // Add vanilla override warning first
+    if (isVanillaOverride) {
+      const warningTemplate = langLoader.get('lore.attributes.vanilla_override_warning', configDir, undefined);
+      if (warningTemplate && warningTemplate !== 'lore.attributes.vanilla_override_warning') {
+        loreLines.push(warningTemplate);
+      }
+    }
+    
     // Generate lore line for each attribute
     // Template key convention: {attribute_id}_template
     // Example: breakable -> breakable_template
     for (const attrId of Object.keys(entity.attributes)) {
       const templateKey = `${attrId}_template`;
       
-      // Get template from lang file
-      const template = langLoader.get(`attributes.${templateKey}`, configDir, undefined);
-      if (!template || template === `attributes.${templateKey}`) continue;
+      // Get template from lang file (correct path: lore.attributes.{key})
+      const template = langLoader.get(`lore.attributes.${templateKey}`, configDir, undefined);
+      if (!template || template === `lore.attributes.${templateKey}`) {
+        Logger.warn(`[WikiDataBPGenerator] Missing lore template for attribute '${attrId}' (key: lore.attributes.${templateKey})`);
+        continue;
+      }
       
       loreLines.push(template);
     }
