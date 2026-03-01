@@ -25,6 +25,7 @@ import { DamageIndicatorSystem } from "../systems/combat/DamageIndicatorSystem";
 import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
+import { TestBlockAttributeTransfer } from "../tests/TestBlockAttributeTransfer";
 
 // Import achievements - Metallurgy
 import { FirstOreAchievement } from "../data/achievements/categories/metallurgy/FirstOreAchievement";
@@ -211,6 +212,9 @@ export class GameManager {
         CompressorSystem.initialize();
         CrusherSystem.initialize();
         DisplayHandler.initialize();
+        
+        // Initialize test commands (development only)
+        TestBlockAttributeTransfer.initialize();
     }
 
     private static setupEventListeners(): void {
