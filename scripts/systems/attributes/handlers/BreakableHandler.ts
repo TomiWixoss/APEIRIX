@@ -126,19 +126,13 @@ export class BreakableHandler {
   private static breakableItems = new Map<string, any>(); // itemId -> config
 
   static initialize(): void {
-    console.warn('[BreakableHandler] Initializing...');
-    
     // Load breakable items from attributes
     this.loadBreakableItems();
     
-    console.warn(`[BreakableHandler] Loaded ${this.breakableItems.size} breakable items`);
-    
-    // Listen to block break events
-    world.afterEvents.playerBreakBlock.subscribe((event) => {
+    // Listen to block break events BEFORE they happen (to get actual block data)
+    world.beforeEvents.playerBreakBlock.subscribe((event) => {
       this.handleBlockBreak(event);
     });
-    
-    console.warn('[BreakableHandler] Initialized');
   }
 
   private static loadBreakableItems(): void {
@@ -146,29 +140,28 @@ export class BreakableHandler {
     
     for (const item of items) {
       this.breakableItems.set(item.itemId, item.config);
-      
-      const value = item.config?.value ?? 100;
-      const context = item.config?.context ?? 'always';
-      console.warn(`[BreakableHandler] ${item.itemId}: ${value}% breakable (context: ${context})`);
     }
   }
 
   private static handleBlockBreak(event: any): void {
     try {
-      const { player, block, itemStackBeforeBreak } = event;
+      const { player, block } = event;
       
-      // Check if player has item
-      if (!itemStackBeforeBreak) {
-        return;
-      }
+      // Get player's held item
+      const inventory = player.getComponent('minecraft:inventory');
+      if (!inventory) return;
       
-      const itemId = itemStackBeforeBreak.typeId;
+      const container = inventory.container;
+      if (!container) return;
+      
+      const heldItem = container.getItem(player.selectedSlotIndex);
+      if (!heldItem) return;
+      
+      const itemId = heldItem.typeId;
       
       // Check if item has breakable attribute
       const config = this.breakableItems.get(itemId);
-      if (!config) {
-        return;
-      }
+      if (!config) return;
       
       // Get block tags for condition evaluation (from actual block component)
       const blockTags = this.getBlockTags(block);
@@ -190,16 +183,18 @@ export class BreakableHandler {
       
       // Roll for break
       const roll = Math.random() * 100;
+      
       if (roll < breakChance) {
+        // Cancel block break event (prevent block from being destroyed)
+        event.cancel = true;
+        
         // Mark item as broken (for DurabilityModifier to skip)
         this.markItemBroken(player.id, itemId);
         
-        // Break item
-        this.breakItem(player, itemStackBeforeBreak);
-        
-        console.warn(`[BreakableHandler] ${itemId} broke (${breakChance}% chance, rolled ${roll.toFixed(1)})`);
-      } else {
-        console.warn(`[BreakableHandler] ${itemId} survived (${breakChance}% chance, rolled ${roll.toFixed(1)}) - passing to durability handler`);
+        // Defer item breaking to avoid restricted execution context
+        system.run(() => {
+          this.breakItem(player, heldItem);
+        });
       }
     } catch (error) {
       console.warn('[BreakableHandler] Error in block break handler:', error);
@@ -215,27 +210,26 @@ export class BreakableHandler {
       const container = inventory.container;
       if (!container) return;
       
-      // Find item in inventory and remove it
-      for (let i = 0; i < container.size; i++) {
-        const slot = container.getItem(i);
-        if (slot && slot.typeId === itemStack.typeId) {
-          // Reduce amount by 1
-          if (slot.amount > 1) {
-            slot.amount -= 1;
-            container.setItem(i, slot);
-          } else {
-            container.setItem(i, undefined);
-          }
-          
-          // Play break sound
-          player.playSound('random.break');
-          
-          // Send message
-          player.sendMessage(`§c${itemStack.typeId} đã bị phá hủy!`);
-          
-          break;
-        }
+      // Get selected slot
+      const selectedSlot = player.selectedSlotIndex;
+      const heldItem = container.getItem(selectedSlot);
+      
+      // Verify it's the same item
+      if (!heldItem || heldItem.typeId !== itemStack.typeId) {
+        return;
       }
+      
+      // Remove or reduce item amount
+      if (heldItem.amount > 1) {
+        heldItem.amount -= 1;
+        container.setItem(selectedSlot, heldItem);
+      } else {
+        container.setItem(selectedSlot, undefined);
+      }
+      
+      // Play break sound
+      player.playSound('random.break');
+      
     } catch (error) {
       console.warn('[BreakableHandler] Error breaking item:', error);
     }
@@ -244,11 +238,39 @@ export class BreakableHandler {
   /**
    * Get block tags for condition evaluation
    * Reads from block's actual tags via Script API
+   * Fallback: infer common tags from blockId if specific tags not found
    */
   private static getBlockTags(block: any): string[] {
     try {
       // Use Script API to get actual block tags
-      return block.getTags();
+      const actualTags = block.getTags();
+      
+      // Infer semantic tags from blockId (ore, stone, wood, dirt)
+      const blockId = block.typeId;
+      const inferredTags: string[] = [];
+      
+      // Check for ore tag
+      if (blockId.includes('_ore') || blockId.includes('ore_')) {
+        inferredTags.push('ore');
+      }
+      
+      // Check for stone tag
+      if (blockId.includes('stone') || blockId.includes('cobblestone') || blockId.includes('deepslate')) {
+        inferredTags.push('stone');
+      }
+      
+      // Check for wood tag
+      if (blockId.includes('log') || blockId.includes('wood') || blockId.includes('planks')) {
+        inferredTags.push('wood');
+      }
+      
+      // Check for dirt tag
+      if (blockId.includes('dirt') || blockId.includes('grass') || blockId.includes('mycelium')) {
+        inferredTags.push('dirt');
+      }
+      
+      // Combine actual tags + inferred semantic tags
+      return [...actualTags, ...inferredTags];
     } catch (error) {
       console.warn('[BreakableHandler] Error getting block tags:', error);
       return [];
