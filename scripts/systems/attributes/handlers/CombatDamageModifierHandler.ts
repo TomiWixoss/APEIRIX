@@ -18,7 +18,7 @@
  * Example: Wooden pickaxe với damage: 0 (no combat damage)
  */
 
-import { world, system, EntityHurtBeforeEvent } from '@minecraft/server';
+import { world, EntityHurtBeforeEvent } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
@@ -100,23 +100,29 @@ export class CombatDamageModifierHandler {
     try {
       const { hurtEntity, damageSource, damage } = event;
       
-      // Check if damage source is a player
+      // Check if damage source is an entity
       const attacker = damageSource.damagingEntity;
-      if (!attacker || attacker.typeId !== 'minecraft:player') {
+      if (!attacker) {
         return;
       }
       
-      // Cast to Player to access selectedSlotIndex
-      const player = attacker as any; // Player type
-      
-      // Get attacker's held item
-      const inventory = player.getComponent('minecraft:inventory');
+      // Get attacker's inventory (works for any entity with inventory component)
+      const inventory = attacker.getComponent('minecraft:inventory');
       if (!inventory) return;
       
       const container = inventory.container;
       if (!container) return;
       
-      const heldItem = container.getItem(player.selectedSlotIndex);
+      // Get held item (for players, use selectedSlotIndex; for mobs, use slot 0)
+      let heldItem;
+      if (attacker.typeId === 'minecraft:player') {
+        const player = attacker as any;
+        heldItem = container.getItem(player.selectedSlotIndex);
+      } else {
+        // For non-player entities, check first slot (main hand)
+        heldItem = container.getItem(0);
+      }
+      
       if (!heldItem) return;
       
       const itemId = heldItem.typeId;
@@ -127,8 +133,8 @@ export class CombatDamageModifierHandler {
         return;
       }
       
-      // Get entity families for condition evaluation
-      const entityFamilies = this.getEntityFamilies(hurtEntity.typeId);
+      // Get entity tags for condition evaluation (from actual entity component)
+      const entityFamilies = this.getEntityFamilies(hurtEntity);
       
       // Create evaluation context
       const evalContext: EvaluationContext = {
@@ -167,30 +173,16 @@ export class CombatDamageModifierHandler {
   }
 
   /**
-   * Get entity families for condition evaluation
+   * Get entity families/tags for condition evaluation
+   * Reads from entity's actual tags via Script API
    */
-  private static getEntityFamilies(entityTypeId: string): string[] {
-    const families: string[] = [];
-    
-    // Undead family
-    if (entityTypeId.includes('zombie') || entityTypeId.includes('skeleton') || 
-        entityTypeId.includes('wither') || entityTypeId.includes('phantom')) {
-      families.push('undead');
+  private static getEntityFamilies(entity: any): string[] {
+    try {
+      // Use Script API to get actual entity tags
+      return entity.getTags();
+    } catch (error) {
+      console.warn('[CombatDamageModifierHandler] Error getting entity tags:', error);
+      return [];
     }
-    
-    // Monster family
-    if (entityTypeId.includes('creeper') || entityTypeId.includes('spider') || 
-        entityTypeId.includes('enderman') || entityTypeId.includes('zombie') ||
-        entityTypeId.includes('skeleton')) {
-      families.push('monster');
-    }
-    
-    // Animal family
-    if (entityTypeId.includes('cow') || entityTypeId.includes('pig') || 
-        entityTypeId.includes('sheep') || entityTypeId.includes('chicken')) {
-      families.push('animal');
-    }
-    
-    return families;
   }
 }

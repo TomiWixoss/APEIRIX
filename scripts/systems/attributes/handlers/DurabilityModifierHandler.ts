@@ -28,11 +28,10 @@
 
 import { world, ItemStack, Player, system, GameMode } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
-import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
-import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
+import { BreakableHandler } from './BreakableHandler';
 
 interface DurabilityConfig {
-  context?: AttributeContext | string;
+  context?: string;
   durability?: number; // Số lần sử dụng tối đa
   conditions?: any;
 }
@@ -121,6 +120,12 @@ export class DurabilityModifierHandler {
       if (!itemStack) return;
       
       const itemId = itemStack.typeId;
+      
+      // Check if item was broken by BreakableHandler
+      if (BreakableHandler.wasItemBroken(player.id, itemId)) {
+        console.warn(`[DurabilityModifierHandler] ${itemId} was broken by BreakableHandler - skipping durability modification`);
+        return;
+      }
       
       // Check if item has durability modifier
       const config = this.durabilityItems.get(itemId);

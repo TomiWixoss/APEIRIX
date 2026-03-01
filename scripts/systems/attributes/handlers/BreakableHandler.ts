@@ -16,7 +16,7 @@
  * Example: Wooden pickaxe với 100% breakable khi đào quặng
  */
 
-import { world, ItemStack, Player } from '@minecraft/server';
+import { world, ItemStack, Player, system } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
@@ -27,6 +27,43 @@ export class BreakableHandler {
   // ============================================
   static readonly ATTRIBUTE_ID = 'breakable';
   static readonly TEMPLATE_KEY = 'breakable_template';
+  
+  // ============================================
+  // EVENT COORDINATION
+  // ============================================
+  // Track items broken by breakable in current tick
+  // Key: playerId + itemTypeId, Value: tick when broken
+  private static brokenItems = new Map<string, number>();
+  
+  /**
+   * Check if item was broken by breakable handler in current/recent tick
+   */
+  static wasItemBroken(playerId: string, itemTypeId: string): boolean {
+    const key = `${playerId}:${itemTypeId}`;
+    const brokenTick = this.brokenItems.get(key);
+    
+    if (brokenTick === undefined) return false;
+    
+    const currentTick = system.currentTick;
+    const tickDiff = currentTick - brokenTick;
+    
+    // Consider broken if within last 2 ticks (safety margin)
+    if (tickDiff <= 2) {
+      return true;
+    }
+    
+    // Clean up old entries
+    this.brokenItems.delete(key);
+    return false;
+  }
+  
+  /**
+   * Mark item as broken by breakable handler
+   */
+  private static markItemBroken(playerId: string, itemTypeId: string): void {
+    const key = `${playerId}:${itemTypeId}`;
+    this.brokenItems.set(key, system.currentTick);
+  }
   
   // ============================================
   // LORE GENERATION (Compile-time)
@@ -133,8 +170,8 @@ export class BreakableHandler {
         return;
       }
       
-      // Get block tags for condition evaluation
-      const blockTags = this.getBlockTags(block.typeId);
+      // Get block tags for condition evaluation (from actual block component)
+      const blockTags = this.getBlockTags(block);
       
       // Create evaluation context
       const evalContext: EvaluationContext = {
@@ -154,10 +191,15 @@ export class BreakableHandler {
       // Roll for break
       const roll = Math.random() * 100;
       if (roll < breakChance) {
+        // Mark item as broken (for DurabilityModifier to skip)
+        this.markItemBroken(player.id, itemId);
+        
         // Break item
         this.breakItem(player, itemStackBeforeBreak);
         
         console.warn(`[BreakableHandler] ${itemId} broke (${breakChance}% chance, rolled ${roll.toFixed(1)})`);
+      } else {
+        console.warn(`[BreakableHandler] ${itemId} survived (${breakChance}% chance, rolled ${roll.toFixed(1)}) - passing to durability handler`);
       }
     } catch (error) {
       console.warn('[BreakableHandler] Error in block break handler:', error);
@@ -201,31 +243,15 @@ export class BreakableHandler {
 
   /**
    * Get block tags for condition evaluation
-   * Returns tags like 'ore', 'stone', etc.
+   * Reads from block's actual tags via Script API
    */
-  private static getBlockTags(blockId: string): string[] {
-    const tags: string[] = [];
-    
-    // Check for ore tag
-    if (blockId.includes('_ore') || blockId.includes('ore_')) {
-      tags.push('ore');
+  private static getBlockTags(block: any): string[] {
+    try {
+      // Use Script API to get actual block tags
+      return block.getTags();
+    } catch (error) {
+      console.warn('[BreakableHandler] Error getting block tags:', error);
+      return [];
     }
-    
-    // Check for stone tag
-    if (blockId.includes('stone') || blockId.includes('cobblestone') || blockId.includes('deepslate')) {
-      tags.push('stone');
-    }
-    
-    // Check for wood tag
-    if (blockId.includes('log') || blockId.includes('wood') || blockId.includes('planks')) {
-      tags.push('wood');
-    }
-    
-    // Check for dirt tag
-    if (blockId.includes('dirt') || blockId.includes('grass') || blockId.includes('mycelium')) {
-      tags.push('dirt');
-    }
-    
-    return tags;
   }
 }
