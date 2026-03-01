@@ -3,7 +3,7 @@
  */
 
 import { Achievement } from "../../BaseAchievement";
-import { world, system } from "@minecraft/server";
+import { world } from "@minecraft/server";
 import { AchievementSystem } from "../../../../systems/achievements/AchievementSystem";
 
 export class ToolCrafterAchievement extends Achievement {
@@ -30,61 +30,30 @@ export class ToolCrafterAchievement extends Achievement {
     ];
 
     setupTracking(): void {
-        // Track when player picks up bronze tools
-        world.afterEvents.entitySpawn.subscribe((event) => {
-            if (event.entity.typeId !== "minecraft:item") return;
+        // Event-driven: Check when inventory changes
+        world.afterEvents.playerInventoryItemChange.subscribe((event) => {
+            const player = event.player;
+            if (AchievementSystem.hasAchievement(player, this.id)) return;
             
-            const checkInterval = system.runInterval(() => {
-                try {
-                    const item = event.entity;
-                    if (!item.isValid) {
-                        system.clearRun(checkInterval);
-                        return;
-                    }
-
-                    const itemStack = item.getComponent("item")?.itemStack;
-                    if (!itemStack || !this.BRONZE_TOOLS.includes(itemStack.typeId)) {
-                        system.clearRun(checkInterval);
-                        return;
-                    }
-
-                    // Find nearby players
-                    const nearbyPlayers = world.getAllPlayers().filter(p => {
-                        const distance = Math.sqrt(
-                            Math.pow(p.location.x - item.location.x, 2) +
-                            Math.pow(p.location.y - item.location.y, 2) +
-                            Math.pow(p.location.z - item.location.z, 2)
-                        );
-                        return distance < 2;
-                    });
-
-                    if (nearbyPlayers.length > 0) {
-                        system.clearRun(checkInterval);
-                        
-                        const player = nearbyPlayers[0];
-                        if (!AchievementSystem.hasAchievement(player, this.id)) {
-                            // Count unique tools in inventory
-                            const inventory = player.getComponent("inventory");
-                            if (inventory && inventory.container) {
-                                const foundTools = new Set<string>();
-                                for (let i = 0; i < inventory.container.size; i++) {
-                                    const invItem = inventory.container.getItem(i);
-                                    if (invItem && this.BRONZE_TOOLS.includes(invItem.typeId)) {
-                                        foundTools.add(invItem.typeId);
-                                    }
-                                }
-                                AchievementSystem.setProgress(player, this.id, foundTools.size);
-                            }
-                        }
-                    }
-                } catch (error) {
-                    system.clearRun(checkInterval);
+            // Only check if the changed item is a bronze tool
+            const changedItem = event.itemStack;
+            if (!changedItem || !this.BRONZE_TOOLS.includes(changedItem.typeId)) return;
+            
+            // Count unique tools in inventory
+            const inventory = player.getComponent("inventory");
+            if (!inventory?.container) return;
+            
+            const foundTools = new Set<string>();
+            for (let i = 0; i < inventory.container.size; i++) {
+                const item = inventory.container.getItem(i);
+                if (item && this.BRONZE_TOOLS.includes(item.typeId)) {
+                    foundTools.add(item.typeId);
                 }
-            }, 20);
-
-            system.runTimeout(() => {
-                system.clearRun(checkInterval);
-            }, 200);
+            }
+            
+            if (foundTools.size > 0) {
+                AchievementSystem.setProgress(player, this.id, foundTools.size);
+            }
         });
     }
 }

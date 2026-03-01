@@ -7,20 +7,31 @@
  * - damageMultiplier: 1.5 (50% bonus damage)
  * - targetFamilies: ['undead', 'zombie', 'skeleton']
  * 
- * FIXED: Delay bonus damage để tránh i-frame conflicts
- * - Entity có i-frames 10 ticks sau khi bị hurt
- * - Delay 11 ticks để đảm bảo bonus damage apply sau i-frame window
+ * IMPROVED: Track actual damage dealt + safety checks
+ * - Calculate bonus based on ACTUAL damage (after armor/resistance)
+ * - Delay 11 ticks để tránh i-frame conflicts (no API to bypass)
+ * - Comprehensive safety checks to prevent crashes
+ * - Auto-cleanup damage history to prevent memory leaks
  */
 
 import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
 import { getItemsWithAttribute } from '../../../data/GeneratedAttributes';
 
+interface DamageRecord {
+  actualDamage: number;
+  timestamp: number;
+  bonusDamage: number;
+}
+
 export class UndeadSlayerHandler {
   private static readonly DAMAGE_MULTIPLIER = 1.5; // 50% bonus damage
   private static readonly TARGET_FAMILIES = ['undead', 'zombie', 'skeleton'];
   private static readonly I_FRAME_DELAY = 11; // Delay sau i-frame window (10 ticks)
+  private static readonly HISTORY_CLEANUP_INTERVAL = 6000; // Cleanup every 5 minutes (6000 ticks)
+  private static readonly HISTORY_MAX_AGE = 200; // Remove records older than 10 seconds (200 ticks)
   
   private static undeadSlayerWeapons: Set<string>;
+  private static damageHistory = new Map<string, DamageRecord>();
 
   static initialize(): void {
     console.warn('[UndeadSlayerHandler] Initializing...');
@@ -35,6 +46,11 @@ export class UndeadSlayerHandler {
     world.afterEvents.entityHurt.subscribe((event) => {
       this.handleEntityHurt(event);
     });
+    
+    // Periodic cleanup of damage history to prevent memory leaks
+    system.runInterval(() => {
+      this.cleanupDamageHistory();
+    }, this.HISTORY_CLEANUP_INTERVAL);
     
     console.warn('[UndeadSlayerHandler] Initialized');
   }
@@ -66,43 +82,92 @@ export class UndeadSlayerHandler {
         return;
       }
       
-      // Calculate bonus damage
+      // Calculate bonus damage based on ACTUAL damage dealt (after armor/resistance)
       const bonusDamage = damage * (this.DAMAGE_MULTIPLIER - 1);
+      
+      // Store damage record for tracking
+      const currentTick = system.currentTick;
+      this.damageHistory.set(hurtEntity.id, {
+        actualDamage: damage,
+        timestamp: currentTick,
+        bonusDamage: bonusDamage
+      });
       
       // Delay bonus damage để tránh i-frame conflicts
       // Entity có 10 ticks invulnerability sau khi bị hurt
+      // No API to bypass i-frames, so we must delay
       system.runTimeout(() => {
         try {
-          // Verify entity vẫn còn sống và valid
-          if (!hurtEntity.isValid || hurtEntity.getComponent('health')?.currentValue === 0) {
+          // Verify entity vẫn còn valid
+          if (!hurtEntity.isValid) {
+            return;
+          }
+          
+          // Get health component
+          const healthComp = hurtEntity.getComponent('health');
+          if (!healthComp) {
+            return;
+          }
+          
+          // Safety check: Entity must be alive
+          if (healthComp.currentValue <= 0) {
+            console.warn(`[UndeadSlayerHandler] Entity ${hurtEntity.typeId} already dead, skipping bonus damage`);
+            return;
+          }
+          
+          // Safety check: Don't overkill
+          // If bonus damage would kill entity, reduce it to leave 0.5 HP
+          const finalBonusDamage = Math.min(bonusDamage, healthComp.currentValue - 0.5);
+          
+          if (finalBonusDamage <= 0) {
+            console.warn(`[UndeadSlayerHandler] Entity ${hurtEntity.typeId} too low HP, skipping bonus damage`);
             return;
           }
           
           // Apply bonus damage sau i-frame window
-          hurtEntity.applyDamage(bonusDamage, {
+          const damageApplied = hurtEntity.applyDamage(finalBonusDamage, {
             cause: damageSource.cause,
             damagingEntity: attacker
           });
           
-          // Visual feedback
-          hurtEntity.dimension.spawnParticle(
-            'minecraft:critical_hit_emitter',
-            {
-              x: hurtEntity.location.x,
-              y: hurtEntity.location.y + 1,
-              z: hurtEntity.location.z
-            }
-          );
-          
-          console.warn(`[UndeadSlayerHandler] Applied ${bonusDamage.toFixed(1)} bonus damage to ${hurtEntity.typeId} (delayed)`);
+          if (damageApplied) {
+            // Visual feedback
+            hurtEntity.dimension.spawnParticle(
+              'minecraft:critical_hit_emitter',
+              {
+                x: hurtEntity.location.x,
+                y: hurtEntity.location.y + 1,
+                z: hurtEntity.location.z
+              }
+            );
+            
+            console.warn(`[UndeadSlayerHandler] Applied ${finalBonusDamage.toFixed(1)} bonus damage to ${hurtEntity.typeId} (HP: ${healthComp.currentValue.toFixed(1)})`);
+          }
           
         } catch (error) {
-          // Entity might be dead or unloaded
+          console.warn('[UndeadSlayerHandler] Error applying bonus damage:', error);
         }
       }, this.I_FRAME_DELAY);
       
     } catch (error) {
       console.warn('[UndeadSlayerHandler] Error handling entity hurt:', error);
+    }
+  }
+  
+  private static cleanupDamageHistory(): void {
+    const currentTick = system.currentTick;
+    const cutoffTick = currentTick - this.HISTORY_MAX_AGE;
+    
+    let removedCount = 0;
+    for (const [entityId, record] of this.damageHistory.entries()) {
+      if (record.timestamp < cutoffTick) {
+        this.damageHistory.delete(entityId);
+        removedCount++;
+      }
+    }
+    
+    if (removedCount > 0) {
+      console.warn(`[UndeadSlayerHandler] Cleaned up ${removedCount} old damage records`);
     }
   }
 

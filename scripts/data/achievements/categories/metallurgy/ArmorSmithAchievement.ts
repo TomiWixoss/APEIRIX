@@ -5,7 +5,7 @@
  */
 
 import { Achievement } from "../../BaseAchievement";
-import { world, system, EquipmentSlot } from "@minecraft/server";
+import { world, EquipmentSlot } from "@minecraft/server";
 import { AchievementSystem } from "../../../../systems/achievements/AchievementSystem";
 
 export class ArmorSmithAchievement extends Achievement {
@@ -31,19 +31,25 @@ export class ArmorSmithAchievement extends Achievement {
     ];
 
     setupTracking(): void {
-        // Track khi player mặc bronze armor hoặc có trong inventory
-        world.afterEvents.playerSpawn.subscribe((event) => {
-            this.checkPlayerArmor(event.player);
+        // Event-driven: Check when inventory changes
+        world.afterEvents.playerInventoryItemChange.subscribe((event) => {
+            const player = event.player;
+            if (AchievementSystem.hasAchievement(player, this.id)) return;
+            
+            // Only check if the changed item is bronze armor
+            const changedItem = event.itemStack;
+            if (!changedItem || !this.BRONZE_ARMOR.includes(changedItem.typeId)) return;
+            
+            // Check both inventory and equipped armor
+            this.checkPlayerArmor(player);
         });
         
-        // Periodic check mỗi 5 giây cho tất cả players
-        system.runInterval(() => {
-            for (const player of world.getAllPlayers()) {
-                if (!AchievementSystem.hasAchievement(player, this.id)) {
-                    this.checkPlayerArmor(player);
-                }
+        // Also check on spawn (for equipped armor)
+        world.afterEvents.playerSpawn.subscribe((event) => {
+            if (!AchievementSystem.hasAchievement(event.player, this.id)) {
+                this.checkPlayerArmor(event.player);
             }
-        }, 100); // 5 giây
+        });
     }
 
     private checkPlayerArmor(player: any): void {
