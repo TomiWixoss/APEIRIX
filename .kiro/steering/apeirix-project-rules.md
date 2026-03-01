@@ -31,6 +31,7 @@ scripts/data/Generated*.ts → AUTO-GENERATED
 1. **Context**: Tìm similar feature, đọc files
 2. **Implement**: Copy pattern, modify minimal
 3. **Build**: `bun run dev compile configs/addon.yaml --clean` → `.\build-and-deploy.ps1`
+4. **Changelog**: Khi user chốt feature ổn → update `CHANGELOG.md` với timestamp (format: `[YYYY-MM-DD HH:MM]`)
 ## Beta API Usage
 
 **Project uses @minecraft/server 2.6.0-beta (1.26.2 stable) with experimental features**

@@ -1,0 +1,12 @@
+# Vanilla Override: Player Entity
+# Override player entity với custom attributes
+# Note: Đây là entity override, không phải item, nên không có lore/texture
+
+id: minecraft:player
+
+# Attributes để modify player behavior
+attributes:
+  # Player đánh bằng tay không (empty hand) gây 0 damage
+  empty_hand_combat:
+    context: combat
+    damage: 0

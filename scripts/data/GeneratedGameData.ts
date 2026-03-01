@@ -2133,6 +2133,11 @@ export const GENERATED_WIKI_ITEMS = [
     ],
   },
   {
+    id: "minecraft:player",
+    category: "materials",
+    name: "minecraft:player",
+  },
+  {
     id: "minecraft:oak_log",
     category: "materials",
     name: "minecraft:oak_log",

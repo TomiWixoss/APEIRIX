@@ -17,6 +17,7 @@ import { BreakableHandler } from './handlers/BreakableHandler';
 import { DurabilityModifierHandler } from './handlers/DurabilityModifierHandler';
 import { CombatDamageModifierHandler } from './handlers/CombatDamageModifierHandler';
 import { RequiresToolHandler } from './handlers/RequiresToolHandler';
+import { EmptyHandCombatHandler } from './handlers/EmptyHandCombatHandler';
 
 export class AttributeSystem {
   private static initialized = false;
@@ -45,6 +46,7 @@ export class AttributeSystem {
     DurabilityModifierHandler.initialize();
     CombatDamageModifierHandler.initialize();
     RequiresToolHandler.initialize();
+    EmptyHandCombatHandler.initialize();
     
     this.initialized = true;
     console.warn('[AttributeSystem] Initialized');
