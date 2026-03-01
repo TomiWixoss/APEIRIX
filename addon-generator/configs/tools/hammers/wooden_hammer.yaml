@@ -13,6 +13,20 @@ efficiency: 2
 tier: wooden
 attributes:
   hammer_mining: {}
+  # 100% breakable khi đào quặng
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+  # Chỉ còn 4 lần dùng
+  durability_modifier:
+    durability: 4
+  # 0 damage khi combat
+  combat_damage_modifier:
+    context: combat
+    damage: 0
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

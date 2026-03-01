@@ -2867,7 +2867,10 @@ export const GENERATED_WIKI_ITEMS = [
     name: "Búa Gỗ",
     description: "Búa gỗ tự chế. Nặng và kém cỏi, đập vài cục đá hay quặng thành bụi là vỡ nát ngay.",
     lore: [
-      "{attr:hammer_mining}: §aĐập block ra bụi"
+      "{attr:hammer_mining}: §aĐập block ra bụi",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
     ],
     icon: "textures/items/wooden_hammer",
     info: {

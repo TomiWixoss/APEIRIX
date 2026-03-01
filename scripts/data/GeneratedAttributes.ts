@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T15:11:48.546Z
+ * Generated: 2026-03-01T15:30:44.282Z
  * Total attributes: 8
- * Total items with attributes: 129
+ * Total items with attributes: 132
  */
 
 // Attribute data for each item
@@ -33,7 +33,8 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_shovel', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'minecraft:wooden_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
-    { itemId: 'minecraft:wooden_spear', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} }
+    { itemId: 'minecraft:wooden_spear', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'apeirix:wooden_hammer', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} }
   ],
   'combat_damage_modifier': [
     { itemId: 'minecraft:wooden_pickaxe', config: {"context":"combat","damage":0} },
@@ -41,7 +42,8 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_shovel', config: {"context":"combat","damage":0} },
     { itemId: 'minecraft:wooden_hoe', config: {"context":"combat","damage":0} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"combat","damage":0.5} },
-    { itemId: 'minecraft:wooden_spear', config: {"context":"combat","damage":0.5} }
+    { itemId: 'minecraft:wooden_spear', config: {"context":"combat","damage":0.5} },
+    { itemId: 'apeirix:wooden_hammer', config: {"context":"combat","damage":0} }
   ],
   'durability_modifier': [
     { itemId: 'minecraft:wooden_pickaxe', config: {"durability":4} },
@@ -49,7 +51,8 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_shovel', config: {"durability":4} },
     { itemId: 'minecraft:wooden_hoe', config: {"durability":4} },
     { itemId: 'minecraft:wooden_sword', config: {"durability":4} },
-    { itemId: 'minecraft:wooden_spear', config: {"durability":4} }
+    { itemId: 'minecraft:wooden_spear', config: {"durability":4} },
+    { itemId: 'apeirix:wooden_hammer', config: {"durability":4} }
   ],
   'empty_hand_combat': [
     { itemId: 'minecraft:player', config: {"context":"combat","damage":0} }
