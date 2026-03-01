@@ -22,6 +22,7 @@ import { world, EntityHurtBeforeEvent } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
+import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
 interface CombatDamageConfig {
   context?: AttributeContext | string;
@@ -52,7 +53,7 @@ export class CombatDamageModifierHandler {
    * Process lore placeholders for this attribute
    * Replaces: {combat_damage}
    */
-  static processLorePlaceholders(itemId: string, line: string): string {
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
     const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
     
     if (config?.damage !== undefined) {
@@ -70,6 +71,9 @@ export class CombatDamageModifierHandler {
 
   static initialize(): void {
     console.warn('[CombatDamageModifierHandler] Initializing...');
+    
+    // Register with PlaceholderRegistry for lore processing
+    PlaceholderRegistry.registerAttributeHandler(this);
     
     // Load combat damage modifier items from attributes
     this.loadDamageModifierItems();

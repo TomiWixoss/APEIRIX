@@ -12,6 +12,7 @@
 import { world, Player, Block, ItemStack, system } from '@minecraft/server';
 import { hasAttribute, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { LangManager } from '../../../lang/LangManager';
+import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
 export class RequiresToolHandler {
   static readonly ATTRIBUTE_ID = 'requires_tool';
@@ -27,7 +28,7 @@ export class RequiresToolHandler {
   /**
    * Process lore placeholders
    */
-  static processLorePlaceholders(itemId: string, line: string): string {
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
     const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
     if (!config) return line;
 
@@ -44,6 +45,9 @@ export class RequiresToolHandler {
    */
   static initialize(): void {
     console.warn('[RequiresToolHandler] Initializing...');
+
+    // Register with PlaceholderRegistry for lore processing
+    PlaceholderRegistry.registerAttributeHandler(this);
 
     // Subscribe to player break block before event
     world.beforeEvents.playerBreakBlock.subscribe((event) => {

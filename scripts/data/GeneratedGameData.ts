@@ -2128,7 +2128,7 @@ export const GENERATED_WIKI_ITEMS = [
     lore: [
       "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
-      "{attr:durability}: §f{durability}",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
       "{attr:combat_damage}: §f{combat_damage}"
     ],
   },

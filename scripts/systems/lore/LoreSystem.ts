@@ -157,8 +157,8 @@ export class LoreSystem {
       const loreTemplate = this.loreMap.get(item.typeId);
       if (!loreTemplate) return;
 
-      // Process lore with placeholders via registry
-      const lore = PlaceholderRegistry.process(item.typeId, loreTemplate);
+      // Process lore with placeholders via registry (pass ItemStack for dynamic values)
+      const lore = PlaceholderRegistry.process(item.typeId, loreTemplate, item);
       
       // IMPORTANT: Clear existing lore first (removes vanilla lore)
       // This ensures only custom lore is displayed
@@ -187,13 +187,37 @@ export class LoreSystem {
     }
 
     try {
-      const lore = PlaceholderRegistry.process(itemStack.typeId, loreTemplate);
+      // Pass ItemStack for dynamic placeholder values
+      const lore = PlaceholderRegistry.process(itemStack.typeId, loreTemplate, itemStack);
       itemStack.setLore(lore);
       return true;
     } catch (error) {
       console.warn(`[LoreSystem] Failed to apply lore to ${itemStack.typeId}:`, error);
       return false;
     }
+  }
+
+  /**
+   * Update lore for an item stack (for dynamic lore updates)
+   * This method should be called by attribute handlers after modifying item state
+   * 
+   * @param itemStack The item stack to update lore for
+   * @returns true if lore was updated, false otherwise
+   * 
+   * Usage example (in attribute handler):
+   * ```typescript
+   * // After modifying item state (durability, uses, etc.)
+   * LoreSystem.updateLore(itemStack);
+   * ```
+   */
+  static updateLore(itemStack: ItemStack): boolean {
+    // Check if item has lore defined
+    if (!this.hasLore(itemStack.typeId)) {
+      return false;
+    }
+
+    // Re-apply lore with updated placeholders
+    return this.applyLore(itemStack);
   }
 
   /**

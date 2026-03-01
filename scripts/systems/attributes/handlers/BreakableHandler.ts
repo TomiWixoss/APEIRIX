@@ -20,6 +20,7 @@ import { world, ItemStack, Player, system } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
+import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
 export class BreakableHandler {
   // ============================================
@@ -80,7 +81,7 @@ export class BreakableHandler {
    * Process lore placeholders for this attribute
    * Replaces: {breakable_value}, {breakable_condition}
    */
-  static processLorePlaceholders(itemId: string, line: string): string {
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
     const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
     let result = line;
     
@@ -126,6 +127,9 @@ export class BreakableHandler {
   private static breakableItems = new Map<string, any>(); // itemId -> config
 
   static initialize(): void {
+    // Register with PlaceholderRegistry for lore processing
+    PlaceholderRegistry.registerAttributeHandler(this);
+    
     // Load breakable items from attributes
     this.loadBreakableItems();
     

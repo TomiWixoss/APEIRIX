@@ -21,6 +21,7 @@
 
 import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
+import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
 interface DamageRecord {
   actualDamage: number;
@@ -55,7 +56,7 @@ export class UndeadSlayerHandler {
    * Process lore placeholders for this attribute
    * Replaces: {damageMultiplier}
    */
-  static processLorePlaceholders(itemId: string, line: string): string {
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
     const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
     
     if (config?.damageMultiplier) {
@@ -81,6 +82,9 @@ export class UndeadSlayerHandler {
 
   static initialize(): void {
     console.warn('[UndeadSlayerHandler] Initializing...');
+    
+    // Register with PlaceholderRegistry for lore processing
+    PlaceholderRegistry.registerAttributeHandler(this);
     
     // Load undead slayer weapons from attributes
     this.loadUndeadSlayerWeapons();

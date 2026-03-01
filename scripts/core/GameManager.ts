@@ -21,6 +21,7 @@ import { CompressorSystem } from "../systems/mining/CompressorSystem";
 import { CrusherSystem } from "../systems/mining/CrusherSystem";
 import { DisplayHandler } from "../systems/shared/processing/DisplayHandler";
 import { LoreSystem } from "../systems/lore/LoreSystem";
+import { DamageIndicatorSystem } from "../systems/combat/DamageIndicatorSystem";
 import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
@@ -194,6 +195,9 @@ export class GameManager {
         
         // Initialize lore system (auto-applies lore to items in inventory)
         LoreSystem.initialize();
+        
+        // Initialize damage indicator system (shows damage on entity nameTag)
+        DamageIndicatorSystem.initialize();
         
         ItemSystem.initialize();
         FortuneSystem.getInstance();

@@ -29,6 +29,8 @@
 import { world, ItemStack, Player, system, GameMode } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { BreakableHandler } from './BreakableHandler';
+import { LoreSystem } from '../../lore/LoreSystem';
+import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
 interface DurabilityConfig {
   context?: string;
@@ -56,16 +58,48 @@ export class DurabilityModifierHandler {
   
   /**
    * Process lore placeholders for this attribute
-   * Replaces: {durability}
+   * Replaces: {durability}, {current_durability}, {max_durability}
+   * 
+   * @param itemId Item ID
+   * @param line Lore line with placeholders
+   * @param itemStack Optional ItemStack for dynamic values (current durability)
    */
-  static processLorePlaceholders(itemId: string, line: string): string {
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
     const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
     
-    if (config?.durability !== undefined) {
-      return line.replace(/{durability}/g, config.durability.toString());
+    let processedLine = line;
+    
+    // Static placeholder: {durability} - configured max uses
+    const maxUses = config?.durability || 1;
+    processedLine = processedLine.replace(/{durability}/g, maxUses.toString());
+    
+    // Dynamic placeholders (require ItemStack)
+    if (itemStack && config) {
+      try {
+        const durabilityComp = itemStack.getComponent('minecraft:durability');
+        if (durabilityComp) {
+          const maxDurability = durabilityComp.maxDurability;
+          const currentDamage = durabilityComp.damage;
+          const currentDurability = maxDurability - currentDamage;
+          
+          // Calculate damage per use from config
+          const damagePerUse = Math.floor(maxDurability / maxUses);
+          
+          // Calculate uses remaining
+          const usesRemaining = Math.floor(currentDurability / damagePerUse);
+          
+          // {current_durability} - uses remaining (not raw durability)
+          processedLine = processedLine.replace(/{current_durability}/g, usesRemaining.toString());
+          
+          // {max_durability} - max uses (same as {durability})
+          processedLine = processedLine.replace(/{max_durability}/g, maxUses.toString());
+        }
+      } catch (error) {
+        // ItemStack might not have durability component
+      }
     }
     
-    return line;
+    return processedLine;
   }
   
   // ============================================
@@ -76,6 +110,9 @@ export class DurabilityModifierHandler {
 
   static initialize(): void {
     console.warn('[DurabilityModifierHandler] Initializing...');
+    
+    // Register with PlaceholderRegistry for lore processing
+    PlaceholderRegistry.registerAttributeHandler(this);
     
     // Load durability modifier items from attributes
     this.loadDurabilityItems();
@@ -198,7 +235,14 @@ export class DurabilityModifierHandler {
                 } else {
                   // Apply damage (safe - newDamage < maxDurability)
                   heldDurability.damage = newDamage;
+                  
+                  // Update lore to reflect new durability
+                  LoreSystem.updateLore(heldItem);
+                  
+                  // Force client refresh by clearing and setting item
+                  container.setItem(selectedSlot, undefined);
                   container.setItem(selectedSlot, heldItem);
+                  
                   console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability}`);
                 }
               }
