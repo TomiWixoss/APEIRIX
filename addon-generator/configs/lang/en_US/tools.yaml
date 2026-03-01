@@ -2,6 +2,11 @@
 tools:
   # Vanilla overrides
   wooden_pickaxe: Wooden Pickaxe
+  wooden_axe: Wooden Axe
+  wooden_shovel: Wooden Shovel
+  wooden_hoe: Wooden Hoe
+  wooden_sword: Wooden Sword
+  wooden_spear: Wooden Spear
 
   bronze_pickaxe: Bronze Pickaxe
   bronze_axe: Bronze Axe

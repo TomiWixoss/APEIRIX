@@ -2124,7 +2124,67 @@ export const GENERATED_WIKI_ITEMS = [
     id: "minecraft:wooden_pickaxe",
     category: "materials",
     name: "Cuốc Gỗ",
-    description: "wiki.tools.wooden_pickaxe",
+    description: "Cuốc Gỗ. Cực kỳ mỏng manh; vỡ ngay lập tức khi đập vào đá hoặc quặng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:wooden_axe",
+    category: "materials",
+    name: "Rìu Gỗ",
+    description: "Rìu Gỗ. Vỡ ngay khi chạm vào đá hoặc quặng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:wooden_shovel",
+    category: "materials",
+    name: "Xẻng Gỗ",
+    description: "Xẻng Gỗ. Vỡ tan khi va chạm với khối cứng như đá hoặc quặng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:wooden_hoe",
+    category: "materials",
+    name: "Cuốc Gỗ",
+    description: "Cuốc Gỗ. Công cụ mỏng manh, vỡ khi dùng trên đá hoặc quặng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:wooden_sword",
+    category: "materials",
+    name: "Kiếm Gỗ",
+    description: "Kiếm Gỗ. Hầu như không gây sát thương (0.5); vỡ khi đập vào đá hoặc quặng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:wooden_spear",
+    category: "materials",
+    name: "Giáo Gỗ",
+    description: "Giáo Gỗ. Tầm đánh xa nhưng yếu ớt (0.5 damage); vỡ khi đập vào đá hoặc quặng.",
     lore: [
       "§e⚠ Thuộc tính đã được điều chỉnh§r",
       "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",

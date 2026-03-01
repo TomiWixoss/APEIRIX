@@ -1,5 +1,13 @@
 # English Wiki Descriptions - Tools
 # Format: item_id: "description"
 
+# Vanilla Overrides
+wooden_pickaxe: "Wooden Pickaxe. Extremely fragile; shatters instantly when hitting stone or ore."
+wooden_axe: "Wooden Axe. Breaks immediately upon contact with stone or ore."
+wooden_shovel: "Wooden Shovel. Shatters on impact with hard blocks like stone or ore."
+wooden_hoe: "Wooden Hoe. Fragile tool that breaks when used on stone or ore."
+wooden_sword: "Wooden Sword. Barely deals any damage (0.5); breaks when hitting stone or ore."
+wooden_spear: "Wooden Spear. Extended reach but weak (0.5 damage); breaks when hitting stone or ore."
+
 # Pickaxes
 bronze_pickaxe: "Bronze pickaxe used for mining stone and ores. Equivalent to iron pickaxe."

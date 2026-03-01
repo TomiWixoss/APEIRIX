@@ -1,0 +1,27 @@
+# Vanilla Override: Wooden Hoe
+# Override vanilla wooden hoe với custom attributes
+
+id: minecraft:wooden_hoe
+name: lang:tools.wooden_hoe
+lore: lang:lore.auto # Auto-generate lore từ attributes
+wikiDescription: lang:wiki.tools.wooden_hoe
+
+# Attributes để modify behavior
+attributes:
+  # 100% breakable khi đào đá/quặng/khối cứng
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+        - stone
+
+  # Chỉ còn 4 lần dùng
+  durability_modifier:
+    durability: 4
+
+  # 0 damage khi combat
+  combat_damage_modifier:
+    context: combat
+    damage: 0

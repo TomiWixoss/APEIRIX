@@ -1,7 +1,13 @@
 import:
   - achievement_book.yaml
   - wiki_book.yaml
+  # Vanilla Tool Overrides
   - vanilla_overrides/wooden_pickaxe.yaml
+  - vanilla_overrides/wooden_axe.yaml
+  - vanilla_overrides/wooden_shovel.yaml
+  - vanilla_overrides/wooden_hoe.yaml
+  - vanilla_overrides/wooden_sword.yaml
+  - vanilla_overrides/wooden_spear.yaml
   - vanilla_overrides/player.yaml
   # Vanilla Log Overrides
   - vanilla_overrides/oak_log.yaml

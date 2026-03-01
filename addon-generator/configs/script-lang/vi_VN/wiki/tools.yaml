@@ -1,5 +1,13 @@
 # Vietnamese Wiki Descriptions - Tools
 # Format: item_id: "description"
 
+# Vanilla Overrides
+wooden_pickaxe: "Cuốc Gỗ. Cực kỳ mỏng manh; vỡ ngay lập tức khi đập vào đá hoặc quặng."
+wooden_axe: "Rìu Gỗ. Vỡ ngay khi chạm vào đá hoặc quặng."
+wooden_shovel: "Xẻng Gỗ. Vỡ tan khi va chạm với khối cứng như đá hoặc quặng."
+wooden_hoe: "Cuốc Gỗ. Công cụ mỏng manh, vỡ khi dùng trên đá hoặc quặng."
+wooden_sword: "Kiếm Gỗ. Hầu như không gây sát thương (0.5); vỡ khi đập vào đá hoặc quặng."
+wooden_spear: "Giáo Gỗ. Tầm đánh xa nhưng yếu ớt (0.5 damage); vỡ khi đập vào đá hoặc quặng."
+
 # Pickaxes
 bronze_pickaxe: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt."

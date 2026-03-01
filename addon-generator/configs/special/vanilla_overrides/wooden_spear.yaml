@@ -1,0 +1,27 @@
+# Vanilla Override: Wooden Spear
+# Override vanilla wooden spear với custom attributes
+
+id: minecraft:wooden_spear
+name: lang:tools.wooden_spear
+lore: lang:lore.auto # Auto-generate lore từ attributes
+wikiDescription: lang:wiki.tools.wooden_spear
+
+# Attributes để modify behavior
+attributes:
+  # 100% breakable khi đào đá/quặng/khối cứng
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+        - stone
+
+  # Chỉ còn 4 lần dùng
+  durability_modifier:
+    durability: 4
+
+  # 0.5 damage khi combat (giống sword)
+  combat_damage_modifier:
+    context: combat
+    damage: 0.5

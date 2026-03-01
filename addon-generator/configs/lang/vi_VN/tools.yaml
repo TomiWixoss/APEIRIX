@@ -2,6 +2,11 @@
 tools:
   # Vanilla overrides
   wooden_pickaxe: Cuốc Gỗ
+  wooden_axe: Rìu Gỗ
+  wooden_shovel: Xẻng Gỗ
+  wooden_hoe: Cuốc Gỗ
+  wooden_sword: Kiếm Gỗ
+  wooden_spear: Giáo Gỗ
 
   bronze_pickaxe: Cuốc Đồng Thanh
   bronze_axe: Rìu Đồng Thanh

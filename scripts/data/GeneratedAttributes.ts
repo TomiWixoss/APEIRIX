@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T14:42:55.563Z
+ * Generated: 2026-03-01T15:07:01.269Z
  * Total attributes: 8
- * Total items with attributes: 114
+ * Total items with attributes: 129
  */
 
 // Attribute data for each item
@@ -28,13 +28,28 @@ export interface AttributeItemData {
  */
 export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
   'breakable': [
-    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} }
+    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} },
+    { itemId: 'minecraft:wooden_axe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'minecraft:wooden_shovel', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'minecraft:wooden_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'minecraft:wooden_sword', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'minecraft:wooden_spear', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} }
   ],
   'combat_damage_modifier': [
-    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"combat","damage":0} }
+    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"combat","damage":0} },
+    { itemId: 'minecraft:wooden_axe', config: {"context":"combat","damage":0} },
+    { itemId: 'minecraft:wooden_shovel', config: {"context":"combat","damage":0} },
+    { itemId: 'minecraft:wooden_hoe', config: {"context":"combat","damage":0} },
+    { itemId: 'minecraft:wooden_sword', config: {"context":"combat","damage":0.5} },
+    { itemId: 'minecraft:wooden_spear', config: {"context":"combat","damage":0.5} }
   ],
   'durability_modifier': [
-    { itemId: 'minecraft:wooden_pickaxe', config: {"durability":4} }
+    { itemId: 'minecraft:wooden_pickaxe', config: {"durability":4} },
+    { itemId: 'minecraft:wooden_axe', config: {"durability":4} },
+    { itemId: 'minecraft:wooden_shovel', config: {"durability":4} },
+    { itemId: 'minecraft:wooden_hoe', config: {"durability":4} },
+    { itemId: 'minecraft:wooden_sword', config: {"durability":4} },
+    { itemId: 'minecraft:wooden_spear', config: {"durability":4} }
   ],
   'empty_hand_combat': [
     { itemId: 'minecraft:player', config: {"context":"combat","damage":0} }
