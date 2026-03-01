@@ -1,11 +1,12 @@
-id: electrum_ingot_dust_pure
+﻿id: electrum_ingot_dust_pure
 name: lang:materials.electrum_ingot_dust_pure
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.electrum_ingot_dust_pure
 texture: ../assets/dusts/electrum_ingot_dust_pure.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_electrum_from_pure_dust

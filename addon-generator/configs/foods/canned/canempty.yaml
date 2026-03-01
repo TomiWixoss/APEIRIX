@@ -1,11 +1,12 @@
-id: canempty
+﻿id: canempty
 name: lang:foods.canempty
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.canempty
 texture: ../assets/canempty.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: canempty

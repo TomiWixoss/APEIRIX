@@ -1,11 +1,12 @@
-id: canned_food
+﻿id: canned_food
 name: lang:foods.canned_food
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.canned_food
 texture: ../assets/canned_food.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 10
 saturation: 12.8
 canAlwaysEat: false

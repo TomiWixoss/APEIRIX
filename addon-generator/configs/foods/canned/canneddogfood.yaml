@@ -1,11 +1,12 @@
-id: canneddogfood
+﻿id: canneddogfood
 name: lang:foods.canneddogfood
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.canneddogfood
 texture: ../assets/canneddogfood.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 2
 saturation: 0.4
 canAlwaysEat: false

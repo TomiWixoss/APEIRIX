@@ -1,11 +1,12 @@
-id: gold_ingot_dust
+﻿id: gold_ingot_dust
 name: lang:materials.gold_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.gold_ingot_dust
 texture: ../assets/dusts/gold_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_gold_from_dust

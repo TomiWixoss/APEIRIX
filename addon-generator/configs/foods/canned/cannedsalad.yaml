@@ -1,17 +1,18 @@
-id: cannedsalad
+﻿id: cannedsalad
 name: lang:foods.cannedsalad
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cannedsalad
 texture: ../assets/cannedsalad.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 3
 saturation: 3.6
 canAlwaysEat: false
 usingConvertsTo: candirty
-# NERFED: Xóa removeEffects vì quá mạnh (stack 64, rẻ, miễn nhiễm mọi debuff)
-# Thay vào đó chỉ cho buff nhẹ
+# NERFED: XÃ³a removeEffects vÃ¬ quÃ¡ máº¡nh (stack 64, ráº», miá»…n nhiá»…m má»i debuff)
+# Thay vÃ o Ä‘Ã³ chá»‰ cho buff nháº¹
 effects:
   - name: health_boost
     duration: 30

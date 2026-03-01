@@ -9,3 +9,5 @@ breakable_template: "{attr:breakable}: §f{breakable_value}% §7({breakable_cond
 durability_modifier_template: "{attr:durability}: §f{max_durability}"
 combat_damage_modifier_template: "{attr:combat_damage}: §f{combat_damage}"
 undead_slayer_template: "{attr:damage_multiplier}: §f+{damageMultiplier}%"
+hammer_mining_template: "{attr:hammer_mining}: §aĐập block ra bụi"
+rust_mite_edible_template: "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"

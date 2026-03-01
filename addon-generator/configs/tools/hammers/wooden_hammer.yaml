@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: wooden_hammer
 name: lang:tools.wooden_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.wooden_hammer
 texture: ../assets/wooden_hammer.png
 damage: 1
@@ -11,7 +12,7 @@ enchantability: 15
 efficiency: 2
 tier: wooden
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

@@ -1,11 +1,12 @@
-id: raw_emerald
+﻿id: raw_emerald
 name: lang:materials.raw_emerald
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_emerald
 texture: ../assets/raw/raw_emerald.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: emerald_from_raw_smelting

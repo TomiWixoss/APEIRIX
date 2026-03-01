@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: bronze_hammer
 name: lang:tools.bronze_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.bronze_hammer
 texture: ../assets/bronze_hammer.png
 damage: 3
@@ -11,7 +12,7 @@ enchantability: 14
 efficiency: 6
 tier: iron
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

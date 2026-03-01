@@ -1,5 +1,6 @@
-id: luncheonmeat
+﻿id: luncheonmeat
 name: lang:foods.luncheonmeat
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.luncheonmeat
 texture: ../assets/luncheonmeat.png
 category: items
@@ -9,7 +10,7 @@ saturation: 10.4
 canAlwaysEat: false
 usingConvertsTo: candirty
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 effects:
   - name: resistance
     duration: 10

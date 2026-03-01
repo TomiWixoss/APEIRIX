@@ -1,11 +1,12 @@
-id: cannedbread
+﻿id: cannedbread
 name: lang:foods.cannedbread
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cannedbread
 texture: ../assets/cannedbread.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 5
 saturation: 6
 canAlwaysEat: false

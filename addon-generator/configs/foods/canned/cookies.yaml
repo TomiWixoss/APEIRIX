@@ -1,5 +1,6 @@
-id: cookies
+﻿id: cookies
 name: lang:foods.cookies
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cookies
 texture: ../assets/cookies.png
 category: items
@@ -9,7 +10,7 @@ saturation: 4.8
 canAlwaysEat: false
 usingConvertsTo: candirty
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 effects:
   - name: haste
     duration: 15

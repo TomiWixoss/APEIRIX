@@ -130,6 +130,8 @@ export const LANG_EN = {
         "durability": "§6Durability",
         "combat_damage": "§6Damage",
         "damage_multiplier": "§6Damage Bonus",
-        "mining_speed": "§6Mining Speed"
+        "mining_speed": "§6Mining Speed",
+        "hammer_mining": "§6Hammer Mining",
+        "rust_mite_edible": "§cRust Mite Food"
     }
 };

@@ -1,11 +1,12 @@
-id: canned_pumpkin
+﻿id: canned_pumpkin
 name: lang:foods.canned_pumpkin
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.canned_pumpkin
 texture: ../assets/canned_pumpkin.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 4
 saturation: 4.8
 canAlwaysEat: false

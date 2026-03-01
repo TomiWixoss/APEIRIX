@@ -1,11 +1,12 @@
-id: engineering_hammer
+﻿id: engineering_hammer
 name: lang:materials.engineering_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.engineering_hammer
 texture: ../../tools/assets/engineering_hammer.png
 category: items
 maxStackSize: 1
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 recipes:
   - type: shaped
     id: apeirix:engineering_hammer

@@ -1,11 +1,12 @@
-id: cobalt_ingot_dust
+﻿id: cobalt_ingot_dust
 name: lang:materials.cobalt_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cobalt_ingot_dust
 texture: ../assets/dusts/cobalt_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_cobalt_from_dust

@@ -1,11 +1,12 @@
-id: lead_ingot_dust
+﻿id: lead_ingot_dust
 name: lang:materials.lead_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.lead_ingot_dust
 texture: ../assets/dusts/lead_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_lead_from_dust

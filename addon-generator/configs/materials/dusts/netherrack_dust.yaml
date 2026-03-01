@@ -1,11 +1,12 @@
-id: netherrack_dust
+﻿id: netherrack_dust
 name: lang:materials.netherrack_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.netherrack_dust
 texture: ../assets/dusts/netherrack_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: netherrack_from_dust

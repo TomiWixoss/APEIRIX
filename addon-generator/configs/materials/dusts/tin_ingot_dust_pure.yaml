@@ -1,11 +1,12 @@
-id: tin_ingot_dust_pure
+﻿id: tin_ingot_dust_pure
 name: lang:materials.tin_ingot_dust_pure
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.tin_ingot_dust_pure
 texture: ../assets/dusts/tin_ingot_dust_pure.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_tin_from_pure_dust

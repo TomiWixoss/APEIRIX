@@ -1,11 +1,12 @@
-id: raw_coal
+﻿id: raw_coal
 name: lang:materials.raw_coal
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_coal
 texture: ../assets/raw/raw_coal.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: coal_from_raw_smelting

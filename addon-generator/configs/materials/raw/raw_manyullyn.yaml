@@ -1,11 +1,12 @@
-id: raw_manyullyn
+﻿id: raw_manyullyn
 name: lang:materials.raw_manyullyn
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_manyullyn
 texture: ../assets/raw/raw_manyullyn.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: manyullyn_ingot_from_raw_smelting

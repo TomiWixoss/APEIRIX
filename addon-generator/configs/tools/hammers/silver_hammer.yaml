@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: silver_hammer
 name: lang:tools.silver_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.silver_hammer
 texture: ../assets/silver_hammer.png
 damage: 5
@@ -33,4 +34,4 @@ durability: 375
 enchantability: 18
 tier: iron
 attributes:
-  - hammer_mining
+  hammer_mining: {}

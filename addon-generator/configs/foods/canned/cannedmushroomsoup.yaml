@@ -1,11 +1,12 @@
-id: cannedmushroomsoup
+﻿id: cannedmushroomsoup
 name: lang:foods.cannedmushroomsoup
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cannedmushroomsoup
 texture: ../assets/cannedmushroomsoup.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 6
 saturation: 7.2
 canAlwaysEat: false

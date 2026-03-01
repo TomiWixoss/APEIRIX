@@ -1,11 +1,12 @@
-id: cannedfish
+﻿id: cannedfish
 name: lang:foods.cannedfish
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cannedfish
 texture: ../assets/cannedfish.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 nutrition: 5
 saturation: 6
 canAlwaysEat: false

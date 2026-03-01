@@ -1,11 +1,12 @@
-id: raw_electrum
+﻿id: raw_electrum
 name: lang:materials.raw_electrum
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_electrum
 texture: ../assets/raw/raw_electrum.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: electrum_ingot_from_raw_smelting

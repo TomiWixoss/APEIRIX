@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: netherite_hammer
 name: lang:tools.netherite_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.netherite_hammer
 texture: ../assets/netherite_hammer.png
 damage: 5
@@ -11,7 +12,7 @@ enchantability: 15
 efficiency: 9
 tier: netherite
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

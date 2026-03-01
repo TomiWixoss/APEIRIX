@@ -1,11 +1,12 @@
-id: coal_dust
+﻿id: coal_dust
 name: lang:materials.coal_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.coal_dust
 texture: ../assets/dusts/coal_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_coal_from_dust

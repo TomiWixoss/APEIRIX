@@ -1,11 +1,12 @@
-id: diamond_dust
+﻿id: diamond_dust
 name: lang:materials.diamond_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.diamond_dust
 texture: ../assets/dusts/diamond_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_diamond_from_dust

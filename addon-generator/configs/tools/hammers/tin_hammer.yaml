@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: tin_hammer
 name: lang:tools.tin_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.tin_hammer
 texture: ../assets/tin_hammer.png
 damage: 4
@@ -30,5 +31,5 @@ durability: 562
 enchantability: 18
 tier: iron
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 miningSpeed: 8.0

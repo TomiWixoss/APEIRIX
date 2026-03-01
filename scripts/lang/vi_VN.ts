@@ -130,6 +130,8 @@ export const LANG_VI = {
         "durability": "§6Độ bền",
         "combat_damage": "§6Sát thương",
         "damage_multiplier": "§6Sát thương tăng",
-        "mining_speed": "§6Tốc độ đào"
+        "mining_speed": "§6Tốc độ đào",
+        "hammer_mining": "§6Đập Búa",
+        "rust_mite_edible": "§cRust Mite"
     }
 };

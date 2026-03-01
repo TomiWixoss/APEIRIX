@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: electrum_hammer
 name: lang:tools.electrum_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.electrum_hammer
 texture: ../assets/electrum_hammer.png
 damage: 4
@@ -30,5 +31,5 @@ durability: 640
 enchantability: 20
 tier: iron
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 miningSpeed: 8.0

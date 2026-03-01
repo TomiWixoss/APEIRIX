@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: platinum_hammer
 name: lang:tools.platinum_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.platinum_hammer
 texture: ../assets/platinum_hammer.png
 damage: 6
@@ -30,5 +31,5 @@ durability: 2400
 enchantability: 22
 tier: diamond
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 miningSpeed: 9.0

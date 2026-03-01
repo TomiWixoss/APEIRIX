@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: cobalt_hammer
 name: lang:tools.cobalt_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cobalt_hammer
 texture: ../assets/cobalt_hammer.png
 damage: 4
@@ -30,5 +31,5 @@ durability: 750
 enchantability: 16
 tier: iron
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 miningSpeed: 8.0

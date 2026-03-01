@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: golden_hammer
 name: lang:tools.golden_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.golden_hammer
 texture: ../assets/golden_hammer.png
 damage: 1
@@ -11,7 +12,7 @@ enchantability: 22
 efficiency: 12
 tier: golden
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone

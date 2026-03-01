@@ -1,11 +1,12 @@
-id: raw_invar
+﻿id: raw_invar
 name: lang:materials.raw_invar
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_invar
 texture: ../assets/raw/raw_invar.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: invar_ingot_from_raw_smelting

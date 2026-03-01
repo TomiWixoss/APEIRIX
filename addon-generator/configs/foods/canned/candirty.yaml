@@ -1,8 +1,9 @@
-id: candirty
+﻿id: candirty
 name: lang:foods.candirty
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.candirty
 texture: ../assets/candirty.png
 category: items
 stackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}

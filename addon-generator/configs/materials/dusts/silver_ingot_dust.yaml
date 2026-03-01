@@ -1,11 +1,12 @@
-id: silver_ingot_dust
+﻿id: silver_ingot_dust
 name: lang:materials.silver_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.silver_ingot_dust
 texture: ../assets/dusts/silver_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_silver_from_dust

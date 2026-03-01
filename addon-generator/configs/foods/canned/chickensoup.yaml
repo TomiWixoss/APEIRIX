@@ -1,5 +1,6 @@
-id: chickensoup
+﻿id: chickensoup
 name: lang:foods.chickensoup
+lore: lang:lore.auto
 texture: ../assets/chickensoup.png
 category: items
 maxStackSize: 64
@@ -9,7 +10,7 @@ canAlwaysEat: false
 usingConvertsTo: candirty
 wikiDescription: lang:wiki.foods.chickensoup
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 effects:
   - name: regeneration
     duration: 10

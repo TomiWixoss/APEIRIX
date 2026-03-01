@@ -1,5 +1,6 @@
-id: fruit_salad
+﻿id: fruit_salad
 name: lang:foods.fruit_salad
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.fruit_salad
 texture: ../assets/fruit_salad.png
 category: items
@@ -9,7 +10,7 @@ saturation: 7.2
 canAlwaysEat: false
 usingConvertsTo: candirty
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 effects:
   - name: speed
     duration: 20

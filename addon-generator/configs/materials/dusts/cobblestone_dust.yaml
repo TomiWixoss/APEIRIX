@@ -1,11 +1,12 @@
-id: cobblestone_dust
+﻿id: cobblestone_dust
 name: lang:materials.cobblestone_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.cobblestone_dust
 texture: ../assets/dusts/cobblestone_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: cobblestone_from_dust

@@ -1,11 +1,12 @@
-id: emerald_dust
+﻿id: emerald_dust
 name: lang:materials.emerald_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.emerald_dust
 texture: ../assets/dusts/emerald_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_emerald_from_dust

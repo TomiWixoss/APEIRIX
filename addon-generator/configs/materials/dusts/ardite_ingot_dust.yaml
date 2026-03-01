@@ -1,11 +1,12 @@
-id: ardite_ingot_dust
+﻿id: ardite_ingot_dust
 name: lang:materials.ardite_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.ardite_ingot_dust
 texture: ../assets/dusts/ardite_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_ardite_from_dust

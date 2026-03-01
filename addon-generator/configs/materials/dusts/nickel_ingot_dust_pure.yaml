@@ -1,11 +1,12 @@
-id: nickel_ingot_dust_pure
+﻿id: nickel_ingot_dust_pure
 name: lang:materials.nickel_ingot_dust_pure
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.nickel_ingot_dust_pure
 texture: ../assets/dusts/nickel_ingot_dust_pure.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_nickel_from_pure_dust

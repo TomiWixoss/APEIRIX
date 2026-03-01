@@ -1,11 +1,12 @@
-id: raw_steel
+﻿id: raw_steel
 name: lang:materials.raw_steel
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_steel
 texture: ../assets/raw/raw_steel.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: steel_alloy_ingot_from_raw_smelting

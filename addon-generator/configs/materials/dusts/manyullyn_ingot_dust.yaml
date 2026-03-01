@@ -1,13 +1,14 @@
-id: manyullyn_ingot_dust
+﻿id: manyullyn_ingot_dust
 name: lang:materials.manyullyn_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.manyullyn_ingot_dust
 texture: ../assets/dusts/manyullyn_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
-  # Alloy recipe: 1 Cobalt + 1 Ardite → 2 Manyullyn
+  # Alloy recipe: 1 Cobalt + 1 Ardite â†’ 2 Manyullyn
   - type: shapeless
     id: manyullyn_ingot_dust_from_cobalt_ardite
     ingredients:

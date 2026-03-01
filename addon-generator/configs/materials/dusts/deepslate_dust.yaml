@@ -1,11 +1,12 @@
-id: deepslate_dust
+﻿id: deepslate_dust
 name: lang:materials.deepslate_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.deepslate_dust
 texture: ../assets/ores/deepslate_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: deepslate_from_dust

@@ -1,11 +1,12 @@
-id: steel_alloy_dust
+﻿id: steel_alloy_dust
 name: lang:materials.steel_alloy_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.steel_alloy_dust
 texture: ../assets/dusts/steel_alloy_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shapeless
     id: steel_alloy_dust_from_iron_coal_dust

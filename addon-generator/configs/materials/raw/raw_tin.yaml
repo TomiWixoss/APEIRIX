@@ -1,8 +1,9 @@
-id: raw_tin
+﻿id: raw_tin
 name: lang:materials.raw_tin
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_tin
 texture: ../assets/raw/raw_tin.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}

@@ -1,11 +1,12 @@
-id: iron_ingot_dust
+﻿id: iron_ingot_dust
 name: lang:materials.iron_ingot_dust
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.iron_ingot_dust
 texture: ../assets/dusts/iron_ingot_dust.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: shaped
     id: raw_iron_from_dust

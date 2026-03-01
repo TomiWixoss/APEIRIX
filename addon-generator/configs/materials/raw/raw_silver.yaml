@@ -1,11 +1,12 @@
-id: raw_silver
+﻿id: raw_silver
 name: lang:materials.raw_silver
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.raw_silver
 texture: ../assets/raw/raw_silver.png
 category: items
 maxStackSize: 64
 attributes:
-  - rust_mite_edible
+  rust_mite_edible: {}
 recipes:
   - type: smelting
     id: silver_ingot_from_raw_smelting

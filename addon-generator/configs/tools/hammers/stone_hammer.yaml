@@ -1,6 +1,7 @@
-type: hammer
+﻿type: hammer
 id: stone_hammer
 name: lang:tools.stone_hammer
+lore: lang:lore.auto
 wikiDescription: lang:wiki.materials.stone_hammer
 texture: ../assets/stone_hammer.png
 damage: 2
@@ -11,7 +12,7 @@ enchantability: 5
 efficiency: 4
 tier: stone
 attributes:
-  - hammer_mining
+  hammer_mining: {}
 diggerTags:
   - minecraft:is_pickaxe_item_destructible
   - stone
