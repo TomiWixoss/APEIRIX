@@ -14,7 +14,7 @@ usingConvertsTo: candirty
 # Thay vào đó chỉ cho buff nhẹ
 effects:
   - name: health_boost
-    duration: 10
+    duration: 30
     amplifier: 0
     chance: 1
 recipe:

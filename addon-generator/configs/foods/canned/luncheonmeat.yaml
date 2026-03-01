@@ -11,8 +11,8 @@ usingConvertsTo: candirty
 attributes:
   - rust_mite_edible
 effects:
-  - name: saturation
-    duration: 1
+  - name: resistance
+    duration: 10
     amplifier: 0
     chance: 1
 recipe:
