@@ -3,7 +3,7 @@ id: tin_shovel
 name: lang:tools.tin_shovel
 wikiDescription: lang:wiki.materials.tin_shovel
 texture: ../assets/tin_shovel.png
-damage: 3
+damage: 2
 category: equipment
 group: itemGroup.name.shovel
 diggerTags:
@@ -20,8 +20,8 @@ recipe:
   id: tin_shovel
   pattern:
     - "#"
-    - S
-    - S
+    - "S"
+    - "S"
   ingredients:
     "#": apeirix:tin_ingot
     S: minecraft:stick
@@ -30,6 +30,6 @@ recipe:
   unlock:
     - apeirix:tin_ingot
 materialId: apeirix:tin_ingot
-durability: 375
+durability: 131
 enchantability: 18
-tier: iron
+tier: stone

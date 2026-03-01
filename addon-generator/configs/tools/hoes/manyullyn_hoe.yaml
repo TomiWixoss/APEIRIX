@@ -3,7 +3,7 @@ id: manyullyn_hoe
 name: lang:tools.manyullyn_hoe
 wikiDescription: lang:wiki.materials.manyullyn_hoe
 texture: ../assets/manyullyn_hoe.png
-damage: 5
+damage: 3
 category: equipment
 group: itemGroup.name.hoe
 tags:
@@ -34,6 +34,7 @@ recipe:
   unlock:
     - apeirix:manyullyn_ingot
 materialId: apeirix:manyullyn_ingot
-durability: 800
+durability: 3000
 enchantability: 18
-tier: diamond
+tier: netherite
+miningSpeed: 10

@@ -3,7 +3,7 @@ id: ardite_pickaxe
 name: lang:tools.ardite_pickaxe
 wikiDescription: lang:wiki.materials.ardite_pickaxe
 texture: ../assets/ardite_pickaxe.png
-damage: 4
+damage: 5
 category: equipment
 group: itemGroup.name.pickaxe
 diggerTags:
@@ -28,6 +28,7 @@ recipe:
   unlock:
     - apeirix:ardite_ingot
 materialId: apeirix:ardite_ingot
-durability: 500
+durability: 2500
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 6

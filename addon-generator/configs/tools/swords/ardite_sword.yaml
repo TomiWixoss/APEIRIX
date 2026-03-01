@@ -3,7 +3,7 @@ id: ardite_sword
 name: lang:tools.ardite_sword
 wikiDescription: lang:wiki.materials.ardite_sword
 texture: ../assets/ardite_sword.png
-damage: 6
+damage: 7
 category: equipment
 group: itemGroup.name.sword
 specialBlocks:
@@ -17,7 +17,7 @@ recipe:
   pattern:
     - "#"
     - "#"
-    - S
+    - "S"
   ingredients:
     "#": apeirix:ardite_ingot
     S: minecraft:stick
@@ -26,6 +26,7 @@ recipe:
   unlock:
     - apeirix:ardite_ingot
 materialId: apeirix:ardite_ingot
-durability: 500
+durability: 2500
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 6

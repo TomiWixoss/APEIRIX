@@ -3,8 +3,8 @@ id: ardite_helmet
 name: lang:armor.ardite_helmet
 wikiDescription: lang:wiki.materials.ardite_helmet
 texture: ../assets/items/ardite_helmet.png
-durability: 220
-protection: 2
+durability: 550
+protection: 3
 category: equipment
 group: itemGroup.name.helmet
 slot: slot.armor.head

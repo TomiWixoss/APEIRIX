@@ -3,7 +3,7 @@ id: lead_hoe
 name: lang:tools.lead_hoe
 wikiDescription: lang:wiki.materials.lead_hoe
 texture: ../assets/lead_hoe.png
-damage: 4
+damage: 2
 category: equipment
 group: itemGroup.name.hoe
 tags:
@@ -34,6 +34,6 @@ recipe:
   unlock:
     - apeirix:lead_ingot
 materialId: apeirix:lead_ingot
-durability: 400
+durability: 200
 enchantability: 12
 tier: iron

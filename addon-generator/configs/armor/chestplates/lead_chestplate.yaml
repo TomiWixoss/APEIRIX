@@ -4,7 +4,7 @@ name: lang:armor.lead_chestplate
 wikiDescription: lang:wiki.materials.lead_chestplate
 texture: ../assets/items/lead_chestplate.png
 durability: 320
-protection: 5
+protection: 6
 category: equipment
 group: itemGroup.name.chestplate
 slot: slot.armor.chest
@@ -29,3 +29,4 @@ recipes:
       - apeirix:lead_ingot
 materialId: apeirix:lead_ingot
 enchantability: 12
+knockbackResistance: 0.1

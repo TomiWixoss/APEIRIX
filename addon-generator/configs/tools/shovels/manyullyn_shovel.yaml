@@ -3,7 +3,7 @@ id: manyullyn_shovel
 name: lang:tools.manyullyn_shovel
 wikiDescription: lang:wiki.materials.manyullyn_shovel
 texture: ../assets/manyullyn_shovel.png
-damage: 4
+damage: 5
 category: equipment
 group: itemGroup.name.shovel
 diggerTags:
@@ -20,8 +20,8 @@ recipe:
   id: manyullyn_shovel
   pattern:
     - "#"
-    - S
-    - S
+    - "S"
+    - "S"
   ingredients:
     "#": apeirix:manyullyn_ingot
     S: minecraft:stick
@@ -30,6 +30,7 @@ recipe:
   unlock:
     - apeirix:manyullyn_ingot
 materialId: apeirix:manyullyn_ingot
-durability: 800
+durability: 3000
 enchantability: 18
-tier: diamond
+tier: netherite
+miningSpeed: 10

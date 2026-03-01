@@ -25,6 +25,7 @@ export class ArmorBPGenerator {
           durability: armorPiece.durability,
           protection: armorPiece.protection,
           enchantability: armorPiece.enchantability || 18,
+          knockbackResistance: armorPiece.knockbackResistance,
           category: armorPiece.category,
           group: armorPiece.group,
           tags: armorPiece.tags

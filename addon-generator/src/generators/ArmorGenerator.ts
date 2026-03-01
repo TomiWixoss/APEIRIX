@@ -23,6 +23,7 @@ export interface ArmorPieceConfig {
   durability?: number;
   protection?: number;
   enchantability?: number;
+  knockbackResistance?: number; // 0.0 to 1.0 (e.g., 0.1 = 10% knockback resistance)
   
   // Menu
   category?: string;
@@ -62,7 +63,7 @@ export class ArmorGenerator {
     const group = config.group || `itemGroup.name.${config.piece}`;
     const tags = config.tags || ["minecraft:trimmable_armors"];
 
-    const itemData = {
+    const itemData: any = {
       format_version: "1.21.0",
       "minecraft:item": {
         description: {
@@ -111,6 +112,13 @@ export class ArmorGenerator {
         }
       }
     };
+
+    // Add knockback resistance if specified
+    if (config.knockbackResistance !== undefined && config.knockbackResistance > 0) {
+      itemData["minecraft:item"].components["minecraft:knockback_resistance"] = {
+        value: config.knockbackResistance
+      };
+    }
 
     const outputPath = join(this.bpPath, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);

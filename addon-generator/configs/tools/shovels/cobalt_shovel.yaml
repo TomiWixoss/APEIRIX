@@ -3,7 +3,7 @@ id: cobalt_shovel
 name: lang:tools.cobalt_shovel
 wikiDescription: lang:wiki.materials.cobalt_shovel
 texture: ../assets/cobalt_shovel.png
-damage: 3
+damage: 4
 category: equipment
 group: itemGroup.name.shovel
 diggerTags:
@@ -20,8 +20,8 @@ recipe:
   id: cobalt_shovel
   pattern:
     - "#"
-    - S
-    - S
+    - "S"
+    - "S"
   ingredients:
     "#": apeirix:cobalt_ingot
     S: minecraft:stick
@@ -30,6 +30,7 @@ recipe:
   unlock:
     - apeirix:cobalt_ingot
 materialId: apeirix:cobalt_ingot
-durability: 500
+durability: 1200
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 12

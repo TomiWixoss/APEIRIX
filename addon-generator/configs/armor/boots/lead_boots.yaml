@@ -4,7 +4,7 @@ name: lang:armor.lead_boots
 wikiDescription: lang:wiki.materials.lead_boots
 texture: ../assets/items/lead_boots.png
 durability: 260
-protection: 1
+protection: 2
 category: equipment
 group: itemGroup.name.boots
 slot: slot.armor.feet
@@ -28,3 +28,4 @@ recipes:
       - apeirix:lead_ingot
 materialId: apeirix:lead_ingot
 enchantability: 12
+knockbackResistance: 0.1

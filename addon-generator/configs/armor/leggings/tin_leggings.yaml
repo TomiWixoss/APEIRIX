@@ -3,8 +3,8 @@ id: tin_leggings
 name: lang:armor.tin_leggings
 wikiDescription: lang:wiki.materials.tin_leggings
 texture: ../assets/items/tin_leggings.png
-durability: 300
-protection: 4
+durability: 180
+protection: 2
 category: equipment
 group: itemGroup.name.leggings
 slot: slot.armor.legs

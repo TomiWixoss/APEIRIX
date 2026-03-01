@@ -3,8 +3,8 @@ id: tin_helmet
 name: lang:armor.tin_helmet
 wikiDescription: lang:wiki.materials.tin_helmet
 texture: ../assets/items/tin_helmet.png
-durability: 220
-protection: 2
+durability: 132
+protection: 1
 category: equipment
 group: itemGroup.name.helmet
 slot: slot.armor.head

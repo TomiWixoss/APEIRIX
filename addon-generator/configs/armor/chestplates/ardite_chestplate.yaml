@@ -3,8 +3,8 @@ id: ardite_chestplate
 name: lang:armor.ardite_chestplate
 wikiDescription: lang:wiki.materials.ardite_chestplate
 texture: ../assets/items/ardite_chestplate.png
-durability: 320
-protection: 5
+durability: 800
+protection: 7
 category: equipment
 group: itemGroup.name.chestplate
 slot: slot.armor.chest

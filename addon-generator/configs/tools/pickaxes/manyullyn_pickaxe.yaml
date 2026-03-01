@@ -3,7 +3,7 @@ id: manyullyn_pickaxe
 name: lang:tools.manyullyn_pickaxe
 wikiDescription: lang:wiki.materials.manyullyn_pickaxe
 texture: ../assets/manyullyn_pickaxe.png
-damage: 5
+damage: 6
 category: equipment
 group: itemGroup.name.pickaxe
 diggerTags:
@@ -28,6 +28,7 @@ recipe:
   unlock:
     - apeirix:manyullyn_ingot
 materialId: apeirix:manyullyn_ingot
-durability: 800
+durability: 3000
 enchantability: 18
-tier: diamond
+tier: netherite
+miningSpeed: 10

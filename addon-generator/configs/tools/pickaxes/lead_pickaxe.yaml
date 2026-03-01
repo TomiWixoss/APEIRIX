@@ -28,6 +28,6 @@ recipe:
   unlock:
     - apeirix:lead_ingot
 materialId: apeirix:lead_ingot
-durability: 400
+durability: 200
 enchantability: 12
 tier: iron

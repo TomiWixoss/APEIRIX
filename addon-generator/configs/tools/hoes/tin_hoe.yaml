@@ -3,7 +3,7 @@ id: tin_hoe
 name: lang:tools.tin_hoe
 wikiDescription: lang:wiki.materials.tin_hoe
 texture: ../assets/tin_hoe.png
-damage: 4
+damage: 1
 category: equipment
 group: itemGroup.name.hoe
 tags:
@@ -34,6 +34,6 @@ recipe:
   unlock:
     - apeirix:tin_ingot
 materialId: apeirix:tin_ingot
-durability: 375
+durability: 131
 enchantability: 18
-tier: iron
+tier: stone

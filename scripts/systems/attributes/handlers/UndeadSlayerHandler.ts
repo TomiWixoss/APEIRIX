@@ -6,14 +6,19 @@
  * Config:
  * - damageMultiplier: 1.5 (50% bonus damage)
  * - targetFamilies: ['undead', 'zombie', 'skeleton']
+ * 
+ * FIXED: Delay bonus damage để tránh i-frame conflicts
+ * - Entity có i-frames 10 ticks sau khi bị hurt
+ * - Delay 11 ticks để đảm bảo bonus damage apply sau i-frame window
  */
 
-import { world, EntityHurtAfterEvent } from '@minecraft/server';
+import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
 import { getItemsWithAttribute } from '../../../data/GeneratedAttributes';
 
 export class UndeadSlayerHandler {
   private static readonly DAMAGE_MULTIPLIER = 1.5; // 50% bonus damage
   private static readonly TARGET_FAMILIES = ['undead', 'zombie', 'skeleton'];
+  private static readonly I_FRAME_DELAY = 11; // Delay sau i-frame window (10 ticks)
   
   private static undeadSlayerWeapons: Set<string>;
 
@@ -36,7 +41,7 @@ export class UndeadSlayerHandler {
 
   private static handleEntityHurt(event: EntityHurtAfterEvent): void {
     try {
-      const { hurtEntity, damageSource } = event;
+      const { hurtEntity, damageSource, damage } = event;
       
       // Check if damage source is a player
       const attacker = damageSource.damagingEntity;
@@ -61,26 +66,40 @@ export class UndeadSlayerHandler {
         return;
       }
       
-      // Apply bonus damage
-      const bonusDamage = event.damage * (this.DAMAGE_MULTIPLIER - 1);
+      // Calculate bonus damage
+      const bonusDamage = damage * (this.DAMAGE_MULTIPLIER - 1);
       
-      // Apply damage
-      hurtEntity.applyDamage(bonusDamage, {
-        cause: damageSource.cause,
-        damagingEntity: attacker
-      });
-      
-      // Visual feedback
-      hurtEntity.dimension.spawnParticle(
-        'minecraft:critical_hit_emitter',
-        {
-          x: hurtEntity.location.x,
-          y: hurtEntity.location.y + 1,
-          z: hurtEntity.location.z
+      // Delay bonus damage để tránh i-frame conflicts
+      // Entity có 10 ticks invulnerability sau khi bị hurt
+      system.runTimeout(() => {
+        try {
+          // Verify entity vẫn còn sống và valid
+          if (!hurtEntity.isValid || hurtEntity.getComponent('health')?.currentValue === 0) {
+            return;
+          }
+          
+          // Apply bonus damage sau i-frame window
+          hurtEntity.applyDamage(bonusDamage, {
+            cause: damageSource.cause,
+            damagingEntity: attacker
+          });
+          
+          // Visual feedback
+          hurtEntity.dimension.spawnParticle(
+            'minecraft:critical_hit_emitter',
+            {
+              x: hurtEntity.location.x,
+              y: hurtEntity.location.y + 1,
+              z: hurtEntity.location.z
+            }
+          );
+          
+          console.warn(`[UndeadSlayerHandler] Applied ${bonusDamage.toFixed(1)} bonus damage to ${hurtEntity.typeId} (delayed)`);
+          
+        } catch (error) {
+          // Entity might be dead or unloaded
         }
-      );
-      
-      console.warn(`[UndeadSlayerHandler] Applied ${bonusDamage.toFixed(1)} bonus damage to ${hurtEntity.typeId}`);
+      }, this.I_FRAME_DELAY);
       
     } catch (error) {
       console.warn('[UndeadSlayerHandler] Error handling entity hurt:', error);

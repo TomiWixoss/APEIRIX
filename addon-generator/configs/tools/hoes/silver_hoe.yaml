@@ -3,7 +3,7 @@ id: silver_hoe
 name: lang:tools.silver_hoe
 wikiDescription: lang:wiki.materials.silver_hoe
 texture: ../assets/silver_hoe.png
-damage: 1
+damage: 2
 category: equipment
 group: itemGroup.name.hoe
 diggerTags:

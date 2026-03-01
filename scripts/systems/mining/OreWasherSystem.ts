@@ -5,103 +5,38 @@
  * Hỗ trợ: Player interaction + Hopper automation
  * 
  * Note: Không có block ON riêng, ON và OFF đều dùng ore_washer
+ * 
+ * REFACTORED: Extends BaseMachineSystem but overrides interaction logic
+ * for 2-input requirement
  */
 
 import { world, system } from '@minecraft/server';
 import { EventBus } from '../../core/EventBus';
+import { BaseMachineSystem } from '../shared/processing/BaseMachineSystem';
 import { MachineStateManager } from '../shared/processing/MachineState';
-import { PlayerInteractionHandler } from '../shared/processing/PlayerInteractionHandler';
-import { ProcessingHandler } from '../shared/processing/ProcessingHandler';
 import { HopperHandler, ProcessingRecipe } from '../shared/processing/HopperHandler';
 import { GENERATED_ORE_WASHER_RECIPES, OreWasherRecipe } from '../../data/GeneratedProcessingRecipes';
 
-export class OreWasherSystem {
-  private static readonly MACHINE_TYPE = 'ore_washer';
-  private static readonly WASHER_BLOCK = 'apeirix:ore_washer';
-  private static readonly INPUT_AMOUNT = 2;
-  private static readonly PROCESSING_TIME = 40; // 2 giây
+export class OreWasherSystem extends BaseMachineSystem {
+  protected readonly MACHINE_TYPE = 'ore_washer';
+  protected readonly MACHINE_OFF = 'apeirix:ore_washer';
+  protected readonly MACHINE_ON = 'apeirix:ore_washer'; // Same as OFF
+  protected readonly INPUT_AMOUNT = 2; // Requires 2 dusts
+  protected readonly PROCESSING_TIME = 40; // 2 giây
   
   private static recipeMap: Map<string, OreWasherRecipe> = new Map();
 
-  /**
-   * Chuyển đổi rotation của player thành direction state (0-3)
-   * 0 = south, 1 = west, 2 = north, 3 = east
-   * 
-   * Block quay mặt về phía player (đối diện với hướng player nhìn)
-   * Minecraft yaw: 0=south, 90=west, 180=north, 270=east
-   */
-  private static getDirectionFromPlayer(player: any): number {
-    const rotation = player.getRotation();
-    const yaw = rotation.y;
-    
-    // Normalize yaw to 0-360
-    let normalizedYaw = yaw % 360;
-    if (normalizedYaw < 0) normalizedYaw += 360;
-    
-    // Convert to direction (block faces player - opposite of player's facing)
-    let direction: number;
-    if (normalizedYaw >= 315 || normalizedYaw < 45) {
-      direction = 2;  // Nhìn nam → mặt bắc
-    } else if (normalizedYaw >= 45 && normalizedYaw < 135) {
-      direction = 1;  // Nhìn tây → mặt đông
-    } else if (normalizedYaw >= 135 && normalizedYaw < 225) {
-      direction = 0; // Nhìn bắc → mặt nam
-    } else {
-      direction = 3; // Nhìn đông → mặt tây
-    }
-    
-    return direction;
-  }
-
   static initialize(): void {
-    console.warn('[OreWasherSystem] Initializing...');
-    
-    this.loadRecipes();
-    
-    // Đăng ký machine state + set direction khi đặt block
-    world.afterEvents.playerPlaceBlock.subscribe((event) => {
-      if (event.block.typeId === this.WASHER_BLOCK) {
-        MachineStateManager.add(event.block.dimension.id, event.block.location, this.MACHINE_TYPE);
-        
-        // Set direction dựa vào hướng player nhìn
-        const direction = this.getDirectionFromPlayer(event.player);
-        const permutation = (event.block.permutation as any).withState('apeirix:direction', direction);
-        event.block.setPermutation(permutation);
-      }
-    });
-    
-    world.afterEvents.playerBreakBlock.subscribe((event) => {
-      if (event.brokenBlockPermutation.type.id === this.WASHER_BLOCK) {
-        MachineStateManager.remove(event.block.dimension.id, event.block.location);
-      }
-    });
-    
-    // Player interaction (custom handler vì cần 2 inputs)
-    world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
-      if (event.block.typeId === this.WASHER_BLOCK) {
-        this.handlePlayerInteraction(event);
-      }
-    });
-    
-    // Processing loop
-    system.runInterval(() => {
-      PlayerInteractionHandler.incrementTick();
-      ProcessingHandler.processAll(this.WASHER_BLOCK, this.WASHER_BLOCK, this.MACHINE_TYPE);
-    }, 1);
-    
-    // Hopper input check
-    system.runInterval(() => {
-      this.checkHopperInputs();
-    }, 20);
-    
-    console.warn('[OreWasherSystem] Initialized');
+    const instance = new OreWasherSystem();
+    instance.loadRecipes();
+    instance.initialize();
   }
 
-  private static loadRecipes(): void {
+  private loadRecipes(): void {
     for (const recipe of GENERATED_ORE_WASHER_RECIPES) {
-      this.recipeMap.set(recipe.inputId, recipe);
+      OreWasherSystem.recipeMap.set(recipe.inputId, recipe);
     }
-    console.warn(`[OreWasherSystem] Loaded ${this.recipeMap.size} washer recipes`);
+    console.warn(`[OreWasherSystem] Loaded ${OreWasherSystem.recipeMap.size} washer recipes`);
   }
 
   private static getRecipe(itemId: string): OreWasherRecipe | undefined {
@@ -115,7 +50,7 @@ export class OreWasherSystem {
     return {
       inputId: recipe.inputId,
       outputId: `${recipe.pureDust},1;${recipe.stoneDust},2`,
-      processingTime: this.PROCESSING_TIME
+      processingTime: 40 // PROCESSING_TIME
     };
   }
 
@@ -128,14 +63,25 @@ export class OreWasherSystem {
   };
 
   /**
-   * Xử lý player click (custom vì cần 2 inputs)
+   * Override: Custom player interaction for 2-input requirement
    */
-  private static handlePlayerInteraction(event: any): void {
+  protected override registerInteractEvent(): void {
+    world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
+      if (event.block.typeId === this.MACHINE_OFF) {
+        this.handlePlayerInteraction(event);
+      }
+    });
+  }
+
+  /**
+   * Xử lý player click với 2-input requirement
+   */
+  private handlePlayerInteraction(event: any): void {
     const { block, player, itemStack } = event;
     
     if (!itemStack) return;
     
-    const recipe = this.getRecipe(itemStack.typeId);
+    const recipe = OreWasherSystem.getRecipe(itemStack.typeId);
     if (!recipe) return;
     
     const state = MachineStateManager.get(block.dimension.id, block.location);
@@ -155,9 +101,9 @@ export class OreWasherSystem {
   }
 
   /**
-   * Bắt đầu xử lý từ player
+   * Bắt đầu xử lý từ player với 2-input requirement
    */
-  private static startProcessingFromPlayer(player: any, block: any, recipe: OreWasherRecipe, state: any): void {
+  private startProcessingFromPlayer(player: any, block: any, recipe: OreWasherRecipe, state: any): void {
     try {
       const inventory = player.getComponent('inventory');
       if (!inventory || !inventory.container) return;
@@ -184,7 +130,7 @@ export class OreWasherSystem {
         inventory.container.setItem(selectedSlot, undefined);
       }
       
-      // Bật máy
+      // Bật máy (không cần change block type vì ON = OFF)
       state.isProcessing = true;
       state.inputItem = recipe.inputId;
       state.outputItem = `${recipe.pureDust},1;${recipe.stoneDust},2`;
@@ -198,26 +144,27 @@ export class OreWasherSystem {
   }
 
   /**
-   * Kiểm tra hopper inputs
+   * Override: Custom hopper check for 2-input requirement
    */
-  private static checkHopperInputs(): void {
-    for (const [key, state] of MachineStateManager.getAll().entries()) {
+  protected override checkHopperInputs(): void {
+    for (const [, state] of MachineStateManager.getAll().entries()) {
+      if (state.machineType !== this.MACHINE_TYPE) continue;
       if (state.isProcessing) continue;
       
       try {
         const dimension = world.getDimension(state.dimension);
         const block = dimension.getBlock(state.location);
         
-        if (!block || block.typeId !== this.WASHER_BLOCK) continue;
+        if (!block || block.typeId !== this.MACHINE_OFF) continue;
         
         // Thử lấy từ hopper trên (cần 2 items)
-        if (HopperHandler.checkHopperAbove(block, state, this.recipeGetter, this.INPUT_AMOUNT)) {
+        if (HopperHandler.checkHopperAbove(block, state, OreWasherSystem.recipeGetter, this.INPUT_AMOUNT)) {
           state.isProcessing = true;
           continue;
         }
         
         // Thử lấy từ hopper 4 bên (cần 2 items)
-        if (HopperHandler.checkHoppersSides(block, state, this.recipeGetter, this.INPUT_AMOUNT)) {
+        if (HopperHandler.checkHoppersSides(block, state, OreWasherSystem.recipeGetter, this.INPUT_AMOUNT)) {
           state.isProcessing = true;
         }
         

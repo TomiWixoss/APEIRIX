@@ -4,7 +4,7 @@ name: lang:armor.silver_chestplate
 wikiDescription: lang:wiki.materials.silver_chestplate
 texture: ../assets/items/silver_chestplate.png
 durability: 320
-protection: 6
+protection: 5
 category: equipment
 group: itemGroup.name.chestplate
 slot: slot.armor.chest

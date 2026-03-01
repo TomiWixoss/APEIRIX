@@ -3,7 +3,7 @@ id: cobalt_hoe
 name: lang:tools.cobalt_hoe
 wikiDescription: lang:wiki.materials.cobalt_hoe
 texture: ../assets/cobalt_hoe.png
-damage: 4
+damage: 2
 category: equipment
 group: itemGroup.name.hoe
 tags:
@@ -34,6 +34,7 @@ recipe:
   unlock:
     - apeirix:cobalt_ingot
 materialId: apeirix:cobalt_ingot
-durability: 500
+durability: 1200
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 12

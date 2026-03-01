@@ -3,7 +3,7 @@ id: bronze_shovel
 name: lang:tools.bronze_shovel
 wikiDescription: lang:wiki.materials.bronze_shovel
 texture: ../assets/bronze_shovel.png
-damage: 3
+damage: 4
 category: equipment
 group: itemGroup.name.shovel
 diggerTags:
@@ -20,8 +20,8 @@ recipe:
   id: bronze_shovel
   pattern:
     - "#"
-    - S
-    - S
+    - "S"
+    - "S"
   ingredients:
     "#": apeirix:bronze_ingot
     S: minecraft:stick

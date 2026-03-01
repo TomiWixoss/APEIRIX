@@ -26,6 +26,7 @@ recipe:
   unlock:
     - apeirix:manyullyn_ingot
 materialId: apeirix:manyullyn_ingot
-durability: 800
+durability: 3000
 enchantability: 18
-tier: diamond
+tier: netherite
+miningSpeed: 10

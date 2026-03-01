@@ -18,7 +18,7 @@ import { MachineStateManager, MachineState } from './MachineState';
 import { BlockInfoProvider, BlockInfo } from './BlockInfoProvider';
 
 export class DisplayHandler {
-  private static readonly CHECK_INTERVAL = 5; // Check mỗi 5 ticks (0.25s) - realtime
+  private static readonly CHECK_INTERVAL = 10; // Check mỗi 10 ticks (0.5s) - OPTIMIZED từ 5
   private static readonly DISPLAY_RANGE = 5; // Hiển thị trong bán kính 5 blocks
 
   /**

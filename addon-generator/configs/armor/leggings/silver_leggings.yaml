@@ -4,7 +4,7 @@ name: lang:armor.silver_leggings
 wikiDescription: lang:wiki.materials.silver_leggings
 texture: ../assets/items/silver_leggings.png
 durability: 300
-protection: 5
+protection: 4
 category: equipment
 group: itemGroup.name.leggings
 slot: slot.armor.legs

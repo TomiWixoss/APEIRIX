@@ -3,7 +3,7 @@ id: tin_sword
 name: lang:tools.tin_sword
 wikiDescription: lang:wiki.materials.tin_sword
 texture: ../assets/tin_sword.png
-damage: 6
+damage: 5
 category: equipment
 group: itemGroup.name.sword
 specialBlocks:
@@ -26,6 +26,6 @@ recipe:
   unlock:
     - apeirix:tin_ingot
 materialId: apeirix:tin_ingot
-durability: 375
+durability: 131
 enchantability: 18
-tier: iron
+tier: stone

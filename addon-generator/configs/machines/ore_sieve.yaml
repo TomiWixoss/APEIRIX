@@ -10,36 +10,34 @@ textures:
   east: ./assets/ore_sieve_off.png
   west: ./assets/ore_sieve_off.png
 category: equipment
-destroyTime: 4.0
-explosionResistance: 8.0
+destroyTime: 4
+explosionResistance: 8
 mapColor: "#B8860B"
 requiresTool: true
 toolTier: stone
 processingRecipes:
-  # Gravel -> Ore dusts (random chance)
   - input: minecraft:gravel
     outputs:
       - item: apeirix:iron_ingot_dust
-        chance: 0.15
-      - item: apeirix:coal_dust
-        chance: 0.20
-      - item: apeirix:copper_ingot_dust
-        chance: 0.10
-      - item: apeirix:gold_ingot_dust
         chance: 0.05
+      - item: apeirix:coal_dust
+        chance: 0.1
+      - item: apeirix:copper_ingot_dust
+        chance: 0.05
+      - item: apeirix:gold_ingot_dust
+        chance: 0.02
       - item: apeirix:tin_ingot_dust
-        chance: 0.08
-  # Sand -> Ore dusts (lower chance)
+        chance: 0.03
   - input: minecraft:sand
     outputs:
       - item: apeirix:copper_ingot_dust
-        chance: 0.10
-      - item: apeirix:gold_ingot_dust
         chance: 0.03
-      - item: apeirix:diamond_dust
-        chance: 0.02
-      - item: apeirix:emerald_dust
+      - item: apeirix:gold_ingot_dust
         chance: 0.01
+      - item: apeirix:diamond_dust
+        chance: 0.005
+      - item: apeirix:emerald_dust
+        chance: 0.003
 recipes:
   - type: shaped
     id: ore_sieve

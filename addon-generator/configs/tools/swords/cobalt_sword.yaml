@@ -17,7 +17,7 @@ recipe:
   pattern:
     - "#"
     - "#"
-    - S
+    - "S"
   ingredients:
     "#": apeirix:cobalt_ingot
     S: minecraft:stick
@@ -26,6 +26,7 @@ recipe:
   unlock:
     - apeirix:cobalt_ingot
 materialId: apeirix:cobalt_ingot
-durability: 500
+durability: 1200
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 12

@@ -2,7 +2,7 @@ type: pickaxe
 id: bronze_pickaxe
 name: lang:tools.bronze_pickaxe
 texture: ../assets/bronze_pickaxe.png
-damage: 4
+damage: 5
 category: equipment
 group: itemGroup.name.pickaxe
 wikiDescription: lang:wiki.tools.bronze_pickaxe

@@ -16,7 +16,7 @@ interface MarkerData {
 }
 
 export class RustMiteEdibleHandler {
-  private static readonly CHECK_INTERVAL = 15; // 15 ticks (0.75 giây)
+  private static readonly CHECK_INTERVAL = 30; // 30 ticks (1.5 giây) - OPTIMIZED từ 15
   private static readonly DETECTION_RADIUS = 8; // 8 blocks
   private static readonly EAT_DISTANCE = 1.8; // 1.8 blocks để "ăn"
   private static readonly MARKER_LIFETIME = 200; // 10 giây

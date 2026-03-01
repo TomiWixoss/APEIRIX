@@ -3,8 +3,8 @@ id: cobalt_leggings
 name: lang:armor.cobalt_leggings
 wikiDescription: lang:wiki.materials.cobalt_leggings
 texture: ../assets/items/cobalt_leggings.png
-durability: 300
-protection: 4
+durability: 600
+protection: 6
 category: equipment
 group: itemGroup.name.leggings
 slot: slot.armor.legs

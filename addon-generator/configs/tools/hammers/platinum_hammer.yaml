@@ -32,4 +32,3 @@ tier: diamond
 attributes:
   - hammer_mining
 miningSpeed: 9.0
-areaOfEffect: 3x3

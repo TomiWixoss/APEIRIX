@@ -3,7 +3,7 @@ id: tin_pickaxe
 name: lang:tools.tin_pickaxe
 wikiDescription: lang:wiki.materials.tin_pickaxe
 texture: ../assets/tin_pickaxe.png
-damage: 4
+damage: 3
 category: equipment
 group: itemGroup.name.pickaxe
 diggerTags:
@@ -28,6 +28,6 @@ recipe:
   unlock:
     - apeirix:tin_ingot
 materialId: apeirix:tin_ingot
-durability: 375
+durability: 131
 enchantability: 18
-tier: iron
+tier: stone

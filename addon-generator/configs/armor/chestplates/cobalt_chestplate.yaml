@@ -3,8 +3,8 @@ id: cobalt_chestplate
 name: lang:armor.cobalt_chestplate
 wikiDescription: lang:wiki.materials.cobalt_chestplate
 texture: ../assets/items/cobalt_chestplate.png
-durability: 320
-protection: 5
+durability: 640
+protection: 7
 category: equipment
 group: itemGroup.name.chestplate
 slot: slot.armor.chest

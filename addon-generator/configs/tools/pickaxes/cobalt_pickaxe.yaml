@@ -3,7 +3,7 @@ id: cobalt_pickaxe
 name: lang:tools.cobalt_pickaxe
 wikiDescription: lang:wiki.materials.cobalt_pickaxe
 texture: ../assets/cobalt_pickaxe.png
-damage: 4
+damage: 5
 category: equipment
 group: itemGroup.name.pickaxe
 diggerTags:
@@ -28,6 +28,7 @@ recipe:
   unlock:
     - apeirix:cobalt_ingot
 materialId: apeirix:cobalt_ingot
-durability: 500
+durability: 1200
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 12

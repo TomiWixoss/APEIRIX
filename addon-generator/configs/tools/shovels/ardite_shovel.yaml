@@ -3,7 +3,7 @@ id: ardite_shovel
 name: lang:tools.ardite_shovel
 wikiDescription: lang:wiki.materials.ardite_shovel
 texture: ../assets/ardite_shovel.png
-damage: 3
+damage: 4
 category: equipment
 group: itemGroup.name.shovel
 diggerTags:
@@ -20,8 +20,8 @@ recipe:
   id: ardite_shovel
   pattern:
     - "#"
-    - S
-    - S
+    - "S"
+    - "S"
   ingredients:
     "#": apeirix:ardite_ingot
     S: minecraft:stick
@@ -30,6 +30,7 @@ recipe:
   unlock:
     - apeirix:ardite_ingot
 materialId: apeirix:ardite_ingot
-durability: 500
+durability: 2500
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 6

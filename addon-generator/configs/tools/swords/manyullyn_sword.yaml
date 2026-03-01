@@ -3,7 +3,7 @@ id: manyullyn_sword
 name: lang:tools.manyullyn_sword
 wikiDescription: lang:wiki.materials.manyullyn_sword
 texture: ../assets/manyullyn_sword.png
-damage: 8
+damage: 10
 category: equipment
 group: itemGroup.name.sword
 specialBlocks:
@@ -17,7 +17,7 @@ recipe:
   pattern:
     - "#"
     - "#"
-    - S
+    - "S"
   ingredients:
     "#": apeirix:manyullyn_ingot
     S: minecraft:stick
@@ -26,6 +26,7 @@ recipe:
   unlock:
     - apeirix:manyullyn_ingot
 materialId: apeirix:manyullyn_ingot
-durability: 800
+durability: 3000
 enchantability: 18
-tier: diamond
+tier: netherite
+miningSpeed: 10

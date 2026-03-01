@@ -3,7 +3,7 @@ id: tin_axe
 name: lang:tools.tin_axe
 wikiDescription: lang:wiki.materials.tin_axe
 texture: ../assets/tin_axe.png
-damage: 5
+damage: 4
 category: equipment
 group: itemGroup.name.axe
 diggerTags:
@@ -26,6 +26,6 @@ recipe:
   unlock:
     - apeirix:tin_ingot
 materialId: apeirix:tin_ingot
-durability: 375
+durability: 131
 enchantability: 18
-tier: iron
+tier: stone

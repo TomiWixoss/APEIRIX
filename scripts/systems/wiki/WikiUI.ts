@@ -18,6 +18,23 @@ interface WikiItem {
 }
 
 export class WikiUI {
+    // Cache GENERATED_WIKI_ITEMS as Map for O(1) lookup - OPTIMIZED
+    private static wikiItemsMap: Map<string, any> | null = null;
+
+    /**
+     * Initialize wiki items map cache
+     */
+    private static initializeWikiItemsMap(): void {
+        if (this.wikiItemsMap) return; // Already initialized
+        
+        this.wikiItemsMap = new Map();
+        for (const item of GENERATED_WIKI_ITEMS) {
+            this.wikiItemsMap.set(item.id, item);
+        }
+        
+        console.warn(`[WikiUI] Initialized wiki items map with ${this.wikiItemsMap.size} items`);
+    }
+
     /**
      * Show wiki for items in inventory (excludes blocks)
      */
@@ -111,6 +128,9 @@ export class WikiUI {
      * @param excludeBlocks - If true, exclude blocks from results
      */
     private static scanInventory(player: Player, excludeBlocks: boolean = false): WikiItem[] {
+        // Initialize map cache if not done yet
+        this.initializeWikiItemsMap();
+        
         const items: WikiItem[] = [];
         const container = player.getComponent("inventory")?.container as Container;
         if (!container) return items;
@@ -127,8 +147,8 @@ export class WikiUI {
 
             seenIds.add(fullId);
 
-            // Get wiki data from generated data
-            const wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === fullId);
+            // Get wiki data from map cache - O(1) lookup instead of O(N) find
+            const wikiData = this.wikiItemsMap!.get(fullId);
             if (wikiData) {
                 // Skip blocks if excludeBlocks is true
                 if (excludeBlocks && this.isBlock(fullId)) {

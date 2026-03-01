@@ -3,8 +3,8 @@ id: cobalt_boots
 name: lang:armor.cobalt_boots
 wikiDescription: lang:wiki.materials.cobalt_boots
 texture: ../assets/items/cobalt_boots.png
-durability: 260
-protection: 1
+durability: 520
+protection: 3
 category: equipment
 group: itemGroup.name.boots
 slot: slot.armor.feet

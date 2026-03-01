@@ -3,7 +3,7 @@ id: ardite_hoe
 name: lang:tools.ardite_hoe
 wikiDescription: lang:wiki.materials.ardite_hoe
 texture: ../assets/ardite_hoe.png
-damage: 4
+damage: 2
 category: equipment
 group: itemGroup.name.hoe
 tags:
@@ -34,6 +34,7 @@ recipe:
   unlock:
     - apeirix:ardite_ingot
 materialId: apeirix:ardite_ingot
-durability: 500
+durability: 2500
 enchantability: 16
-tier: iron
+tier: diamond
+miningSpeed: 6

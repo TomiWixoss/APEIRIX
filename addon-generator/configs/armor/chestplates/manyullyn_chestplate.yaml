@@ -3,8 +3,8 @@ id: manyullyn_chestplate
 name: lang:armor.manyullyn_chestplate
 wikiDescription: lang:wiki.materials.manyullyn_chestplate
 texture: ../assets/items/manyullyn_chestplate.png
-durability: 400
-protection: 7
+durability: 1000
+protection: 9
 category: equipment
 group: itemGroup.name.chestplate
 slot: slot.armor.chest

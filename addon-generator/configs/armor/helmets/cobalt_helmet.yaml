@@ -3,8 +3,8 @@ id: cobalt_helmet
 name: lang:armor.cobalt_helmet
 wikiDescription: lang:wiki.materials.cobalt_helmet
 texture: ../assets/items/cobalt_helmet.png
-durability: 220
-protection: 2
+durability: 440
+protection: 3
 category: equipment
 group: itemGroup.name.helmet
 slot: slot.armor.head

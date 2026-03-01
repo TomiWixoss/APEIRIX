@@ -3,8 +3,8 @@ id: manyullyn_boots
 name: lang:armor.manyullyn_boots
 wikiDescription: lang:wiki.materials.manyullyn_boots
 texture: ../assets/items/manyullyn_boots.png
-durability: 325
-protection: 2
+durability: 813
+protection: 4
 category: equipment
 group: itemGroup.name.boots
 slot: slot.armor.feet
