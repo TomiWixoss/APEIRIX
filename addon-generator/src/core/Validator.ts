@@ -6,6 +6,14 @@ import { extname } from 'path';
  */
 export class Validator {
   static validateItemId(id: string): boolean {
+    // Allow vanilla items with minecraft: prefix
+    if (id.startsWith('minecraft:')) {
+      const vanillaId = id.substring('minecraft:'.length);
+      const regex = /^[a-z0-9_]+$/;
+      return regex.test(vanillaId);
+    }
+    
+    // Custom items (no namespace)
     const regex = /^[a-z0-9_]+$/;
     return regex.test(id);
   }

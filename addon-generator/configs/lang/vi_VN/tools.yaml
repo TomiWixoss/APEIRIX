@@ -1,5 +1,8 @@
 # Ngôn ngữ tiếng Việt - Tools
 tools:
+  # Vanilla overrides
+  wooden_pickaxe: Cuốc Gỗ
+
   bronze_pickaxe: Cuốc Đồng Thanh
   bronze_axe: Rìu Đồng Thanh
   bronze_shovel: Xẻng Đồng Thanh

@@ -1,6 +1,11 @@
 /**
  * UndeadSlayerHandler - Handle 'undead_slayer' attribute
  * 
+ * SINGLE SOURCE OF TRUTH for 'undead_slayer' attribute:
+ * - Lore template key
+ * - Lore placeholder processing
+ * - Runtime behavior
+ * 
  * NEW LOGIC: Weapons với attribute 'undead_slayer' deal bonus damage to undead mobs
  * 
  * Config:
@@ -15,7 +20,7 @@
  */
 
 import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
-import { getAttributeItems } from '../../../data/GeneratedAttributes';
+import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 
 interface DamageRecord {
   actualDamage: number;
@@ -29,6 +34,42 @@ interface UndeadSlayerData {
 }
 
 export class UndeadSlayerHandler {
+  // ============================================
+  // METADATA - Single source of truth
+  // ============================================
+  static readonly ATTRIBUTE_ID = 'undead_slayer';
+  static readonly TEMPLATE_KEY = 'damage_multiplier_template';
+  
+  // ============================================
+  // LORE GENERATION (Compile-time)
+  // ============================================
+  
+  /**
+   * Get lore template key for auto-generation
+   */
+  static getLoreTemplateKey(): string {
+    return this.TEMPLATE_KEY;
+  }
+  
+  /**
+   * Process lore placeholders for this attribute
+   * Replaces: {damageMultiplier}
+   */
+  static processLorePlaceholders(itemId: string, line: string): string {
+    const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
+    
+    if (config?.damageMultiplier) {
+      const percentage = ((config.damageMultiplier - 1) * 100).toFixed(0);
+      return line.replace(/{damageMultiplier}/g, percentage);
+    }
+    
+    return line;
+  }
+  
+  // ============================================
+  // RUNTIME BEHAVIOR
+  // ============================================
+  
   private static readonly DEFAULT_DAMAGE_MULTIPLIER = 1.5; // 50% bonus damage (default)
   private static readonly TARGET_FAMILIES = ['undead', 'zombie', 'skeleton'];
   private static readonly I_FRAME_DELAY = 11; // Delay sau i-frame window (10 ticks)
@@ -60,7 +101,7 @@ export class UndeadSlayerHandler {
   }
 
   private static loadUndeadSlayerWeapons(): void {
-    const items = getAttributeItems('undead_slayer');
+    const items = getAttributeItems(this.ATTRIBUTE_ID);
     
     for (const item of items) {
       const multiplier = item.config?.damageMultiplier || this.DEFAULT_DAMAGE_MULTIPLIER;

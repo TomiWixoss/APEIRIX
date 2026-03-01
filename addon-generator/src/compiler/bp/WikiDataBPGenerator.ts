@@ -207,7 +207,8 @@ export class WikiDataBPGenerator {
   ): WikiItemData | null {
     if (!entity?.id) return null;
     
-    const id = `apeirix:${entity.id}`;
+    // Don't add apeirix: prefix if entity already has a namespace (e.g., minecraft:)
+    const id = entity.id.includes(':') ? entity.id : `apeirix:${entity.id}`;
     const name = this.resolveName(entity, category, configDir);
     
     // Resolve description from wikiDescription field (supports lang: prefix)
@@ -246,6 +247,7 @@ export class WikiDataBPGenerator {
    * Resolve lore from explicit lore field only
    * 
    * Supports:
+   * - lang:lore.auto (auto-generate from attributes)
    * - lang:lore.category.item_id (recommended)
    * - Direct text with pipe separator (backward compatibility)
    * 
@@ -261,6 +263,12 @@ export class WikiDataBPGenerator {
     if (entity.lore.startsWith('lang:')) {
       // Extract lang key from "lang:lore.category.item_id" format
       const langKey = entity.lore.replace('lang:', '');
+      
+      // Check for auto-generate magic key
+      if (langKey === 'lore.auto') {
+        return this.autoGenerateLore(entity, configDir);
+      }
+      
       const loreText = langLoader.get(langKey, configDir, undefined);
       
       if (loreText && loreText !== langKey) {
@@ -272,6 +280,33 @@ export class WikiDataBPGenerator {
       // Direct text (backward compatibility)
       const lines = entity.lore.split('|').map((line: string) => line.trim());
       loreLines.push(...lines);
+    }
+    
+    return loreLines.length > 0 ? loreLines : undefined;
+  }
+  
+  /**
+   * Auto-generate lore from entity attributes
+   * Automatically discovers template keys from attribute IDs
+   */
+  private static autoGenerateLore(entity: any, configDir: string): string[] | undefined {
+    if (!entity.attributes) {
+      return undefined;
+    }
+    
+    const loreLines: string[] = [];
+    
+    // Generate lore line for each attribute
+    // Template key convention: {attribute_id}_template
+    // Example: breakable -> breakable_template
+    for (const attrId of Object.keys(entity.attributes)) {
+      const templateKey = `${attrId}_template`;
+      
+      // Get template from lang file
+      const template = langLoader.get(`attributes.${templateKey}`, configDir, undefined);
+      if (!template || template === `attributes.${templateKey}`) continue;
+      
+      loreLines.push(template);
     }
     
     return loreLines.length > 0 ? loreLines : undefined;

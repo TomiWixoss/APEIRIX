@@ -1,6 +1,9 @@
 /**
  * RustMiteEdibleHandler - Handle 'rust_mite_edible' attribute
  * 
+ * SINGLE SOURCE OF TRUTH for 'rust_mite_edible' attribute:
+ * - Runtime behavior only (no lore generation)
+ * 
  * REUSES LOGIC FROM: RustMiteItemEatingSystem
  * 
  * Items với attribute 'rust_mite_edible' sẽ bị Rust Mite thu hút và "ăn"
@@ -16,6 +19,16 @@ interface MarkerData {
 }
 
 export class RustMiteEdibleHandler {
+  // ============================================
+  // METADATA - Single source of truth
+  // ============================================
+  static readonly ATTRIBUTE_ID = 'rust_mite_edible';
+  // No TEMPLATE_KEY - this attribute has no lore
+  
+  // ============================================
+  // RUNTIME BEHAVIOR
+  // ============================================
+  
   private static readonly CHECK_INTERVAL = 30; // 30 ticks (1.5 giây) - OPTIMIZED từ 15
   private static readonly DETECTION_RADIUS = 8; // 8 blocks
   private static readonly EAT_DISTANCE = 1.8; // 1.8 blocks để "ăn"

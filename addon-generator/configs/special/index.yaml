@@ -1,3 +1,4 @@
 import:
   - achievement_book.yaml
   - wiki_book.yaml
+  - vanilla_overrides/wooden_pickaxe.yaml

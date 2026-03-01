@@ -5,19 +5,23 @@
  * when they enter player inventory
  * 
  * DYNAMIC LORE SUPPORT:
- * - Supports placeholders in lore: {protection}, {durability}, {knockbackResistance}, {damageMultiplier}
- * - Placeholders are replaced with actual values from item config
+ * - Supports placeholders in lore via PlaceholderRegistry
+ * - Placeholders are replaced with actual values from attribute configs
+ * - See placeholders/ folder for available processors
  */
 
 import { world, system, Player, Container, ItemStack } from "@minecraft/server";
 import { GENERATED_WIKI_ITEMS } from "../../data/GeneratedGameData";
-import { getAttributeConfig } from "../../data/GeneratedAttributes";
+import { PlaceholderRegistry } from "./placeholders/PlaceholderRegistry";
 
 export class LoreSystem {
   private static loreMap: Map<string, string[]> = new Map();
 
   static initialize(): void {
     console.warn('[LoreSystem] Initializing...');
+    
+    // Initialize placeholder registry
+    PlaceholderRegistry.initialize();
     
     // Build lore map from GENERATED_WIKI_ITEMS
     for (const item of GENERATED_WIKI_ITEMS) {
@@ -153,10 +157,14 @@ export class LoreSystem {
       const loreTemplate = this.loreMap.get(item.typeId);
       if (!loreTemplate) return;
 
-      // Process lore with placeholders
-      const lore = this.processLorePlaceholders(item.typeId, loreTemplate, item);
+      // Process lore with placeholders via registry
+      const lore = PlaceholderRegistry.process(item.typeId, loreTemplate);
       
-      // Apply lore
+      // IMPORTANT: Clear existing lore first (removes vanilla lore)
+      // This ensures only custom lore is displayed
+      item.setLore([]);
+      
+      // Apply custom lore
       item.setLore(lore);
       
       // Save back to container
@@ -165,29 +173,6 @@ export class LoreSystem {
     } catch (error) {
       console.warn(`[LoreSystem] Failed to apply lore to ${item.typeId}:`, error);
     }
-  }
-
-  /**
-   * Process lore placeholders with actual values
-   * Supports: {damageMultiplier}
-   */
-  private static processLorePlaceholders(itemId: string, loreTemplate: string[], item: ItemStack): string[] {
-    const processed: string[] = [];
-    
-    for (const line of loreTemplate) {
-      let processedLine = line;
-      
-      // Replace {damageMultiplier} from undead_slayer attribute
-      const undeadSlayerConfig = getAttributeConfig(itemId, 'undead_slayer');
-      if (undeadSlayerConfig?.damageMultiplier) {
-        const percentage = ((undeadSlayerConfig.damageMultiplier - 1) * 100).toFixed(0);
-        processedLine = processedLine.replace(/{damageMultiplier}/g, percentage);
-      }
-      
-      processed.push(processedLine);
-    }
-    
-    return processed;
   }
 
   /**
@@ -202,7 +187,7 @@ export class LoreSystem {
     }
 
     try {
-      const lore = this.processLorePlaceholders(itemStack.typeId, loreTemplate, itemStack);
+      const lore = PlaceholderRegistry.process(itemStack.typeId, loreTemplate);
       itemStack.setLore(lore);
       return true;
     } catch (error) {

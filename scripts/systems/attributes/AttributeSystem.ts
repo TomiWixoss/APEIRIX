@@ -13,6 +13,9 @@ import { GENERATED_ATTRIBUTES, hasAttribute, getItemsWithAttribute } from '../..
 import { RustMiteEdibleHandler } from './handlers/RustMiteEdibleHandler';
 import { HammerMiningHandler } from './handlers/HammerMiningHandler';
 import { UndeadSlayerHandler } from './handlers/UndeadSlayerHandler';
+import { BreakableHandler } from './handlers/BreakableHandler';
+import { DurabilityModifierHandler } from './handlers/DurabilityModifierHandler';
+import { CombatDamageModifierHandler } from './handlers/CombatDamageModifierHandler';
 
 export class AttributeSystem {
   private static initialized = false;
@@ -37,6 +40,9 @@ export class AttributeSystem {
     RustMiteEdibleHandler.initialize();
     HammerMiningHandler.initialize();
     UndeadSlayerHandler.initialize();
+    BreakableHandler.initialize();
+    DurabilityModifierHandler.initialize();
+    CombatDamageModifierHandler.initialize();
     
     this.initialized = true;
     console.warn('[AttributeSystem] Initialized');

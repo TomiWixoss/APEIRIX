@@ -92,13 +92,29 @@ export class LangLoader {
           const filePath = path.join(loreDir, file);
           try {
             const content = fs.readFileSync(filePath, 'utf-8');
-            const data = yaml.load(content) as Record<string, string>;
+            const data = yaml.load(content) as Record<string, string | string[]>;
+            
+            // Skip if data is null or not an object
+            if (!data || typeof data !== 'object') {
+              continue;
+            }
+            
+            // Convert arrays to pipe-separated strings for lore
+            const processedData: Record<string, string> = {};
+            for (const [key, value] of Object.entries(data)) {
+              if (Array.isArray(value)) {
+                // Join array with pipe separator
+                processedData[key] = value.join('|');
+              } else if (typeof value === 'string') {
+                processedData[key] = value;
+              }
+            }
             
             // Nest under lore.{category} key
             // e.g., attributes.yaml → lore.attributes.hammer_mining
             const category = file.replace('.yaml', '');
             if (!langData.lore) langData.lore = {};
-            langData.lore[category] = data;
+            langData.lore[category] = processedData;
           } catch (error) {
             Logger.error(`[LangLoader] Failed to load ${filePath}: ${error}`);
           }

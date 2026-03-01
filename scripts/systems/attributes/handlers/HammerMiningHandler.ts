@@ -1,6 +1,9 @@
 /**
  * HammerMiningHandler - Handle 'hammer_mining' attribute
  * 
+ * SINGLE SOURCE OF TRUTH for 'hammer_mining' attribute:
+ * - Runtime behavior only (no lore generation)
+ * 
  * REUSES LOGIC FROM: HammerMiningSystem
  * 
  * Tools với attribute 'hammer_mining' sẽ đập block ra dust thay vì vanilla drops
@@ -11,6 +14,16 @@ import { getItemsWithAttribute } from '../../../data/GeneratedAttributes';
 import { GENERATED_ORE_CRUSHER_RECIPES, OreCrusherRecipe } from '../../../data/GeneratedProcessingRecipes';
 
 export class HammerMiningHandler {
+  // ============================================
+  // METADATA - Single source of truth
+  // ============================================
+  static readonly ATTRIBUTE_ID = 'hammer_mining';
+  // No TEMPLATE_KEY - this attribute has no lore
+  
+  // ============================================
+  // RUNTIME BEHAVIOR
+  // ============================================
+  
   private static hammerToolIds: Set<string>;
   private static recipeMap: Map<string, OreCrusherRecipe> = new Map();
 

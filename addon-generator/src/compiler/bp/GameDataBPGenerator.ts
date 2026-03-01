@@ -195,16 +195,19 @@ export class GameDataBPGenerator {
     
     if (config.items) {
       for (const item of config.items) {
-        allItems.push(`apeirix:${item.id}`);
-        addAttribute(`apeirix:${item.id}`, item.attributes);
+        // Don't add apeirix: prefix if item already has a namespace (e.g., minecraft:)
+        const itemId = item.id.includes(':') ? item.id : `apeirix:${item.id}`;
+        allItems.push(itemId);
+        addAttribute(itemId, item.attributes);
       }
     }
     
     // Add foods to allItems
     if (config.foods) {
       for (const food of config.foods) {
-        allItems.push(`apeirix:${food.id}`);
-        addAttribute(`apeirix:${food.id}`, food.attributes);
+        const foodId = food.id.includes(':') ? food.id : `apeirix:${food.id}`;
+        allItems.push(foodId);
+        addAttribute(foodId, food.attributes);
       }
     }
     

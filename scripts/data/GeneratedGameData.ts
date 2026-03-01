@@ -1959,6 +1959,12 @@ export const GENERATED_WIKI_ITEMS = [
     icon: "textures/items/wiki_book",
   },
   {
+    id: "minecraft:wooden_pickaxe",
+    category: "materials",
+    name: "Cuốc Gỗ",
+    description: "wiki.tools.wooden_pickaxe",
+  },
+  {
     id: "apeirix:ardite_axe",
     category: "tools",
     name: "Rìu Ardite",

@@ -1,5 +1,8 @@
 # English Language - Tools
 tools:
+  # Vanilla overrides
+  wooden_pickaxe: Wooden Pickaxe
+
   bronze_pickaxe: Bronze Pickaxe
   bronze_axe: Bronze Axe
   bronze_shovel: Bronze Shovel

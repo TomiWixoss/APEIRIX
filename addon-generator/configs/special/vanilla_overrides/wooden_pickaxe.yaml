@@ -1,0 +1,27 @@
+# Vanilla Override: Wooden Pickaxe
+# Override vanilla wooden pickaxe với custom attributes
+
+id: minecraft:wooden_pickaxe
+name: lang:tools.wooden_pickaxe
+lore: lang:lore.auto # Auto-generate lore từ attributes
+wikiDescription: lang:wiki.tools.wooden_pickaxe
+
+# Attributes để modify behavior
+attributes:
+  # 100% breakable khi đào quặng
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+
+  # Chỉ còn 4 lần dùng (thay vì 59)
+  durability_modifier:
+    context: mining
+    maxDurability: 4
+
+  # 0 damage khi combat
+  combat_damage_modifier:
+    context: combat
+    damage: 0

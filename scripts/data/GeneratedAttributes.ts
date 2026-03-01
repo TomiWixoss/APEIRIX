@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T02:34:58.927Z
- * Total attributes: 3
- * Total items with attributes: 88
+ * Generated: 2026-03-01T09:43:11.102Z
+ * Total attributes: 6
+ * Total items with attributes: 91
  */
 
 // Attribute data for each item
@@ -27,6 +27,15 @@ export interface AttributeItemData {
  * - Get attribute config: getAttributeConfig(itemId, 'undead_slayer')
  */
 export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
+  'breakable': [
+    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} }
+  ],
+  'combat_damage_modifier': [
+    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"combat","damage":0} }
+  ],
+  'durability_modifier': [
+    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"mining","maxDurability":4} }
+  ],
   'hammer_mining': [
     { itemId: 'apeirix:engineering_hammer' },
     { itemId: 'apeirix:ardite_hammer' },
