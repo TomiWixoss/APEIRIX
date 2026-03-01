@@ -7,112 +7,119 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T01:43:13.984Z
+ * Generated: 2026-03-01T02:34:58.927Z
  * Total attributes: 3
  * Total items with attributes: 88
  */
 
+// Attribute data for each item
+export interface AttributeItemData {
+  itemId: string;
+  config?: any; // Optional config object
+}
+
 /**
- * Attribute mapping: attributeId -> itemIds[]
+ * Attribute mapping: attributeId -> array of items with config
  * 
  * Usage:
- * - Check if item has attribute: GENERATED_ATTRIBUTES['hammer_mining'].includes(itemId)
- * - Get all items with attribute: GENERATED_ATTRIBUTES['rust_mite_edible']
+ * - Check if item has attribute: hasAttribute(itemId, 'hammer_mining')
+ * - Get all items with attribute: getItemsWithAttribute('rust_mite_edible')
+ * - Get attribute config: getAttributeConfig(itemId, 'undead_slayer')
  */
-export const GENERATED_ATTRIBUTES: Record<string, string[]> = {
+export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
   'hammer_mining': [
-  'apeirix:engineering_hammer',
-  'apeirix:ardite_hammer',
-  'apeirix:bronze_hammer',
-  'apeirix:cobalt_hammer',
-  'apeirix:copper_hammer',
-  'apeirix:diamond_hammer',
-  'apeirix:electrum_hammer',
-  'apeirix:golden_hammer',
-  'apeirix:invar_hammer',
-  'apeirix:iron_hammer',
-  'apeirix:lead_hammer',
-  'apeirix:manyullyn_hammer',
-  'apeirix:netherite_hammer',
-  'apeirix:nickel_hammer',
-  'apeirix:platinum_hammer',
-  'apeirix:silver_hammer',
-  'apeirix:steel_alloy_hammer',
-  'apeirix:stone_hammer',
-  'apeirix:tin_hammer',
-  'apeirix:wooden_hammer'
+    { itemId: 'apeirix:engineering_hammer' },
+    { itemId: 'apeirix:ardite_hammer' },
+    { itemId: 'apeirix:bronze_hammer' },
+    { itemId: 'apeirix:cobalt_hammer' },
+    { itemId: 'apeirix:copper_hammer' },
+    { itemId: 'apeirix:diamond_hammer' },
+    { itemId: 'apeirix:electrum_hammer' },
+    { itemId: 'apeirix:golden_hammer' },
+    { itemId: 'apeirix:invar_hammer' },
+    { itemId: 'apeirix:iron_hammer' },
+    { itemId: 'apeirix:lead_hammer' },
+    { itemId: 'apeirix:manyullyn_hammer' },
+    { itemId: 'apeirix:netherite_hammer' },
+    { itemId: 'apeirix:nickel_hammer' },
+    { itemId: 'apeirix:platinum_hammer' },
+    { itemId: 'apeirix:silver_hammer' },
+    { itemId: 'apeirix:steel_alloy_hammer' },
+    { itemId: 'apeirix:stone_hammer' },
+    { itemId: 'apeirix:tin_hammer' },
+    { itemId: 'apeirix:wooden_hammer' }
   ],
   'rust_mite_edible': [
-  'apeirix:ardite_ingot_dust',
-  'apeirix:ardite_ingot_dust_pure',
-  'apeirix:bronze_ingot_dust',
-  'apeirix:bronze_ingot_dust_pure',
-  'apeirix:coal_dust',
-  'apeirix:coal_dust_pure',
-  'apeirix:cobalt_ingot_dust',
-  'apeirix:cobalt_ingot_dust_pure',
-  'apeirix:cobblestone_dust',
-  'apeirix:copper_ingot_dust',
-  'apeirix:copper_ingot_dust_pure',
-  'apeirix:deepslate_dust',
-  'apeirix:diamond_dust',
-  'apeirix:diamond_dust_pure',
-  'apeirix:electrum_ingot_dust',
-  'apeirix:electrum_ingot_dust_pure',
-  'apeirix:emerald_dust',
-  'apeirix:emerald_dust_pure',
-  'apeirix:gold_ingot_dust',
-  'apeirix:gold_ingot_dust_pure',
-  'apeirix:invar_ingot_dust',
-  'apeirix:invar_ingot_dust_pure',
-  'apeirix:iron_ingot_dust',
-  'apeirix:iron_ingot_dust_pure',
-  'apeirix:lapis_block_dust',
-  'apeirix:lapis_block_dust_pure',
-  'apeirix:lead_ingot_dust',
-  'apeirix:lead_ingot_dust_pure',
-  'apeirix:manyullyn_ingot_dust',
-  'apeirix:manyullyn_ingot_dust_pure',
-  'apeirix:netherrack_dust',
-  'apeirix:nickel_ingot_dust',
-  'apeirix:nickel_ingot_dust_pure',
-  'apeirix:raw_coal',
-  'apeirix:raw_diamond',
-  'apeirix:raw_emerald',
-  'apeirix:raw_lapis',
-  'apeirix:redstone_dust_pure',
-  'apeirix:silver_ingot_dust',
-  'apeirix:silver_ingot_dust_pure',
-  'apeirix:steel_alloy_dust',
-  'apeirix:steel_alloy_dust_pure',
-  'apeirix:tin_ingot_dust',
-  'apeirix:tin_ingot_dust_pure',
-  'apeirix:raw_bronze',
-  'apeirix:raw_electrum',
-  'apeirix:raw_invar',
-  'apeirix:raw_manyullyn',
-  'apeirix:raw_silver',
-  'apeirix:raw_steel',
-  'apeirix:raw_tin',
-  'apeirix:candirty',
-  'apeirix:canempty',
-  'apeirix:cannedbeets',
-  'apeirix:cannedbread',
-  'apeirix:cannedcarrots',
-  'apeirix:canneddogfood',
-  'apeirix:cannedfish',
-  'apeirix:cannedmeal',
-  'apeirix:cannedmushroomsoup',
-  'apeirix:cannedsalad',
-  'apeirix:canned_food',
-  'apeirix:canned_pumpkin',
-  'apeirix:chickensoup',
-  'apeirix:cookies',
-  'apeirix:fruit_salad',
-  'apeirix:luncheonmeat'
+    { itemId: 'apeirix:ardite_ingot_dust' },
+    { itemId: 'apeirix:ardite_ingot_dust_pure' },
+    { itemId: 'apeirix:bronze_ingot_dust' },
+    { itemId: 'apeirix:bronze_ingot_dust_pure' },
+    { itemId: 'apeirix:coal_dust' },
+    { itemId: 'apeirix:coal_dust_pure' },
+    { itemId: 'apeirix:cobalt_ingot_dust' },
+    { itemId: 'apeirix:cobalt_ingot_dust_pure' },
+    { itemId: 'apeirix:cobblestone_dust' },
+    { itemId: 'apeirix:copper_ingot_dust' },
+    { itemId: 'apeirix:copper_ingot_dust_pure' },
+    { itemId: 'apeirix:deepslate_dust' },
+    { itemId: 'apeirix:diamond_dust' },
+    { itemId: 'apeirix:diamond_dust_pure' },
+    { itemId: 'apeirix:electrum_ingot_dust' },
+    { itemId: 'apeirix:electrum_ingot_dust_pure' },
+    { itemId: 'apeirix:emerald_dust' },
+    { itemId: 'apeirix:emerald_dust_pure' },
+    { itemId: 'apeirix:gold_ingot_dust' },
+    { itemId: 'apeirix:gold_ingot_dust_pure' },
+    { itemId: 'apeirix:invar_ingot_dust' },
+    { itemId: 'apeirix:invar_ingot_dust_pure' },
+    { itemId: 'apeirix:iron_ingot_dust' },
+    { itemId: 'apeirix:iron_ingot_dust_pure' },
+    { itemId: 'apeirix:lapis_block_dust' },
+    { itemId: 'apeirix:lapis_block_dust_pure' },
+    { itemId: 'apeirix:lead_ingot_dust' },
+    { itemId: 'apeirix:lead_ingot_dust_pure' },
+    { itemId: 'apeirix:manyullyn_ingot_dust' },
+    { itemId: 'apeirix:manyullyn_ingot_dust_pure' },
+    { itemId: 'apeirix:netherrack_dust' },
+    { itemId: 'apeirix:nickel_ingot_dust' },
+    { itemId: 'apeirix:nickel_ingot_dust_pure' },
+    { itemId: 'apeirix:raw_coal' },
+    { itemId: 'apeirix:raw_diamond' },
+    { itemId: 'apeirix:raw_emerald' },
+    { itemId: 'apeirix:raw_lapis' },
+    { itemId: 'apeirix:redstone_dust_pure' },
+    { itemId: 'apeirix:silver_ingot_dust' },
+    { itemId: 'apeirix:silver_ingot_dust_pure' },
+    { itemId: 'apeirix:steel_alloy_dust' },
+    { itemId: 'apeirix:steel_alloy_dust_pure' },
+    { itemId: 'apeirix:tin_ingot_dust' },
+    { itemId: 'apeirix:tin_ingot_dust_pure' },
+    { itemId: 'apeirix:raw_bronze' },
+    { itemId: 'apeirix:raw_electrum' },
+    { itemId: 'apeirix:raw_invar' },
+    { itemId: 'apeirix:raw_manyullyn' },
+    { itemId: 'apeirix:raw_silver' },
+    { itemId: 'apeirix:raw_steel' },
+    { itemId: 'apeirix:raw_tin' },
+    { itemId: 'apeirix:candirty' },
+    { itemId: 'apeirix:canempty' },
+    { itemId: 'apeirix:cannedbeets' },
+    { itemId: 'apeirix:cannedbread' },
+    { itemId: 'apeirix:cannedcarrots' },
+    { itemId: 'apeirix:canneddogfood' },
+    { itemId: 'apeirix:cannedfish' },
+    { itemId: 'apeirix:cannedmeal' },
+    { itemId: 'apeirix:cannedmushroomsoup' },
+    { itemId: 'apeirix:cannedsalad' },
+    { itemId: 'apeirix:canned_food' },
+    { itemId: 'apeirix:canned_pumpkin' },
+    { itemId: 'apeirix:chickensoup' },
+    { itemId: 'apeirix:cookies' },
+    { itemId: 'apeirix:fruit_salad' },
+    { itemId: 'apeirix:luncheonmeat' }
   ],
   'undead_slayer': [
-  'apeirix:silver_sword'
+    { itemId: 'apeirix:silver_sword', config: {"damageMultiplier":1.5} }
   ]
 };
 
@@ -121,7 +128,7 @@ export const GENERATED_ATTRIBUTES: Record<string, string[]> = {
  */
 export function hasAttribute(itemId: string, attributeId: string): boolean {
   const items = GENERATED_ATTRIBUTES[attributeId];
-  return items ? items.includes(itemId) : false;
+  return items ? items.some(item => item.itemId === itemId) : false;
 }
 
 /**
@@ -129,8 +136,8 @@ export function hasAttribute(itemId: string, attributeId: string): boolean {
  */
 export function getItemAttributes(itemId: string): string[] {
   const attributes: string[] = [];
-  for (const [attrId, itemIds] of Object.entries(GENERATED_ATTRIBUTES)) {
-    if (itemIds.includes(itemId)) {
+  for (const [attrId, items] of Object.entries(GENERATED_ATTRIBUTES)) {
+    if (items.some(item => item.itemId === itemId)) {
       attributes.push(attrId);
     }
   }
@@ -138,8 +145,27 @@ export function getItemAttributes(itemId: string): string[] {
 }
 
 /**
- * Helper: Get all items with specific attribute
+ * Helper: Get all items with specific attribute (returns itemIds only)
  */
 export function getItemsWithAttribute(attributeId: string): string[] {
+  const items = GENERATED_ATTRIBUTES[attributeId] || [];
+  return items.map(item => item.itemId);
+}
+
+/**
+ * Helper: Get attribute config for specific item
+ */
+export function getAttributeConfig(itemId: string, attributeId: string): any | undefined {
+  const items = GENERATED_ATTRIBUTES[attributeId];
+  if (!items) return undefined;
+  
+  const itemData = items.find(item => item.itemId === itemId);
+  return itemData?.config;
+}
+
+/**
+ * Helper: Get all items with attribute including config
+ */
+export function getAttributeItems(attributeId: string): AttributeItemData[] {
   return GENERATED_ATTRIBUTES[attributeId] || [];
 }

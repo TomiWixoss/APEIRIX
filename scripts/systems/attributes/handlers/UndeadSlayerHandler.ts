@@ -15,7 +15,7 @@
  */
 
 import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
-import { getItemsWithAttribute } from '../../../data/GeneratedAttributes';
+import { getAttributeItems } from '../../../data/GeneratedAttributes';
 
 interface DamageRecord {
   actualDamage: number;
@@ -23,22 +23,26 @@ interface DamageRecord {
   bonusDamage: number;
 }
 
+interface UndeadSlayerData {
+  itemId: string;
+  damageMultiplier: number;
+}
+
 export class UndeadSlayerHandler {
-  private static readonly DAMAGE_MULTIPLIER = 1.5; // 50% bonus damage
+  private static readonly DEFAULT_DAMAGE_MULTIPLIER = 1.5; // 50% bonus damage (default)
   private static readonly TARGET_FAMILIES = ['undead', 'zombie', 'skeleton'];
   private static readonly I_FRAME_DELAY = 11; // Delay sau i-frame window (10 ticks)
   private static readonly HISTORY_CLEANUP_INTERVAL = 6000; // Cleanup every 5 minutes (6000 ticks)
   private static readonly HISTORY_MAX_AGE = 200; // Remove records older than 10 seconds (200 ticks)
   
-  private static undeadSlayerWeapons: Set<string>;
+  private static undeadSlayerWeapons = new Map<string, number>(); // itemId -> damageMultiplier
   private static damageHistory = new Map<string, DamageRecord>();
 
   static initialize(): void {
     console.warn('[UndeadSlayerHandler] Initializing...');
     
     // Load undead slayer weapons from attributes
-    const weapons = getItemsWithAttribute('undead_slayer');
-    this.undeadSlayerWeapons = new Set(weapons);
+    this.loadUndeadSlayerWeapons();
     
     console.warn(`[UndeadSlayerHandler] Loaded ${this.undeadSlayerWeapons.size} undead slayer weapons`);
     
@@ -53,6 +57,17 @@ export class UndeadSlayerHandler {
     }, this.HISTORY_CLEANUP_INTERVAL);
     
     console.warn('[UndeadSlayerHandler] Initialized');
+  }
+
+  private static loadUndeadSlayerWeapons(): void {
+    const items = getAttributeItems('undead_slayer');
+    
+    for (const item of items) {
+      const multiplier = item.config?.damageMultiplier || this.DEFAULT_DAMAGE_MULTIPLIER;
+      this.undeadSlayerWeapons.set(item.itemId, multiplier);
+      
+      console.warn(`[UndeadSlayerHandler] ${item.itemId}: ${multiplier}x damage vs undead`);
+    }
   }
 
   private static handleEntityHurt(event: EntityHurtAfterEvent): void {
@@ -78,12 +93,13 @@ export class UndeadSlayerHandler {
       if (!weapon) return;
       
       // Check if weapon has undead_slayer attribute
-      if (!this.undeadSlayerWeapons.has(weapon.typeId)) {
+      const damageMultiplier = this.undeadSlayerWeapons.get(weapon.typeId);
+      if (!damageMultiplier) {
         return;
       }
       
       // Calculate bonus damage based on ACTUAL damage dealt (after armor/resistance)
-      const bonusDamage = damage * (this.DAMAGE_MULTIPLIER - 1);
+      const bonusDamage = damage * (damageMultiplier - 1);
       
       // Store damage record for tracking
       const currentTick = system.currentTick;

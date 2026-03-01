@@ -3,10 +3,15 @@
  * 
  * Automatically applies lore from GENERATED_WIKI_ITEMS to item stacks
  * when they enter player inventory
+ * 
+ * DYNAMIC LORE SUPPORT:
+ * - Supports placeholders in lore: {protection}, {durability}, {knockbackResistance}, {damageMultiplier}
+ * - Placeholders are replaced with actual values from item config
  */
 
 import { world, system, Player, Container, ItemStack } from "@minecraft/server";
 import { GENERATED_WIKI_ITEMS } from "../../data/GeneratedGameData";
+import { getAttributeConfig } from "../../data/GeneratedAttributes";
 
 export class LoreSystem {
   private static loreMap: Map<string, string[]> = new Map();
@@ -145,9 +150,12 @@ export class LoreSystem {
    */
   private static applyLoreToSlot(container: Container, slot: number, item: ItemStack): void {
     try {
-      const lore = this.loreMap.get(item.typeId);
-      if (!lore) return;
+      const loreTemplate = this.loreMap.get(item.typeId);
+      if (!loreTemplate) return;
 
+      // Process lore with placeholders
+      const lore = this.processLorePlaceholders(item.typeId, loreTemplate, item);
+      
       // Apply lore
       item.setLore(lore);
       
@@ -160,17 +168,41 @@ export class LoreSystem {
   }
 
   /**
+   * Process lore placeholders with actual values
+   * Supports: {damageMultiplier}
+   */
+  private static processLorePlaceholders(itemId: string, loreTemplate: string[], item: ItemStack): string[] {
+    const processed: string[] = [];
+    
+    for (const line of loreTemplate) {
+      let processedLine = line;
+      
+      // Replace {damageMultiplier} from undead_slayer attribute
+      const undeadSlayerConfig = getAttributeConfig(itemId, 'undead_slayer');
+      if (undeadSlayerConfig?.damageMultiplier) {
+        const percentage = ((undeadSlayerConfig.damageMultiplier - 1) * 100).toFixed(0);
+        processedLine = processedLine.replace(/{damageMultiplier}/g, percentage);
+      }
+      
+      processed.push(processedLine);
+    }
+    
+    return processed;
+  }
+
+  /**
    * Apply lore to an item stack (manual usage)
    * @param itemStack The item stack to apply lore to
    * @returns true if lore was applied, false otherwise
    */
   static applyLore(itemStack: ItemStack): boolean {
-    const lore = this.loreMap.get(itemStack.typeId);
-    if (!lore) {
+    const loreTemplate = this.loreMap.get(itemStack.typeId);
+    if (!loreTemplate) {
       return false;
     }
 
     try {
+      const lore = this.processLorePlaceholders(itemStack.typeId, loreTemplate, itemStack);
       itemStack.setLore(lore);
       return true;
     } catch (error) {

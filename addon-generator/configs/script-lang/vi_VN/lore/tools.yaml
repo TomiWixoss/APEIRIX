@@ -1,5 +1,6 @@
 # Vietnamese Lore - Tools
 # Format: item_id: "line1|line2|line3"
+# Placeholders: {damageMultiplier} for undead_slayer
 
 # Swords - Undead Slayer attribute
-silver_sword: "§c§lSát Thủ Undead§r|§7Gây +50% sát thương lên quái vật undead|§7(Zombie, Skeleton, Wither, Phantom...)"
+silver_sword: "§c§lSát Thủ Undead§r|§7Gây §f+{damageMultiplier}%§7 sát thương lên quái vật undead|§7(Zombie, Skeleton, Wither, Phantom...)"

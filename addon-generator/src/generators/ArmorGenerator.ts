@@ -113,13 +113,6 @@ export class ArmorGenerator {
       }
     };
 
-    // Add knockback resistance if specified
-    if (config.knockbackResistance !== undefined && config.knockbackResistance > 0) {
-      itemData["minecraft:item"].components["minecraft:knockback_resistance"] = {
-        value: config.knockbackResistance
-      };
-    }
-
     const outputPath = join(this.bpPath, `items/${config.id}.json`);
     FileManager.writeJSON(outputPath, itemData);
     Logger.log(`✅ Đã tạo: BP/items/${config.id}.json`);

@@ -31,4 +31,5 @@ durability: 375
 enchantability: 18
 tier: iron
 attributes:
-  - undead_slayer
+  undead_slayer:
+    damageMultiplier: 1.5

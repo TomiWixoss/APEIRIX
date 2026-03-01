@@ -29,4 +29,3 @@ recipes:
       - apeirix:lead_ingot
 materialId: apeirix:lead_ingot
 enchantability: 12
-knockbackResistance: 0.1

@@ -163,16 +163,32 @@ export class GameDataBPGenerator {
     // Collect attributes from all entities
     const attributeMapping: AttributeMapping = {};
     
-    // Helper to add attribute
-    const addAttribute = (itemId: string, attributes: string[] | undefined) => {
-      if (!attributes || !Array.isArray(attributes)) return;
+    // Helper to add attribute - supports both array and object format
+    const addAttribute = (itemId: string, attributes: string[] | Record<string, any> | undefined) => {
+      if (!attributes) return;
       
-      for (const attr of attributes) {
-        if (!attributeMapping[attr]) {
-          attributeMapping[attr] = [];
+      // Handle array format: ['hammer_mining', 'rust_mite_edible']
+      if (Array.isArray(attributes)) {
+        for (const attr of attributes) {
+          if (!attributeMapping[attr]) {
+            attributeMapping[attr] = [];
+          }
+          // Check if item already added
+          if (!attributeMapping[attr].some(item => item.itemId === itemId)) {
+            attributeMapping[attr].push({ itemId });
+          }
         }
-        if (!attributeMapping[attr].includes(itemId)) {
-          attributeMapping[attr].push(itemId);
+      }
+      // Handle object format: {undead_slayer: {damageMultiplier: 1.5}}
+      else if (typeof attributes === 'object') {
+        for (const [attr, config] of Object.entries(attributes)) {
+          if (!attributeMapping[attr]) {
+            attributeMapping[attr] = [];
+          }
+          // Check if item already added
+          if (!attributeMapping[attr].some(item => item.itemId === itemId)) {
+            attributeMapping[attr].push({ itemId, config });
+          }
         }
       }
     };

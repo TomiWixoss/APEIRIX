@@ -2,8 +2,15 @@ import { FileManager } from '../core/FileManager.js';
 import { join } from 'path';
 import { Logger } from '../utils/Logger.js';
 
+// Attribute data for each item
+export interface AttributeItemData {
+  itemId: string;
+  config?: any; // Optional config object (e.g., {damageMultiplier: 1.5})
+}
+
+// Mapping: attributeId -> array of items with that attribute
 export interface AttributeMapping {
-  [attributeId: string]: string[]; // attributeId -> itemIds[]
+  [attributeId: string]: AttributeItemData[];
 }
 
 /**
@@ -51,8 +58,17 @@ export class AttributeGenerator {
     
     // Generate attribute constants
     const attributeConstants = sortedAttributes.map(attrId => {
-      const itemIds = attributeMapping[attrId];
-      const itemsStr = itemIds.map(id => `  '${id}'`).join(',\n');
+      const items = attributeMapping[attrId];
+      const itemsStr = items.map(item => {
+        if (item.config) {
+          // Has config - output as object
+          const configStr = JSON.stringify(item.config);
+          return `    { itemId: '${item.itemId}', config: ${configStr} }`;
+        } else {
+          // No config - output as simple object
+          return `    { itemId: '${item.itemId}' }`;
+        }
+      }).join(',\n');
       return `  '${attrId}': [\n${itemsStr}\n  ]`;
     }).join(',\n');
 
@@ -73,14 +89,21 @@ export class AttributeGenerator {
  * Total items with attributes: ${totalItems}
  */
 
+// Attribute data for each item
+export interface AttributeItemData {
+  itemId: string;
+  config?: any; // Optional config object
+}
+
 /**
- * Attribute mapping: attributeId -> itemIds[]
+ * Attribute mapping: attributeId -> array of items with config
  * 
  * Usage:
- * - Check if item has attribute: GENERATED_ATTRIBUTES['hammer_mining'].includes(itemId)
- * - Get all items with attribute: GENERATED_ATTRIBUTES['rust_mite_edible']
+ * - Check if item has attribute: hasAttribute(itemId, 'hammer_mining')
+ * - Get all items with attribute: getItemsWithAttribute('rust_mite_edible')
+ * - Get attribute config: getAttributeConfig(itemId, 'undead_slayer')
  */
-export const GENERATED_ATTRIBUTES: Record<string, string[]> = {
+export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
 ${attributeConstants}
 };
 
@@ -89,7 +112,7 @@ ${attributeConstants}
  */
 export function hasAttribute(itemId: string, attributeId: string): boolean {
   const items = GENERATED_ATTRIBUTES[attributeId];
-  return items ? items.includes(itemId) : false;
+  return items ? items.some(item => item.itemId === itemId) : false;
 }
 
 /**
@@ -97,8 +120,8 @@ export function hasAttribute(itemId: string, attributeId: string): boolean {
  */
 export function getItemAttributes(itemId: string): string[] {
   const attributes: string[] = [];
-  for (const [attrId, itemIds] of Object.entries(GENERATED_ATTRIBUTES)) {
-    if (itemIds.includes(itemId)) {
+  for (const [attrId, items] of Object.entries(GENERATED_ATTRIBUTES)) {
+    if (items.some(item => item.itemId === itemId)) {
       attributes.push(attrId);
     }
   }
@@ -106,9 +129,28 @@ export function getItemAttributes(itemId: string): string[] {
 }
 
 /**
- * Helper: Get all items with specific attribute
+ * Helper: Get all items with specific attribute (returns itemIds only)
  */
 export function getItemsWithAttribute(attributeId: string): string[] {
+  const items = GENERATED_ATTRIBUTES[attributeId] || [];
+  return items.map(item => item.itemId);
+}
+
+/**
+ * Helper: Get attribute config for specific item
+ */
+export function getAttributeConfig(itemId: string, attributeId: string): any | undefined {
+  const items = GENERATED_ATTRIBUTES[attributeId];
+  if (!items) return undefined;
+  
+  const itemData = items.find(item => item.itemId === itemId);
+  return itemData?.config;
+}
+
+/**
+ * Helper: Get all items with attribute including config
+ */
+export function getAttributeItems(attributeId: string): AttributeItemData[] {
   return GENERATED_ATTRIBUTES[attributeId] || [];
 }
 `;
