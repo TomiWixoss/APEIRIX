@@ -12,6 +12,13 @@ export interface ContentConfig {
     author?: string;
     license?: string;
     language?: string; // NEW: Default language (e.g., "vi_VN", "en_US")
+    dependencies?: Array<{
+      module: string;
+      version: string;
+    }>;
+    experimental?: {
+      enabled?: boolean; // Enable experimental features (beta APIs)
+    };
     uuids?: {
       bp?: string;
       rp?: string;

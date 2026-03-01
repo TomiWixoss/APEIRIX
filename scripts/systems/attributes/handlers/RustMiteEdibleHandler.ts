@@ -183,7 +183,7 @@ export class RustMiteEdibleHandler {
         z: itemLocation.z
       };
       
-      const marker = item.dimension.spawnEntity('apeirix:item_bait_marker', spawnLocation);
+      const marker = item.dimension.spawnEntity('apeirix:item_bait_marker' as any, spawnLocation);
       
       marker.addEffect('invisibility', 999999, {
         amplifier: 0,

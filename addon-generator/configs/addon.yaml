@@ -12,6 +12,17 @@ addon:
     - 1
     - 21
     - 50
+  # Dependencies - Script API packages
+  dependencies:
+    - module: "@minecraft/server"
+      version: "2.6.0-beta"
+    - module: "@minecraft/server-ui"
+      version: "2.1.0-beta"
+  # Experimental features
+  experimental:
+    # Enable experimental features for beta APIs
+    # Required for: beforeEvents.entityHurt (combat damage modifier)
+    enabled: true
   icons:
     bp: ./assets/icons/pack_icon_bp.png
     rp: ./assets/icons/pack_icon_rp.png

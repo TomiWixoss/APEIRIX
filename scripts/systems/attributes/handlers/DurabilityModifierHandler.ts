@@ -7,28 +7,33 @@
  * - Runtime behavior
  * 
  * Items với attribute 'durability_modifier' có thể:
- * - Tăng/giảm durability consumption
- * - Set max durability khác vanilla
+ * - Set số lần sử dụng tối đa (durability)
+ * - Tự động tính toán damage cần trừ dựa trên max durability của item
  * 
  * Config:
  * - context: 'mining' (chỉ active khi đào block)
- * - maxDurability: 4 (override max durability)
- * - consumptionMultiplier: 14.75 (59/4 = 14.75x consumption để chỉ còn 4 uses)
+ * - durability: 4 (số lần sử dụng tối đa)
  * 
- * Example: Wooden pickaxe với maxDurability: 4
- * - Vanilla: 59 durability
- * - Modified: Track uses, break after 4 uses
+ * Logic:
+ * - Lấy max durability của item (từ durability component)
+ * - Tính damage per use = max_durability / configured_durability
+ * - Mỗi lần sử dụng trừ damage_per_use từ durability hiện tại
+ * - Item tự động break khi durability về 0 (vanilla behavior)
+ * 
+ * Example: Wooden pickaxe với durability: 4
+ * - Vanilla max durability: 59
+ * - Damage per use: 59 / 4 = 14.75
+ * - Sau 4 lần sử dụng: 59 - (14.75 * 4) = 0 → item breaks
  */
 
-import { world, ItemStack, Player } from '@minecraft/server';
+import { world, ItemStack, Player, system, GameMode } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
 
 interface DurabilityConfig {
   context?: AttributeContext | string;
-  maxDurability?: number;
-  consumptionMultiplier?: number;
+  durability?: number; // Số lần sử dụng tối đa
   conditions?: any;
 }
 
@@ -52,13 +57,13 @@ export class DurabilityModifierHandler {
   
   /**
    * Process lore placeholders for this attribute
-   * Replaces: {max_durability}
+   * Replaces: {durability}
    */
   static processLorePlaceholders(itemId: string, line: string): string {
     const config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
     
-    if (config?.maxDurability !== undefined) {
-      return line.replace(/{max_durability}/g, config.maxDurability.toString());
+    if (config?.durability !== undefined) {
+      return line.replace(/{durability}/g, config.durability.toString());
     }
     
     return line;
@@ -69,7 +74,6 @@ export class DurabilityModifierHandler {
   // ============================================
   
   private static durabilityItems = new Map<string, DurabilityConfig>();
-  private static itemUsageCount = new Map<string, number>(); // Track uses per item (by unique ID)
 
   static initialize(): void {
     console.warn('[DurabilityModifierHandler] Initializing...');
@@ -79,9 +83,23 @@ export class DurabilityModifierHandler {
     
     console.warn(`[DurabilityModifierHandler] Loaded ${this.durabilityItems.size} durability modifier items`);
     
-    // Listen to block break events
+    // Listen to block break events (mining)
     world.afterEvents.playerBreakBlock.subscribe((event) => {
-      this.handleBlockBreak(event);
+      this.handleItemUse(event.player, event.itemStackBeforeBreak);
+    });
+    
+    // Listen to entity hit events (combat)
+    world.afterEvents.entityHitEntity.subscribe((event) => {
+      if (event.damagingEntity?.typeId === 'minecraft:player') {
+        const player = event.damagingEntity as any;
+        const inventory = player.getComponent('minecraft:inventory');
+        if (inventory?.container) {
+          const heldItem = inventory.container.getItem(player.selectedSlotIndex);
+          if (heldItem) {
+            this.handleItemUse(player, heldItem);
+          }
+        }
+      }
     });
     
     console.warn('[DurabilityModifierHandler] Initialized');
@@ -93,76 +111,97 @@ export class DurabilityModifierHandler {
     for (const item of items) {
       this.durabilityItems.set(item.itemId, item.config || {});
       
-      const maxDur = item.config?.maxDurability ?? 'default';
-      const mult = item.config?.consumptionMultiplier ?? 1;
-      console.warn(`[DurabilityModifierHandler] ${item.itemId}: maxDurability=${maxDur}, multiplier=${mult}x`);
+      const durability = item.config?.durability ?? 'default';
+      console.warn(`[DurabilityModifierHandler] ${item.itemId}: durability=${durability} uses`);
     }
   }
 
-  private static handleBlockBreak(event: any): void {
+  private static handleItemUse(player: Player, itemStack: ItemStack | undefined): void {
     try {
-      const { player, block, itemStackBeforeBreak } = event;
+      if (!itemStack) return;
       
-      // Check if player has item
-      if (!itemStackBeforeBreak) {
-        return;
-      }
-      
-      const itemId = itemStackBeforeBreak.typeId;
+      const itemId = itemStack.typeId;
       
       // Check if item has durability modifier
       const config = this.durabilityItems.get(itemId);
-      if (!config) {
-        return;
-      }
+      if (!config) return;
       
-      // Get block tags for condition evaluation
-      const blockTags = this.getBlockTags(block.typeId);
-      
-      // Create evaluation context
-      const evalContext: EvaluationContext = {
-        context: AttributeContext.MINING,
-        blockId: block.typeId,
-        blockTags: blockTags
-      };
-      
-      // Check if attribute is active
-      if (!AttributeConditionEvaluator.isActive(config as any, evalContext)) {
+      // Skip if player is in creative mode
+      if (player.getGameMode() === GameMode.Creative) {
         return;
       }
       
       // Apply durability modification
-      this.applyDurabilityModification(player, itemStackBeforeBreak, config);
+      this.applyDurabilityModification(player, itemStack, config);
       
     } catch (error) {
-      console.warn('[DurabilityModifierHandler] Error in block break handler:', error);
+      console.warn('[DurabilityModifierHandler] Error in item use handler:', error);
     }
   }
 
   private static applyDurabilityModification(player: Player, itemStack: ItemStack, config: DurabilityConfig): void {
     try {
-      const maxDurability = config.maxDurability;
+      // Skip if player is in creative mode
+      if (player.getGameMode() === GameMode.Creative) {
+        return;
+      }
       
-      // If maxDurability is set, track uses and break when limit reached
-      if (maxDurability !== undefined) {
-        // Get or create usage count for this item
-        const itemKey = this.getItemKey(player, itemStack);
-        const currentUses = this.itemUsageCount.get(itemKey) || 0;
-        const newUses = currentUses + 1;
-        
-        console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} used ${newUses}/${maxDurability} times`);
-        
-        // Check if reached max uses
-        if (newUses >= maxDurability) {
-          // Break item
-          this.breakItem(player, itemStack);
-          this.itemUsageCount.delete(itemKey);
-          
-          console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke after ${newUses} uses`);
-        } else {
-          // Update usage count
-          this.itemUsageCount.set(itemKey, newUses);
+      const configuredDurability = config.durability;
+      
+      // If durability is set, calculate damage and apply
+      if (configuredDurability !== undefined && configuredDurability > 0) {
+        // Get durability component
+        const durabilityComp = itemStack.getComponent('minecraft:durability');
+        if (!durabilityComp) {
+          console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} has no durability component`);
+          return;
         }
+        
+        const maxDurability = durabilityComp.maxDurability;
+        const currentDamage = durabilityComp.damage;
+        const currentDurability = maxDurability - currentDamage;
+        
+        // Calculate damage per use
+        const damagePerUse = Math.ceil(maxDurability / configuredDurability);
+        
+        // Calculate new damage
+        const newDamage = currentDamage + damagePerUse;
+        
+        console.warn(`[DurabilityModifierHandler] ${itemStack.typeId}: ${currentDurability}/${maxDurability} -> applying ${damagePerUse} damage (${configuredDurability} uses total)`);
+        
+        // Defer item update to avoid blocking event handler
+        system.run(() => {
+          try {
+            // Apply damage to item in player's hand
+            const inventory = player.getComponent('minecraft:inventory');
+            if (!inventory) return;
+            
+            const container = inventory.container;
+            if (!container) return;
+            
+            const selectedSlot = player.selectedSlotIndex;
+            const heldItem = container.getItem(selectedSlot);
+            
+            if (heldItem && heldItem.typeId === itemStack.typeId) {
+              const heldDurability = heldItem.getComponent('minecraft:durability');
+              if (heldDurability) {
+                // Check if item will break (damage >= maxDurability)
+                if (newDamage >= maxDurability) {
+                  // Break item manually
+                  this.breakItem(player, selectedSlot, heldItem);
+                  console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (damage: ${newDamage}/${maxDurability})`);
+                } else {
+                  // Apply damage (safe - newDamage < maxDurability)
+                  heldDurability.damage = newDamage;
+                  container.setItem(selectedSlot, heldItem);
+                  console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability}`);
+                }
+              }
+            }
+          } catch (error) {
+            console.warn('[DurabilityModifierHandler] Error in deferred item update:', error);
+          }
+        });
       }
       
     } catch (error) {
@@ -170,75 +209,31 @@ export class DurabilityModifierHandler {
     }
   }
 
-  private static breakItem(player: Player, itemStack: ItemStack): void {
+  /**
+   * Break item manually
+   */
+  private static breakItem(player: Player, slot: number, itemStack: ItemStack): void {
     try {
-      // Get player inventory
       const inventory = player.getComponent('minecraft:inventory');
       if (!inventory) return;
       
       const container = inventory.container;
       if (!container) return;
       
-      // Find item in inventory and remove it
-      for (let i = 0; i < container.size; i++) {
-        const slot = container.getItem(i);
-        if (slot && slot.typeId === itemStack.typeId) {
-          // Reduce amount by 1
-          if (slot.amount > 1) {
-            slot.amount -= 1;
-            container.setItem(i, slot);
-          } else {
-            container.setItem(i, undefined);
-          }
-          
-          // Play break sound
-          player.playSound('random.break');
-          
-          // Send message
-          player.sendMessage(`§c${itemStack.typeId} đã hết độ bền!`);
-          
-          break;
-        }
+      // Remove or reduce item amount
+      if (itemStack.amount > 1) {
+        itemStack.amount -= 1;
+        container.setItem(slot, itemStack);
+      } else {
+        container.setItem(slot, undefined);
       }
+      
+      // Play break sound and particle effect
+      player.playSound('random.break');
+      player.dimension.spawnParticle('minecraft:item_break_particle', player.location);
+      
     } catch (error) {
       console.warn('[DurabilityModifierHandler] Error breaking item:', error);
     }
-  }
-
-  /**
-   * Get unique key for tracking item usage
-   * Uses player ID + item type (simple tracking)
-   */
-  private static getItemKey(player: Player, itemStack: ItemStack): string {
-    return `${player.id}_${itemStack.typeId}`;
-  }
-
-  /**
-   * Get block tags for condition evaluation
-   */
-  private static getBlockTags(blockId: string): string[] {
-    const tags: string[] = [];
-    
-    // Check for ore tag
-    if (blockId.includes('_ore') || blockId.includes('ore_')) {
-      tags.push('ore');
-    }
-    
-    // Check for stone tag
-    if (blockId.includes('stone') || blockId.includes('cobblestone') || blockId.includes('deepslate')) {
-      tags.push('stone');
-    }
-    
-    // Check for wood tag
-    if (blockId.includes('log') || blockId.includes('wood') || blockId.includes('planks')) {
-      tags.push('wood');
-    }
-    
-    // Check for dirt tag
-    if (blockId.includes('dirt') || blockId.includes('grass') || blockId.includes('mycelium')) {
-      tags.push('dirt');
-    }
-    
-    return tags;
   }
 }

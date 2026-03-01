@@ -31,6 +31,19 @@ scripts/data/Generated*.ts → AUTO-GENERATED
 1. **Context**: Tìm similar feature, đọc files
 2. **Implement**: Copy pattern, modify minimal
 3. **Build**: `bun run dev compile configs/addon.yaml --clean` → `.\build-and-deploy.ps1`
+## Beta API Usage
+
+**Project uses @minecraft/server 2.6.0-beta (1.26.2 stable) with experimental features**
+
+### Documentation Priority
+1. Check local docs: `minecraft-creator/creator/ScriptAPI/minecraft/server/`
+2. Look for beta/experimental events (e.g., `beforeEvents.*`)
+3. If stable API not found, search beta API alternatives
+4. Example: `afterEvents.entityHurt` → `beforeEvents.entityHurt` (beta)
+
+### Key Beta Features Used
+- `beforeEvents.entityHurt` - Modify damage before application
+- `experimental_custom_ui` capability enabled in manifest
 
 ## Key Concepts
 

@@ -10,6 +10,13 @@ export interface AddonMetadata {
   version: [number, number, number];
   minEngineVersion: [number, number, number];
   author?: string;
+  dependencies?: Array<{
+    module: string;
+    version: string;
+  }>;
+  experimental?: {
+    enabled?: boolean;
+  };
   uuids: {
     bp?: string;
     rp?: string;
@@ -51,6 +58,30 @@ export class ManifestGenerator {
     manifestObj.modules[0].version = metadata.version;
     manifestObj.modules[1].version = metadata.version;
     manifestObj.dependencies[2].version = metadata.version;
+
+    // Update dependencies if provided
+    if (metadata.dependencies && metadata.dependencies.length > 0) {
+      // Replace default @minecraft/server and @minecraft/server-ui with configured versions
+      manifestObj.dependencies = manifestObj.dependencies.filter((dep: any) => 
+        dep.module_name !== '@minecraft/server' && dep.module_name !== '@minecraft/server-ui'
+      );
+      
+      // Add configured dependencies
+      for (const dep of metadata.dependencies) {
+        manifestObj.dependencies.push({
+          module_name: dep.module,
+          version: dep.version
+        });
+      }
+    }
+
+    // Add capabilities for experimental features if enabled
+    if (metadata.experimental?.enabled) {
+      manifestObj.capabilities = manifestObj.capabilities || [];
+      if (!manifestObj.capabilities.includes('experimental_custom_ui')) {
+        manifestObj.capabilities.push('experimental_custom_ui');
+      }
+    }
 
     const manifestPath = path.join(outputDir, 'BP', 'manifest.json');
     FileManager.writeJSON(manifestPath, manifestObj);

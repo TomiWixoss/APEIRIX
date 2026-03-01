@@ -212,6 +212,8 @@ export class Compiler {
       version: config.addon.version || [1, 0, 0],
       minEngineVersion: config.addon.minEngineVersion || [1, 21, 0],
       author: config.addon.author,
+      dependencies: config.addon.dependencies,
+      experimental: config.addon.experimental,
       uuids: config.addon.uuids || {}
     };
 

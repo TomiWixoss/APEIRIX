@@ -18,7 +18,7 @@
  * Example: Wooden pickaxe với damage: 0 (no combat damage)
  */
 
-import { world, system, EntityHurtAfterEvent } from '@minecraft/server';
+import { world, system, EntityHurtBeforeEvent } from '@minecraft/server';
 import { getAttributeItems, getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { AttributeConditionEvaluator } from '../AttributeConditionEvaluator';
 import { AttributeContext, EvaluationContext } from '../types/AttributeTypes';
@@ -28,12 +28,6 @@ interface CombatDamageConfig {
   damage?: number;
   damageMultiplier?: number;
   conditions?: any;
-}
-
-interface DamageRecord {
-  actualDamage: number;
-  timestamp: number;
-  shouldCancel: boolean;
 }
 
 export class CombatDamageModifierHandler {
@@ -72,12 +66,7 @@ export class CombatDamageModifierHandler {
   // RUNTIME BEHAVIOR
   // ============================================
   
-  private static readonly I_FRAME_DELAY = 11; // Delay sau i-frame window
-  private static readonly HISTORY_CLEANUP_INTERVAL = 6000;
-  private static readonly HISTORY_MAX_AGE = 200;
-  
   private static damageModifierItems = new Map<string, CombatDamageConfig>();
-  private static damageHistory = new Map<string, DamageRecord>();
 
   static initialize(): void {
     console.warn('[CombatDamageModifierHandler] Initializing...');
@@ -87,15 +76,10 @@ export class CombatDamageModifierHandler {
     
     console.warn(`[CombatDamageModifierHandler] Loaded ${this.damageModifierItems.size} combat damage modifier items`);
     
-    // Listen to entity hurt events
-    world.afterEvents.entityHurt.subscribe((event) => {
-      this.handleEntityHurt(event);
+    // Listen to entity hurt BEFORE events (experimental) - allows modifying damage before it's applied
+    world.beforeEvents.entityHurt.subscribe((event) => {
+      this.handleEntityHurtBefore(event);
     });
-    
-    // Periodic cleanup
-    system.runInterval(() => {
-      this.cleanupDamageHistory();
-    }, this.HISTORY_CLEANUP_INTERVAL);
     
     console.warn('[CombatDamageModifierHandler] Initialized');
   }
@@ -112,7 +96,7 @@ export class CombatDamageModifierHandler {
     }
   }
 
-  private static handleEntityHurt(event: EntityHurtAfterEvent): void {
+  private static handleEntityHurtBefore(event: EntityHurtBeforeEvent): void {
     try {
       const { hurtEntity, damageSource, damage } = event;
       
@@ -171,69 +155,14 @@ export class CombatDamageModifierHandler {
         modifiedDamage *= config.damageMultiplier;
       }
       
-      // If damage is reduced, heal the entity to compensate
-      const damageReduction = damage - modifiedDamage;
-      if (damageReduction > 0) {
-        // Record damage for delayed healing
-        const recordKey = `${hurtEntity.id}_${Date.now()}`;
-        this.damageHistory.set(recordKey, {
-          actualDamage: damage,
-          timestamp: system.currentTick,
-          shouldCancel: true
-        });
-        
-        // Heal after i-frame delay
-        system.runTimeout(() => {
-          this.applyDamageModification(hurtEntity, damageReduction);
-        }, this.I_FRAME_DELAY);
-        
-        console.warn(`[CombatDamageModifierHandler] ${itemId} damage: ${damage} -> ${modifiedDamage} (reduction: ${damageReduction})`);
+      // Modify damage BEFORE it's applied (this is the key difference from afterEvents)
+      if (modifiedDamage !== damage) {
+        event.damage = modifiedDamage;
+        console.warn(`[CombatDamageModifierHandler] ${itemId} damage: ${damage} -> ${modifiedDamage}`);
       }
       
     } catch (error) {
-      console.warn('[CombatDamageModifierHandler] Error in entity hurt handler:', error);
-    }
-  }
-
-  private static applyDamageModification(entity: any, healAmount: number): void {
-    try {
-      // Safety checks
-      if (!entity || !entity.isValid()) {
-        return;
-      }
-      
-      const health = entity.getComponent('minecraft:health');
-      if (!health) {
-        return;
-      }
-      
-      // Heal to compensate for damage reduction
-      const newHealth = Math.min(health.currentValue + healAmount, health.effectiveMax);
-      health.setCurrentValue(newHealth);
-      
-      console.warn(`[CombatDamageModifierHandler] Healed ${entity.typeId} by ${healAmount} (${health.currentValue}/${health.effectiveMax})`);
-      
-    } catch (error) {
-      console.warn('[CombatDamageModifierHandler] Error applying damage modification:', error);
-    }
-  }
-
-  private static cleanupDamageHistory(): void {
-    const currentTick = system.currentTick;
-    const toDelete: string[] = [];
-    
-    for (const [key, record] of this.damageHistory.entries()) {
-      if (currentTick - record.timestamp > this.HISTORY_MAX_AGE) {
-        toDelete.push(key);
-      }
-    }
-    
-    for (const key of toDelete) {
-      this.damageHistory.delete(key);
-    }
-    
-    if (toDelete.length > 0) {
-      console.warn(`[CombatDamageModifierHandler] Cleaned up ${toDelete.length} old damage records`);
+      console.warn('[CombatDamageModifierHandler] Error in entity hurt before handler:', error);
     }
   }
 

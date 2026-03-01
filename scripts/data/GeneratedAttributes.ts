@@ -7,7 +7,7 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T11:09:21.796Z
+ * Generated: 2026-03-01T11:57:14.249Z
  * Total attributes: 6
  * Total items with attributes: 91
  */
@@ -34,7 +34,7 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_pickaxe', config: {"context":"combat","damage":0} }
   ],
   'durability_modifier': [
-    { itemId: 'minecraft:wooden_pickaxe', config: {"context":"mining","maxDurability":4} }
+    { itemId: 'minecraft:wooden_pickaxe', config: {"durability":4} }
   ],
   'hammer_mining': [
     { itemId: 'apeirix:engineering_hammer', config: {} },

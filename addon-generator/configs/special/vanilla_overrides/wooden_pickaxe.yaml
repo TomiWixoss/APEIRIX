@@ -16,10 +16,9 @@ attributes:
       blockTags:
         - ore
 
-  # Chỉ còn 4 lần dùng (thay vì 59)
+  # Chỉ còn 4 lần dùng cho cả mining và combat
   durability_modifier:
-    context: mining
-    maxDurability: 4
+    durability: 4
 
   # 0 damage khi combat
   combat_damage_modifier:
