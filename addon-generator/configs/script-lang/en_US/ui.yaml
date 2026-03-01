@@ -104,3 +104,21 @@ welcome:
 
 items:
   achievementBook: "APEIRIX Achievement Book"
+
+# Tool types and tiers
+tool_type:
+  axe: "Axe"
+  pickaxe: "Pickaxe"
+
+tier:
+  wooden: "Wooden"
+  stone: "Stone"
+  copper: "Copper"
+  iron: "Iron"
+  golden: "Golden"
+  diamond: "Diamond"
+  netherite: "Netherite"
+
+# Messages
+message:
+  requires_tool: "§cYou need a {tool_type} to break this block!"

@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Jungle Log
+# Override vanilla stripped jungle log item - requires axe to mine
+
+id: minecraft:stripped_jungle_log
+name: lang:blocks.stripped_jungle_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_jungle_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

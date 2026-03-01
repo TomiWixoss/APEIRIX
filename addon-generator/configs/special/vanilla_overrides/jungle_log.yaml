@@ -1,0 +1,12 @@
+# Vanilla Override: Jungle Log
+# Override vanilla jungle log item - requires axe to mine
+
+id: minecraft:jungle_log
+name: lang:blocks.jungle_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.jungle_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

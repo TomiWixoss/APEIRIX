@@ -2,3 +2,27 @@ import:
   - achievement_book.yaml
   - wiki_book.yaml
   - vanilla_overrides/wooden_pickaxe.yaml
+  # Vanilla Log Overrides
+  - vanilla_overrides/oak_log.yaml
+  - vanilla_overrides/birch_log.yaml
+  - vanilla_overrides/spruce_log.yaml
+  - vanilla_overrides/jungle_log.yaml
+  - vanilla_overrides/acacia_log.yaml
+  - vanilla_overrides/dark_oak_log.yaml
+  - vanilla_overrides/mangrove_log.yaml
+  - vanilla_overrides/cherry_log.yaml
+  - vanilla_overrides/pale_oak_log.yaml
+  - vanilla_overrides/crimson_stem.yaml
+  - vanilla_overrides/warped_stem.yaml
+  # Vanilla Stripped Log Overrides
+  - vanilla_overrides/stripped_oak_log.yaml
+  - vanilla_overrides/stripped_birch_log.yaml
+  - vanilla_overrides/stripped_spruce_log.yaml
+  - vanilla_overrides/stripped_jungle_log.yaml
+  - vanilla_overrides/stripped_acacia_log.yaml
+  - vanilla_overrides/stripped_dark_oak_log.yaml
+  - vanilla_overrides/stripped_mangrove_log.yaml
+  - vanilla_overrides/stripped_cherry_log.yaml
+  - vanilla_overrides/stripped_pale_oak_log.yaml
+  - vanilla_overrides/stripped_crimson_stem.yaml
+  - vanilla_overrides/stripped_warped_stem.yaml

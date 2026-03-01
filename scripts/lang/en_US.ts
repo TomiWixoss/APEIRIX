@@ -102,6 +102,22 @@ export const LANG_EN = {
     "items": {
         "achievementBook": "APEIRIX Achievement Book"
     },
+    "tool_type": {
+        "axe": "Axe",
+        "pickaxe": "Pickaxe"
+    },
+    "tier": {
+        "wooden": "Wooden",
+        "stone": "Stone",
+        "copper": "Copper",
+        "iron": "Iron",
+        "golden": "Golden",
+        "diamond": "Diamond",
+        "netherite": "Netherite"
+    },
+    "message": {
+        "requires_tool": "§cYou need a {tool_type} to break this block!"
+    },
     "wiki": {
         "title": "§l§0ENCYCLOPEDIA",
         "itemCount": "§0Discovered: §0{count}§0 items",
@@ -132,6 +148,8 @@ export const LANG_EN = {
         "damage_multiplier": "§6Damage Bonus",
         "mining_speed": "§6Mining Speed",
         "hammer_mining": "§6Hammer Mining",
-        "rust_mite_edible": "§cRust Mite Food"
+        "rust_mite_edible": "§cRust Mite Food",
+        "requires_tool": "§eRequires",
+        "requires_tool_template": "§eRequires: §f{tool_type}"
     }
 };

@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Mangrove Log
+# Override vanilla stripped mangrove log item - requires axe to mine
+
+id: minecraft:stripped_mangrove_log
+name: lang:blocks.stripped_mangrove_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_mangrove_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

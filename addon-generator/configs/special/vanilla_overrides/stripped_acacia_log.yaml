@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Acacia Log
+# Override vanilla stripped acacia log item - requires axe to mine
+
+id: minecraft:stripped_acacia_log
+name: lang:blocks.stripped_acacia_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_acacia_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

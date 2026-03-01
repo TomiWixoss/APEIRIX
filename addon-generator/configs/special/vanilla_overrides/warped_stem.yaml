@@ -1,0 +1,12 @@
+# Vanilla Override: Warped Stem
+# Override vanilla warped stem item - requires axe to mine
+
+id: minecraft:warped_stem
+name: lang:blocks.warped_stem
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.warped_stem
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

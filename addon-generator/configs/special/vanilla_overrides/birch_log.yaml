@@ -1,0 +1,12 @@
+# Vanilla Override: Birch Log
+# Override vanilla birch log item - requires axe to mine
+
+id: minecraft:birch_log
+name: lang:blocks.birch_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.birch_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

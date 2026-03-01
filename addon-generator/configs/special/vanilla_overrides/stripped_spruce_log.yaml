@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Spruce Log
+# Override vanilla stripped spruce log item - requires axe to mine
+
+id: minecraft:stripped_spruce_log
+name: lang:blocks.stripped_spruce_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_spruce_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

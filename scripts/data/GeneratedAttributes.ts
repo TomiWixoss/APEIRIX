@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-01T13:02:22.844Z
- * Total attributes: 6
- * Total items with attributes: 91
+ * Generated: 2026-03-01T13:48:57.693Z
+ * Total attributes: 7
+ * Total items with attributes: 113
  */
 
 // Attribute data for each item
@@ -57,6 +57,30 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'apeirix:stone_hammer', config: {} },
     { itemId: 'apeirix:tin_hammer', config: {} },
     { itemId: 'apeirix:wooden_hammer', config: {} }
+  ],
+  'requires_tool': [
+    { itemId: 'minecraft:oak_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:birch_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:spruce_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:jungle_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:acacia_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:dark_oak_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:mangrove_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:cherry_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:pale_oak_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:crimson_stem', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:warped_stem', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_oak_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_birch_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_spruce_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_jungle_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_acacia_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_dark_oak_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_mangrove_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_cherry_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_pale_oak_log', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_crimson_stem', config: {"toolType":"axe"} },
+    { itemId: 'minecraft:stripped_warped_stem', config: {"toolType":"axe"} }
   ],
   'rust_mite_edible': [
     { itemId: 'apeirix:ardite_ingot_dust', config: {} },

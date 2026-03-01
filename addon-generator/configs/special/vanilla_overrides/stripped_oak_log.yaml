@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Oak Log
+# Override vanilla stripped oak log item - requires axe to mine
+
+id: minecraft:stripped_oak_log
+name: lang:blocks.stripped_oak_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_oak_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

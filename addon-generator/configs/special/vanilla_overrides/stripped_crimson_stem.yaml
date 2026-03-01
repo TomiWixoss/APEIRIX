@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Crimson Stem
+# Override vanilla stripped crimson stem item - requires axe to mine
+
+id: minecraft:stripped_crimson_stem
+name: lang:blocks.stripped_crimson_stem
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_crimson_stem
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

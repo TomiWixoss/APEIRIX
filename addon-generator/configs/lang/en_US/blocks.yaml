@@ -1,5 +1,31 @@
 # English Language - Blocks
 blocks:
+  # Vanilla Logs
+  oak_log: Oak Log
+  birch_log: Birch Log
+  spruce_log: Spruce Log
+  jungle_log: Jungle Log
+  acacia_log: Acacia Log
+  dark_oak_log: Dark Oak Log
+  mangrove_log: Mangrove Log
+  cherry_log: Cherry Log
+  pale_oak_log: Pale Oak Log
+  crimson_stem: Crimson Stem
+  warped_stem: Warped Stem
+
+  # Vanilla Stripped Logs
+  stripped_oak_log: Stripped Oak Log
+  stripped_birch_log: Stripped Birch Log
+  stripped_spruce_log: Stripped Spruce Log
+  stripped_jungle_log: Stripped Jungle Log
+  stripped_acacia_log: Stripped Acacia Log
+  stripped_dark_oak_log: Stripped Dark Oak Log
+  stripped_mangrove_log: Stripped Mangrove Log
+  stripped_cherry_log: Stripped Cherry Log
+  stripped_pale_oak_log: Stripped Pale Oak Log
+  stripped_crimson_stem: Stripped Crimson Stem
+  stripped_warped_stem: Stripped Warped Stem
+
   # Tin
   tin_block: Block of Tin
   tin_ore: Tin Ore

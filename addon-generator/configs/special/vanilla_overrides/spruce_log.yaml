@@ -1,0 +1,12 @@
+# Vanilla Override: Spruce Log
+# Override vanilla spruce log item - requires axe to mine
+
+id: minecraft:spruce_log
+name: lang:blocks.spruce_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.spruce_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

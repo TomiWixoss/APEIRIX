@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Birch Log
+# Override vanilla stripped birch log item - requires axe to mine
+
+id: minecraft:stripped_birch_log
+name: lang:blocks.stripped_birch_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_birch_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

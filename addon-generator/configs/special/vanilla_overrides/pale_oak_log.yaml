@@ -1,0 +1,12 @@
+# Vanilla Override: Pale Oak Log
+# Override vanilla pale oak log item - requires axe to mine
+
+id: minecraft:pale_oak_log
+name: lang:blocks.pale_oak_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.pale_oak_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Dark Oak Log
+# Override vanilla stripped dark oak log item - requires axe to mine
+
+id: minecraft:stripped_dark_oak_log
+name: lang:blocks.stripped_dark_oak_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_dark_oak_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

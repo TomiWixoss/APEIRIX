@@ -104,3 +104,21 @@ welcome:
 
 items:
   achievementBook: "Sách Thành Tựu APEIRIX"
+
+# Tool types and tiers
+tool_type:
+  axe: "Rìu"
+  pickaxe: "Cuốc"
+
+tier:
+  wooden: "Gỗ"
+  stone: "Đá"
+  copper: "Đồng"
+  iron: "Sắt"
+  golden: "Vàng"
+  diamond: "Kim Cương"
+  netherite: "Netherite"
+
+# Messages
+message:
+  requires_tool: "§cBạn cần {tool_type} để đập block này!"

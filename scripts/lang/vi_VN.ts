@@ -102,6 +102,22 @@ export const LANG_VI = {
     "items": {
         "achievementBook": "Sách Thành Tựu APEIRIX"
     },
+    "tool_type": {
+        "axe": "Rìu",
+        "pickaxe": "Cuốc"
+    },
+    "tier": {
+        "wooden": "Gỗ",
+        "stone": "Đá",
+        "copper": "Đồng",
+        "iron": "Sắt",
+        "golden": "Vàng",
+        "diamond": "Kim Cương",
+        "netherite": "Netherite"
+    },
+    "message": {
+        "requires_tool": "§cBạn cần {tool_type} để đập block này!"
+    },
     "wiki": {
         "title": "§l§0BÁCH KHOA TOÀN THƯ",
         "itemCount": "§0Đã khám phá: §0{count}§0 vật phẩm",
@@ -132,6 +148,8 @@ export const LANG_VI = {
         "damage_multiplier": "§6Sát thương tăng",
         "mining_speed": "§6Tốc độ đào",
         "hammer_mining": "§6Đập Búa",
-        "rust_mite_edible": "§cRust Mite"
+        "rust_mite_edible": "§cRust Mite",
+        "requires_tool": "§eYêu cầu",
+        "requires_tool_template": "§eYêu cầu: §f{tool_type}"
     }
 };

@@ -1,0 +1,12 @@
+# Vanilla Override: Mangrove Log
+# Override vanilla mangrove log item - requires axe to mine
+
+id: minecraft:mangrove_log
+name: lang:blocks.mangrove_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.mangrove_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

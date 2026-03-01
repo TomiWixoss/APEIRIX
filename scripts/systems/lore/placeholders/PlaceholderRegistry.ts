@@ -16,6 +16,7 @@ import { CombatDamageModifierHandler } from '../../attributes/handlers/CombatDam
 import { UndeadSlayerHandler } from '../../attributes/handlers/UndeadSlayerHandler';
 import { HammerMiningHandler } from '../../attributes/handlers/HammerMiningHandler';
 import { RustMiteEdibleHandler } from '../../attributes/handlers/RustMiteEdibleHandler';
+import { RequiresToolHandler } from '../../attributes/handlers/RequiresToolHandler';
 
 // Registry of all attribute handlers
 // Convention: Each handler must have ATTRIBUTE_ID
@@ -27,6 +28,7 @@ const ATTRIBUTE_HANDLERS = [
   UndeadSlayerHandler,
   HammerMiningHandler,
   RustMiteEdibleHandler,
+  RequiresToolHandler,
 ] as const;
 
 // Type for handlers with lore processing

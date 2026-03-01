@@ -1,0 +1,12 @@
+# Vanilla Override: Cherry Log
+# Override vanilla cherry log item - requires axe to mine
+
+id: minecraft:cherry_log
+name: lang:blocks.cherry_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.cherry_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

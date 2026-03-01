@@ -2133,6 +2133,226 @@ export const GENERATED_WIKI_ITEMS = [
     ],
   },
   {
+    id: "minecraft:oak_log",
+    category: "materials",
+    name: "minecraft:oak_log",
+    description: "wiki.blocks.oak_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:birch_log",
+    category: "materials",
+    name: "minecraft:birch_log",
+    description: "wiki.blocks.birch_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:spruce_log",
+    category: "materials",
+    name: "minecraft:spruce_log",
+    description: "wiki.blocks.spruce_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:jungle_log",
+    category: "materials",
+    name: "minecraft:jungle_log",
+    description: "wiki.blocks.jungle_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:acacia_log",
+    category: "materials",
+    name: "minecraft:acacia_log",
+    description: "wiki.blocks.acacia_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:dark_oak_log",
+    category: "materials",
+    name: "minecraft:dark_oak_log",
+    description: "wiki.blocks.dark_oak_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:mangrove_log",
+    category: "materials",
+    name: "minecraft:mangrove_log",
+    description: "wiki.blocks.mangrove_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:cherry_log",
+    category: "materials",
+    name: "minecraft:cherry_log",
+    description: "wiki.blocks.cherry_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:pale_oak_log",
+    category: "materials",
+    name: "minecraft:pale_oak_log",
+    description: "wiki.blocks.pale_oak_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:crimson_stem",
+    category: "materials",
+    name: "minecraft:crimson_stem",
+    description: "wiki.blocks.crimson_stem",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:warped_stem",
+    category: "materials",
+    name: "minecraft:warped_stem",
+    description: "wiki.blocks.warped_stem",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_oak_log",
+    category: "materials",
+    name: "minecraft:stripped_oak_log",
+    description: "wiki.blocks.stripped_oak_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_birch_log",
+    category: "materials",
+    name: "minecraft:stripped_birch_log",
+    description: "wiki.blocks.stripped_birch_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_spruce_log",
+    category: "materials",
+    name: "minecraft:stripped_spruce_log",
+    description: "wiki.blocks.stripped_spruce_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_jungle_log",
+    category: "materials",
+    name: "minecraft:stripped_jungle_log",
+    description: "wiki.blocks.stripped_jungle_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_acacia_log",
+    category: "materials",
+    name: "minecraft:stripped_acacia_log",
+    description: "wiki.blocks.stripped_acacia_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_dark_oak_log",
+    category: "materials",
+    name: "minecraft:stripped_dark_oak_log",
+    description: "wiki.blocks.stripped_dark_oak_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_mangrove_log",
+    category: "materials",
+    name: "minecraft:stripped_mangrove_log",
+    description: "wiki.blocks.stripped_mangrove_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_cherry_log",
+    category: "materials",
+    name: "minecraft:stripped_cherry_log",
+    description: "wiki.blocks.stripped_cherry_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_pale_oak_log",
+    category: "materials",
+    name: "minecraft:stripped_pale_oak_log",
+    description: "wiki.blocks.stripped_pale_oak_log",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_crimson_stem",
+    category: "materials",
+    name: "minecraft:stripped_crimson_stem",
+    description: "wiki.blocks.stripped_crimson_stem",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
+    id: "minecraft:stripped_warped_stem",
+    category: "materials",
+    name: "minecraft:stripped_warped_stem",
+    description: "wiki.blocks.stripped_warped_stem",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:requires_tool}: §f{tool_type}"
+    ],
+  },
+  {
     id: "apeirix:ardite_axe",
     category: "tools",
     name: "Rìu Ardite",

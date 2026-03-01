@@ -6,3 +6,7 @@ damage_multiplier: "§6Sát thương tăng"
 mining_speed: "§6Tốc độ đào"
 hammer_mining: "§6Đập Búa"
 rust_mite_edible: "§cRust Mite"
+requires_tool: "§eYêu cầu"
+
+# Attribute templates
+requires_tool_template: "§eYêu cầu: §f{tool_type}"

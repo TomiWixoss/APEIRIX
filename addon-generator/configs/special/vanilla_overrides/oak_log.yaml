@@ -1,0 +1,11 @@
+# Vanilla Override: Oak Log
+# Override vanilla oak log item - requires axe to mine
+
+id: minecraft:oak_log
+name: lang:blocks.oak_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.oak_log
+
+attributes:
+  requires_tool:
+    toolType: axe

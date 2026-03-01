@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Cherry Log
+# Override vanilla stripped cherry log item - requires axe to mine
+
+id: minecraft:stripped_cherry_log
+name: lang:blocks.stripped_cherry_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_cherry_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

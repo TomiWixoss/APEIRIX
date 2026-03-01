@@ -1,0 +1,12 @@
+# Vanilla Override: Stripped Pale Oak Log
+# Override vanilla stripped pale oak log item - requires axe to mine
+
+id: minecraft:stripped_pale_oak_log
+name: lang:blocks.stripped_pale_oak_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.stripped_pale_oak_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

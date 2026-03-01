@@ -1,0 +1,12 @@
+# Vanilla Override: Acacia Log
+# Override vanilla acacia log item - requires axe to mine
+
+id: minecraft:acacia_log
+name: lang:blocks.acacia_log
+lore: lang:lore.auto
+wikiDescription: lang:wiki.blocks.acacia_log
+
+attributes:
+  requires_tool:
+    toolType: axe
+    

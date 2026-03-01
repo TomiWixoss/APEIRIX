@@ -1,5 +1,31 @@
 # Ngôn ngữ tiếng Việt - Blocks
 blocks:
+  # Vanilla Logs
+  oak_log: Khúc Gỗ Sồi
+  birch_log: Khúc Gỗ Bạch Dương
+  spruce_log: Khúc Gỗ Vân Sam
+  jungle_log: Khúc Gỗ Rừng Nhiệt Đới
+  acacia_log: Khúc Gỗ Keo
+  dark_oak_log: Khúc Gỗ Sồi Đen
+  mangrove_log: Khúc Gỗ Đước
+  cherry_log: Khúc Gỗ Anh Đào
+  pale_oak_log: Khúc Gỗ Sồi Nhạt
+  crimson_stem: Thân Cây Đỏ Thẫm
+  warped_stem: Thân Cây Xanh Lam
+
+  # Vanilla Stripped Logs
+  stripped_oak_log: Khúc Gỗ Sồi Đã Lột Vỏ
+  stripped_birch_log: Khúc Gỗ Bạch Dương Đã Lột Vỏ
+  stripped_spruce_log: Khúc Gỗ Vân Sam Đã Lột Vỏ
+  stripped_jungle_log: Khúc Gỗ Rừng Nhiệt Đới Đã Lột Vỏ
+  stripped_acacia_log: Khúc Gỗ Keo Đã Lột Vỏ
+  stripped_dark_oak_log: Khúc Gỗ Sồi Đen Đã Lột Vỏ
+  stripped_mangrove_log: Khúc Gỗ Đước Đã Lột Vỏ
+  stripped_cherry_log: Khúc Gỗ Anh Đào Đã Lột Vỏ
+  stripped_pale_oak_log: Khúc Gỗ Sồi Nhạt Đã Lột Vỏ
+  stripped_crimson_stem: Thân Cây Đỏ Thẫm Đã Lột Vỏ
+  stripped_warped_stem: Thân Cây Xanh Lam Đã Lột Vỏ
+
   # Tin
   tin_block: Khối Thiếc
   tin_ore: Quặng Thiếc
