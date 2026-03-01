@@ -14,6 +14,7 @@ import { hasAttribute, getAttributeConfig } from '../../../data/GeneratedAttribu
 import { LangManager } from '../../../lang/LangManager';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 import { AttributeResolver } from '../AttributeResolver';
+import { GlobalBlockAttributeRegistry } from '../GlobalBlockAttributeRegistry';
 
 export class RequiresToolHandler {
   static readonly ATTRIBUTE_ID = 'requires_tool';
@@ -79,14 +80,23 @@ export class RequiresToolHandler {
     // Get block type ID
     const blockTypeId = block.typeId;
     
-    // Check if this block has requires_tool attribute
-    if (!hasAttribute(blockTypeId, this.ATTRIBUTE_ID)) {
+    // Check dynamic attributes FIRST (priority: Dynamic > Static)
+    let config: any;
+    let hasRequiresTool = false;
+    
+    if (GlobalBlockAttributeRegistry.hasBlockAttribute(blockTypeId, this.ATTRIBUTE_ID)) {
+      // Dynamic attribute from registry
+      config = GlobalBlockAttributeRegistry.getBlockAttribute(blockTypeId, this.ATTRIBUTE_ID);
+      hasRequiresTool = true;
+    } else if (hasAttribute(blockTypeId, this.ATTRIBUTE_ID)) {
+      // Static attribute from YAML
+      config = getAttributeConfig(blockTypeId, this.ATTRIBUTE_ID);
+      hasRequiresTool = true;
+    }
+    
+    if (!hasRequiresTool || !config) {
       return;
     }
-
-    // Get attribute config
-    const config = getAttributeConfig(blockTypeId, this.ATTRIBUTE_ID);
-    if (!config) return;
 
     const requiredToolType = config.toolType || 'axe';
 

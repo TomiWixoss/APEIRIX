@@ -16,6 +16,7 @@ import { DynamicAttributeStorage } from './DynamicAttributeStorage';
 import { AttributeResolver } from './AttributeResolver';
 import { hasAttribute as hasStaticAttribute } from '../../data/GeneratedAttributes';
 import { LoreRefreshSystem } from '../lore/LoreRefreshSystem';
+import { GlobalBlockAttributeRegistry } from './GlobalBlockAttributeRegistry';
 
 export class AttributeAPI {
   /**
@@ -228,6 +229,137 @@ export class AttributeAPI {
       config: a.config,
       source: a.source
     }));
+  }
+  
+  /**
+   * Transfer attribute from item to block type
+   * 
+   * @param itemStack Source item
+   * @param attrId Attribute ID to transfer
+   * @param targetBlockId Target block type ID (e.g., 'minecraft:dirt')
+   * @returns Success status
+   */
+  static transferAttributeToBlockType(itemStack: ItemStack, attrId: string, targetBlockId: string): boolean {
+    try {
+      // Check source has attribute
+      const attr = AttributeResolver.getAttribute(itemStack, attrId);
+      if (!attr) {
+        console.warn(`[AttributeAPI] Source item doesn't have attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Check target doesn't have attribute (static or dynamic)
+      if (GlobalBlockAttributeRegistry.hasBlockAttribute(targetBlockId, attrId)) {
+        console.warn(`[AttributeAPI] Target block type already has dynamic attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Add to target block type
+      if (!GlobalBlockAttributeRegistry.addBlockAttribute(targetBlockId, attrId, attr.config)) {
+        return false;
+      }
+      
+      // Remove from source item
+      if (!this.removeAttribute(itemStack, attrId)) {
+        // Rollback target
+        GlobalBlockAttributeRegistry.removeBlockAttribute(targetBlockId, attrId);
+        return false;
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from ${itemStack.typeId} to block type ${targetBlockId}`);
+      return true;
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to transfer attribute to block type:`, error);
+      return false;
+    }
+  }
+  
+  /**
+   * Transfer attribute between block types
+   * 
+   * @param fromBlockId Source block type ID
+   * @param toBlockId Target block type ID
+   * @param attrId Attribute ID to transfer
+   * @returns Success status
+   */
+  static transferAttributeBetweenBlockTypes(fromBlockId: string, toBlockId: string, attrId: string): boolean {
+    try {
+      // Check source has attribute (dynamic only - can't transfer static)
+      if (!GlobalBlockAttributeRegistry.hasBlockAttribute(fromBlockId, attrId)) {
+        console.warn(`[AttributeAPI] Source block type doesn't have dynamic attribute: ${attrId}`);
+        return false;
+      }
+      
+      const config = GlobalBlockAttributeRegistry.getBlockAttribute(fromBlockId, attrId);
+      
+      // Check target doesn't have attribute
+      if (GlobalBlockAttributeRegistry.hasBlockAttribute(toBlockId, attrId)) {
+        console.warn(`[AttributeAPI] Target block type already has attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Add to target
+      if (!GlobalBlockAttributeRegistry.addBlockAttribute(toBlockId, attrId, config)) {
+        return false;
+      }
+      
+      // Remove from source
+      if (!GlobalBlockAttributeRegistry.removeBlockAttribute(fromBlockId, attrId)) {
+        // Rollback target
+        GlobalBlockAttributeRegistry.removeBlockAttribute(toBlockId, attrId);
+        return false;
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from block type ${fromBlockId} to ${toBlockId}`);
+      return true;
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to transfer attribute between block types:`, error);
+      return false;
+    }
+  }
+  
+  /**
+   * Transfer attribute from block type to item
+   * 
+   * @param sourceBlockId Source block type ID
+   * @param targetStack Target item
+   * @param attrId Attribute ID to transfer
+   * @returns Success status
+   */
+  static transferAttributeFromBlockType(sourceBlockId: string, targetStack: ItemStack, attrId: string): boolean {
+    try {
+      // Check source has attribute (dynamic only - can't transfer static)
+      if (!GlobalBlockAttributeRegistry.hasBlockAttribute(sourceBlockId, attrId)) {
+        console.warn(`[AttributeAPI] Source block type doesn't have dynamic attribute: ${attrId}`);
+        return false;
+      }
+      
+      const config = GlobalBlockAttributeRegistry.getBlockAttribute(sourceBlockId, attrId);
+      
+      // Check target doesn't have attribute
+      if (AttributeResolver.hasAttribute(targetStack, attrId)) {
+        console.warn(`[AttributeAPI] Target item already has attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Add to target item
+      if (!this.addAttribute(targetStack, attrId, config)) {
+        return false;
+      }
+      
+      // Remove from source block type
+      if (!GlobalBlockAttributeRegistry.removeBlockAttribute(sourceBlockId, attrId)) {
+        // Rollback target
+        this.removeAttribute(targetStack, attrId);
+        return false;
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from block type ${sourceBlockId} to item ${targetStack.typeId}`);
+      return true;
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to transfer attribute from block type to item:`, error);
+      return false;
+    }
   }
   
   /**

@@ -19,6 +19,7 @@ import { CombatDamageModifierHandler } from './handlers/CombatDamageModifierHand
 import { RequiresToolHandler } from './handlers/RequiresToolHandler';
 import { EmptyHandCombatHandler } from './handlers/EmptyHandCombatHandler';
 import { LoreRefreshSystem } from '../lore/LoreRefreshSystem';
+import { GlobalBlockAttributeRegistry } from './GlobalBlockAttributeRegistry';
 
 export class AttributeSystem {
   private static initialized = false;
@@ -39,7 +40,10 @@ export class AttributeSystem {
     const totalItems = Object.values(GENERATED_ATTRIBUTES).reduce((sum, items) => sum + items.length, 0);
     console.warn(`[AttributeSystem] Loaded ${attributeCount} attributes for ${totalItems} items`);
     
-    // Initialize lore refresh system FIRST
+    // Initialize global block attribute registry FIRST
+    GlobalBlockAttributeRegistry.initialize();
+    
+    // Initialize lore refresh system
     LoreRefreshSystem.initialize();
     
     // Initialize handlers
