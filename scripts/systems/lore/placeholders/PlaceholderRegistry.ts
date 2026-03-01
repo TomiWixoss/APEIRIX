@@ -13,6 +13,7 @@ import { getItemAttributes } from '../../../data/GeneratedAttributes';
 type AttributeHandler = {
   ATTRIBUTE_ID: string;
   processLorePlaceholders?: (itemId: string, line: string, itemStack?: any) => string;
+  getDynamicPlaceholders?: () => string[]; // NEW: Export dynamic placeholders
 };
 
 export class PlaceholderRegistry {
@@ -54,6 +55,25 @@ export class PlaceholderRegistry {
       this.attributeHandlers.set(handler.ATTRIBUTE_ID, handler);
       console.warn(`[PlaceholderRegistry] Registered handler: ${handler.ATTRIBUTE_ID}`);
     }
+  }
+  
+  /**
+   * Get all dynamic placeholders from registered handlers
+   * Dynamic placeholders = change at runtime (require ItemStack to resolve)
+   * 
+   * @returns Array of dynamic placeholder strings (e.g., ['{current_durability}', '{damageMultiplier}'])
+   */
+  static getAllDynamicPlaceholders(): string[] {
+    const placeholders: string[] = [];
+    
+    for (const handler of this.attributeHandlers.values()) {
+      if (typeof handler.getDynamicPlaceholders === 'function') {
+        const handlerPlaceholders = handler.getDynamicPlaceholders();
+        placeholders.push(...handlerPlaceholders);
+      }
+    }
+    
+    return placeholders;
   }
   
   /**

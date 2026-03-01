@@ -129,24 +129,68 @@ export class LoreSystem {
    * Returns true if item has lore defined but not yet applied
    * 
    * PRECONDITION: item.typeId must be in loreMap (checked by caller)
+   * 
+   * OPTIMIZATION: For dynamic lore (with placeholders), only check if lore exists,
+   * not if it matches exactly. This prevents infinite loops when lore changes dynamically.
    */
   private static needsLore(item: ItemStack): boolean {
-    const lore = this.loreMap.get(item.typeId)!; // Safe because caller checks
+    const loreTemplate = this.loreMap.get(item.typeId)!; // Safe because caller checks
 
     // Check if item already has lore
     const currentLore = item.getLore();
     
-    // If no lore or lore doesn't match, needs update
+    // If no lore at all, needs update
     if (currentLore.length === 0) return true;
     
-    // Check if lore matches (in case lore was changed)
-    if (currentLore.length !== lore.length) return true;
+    // OPTIMIZATION: Check if item has attributes that use dynamic placeholders
+    // Dynamic placeholders change at runtime (e.g., current durability, damage multiplier)
+    // For these items, only check line count to avoid infinite update loops
+    const hasDynamicLore = this.itemHasDynamicLore(item.typeId);
     
-    for (let i = 0; i < lore.length; i++) {
-      if (currentLore[i] !== lore[i]) return true;
+    if (hasDynamicLore) {
+      // For dynamic lore, only check if lore exists and has similar line count
+      // This prevents infinite update loops while still applying lore to new items
+      return currentLore.length !== loreTemplate.length;
+    }
+    
+    // For static lore, check exact match
+    if (currentLore.length !== loreTemplate.length) return true;
+    
+    for (let i = 0; i < loreTemplate.length; i++) {
+      if (currentLore[i] !== loreTemplate[i]) return true;
     }
     
     return false;
+  }
+  
+  /**
+   * Check if item has dynamic lore based on lore template
+   * Dynamic lore = lore that changes at runtime (durability, damage multiplier, etc.)
+   * 
+   * Auto-detects by querying PlaceholderRegistry for all dynamic placeholders
+   * from registered attribute handlers. This is fully automatic - when new
+   * handlers are added with dynamic placeholders, they're automatically detected.
+   * 
+   * No hardcoding needed!
+   */
+  private static itemHasDynamicLore(itemId: string): boolean {
+    const loreTemplate = this.loreMap.get(itemId);
+    if (!loreTemplate || loreTemplate.length === 0) {
+      return false;
+    }
+    
+    // Get all dynamic placeholders from registered handlers
+    // This is automatic - handlers export their own placeholders
+    const dynamicPlaceholders = PlaceholderRegistry.getAllDynamicPlaceholders();
+    
+    if (dynamicPlaceholders.length === 0) {
+      return false; // No dynamic placeholders registered
+    }
+    
+    // Check if any lore line contains dynamic placeholders
+    return loreTemplate.some(line => 
+      dynamicPlaceholders.some(placeholder => line.includes(placeholder))
+    );
   }
 
   /**

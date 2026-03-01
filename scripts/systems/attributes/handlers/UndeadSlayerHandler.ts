@@ -53,6 +53,14 @@ export class UndeadSlayerHandler {
   }
   
   /**
+   * Get dynamic placeholders used by this handler
+   * Dynamic = changes at runtime (requires ItemStack to resolve)
+   */
+  static getDynamicPlaceholders(): string[] {
+    return ['{damageMultiplier}'];
+  }
+  
+  /**
    * Process lore placeholders for this attribute
    * Replaces: {damageMultiplier}
    */

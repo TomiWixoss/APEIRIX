@@ -57,6 +57,14 @@ export class DurabilityModifierHandler {
   }
   
   /**
+   * Get dynamic placeholders used by this handler
+   * Dynamic = changes at runtime (requires ItemStack to resolve)
+   */
+  static getDynamicPlaceholders(): string[] {
+    return ['{current_durability}'];
+  }
+  
+  /**
    * Process lore placeholders for this attribute
    * Replaces: {durability}, {current_durability}, {max_durability}
    * 
