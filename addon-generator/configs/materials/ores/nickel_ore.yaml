@@ -11,7 +11,7 @@ toolTier: iron
 minY: -32
 maxY: 16
 veinSize: 6
-veinsPerChunk: 8
+veinsPerChunk: 5
 fortuneMultiplier: 2
 dustItemId: nickel_ingot_dust
 stoneDustCount: 4

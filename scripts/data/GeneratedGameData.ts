@@ -105,7 +105,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:ardite_axe",
     type: "axe" as const,
-    durability: 500
+    durability: 2500
   },
   {
     id: "apeirix:bronze_axe",
@@ -115,7 +115,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:cobalt_axe",
     type: "axe" as const,
-    durability: 500
+    durability: 1200
   },
   {
     id: "apeirix:electrum_axe",
@@ -130,12 +130,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:lead_axe",
     type: "axe" as const,
-    durability: 400
+    durability: 200
   },
   {
     id: "apeirix:manyullyn_axe",
     type: "axe" as const,
-    durability: 800
+    durability: 3000
   },
   {
     id: "apeirix:nickel_axe",
@@ -160,7 +160,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:tin_axe",
     type: "axe" as const,
-    durability: 375
+    durability: 131
   },
   {
     id: "apeirix:ardite_hammer",
@@ -260,7 +260,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:ardite_hoe",
     type: "hoe" as const,
-    durability: 500
+    durability: 2500
   },
   {
     id: "apeirix:bronze_hoe",
@@ -270,7 +270,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:cobalt_hoe",
     type: "hoe" as const,
-    durability: 500
+    durability: 1200
   },
   {
     id: "apeirix:electrum_hoe",
@@ -285,12 +285,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:lead_hoe",
     type: "hoe" as const,
-    durability: 400
+    durability: 200
   },
   {
     id: "apeirix:manyullyn_hoe",
     type: "hoe" as const,
-    durability: 800
+    durability: 3000
   },
   {
     id: "apeirix:nickel_hoe",
@@ -315,12 +315,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:tin_hoe",
     type: "hoe" as const,
-    durability: 375
+    durability: 131
   },
   {
     id: "apeirix:ardite_pickaxe",
     type: "pickaxe" as const,
-    durability: 500
+    durability: 2500
   },
   {
     id: "apeirix:bronze_pickaxe",
@@ -330,7 +330,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:cobalt_pickaxe",
     type: "pickaxe" as const,
-    durability: 500
+    durability: 1200
   },
   {
     id: "apeirix:electrum_pickaxe",
@@ -345,12 +345,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:lead_pickaxe",
     type: "pickaxe" as const,
-    durability: 400
+    durability: 200
   },
   {
     id: "apeirix:manyullyn_pickaxe",
     type: "pickaxe" as const,
-    durability: 800
+    durability: 3000
   },
   {
     id: "apeirix:nickel_pickaxe",
@@ -375,12 +375,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:tin_pickaxe",
     type: "pickaxe" as const,
-    durability: 375
+    durability: 131
   },
   {
     id: "apeirix:ardite_shovel",
     type: "shovel" as const,
-    durability: 500
+    durability: 2500
   },
   {
     id: "apeirix:bronze_shovel",
@@ -390,7 +390,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:cobalt_shovel",
     type: "shovel" as const,
-    durability: 500
+    durability: 1200
   },
   {
     id: "apeirix:electrum_shovel",
@@ -405,12 +405,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:lead_shovel",
     type: "shovel" as const,
-    durability: 400
+    durability: 200
   },
   {
     id: "apeirix:manyullyn_shovel",
     type: "shovel" as const,
-    durability: 800
+    durability: 3000
   },
   {
     id: "apeirix:nickel_shovel",
@@ -435,7 +435,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:tin_shovel",
     type: "shovel" as const,
-    durability: 375
+    durability: 131
   },
   {
     id: "apeirix:bronze_spear",
@@ -445,7 +445,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:ardite_sword",
     type: "sword" as const,
-    durability: 500
+    durability: 2500
   },
   {
     id: "apeirix:bronze_sword",
@@ -455,7 +455,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:cobalt_sword",
     type: "sword" as const,
-    durability: 500
+    durability: 1200
   },
   {
     id: "apeirix:electrum_sword",
@@ -470,12 +470,12 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:lead_sword",
     type: "sword" as const,
-    durability: 400
+    durability: 200
   },
   {
     id: "apeirix:manyullyn_sword",
     type: "sword" as const,
-    durability: 800
+    durability: 3000
   },
   {
     id: "apeirix:nickel_sword",
@@ -500,7 +500,7 @@ export const GENERATED_TOOLS = [
   {
     id: "apeirix:tin_sword",
     type: "sword" as const,
-    durability: 375
+    durability: 131
   }
 ];
 
@@ -535,7 +535,7 @@ export const GENERATED_FOODS = [
   {
     itemId: "apeirix:cannedsalad",
     effects: [
-      { name: "health_boost", duration: 10 * 20, amplifier: 0, chance: 1 }
+      { name: "health_boost", duration: 30 * 20, amplifier: 0, chance: 1 }
     ],
   },
   {
@@ -565,7 +565,7 @@ export const GENERATED_FOODS = [
   {
     itemId: "apeirix:luncheonmeat",
     effects: [
-      { name: "saturation", duration: 1 * 20, amplifier: 0, chance: 1 }
+      { name: "resistance", duration: 10 * 20, amplifier: 0, chance: 1 }
     ],
   }
 ];
@@ -1965,10 +1965,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Rìu Ardite. Lưỡi rìu nóng bỏng, phang đứt mọi loại gỗ cứng.",
     icon: "textures/items/ardite_axe",
     info: {
-      "Độ bền": 500,
+      "Độ bền": 2500,
       "Sát thương": 5,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -1991,10 +1991,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Rìu Cobalt. Cú vung rìu siêu tốc, dọn dẹp rừng cây trong chớp mắt.",
     icon: "textures/items/cobalt_axe",
     info: {
-      "Độ bền": 500,
+      "Độ bền": 1200,
       "Sát thương": 5,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2030,7 +2030,7 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Rìu Chì. Đòn bổ củi nặng ngàn cân, bù lại cho tốc độ vung rìu chậm.",
     icon: "textures/items/lead_axe",
     info: {
-      "Độ bền": 400,
+      "Độ bền": 200,
       "Sát thương": 5,
       "Độ phù phép": 12,
       "Cấp độ": "iron"
@@ -2043,10 +2043,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Rìu Manyullyn. Vũ khí/công cụ tàn bạo, san phẳng rừng rậm không thương tiếc.",
     icon: "textures/items/manyullyn_axe",
     info: {
-      "Độ bền": 800,
+      "Độ bền": 3000,
       "Sát thương": 7,
       "Độ phù phép": 18,
-      "Cấp độ": "diamond"
+      "Cấp độ": "netherite"
     },
   },
   {
@@ -2083,7 +2083,7 @@ export const GENERATED_WIKI_ITEMS = [
     icon: "textures/items/silver_axe",
     info: {
       "Độ bền": 375,
-      "Sát thương": 7,
+      "Sát thương": 4,
       "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
@@ -2108,10 +2108,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Rìu Thiếc. Cạnh rìu mau cùn, dùng tạm để đốn vài cây gỗ gần nhà.",
     icon: "textures/items/tin_axe",
     info: {
-      "Độ bền": 375,
-      "Sát thương": 5,
+      "Độ bền": 131,
+      "Sát thương": 4,
       "Độ phù phép": 18,
-      "Cấp độ": "iron"
+      "Cấp độ": "stone"
     },
   },
   {
@@ -2368,10 +2368,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc chim Ardite. Dùng cày cấy thì hơi lố, nhưng độ bền của nó là miễn bàn.",
     icon: "textures/items/ardite_hoe",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 4,
+      "Độ bền": 2500,
+      "Sát thương": 2,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2382,7 +2382,7 @@ export const GENERATED_WIKI_ITEMS = [
     icon: "textures/items/bronze_hoe",
     info: {
       "Độ bền": 375,
-      "Sát thương": 4,
+      "Sát thương": 2,
       "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
@@ -2394,10 +2394,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc chim Cobalt. Làm tơi xốp cả thửa ruộng trong vài giây lướt ngang.",
     icon: "textures/items/cobalt_hoe",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 4,
+      "Độ bền": 1200,
+      "Sát thương": 2,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2433,8 +2433,8 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc chim Chì. Không cần vung mạnh, sức nặng của chì tự ép lưỡi cuốc cắm xuống đất.",
     icon: "textures/items/lead_hoe",
     info: {
-      "Độ bền": 400,
-      "Sát thương": 4,
+      "Độ bền": 200,
+      "Sát thương": 2,
       "Độ phù phép": 12,
       "Cấp độ": "iron"
     },
@@ -2446,10 +2446,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc chim Manyullyn. Món đồ nông nghiệp mang sát khí hủy diệt buồn cười nhất.",
     icon: "textures/items/manyullyn_hoe",
     info: {
-      "Độ bền": 800,
-      "Sát thương": 5,
+      "Độ bền": 3000,
+      "Sát thương": 3,
       "Độ phù phép": 18,
-      "Cấp độ": "diamond"
+      "Cấp độ": "netherite"
     },
   },
   {
@@ -2486,7 +2486,7 @@ export const GENERATED_WIKI_ITEMS = [
     icon: "textures/items/silver_hoe",
     info: {
       "Độ bền": 375,
-      "Sát thương": 1,
+      "Sát thương": 2,
       "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
@@ -2511,10 +2511,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc chim Thiếc. Đủ để xới mảng đất mềm cạnh sông, đừng ép nó làm việc quá sức.",
     icon: "textures/items/tin_hoe",
     info: {
-      "Độ bền": 375,
-      "Sát thương": 4,
+      "Độ bền": 131,
+      "Sát thương": 1,
       "Độ phù phép": 18,
-      "Cấp độ": "iron"
+      "Cấp độ": "stone"
     },
   },
   {
@@ -2524,10 +2524,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc Ardite rực lửa. Độ bền đáng nể, sinh ra từ dòng dung nham Nether.",
     icon: "textures/items/ardite_pickaxe",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 4,
+      "Độ bền": 2500,
+      "Sát thương": 5,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2538,7 +2538,7 @@ export const GENERATED_WIKI_ITEMS = [
     icon: "textures/items/bronze_pickaxe",
     info: {
       "Độ bền": 375,
-      "Sát thương": 4,
+      "Sát thương": 5,
       "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
@@ -2550,10 +2550,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc Cobalt. Đào khoáng sản cực êm và tốc độ nhanh như thiểm điện.",
     icon: "textures/items/cobalt_pickaxe",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 4,
+      "Độ bền": 1200,
+      "Sát thương": 5,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2589,7 +2589,7 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc Chì. Đầm tay, chậm chạp nhưng mỗi nhát bổ vào đá đều mang uy lực lớn.",
     icon: "textures/items/lead_pickaxe",
     info: {
-      "Độ bền": 400,
+      "Độ bền": 200,
       "Sát thương": 4,
       "Độ phù phép": 12,
       "Cấp độ": "iron"
@@ -2602,10 +2602,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc Manyullyn. Sức mạnh hủy diệt vượt qua giới hạn của đồ Netherite.",
     icon: "textures/items/manyullyn_pickaxe",
     info: {
-      "Độ bền": 800,
-      "Sát thương": 5,
+      "Độ bền": 3000,
+      "Sát thương": 6,
       "Độ phù phép": 18,
-      "Cấp độ": "diamond"
+      "Cấp độ": "netherite"
     },
   },
   {
@@ -2667,10 +2667,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Cuốc Thiếc. Khá yếu ớt, chỉ dùng làm phương án dự phòng khi đồ đá đã hỏng.",
     icon: "textures/items/tin_pickaxe",
     info: {
-      "Độ bền": 375,
-      "Sát thương": 4,
+      "Độ bền": 131,
+      "Sát thương": 3,
       "Độ phù phép": 18,
-      "Cấp độ": "iron"
+      "Cấp độ": "stone"
     },
   },
   {
@@ -2680,10 +2680,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Xẻng Ardite. Lưỡi xẻng không hề nao núng trước sỏi đá hay dung nham khô.",
     icon: "textures/items/ardite_shovel",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 3,
+      "Độ bền": 2500,
+      "Sát thương": 4,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2694,7 +2694,7 @@ export const GENERATED_WIKI_ITEMS = [
     icon: "textures/items/bronze_shovel",
     info: {
       "Độ bền": 375,
-      "Sát thương": 3,
+      "Sát thương": 4,
       "Độ phù phép": 18,
       "Cấp độ": "iron"
     },
@@ -2706,10 +2706,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Xẻng Cobalt. Xúc đất cát trơn tru như đang lướt trên không khí.",
     icon: "textures/items/cobalt_shovel",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 3,
+      "Độ bền": 1200,
+      "Sát thương": 4,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2745,7 +2745,7 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Xẻng Chì. Mang vác hơi nặng nhưng đào những khối rễ cây rất đầm tay.",
     icon: "textures/items/lead_shovel",
     info: {
-      "Độ bền": 400,
+      "Độ bền": 200,
       "Sát thương": 3,
       "Độ phù phép": 12,
       "Cấp độ": "iron"
@@ -2758,10 +2758,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Xẻng Manyullyn. Quét sạch cát sỏi dưới chân bạn thành hư vô.",
     icon: "textures/items/manyullyn_shovel",
     info: {
-      "Độ bền": 800,
-      "Sát thương": 4,
+      "Độ bền": 3000,
+      "Sát thương": 5,
       "Độ phù phép": 18,
-      "Cấp độ": "diamond"
+      "Cấp độ": "netherite"
     },
   },
   {
@@ -2823,10 +2823,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Xẻng Thiếc. Mong manh, đào nhầm vào đá tảng là hỏng ngay.",
     icon: "textures/items/tin_shovel",
     info: {
-      "Độ bền": 375,
-      "Sát thương": 3,
+      "Độ bền": 131,
+      "Sát thương": 2,
       "Độ phù phép": 18,
-      "Cấp độ": "iron"
+      "Cấp độ": "stone"
     },
   },
   {
@@ -2848,10 +2848,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Kiếm Ardite. Lưỡi kiếm mang theo hơi nóng của Nether, chém gục kẻ địch bền bỉ.",
     icon: "textures/items/ardite_sword",
     info: {
-      "Độ bền": 500,
-      "Sát thương": 6,
+      "Độ bền": 2500,
+      "Sát thương": 7,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2874,10 +2874,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Kiếm Cobalt. Tốc độ vung đao siêu nhanh, ra đòn liên hoàn không để kẻ địch kịp thở.",
     icon: "textures/items/cobalt_sword",
     info: {
-      "Độ bền": 500,
+      "Độ bền": 1200,
       "Sát thương": 6,
       "Độ phù phép": 16,
-      "Cấp độ": "iron"
+      "Cấp độ": "diamond"
     },
   },
   {
@@ -2913,7 +2913,7 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Kiếm Chì. Đâm chém khá chậm nhưng khi trúng mục tiêu, tổn thương để lại cực lớn.",
     icon: "textures/items/lead_sword",
     info: {
-      "Độ bền": 400,
+      "Độ bền": 200,
       "Sát thương": 6,
       "Độ phù phép": 12,
       "Cấp độ": "iron"
@@ -2926,10 +2926,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Kiếm ma thần Manyullyn. Sát thương đoạt mạng vượt xa Netherite, vũ khí tối thượng.",
     icon: "textures/items/manyullyn_sword",
     info: {
-      "Độ bền": 800,
-      "Sát thương": 8,
+      "Độ bền": 3000,
+      "Sát thương": 10,
       "Độ phù phép": 18,
-      "Cấp độ": "diamond"
+      "Cấp độ": "netherite"
     },
   },
   {
@@ -2996,10 +2996,10 @@ export const GENERATED_WIKI_ITEMS = [
     description: "Kiếm Thiếc. Yếu ớt, chỉ dùng đuổi mấy con nhện chứ không thể ra chiến trường.",
     icon: "textures/items/tin_sword",
     info: {
-      "Độ bền": 375,
-      "Sát thương": 6,
+      "Độ bền": 131,
+      "Sát thương": 5,
       "Độ phù phép": 18,
-      "Cấp độ": "iron"
+      "Cấp độ": "stone"
     },
   },
   {
@@ -3014,8 +3014,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Ardite",
       recipe_count: 1,
-      "Độ bền": 260,
-      "Giáp": 1,
+      "Độ bền": 650,
+      "Giáp": 3,
       "Độ phù phép": 16,
       "Loại": "Giày"
     },
@@ -3050,8 +3050,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Cobalt",
       recipe_count: 1,
-      "Độ bền": 260,
-      "Giáp": 1,
+      "Độ bền": 520,
+      "Giáp": 3,
       "Độ phù phép": 16,
       "Loại": "Giày"
     },
@@ -3105,7 +3105,7 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_ingredients: "#=Thỏi Chì",
       recipe_count: 1,
       "Độ bền": 260,
-      "Giáp": 1,
+      "Giáp": 2,
       "Độ phù phép": 12,
       "Loại": "Giày"
     },
@@ -3122,8 +3122,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Manyullyn",
       recipe_count: 1,
-      "Độ bền": 325,
-      "Giáp": 2,
+      "Độ bền": 813,
+      "Giáp": 4,
       "Độ phù phép": 18,
       "Loại": "Giày"
     },
@@ -3212,7 +3212,7 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Thiếc",
       recipe_count: 1,
-      "Độ bền": 260,
+      "Độ bền": 156,
       "Giáp": 1,
       "Độ phù phép": 18,
       "Loại": "Giày"
@@ -3230,8 +3230,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
       recipe_1_ingredients: "#=Thỏi Ardite",
       recipe_count: 1,
-      "Độ bền": 320,
-      "Giáp": 5,
+      "Độ bền": 800,
+      "Giáp": 7,
       "Độ phù phép": 16,
       "Loại": "Áo giáp"
     },
@@ -3266,8 +3266,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
       recipe_1_ingredients: "#=Thỏi Cobalt",
       recipe_count: 1,
-      "Độ bền": 320,
-      "Giáp": 5,
+      "Độ bền": 640,
+      "Giáp": 7,
       "Độ phù phép": 16,
       "Loại": "Áo giáp"
     },
@@ -3321,7 +3321,7 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_ingredients: "#=Thỏi Chì",
       recipe_count: 1,
       "Độ bền": 320,
-      "Giáp": 5,
+      "Giáp": 6,
       "Độ phù phép": 12,
       "Loại": "Áo giáp"
     },
@@ -3338,8 +3338,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
       recipe_1_ingredients: "#=Thỏi Manyullyn",
       recipe_count: 1,
-      "Độ bền": 400,
-      "Giáp": 7,
+      "Độ bền": 1000,
+      "Giáp": 9,
       "Độ phù phép": 18,
       "Loại": "Áo giáp"
     },
@@ -3393,7 +3393,7 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_ingredients: "#=Thỏi Bạc",
       recipe_count: 1,
       "Độ bền": 320,
-      "Giáp": 6,
+      "Giáp": 5,
       "Độ phù phép": 18,
       "Loại": "Áo giáp"
     },
@@ -3428,8 +3428,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][ ][#]|[#][#][#]|[#][#][#]",
       recipe_1_ingredients: "#=Thỏi Thiếc",
       recipe_count: 1,
-      "Độ bền": 320,
-      "Giáp": 5,
+      "Độ bền": 192,
+      "Giáp": 3,
       "Độ phù phép": 18,
       "Loại": "Áo giáp"
     },
@@ -3446,8 +3446,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Ardite",
       recipe_count: 1,
-      "Độ bền": 220,
-      "Giáp": 2,
+      "Độ bền": 550,
+      "Giáp": 3,
       "Độ phù phép": 16,
       "Loại": "Mũ"
     },
@@ -3482,8 +3482,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Cobalt",
       recipe_count: 1,
-      "Độ bền": 220,
-      "Giáp": 2,
+      "Độ bền": 440,
+      "Giáp": 3,
       "Độ phù phép": 16,
       "Loại": "Mũ"
     },
@@ -3554,8 +3554,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Manyullyn",
       recipe_count: 1,
-      "Độ bền": 280,
-      "Giáp": 3,
+      "Độ bền": 700,
+      "Giáp": 4,
       "Độ phù phép": 18,
       "Loại": "Mũ"
     },
@@ -3644,8 +3644,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Thiếc",
       recipe_count: 1,
-      "Độ bền": 220,
-      "Giáp": 2,
+      "Độ bền": 132,
+      "Giáp": 1,
       "Độ phù phép": 18,
       "Loại": "Mũ"
     },
@@ -3662,8 +3662,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Ardite",
       recipe_count: 1,
-      "Độ bền": 300,
-      "Giáp": 4,
+      "Độ bền": 750,
+      "Giáp": 6,
       "Độ phù phép": 16,
       "Loại": "Quần"
     },
@@ -3698,8 +3698,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Cobalt",
       recipe_count: 1,
-      "Độ bền": 300,
-      "Giáp": 4,
+      "Độ bền": 600,
+      "Giáp": 6,
       "Độ phù phép": 16,
       "Loại": "Quần"
     },
@@ -3753,7 +3753,7 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_ingredients: "#=Thỏi Chì",
       recipe_count: 1,
       "Độ bền": 300,
-      "Giáp": 4,
+      "Giáp": 5,
       "Độ phù phép": 12,
       "Loại": "Quần"
     },
@@ -3770,8 +3770,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Manyullyn",
       recipe_count: 1,
-      "Độ bền": 375,
-      "Giáp": 5,
+      "Độ bền": 938,
+      "Giáp": 8,
       "Độ phù phép": 18,
       "Loại": "Quần"
     },
@@ -3825,7 +3825,7 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_ingredients: "#=Thỏi Bạc",
       recipe_count: 1,
       "Độ bền": 300,
-      "Giáp": 5,
+      "Giáp": 4,
       "Độ phù phép": 18,
       "Loại": "Quần"
     },
@@ -3860,8 +3860,8 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_1_pattern: "[#][#][#]|[#][ ][#]|[#][ ][#]",
       recipe_1_ingredients: "#=Thỏi Thiếc",
       recipe_count: 1,
-      "Độ bền": 300,
-      "Giáp": 4,
+      "Độ bền": 180,
+      "Giáp": 2,
       "Độ phù phép": 18,
       "Loại": "Quần"
     },
@@ -4027,7 +4027,7 @@ export const GENERATED_WIKI_ITEMS = [
     info: {
       "Dinh dưỡng": 8,
       "Độ no": 10.4,
-      "Hiệu ứng": "No lâu"
+      "Hiệu ứng": "Kháng sát thương"
     },
   },
   {
@@ -4329,38 +4329,48 @@ export const GENERATED_WIKI_ITEMS = [
       recipe_count: 1,
       "Độ cứng": 5,
       "Công cụ yêu cầu": "Đá",
-      processing_recipe_count: 31,
-      processing_1: "stone → 4x Bụi Đá Cuội (2s)",
-      processing_2: "Cobblestone → 4x Bụi Đá Cuội (2s)",
-      processing_3: "Deepslate → 4x Bụi Đá Sâu (2s)",
-      processing_4: "Cobbled Deepslate → 4x Bụi Đá Sâu (2s)",
-      processing_5: "Netherrack → 4x Bụi Đá Địa Ngục (2s)",
-      processing_6: "Coal Ore → 9x Bụi Than (3s)",
-      processing_7: "Deepslate Coal Ore → 9x Bụi Than (3s)",
-      processing_8: "Iron Ore → 9x Bụi Sắt (3s)",
-      processing_9: "Deepslate Iron Ore → 9x Bụi Sắt (3s)",
-      processing_10: "Copper Ore → 9x Bụi Đồng (3s)",
-      processing_11: "Deepslate Copper Ore → 9x Bụi Đồng (3s)",
-      processing_12: "Gold Ore → 9x Bụi Vàng (3s)",
-      processing_13: "Deepslate Gold Ore → 9x Bụi Vàng (3s)",
-      processing_14: "Diamond Ore → 9x Bụi Kim Cương (3s)",
-      processing_15: "Deepslate Diamond Ore → 9x Bụi Kim Cương (3s)",
-      processing_16: "Emerald Ore → 9x Bụi Ngọc Lục Bảo (3s)",
-      processing_17: "Deepslate Emerald Ore → 9x Bụi Ngọc Lục Bảo (3s)",
-      processing_18: "Lapis Lazuli Ore → 9x Bụi Lưu Ly (3s)",
-      processing_19: "Deepslate Lapis Lazuli Ore → 9x Bụi Lưu Ly (3s)",
-      processing_20: "Quặng Thiếc → 9x Bụi Thiếc (3s)",
-      processing_21: "Quặng Thiếc Đá Sâu → 9x Bụi Thiếc (3s)",
-      processing_22: "Quặng Bạc → 9x Bụi Bạc (3s)",
-      processing_23: "Quặng Bạc Đá Sâu → 9x Bụi Bạc (3s)",
-      processing_24: "Quặng Niken → 9x Bụi Niken (3s)",
-      processing_25: "Quặng Niken Đá Sâu → 9x Bụi Niken (3s)",
-      processing_26: "Quặng Chì → 9x Bụi Chì (3s)",
-      processing_27: "Quặng Chì Đá Sâu → 9x Bụi Chì (3s)",
-      processing_28: "Quặng Bạch Kim → 9x Bụi Bạch Kim (3s)",
-      processing_29: "Quặng Bạch Kim Đá Sâu → 9x Bụi Bạch Kim (3s)",
-      processing_30: "Quặng Cobalt → 9x Bụi Cobalt (3s)",
-      processing_31: "Quặng Ardite → 9x Bụi Ardite (3s)"
+      processing_recipe_count: 41,
+      processing_1: "stone → 4x Bụi Đá Cuội (3s)",
+      processing_2: "Cobblestone → 4x Bụi Đá Cuội (3s)",
+      processing_3: "Deepslate → 4x Bụi Đá Sâu (3s)",
+      processing_4: "Cobbled Deepslate → 4x Bụi Đá Sâu (3s)",
+      processing_5: "Netherrack → 4x Bụi Đá Địa Ngục (3s)",
+      processing_6: "Coal Ore → 9x Bụi Than (5s)",
+      processing_7: "Deepslate Coal Ore → 9x Bụi Than (5s)",
+      processing_8: "Iron Ore → 9x Bụi Sắt (5s)",
+      processing_9: "Deepslate Iron Ore → 9x Bụi Sắt (5s)",
+      processing_10: "Copper Ore → 9x Bụi Đồng (5s)",
+      processing_11: "Deepslate Copper Ore → 9x Bụi Đồng (5s)",
+      processing_12: "Gold Ore → 9x Bụi Vàng (5s)",
+      processing_13: "Deepslate Gold Ore → 9x Bụi Vàng (5s)",
+      processing_14: "Diamond Ore → 9x Bụi Kim Cương (5s)",
+      processing_15: "Deepslate Diamond Ore → 9x Bụi Kim Cương (5s)",
+      processing_16: "Emerald Ore → 9x Bụi Ngọc Lục Bảo (5s)",
+      processing_17: "Deepslate Emerald Ore → 9x Bụi Ngọc Lục Bảo (5s)",
+      processing_18: "Lapis Lazuli Ore → 9x Bụi Lưu Ly (5s)",
+      processing_19: "Deepslate Lapis Lazuli Ore → 9x Bụi Lưu Ly (5s)",
+      processing_20: "Quặng Thiếc → 9x Bụi Thiếc (5s)",
+      processing_21: "Quặng Thiếc Đá Sâu → 9x Bụi Thiếc (5s)",
+      processing_22: "Quặng Bạc → 9x Bụi Bạc (5s)",
+      processing_23: "Quặng Bạc Đá Sâu → 9x Bụi Bạc (5s)",
+      processing_24: "Quặng Niken → 9x Bụi Niken (5s)",
+      processing_25: "Quặng Niken Đá Sâu → 9x Bụi Niken (5s)",
+      processing_26: "Quặng Chì → 9x Bụi Chì (5s)",
+      processing_27: "Quặng Chì Đá Sâu → 9x Bụi Chì (5s)",
+      processing_28: "Quặng Bạch Kim → 9x Bụi Bạch Kim (5s)",
+      processing_29: "Quặng Bạch Kim Đá Sâu → 9x Bụi Bạch Kim (5s)",
+      processing_30: "Quặng Cobalt → 9x Bụi Cobalt (5s)",
+      processing_31: "Quặng Ardite → 9x Bụi Ardite (5s)",
+      processing_32: "Raw Iron → 9x Bụi Sắt (5s)",
+      processing_33: "Raw Gold → 9x Bụi Vàng (5s)",
+      processing_34: "Raw Copper → 9x Bụi Đồng (5s)",
+      processing_35: "Thiếc Thô → 9x Bụi Thiếc (5s)",
+      processing_36: "Bạc Thô → 9x Bụi Bạc (5s)",
+      processing_37: "Niken Thô → 9x Bụi Niken (5s)",
+      processing_38: "Chì Thô → 9x Bụi Chì (5s)",
+      processing_39: "Bạch Kim Thô → 9x Bụi Bạch Kim (5s)",
+      processing_40: "Cobalt Thô → 9x Bụi Cobalt (5s)",
+      processing_41: "Ardite Thô → 9x Bụi Ardite (5s)"
     },
   },
   {
@@ -4389,7 +4399,7 @@ export const GENERATED_WIKI_ITEMS = [
       "Độ cứng": 5,
       "Công cụ yêu cầu": "Đá",
       "Nhiên liệu": "Block of Coal (64 lần)",
-      processing_recipe_count: 33,
+      processing_recipe_count: 43,
       processing_1: "stone → 4x Bụi Đá Cuội",
       processing_2: "Cobblestone → 4x Bụi Đá Cuội",
       processing_3: "Deepslate → 4x Bụi Đá Sâu",
@@ -4422,7 +4432,17 @@ export const GENERATED_WIKI_ITEMS = [
       processing_30: "Quặng Bạch Kim → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
       processing_31: "Quặng Bạch Kim Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạch Kim",
       processing_32: "Quặng Cobalt → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
-      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
+      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite",
+      processing_34: "Raw Iron → 4x Bụi Đá Cuội + 9x Bụi Sắt",
+      processing_35: "Raw Gold → 4x Bụi Đá Cuội + 9x Bụi Vàng",
+      processing_36: "Raw Copper → 4x Bụi Đá Cuội + 9x Bụi Đồng",
+      processing_37: "Thiếc Thô → 4x Bụi Đá Cuội + 9x Bụi Thiếc",
+      processing_38: "Bạc Thô → 4x Bụi Đá Cuội + 9x Bụi Bạc",
+      processing_39: "Niken Thô → 4x Bụi Đá Cuội + 9x Bụi Niken",
+      processing_40: "Chì Thô → 4x Bụi Đá Cuội + 9x Bụi Chì",
+      processing_41: "Bạch Kim Thô → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
+      processing_42: "Cobalt Thô → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
+      processing_43: "Ardite Thô → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
     },
   },
   {
@@ -4440,7 +4460,7 @@ export const GENERATED_WIKI_ITEMS = [
       "Độ cứng": 5,
       "Công cụ yêu cầu": "Sắt",
       "Nhiên liệu": "Block of Coal (32 lần)",
-      processing_recipe_count: 33,
+      processing_recipe_count: 43,
       processing_1: "stone → 4x Bụi Đá Cuội",
       processing_2: "Cobblestone → 4x Bụi Đá Cuội",
       processing_3: "Deepslate → 4x Bụi Đá Sâu",
@@ -4473,7 +4493,17 @@ export const GENERATED_WIKI_ITEMS = [
       processing_30: "Quặng Bạch Kim → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
       processing_31: "Quặng Bạch Kim Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạch Kim",
       processing_32: "Quặng Cobalt → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
-      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
+      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite",
+      processing_34: "Raw Iron → 4x Bụi Đá Cuội + 9x Bụi Sắt",
+      processing_35: "Raw Gold → 4x Bụi Đá Cuội + 9x Bụi Vàng",
+      processing_36: "Raw Copper → 4x Bụi Đá Cuội + 9x Bụi Đồng",
+      processing_37: "Thiếc Thô → 4x Bụi Đá Cuội + 9x Bụi Thiếc",
+      processing_38: "Bạc Thô → 4x Bụi Đá Cuội + 9x Bụi Bạc",
+      processing_39: "Niken Thô → 4x Bụi Đá Cuội + 9x Bụi Niken",
+      processing_40: "Chì Thô → 4x Bụi Đá Cuội + 9x Bụi Chì",
+      processing_41: "Bạch Kim Thô → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
+      processing_42: "Cobalt Thô → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
+      processing_43: "Ardite Thô → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
     },
   },
   {
@@ -4491,7 +4521,7 @@ export const GENERATED_WIKI_ITEMS = [
       "Độ cứng": 5,
       "Công cụ yêu cầu": "Kim cương",
       "Nhiên liệu": "Block of Coal (16 lần)",
-      processing_recipe_count: 33,
+      processing_recipe_count: 43,
       processing_1: "stone → 4x Bụi Đá Cuội",
       processing_2: "Cobblestone → 4x Bụi Đá Cuội",
       processing_3: "Deepslate → 4x Bụi Đá Sâu",
@@ -4524,7 +4554,17 @@ export const GENERATED_WIKI_ITEMS = [
       processing_30: "Quặng Bạch Kim → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
       processing_31: "Quặng Bạch Kim Đá Sâu → 4x Bụi Đá Sâu + 9x Bụi Bạch Kim",
       processing_32: "Quặng Cobalt → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
-      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
+      processing_33: "Quặng Ardite → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite",
+      processing_34: "Raw Iron → 4x Bụi Đá Cuội + 9x Bụi Sắt",
+      processing_35: "Raw Gold → 4x Bụi Đá Cuội + 9x Bụi Vàng",
+      processing_36: "Raw Copper → 4x Bụi Đá Cuội + 9x Bụi Đồng",
+      processing_37: "Thiếc Thô → 4x Bụi Đá Cuội + 9x Bụi Thiếc",
+      processing_38: "Bạc Thô → 4x Bụi Đá Cuội + 9x Bụi Bạc",
+      processing_39: "Niken Thô → 4x Bụi Đá Cuội + 9x Bụi Niken",
+      processing_40: "Chì Thô → 4x Bụi Đá Cuội + 9x Bụi Chì",
+      processing_41: "Bạch Kim Thô → 4x Bụi Đá Cuội + 9x Bụi Bạch Kim",
+      processing_42: "Cobalt Thô → 4x Bụi Đá Địa Ngục + 9x Bụi Cobalt",
+      processing_43: "Ardite Thô → 4x Bụi Đá Địa Ngục + 9x Bụi Ardite"
     },
   },
   {
@@ -5094,4 +5134,251 @@ export const GENERATED_BRASS_SIFTER = [
  */
 export const GENERATED_RUST_MITE_EDIBLE_ITEMS = [
   // DEPRECATED - Use GENERATED_ATTRIBUTES['rust_mite_edible'] instead
+];
+
+/**
+ * Generated armor data
+ * Used by ArmorToughnessSystem for custom toughness calculation
+ */
+export const GENERATED_ARMORS = [
+  {
+    id: "apeirix:ardite_boots",
+    protection: 3,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:bronze_boots",
+    protection: 1,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:cobalt_boots",
+    protection: 3,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:electrum_boots",
+    protection: 1,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:invar_boots",
+    protection: 1,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:lead_boots",
+    protection: 2,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:manyullyn_boots",
+    protection: 4,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:nickel_boots",
+    protection: 1,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:platinum_boots",
+    protection: 3,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:silver_boots",
+    protection: 2,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:steel_alloy_boots",
+    protection: 3,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:tin_boots",
+    protection: 1,
+    slot: "feet"
+  },
+  {
+    id: "apeirix:ardite_chestplate",
+    protection: 7,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:bronze_chestplate",
+    protection: 5,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:cobalt_chestplate",
+    protection: 7,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:electrum_chestplate",
+    protection: 5,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:invar_chestplate",
+    protection: 5,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:lead_chestplate",
+    protection: 6,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:manyullyn_chestplate",
+    protection: 9,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:nickel_chestplate",
+    protection: 5,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:platinum_chestplate",
+    protection: 8,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:silver_chestplate",
+    protection: 5,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:steel_alloy_chestplate",
+    protection: 8,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:tin_chestplate",
+    protection: 3,
+    slot: "chest"
+  },
+  {
+    id: "apeirix:ardite_helmet",
+    protection: 3,
+    slot: "head"
+  },
+  {
+    id: "apeirix:bronze_helmet",
+    protection: 2,
+    slot: "head"
+  },
+  {
+    id: "apeirix:cobalt_helmet",
+    protection: 3,
+    slot: "head"
+  },
+  {
+    id: "apeirix:electrum_helmet",
+    protection: 2,
+    slot: "head"
+  },
+  {
+    id: "apeirix:invar_helmet",
+    protection: 2,
+    slot: "head"
+  },
+  {
+    id: "apeirix:lead_helmet",
+    protection: 2,
+    slot: "head"
+  },
+  {
+    id: "apeirix:manyullyn_helmet",
+    protection: 4,
+    slot: "head"
+  },
+  {
+    id: "apeirix:nickel_helmet",
+    protection: 2,
+    slot: "head"
+  },
+  {
+    id: "apeirix:platinum_helmet",
+    protection: 3,
+    slot: "head"
+  },
+  {
+    id: "apeirix:silver_helmet",
+    protection: 2,
+    slot: "head"
+  },
+  {
+    id: "apeirix:steel_alloy_helmet",
+    protection: 3,
+    slot: "head"
+  },
+  {
+    id: "apeirix:tin_helmet",
+    protection: 1,
+    slot: "head"
+  },
+  {
+    id: "apeirix:ardite_leggings",
+    protection: 6,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:bronze_leggings",
+    protection: 4,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:cobalt_leggings",
+    protection: 6,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:electrum_leggings",
+    protection: 4,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:invar_leggings",
+    protection: 4,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:lead_leggings",
+    protection: 5,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:manyullyn_leggings",
+    protection: 8,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:nickel_leggings",
+    protection: 4,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:platinum_leggings",
+    protection: 6,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:silver_leggings",
+    protection: 4,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:steel_alloy_leggings",
+    protection: 6,
+    slot: "legs"
+  },
+  {
+    id: "apeirix:tin_leggings",
+    protection: 2,
+    slot: "legs"
+  }
 ];

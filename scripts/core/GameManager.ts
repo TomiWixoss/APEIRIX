@@ -13,6 +13,7 @@ import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
 import { AttributeSystem } from "../systems/attributes/AttributeSystem";
+import { ArmorToughnessSystem } from "../systems/armor/ArmorToughnessSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
 import { OreSieveSystem } from "../systems/mining/OreSieveSystem";
 import { OreWasherSystem } from "../systems/mining/OreWasherSystem";
@@ -187,6 +188,9 @@ export class GameManager {
     private static initializeSystems(): void {
         // Initialize attribute system FIRST (other systems may depend on it)
         AttributeSystem.initialize();
+        
+        // Initialize armor toughness system (for armors with >20 protection)
+        ArmorToughnessSystem.initialize();
         
         // Initialize lore system (auto-applies lore to items in inventory)
         LoreSystem.initialize();

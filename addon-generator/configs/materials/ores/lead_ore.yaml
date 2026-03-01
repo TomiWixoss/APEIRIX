@@ -11,7 +11,7 @@ toolTier: iron
 minY: -64
 maxY: 0
 veinSize: 7
-veinsPerChunk: 6
+veinsPerChunk: 4
 fortuneMultiplier: 2
 dustItemId: lead_ingot_dust
 stoneDustCount: 4

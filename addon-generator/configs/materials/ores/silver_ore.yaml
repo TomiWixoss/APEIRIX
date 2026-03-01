@@ -11,7 +11,7 @@ toolTier: iron
 minY: -64
 maxY: 32
 veinSize: 6
-veinsPerChunk: 8
+veinsPerChunk: 5
 fortuneMultiplier: 2
 dustItemId: silver_ingot_dust
 stoneDustCount: 4

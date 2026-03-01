@@ -11,7 +11,7 @@ toolTier: stone
 minY: 0
 maxY: 64
 veinSize: 9
-veinsPerChunk: 20
+veinsPerChunk: 10
 fortuneMultiplier: 2
 dustItemId: tin_ingot_dust
 stoneDustCount: 4

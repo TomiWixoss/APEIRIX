@@ -1,4 +1,4 @@
-import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, BlockInfoData } from '../../generators/GameDataGenerator.js';
+import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, BlockInfoData, ArmorData } from '../../generators/GameDataGenerator.js';
 import { ProcessingRecipeGenerator, ProcessingRecipeData } from '../../generators/ProcessingRecipeGenerator.js';
 import { AttributeGenerator, AttributeMapping } from '../../generators/AttributeGenerator.js';
 import { WikiDataBPGenerator } from './WikiDataBPGenerator.js';
@@ -206,6 +206,28 @@ export class GameDataBPGenerator {
       }
     }
     
+    // Collect armor data for ArmorToughnessSystem
+    const armors: ArmorData[] = [];
+    if (config.armor) {
+      for (const armor of config.armor) {
+        // Map slot names to simplified format
+        const slotMap: Record<string, 'head' | 'chest' | 'legs' | 'feet'> = {
+          'slot.armor.head': 'head',
+          'slot.armor.chest': 'chest',
+          'slot.armor.legs': 'legs',
+          'slot.armor.feet': 'feet'
+        };
+        
+        const slot = slotMap[armor.slot] || 'head';
+        
+        armors.push({
+          id: `apeirix:${armor.id}`,
+          protection: armor.protection || 0,
+          slot: slot
+        });
+      }
+    }
+    
     // Collect attributes from blocks
     if (config.blocks) {
       for (const block of config.blocks) {
@@ -221,7 +243,7 @@ export class GameDataBPGenerator {
     }
 
     // Generate file to project root (for development)
-    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks);
+    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, armors);
     
     // Collect processing recipes
     const processingRecipes: ProcessingRecipeData[] = [];
@@ -308,7 +330,7 @@ export class GameDataBPGenerator {
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, armors, 'BP/scripts/data');
     
     const buildAttributeGenerator = new AttributeGenerator(buildDir);
     buildAttributeGenerator.generate(attributeMapping, 'BP/scripts/data');
