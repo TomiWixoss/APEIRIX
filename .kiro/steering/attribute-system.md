@@ -54,10 +54,23 @@ attributes:
 id: minecraft:zombie
 attributes:
   - id: hunger_infliction  # Array format for entities
+    probability: 30        # 0-100, default 100 (optional)
     config:
       duration: 100  # 5 seconds (ticks)
       amplifier: 0   # Level 1
+  - id: combat_damage_modifier
+    probability: 20  # 20% chance to apply
+    config:
+      context: combat
+      damage: 2
 ```
+
+**Probability System**:
+- Each attribute has independent probability (0-100%)
+- Default: 100% (always apply) if not specified
+- Rolled once per entity spawn using `Math.random()`
+- Multiple attributes can apply simultaneously (independent rolls)
+- Example: 30% hunger + 20% damage = ~6% both, ~44% at least one, ~56% none
 
 ## 9 Handlers (Single Source of Truth)
 
@@ -300,21 +313,28 @@ attributes:
     toolType: axe  # axe | pickaxe
 ```
 
-### Entity Hunger (Entity)
+### Entity Hunger (Entity with Probability)
 ```yaml
 # configs/entities/vanilla_overrides/zombie.yaml
 attributes:
   - id: hunger_infliction
+    probability: 30  # 30% chance
     config:
       duration: 100
       amplifier: 0
+  - id: combat_damage_modifier
+    probability: 20  # 20% chance
+    config:
+      context: combat
+      damage: 2
 ```
 
 ## Key Differences
 
 ### Item vs Entity Attributes
 - **Item**: Object format `{ breakable: { value: 100 } }`
-- **Entity**: Array format `[{ id: 'hunger_infliction', config: {...} }]`
+- **Entity**: Array format `[{ id: 'hunger_infliction', probability: 30, config: {...} }]`
+- **Probability**: Entity attributes support probability field (0-100%), items do not
 
 ### Item vs Block Attributes
 - **Item attributes**: For lore display (checked by AttributeResolver)
@@ -325,3 +345,109 @@ attributes:
 - **Static**: From YAML, auto-migrated to GlobalItemAttributeRegistry on first load
 - **Dynamic**: Added at runtime via AttributeAPI, persisted to world.dynamicProperty
 - **Priority**: Dynamic overrides static (instance > type)
+
+
+## Entity Attribute Probability System
+
+### Overview
+Entity attributes can be applied probabilistically when entities spawn. Each attribute has an independent probability roll (0-100%), allowing for variant mobs with different abilities.
+
+### Configuration
+
+```yaml
+# configs/entities/vanilla_overrides/zombie.yaml
+id: minecraft:zombie
+attributes:
+  - id: hunger_infliction
+    probability: 30  # 30% chance to apply
+    config:
+      duration: 100
+      amplifier: 0
+  
+  - id: combat_damage_modifier
+    probability: 20  # 20% chance to apply
+    config:
+      context: combat
+      damage: 2
+```
+
+### Probability Mechanics
+
+**Independent Rolls**: Each attribute is rolled separately
+- Zombie with 30% hunger + 20% damage:
+  - Both attributes: ~6% (0.3 × 0.2)
+  - At least one: ~44% (1 - 0.7 × 0.8)
+  - Neither: ~56% (0.7 × 0.8)
+
+**Default Behavior**: 
+- No `probability` field = 100% (always apply)
+- Backward compatible with existing configs
+
+**Roll Timing**:
+- Rolled ONCE per entity spawn
+- Attributes persist on entity (stored in dynamicProperties)
+- Re-spawning same entity type = new probability rolls
+
+### Implementation Flow
+
+1. **Compile Time**: EntityLoader parses probability from YAML
+2. **Generation**: GameDataGenerator outputs to GENERATED_ENTITIES
+3. **Runtime**: EntitySystem applies attributes based on probability rolls
+
+```typescript
+// EntitySystem.ts
+for (const attr of config.attributes) {
+  const probability = attr.probability ?? 100; // Default 100%
+  const roll = Math.random() * 100; // 0-100
+  
+  if (roll < probability) {
+    EntityAttributeStorage.setAttribute(entity, attr.id, attr.config);
+  }
+}
+```
+
+### Use Cases
+
+**Variant Mobs**:
+```yaml
+id: minecraft:skeleton
+attributes:
+  - id: fire_arrow
+    probability: 30
+  - id: poison_arrow
+    probability: 20
+  - id: explosive_arrow
+    probability: 5
+```
+
+**Elite Mobs**:
+```yaml
+id: minecraft:creeper
+attributes:
+  - id: elite_marker
+    probability: 5  # 5% elite
+    config:
+      explosionRadius: 8
+```
+
+**Conditional Spawns**:
+```yaml
+id: minecraft:spider
+attributes:
+  - id: poison_attack
+    probability: 40  # 40% poisonous
+  - id: web_shooter
+    probability: 20  # 20% web-shooting
+```
+
+### Testing
+
+**In-Game Test**: `/scriptevent apeirix:test_entity_probability`
+- Spawns 20 zombies
+- Analyzes attribute distribution
+- Compares actual vs expected probabilities
+
+**Files**:
+- Test: `scripts/tests/TestEntityProbability.ts`
+- Docs: `docs/entity-attribute-probability-system.md`
+- Summary: `tasks/entity-probability-implementation-summary.md`
