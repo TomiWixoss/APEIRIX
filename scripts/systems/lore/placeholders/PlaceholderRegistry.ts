@@ -177,7 +177,8 @@ export class PlaceholderRegistry {
     // Process all attributes (no separation by origin)
     for (const attr of attributes) {
       const loreLine = this.generateAttributeLoreLine(itemId, attr, itemStack);
-      if (loreLine) {
+      // Filter out empty strings (handlers return '' to skip incompatible attributes)
+      if (loreLine && loreLine.trim() !== '') {
         lore.push(loreLine);
       }
     }

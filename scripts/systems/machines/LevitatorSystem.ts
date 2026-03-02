@@ -142,7 +142,14 @@ export class LevitatorSystem extends BaseMachineSystem {
         return;
       }
       
-      // Case 4: Holding item + machine has item → Swap
+      // Case 4: Holding item + machine has potion with attributes → Infuse attributes
+      if (heldItem && levState.storedItem && levState.storedItem.typeId === 'minecraft:potion') {
+        this.infuseAttributes(player, heldItem, levState, key);
+        event.cancel = true;
+        return;
+      }
+      
+      // Case 5: Holding item + machine has item → Swap
       if (heldItem && levState.storedItem) {
         this.swapItems(player, heldItem, levState, key);
         event.cancel = true;
@@ -278,6 +285,91 @@ export class LevitatorSystem extends BaseMachineSystem {
     // Clear storage
     levState.storedItem = null;
     levState.storedItemName = '';
+  }
+  
+  /**
+   * Infuse attributes from stored potion into held item
+   * Machine has potion with attributes → Transfer attributes to held item
+   */
+  private infuseAttributes(player: Player, heldItem: ItemStack, levState: LevitatorState, key: string): void {
+    if (!levState.storedItem || levState.storedItem.typeId !== 'minecraft:potion') return;
+    
+    // Cooldown check (500ms)
+    const currentTime = Date.now();
+    const COOLDOWN_MS = 500;
+    
+    if (currentTime - levState.lastRetrieveTime < COOLDOWN_MS) {
+      player.sendMessage(`§cVui lòng đợi một chút...`);
+      return;
+    }
+    
+    const potion = levState.storedItem;
+    const potionAttributes = AttributeResolver.resolve(potion);
+    
+    if (potionAttributes.length === 0) {
+      player.sendMessage(`§cBình này không có thuộc tính nào`);
+      return;
+    }
+    
+    // Check if held item already has any of these attributes
+    const heldAttributes = AttributeResolver.resolve(heldItem);
+    const conflictingAttrs = potionAttributes.filter(potionAttr => 
+      heldAttributes.some(heldAttr => heldAttr.id === potionAttr.id)
+    );
+    
+    if (conflictingAttrs.length > 0) {
+      const attrNames = conflictingAttrs.map(a => a.id).join(', ');
+      player.sendMessage(`§cItem đã có thuộc tính: §f${attrNames}`);
+      return;
+    }
+    
+    // Capture values for deferred operation
+    const heldAmount = heldItem.amount;
+    const slotIndex = player.selectedSlotIndex;
+    const heldTypeId = heldItem.typeId;
+    const heldItemClone = heldItem.clone();
+    
+    // Transfer attributes from potion to item (before system.run)
+    for (const attr of potionAttributes) {
+      AttributeAPI.addAttribute(heldItemClone, attr.id, attr.config);
+    }
+    
+    // Update cooldown timestamp
+    levState.lastRetrieveTime = currentTime;
+    
+    // Defer to avoid restricted execution error
+    system.run(() => {
+      // Set amount INSIDE system.run
+      heldItemClone.amount = 1;
+      
+      // Spawn infused item
+      player.dimension.spawnItem(heldItemClone, player.location);
+      
+      // Return empty potion
+      const emptyPotion = new ItemStack('minecraft:potion', 1);
+      player.dimension.spawnItem(emptyPotion, player.location);
+      
+      // Clear storage
+      levState.storedItem = null;
+      levState.storedItemName = '';
+      
+      // Decrease held stack by 1
+      const container = player.getComponent('minecraft:inventory')?.container;
+      if (container) {
+        const currentItem = container.getItem(slotIndex);
+        if (currentItem && currentItem.typeId === heldTypeId) {
+          if (heldAmount > 1) {
+            const newItem = currentItem.clone();
+            newItem.amount = heldAmount - 1;
+            container.setItem(slotIndex, newItem);
+          } else {
+            container.setItem(slotIndex, undefined);
+          }
+        }
+      }
+      
+      player.sendMessage(`§aĐã ép thuộc tính vào item!`);
+    });
   }
   
   /**

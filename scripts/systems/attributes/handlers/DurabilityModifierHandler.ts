@@ -71,6 +71,9 @@ export class DurabilityModifierHandler {
    * 
    * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
    * 
+   * CRITICAL: If item doesn't have durability component, return empty string
+   * This prevents "Has Custom Properties" error on items like potions
+   * 
    * @param itemId Item ID
    * @param line Lore line with placeholders
    * @param itemStack Optional ItemStack for dynamic values (current durability)
@@ -82,6 +85,19 @@ export class DurabilityModifierHandler {
     if (itemStack) {
       const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
       config = resolved?.config;
+      
+      // CRITICAL: Check if item has durability component
+      // If not, return empty string to skip this lore line entirely
+      try {
+        const durabilityComp = itemStack.getComponent('minecraft:durability');
+        if (!durabilityComp) {
+          console.warn(`[DurabilityModifierHandler] ${itemId} has no durability component - skipping lore line`);
+          return ''; // Return empty string to skip this line
+        }
+      } catch (error) {
+        console.warn(`[DurabilityModifierHandler] ${itemId} failed durability check - skipping lore line`);
+        return ''; // Return empty string to skip this line
+      }
     } else {
       // Fallback to static config (for compile-time generation)
       config = getAttributeConfig(itemId, this.ATTRIBUTE_ID);
@@ -113,9 +129,14 @@ export class DurabilityModifierHandler {
           
           // {max_durability} - max uses (same as {durability})
           processedLine = processedLine.replace(/{max_durability}/g, maxUses.toString());
+        } else {
+          // No durability component - return empty string
+          return '';
         }
       } catch (error) {
-        // ItemStack might not have durability component
+        // ItemStack might not have durability component - return empty string
+        console.warn(`[DurabilityModifierHandler] Error processing placeholders for ${itemId}:`, error);
+        return '';
       }
     }
     
