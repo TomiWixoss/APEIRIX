@@ -1,190 +1,198 @@
 # Testing Block Attribute Transfer System
 
-## Setup
+This document provides test commands and workflows for the Block Attribute Transfer System.
 
-1. Build addon: `regolith run`
-2. Load world trong Minecraft với addon enabled
-3. Enable cheats trong world settings
+## Available Test Commands
 
-## Test Commands
+### Test 1: Transfer from Item to Block Type
+**Command**: `/scriptevent test:transfer_to_dirt`
 
-### Test 1: Transfer từ Item sang Block Type
-
-**Mục đích**: Transfer `requires_tool` từ mangrove log item sang dirt block type
+**Purpose**: Transfer `requires_tool` attribute from an item (e.g., mangrove_log) to dirt block type.
 
 **Steps**:
-1. Get mangrove log item: `/give @s mangrove_log`
-2. Hold mangrove log trong tay (slot 0)
+1. Get a mangrove log: `/give @s mangrove_log`
+2. Hold the log in your hand
 3. Run command: `/scriptevent test:transfer_to_dirt`
 4. Check message: "Success! Dirt now requires axe to mine"
-5. Try mining dirt without axe → Should be BLOCKED with message
-6. Try mining dirt with axe → Should work normally
+5. Throw and pickup dirt items to see lore auto-apply
+6. Try mining dirt without axe → Should be blocked
 
 **Expected Result**:
-- Mangrove log item: Mất `requires_tool` attribute (check lore)
-- Dirt blocks: Giờ cần axe để mine (TẤT CẢ dirt blocks trong world)
+- Mangrove log loses "Yêu cầu: Rìu" lore
+- Dirt items show "Yêu cầu: Rìu" lore
+- Dirt blocks require axe to mine
 
 ---
 
-### Test 2: Transfer từ Block Type sang Item
+### Test 2: Transfer from Block Type to Item
+**Command**: `/scriptevent test:transfer_back`
 
-**Mục đích**: Transfer `requires_tool` từ dirt block type về item (remove from blocks)
+**Purpose**: Transfer `requires_tool` attribute from dirt block type back to an item.
 
 **Steps**:
 1. Get any item: `/give @s stick`
-2. Hold item trong tay
+2. Hold item in your hand
 3. Run command: `/scriptevent test:transfer_back`
 4. Check message: "Success! Dirt no longer requires axe"
-5. Try mining dirt without axe → Should work normally
+5. Throw and pickup items to see lore update
+6. Try mining dirt without axe → Should work normally
 
 **Expected Result**:
-- Dirt blocks: Không cần axe nữa
-- Item trong tay: Có `requires_tool` attribute (check lore)
+- Stick gains "Yêu cầu: Rìu" lore
+- Dirt items lose "Yêu cầu: Rìu" lore
+- Dirt blocks no longer require axe
 
 ---
 
 ### Test 3: Check Registry State
+**Command**: `/scriptevent test:check_registry`
 
-**Mục đích**: Xem block types nào có dynamic attributes
+**Purpose**: View all block types with dynamic attributes.
 
 **Steps**:
 1. Run command: `/scriptevent test:check_registry`
-2. Check chat messages
+2. Check chat for registry contents
 
 **Expected Output**:
 ```
-Block Attribute Registry: 1 block types
+Block Attribute Registry: X block types
 - minecraft:dirt: requires_tool
-```
-
-Hoặc nếu empty:
-```
-Block Attribute Registry: 0 block types
-Registry is empty
+- minecraft:cobblestone: requires_tool
 ```
 
 ---
 
 ### Test 4: Clear Registry
+**Command**: `/scriptevent test:clear_registry`
 
-**Mục đích**: Reset tất cả dynamic block attributes
+**Purpose**: Reset all block attributes (for testing/debugging).
 
 **Steps**:
 1. Run command: `/scriptevent test:clear_registry`
 2. Check message: "Registry cleared"
-3. Try mining dirt without axe → Should work (no longer requires tool)
+3. All blocks return to default behavior
+
+---
+
+### Test 5: Transfer Between Items
+**Command**: `/scriptevent test:transfer_item_to_item`
+
+**Purpose**: Transfer attribute from one item to another item.
+
+**Steps**:
+1. Get source item with attribute (e.g., stick with requires_tool)
+2. Get target item in next slot (e.g., another stick)
+3. Hold source item in hand
+4. Run command: `/scriptevent test:transfer_item_to_item`
+5. Throw and pickup both items to see lore update
 
 **Expected Result**:
-- Tất cả dynamic block attributes bị xóa
-- Blocks về behavior mặc định (static YAML hoặc vanilla)
+- Source item loses attribute and lore
+- Target item gains attribute and lore
 
 ---
 
-## Test Scenarios
+### Test 6: Transfer Between Block Types
+**Command**: `/scriptevent test:transfer_block_to_block`
 
-### Scenario A: Basic Transfer Flow
+**Purpose**: Transfer attribute from one block type to another.
 
-1. `/give @s mangrove_log`
-2. Hold log, run `/scriptevent test:transfer_to_dirt`
-3. Try mine dirt without axe → BLOCKED ✅
-4. Hold stick, run `/scriptevent test:transfer_back`
-5. Try mine dirt without axe → WORKS ✅
+**Steps**:
+1. Ensure dirt has `requires_tool` attribute (use Test 1 first)
+2. Run command: `/scriptevent test:transfer_block_to_block`
+3. Check message: "Success! Cobblestone now requires axe, dirt no longer requires axe"
+4. Try mining both blocks to verify
 
-### Scenario B: Persistence Test
-
-1. Transfer attribute to dirt: `/scriptevent test:transfer_to_dirt`
-2. Check registry: `/scriptevent test:check_registry` → Should show dirt
-3. Save & quit world
-4. Reload world
-5. Try mine dirt without axe → Should still be BLOCKED ✅
-6. Check registry again → Should still show dirt ✅
-
-### Scenario C: Multiple Transfers
-
-1. Transfer log → dirt
-2. Transfer dirt → stone: Use AttributeAPI in code
-3. Check: Dirt works, stone blocked
-4. Transfer stone → gravel
-5. Check: Stone works, gravel blocked
+**Expected Result**:
+- Dirt blocks no longer require axe
+- Cobblestone blocks now require axe
+- Dirt items lose lore
+- Cobblestone items gain lore (when picked up)
 
 ---
 
-## Debugging
+### Test 7: Transfer from Tool to Block (Real-World Use Case)
+**Command**: `/scriptevent test:transfer_tool_to_block`
 
-### Check Console Logs
+**Purpose**: Transfer attribute from a tool (with existing attributes) to a block type.
 
-Look for these messages in content log:
-```
-[GlobalBlockAttributeRegistry] Initializing...
-[GlobalBlockAttributeRegistry] Loaded X attributes for Y block types
-[GlobalBlockAttributeRegistry] Added attribute 'requires_tool' to block type 'minecraft:dirt'
-[RequiresToolHandler] Initializing...
-[TestBlockAttributeTransfer] Test commands registered
-```
+**Steps**:
+1. Get a tool with attributes: `/give @s wooden_pickaxe`
+2. Hold the tool in your hand
+3. Run command: `/scriptevent test:transfer_tool_to_block`
+4. Check message showing which attribute was transferred
+5. Throw and pickup tool to see lore update
+6. Try mining dirt to verify block attribute
 
-### Common Issues
-
-**Issue**: "No item in hand"
-- **Fix**: Make sure item is in selected hotbar slot
-
-**Issue**: "Failed to transfer attribute"
-- **Cause**: Source doesn't have attribute, or target already has it
-- **Fix**: Check with `/scriptevent test:check_registry`
-
-**Issue**: Dirt still mineable without axe after transfer
-- **Cause**: RequiresToolHandler not checking dynamic attributes
-- **Fix**: Check console for errors, verify RequiresToolHandler.initialize() called
-
-**Issue**: Attribute not persisting after reload
-- **Cause**: World storage not saving
-- **Fix**: Check world.setDynamicProperty() errors in console
+**Expected Result**:
+- Tool loses first attribute and its lore line
+- Dirt blocks gain that attribute
+- Dirt items show new lore when picked up
 
 ---
 
-## Manual Testing (Without Commands)
+## Testing Workflow
 
-If you want to test programmatically:
+### Complete Transfer Cycle
+1. Start with wooden_pickaxe (has attributes)
+2. Transfer attribute to dirt: `/scriptevent test:transfer_tool_to_block`
+3. Verify dirt requires tool, pickaxe lost lore
+4. Transfer back to stick: `/scriptevent test:transfer_back`
+5. Verify stick has lore, dirt no longer requires tool
+6. Check registry: `/scriptevent test:check_registry`
+7. Clear registry: `/scriptevent test:clear_registry`
 
-```typescript
-import { AttributeAPI } from './systems/attributes/AttributeAPI';
-import { GlobalBlockAttributeRegistry } from './systems/attributes/GlobalBlockAttributeRegistry';
+### Lore Refresh Testing
+1. Transfer attribute to dirt
+2. Get dirt items: `/give @s dirt 64`
+3. Items should have NO lore initially
+4. Throw dirt on ground
+5. Pickup dirt
+6. Items should now have "Yêu cầu: Rìu" lore
 
-// Get player's held item
-const player = world.getAllPlayers()[0];
-const inventory = player.getComponent('inventory');
-const item = inventory.container.getItem(player.selectedSlotIndex);
-
-// Transfer to dirt
-AttributeAPI.transferAttributeToBlockType(item, 'requires_tool', 'minecraft:dirt');
-
-// Check registry
-const attrs = GlobalBlockAttributeRegistry.getAllBlockAttributes();
-console.warn(JSON.stringify(attrs, null, 2));
-
-// Transfer back
-AttributeAPI.transferAttributeFromBlockType('minecraft:dirt', item, 'requires_tool');
-```
-
----
-
-## Success Criteria
-
-✅ Transfer item → block type works
-✅ Transfer block type → item works
-✅ Dynamic attributes override static (priority correct)
-✅ Attributes persist across world reload
-✅ Registry state queryable
-✅ Clear registry works
-✅ No console errors
-✅ Lore updates correctly on items
+### Mining Behavior Testing
+1. Transfer `requires_tool` to dirt
+2. Try mining dirt with hand → Should fail
+3. Try mining dirt with axe → Should work
+4. Transfer attribute away from dirt
+5. Try mining dirt with hand → Should work
 
 ---
 
-## Next Steps
+## Architecture Notes
 
-After testing, you can:
-1. Create UI for attribute transfer (if needed)
-2. Add more test scenarios
-3. Implement per-location attributes (if needed)
-4. Add attribute decay/expiration
-5. Create machines that transfer attributes
+### Two Registries
+- **GlobalItemAttributeRegistry**: For item lore (per-type, affects all items of that type)
+- **GlobalBlockAttributeRegistry**: For mining checks (per-type, affects all blocks of that type)
+
+### Transfer Operations Update Both
+When transferring attributes, BOTH registries are updated:
+- Item → Block: Remove from item registry, add to both item and block registries for target
+- Block → Item: Remove from both registries for source, add to item registry for target
+- Item → Item: Only affects item registry
+- Block → Block: Affects both registries
+
+### Lore Auto-Refresh
+- Lore refreshes automatically when items enter inventory
+- Use "throw and pickup" to force lore refresh
+- Lore = Function(Attributes) - always generated dynamically
+
+---
+
+## Troubleshooting
+
+### Lore Not Updating
+- Throw item on ground and pickup again
+- Check if attribute exists in registry: `/scriptevent test:check_registry`
+- Verify item type matches (dirt vs minecraft:dirt)
+
+### Mining Behavior Not Working
+- Check GlobalBlockAttributeRegistry has the attribute
+- Verify you're using correct tool type
+- Try `/reload` to refresh game state
+
+### Transfer Failed
+- Check source has the attribute
+- Check target doesn't already have the attribute
+- Verify item is in hand (for item transfers)
+- Check console logs for error messages

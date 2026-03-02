@@ -252,6 +252,7 @@ export class AttributeAPI {
   
   /**
    * Transfer attribute from block type to item
+   * Transfers BOTH item attributes (for lore) AND block attributes (for mining)
    * 
    * @param sourceBlockId Source block type ID
    * @param targetStack Target item
@@ -260,9 +261,9 @@ export class AttributeAPI {
    */
   static transferAttributeFromBlockType(sourceBlockId: string, targetStack: ItemStack, attrId: string): boolean {
     try {
-      // Check source has attribute (dynamic only - can't transfer static)
+      // Check source has attribute in block registry
       if (!GlobalBlockAttributeRegistry.hasBlockAttribute(sourceBlockId, attrId)) {
-        console.warn(`[AttributeAPI] Source block type doesn't have dynamic attribute: ${attrId}`);
+        console.warn(`[AttributeAPI] Source block type doesn't have dynamic attribute in block registry: ${attrId}`);
         return false;
       }
       
@@ -279,14 +280,21 @@ export class AttributeAPI {
         return false;
       }
       
-      // Remove from source block type
+      // Remove from source ITEM registry (for lore)
+      if (GlobalItemAttributeRegistry.hasItemAttribute(sourceBlockId, attrId)) {
+        GlobalItemAttributeRegistry.removeItemAttribute(sourceBlockId, attrId);
+      }
+      
+      // Remove from source BLOCK registry (for mining)
       if (!GlobalBlockAttributeRegistry.removeBlockAttribute(sourceBlockId, attrId)) {
         // Rollback target
         this.removeAttribute(targetStack, attrId);
+        // Rollback item registry
+        GlobalItemAttributeRegistry.addItemAttribute(sourceBlockId, attrId, config);
         return false;
       }
       
-      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from block type ${sourceBlockId} to item ${targetStack.typeId}`);
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from block type ${sourceBlockId} to item ${targetStack.typeId} (both item and block)`);
       return true;
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to transfer attribute from block type to item:`, error);

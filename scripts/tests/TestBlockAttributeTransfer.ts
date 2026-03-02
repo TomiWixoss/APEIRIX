@@ -140,6 +140,137 @@ export class TestBlockAttributeTransfer {
       }
     });
     
+    // Test 5: Transfer between items (item to item)
+    system.afterEvents.scriptEventReceive.subscribe((event) => {
+      if (event.id === 'test:transfer_item_to_item') {
+        if (!(event.sourceEntity instanceof Player)) return;
+        const player = event.sourceEntity as Player;
+        
+        try {
+          const inventory = player.getComponent('inventory');
+          if (!inventory) {
+            player.sendMessage('§cNo inventory component');
+            return;
+          }
+          
+          // Get source item (selected slot)
+          const sourceItem = inventory.container?.getItem(player.selectedSlotIndex);
+          if (!sourceItem) {
+            player.sendMessage('§cNo source item in hand');
+            return;
+          }
+          
+          // Get target item (next slot)
+          const targetSlot = (player.selectedSlotIndex + 1) % inventory.container!.size;
+          const targetItem = inventory.container?.getItem(targetSlot);
+          if (!targetItem) {
+            player.sendMessage('§cNo target item in next slot');
+            return;
+          }
+          
+          player.sendMessage(`§eTransferring requires_tool from ${sourceItem.typeId} to ${targetItem.typeId}...`);
+          
+          const success = AttributeAPI.transferAttribute(
+            sourceItem,
+            targetItem,
+            'requires_tool'
+          );
+          
+          if (success) {
+            player.sendMessage('§aSuccess! Attribute transferred between items');
+            player.sendMessage('§7Throw and pickup items to see lore update');
+            
+            // Update items in inventory
+            inventory.container?.setItem(player.selectedSlotIndex, sourceItem);
+            inventory.container?.setItem(targetSlot, targetItem);
+          } else {
+            player.sendMessage('§cFailed to transfer attribute');
+          }
+        } catch (error) {
+          player.sendMessage(`§cError: ${error}`);
+        }
+      }
+    });
+    
+    // Test 6: Transfer between block types (block to block)
+    system.afterEvents.scriptEventReceive.subscribe((event) => {
+      if (event.id === 'test:transfer_block_to_block') {
+        if (!(event.sourceEntity instanceof Player)) return;
+        const player = event.sourceEntity as Player;
+        
+        try {
+          player.sendMessage(`§eTransferring requires_tool from minecraft:dirt to minecraft:cobblestone...`);
+          
+          const success = AttributeAPI.transferAttributeBetweenBlockTypes(
+            'minecraft:dirt',
+            'minecraft:cobblestone',
+            'requires_tool'
+          );
+          
+          if (success) {
+            player.sendMessage('§aSuccess! Cobblestone now requires axe, dirt no longer requires axe');
+            player.sendMessage('§7Try mining both blocks to verify');
+          } else {
+            player.sendMessage('§cFailed to transfer attribute');
+          }
+        } catch (error) {
+          player.sendMessage(`§cError: ${error}`);
+        }
+      }
+    });
+    
+    // Test 7: Transfer from tool to block (real-world use case)
+    system.afterEvents.scriptEventReceive.subscribe((event) => {
+      if (event.id === 'test:transfer_tool_to_block') {
+        if (!(event.sourceEntity instanceof Player)) return;
+        const player = event.sourceEntity as Player;
+        
+        try {
+          const inventory = player.getComponent('inventory');
+          if (!inventory) {
+            player.sendMessage('§cNo inventory component');
+            return;
+          }
+          
+          const tool = inventory.container?.getItem(player.selectedSlotIndex);
+          if (!tool) {
+            player.sendMessage('§cNo tool in hand');
+            return;
+          }
+          
+          // Check if tool has any attributes
+          const attrs = AttributeAPI.getAttributes(tool);
+          if (attrs.length === 0) {
+            player.sendMessage('§cTool has no attributes to transfer');
+            return;
+          }
+          
+          // Transfer first attribute to dirt
+          const attrId = attrs[0].id;
+          player.sendMessage(`§eTransferring '${attrId}' from ${tool.typeId} to minecraft:dirt...`);
+          
+          const success = AttributeAPI.transferAttributeToBlockType(
+            tool,
+            attrId,
+            'minecraft:dirt'
+          );
+          
+          if (success) {
+            player.sendMessage(`§aSuccess! Dirt now has '${attrId}', tool lost it`);
+            player.sendMessage('§7Throw and pickup tool to see lore update');
+            player.sendMessage('§7Try mining dirt to verify block attribute');
+            
+            // Update tool in inventory
+            inventory.container?.setItem(player.selectedSlotIndex, tool);
+          } else {
+            player.sendMessage('§cFailed to transfer attribute');
+          }
+        } catch (error) {
+          player.sendMessage(`§cError: ${error}`);
+        }
+      }
+    });
+    
     console.warn('[TestBlockAttributeTransfer] Test commands registered');
   }
 }
