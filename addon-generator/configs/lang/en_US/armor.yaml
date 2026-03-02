@@ -1,5 +1,11 @@
 # English Language - Armor
 armor:
+  # Vanilla Overrides
+  copper_helmet: Copper Helmet
+  copper_chestplate: Copper Chestplate
+  copper_leggings: Copper Leggings
+  copper_boots: Copper Boots
+
   bronze_helmet: Bronze Helmet
   bronze_chestplate: Bronze Chestplate
   bronze_leggings: Bronze Leggings

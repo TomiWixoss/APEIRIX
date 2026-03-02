@@ -156,6 +156,7 @@ export const LANG_VI = {
         "hunger_infliction": "§cGây Đói",
         "empty_hand_combat": "§8Tay Không",
         "undead_slayer": "§6Diệt Undead",
+        "armor_damage_multiplier": "§cGiáp Yếu",
         "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
         "hunger_infliction_template": "§cGây hiệu ứng đói ({duration}s)",
         "vanilla_override_warning": "§e⚠ Thuộc tính đã được điều chỉnh§r",
@@ -165,6 +166,7 @@ export const LANG_VI = {
         "undead_slayer_template": "{attr:damage_multiplier}: §f+{damageMultiplier}%",
         "hammer_mining_template": "{attr:hammer_mining}: §aĐập block ra bụi",
         "rust_mite_edible_template": "{attr:rust_mite_edible}: §cBị Rust Mite thu hút",
-        "empty_hand_combat_template": "{attr:empty_hand_combat}: §7Sát thương tay không: §c{damage}"
+        "empty_hand_combat_template": "{attr:empty_hand_combat}: §7Sát thương tay không: §c{damage}",
+        "armor_damage_multiplier_template": "{attr:armor_damage_multiplier}: §c+{damage_multiplier}x ST nhận vào"
     }
 };

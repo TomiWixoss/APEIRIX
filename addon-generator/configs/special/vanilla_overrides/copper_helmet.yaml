@@ -1,0 +1,20 @@
+# Vanilla Override: Copper Helmet
+# Override vanilla copper helmet với custom attributes
+
+id: minecraft:copper_helmet
+name: lang:armor.copper_helmet
+lore: lang:lore.auto
+wikiDescription: lang:wiki.armor.copper_helmet
+
+# Attributes
+attributes:
+  # Chỉ còn 4 lần dùng
+  durability_modifier:
+    durability: 4
+
+  # Giảm hiệu quả giáp: 12 armor points → 4 armor points
+  # Vanilla: 48% reduction (nhận 52% damage)
+  # Target: 16% reduction (nhận 84% damage)
+  # Multiplier: 84/52 = 1.62x
+  armor_damage_multiplier:
+    damageMultiplier: 1.62

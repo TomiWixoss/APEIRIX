@@ -1,5 +1,11 @@
 # Ngôn ngữ tiếng Việt - Armor
 armor:
+  # Vanilla Overrides
+  copper_helmet: Mũ Đồng
+  copper_chestplate: Áo Giáp Đồng
+  copper_leggings: Quần Đồng
+  copper_boots: Giày Đồng
+
   bronze_helmet: Mũ Đồng Thanh
   bronze_chestplate: Áo Giáp Đồng Thanh
   bronze_leggings: Quần Đồng Thanh

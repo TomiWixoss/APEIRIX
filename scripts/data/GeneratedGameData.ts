@@ -2247,6 +2247,50 @@ export const GENERATED_WIKI_ITEMS = [
     ],
   },
   {
+    id: "minecraft:copper_helmet",
+    category: "materials",
+    name: "Mũ Đồng",
+    description: "wiki.armor.copper_helmet",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:armor_damage_multiplier}: §c+{damage_multiplier}x ST nhận vào"
+    ],
+  },
+  {
+    id: "minecraft:copper_chestplate",
+    category: "materials",
+    name: "Áo Giáp Đồng",
+    description: "wiki.armor.copper_chestplate",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:armor_damage_multiplier}: §c+{damage_multiplier}x ST nhận vào"
+    ],
+  },
+  {
+    id: "minecraft:copper_leggings",
+    category: "materials",
+    name: "Quần Đồng",
+    description: "wiki.armor.copper_leggings",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:armor_damage_multiplier}: §c+{damage_multiplier}x ST nhận vào"
+    ],
+  },
+  {
+    id: "minecraft:copper_boots",
+    category: "materials",
+    name: "Giày Đồng",
+    description: "wiki.armor.copper_boots",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:armor_damage_multiplier}: §c+{damage_multiplier}x ST nhận vào"
+    ],
+  },
+  {
     id: "minecraft:oak_log",
     category: "materials",
     name: "minecraft:oak_log",

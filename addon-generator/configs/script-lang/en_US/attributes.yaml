@@ -12,6 +12,7 @@ requires_tool: "§eRequires"
 hunger_infliction: "§cHunger Infliction"
 empty_hand_combat: "§8Empty Hand"
 undead_slayer: "§6Undead Slayer"
+armor_damage_multiplier: "§cWeak Armor"
 
 # Attribute templates
 requires_tool_template: "§eRequires: §f{tool_type}"

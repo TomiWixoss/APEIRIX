@@ -12,6 +12,7 @@ requires_tool: "§eYêu cầu"
 hunger_infliction: "§cGây Đói"
 empty_hand_combat: "§8Tay Không"
 undead_slayer: "§6Diệt Undead"
+armor_damage_multiplier: "§cGiáp Yếu"
 
 # Attribute templates
 requires_tool_template: "§eYêu cầu: §f{tool_type}"

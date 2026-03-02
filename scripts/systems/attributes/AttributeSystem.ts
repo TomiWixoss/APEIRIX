@@ -19,6 +19,7 @@ import { CombatDamageModifierHandler } from './handlers/CombatDamageModifierHand
 import { RequiresToolHandler } from './handlers/RequiresToolHandler';
 import { EmptyHandCombatHandler } from './handlers/EmptyHandCombatHandler';
 import { HungerInflictionHandler } from './handlers/HungerInflictionHandler';
+import { ArmorDamageMultiplierHandler } from './handlers/ArmorDamageMultiplierHandler';
 import { LoreRefreshSystem } from '../lore/LoreRefreshSystem';
 import { GlobalBlockAttributeRegistry } from './GlobalBlockAttributeRegistry';
 import { GlobalItemAttributeRegistry } from './GlobalItemAttributeRegistry';
@@ -59,6 +60,7 @@ export class AttributeSystem {
     RequiresToolHandler.initialize();
     EmptyHandCombatHandler.initialize();
     HungerInflictionHandler.initialize(); // Entity attribute handler
+    ArmorDamageMultiplierHandler.initialize(); // Armor damage multiplier
     
     this.initialized = true;
     console.warn('[AttributeSystem] Initialized');

@@ -8,6 +8,11 @@ import:
   - vanilla_overrides/wooden_hoe.yaml
   - vanilla_overrides/wooden_sword.yaml
   - vanilla_overrides/wooden_spear.yaml
+  # Vanilla Armor Overrides
+  - vanilla_overrides/copper_helmet.yaml
+  - vanilla_overrides/copper_chestplate.yaml
+  - vanilla_overrides/copper_leggings.yaml
+  - vanilla_overrides/copper_boots.yaml
   # Vanilla Log Overrides
   - vanilla_overrides/oak_log.yaml
   - vanilla_overrides/birch_log.yaml

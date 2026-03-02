@@ -207,6 +207,11 @@ export class DurabilityModifierHandler {
       this.handlePlayerInteract(event);
     });
     
+    // Listen to entity hurt events (armor durability loss)
+    world.afterEvents.entityHurt.subscribe((event) => {
+      this.handleArmorDamage(event);
+    });
+    
     console.warn('[DurabilityModifierHandler] Initialized');
   }
 
@@ -428,6 +433,122 @@ export class DurabilityModifierHandler {
       
     } catch (error) {
       console.warn('[DurabilityModifierHandler] Error breaking item:', error);
+    }
+  }
+
+  /**
+   * Handle armor durability loss when entity takes damage
+   * SIMPLE: Khi entity bị damage → trừ độ bền armor luôn (không check context/conditions)
+   */
+  private static handleArmorDamage(event: any): void {
+    try {
+      const { hurtEntity } = event;
+      
+      // Only process if entity has equipment component
+      const equipment = hurtEntity.getComponent('minecraft:equippable');
+      if (!equipment) return;
+      
+      // Skip if entity is player in creative mode
+      if (hurtEntity.typeId === 'minecraft:player') {
+        const player = hurtEntity as Player;
+        if (player.getGameMode() === GameMode.Creative) {
+          return;
+        }
+      }
+      
+      // Check all armor slots
+      const armorSlots = ['Head', 'Chest', 'Legs', 'Feet'];
+      
+      for (const slotName of armorSlots) {
+        const armorItem = equipment.getEquipment(slotName);
+        if (!armorItem) continue;
+        
+        // DYNAMIC: Resolve attributes from ItemStack
+        const resolved = AttributeResolver.getAttribute(armorItem, this.ATTRIBUTE_ID, system.currentTick);
+        if (!resolved) continue;
+        
+        const config = resolved.config;
+        const configuredDurability = config.durability;
+        
+        if (!configuredDurability || configuredDurability <= 0) continue;
+        
+        // Apply durability damage to armor (deferred to unrestricted context)
+        system.run(() => {
+          try {
+            // Re-get equipment in unrestricted context
+            const currentEquipment = hurtEntity.getComponent('minecraft:equippable');
+            if (!currentEquipment) return;
+            
+            const currentArmor = currentEquipment.getEquipment(slotName);
+            if (!currentArmor || currentArmor.typeId !== armorItem.typeId) return;
+            
+            // Get durability component
+            const durabilityComp = currentArmor.getComponent('minecraft:durability');
+            if (!durabilityComp) return;
+            
+            const maxDurability = durabilityComp.maxDurability;
+            const currentDamage = durabilityComp.damage;
+            
+            // Calculate damage per use
+            const damagePerUse = Math.floor(maxDurability / configuredDurability);
+            
+            // Vanilla already consumed 1 durability, apply additional damage
+            const additionalDamage = Math.max(0, damagePerUse - 1);
+            const newDamage = currentDamage + additionalDamage;
+            
+            console.warn(`[DurabilityModifierHandler] Armor ${currentArmor.typeId} damaged: ${currentDamage} -> ${newDamage}/${maxDurability} (${configuredDurability} uses total)`);
+            
+            // Check if armor will break
+            if (newDamage >= maxDurability) {
+              // Break armor (remove from slot)
+              currentEquipment.setEquipment(slotName, undefined);
+              
+              // Play break sound and particle
+              if (hurtEntity.typeId === 'minecraft:player') {
+                const player = hurtEntity as Player;
+                player.playSound('random.break');
+                player.dimension.spawnParticle('minecraft:item_break_particle', player.location);
+              }
+              
+              console.warn(`[DurabilityModifierHandler] Armor ${currentArmor.typeId} broke`);
+            } else {
+              // Apply damage
+              durabilityComp.damage = newDamage;
+              
+              // Calculate remaining uses
+              const remainingDurability = maxDurability - newDamage;
+              const usesRemaining = Math.floor(remainingDurability / damagePerUse);
+              
+              // If no uses remaining, break the armor now
+              if (usesRemaining <= 0) {
+                currentEquipment.setEquipment(slotName, undefined);
+                
+                if (hurtEntity.typeId === 'minecraft:player') {
+                  const player = hurtEntity as Player;
+                  player.playSound('random.break');
+                  player.dimension.spawnParticle('minecraft:item_break_particle', player.location);
+                }
+                
+                console.warn(`[DurabilityModifierHandler] Armor ${currentArmor.typeId} broke (0 uses remaining)`);
+              } else {
+                // Refresh lore to update {current_durability} placeholder
+                LoreRefreshSystem.refresh(currentArmor);
+                
+                // Update armor in equipment slot
+                currentEquipment.setEquipment(slotName, currentArmor);
+                
+                console.warn(`[DurabilityModifierHandler] Armor ${currentArmor.typeId} updated: ${usesRemaining} uses remaining`);
+              }
+            }
+            
+          } catch (error) {
+            console.warn('[DurabilityModifierHandler] Error in deferred armor damage:', error);
+          }
+        });
+      }
+      
+    } catch (error) {
+      console.warn('[DurabilityModifierHandler] Error in armor damage handler:', error);
     }
   }
 

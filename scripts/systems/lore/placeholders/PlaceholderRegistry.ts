@@ -21,6 +21,7 @@ import { UndeadSlayerHandler } from '../../attributes/handlers/UndeadSlayerHandl
 import { RustMiteEdibleHandler } from '../../attributes/handlers/RustMiteEdibleHandler';
 import { EmptyHandCombatHandler } from '../../attributes/handlers/EmptyHandCombatHandler';
 import { HungerInflictionHandler } from '../../attributes/handlers/HungerInflictionHandler';
+import { ArmorDamageMultiplierHandler } from '../../attributes/handlers/ArmorDamageMultiplierHandler';
 
 // Type for handlers with lore processing
 type AttributeHandler = {
@@ -45,6 +46,7 @@ export class PlaceholderRegistry {
     ['rust_mite_edible', RustMiteEdibleHandler],
     ['empty_hand_combat', EmptyHandCombatHandler],
     ['hunger_infliction', HungerInflictionHandler], // Entity attribute
+    ['armor_damage_multiplier', ArmorDamageMultiplierHandler], // Armor damage multiplier
   ]);
   
   /**

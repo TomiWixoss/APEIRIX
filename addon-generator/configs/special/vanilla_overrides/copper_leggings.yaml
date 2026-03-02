@@ -1,0 +1,18 @@
+# Vanilla Override: Copper Leggings
+# Override vanilla copper leggings với custom attributes
+
+id: minecraft:copper_leggings
+name: lang:armor.copper_leggings
+lore: lang:lore.auto
+wikiDescription: lang:wiki.armor.copper_leggings
+
+# Attributes
+attributes:
+  # Chỉ còn 4 lần dùng
+  durability_modifier:
+    durability: 4
+
+  # Giảm hiệu quả giáp: 12 armor points → 4 armor points
+  # Multiplier: 1.62x damage
+  armor_damage_multiplier:
+    damageMultiplier: 1.62

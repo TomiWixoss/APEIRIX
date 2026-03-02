@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-02T11:59:11.193Z
- * Total attributes: 7
- * Total items with attributes: 131
+ * Generated: 2026-03-02T12:47:13.513Z
+ * Total attributes: 8
+ * Total items with attributes: 139
  */
 
 // Attribute data for each item
@@ -27,6 +27,12 @@ export interface AttributeItemData {
  * - Get attribute config: getAttributeConfig(itemId, 'undead_slayer')
  */
 export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
+  'armor_damage_multiplier': [
+    { itemId: 'minecraft:copper_helmet', config: {"damageMultiplier":1.62} },
+    { itemId: 'minecraft:copper_chestplate', config: {"damageMultiplier":1.62} },
+    { itemId: 'minecraft:copper_leggings', config: {"damageMultiplier":1.62} },
+    { itemId: 'minecraft:copper_boots', config: {"damageMultiplier":1.62} }
+  ],
   'breakable': [
     { itemId: 'minecraft:wooden_pickaxe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} },
     { itemId: 'minecraft:wooden_axe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
@@ -52,6 +58,10 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"durability":4} },
     { itemId: 'minecraft:wooden_sword', config: {"durability":4} },
     { itemId: 'minecraft:wooden_spear', config: {"durability":4} },
+    { itemId: 'minecraft:copper_helmet', config: {"durability":4} },
+    { itemId: 'minecraft:copper_chestplate', config: {"durability":4} },
+    { itemId: 'minecraft:copper_leggings', config: {"durability":4} },
+    { itemId: 'minecraft:copper_boots', config: {"durability":4} },
     { itemId: 'apeirix:wooden_hammer', config: {"durability":4} }
   ],
   'hammer_mining': [
