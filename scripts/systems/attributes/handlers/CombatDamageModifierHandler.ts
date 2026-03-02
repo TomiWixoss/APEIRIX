@@ -37,7 +37,7 @@ export class CombatDamageModifierHandler {
   // METADATA - Single source of truth
   // ============================================
   static readonly ATTRIBUTE_ID = 'combat_damage_modifier';
-  static readonly TEMPLATE_KEY = 'combat_damage_template';
+  static readonly TEMPLATE_KEY = 'combat_damage_modifier_template';
   
   // ============================================
   // LORE GENERATION (Compile-time)

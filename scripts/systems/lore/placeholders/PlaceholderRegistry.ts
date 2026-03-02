@@ -189,10 +189,10 @@ export class PlaceholderRegistry {
       
       console.warn(`[PlaceholderRegistry] Template key for ${attr.id}: ${templateKey}`);
       
-      // Get template from lang system
+      // Get template from lang system (attributes.{template_key})
       const template = LangManager.get(`attributes.${templateKey}`);
       if (!template) {
-        console.warn(`[PlaceholderRegistry] No template found for attributes.${templateKey}`);
+        console.warn(`[PlaceholderRegistry] No template found for lore.attributes.${templateKey}`);
         continue;
       }
       
@@ -201,16 +201,17 @@ export class PlaceholderRegistry {
       // Process template with handler's placeholder processor
       let visibleText: string;
       if (HandlerClass.processLorePlaceholders) {
-        // Pass config directly via a mock object with the config
-        const mockItemWithConfig = {
-          ...itemStack,
-          _attributeConfig: attr.config  // Inject config for handler
-        };
-        visibleText = HandlerClass.processLorePlaceholders(itemId, template, mockItemWithConfig);
+        // Pass itemStack directly - handler will use AttributeResolver to get config
+        visibleText = HandlerClass.processLorePlaceholders(itemId, template, itemStack);
         console.warn(`[PlaceholderRegistry] Processed line: ${visibleText}`);
       } else {
         console.warn(`[PlaceholderRegistry] No placeholder processor, using raw template`);
         visibleText = template;
+      }
+      
+      // Run through placeholder processors (for {attr:*})
+      for (const processor of this.processors) {
+        visibleText = processor.process(itemId, visibleText);
       }
       
       // Add PLAIN TEXT (no encoding)

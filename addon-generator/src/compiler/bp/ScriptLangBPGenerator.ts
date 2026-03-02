@@ -28,7 +28,6 @@ export class ScriptLangBPGenerator {
       // Look in script-lang folder
       const uiYamlPath = path.join(configDir, 'script-lang', lang, 'ui.yaml');
       const wikiYamlPath = path.join(configDir, 'script-lang', lang, 'wiki.yaml');
-      const attributesYamlPath = path.join(configDir, 'script-lang', lang, 'attributes.yaml');
       
       let langData: Record<string, any> = {};
 
@@ -48,11 +47,22 @@ export class ScriptLangBPGenerator {
         langData = { ...langData, ...wikiData };
       }
 
-      // Load Attributes YAML (for lore placeholders)
+      // Load Attribute Labels YAML (for {attr:*} placeholders)
+      const attributeLabelsYamlPath = path.join(configDir, 'script-lang', lang, 'attributes.yaml');
+      if (existsSync(attributeLabelsYamlPath)) {
+        const attributesContent = readFileSync(attributeLabelsYamlPath, 'utf-8');
+        const attributesData = yaml.load(attributesContent) as Record<string, any>;
+        langData = { ...langData, attributes: attributesData };
+      }
+
+      // Load Attributes YAML (for lore templates)
+      // Load from lore/attributes.yaml (contains templates)
+      const attributesYamlPath = path.join(configDir, 'script-lang', lang, 'lore', 'attributes.yaml');
       if (existsSync(attributesYamlPath)) {
         const attributesContent = readFileSync(attributesYamlPath, 'utf-8');
         const attributesData = yaml.load(attributesContent) as Record<string, any>;
-        langData = { ...langData, attributes: attributesData };
+        // Merge with existing attributes (labels + templates)
+        langData.attributes = { ...langData.attributes, ...attributesData };
       }
 
       if (Object.keys(langData).length === 0) {

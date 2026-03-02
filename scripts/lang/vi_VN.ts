@@ -150,6 +150,13 @@ export const LANG_VI = {
         "hammer_mining": "§6Đập Búa",
         "rust_mite_edible": "§cRust Mite",
         "requires_tool": "§eYêu cầu",
-        "requires_tool_template": "§eYêu cầu: §f{tool_type}"
+        "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
+        "vanilla_override_warning": "§e⚠ Thuộc tính đã được điều chỉnh§r",
+        "breakable_template": "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+        "durability_modifier_template": "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+        "combat_damage_modifier_template": "{attr:combat_damage}: §f{combat_damage}",
+        "undead_slayer_template": "{attr:damage_multiplier}: §f+{damageMultiplier}%",
+        "hammer_mining_template": "{attr:hammer_mining}: §aĐập block ra bụi",
+        "rust_mite_edible_template": "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
     }
 };

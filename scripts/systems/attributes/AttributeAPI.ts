@@ -106,6 +106,7 @@ export class AttributeAPI {
   
   /**
    * Transfer attribute from one item to another
+   * Auto-detects if items are blocks and updates block registry accordingly
    * 
    * @param fromStack Source item
    * @param toStack Target item
@@ -127,24 +128,64 @@ export class AttributeAPI {
         return false;
       }
       
+      const sourceId = fromStack.typeId;
+      const targetId = toStack.typeId;
+      const config = attr.config;
+      
+      // Check if items are blocks (simple heuristic: contains "minecraft:" and common block names)
+      const isSourceBlock = this.isBlockItem(sourceId);
+      const isTargetBlock = this.isBlockItem(targetId);
+      
+      console.warn(`[AttributeAPI] Transfer: ${sourceId} (isBlock: ${isSourceBlock}) → ${targetId} (isBlock: ${isTargetBlock})`);
+      
       // Add to target
-      if (!this.addAttribute(toStack, attrId, attr.config)) {
+      if (!this.addAttribute(toStack, attrId, config)) {
         return false;
+      }
+      
+      // If target is a block, also add to block registry
+      if (isTargetBlock) {
+        GlobalBlockAttributeRegistry.addBlockAttribute(targetId, attrId, config);
+        console.warn(`[AttributeAPI] Also added to block registry for ${targetId}`);
       }
       
       // Remove from source
       if (!this.removeAttribute(fromStack, attrId)) {
         // Rollback target
         this.removeAttribute(toStack, attrId);
+        if (isTargetBlock) {
+          GlobalBlockAttributeRegistry.removeBlockAttribute(targetId, attrId);
+        }
         return false;
       }
       
-      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from ${fromStack.typeId} to ${toStack.typeId}`);
+      // If source is a block, also remove from block registry
+      if (isSourceBlock) {
+        GlobalBlockAttributeRegistry.removeBlockAttribute(sourceId, attrId);
+        console.warn(`[AttributeAPI] Also removed from block registry for ${sourceId}`);
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from ${sourceId} to ${targetId}`);
       return true;
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to transfer attribute:`, error);
       return false;
     }
+  }
+  
+  /**
+   * Check if an item ID represents a block
+   * Simple heuristic: vanilla blocks or common block patterns
+   */
+  private static isBlockItem(itemId: string): boolean {
+    // Common block types that can be placed
+    const blockPatterns = [
+      '_log', '_wood', '_planks', 'stone', 'dirt', 'grass', 'sand', 'gravel',
+      'cobblestone', 'bedrock', 'ore', '_block', 'obsidian', 'netherrack',
+      'end_stone', 'concrete', 'terracotta', 'wool', 'glass', 'ice'
+    ];
+    
+    return blockPatterns.some(pattern => itemId.includes(pattern));
   }
   
   /**

@@ -44,7 +44,7 @@ export class DurabilityModifierHandler {
   // METADATA - Single source of truth
   // ============================================
   static readonly ATTRIBUTE_ID = 'durability_modifier';
-  static readonly TEMPLATE_KEY = 'durability_template';
+  static readonly TEMPLATE_KEY = 'durability_modifier_template';
   
   // ============================================
   // LORE GENERATION (Compile-time)
