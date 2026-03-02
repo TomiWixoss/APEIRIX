@@ -2129,6 +2129,13 @@ export const GENERATED_WIKI_ITEMS = [
       "§8Rớt từ sỏi"
     ],
     icon: "textures/items/flint_shard",
+    info: {
+      recipe_1_type: "shapeless",
+      recipe_1_label: "Bàn chế tạo (tự do)",
+      recipe_1_ingredients: "Flint",
+      recipe_1_result: "2x",
+      recipe_count: 1
+    },
   },
   {
     id: "apeirix:plant_fiber",
