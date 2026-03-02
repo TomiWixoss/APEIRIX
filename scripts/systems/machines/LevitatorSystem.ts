@@ -19,6 +19,7 @@ import { MachineStateManager } from '../shared/processing/MachineState';
 import { StorageDisplayRegistry } from '../shared/processing/StorageDisplayRegistry';
 import { AttributeResolver } from '../attributes/AttributeResolver';
 import { AttributeAPI } from '../attributes/AttributeAPI';
+import { LangManager } from '../../lang/LangManager';
 
 interface LevitatorState {
   storedItem: ItemStack | null;
@@ -128,8 +129,8 @@ export class LevitatorSystem extends BaseMachineSystem {
         return;
       }
       
-      // Case 2: Holding empty potion + machine has item → Extract attributes
-      if (heldItem && heldItem.typeId === 'minecraft:potion' && levState.storedItem) {
+      // Case 2: Holding empty potion + machine has NON-POTION item → Extract attributes
+      if (heldItem && heldItem.typeId === 'minecraft:potion' && levState.storedItem && levState.storedItem.typeId !== 'minecraft:potion') {
         this.extractAttributes(player, heldItem, levState, key);
         event.cancel = true;
         return;
@@ -207,9 +208,25 @@ export class LevitatorSystem extends BaseMachineSystem {
   /**
    * Extract attributes from stored item
    * Requires player to hold empty potions (amount = number of attributes)
+   * 
+   * NOTE: Only works if stored item is NOT a potion
+   * If stored item is potion with attributes → use infuse instead
    */
   private extractAttributes(player: Player, heldPotion: ItemStack, levState: LevitatorState, key: string): void {
     if (!levState.storedItem) return;
+    
+    // Prevent extracting from potion (potion should be used for infusion only)
+    if (levState.storedItem.typeId === 'minecraft:potion') {
+      player.sendMessage(`§cKhông thể trích xuất từ bình thuộc tính. Hãy dùng item để ép thuộc tính vào.`);
+      return;
+    }
+    
+    // Check if held potion has attributes (must be empty potion)
+    const heldPotionAttrs = AttributeResolver.resolve(heldPotion);
+    if (heldPotionAttrs.length > 0) {
+      player.sendMessage(`§cCần bình trống để trích xuất thuộc tính. Bình này đã có thuộc tính rồi.`);
+      return;
+    }
     
     const item = levState.storedItem;
     const attributes = AttributeResolver.resolve(item);
@@ -251,7 +268,11 @@ export class LevitatorSystem extends BaseMachineSystem {
       const potions: ItemStack[] = [];
       for (const attr of attrData) {
         const potion = new ItemStack('minecraft:potion', 1);
-        potion.nameTag = `§dThuộc tính: §f${attr.id}`;
+        
+        // Get localized attribute name from lang system
+        const attrName = LangManager.get(`attributes.${attr.id}`) || attr.id;
+        potion.nameTag = `§dThuộc tính: ${attrName}`;
+        
         AttributeAPI.addAttribute(potion, attr.id, attr.config);
         potions.push(potion);
       }
