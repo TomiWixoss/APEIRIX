@@ -76,6 +76,7 @@ copper_ingot_dust: "Raw Copper dust. Used on the mixing table alongside tin to c
 copper_ingot_dust_pure: "Pure Copper dust. Bright orange, guaranteeing the highest ingot yield when smelted."
 crusher: "A basic mineral crusher. Pulverizes raw ores and stones into dust for easier processing."
 crusher_on: "The crusher is running. Its internal gears are aggressively grinding everything fed into it."
+levitator: "A mystical attribute extractor. Uses Ender energy to separate attributes from items into potions, or infuse attributes from potions into items."
 deepslate_dust: "Deepslate dust. A dark, heavy byproduct from crushing deep-underground ores."
 deepslate_lead_ore: "Lead ore buried deep within Deepslate. Geological pressure has made it exceptionally dense."
 deepslate_nickel_ore: "Nickel trapped in Deepslate. Its shiny surface contrasts sharply with the dark surrounding stone."

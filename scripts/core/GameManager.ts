@@ -19,6 +19,7 @@ import { OreSieveSystem } from "../systems/mining/OreSieveSystem";
 import { OreWasherSystem } from "../systems/mining/OreWasherSystem";
 import { CompressorSystem } from "../systems/mining/CompressorSystem";
 import { CrusherSystem } from "../systems/mining/CrusherSystem";
+import { LevitatorSystem } from "../systems/machines/LevitatorSystem";
 import { DisplayHandler } from "../systems/shared/processing/DisplayHandler";
 import { LoreSystem } from "../systems/lore/LoreSystem";
 import { DamageIndicatorSystem } from "../systems/combat/DamageIndicatorSystem";
@@ -217,6 +218,7 @@ export class GameManager {
         OreWasherSystem.initialize();
         CompressorSystem.initialize();
         CrusherSystem.initialize();
+        LevitatorSystem.initialize();
         DisplayHandler.initialize();
         
         // Initialize test commands (development only)

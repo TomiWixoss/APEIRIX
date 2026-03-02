@@ -1,0 +1,17 @@
+id: levitator_on
+displayType: machine
+name: lang:blocks.levitator
+wikiDescription: lang:wiki.blocks.levitator
+textures:
+  up: ./assets/levitator_top_on.png
+  down: ./assets/levitator_bottom.png
+  north: ./assets/levitator_side_on.png
+  south: ./assets/levitator_side_on.png
+  east: ./assets/levitator_side_on.png
+  west: ./assets/levitator_side_on.png
+category: equipment
+destroyTime: 5
+explosionResistance: 10
+mapColor: "#8B4789"
+requiresTool: true
+toolTier: iron

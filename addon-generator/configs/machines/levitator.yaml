@@ -1,0 +1,35 @@
+id: levitator
+displayType: machine
+name: lang:blocks.levitator
+wikiDescription: lang:wiki.blocks.levitator
+textures:
+  up: ./assets/levitator_top_off.png
+  down: ./assets/levitator_bottom.png
+  north: ./assets/levitator_side_off.png
+  south: ./assets/levitator_side_off.png
+  east: ./assets/levitator_side_off.png
+  west: ./assets/levitator_side_off.png
+category: equipment
+destroyTime: 5
+explosionResistance: 10
+mapColor: "#8B4789"
+requiresTool: true
+toolTier: iron
+recipes:
+  - type: shaped
+    id: levitator
+    pattern:
+      - "EAE"
+      - "APA"
+      - "IRI"
+    ingredients:
+      E: minecraft:ender_pearl
+      A: minecraft:amethyst_shard
+      P: minecraft:piston
+      I: apeirix:steel_ingot
+      R: minecraft:redstone_block
+    result: apeirix:levitator
+    count: 1
+    unlock:
+      - apeirix:steel_ingot
+      - minecraft:ender_pearl

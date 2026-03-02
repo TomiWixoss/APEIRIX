@@ -78,3 +78,5 @@ blocks:
   compressor_on: Compressor (Running)
   crusher: Crusher
   crusher_on: Crusher (Running)
+  levitator: Attribute Levitator
+  levitator_on: Attribute Levitator (Active)

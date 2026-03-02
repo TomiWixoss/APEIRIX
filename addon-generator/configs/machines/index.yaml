@@ -3,6 +3,8 @@ import:
   - compressor_on.yaml
   - crusher.yaml
   - crusher_on.yaml
+  - levitator.yaml
+  - levitator_on.yaml
   - ore_crusher_mk1.yaml
   - ore_crusher_mk2.yaml
   - ore_crusher_mk3.yaml

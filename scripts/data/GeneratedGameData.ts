@@ -5028,6 +5028,33 @@ export const GENERATED_WIKI_ITEMS = [
     },
   },
   {
+    id: "apeirix:levitator",
+    category: "blocks",
+    name: "Máy Tách Thuộc Tính",
+    description: "wiki.blocks.levitator",
+    icon: "textures/items/levitator_side_off",
+    info: {
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[E][A][E]|[A][P][A]|[I][R][I]",
+      recipe_1_ingredients: "E=Ender Pearl, A=Amethyst Shard, P=Piston, I=steel_ingot, R=Block of Redstone",
+      recipe_count: 1,
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Sắt"
+    },
+  },
+  {
+    id: "apeirix:levitator_on",
+    category: "blocks",
+    name: "Máy Tách Thuộc Tính",
+    description: "wiki.blocks.levitator",
+    icon: "textures/items/levitator_side_on",
+    info: {
+      "Độ cứng": 5,
+      "Công cụ yêu cầu": "Sắt"
+    },
+  },
+  {
     id: "apeirix:ore_crusher_mk1",
     category: "blocks",
     name: "Máy Nghiền Quặng MK1",
@@ -5708,6 +5735,18 @@ export const GENERATED_BLOCKS = [
     blockType: "machine",
     machineType: "crusher",
     displayName: "Máy Nghiền"
+  },
+  {
+    blockId: "apeirix:levitator",
+    blockType: "machine",
+    machineType: "levitator",
+    displayName: "Máy Tách Thuộc Tính"
+  },
+  {
+    blockId: "apeirix:levitator_on",
+    blockType: "machine",
+    machineType: "levitator",
+    displayName: "Máy Tách Thuộc Tính"
   },
   {
     blockId: "apeirix:ore_crusher_mk1",

@@ -5,17 +5,19 @@
  * - Hiển thị thông tin cho TẤT CẢ blocks của addon (machines, ores, storage, etc.)
  * - Machines đang chạy: Progress bar + thời gian còn lại
  * - Machines idle: Tên máy + trạng thái "Sẵn sàng"
+ * - Storage machines: Tên máy + item đang lưu
  * - Blocks khác: Tên block
  * 
  * Tối ưu hiệu năng:
  * - Chỉ hiển thị khi player nhìn vào block (raycast)
- * - Update mỗi 5 ticks (0.25s) - realtime
+ * - Update mỗi 10 ticks (0.5s) - realtime
  * - Tự động clear khi không nhìn vào block
  */
 
 import { Player, world, system, Block } from '@minecraft/server';
 import { MachineStateManager, MachineState } from './MachineState';
 import { BlockInfoProvider, BlockInfo } from './BlockInfoProvider';
+import { StorageDisplayRegistry } from './StorageDisplayRegistry';
 
 export class DisplayHandler {
   private static readonly CHECK_INTERVAL = 10; // Check mỗi 10 ticks (0.5s) - OPTIMIZED từ 5
@@ -84,9 +86,15 @@ export class DisplayHandler {
   }
 
   /**
-   * Tạo display cho machines (processing hoặc idle)
+   * Tạo display cho machines (processing, idle, or custom storage)
    */
   private static createMachineDisplay(block: Block, blockInfo: BlockInfo): string {
+    // Check for custom display handler first (for storage machines like levitator)
+    const customDisplay = StorageDisplayRegistry.getCustomDisplay(block, blockInfo.displayName);
+    if (customDisplay) {
+      return customDisplay;
+    }
+    
     const state = MachineStateManager.get(block.dimension.id, block.location);
 
     // Machine đang chạy
