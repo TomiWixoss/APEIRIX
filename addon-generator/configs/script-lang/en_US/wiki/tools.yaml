@@ -11,3 +11,10 @@ wooden_spear: "Wooden Spear. Extended reach but weak (0.5 damage); breaks when h
 
 # Pickaxes
 bronze_pickaxe: "Bronze pickaxe used for mining stone and ores. Equivalent to iron pickaxe."
+
+# Flint Tools
+flint_knife: "Flint Knife. The first primitive tool, deals 2 damage. Durability: 12 uses."
+flint_pickaxe: "Flint Pickaxe. Only mines coal and stone; other ores will break the tool. Durability: 12 uses."
+flint_axe: "Flint Axe. Chops wood effectively, breaks on stone or ore. Durability: 12 uses."
+flint_shovel: "Flint Shovel. Digs dirt, sand, gravel. Breaks on stone or ore. Durability: 12 uses."
+flint_hoe: "Flint Hoe. Tills farmland, breaks on stone or ore. Durability: 12 uses."

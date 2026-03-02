@@ -1,0 +1,8 @@
+# Plant Fiber - Nguyên liệu từ cỏ
+id: plant_fiber
+name: lang:materials.plant_fiber
+lore: lang:lore.materials.plant_fiber
+wikiDescription: lang:wiki.materials.plant_fiber
+texture: ../assets/special/plant_fiber.png
+category: items
+maxStackSize: 64

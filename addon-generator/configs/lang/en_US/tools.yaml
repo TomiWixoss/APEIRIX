@@ -36,3 +36,10 @@ tools:
   silver_hoe: Silver Hoe
   silver_sword: Silver Sword
   silver_hammer: Silver Hammer
+
+  # Flint Tools
+  flint_pickaxe: Flint Pickaxe
+  flint_axe: Flint Axe
+  flint_shovel: Flint Shovel
+  flint_hoe: Flint Hoe
+  flint_knife: Flint Knife

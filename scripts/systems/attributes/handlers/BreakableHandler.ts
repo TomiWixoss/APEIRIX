@@ -105,7 +105,8 @@ export class BreakableHandler {
     
     // Replace {breakable_condition}
     if (config?.conditions) {
-      const conditionText = this.formatCondition(config.conditions);
+      const mode = (config as any).mode;
+      const conditionText = this.formatCondition(config.conditions, mode);
       result = result.replace(/{breakable_condition}/g, conditionText);
     } else {
       result = result.replace(/{breakable_condition}/g, '');
@@ -116,17 +117,26 @@ export class BreakableHandler {
   
   /**
    * Format condition text from config
+   * Handles both blacklist and whitelist modes
    */
-  private static formatCondition(conditions: any): string {
+  private static formatCondition(conditions: any, mode?: string): string {
+    const isWhitelist = mode === 'whitelist';
+    
     // Check for blockTags
     if (conditions.blockTags && conditions.blockTags.length > 0) {
       const tags = conditions.blockTags.join(', ');
+      if (isWhitelist) {
+        return `trừ ${tags}`;
+      }
       return `khi đào ${tags}`;
     }
     
     // Check for blockIds
     if (conditions.blockIds && conditions.blockIds.length > 0) {
       const ids = conditions.blockIds.map((id: string) => id.replace('minecraft:', '')).join(', ');
+      if (isWhitelist) {
+        return `trừ ${ids}`;
+      }
       return `khi đào ${ids}`;
     }
     

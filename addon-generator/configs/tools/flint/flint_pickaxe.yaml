@@ -1,0 +1,51 @@
+type: pickaxe
+id: flint_pickaxe
+name: lang:tools.flint_pickaxe
+lore: lang:lore.auto
+wikiDescription: lang:wiki.tools.flint_pickaxe
+texture: ../assets/flint_pickaxe.png
+damage: 1
+category: equipment
+group: itemGroup.name.pickaxe
+diggerTags:
+  - minecraft:is_pickaxe_item_destructible
+  - stone
+  - rock
+recipe:
+  type: shaped
+  id: flint_pickaxe
+  pattern:
+    - "###"
+    - " S "
+    - " P "
+  ingredients:
+    "#": apeirix:flint_shard
+    S: minecraft:stick
+    P: apeirix:plant_string
+  result: apeirix:flint_pickaxe
+  count: 1
+  unlock:
+    - apeirix:flint_shard
+    - apeirix:plant_string
+materialId: apeirix:flint_shard
+durability: 12
+enchantability: 15
+tier: wood
+attributes:
+  durability_modifier:
+    durability: 12
+  combat_damage_modifier:
+    context: combat
+    damage: 1
+  # Chỉ đào được coal và stone, ore khác thì bể (whitelist mode)
+  breakable:
+    context: mining
+    value: 100
+    mode: whitelist
+    conditions:
+      blockIds:
+        - minecraft:coal_ore
+        - minecraft:deepslate_coal_ore
+        - minecraft:stone
+        - minecraft:cobblestone
+        - minecraft:deepslate

@@ -1,0 +1,44 @@
+type: sword
+id: flint_knife
+name: lang:tools.flint_knife
+lore: lang:lore.auto
+wikiDescription: lang:wiki.tools.flint_knife
+texture: ../assets/flint_knife.png
+damage: 2
+category: equipment
+group: itemGroup.name.sword
+specialBlocks:
+  - block: minecraft:web
+    speed: 15
+  - block: minecraft:bamboo
+    speed: 6
+recipe:
+  type: shaped
+  id: flint_knife
+  pattern:
+    - "#"
+    - S
+  ingredients:
+    "#": apeirix:flint_shard
+    S: minecraft:stick
+  result: apeirix:flint_knife
+  count: 1
+  unlock:
+    - apeirix:flint_shard
+materialId: apeirix:flint_shard
+durability: 12
+enchantability: 15
+tier: wood
+attributes:
+  durability_modifier:
+    durability: 12
+  combat_damage_modifier:
+    context: combat
+    damage: 2
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+        - stone

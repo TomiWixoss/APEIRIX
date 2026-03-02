@@ -1,0 +1,8 @@
+# Flint Shard - Mảnh đá lửa từ sỏi
+id: flint_shard
+name: lang:materials.flint_shard
+lore: lang:lore.materials.flint_shard
+wikiDescription: lang:wiki.materials.flint_shard
+texture: ../assets/special/flint_shard.png
+category: items
+maxStackSize: 64

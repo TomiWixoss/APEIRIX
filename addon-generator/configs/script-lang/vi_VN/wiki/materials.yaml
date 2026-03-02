@@ -272,3 +272,8 @@ tin_shovel: "Xẻng Thiếc. Mong manh, đào nhầm vào đá tảng là hỏng
 tin_sword: "Kiếm Thiếc. Yếu ớt, chỉ dùng đuổi mấy con nhện chứ không thể ra chiến trường."
 wiki_book: "Bách khoa toàn thư toàn tập. Cầm trên tay và tương tác với bất kỳ vật phẩm, khối hay sinh vật nào để xem thông tin chi tiết."
 wooden_hammer: "Búa gỗ tự chế. Nặng và kém cỏi, đập vài cục đá hay quặng thành bụi là vỡ nát ngay."
+
+# Flint Materials
+flint_shard: "Mảnh đá lửa sắc nhọn rớt từ sỏi. Nguyên liệu thô sơ để chế tạo công cụ đá lửa - bước đầu tiên trong hành trình sinh tồn."
+plant_fiber: "Sợi thực vật dai thu được từ cỏ. Có thể kết hợp thành dây thừng để chế tạo công cụ."
+plant_string: "Dây thừng được kết từ 2 sợi thực vật. Dùng để gia cố công cụ đá lửa, tăng độ bền."

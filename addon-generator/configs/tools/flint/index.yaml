@@ -1,0 +1,6 @@
+import:
+  - flint_axe.yaml
+  - flint_hoe.yaml
+  - flint_knife.yaml
+  - flint_pickaxe.yaml
+  - flint_shovel.yaml

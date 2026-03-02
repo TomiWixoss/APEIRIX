@@ -11,6 +11,10 @@ import { AttributeContext, AttributeConfig, AttributeCondition, EvaluationContex
 export class AttributeConditionEvaluator {
   /**
    * Check if attribute is active in given context
+   * 
+   * Supports two modes:
+   * - blacklist (default): Active when conditions MATCH
+   * - whitelist: Active when conditions DON'T MATCH
    */
   static isActive(attributeConfig: AttributeConfig | undefined, evalContext: EvaluationContext): boolean {
     // No config = always active (backward compatibility)
@@ -37,7 +41,18 @@ export class AttributeConditionEvaluator {
     }
     
     // Evaluate conditions based on context
-    return this.evaluateConditions(attributeConfig.conditions, evalContext);
+    const conditionsMet = this.evaluateConditions(attributeConfig.conditions, evalContext);
+    
+    // Check mode (whitelist vs blacklist)
+    const mode = (attributeConfig as any).mode || 'blacklist';
+    
+    if (mode === 'whitelist') {
+      // Whitelist: Active when conditions DON'T match (inverse logic)
+      return !conditionsMet;
+    } else {
+      // Blacklist (default): Active when conditions match
+      return conditionsMet;
+    }
   }
   
   /**

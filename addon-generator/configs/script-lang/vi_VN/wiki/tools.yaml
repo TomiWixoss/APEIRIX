@@ -11,3 +11,10 @@ wooden_spear: "Giáo Gỗ. Tầm đánh xa nhưng yếu ớt (0.5 damage); vỡ 
 
 # Pickaxes
 bronze_pickaxe: "Cuốc đồng thanh dùng để khai thác đá và quặng. Tương đương với cuốc sắt."
+
+# Flint Tools
+flint_knife: "Dao Đá Lửa. Công cụ thô sơ đầu tiên, gây 2 sát thương. Độ bền 12 lần dùng."
+flint_pickaxe: "Cúp Đá Lửa. Chỉ đào được than và đá, các quặng khác sẽ làm vỡ công cụ. Độ bền 12 lần dùng."
+flint_axe: "Rìu Đá Lửa. Chặt gỗ hiệu quả, vỡ khi đập vào đá hoặc quặng. Độ bền 12 lần dùng."
+flint_shovel: "Xẻng Đá Lửa. Đào đất, cát, sỏi. Vỡ khi đập vào đá hoặc quặng. Độ bền 12 lần dùng."
+flint_hoe: "Cuốc Đá Lửa. Cày đất trồng trọt, vỡ khi đập vào đá hoặc quặng. Độ bền 12 lần dùng."

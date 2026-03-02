@@ -4,3 +4,10 @@
 
 # Swords - Undead Slayer attribute
 silver_sword: "§c§lSát Thủ Undead§r|§7Gây §f+{damageMultiplier}%§7 sát thương lên quái vật undead|§7(Zombie, Skeleton, Wither, Phantom...)"
+
+# Flint Tools - Primitive tier
+flint_knife: "§7Dao đá lửa thô sơ|§6Sát thương: §f2|§6Độ bền: §f12"
+flint_pickaxe: "§7Cúp đá lửa thô sơ|§6Sát thương: §f1|§6Độ bền: §f12|§8Chỉ đào được than và đá"
+flint_axe: "§7Rìu đá lửa thô sơ|§6Sát thương: §f1|§6Độ bền: §f12"
+flint_shovel: "§7Xẻng đá lửa thô sơ|§6Sát thương: §f1|§6Độ bền: §f12"
+flint_hoe: "§7Cuốc đá lửa thô sơ|§6Sát thương: §f1|§6Độ bền: §f12"

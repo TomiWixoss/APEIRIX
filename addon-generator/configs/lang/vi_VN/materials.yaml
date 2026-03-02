@@ -138,6 +138,11 @@ materials:
   manyullyn_ingot_dust: Bụi Manyullyn
   manyullyn_ingot_dust_pure: Bụi Manyullyn Tinh Khiết
 
+  # Flint Materials
+  flint_shard: Mảnh Đá Lửa
+  plant_fiber: Sợi Thực Vật
+  plant_string: Dây Thừng Thực Vật
+
 blocks:
   alloy_mixing_table: Bàn Trộn Hợp Kim
   ore_crusher_mk1: Máy Nghiền Quặng MK1

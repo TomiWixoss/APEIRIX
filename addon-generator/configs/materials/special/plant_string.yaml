@@ -1,0 +1,19 @@
+# Plant String - Dây thừng từ sợi thực vật
+id: plant_string
+name: lang:materials.plant_string
+lore: lang:lore.materials.plant_string
+wikiDescription: lang:wiki.materials.plant_string
+texture: ../assets/special/plant_string.png
+category: items
+maxStackSize: 64
+recipes:
+  - type: shaped
+    id: plant_string
+    pattern:
+      - "##"
+    ingredients:
+      "#": apeirix:plant_fiber
+    result: apeirix:plant_string
+    count: 1
+    unlock:
+      - apeirix:plant_fiber

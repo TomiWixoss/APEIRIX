@@ -66,6 +66,11 @@ materials:
   steel_alloy_base_gear: Steel Gear
   engineering_hammer: Engineering Hammer
 
+  # Flint Materials
+  flint_shard: Flint Shard
+  plant_fiber: Plant Fiber
+  plant_string: Plant String
+
 blocks:
   alloy_mixing_table: Alloy Mixing Table
   ore_crusher_mk1: Ore Crusher MK1

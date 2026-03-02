@@ -1,0 +1,39 @@
+type: hoe
+id: flint_hoe
+name: lang:tools.flint_hoe
+lore: lang:lore.auto
+wikiDescription: lang:wiki.tools.flint_hoe
+texture: ../assets/flint_hoe.png
+damage: 1
+category: equipment
+group: itemGroup.name.hoe
+recipe:
+  type: shaped
+  id: flint_hoe
+  pattern:
+    - "##"
+    - " S"
+  ingredients:
+    "#": apeirix:flint_shard
+    S: minecraft:stick
+  result: apeirix:flint_hoe
+  count: 1
+  unlock:
+    - apeirix:flint_shard
+materialId: apeirix:flint_shard
+durability: 12
+enchantability: 15
+tier: wood
+attributes:
+  durability_modifier:
+    durability: 12
+  combat_damage_modifier:
+    context: combat
+    damage: 1
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+        - stone

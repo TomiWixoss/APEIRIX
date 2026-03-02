@@ -1,0 +1,47 @@
+type: axe
+id: flint_axe
+name: lang:tools.flint_axe
+lore: lang:lore.auto
+wikiDescription: lang:wiki.tools.flint_axe
+texture: ../assets/flint_axe.png
+damage: 1
+category: equipment
+group: itemGroup.name.axe
+diggerTags:
+  - wood
+  - log
+  - pumpkin
+  - plant_stem
+recipe:
+  type: shaped
+  id: flint_axe
+  pattern:
+    - "##"
+    - "#S"
+    - "PS"
+  ingredients:
+    "#": apeirix:flint_shard
+    S: minecraft:stick
+    P: apeirix:plant_string
+  result: apeirix:flint_axe
+  count: 1
+  unlock:
+    - apeirix:flint_shard
+    - apeirix:plant_string
+materialId: apeirix:flint_shard
+durability: 12
+enchantability: 15
+tier: wood
+attributes:
+  durability_modifier:
+    durability: 12
+  combat_damage_modifier:
+    context: combat
+    damage: 1
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+        - stone

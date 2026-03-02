@@ -269,3 +269,8 @@ tin_shovel: "Tin Shovel. Fragile; hitting a rock hidden in the dirt will likely 
 tin_sword: "Tin Sword. Weak and flimsy; only good for shooing away spiders, not for real combat."
 wiki_book: "The complete encyclopedia. Hold it and interact with any item, block, or entity to reveal detailed information."
 wooden_hammer: "Improvised Wooden Hammer. Clunky and weak; breaks after crushing only a handful of stones into dust."
+
+# Flint Materials
+flint_shard: "Sharp flint shard dropped from gravel. Primitive raw material for crafting flint tools - the first step in your survival journey."
+plant_fiber: "Tough plant fiber harvested from grass. Can be combined into string for tool crafting."
+plant_string: "String woven from 2 plant fibers. Used to reinforce flint tools, increasing durability."

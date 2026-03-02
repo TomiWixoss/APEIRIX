@@ -163,6 +163,31 @@ export const GENERATED_TOOLS = [
     durability: 131
   },
   {
+    id: "apeirix:flint_axe",
+    type: "axe" as const,
+    durability: 12
+  },
+  {
+    id: "apeirix:flint_hoe",
+    type: "hoe" as const,
+    durability: 12
+  },
+  {
+    id: "apeirix:flint_knife",
+    type: "sword" as const,
+    durability: 12
+  },
+  {
+    id: "apeirix:flint_pickaxe",
+    type: "pickaxe" as const,
+    durability: 12
+  },
+  {
+    id: "apeirix:flint_shovel",
+    type: "shovel" as const,
+    durability: 12
+  },
+  {
     id: "apeirix:ardite_hammer",
     type: "hammer" as const,
     durability: 750
@@ -2094,6 +2119,49 @@ export const GENERATED_WIKI_ITEMS = [
     },
   },
   {
+    id: "apeirix:flint_shard",
+    category: "materials",
+    name: "Mảnh Đá Lửa",
+    description: "Mảnh đá lửa sắc nhọn rớt từ sỏi. Nguyên liệu thô sơ để chế tạo công cụ đá lửa - bước đầu tiên trong hành trình sinh tồn.",
+    lore: [
+      "§7Mảnh đá lửa sắc nhọn",
+      "§6Loại: §fNguyên Liệu Thô",
+      "§8Rớt từ sỏi"
+    ],
+    icon: "textures/items/flint_shard",
+  },
+  {
+    id: "apeirix:plant_fiber",
+    category: "materials",
+    name: "Sợi Thực Vật",
+    description: "Sợi thực vật dai thu được từ cỏ. Có thể kết hợp thành dây thừng để chế tạo công cụ.",
+    lore: [
+      "§7Sợi thực vật dai",
+      "§6Loại: §fNguyên Liệu Thô",
+      "§8Rớt từ cỏ"
+    ],
+    icon: "textures/items/plant_fiber",
+  },
+  {
+    id: "apeirix:plant_string",
+    category: "materials",
+    name: "Dây Thừng Thực Vật",
+    description: "Dây thừng được kết từ 2 sợi thực vật. Dùng để gia cố công cụ đá lửa, tăng độ bền.",
+    lore: [
+      "§7Dây thừng từ sợi thực vật",
+      "§6Loại: §fNguyên Liệu",
+      "§8Chế từ 2 Sợi Thực Vật"
+    ],
+    icon: "textures/items/plant_string",
+    info: {
+      recipe_1_type: "shaped",
+      recipe_1_label: "Bàn chế tạo (có hình)",
+      recipe_1_pattern: "[#][#]",
+      recipe_1_ingredients: "#=Sợi Thực Vật",
+      recipe_count: 1
+    },
+  },
+  {
     id: "apeirix:steel_alloy_base_gear",
     category: "materials",
     name: "Bánh Răng Thép",
@@ -2664,6 +2732,101 @@ export const GENERATED_WIKI_ITEMS = [
       "Sát thương": 4,
       "Độ phù phép": 18,
       "Cấp độ": "stone"
+    },
+  },
+  {
+    id: "apeirix:flint_axe",
+    category: "tools",
+    name: "Rìu Đá Lửa",
+    description: "Rìu Đá Lửa. Chặt gỗ hiệu quả, vỡ khi đập vào đá hoặc quặng. Độ bền 12 lần dùng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
+    ],
+    icon: "textures/items/flint_axe",
+    info: {
+      "Độ bền": 12,
+      "Sát thương": 1,
+      "Độ phù phép": 15,
+      "Cấp độ": "wood"
+    },
+  },
+  {
+    id: "apeirix:flint_hoe",
+    category: "tools",
+    name: "Cuốc Đá Lửa",
+    description: "Cuốc Đá Lửa. Cày đất trồng trọt, vỡ khi đập vào đá hoặc quặng. Độ bền 12 lần dùng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
+    ],
+    icon: "textures/items/flint_hoe",
+    info: {
+      "Độ bền": 12,
+      "Sát thương": 1,
+      "Độ phù phép": 15,
+      "Cấp độ": "wood"
+    },
+  },
+  {
+    id: "apeirix:flint_knife",
+    category: "tools",
+    name: "Dao Đá Lửa",
+    description: "Dao Đá Lửa. Công cụ thô sơ đầu tiên, gây 2 sát thương. Độ bền 12 lần dùng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
+    ],
+    icon: "textures/items/flint_knife",
+    info: {
+      "Độ bền": 12,
+      "Sát thương": 2,
+      "Độ phù phép": 15,
+      "Cấp độ": "wood"
+    },
+  },
+  {
+    id: "apeirix:flint_pickaxe",
+    category: "tools",
+    name: "Cúp Đá Lửa",
+    description: "Cúp Đá Lửa. Chỉ đào được than và đá, các quặng khác sẽ làm vỡ công cụ. Độ bền 12 lần dùng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
+    ],
+    icon: "textures/items/flint_pickaxe",
+    info: {
+      "Độ bền": 12,
+      "Sát thương": 1,
+      "Độ phù phép": 15,
+      "Cấp độ": "wood"
+    },
+  },
+  {
+    id: "apeirix:flint_shovel",
+    category: "tools",
+    name: "Xẻng Đá Lửa",
+    description: "Xẻng Đá Lửa. Đào đất, cát, sỏi. Vỡ khi đập vào đá hoặc quặng. Độ bền 12 lần dùng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})"
+    ],
+    icon: "textures/items/flint_shovel",
+    info: {
+      "Độ bền": 12,
+      "Sát thương": 1,
+      "Độ phù phép": 15,
+      "Cấp độ": "wood"
     },
   },
   {

@@ -99,3 +99,10 @@ tools:
   manyullyn_hoe: Cuốc Manyullyn
   manyullyn_sword: Kiếm Manyullyn
   manyullyn_hammer: Búa Manyullyn
+
+  # Flint Tools
+  flint_pickaxe: Cúp Đá Lửa
+  flint_axe: Rìu Đá Lửa
+  flint_shovel: Xẻng Đá Lửa
+  flint_hoe: Cuốc Đá Lửa
+  flint_knife: Dao Đá Lửa

@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-02T12:47:13.513Z
+ * Generated: 2026-03-02T13:56:07.720Z
  * Total attributes: 8
- * Total items with attributes: 139
+ * Total items with attributes: 154
  */
 
 // Attribute data for each item
@@ -40,6 +40,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'minecraft:wooden_spear', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'apeirix:flint_axe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'apeirix:flint_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'apeirix:flint_knife', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'apeirix:flint_pickaxe', config: {"context":"mining","value":100,"mode":"whitelist","conditions":{"blockIds":["minecraft:coal_ore","minecraft:deepslate_coal_ore","minecraft:stone","minecraft:cobblestone","minecraft:deepslate"]}} },
+    { itemId: 'apeirix:flint_shovel', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'apeirix:wooden_hammer', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} }
   ],
   'combat_damage_modifier': [
@@ -49,6 +54,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"context":"combat","damage":0} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"combat","damage":0.5} },
     { itemId: 'minecraft:wooden_spear', config: {"context":"combat","damage":0.5} },
+    { itemId: 'apeirix:flint_axe', config: {"context":"combat","damage":1} },
+    { itemId: 'apeirix:flint_hoe', config: {"context":"combat","damage":1} },
+    { itemId: 'apeirix:flint_knife', config: {"context":"combat","damage":2} },
+    { itemId: 'apeirix:flint_pickaxe', config: {"context":"combat","damage":1} },
+    { itemId: 'apeirix:flint_shovel', config: {"context":"combat","damage":1} },
     { itemId: 'apeirix:wooden_hammer', config: {"context":"combat","damage":0} }
   ],
   'durability_modifier': [
@@ -62,6 +72,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:copper_chestplate', config: {"durability":4} },
     { itemId: 'minecraft:copper_leggings', config: {"durability":4} },
     { itemId: 'minecraft:copper_boots', config: {"durability":4} },
+    { itemId: 'apeirix:flint_axe', config: {"durability":12} },
+    { itemId: 'apeirix:flint_hoe', config: {"durability":12} },
+    { itemId: 'apeirix:flint_knife', config: {"durability":12} },
+    { itemId: 'apeirix:flint_pickaxe', config: {"durability":12} },
+    { itemId: 'apeirix:flint_shovel', config: {"durability":12} },
     { itemId: 'apeirix:wooden_hammer', config: {"durability":4} }
   ],
   'hammer_mining': [

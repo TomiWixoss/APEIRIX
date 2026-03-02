@@ -1,4 +1,18 @@
 # Vietnamese Lore - Materials
 # Format: item_id: "line1|line2|line3"
 
-# No materials have lore anymore (rust_mite_edible removed)
+# Flint Materials
+flint_shard:
+  - "§7Mảnh đá lửa sắc nhọn"
+  - "§6Loại: §fNguyên Liệu Thô"
+  - "§8Rớt từ sỏi"
+
+plant_fiber:
+  - "§7Sợi thực vật dai"
+  - "§6Loại: §fNguyên Liệu Thô"
+  - "§8Rớt từ cỏ"
+
+plant_string:
+  - "§7Dây thừng từ sợi thực vật"
+  - "§6Loại: §fNguyên Liệu"
+  - "§8Chế từ 2 Sợi Thực Vật"

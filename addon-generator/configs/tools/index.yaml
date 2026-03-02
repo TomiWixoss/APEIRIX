@@ -1,5 +1,6 @@
 import:
   - axes/index.yaml
+  - flint/index.yaml
   - hammers/index.yaml
   - hoes/index.yaml
   - pickaxes/index.yaml

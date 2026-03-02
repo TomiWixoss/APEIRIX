@@ -1,6 +1,9 @@
 import:
   - alloy_mixing_table.yaml
   - engineering_hammer.yaml
+  - flint_shard.yaml
+  - plant_fiber.yaml
+  - plant_string.yaml
   - steel_alloy_base_gear.yaml
   - steel_alloy_base_plate.yaml
   - steel_alloy_base_rod.yaml

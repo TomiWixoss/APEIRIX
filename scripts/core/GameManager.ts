@@ -12,6 +12,7 @@ import { FortuneSystem } from "../systems/blocks/FortuneSystem";
 import { CustomToolSystem } from "../systems/items/CustomToolSystem";
 import { FoodEffectsSystem } from "../systems/items/FoodEffectsSystem";
 import { CanWashingSystem } from "../systems/items/CanWashingSystem";
+import { FlintDropSystem } from "../systems/items/FlintDropSystem";
 import { AttributeSystem } from "../systems/attributes/AttributeSystem";
 import { ArmorToughnessSystem } from "../systems/armor/ArmorToughnessSystem";
 import { OreCrusherSystem } from "../systems/mining/OreCrusherSystem";
@@ -213,6 +214,7 @@ export class GameManager {
         CustomToolSystem.getInstance();
         FoodEffectsSystem.getInstance();
         CanWashingSystem.initialize();
+        FlintDropSystem.getInstance();
         
         OreCrusherSystem.initialize();
         OreSieveSystem.initialize();

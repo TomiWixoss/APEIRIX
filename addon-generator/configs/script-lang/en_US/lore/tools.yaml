@@ -4,3 +4,10 @@
 
 # Swords - Undead Slayer attribute
 silver_sword: "§c§lUndead Slayer§r|§7Deals §f+{damageMultiplier}%§7 damage to undead mobs|§7(Zombie, Skeleton, Wither, Phantom...)"
+
+# Flint Tools - Primitive tier
+flint_knife: "§7Primitive flint knife|§6Damage: §f2|§6Durability: §f12"
+flint_pickaxe: "§7Primitive flint pickaxe|§6Damage: §f1|§6Durability: §f12|§8Only mines coal and stone"
+flint_axe: "§7Primitive flint axe|§6Damage: §f1|§6Durability: §f12"
+flint_shovel: "§7Primitive flint shovel|§6Damage: §f1|§6Durability: §f12"
+flint_hoe: "§7Primitive flint hoe|§6Damage: §f1|§6Durability: §f12"
