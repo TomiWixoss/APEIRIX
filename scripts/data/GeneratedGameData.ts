@@ -6030,3 +6030,16 @@ export const GENERATED_ARMORS = [
     slot: "legs"
   }
 ];
+
+/**
+ * Generated entity attribute data
+ * Used by EntitySystem to auto-apply attributes on spawn
+ */
+export const GENERATED_ENTITIES = [
+  {
+    entityId: "minecraft:zombie",
+    attributes: [
+      { id: "hunger_infliction", config: {"duration":100,"amplifier":0} }
+    ]
+  }
+];

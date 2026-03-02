@@ -26,6 +26,8 @@ import { GameData } from "../data/GameData";
 import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeRegistry";
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
 import { TestBlockAttributeTransfer } from "../tests/TestBlockAttributeTransfer";
+import { TestEntityAttributeTransfer } from "../tests/TestEntityAttributeTransfer";
+import { EntitySystem } from "../systems/entities/EntitySystem";
 
 // Import achievements - Metallurgy
 import { FirstOreAchievement } from "../data/achievements/categories/metallurgy/FirstOreAchievement";
@@ -191,6 +193,9 @@ export class GameManager {
         // Initialize attribute system FIRST (other systems may depend on it)
         AttributeSystem.initialize();
         
+        // Initialize entity system (auto-apply attributes to entities on spawn)
+        EntitySystem.initialize();
+        
         // Initialize armor toughness system (for armors with >20 protection)
         ArmorToughnessSystem.initialize();
         
@@ -215,6 +220,7 @@ export class GameManager {
         
         // Initialize test commands (development only)
         TestBlockAttributeTransfer.initialize();
+        TestEntityAttributeTransfer.initialize();
     }
 
     private static setupEventListeners(): void {

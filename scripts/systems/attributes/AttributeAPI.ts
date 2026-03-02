@@ -8,16 +8,22 @@
  * - transferAttributeToBlockType() - Transfer attribute from item to block type
  * - transferAttributeBetweenBlockTypes() - Transfer attribute between block types
  * - transferAttributeFromBlockType() - Transfer attribute from block type to item
+ * - transferAttributeToEntity() - Transfer attribute from item to entity
+ * - transferAttributeFromEntity() - Transfer attribute from entity to item
+ * - transferAttributeBetweenEntities() - Transfer attribute between entities
+ * - forceItemRefreshInInventory() - Force item lore refresh in player inventory
  * 
  * All operations trigger lore refresh automatically
  */
 
-import { ItemStack } from '@minecraft/server';
+import { ItemStack, Entity, Player } from '@minecraft/server';
 import { DynamicAttributeStorage } from './DynamicAttributeStorage';
 import { AttributeResolver } from './AttributeResolver';
 import { LoreSystem } from '../lore/LoreSystem';
 import { GlobalBlockAttributeRegistry } from './GlobalBlockAttributeRegistry';
 import { GlobalItemAttributeRegistry } from './GlobalItemAttributeRegistry';
+import { EntityAttributeStorage } from './EntityAttributeStorage';
+import { EntityAttributeResolver } from './EntityAttributeResolver';
 
 export class AttributeAPI {
   /**
@@ -352,6 +358,181 @@ export class AttributeAPI {
       LoreSystem.applyLore(itemStack);
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to refresh lore:`, error);
+    }
+  }
+  
+  // ============================================
+  // ENTITY ATTRIBUTE OPERATIONS
+  // ============================================
+  
+  /**
+   * Transfer attribute from item/block to entity
+   * When entity attribute is transferred to item/block later, it will ADD entity lore
+   * 
+   * @param source Source item/block
+   * @param entity Target entity
+   * @param attrId Attribute ID to transfer
+   * @returns Success status
+   */
+  static transferAttributeToEntity(source: ItemStack, entity: Entity, attrId: string): boolean {
+    try {
+      // Check source has attribute
+      const attr = AttributeResolver.getAttribute(source, attrId);
+      if (!attr) {
+        console.warn(`[AttributeAPI] Source item doesn't have attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Check entity doesn't have attribute
+      if (EntityAttributeResolver.hasAttribute(entity, attrId)) {
+        console.warn(`[AttributeAPI] Entity already has attribute: ${attrId}`);
+        return false;
+      }
+      
+      const config = attr.config;
+      
+      // Add to entity
+      EntityAttributeStorage.setAttribute(entity, attrId, config);
+      
+      // Remove from source
+      if (!this.removeAttribute(source, attrId)) {
+        // Rollback entity
+        EntityAttributeStorage.removeAttribute(entity, attrId);
+        return false;
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from ${source.typeId} to entity ${entity.typeId}`);
+      return true;
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to transfer attribute to entity:`, error);
+      return false;
+    }
+  }
+  
+  /**
+   * Transfer attribute from entity to item/block
+   * Attribute will work normally on item/block (no special marking)
+   * 
+   * @param entity Source entity
+   * @param target Target item/block
+   * @param attrId Attribute ID to transfer
+   * @returns Success status
+   */
+  static transferAttributeFromEntity(entity: Entity, target: ItemStack, attrId: string): boolean {
+    try {
+      // Check entity has attribute
+      const attr = EntityAttributeResolver.getAttribute(entity, attrId);
+      if (!attr) {
+        console.warn(`[AttributeAPI] Entity doesn't have attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Check target doesn't have attribute
+      if (AttributeResolver.hasAttribute(target, attrId)) {
+        console.warn(`[AttributeAPI] Target item already has attribute: ${attrId}`);
+        return false;
+      }
+      
+      const config = attr.config;
+      
+      // Add to target (no special marker - attribute works normally)
+      if (!this.addAttribute(target, attrId, config)) {
+        return false;
+      }
+      
+      // Remove from entity
+      if (!EntityAttributeStorage.removeAttribute(entity, attrId)) {
+        // Rollback target
+        this.removeAttribute(target, attrId);
+        return false;
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from entity ${entity.typeId} to ${target.typeId}`);
+      return true;
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to transfer attribute from entity:`, error);
+      return false;
+    }
+  }
+  
+  /**
+   * Transfer attribute between entities
+   * 
+   * @param fromEntity Source entity
+   * @param toEntity Target entity
+   * @param attrId Attribute ID to transfer
+   * @returns Success status
+   */
+  static transferAttributeBetweenEntities(fromEntity: Entity, toEntity: Entity, attrId: string): boolean {
+    try {
+      // Check source has attribute
+      const attr = EntityAttributeResolver.getAttribute(fromEntity, attrId);
+      if (!attr) {
+        console.warn(`[AttributeAPI] Source entity doesn't have attribute: ${attrId}`);
+        return false;
+      }
+      
+      // Check target doesn't have attribute
+      if (EntityAttributeResolver.hasAttribute(toEntity, attrId)) {
+        console.warn(`[AttributeAPI] Target entity already has attribute: ${attrId}`);
+        return false;
+      }
+      
+      const config = attr.config;
+      
+      // Add to target
+      EntityAttributeStorage.setAttribute(toEntity, attrId, config);
+      
+      // Remove from source
+      if (!EntityAttributeStorage.removeAttribute(fromEntity, attrId)) {
+        // Rollback target
+        EntityAttributeStorage.removeAttribute(toEntity, attrId);
+        return false;
+      }
+      
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from entity ${fromEntity.typeId} to entity ${toEntity.typeId}`);
+      return true;
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to transfer attribute between entities:`, error);
+      return false;
+    }
+  }
+  
+  /**
+   * Get all attributes from entity (for debugging)
+   */
+  static getEntityAttributes(entity: Entity): Array<{ id: string; config: any; source: string }> {
+    const resolved = EntityAttributeResolver.resolve(entity);
+    return resolved.map(a => ({
+      id: a.id,
+      config: a.config,
+      source: a.source
+    }));
+  }
+  
+  /**
+   * Force item lore refresh in player inventory
+   * Uses remove/add trick to force Minecraft to re-render item
+   * 
+   * @param player Player whose inventory to refresh
+   * @param slotIndex Slot index of item to refresh
+   * @param item ItemStack to refresh (must be the same instance from getItem)
+   */
+  static forceItemRefreshInInventory(player: Player, slotIndex: number, item: ItemStack): void {
+    try {
+      const inventory = player.getComponent('inventory');
+      if (!inventory?.container) {
+        console.warn('[AttributeAPI] No inventory component');
+        return;
+      }
+      
+      // Remove and re-add item to force Minecraft to update display
+      inventory.container.setItem(slotIndex, undefined);
+      inventory.container.setItem(slotIndex, item);
+      
+      console.warn(`[AttributeAPI] Forced refresh for item in slot ${slotIndex}`);
+    } catch (error) {
+      console.warn(`[AttributeAPI] Failed to force item refresh:`, error);
     }
   }
 }

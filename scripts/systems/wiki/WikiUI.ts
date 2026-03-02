@@ -3,10 +3,12 @@
  * Uses JSON UI (book-style) for custom display
  */
 
-import { Player, Container } from "@minecraft/server";
+import { Player, Container, Entity } from "@minecraft/server";
 import { ActionFormData } from "@minecraft/server-ui";
 import { LangManager } from "../../lang/LangManager";
 import { GENERATED_WIKI_ITEMS } from "../../data/GeneratedGameData";
+import { AttributeAPI } from "../attributes/AttributeAPI";
+import { PlaceholderRegistry } from "../lore/placeholders/PlaceholderRegistry";
 
 interface WikiItem {
     id: string;
@@ -80,10 +82,30 @@ export class WikiUI {
 
     /**
      * Show wiki for a specific entity (when player interacts with entity while holding wiki book)
+     * @param player Player viewing wiki
+     * @param entityId Entity type ID
+     * @param entityInstance Optional entity instance for checking dynamic attributes
      */
-    static async showEntity(player: Player, entityId: string): Promise<void> {
+    static async showEntity(player: Player, entityId: string, entityInstance?: Entity): Promise<void> {
         // Find entity in wiki data
-        const wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === entityId);
+        let wikiData = GENERATED_WIKI_ITEMS.find((w) => w.id === entityId);
+        
+        // If not in wiki data but has attributes, create temporary wiki entry
+        if (!wikiData && entityInstance) {
+            const attrs = AttributeAPI.getEntityAttributes(entityInstance);
+            if (attrs.length > 0) {
+                // Create temporary wiki entry for entity with attributes
+                const displayName = this.getEntityDisplayName(entityId);
+                wikiData = {
+                    id: entityId,
+                    name: displayName,
+                    category: "entities",
+                    icon: "",
+                    description: "",
+                    info: {} as any // Type cast for temporary entry
+                } as any;
+            }
+        }
         
         if (!wikiData) {
             player.sendMessage("§cKhông tìm thấy thông tin về sinh vật này trong wiki.");
@@ -104,7 +126,22 @@ export class WikiUI {
             info: info
         };
 
-        await this.showEntityDetail(player, entityItem);
+        await this.showEntityDetail(player, entityItem, entityInstance);
+    }
+    
+    /**
+     * Get display name for entity type
+     * @param entityTypeId Entity type ID (e.g., "minecraft:zombie")
+     * @returns Display name (e.g., "Zombie")
+     */
+    private static getEntityDisplayName(entityTypeId: string): string {
+        // Remove namespace
+        const name = entityTypeId.split(':')[1] || entityTypeId;
+        
+        // Capitalize first letter and replace underscores
+        return name.split('_')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
     }
 
     /**
@@ -446,8 +483,11 @@ export class WikiUI {
 
     /**
      * Show entity detail (no icon, plain text title)
+     * @param player Player viewing wiki
+     * @param entity Wiki item data
+     * @param entityInstance Optional entity instance for checking dynamic attributes
      */
-    private static async showEntityDetail(player: Player, entity: WikiItem): Promise<void> {
+    private static async showEntityDetail(player: Player, entity: WikiItem, entityInstance?: Entity): Promise<void> {
         // Plain text title for entities (no icon)
         const plainTitle = `apeirix:list:${entity.name}`;
 
@@ -457,6 +497,32 @@ export class WikiUI {
         // Description (if exists)
         if (entity.description) {
             body += `${LangManager.get("wiki.description")}\n§r§8${entity.description}\n\n`;
+        }
+
+        // Check for dynamic attributes on entity instance
+        if (entityInstance) {
+            const attrs = AttributeAPI.getEntityAttributes(entityInstance);
+            if (attrs.length > 0) {
+                body += `§l§0${LangManager.get("wiki.attributes")}:§r\n`;
+                
+                // Generate fancy lore for each attribute using PlaceholderRegistry
+                for (const attr of attrs) {
+                    const loreLine = PlaceholderRegistry.generateEntityAttributeLore(
+                        entityInstance,
+                        attr.id,
+                        attr.config
+                    );
+                    
+                    if (loreLine) {
+                        body += `${loreLine}\n`;
+                    } else {
+                        // Fallback: simple display if lore generation fails
+                        const attrName = LangManager.get(`attributes.${attr.id}`) || attr.id;
+                        body += `§7- ${attrName}§r\n`;
+                    }
+                }
+                body += "\n";
+            }
         }
 
         // Additional info - use formatInfo
@@ -472,7 +538,7 @@ export class WikiUI {
         body += `${LangManager.get("wiki.category")} ${categoryName}`;
         
         // If no description and no info, add a helpful message
-        if (!entity.description && (!entity.info || Object.keys(entity.info).length === 0)) {
+        if (!entity.description && (!entity.info || Object.keys(entity.info).length === 0) && (!entityInstance || AttributeAPI.getEntityAttributes(entityInstance).length === 0)) {
             body = `${LangManager.get("wiki.category")} ${categoryName}\n\n§8Thông tin chi tiết sẽ được cập nhật sau.`;
         }
 

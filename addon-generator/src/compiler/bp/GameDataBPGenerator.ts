@@ -1,9 +1,10 @@
-import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, BlockInfoData, ArmorData } from '../../generators/GameDataGenerator.js';
+import { GameDataGenerator, ToolData, FoodData, OreData, WikiItemData, BlockInfoData, ArmorData, EntityAttributeData } from '../../generators/GameDataGenerator.js';
 import { ProcessingRecipeGenerator, ProcessingRecipeData } from '../../generators/ProcessingRecipeGenerator.js';
 import { AttributeGenerator, AttributeMapping } from '../../generators/AttributeGenerator.js';
 import { WikiDataBPGenerator } from './WikiDataBPGenerator.js';
 import { langLoader } from '../../core/loaders/LangLoader.js';
 import { Logger } from '../../utils/Logger.js';
+import { EntityLoader } from '../../core/loaders/EntityLoader.js';
 import path from 'path';
 
 /**
@@ -261,8 +262,12 @@ export class GameDataBPGenerator {
       }
     }
 
+    // Load entity attributes using EntityLoader (scans configs/entities/ and configs/entities/vanilla_overrides/)
+    const entityLoader = new EntityLoader(configDir);
+    const entities = entityLoader.loadEntityAttributes();
+
     // Generate file to project root (for development)
-    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, armors);
+    generator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, armors, entities);
     
     // Collect processing recipes
     const processingRecipes: ProcessingRecipeData[] = [];
@@ -349,7 +354,7 @@ export class GameDataBPGenerator {
     
     // Also generate to build folder (for Regolith to copy)
     const buildGenerator = new GameDataGenerator(buildDir);
-    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, armors, 'BP/scripts/data');
+    buildGenerator.generate(tools, foods, ores, wikiItems, [], [], allItems, [], blocks, armors, entities, 'BP/scripts/data');
     
     const buildAttributeGenerator = new AttributeGenerator(buildDir);
     buildAttributeGenerator.generate(attributeMapping, 'BP/scripts/data');

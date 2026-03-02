@@ -18,6 +18,7 @@ wiki:
   description: "§l§0MÔ TẢ:"
   category: "§0Danh mục:"
   information: "§l§0Thông tin"
+  attributes: "§l§0THUỘC TÍNH"
 
   # Category names
   categories:

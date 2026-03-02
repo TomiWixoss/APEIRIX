@@ -1,0 +1,9 @@
+# Zombie with hunger_infliction attribute
+# This is a vanilla override - adds attributes to minecraft:zombie
+
+id: minecraft:zombie
+attributes:
+  - id: hunger_infliction
+    config:
+      duration: 100 # 5 seconds
+      amplifier: 0 # Level 1

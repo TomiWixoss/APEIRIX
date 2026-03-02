@@ -18,6 +18,7 @@ import { DurabilityModifierHandler } from './handlers/DurabilityModifierHandler'
 import { CombatDamageModifierHandler } from './handlers/CombatDamageModifierHandler';
 import { RequiresToolHandler } from './handlers/RequiresToolHandler';
 import { EmptyHandCombatHandler } from './handlers/EmptyHandCombatHandler';
+import { HungerInflictionHandler } from './handlers/HungerInflictionHandler';
 import { LoreRefreshSystem } from '../lore/LoreRefreshSystem';
 import { GlobalBlockAttributeRegistry } from './GlobalBlockAttributeRegistry';
 import { GlobalItemAttributeRegistry } from './GlobalItemAttributeRegistry';
@@ -57,6 +58,7 @@ export class AttributeSystem {
     CombatDamageModifierHandler.initialize();
     RequiresToolHandler.initialize();
     EmptyHandCombatHandler.initialize();
+    HungerInflictionHandler.initialize(); // Entity attribute handler
     
     this.initialized = true;
     console.warn('[AttributeSystem] Initialized');

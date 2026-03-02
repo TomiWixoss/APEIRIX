@@ -2,11 +2,13 @@
  * Wiki Book Handler
  * - Normal use: Show items (no blocks)
  * - Use on block: Show block info
- * - Use on entity: Show entity info
+ * - Use on entity: Show entity info (including vanilla entities with attributes)
  */
 
 import { Player, Block, Entity } from "@minecraft/server";
 import { WikiUI } from "../../wiki/WikiUI";
+import { AttributeAPI } from "../../attributes/AttributeAPI";
+import { GENERATED_ENTITIES } from "../../../data/GeneratedGameData";
 
 export class WikiBookHandler {
     /**
@@ -19,8 +21,16 @@ export class WikiBookHandler {
         if (entity) {
             // Player is interacting with an entity while holding wiki
             const entityId = entity.typeId;
-            if (entityId.startsWith("apeirix:")) {
-                WikiUI.showEntity(player, entityId);
+            
+            // Check if entity should show wiki:
+            // 1. Custom entities (apeirix:*)
+            // 2. Entities with dynamic attributes
+            // 3. Entities in GENERATED_ENTITIES (vanilla overrides with static attributes)
+            const hasAttributes = AttributeAPI.getEntityAttributes(entity).length > 0;
+            const isInGeneratedEntities = GENERATED_ENTITIES.some(e => e.entityId === entityId);
+            
+            if (entityId.startsWith("apeirix:") || hasAttributes || isInGeneratedEntities) {
+                WikiUI.showEntity(player, entityId, entity);
                 return;
             }
         }

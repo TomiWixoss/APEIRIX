@@ -46,8 +46,8 @@ export class TestBlockAttributeTransfer {
             player.sendMessage('§aSuccess! Dirt now requires axe to mine');
             player.sendMessage('§7Pickup dirt item to see lore auto-apply');
             
-            // Update item in inventory
-            inventory.container?.setItem(player.selectedSlotIndex, item);
+            // Force item refresh in inventory
+            AttributeAPI.forceItemRefreshInInventory(player, player.selectedSlotIndex, item);
           } else {
             player.sendMessage('§cFailed to transfer attribute');
           }
@@ -88,8 +88,8 @@ export class TestBlockAttributeTransfer {
             player.sendMessage('§aSuccess! Dirt no longer requires axe');
             player.sendMessage('§7Try mining dirt without axe');
             
-            // Update item in inventory
-            inventory.container?.setItem(player.selectedSlotIndex, item);
+            // Force item refresh in inventory
+            AttributeAPI.forceItemRefreshInInventory(player, player.selectedSlotIndex, item);
           } else {
             player.sendMessage('§cFailed to transfer attribute');
           }
@@ -178,11 +178,12 @@ export class TestBlockAttributeTransfer {
           
           if (success) {
             player.sendMessage('§aSuccess! Attribute transferred between items');
-            player.sendMessage('§7Throw and pickup items to see lore update');
             
-            // Update items in inventory
-            inventory.container?.setItem(player.selectedSlotIndex, sourceItem);
-            inventory.container?.setItem(targetSlot, targetItem);
+            // Force item refresh in inventory for both items
+            AttributeAPI.forceItemRefreshInInventory(player, player.selectedSlotIndex, sourceItem);
+            AttributeAPI.forceItemRefreshInInventory(player, targetSlot, targetItem);
+            
+            player.sendMessage('§7Lore updated instantly!');
           } else {
             player.sendMessage('§cFailed to transfer attribute');
           }
@@ -257,11 +258,12 @@ export class TestBlockAttributeTransfer {
           
           if (success) {
             player.sendMessage(`§aSuccess! Dirt now has '${attrId}', tool lost it`);
-            player.sendMessage('§7Throw and pickup tool to see lore update');
-            player.sendMessage('§7Try mining dirt to verify block attribute');
             
-            // Update tool in inventory
-            inventory.container?.setItem(player.selectedSlotIndex, tool);
+            // Force item refresh in inventory
+            AttributeAPI.forceItemRefreshInInventory(player, player.selectedSlotIndex, tool);
+            
+            player.sendMessage('§7Lore updated instantly!');
+            player.sendMessage('§7Try mining dirt to verify block attribute');
           } else {
             player.sendMessage('§cFailed to transfer attribute');
           }

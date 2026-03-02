@@ -130,6 +130,7 @@ export const LANG_EN = {
         "description": "§l§0DESCRIPTION:",
         "category": "§0Category:",
         "information": "§l§0Information",
+        "attributes": "§l§0ATTRIBUTES",
         "categories": {
             "materials": "§0Materials",
             "tools": "§0Tools",
@@ -150,7 +151,9 @@ export const LANG_EN = {
         "hammer_mining": "§6Hammer Mining",
         "rust_mite_edible": "§cRust Mite Food",
         "requires_tool": "§eRequires",
+        "hunger_infliction": "§cHunger Infliction",
         "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
+        "hunger_infliction_template": "§cInflicts Hunger ({duration}s)",
         "vanilla_override_warning": "§e⚠ Stats have been modified§r",
         "breakable_template": "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
         "durability_modifier_template": "{attr:durability}: §f{current_durability}/{max_durability} uses",

@@ -130,6 +130,7 @@ export const LANG_VI = {
         "description": "§l§0MÔ TẢ:",
         "category": "§0Danh mục:",
         "information": "§l§0Thông tin",
+        "attributes": "§l§0THUỘC TÍNH",
         "categories": {
             "materials": "§0Nguyên liệu",
             "tools": "§0Công cụ",
@@ -150,7 +151,9 @@ export const LANG_VI = {
         "hammer_mining": "§6Đập Búa",
         "rust_mite_edible": "§cRust Mite",
         "requires_tool": "§eYêu cầu",
+        "hunger_infliction": "§cGây Đói",
         "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
+        "hunger_infliction_template": "§cGây hiệu ứng đói ({duration}s)",
         "vanilla_override_warning": "§e⚠ Thuộc tính đã được điều chỉnh§r",
         "breakable_template": "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
         "durability_modifier_template": "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",

@@ -20,6 +20,7 @@ import { HammerMiningHandler } from '../../attributes/handlers/HammerMiningHandl
 import { UndeadSlayerHandler } from '../../attributes/handlers/UndeadSlayerHandler';
 import { RustMiteEdibleHandler } from '../../attributes/handlers/RustMiteEdibleHandler';
 import { EmptyHandCombatHandler } from '../../attributes/handlers/EmptyHandCombatHandler';
+import { HungerInflictionHandler } from '../../attributes/handlers/HungerInflictionHandler';
 
 // Type for handlers with lore processing
 type AttributeHandler = {
@@ -43,6 +44,7 @@ export class PlaceholderRegistry {
     ['undead_slayer', UndeadSlayerHandler],
     ['rust_mite_edible', RustMiteEdibleHandler],
     ['empty_hand_combat', EmptyHandCombatHandler],
+    ['hunger_infliction', HungerInflictionHandler], // Entity attribute
   ]);
   
   /**
@@ -172,55 +174,143 @@ export class PlaceholderRegistry {
       return lore; // No attributes
     }
     
-    // For each attribute, generate lore line (PLAIN TEXT, no encoding)
+    // Process all attributes (no separation by origin)
     for (const attr of attributes) {
-      const HandlerClass = this.HANDLER_MAP.get(attr.id);
-      if (!HandlerClass) {
-        console.warn(`[PlaceholderRegistry] No handler found for ${attr.id}`);
-        continue;
+      const loreLine = this.generateAttributeLoreLine(itemId, attr, itemStack);
+      if (loreLine) {
+        lore.push(loreLine);
       }
-      
-      // Get lore template key from handler
-      const templateKey = HandlerClass.getLoreTemplateKey?.();
-      if (!templateKey) {
-        console.warn(`[PlaceholderRegistry] No template key for ${attr.id}`);
-        continue;
-      }
-      
-      console.warn(`[PlaceholderRegistry] Template key for ${attr.id}: ${templateKey}`);
-      
-      // Get template from lang system (attributes.{template_key})
-      const template = LangManager.get(`attributes.${templateKey}`);
-      if (!template) {
-        console.warn(`[PlaceholderRegistry] No template found for lore.attributes.${templateKey}`);
-        continue;
-      }
-      
-      console.warn(`[PlaceholderRegistry] Template: ${template}`);
-      
-      // Process template with handler's placeholder processor
-      let visibleText: string;
-      if (HandlerClass.processLorePlaceholders) {
-        // Pass itemStack directly - handler will use AttributeResolver to get config
-        visibleText = HandlerClass.processLorePlaceholders(itemId, template, itemStack);
-        console.warn(`[PlaceholderRegistry] Processed line: ${visibleText}`);
-      } else {
-        console.warn(`[PlaceholderRegistry] No placeholder processor, using raw template`);
-        visibleText = template;
-      }
-      
-      // Run through placeholder processors (for {attr:*})
-      for (const processor of this.processors) {
-        visibleText = processor.process(itemId, visibleText);
-      }
-      
-      // Add PLAIN TEXT (no encoding)
-      lore.push(visibleText);
     }
     
     console.warn(`[PlaceholderRegistry] Final lore (${lore.length} lines):`, lore);
     
     return lore;
+  }
+  
+  /**
+   * Generate a single lore line from an attribute
+   * @param itemId Item ID
+   * @param attr Attribute object with id and config
+   * @param itemStack ItemStack for dynamic values
+   * @returns Processed lore line or null if failed
+   */
+  private static generateAttributeLoreLine(itemId: string, attr: any, itemStack: any): string | null {
+    const HandlerClass = this.HANDLER_MAP.get(attr.id);
+    if (!HandlerClass) {
+      console.warn(`[PlaceholderRegistry] No handler found for ${attr.id}`);
+      return null;
+    }
+    
+    // Get lore template key from handler
+    const templateKey = HandlerClass.getLoreTemplateKey?.();
+    if (!templateKey) {
+      console.warn(`[PlaceholderRegistry] No template key for ${attr.id}`);
+      return null;
+    }
+    
+    console.warn(`[PlaceholderRegistry] Template key for ${attr.id}: ${templateKey}`);
+    
+    // Get template from lang system (attributes.{template_key})
+    const template = LangManager.get(`attributes.${templateKey}`);
+    if (!template) {
+      console.warn(`[PlaceholderRegistry] No template found for attributes.${templateKey}`);
+      return null;
+    }
+    
+    console.warn(`[PlaceholderRegistry] Template: ${template}`);
+    
+    // Process template with handler's placeholder processor
+    let visibleText: string;
+    if (HandlerClass.processLorePlaceholders) {
+      // Pass itemStack directly - handler will use AttributeResolver to get config
+      visibleText = HandlerClass.processLorePlaceholders(itemId, template, itemStack);
+      console.warn(`[PlaceholderRegistry] Processed line: ${visibleText}`);
+    } else {
+      console.warn(`[PlaceholderRegistry] No placeholder processor, using raw template`);
+      visibleText = template;
+    }
+    
+    // Run through placeholder processors (for {attr:*})
+    for (const processor of this.processors) {
+      visibleText = processor.process(itemId, visibleText);
+    }
+    
+    return visibleText;
+  }
+  
+  /**
+   * Generate lore for entity attributes (for wiki display)
+   * Similar to generateAttributeLore but for entities
+   * 
+   * @param entity Entity instance
+   * @param attrId Attribute ID
+   * @param config Attribute config
+   * @returns Processed lore line or null if failed
+   */
+  static generateEntityAttributeLore(entity: any, attrId: string, config: any): string | null {
+    if (!this.initialized) {
+      this.initialize();
+    }
+    
+    const HandlerClass = this.HANDLER_MAP.get(attrId);
+    if (!HandlerClass) {
+      console.warn(`[PlaceholderRegistry] No handler found for ${attrId}`);
+      return null;
+    }
+    
+    // Get lore template key from handler
+    const templateKey = HandlerClass.getLoreTemplateKey?.();
+    if (!templateKey) {
+      console.warn(`[PlaceholderRegistry] No template key for ${attrId}`);
+      return null;
+    }
+    
+    // Get template from lang system (attributes.{template_key})
+    const template = LangManager.get(`attributes.${templateKey}`);
+    if (!template) {
+      console.warn(`[PlaceholderRegistry] No template found for attributes.${templateKey}`);
+      return null;
+    }
+    
+    // Process template with handler's placeholder processor
+    let visibleText: string;
+    if (HandlerClass.processLorePlaceholders) {
+      // For entity attributes, pass entity.typeId as itemId
+      // Handler will use EntityAttributeResolver to get config from entity
+      visibleText = HandlerClass.processLorePlaceholders(entity.typeId, template, entity);
+    } else {
+      visibleText = template;
+    }
+    
+    // Run through placeholder processors (for {attr:*})
+    for (const processor of this.processors) {
+      visibleText = processor.process(entity.typeId, visibleText);
+    }
+    
+    return visibleText;
+  }
+  
+  /**
+   * Get display name for entity type
+   * @param entityTypeId Entity type ID (e.g., "minecraft:zombie")
+   * @returns Display name (e.g., "Zombie")
+   */
+  private static getEntityDisplayName(entityTypeId: string): string {
+    // Remove namespace
+    const name = entityTypeId.split(':')[1] || entityTypeId;
+    
+    // Capitalize first letter
+    return name.charAt(0).toUpperCase() + name.slice(1);
+  }
+  
+  /**
+   * Register attribute processor (for dynamic registration)
+   * Used by handlers that need to process placeholders
+   */
+  static registerAttributeProcessor(attrId: string, processor: (entityId: string, line: string, config?: any) => string): void {
+    // This is for handlers that register dynamically
+    // Currently not used, but kept for future extensibility
+    console.warn(`[PlaceholderRegistry] Registered attribute processor: ${attrId}`);
   }
 
 }

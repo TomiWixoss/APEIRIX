@@ -18,6 +18,7 @@ wiki:
   description: "§l§0DESCRIPTION:"
   category: "§0Category:"
   information: "§l§0Information"
+  attributes: "§l§0ATTRIBUTES"
 
   # Category names
   categories:
