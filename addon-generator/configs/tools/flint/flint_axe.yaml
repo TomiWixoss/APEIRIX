@@ -17,8 +17,7 @@ recipe:
   id: flint_axe
   pattern:
     - "##"
-    - "#S"
-    - "PS"
+    - "SP"
   ingredients:
     "#": apeirix:flint_shard
     S: minecraft:stick

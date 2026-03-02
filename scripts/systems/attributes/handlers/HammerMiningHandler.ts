@@ -2,7 +2,9 @@
  * HammerMiningHandler - Handle 'hammer_mining' attribute
  * 
  * SINGLE SOURCE OF TRUTH for 'hammer_mining' attribute:
- * - Runtime behavior only (no lore generation)
+ * - Lore template key
+ * - Lore placeholder processing
+ * - Runtime behavior
  * 
  * REUSES LOGIC FROM: HammerMiningSystem
  * 
@@ -13,13 +15,33 @@ import { world, Block, ItemStack, system } from '@minecraft/server';
 import { getItemsWithAttribute } from '../../../data/GeneratedAttributes';
 import { GENERATED_ORE_CRUSHER_RECIPES, OreCrusherRecipe } from '../../../data/GeneratedProcessingRecipes';
 import { AttributeResolver } from '../AttributeResolver';
+import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
 export class HammerMiningHandler {
   // ============================================
   // METADATA - Single source of truth
   // ============================================
   static readonly ATTRIBUTE_ID = 'hammer_mining';
-  // No TEMPLATE_KEY - this attribute has no lore
+  static readonly TEMPLATE_KEY = 'hammer_mining_template';
+  
+  // ============================================
+  // LORE GENERATION (Compile-time)
+  // ============================================
+  
+  /**
+   * Get lore template key for auto-generation
+   */
+  static getLoreTemplateKey(): string {
+    return this.TEMPLATE_KEY;
+  }
+  
+  /**
+   * Process lore placeholders for this attribute
+   * No placeholders needed - template is static text
+   */
+  static processLorePlaceholders(_itemId: string, line: string, _itemStack?: ItemStack): string {
+    return line; // No placeholders to replace
+  }
   
   // ============================================
   // RUNTIME BEHAVIOR
@@ -30,6 +52,9 @@ export class HammerMiningHandler {
 
   static initialize(): void {
     console.warn('[HammerMiningHandler] Initializing...');
+    
+    // Register with PlaceholderRegistry for lore processing
+    PlaceholderRegistry.registerAttributeHandler(this);
     
     // Load hammer IDs from attributes
     const hammers = getItemsWithAttribute('hammer_mining');

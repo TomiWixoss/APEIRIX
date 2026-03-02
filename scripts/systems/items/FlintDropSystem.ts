@@ -4,6 +4,7 @@ import { world, ItemStack, Player, Block } from "@minecraft/server";
  * System xử lý custom drops cho Flint materials
  * - Grass/Tallgrass → Plant Fiber (40% chance)
  * - Gravel → Flint Shard (30% chance)
+ * - Leaves → Stick (15% chance)
  */
 export class FlintDropSystem {
   private static instance: FlintDropSystem;
@@ -17,10 +18,24 @@ export class FlintDropSystem {
     "minecraft:large_fern",
   ];
 
+  private static readonly LEAVES_BLOCKS = [
+    "minecraft:oak_leaves",
+    "minecraft:spruce_leaves",
+    "minecraft:birch_leaves",
+    "minecraft:jungle_leaves",
+    "minecraft:acacia_leaves",
+    "minecraft:dark_oak_leaves",
+    "minecraft:mangrove_leaves",
+    "minecraft:cherry_leaves",
+    "minecraft:azalea_leaves",
+    "minecraft:azalea_leaves_flowered",
+  ];
+
   private static readonly GRAVEL_BLOCK = "minecraft:gravel";
   
   private static readonly FIBER_DROP_CHANCE = 0.4; // 40%
   private static readonly SHARD_DROP_CHANCE = 0.3; // 30%
+  private static readonly STICK_DROP_CHANCE = 0.15; // 15%
 
   private constructor() {
     this.initialize();
@@ -69,6 +84,14 @@ export class FlintDropSystem {
     if (blockId === FlintDropSystem.GRAVEL_BLOCK) {
       if (Math.random() < FlintDropSystem.SHARD_DROP_CHANCE) {
         this.spawnDrop(block, "apeirix:flint_shard", 1);
+      }
+      return;
+    }
+
+    // Check for leaves → Stick
+    if (FlintDropSystem.LEAVES_BLOCKS.includes(blockId)) {
+      if (Math.random() < FlintDropSystem.STICK_DROP_CHANCE) {
+        this.spawnDrop(block, "minecraft:stick", 1);
       }
       return;
     }

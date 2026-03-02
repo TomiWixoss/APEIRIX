@@ -17,8 +17,8 @@ recipe:
   type: shaped
   id: flint_shovel
   pattern:
-    - "#"
-    - S
+    - " #"
+    - " S"
   ingredients:
     "#": apeirix:flint_shard
     S: minecraft:stick

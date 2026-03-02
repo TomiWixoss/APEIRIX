@@ -15,9 +15,8 @@ recipe:
   type: shaped
   id: flint_pickaxe
   pattern:
-    - "###"
-    - " S "
-    - " P "
+    - "##"
+    - "PS"
   ingredients:
     "#": apeirix:flint_shard
     S: minecraft:stick
