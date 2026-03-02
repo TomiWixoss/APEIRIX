@@ -5031,7 +5031,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:levitator",
     category: "blocks",
     name: "Máy Tách Thuộc Tính",
-    description: "wiki.blocks.levitator",
+    description: "Máy tách thuộc tính huyền bí. Sử dụng năng lượng Ender để tách các thuộc tính khỏi vật phẩm thành bình nước, hoặc hấp thụ thuộc tính từ bình nước vào vật phẩm. CÁCH DÙNG: (1) TRÍCH XUẤT - Đưa item có thuộc tính vào máy, cầm bình trống (số lượng = số thuộc tính) rồi click chuột phải vào máy. Nhận lại item không thuộc tính + các bình chứa thuộc tính. (2) ÉP THUỘC TÍNH - Đưa bình có thuộc tính vào máy, cầm item bất kỳ rồi click chuột phải. Thuộc tính sẽ được ép vào item. (3) LẤY RA - Shift + click chuột phải để lấy item/bình ra khỏi máy. LƯU Ý: Chỉ bình TRỐNG mới dùng được để trích xuất. Bình đã có thuộc tính không thể dùng lại.",
     icon: "textures/items/levitator_side_off",
     info: {
       recipe_1_type: "shaped",
@@ -5047,7 +5047,7 @@ export const GENERATED_WIKI_ITEMS = [
     id: "apeirix:levitator_on",
     category: "blocks",
     name: "Máy Tách Thuộc Tính",
-    description: "wiki.blocks.levitator",
+    description: "Máy tách thuộc tính huyền bí. Sử dụng năng lượng Ender để tách các thuộc tính khỏi vật phẩm thành bình nước, hoặc hấp thụ thuộc tính từ bình nước vào vật phẩm. CÁCH DÙNG: (1) TRÍCH XUẤT - Đưa item có thuộc tính vào máy, cầm bình trống (số lượng = số thuộc tính) rồi click chuột phải vào máy. Nhận lại item không thuộc tính + các bình chứa thuộc tính. (2) ÉP THUỘC TÍNH - Đưa bình có thuộc tính vào máy, cầm item bất kỳ rồi click chuột phải. Thuộc tính sẽ được ép vào item. (3) LẤY RA - Shift + click chuột phải để lấy item/bình ra khỏi máy. LƯU Ý: Chỉ bình TRỐNG mới dùng được để trích xuất. Bình đã có thuộc tính không thể dùng lại.",
     icon: "textures/items/levitator_side_on",
     info: {
       "Độ cứng": 5,

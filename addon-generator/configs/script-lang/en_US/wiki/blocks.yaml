@@ -1,0 +1,4 @@
+# English Wiki Descriptions - Blocks
+# Format: block_id: "description"
+
+levitator: "A mystical attribute extractor. Uses Ender energy to separate attributes from items into potions, or infuse attributes from potions into items. HOW TO USE: (1) EXTRACT - Place an item with attributes in the machine, hold empty potions (count = number of attributes) and right-click the machine. Receive the item without attributes + attribute potions. (2) INFUSE - Place an attribute potion in the machine, hold any item and right-click. The attribute will be infused into the item. (3) RETRIEVE - Shift + right-click to retrieve items/potions from the machine. NOTE: Only EMPTY potions can be used for extraction. Potions with attributes cannot be reused for extraction."

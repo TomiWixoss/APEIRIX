@@ -160,17 +160,12 @@ export class PlaceholderRegistry {
     const lore: string[] = [];
     const itemId = itemStack.typeId;
     
-    console.warn(`[PlaceholderRegistry] generateAttributeLore for ${itemId}`);
-    
     // Get all attributes for this item (via AttributeResolver)
     // AttributeResolver already checks correct registries based on item type
     const resolved = AttributeResolver.resolve(itemStack);
     const attributes = resolved.map((a: any) => ({ id: a.id, config: a.config }));
     
-    console.warn(`[PlaceholderRegistry] Resolved attributes:`, attributes.map((a: any) => a.id));
-    
     if (!attributes || attributes.length === 0) {
-      console.warn(`[PlaceholderRegistry] No attributes found`);
       return lore; // No attributes
     }
     
@@ -182,8 +177,6 @@ export class PlaceholderRegistry {
         lore.push(loreLine);
       }
     }
-    
-    console.warn(`[PlaceholderRegistry] Final lore (${lore.length} lines):`, lore);
     
     return lore;
   }
@@ -198,36 +191,27 @@ export class PlaceholderRegistry {
   private static generateAttributeLoreLine(itemId: string, attr: any, itemStack: any): string | null {
     const HandlerClass = this.HANDLER_MAP.get(attr.id);
     if (!HandlerClass) {
-      console.warn(`[PlaceholderRegistry] No handler found for ${attr.id}`);
       return null;
     }
     
     // Get lore template key from handler
     const templateKey = HandlerClass.getLoreTemplateKey?.();
     if (!templateKey) {
-      console.warn(`[PlaceholderRegistry] No template key for ${attr.id}`);
       return null;
     }
-    
-    console.warn(`[PlaceholderRegistry] Template key for ${attr.id}: ${templateKey}`);
     
     // Get template from lang system (attributes.{template_key})
     const template = LangManager.get(`attributes.${templateKey}`);
     if (!template) {
-      console.warn(`[PlaceholderRegistry] No template found for attributes.${templateKey}`);
       return null;
     }
-    
-    console.warn(`[PlaceholderRegistry] Template: ${template}`);
     
     // Process template with handler's placeholder processor
     let visibleText: string;
     if (HandlerClass.processLorePlaceholders) {
       // Pass itemStack directly - handler will use AttributeResolver to get config
       visibleText = HandlerClass.processLorePlaceholders(itemId, template, itemStack);
-      console.warn(`[PlaceholderRegistry] Processed line: ${visibleText}`);
     } else {
-      console.warn(`[PlaceholderRegistry] No placeholder processor, using raw template`);
       visibleText = template;
     }
     

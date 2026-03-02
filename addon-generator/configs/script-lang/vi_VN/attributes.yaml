@@ -1,7 +1,9 @@
 # Attribute labels (used in templates via {attr:*})
 breakable: "§cGẫy"
 durability: "§6Độ bền"
+durability_modifier: "§6Độ bền"
 combat_damage: "§6Sát thương"
+combat_damage_modifier: "§6Sát thương"
 damage_multiplier: "§6Sát thương tăng"
 mining_speed: "§6Tốc độ đào"
 hammer_mining: "§6Đập Búa"
@@ -9,6 +11,7 @@ rust_mite_edible: "§cRust Mite"
 requires_tool: "§eYêu cầu"
 hunger_infliction: "§cGây Đói"
 empty_hand_combat: "§8Tay Không"
+undead_slayer: "§6Diệt Undead"
 
 # Attribute templates
 requires_tool_template: "§eYêu cầu: §f{tool_type}"

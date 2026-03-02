@@ -16,6 +16,9 @@ import { world, system, Player, Container, ItemStack } from "@minecraft/server";
 import { PlaceholderRegistry } from "./placeholders/PlaceholderRegistry";
 
 export class LoreSystem {
+  // Guard to prevent recursive lore application
+  private static processingSlots = new Set<string>();
+  
   static initialize(): void {
     console.warn('[LoreSystem] Initializing UNIFIED DYNAMIC LORE system...');
     
@@ -49,8 +52,16 @@ export class LoreSystem {
         const container = inventory.container;
         if (!container) return;
         
+        // Create unique key for this slot to prevent recursion
+        const slotKey = `${player.id}:${slot}`;
+        
+        // Skip if already processing this slot
+        if (this.processingSlots.has(slotKey)) {
+          return;
+        }
+        
         // ALWAYS apply lore from attributes (no template check)
-        this.applyDynamicLoreToSlot(container, slot, itemStack);
+        this.applyDynamicLoreToSlot(container, slot, itemStack, slotKey);
       } catch (error) {
         console.warn('[LoreSystem] Error in inventory change handler:', error);
       }
@@ -106,18 +117,43 @@ export class LoreSystem {
    * Apply dynamic lore to an item in a specific slot
    * ALWAYS generates from attributes (no template)
    */
-  private static applyDynamicLoreToSlot(container: Container, slot: number, itemStack: ItemStack): void {
+  private static applyDynamicLoreToSlot(container: Container, slot: number, itemStack: ItemStack, slotKey?: string): void {
     try {
-      // Generate lore from attributes
-      const lore = PlaceholderRegistry.generateAttributeLore(itemStack);
+      // Mark slot as being processed
+      if (slotKey) {
+        this.processingSlots.add(slotKey);
+      }
       
-      // Apply lore (empty array if no attributes)
-      itemStack.setLore(lore);
+      // Get current lore
+      const currentLore = itemStack.getLore();
       
-      // Save back to container
-      container.setItem(slot, itemStack);
+      // Generate new lore from attributes
+      const newLore = PlaceholderRegistry.generateAttributeLore(itemStack);
+      
+      // Check if lore changed (avoid unnecessary setItem calls)
+      const loreChanged = currentLore.length !== newLore.length || 
+                          currentLore.some((line, i) => line !== newLore[i]);
+      
+      if (loreChanged) {
+        // Apply lore (empty array if no attributes)
+        itemStack.setLore(newLore);
+        
+        // Save back to container
+        container.setItem(slot, itemStack);
+      }
+      
+      // Clear processing flag after a tick
+      if (slotKey) {
+        system.runTimeout(() => {
+          this.processingSlots.delete(slotKey);
+        }, 1);
+      }
     } catch (error) {
       console.warn(`[LoreSystem] Failed to apply dynamic lore to ${itemStack.typeId}:`, error);
+      // Clear flag on error too
+      if (slotKey) {
+        this.processingSlots.delete(slotKey);
+      }
     }
   }
 

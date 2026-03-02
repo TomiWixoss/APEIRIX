@@ -1,7 +1,9 @@
 # Attribute labels (used in templates via {attr:*})
 breakable: "§cBreakable"
 durability: "§6Durability"
+durability_modifier: "§6Durability"
 combat_damage: "§6Damage"
+combat_damage_modifier: "§6Damage"
 damage_multiplier: "§6Damage Bonus"
 mining_speed: "§6Mining Speed"
 hammer_mining: "§6Hammer Mining"
@@ -9,6 +11,7 @@ rust_mite_edible: "§cRust Mite Food"
 requires_tool: "§eRequires"
 hunger_infliction: "§cHunger Infliction"
 empty_hand_combat: "§8Empty Hand"
+undead_slayer: "§6Undead Slayer"
 
 # Attribute templates
 requires_tool_template: "§eRequires: §f{tool_type}"

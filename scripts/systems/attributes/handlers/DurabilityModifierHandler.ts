@@ -6,24 +6,29 @@
  * - Lore placeholder processing
  * - Runtime behavior
  * 
- * Items với attribute 'durability_modifier' có thể:
- * - Set số lần sử dụng tối đa (durability)
- * - Tự động tính toán damage cần trừ dựa trên max durability của item
+ * TWO SYSTEMS:
+ * 1. DURABILITY SYSTEM (items with durability component):
+ *    - Tính damage per use = max_durability / configured_durability
+ *    - Mỗi lần sử dụng trừ damage_per_use từ durability hiện tại
+ *    - Item tự động break khi durability về 0 (vanilla behavior)
+ * 
+ * 2. ITEM COUNT SYSTEM (items without durability component):
+ *    - Store uses remaining in dynamicProperty ('apeirix:uses_remaining')
+ *    - Mỗi lần sử dụng trừ 1 use
+ *    - Khi uses = 0, giảm item amount (consume item)
  * 
  * Config:
  * - context: 'mining' (chỉ active khi đào block)
  * - durability: 4 (số lần sử dụng tối đa)
  * 
- * Logic:
- * - Lấy max durability của item (từ durability component)
- * - Tính damage per use = max_durability / configured_durability
- * - Mỗi lần sử dụng trừ damage_per_use từ durability hiện tại
- * - Item tự động break khi durability về 0 (vanilla behavior)
- * 
- * Example: Wooden pickaxe với durability: 4
+ * Example 1: Wooden pickaxe với durability: 4 (HAS durability component)
  * - Vanilla max durability: 59
- * - Damage per use: 59 / 4 = 14.75
- * - Sau 4 lần sử dụng: 59 - (14.75 * 4) = 0 → item breaks
+ * - Damage per use: 59 / 4 = 14.75 → floor = 14
+ * - Sau 4 lần sử dụng: 59 - (14 * 4) = 3 → item breaks
+ * 
+ * Example 2: Custom item với durability: 3 (NO durability component)
+ * - Uses remaining: 3 (stored in dynamicProperty)
+ * - Sau 3 lần sử dụng: uses = 0 → item amount -= 1, reset uses = 3
  */
 
 import { world, ItemStack, Player, system, GameMode } from '@minecraft/server';
@@ -86,17 +91,18 @@ export class DurabilityModifierHandler {
       const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
       config = resolved?.config;
       
-      // CRITICAL: Check if item has durability component
-      // If not, return empty string to skip this lore line entirely
+      // Check if item has durability component
+      // If not, use item count system (dynamicProperty)
       try {
         const durabilityComp = itemStack.getComponent('minecraft:durability');
-        if (!durabilityComp) {
-          console.warn(`[DurabilityModifierHandler] ${itemId} has no durability component - skipping lore line`);
-          return ''; // Return empty string to skip this line
+        if (!durabilityComp && !config) {
+          // No durability component AND no config - skip lore line
+          console.warn(`[DurabilityModifierHandler] ${itemId} has no durability component and no config - skipping lore line`);
+          return '';
         }
       } catch (error) {
         console.warn(`[DurabilityModifierHandler] ${itemId} failed durability check - skipping lore line`);
-        return ''; // Return empty string to skip this line
+        return '';
       }
     } else {
       // Fallback to static config (for compile-time generation)
@@ -113,7 +119,9 @@ export class DurabilityModifierHandler {
     if (itemStack && config) {
       try {
         const durabilityComp = itemStack.getComponent('minecraft:durability');
+        
         if (durabilityComp) {
+          // HAS durability component - use durability system
           const maxDurability = durabilityComp.maxDurability;
           const currentDamage = durabilityComp.damage;
           const currentDurability = maxDurability - currentDamage;
@@ -124,19 +132,34 @@ export class DurabilityModifierHandler {
           // Calculate uses remaining
           const usesRemaining = Math.floor(currentDurability / damagePerUse);
           
-          // {current_durability} - uses remaining (not raw durability)
+          // {current_durability} - uses remaining
           processedLine = processedLine.replace(/{current_durability}/g, usesRemaining.toString());
           
-          // {max_durability} - max uses (same as {durability})
+          // {max_durability} - max uses
           processedLine = processedLine.replace(/{max_durability}/g, maxUses.toString());
         } else {
-          // No durability component - return empty string
-          return '';
+          // NO durability component - use item count system
+          // Store uses remaining in dynamicProperties
+          const usesKey = 'apeirix:uses_remaining';
+          let usesRemaining = itemStack.getDynamicProperty(usesKey) as number | undefined;
+          
+          // Initialize if not set
+          if (usesRemaining === undefined) {
+            usesRemaining = maxUses;
+            itemStack.setDynamicProperty(usesKey, usesRemaining);
+          }
+          
+          // {current_durability} - uses remaining from dynamic property
+          processedLine = processedLine.replace(/{current_durability}/g, (usesRemaining ?? maxUses).toString());
+          
+          // {max_durability} - max uses
+          processedLine = processedLine.replace(/{max_durability}/g, maxUses.toString());
         }
       } catch (error) {
-        // ItemStack might not have durability component - return empty string
         console.warn(`[DurabilityModifierHandler] Error processing placeholders for ${itemId}:`, error);
-        return '';
+        // Fallback to max uses
+        processedLine = processedLine.replace(/{current_durability}/g, maxUses.toString());
+        processedLine = processedLine.replace(/{max_durability}/g, maxUses.toString());
       }
     }
     
@@ -242,81 +265,142 @@ export class DurabilityModifierHandler {
       if (configuredDurability !== undefined && configuredDurability > 0) {
         // Get durability component
         const durabilityComp = itemStack.getComponent('minecraft:durability');
-        if (!durabilityComp) {
-          console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} has no durability component`);
-          return;
+        
+        if (durabilityComp) {
+          // HAS durability component - use durability system
+          this.applyDurabilitySystem(player, itemStack, durabilityComp, configuredDurability);
+        } else {
+          // NO durability component - use item count system
+          this.applyItemCountSystem(player, itemStack, configuredDurability);
         }
-        
-        const maxDurability = durabilityComp.maxDurability;
-        const currentDamage = durabilityComp.damage;
-        const currentDurability = maxDurability - currentDamage;
-        
-        // Calculate damage per use
-        // Use floor to ensure we get the full number of uses
-        // Example: 59 / 4 = 14.75 → floor = 14 → 4 uses possible (14×4=56 < 59)
-        const damagePerUse = Math.floor(maxDurability / configuredDurability);
-        
-        // Vanilla already consumed 1 durability before this handler runs
-        // So we only need to apply (damagePerUse - 1) additional damage
-        const additionalDamage = Math.max(0, damagePerUse - 1);
-        const newDamage = currentDamage + additionalDamage;
-        
-        console.warn(`[DurabilityModifierHandler] ${itemStack.typeId}: ${currentDurability}/${maxDurability} -> applying ${damagePerUse} damage (${configuredDurability} uses total)`);
-        
-        // Defer item update to avoid blocking event handler
-        system.run(() => {
-          try {
-            // Apply damage to item in player's hand
-            const inventory = player.getComponent('minecraft:inventory');
-            if (!inventory) return;
-            
-            const container = inventory.container;
-            if (!container) return;
-            
-            const selectedSlot = player.selectedSlotIndex;
-            const heldItem = container.getItem(selectedSlot);
-            
-            if (heldItem && heldItem.typeId === itemStack.typeId) {
-              const heldDurability = heldItem.getComponent('minecraft:durability');
-              if (heldDurability) {
-                // Check if item will break (damage >= maxDurability)
-                if (newDamage >= maxDurability) {
-                  // Break item manually
-                  this.breakItem(player, selectedSlot, heldItem);
-                  console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (damage: ${newDamage}/${maxDurability})`);
-                } else {
-                  // Apply damage (safe - newDamage < maxDurability)
-                  heldDurability.damage = newDamage;
-                  
-                  // Calculate remaining uses
-                  const remainingDurability = maxDurability - newDamage;
-                  const usesRemaining = Math.floor(remainingDurability / damagePerUse);
-                  
-                  // If no uses remaining, break the item now
-                  if (usesRemaining <= 0) {
-                    this.breakItem(player, selectedSlot, heldItem);
-                    console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (0 uses remaining, damage: ${newDamage}/${maxDurability})`);
-                  } else {
-                    // Refresh lore to update {current_durability} placeholder
-                    LoreRefreshSystem.refresh(heldItem);
-                    
-                    // Update item in container
-                    container.setItem(selectedSlot, heldItem);
-                    
-                    console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability} (${usesRemaining} uses remaining)`);
-                  }
-                }
-              }
-            }
-          } catch (error) {
-            console.warn('[DurabilityModifierHandler] Error in deferred item update:', error);
-          }
-        });
       }
       
     } catch (error) {
       console.warn('[DurabilityModifierHandler] Error applying durability modification:', error);
     }
+  }
+
+  /**
+   * Apply durability system (for items with durability component)
+   */
+  private static applyDurabilitySystem(player: Player, itemStack: ItemStack, durabilityComp: any, configuredDurability: number): void {
+    const maxDurability = durabilityComp.maxDurability;
+    const currentDamage = durabilityComp.damage;
+    const currentDurability = maxDurability - currentDamage;
+    
+    // Calculate damage per use
+    const damagePerUse = Math.floor(maxDurability / configuredDurability);
+    
+    // Vanilla already consumed 1 durability before this handler runs
+    // So we only need to apply (damagePerUse - 1) additional damage
+    const additionalDamage = Math.max(0, damagePerUse - 1);
+    const newDamage = currentDamage + additionalDamage;
+    
+    console.warn(`[DurabilityModifierHandler] ${itemStack.typeId}: ${currentDurability}/${maxDurability} -> applying ${damagePerUse} damage (${configuredDurability} uses total)`);
+    
+    // Defer item update to avoid blocking event handler
+    system.run(() => {
+      try {
+        // Apply damage to item in player's hand
+        const inventory = player.getComponent('minecraft:inventory');
+        if (!inventory) return;
+        
+        const container = inventory.container;
+        if (!container) return;
+        
+        const selectedSlot = player.selectedSlotIndex;
+        const heldItem = container.getItem(selectedSlot);
+        
+        if (heldItem && heldItem.typeId === itemStack.typeId) {
+          const heldDurability = heldItem.getComponent('minecraft:durability');
+          if (heldDurability) {
+            // Check if item will break (damage >= maxDurability)
+            if (newDamage >= maxDurability) {
+              // Break item manually
+              this.breakItem(player, selectedSlot, heldItem);
+              console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (damage: ${newDamage}/${maxDurability})`);
+            } else {
+              // Apply damage (safe - newDamage < maxDurability)
+              heldDurability.damage = newDamage;
+              
+              // Calculate remaining uses
+              const remainingDurability = maxDurability - newDamage;
+              const usesRemaining = Math.floor(remainingDurability / damagePerUse);
+              
+              // If no uses remaining, break the item now
+              if (usesRemaining <= 0) {
+                this.breakItem(player, selectedSlot, heldItem);
+                console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} broke (0 uses remaining, damage: ${newDamage}/${maxDurability})`);
+              } else {
+                // Refresh lore to update {current_durability} placeholder
+                LoreRefreshSystem.refresh(heldItem);
+                
+                // Update item in container
+                container.setItem(selectedSlot, heldItem);
+                
+                console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} damaged: ${newDamage}/${maxDurability} (${usesRemaining} uses remaining)`);
+              }
+            }
+          }
+        }
+      } catch (error) {
+        console.warn('[DurabilityModifierHandler] Error in deferred durability update:', error);
+      }
+    });
+  }
+
+  /**
+   * Apply item count system (for items without durability component)
+   * Uses dynamicProperty to track uses remaining
+   */
+  private static applyItemCountSystem(player: Player, itemStack: ItemStack, configuredDurability: number): void {
+    const usesKey = 'apeirix:uses_remaining';
+    let usesRemaining = itemStack.getDynamicProperty(usesKey) as number | undefined;
+    
+    // Initialize if not set
+    if (usesRemaining === undefined) {
+      usesRemaining = configuredDurability;
+    }
+    
+    // Decrement uses
+    usesRemaining -= 1;
+    
+    console.warn(`[DurabilityModifierHandler] ${itemStack.typeId}: ${usesRemaining}/${configuredDurability} uses remaining (count system)`);
+    
+    // Defer item update to avoid blocking event handler
+    system.run(() => {
+      try {
+        const inventory = player.getComponent('minecraft:inventory');
+        if (!inventory) return;
+        
+        const container = inventory.container;
+        if (!container) return;
+        
+        const selectedSlot = player.selectedSlotIndex;
+        const heldItem = container.getItem(selectedSlot);
+        
+        if (heldItem && heldItem.typeId === itemStack.typeId) {
+          if (usesRemaining! <= 0) {
+            // Break item (reduce amount by 1)
+            this.breakItem(player, selectedSlot, heldItem);
+            console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} consumed (0 uses remaining)`);
+          } else {
+            // Update uses remaining
+            heldItem.setDynamicProperty(usesKey, usesRemaining);
+            
+            // Refresh lore to update {current_durability} placeholder
+            LoreRefreshSystem.refresh(heldItem);
+            
+            // Update item in container
+            container.setItem(selectedSlot, heldItem);
+            
+            console.warn(`[DurabilityModifierHandler] ${itemStack.typeId} used: ${usesRemaining}/${configuredDurability} uses remaining`);
+          }
+        }
+      } catch (error) {
+        console.warn('[DurabilityModifierHandler] Error in deferred count update:', error);
+      }
+    });
   }
 
   /**
