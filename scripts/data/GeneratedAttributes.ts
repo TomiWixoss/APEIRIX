@@ -7,7 +7,7 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-02T13:56:07.720Z
+ * Generated: 2026-03-02T14:01:03.764Z
  * Total attributes: 8
  * Total items with attributes: 154
  */
@@ -54,11 +54,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"context":"combat","damage":0} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"combat","damage":0.5} },
     { itemId: 'minecraft:wooden_spear', config: {"context":"combat","damage":0.5} },
-    { itemId: 'apeirix:flint_axe', config: {"context":"combat","damage":1} },
-    { itemId: 'apeirix:flint_hoe', config: {"context":"combat","damage":1} },
-    { itemId: 'apeirix:flint_knife', config: {"context":"combat","damage":2} },
-    { itemId: 'apeirix:flint_pickaxe', config: {"context":"combat","damage":1} },
-    { itemId: 'apeirix:flint_shovel', config: {"context":"combat","damage":1} },
+    { itemId: 'apeirix:flint_axe', config: {"context":"combat","damage":0.5} },
+    { itemId: 'apeirix:flint_hoe', config: {"context":"combat","damage":0.5} },
+    { itemId: 'apeirix:flint_knife', config: {"context":"combat","damage":1} },
+    { itemId: 'apeirix:flint_pickaxe', config: {"context":"combat","damage":0.5} },
+    { itemId: 'apeirix:flint_shovel', config: {"context":"combat","damage":0.5} },
     { itemId: 'apeirix:wooden_hammer', config: {"context":"combat","damage":0} }
   ],
   'durability_modifier': [

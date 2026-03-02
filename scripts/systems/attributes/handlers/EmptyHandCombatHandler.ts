@@ -1,10 +1,13 @@
 /**
- * EmptyHandCombatHandler - Prevent damage when attacking with empty hand
+ * EmptyHandCombatHandler - Enforce combat damage rules
  * 
  * SINGLE SOURCE OF TRUTH for 'empty_hand_combat' attribute:
  * - Runtime behavior for player entity
  * 
- * Player đánh bằng tay không (empty hand) sẽ gây 0 damage cho bất kỳ entity nào.
+ * Logic:
+ * - Nếu player cầm item KHÔNG có attribute 'combat_damage_modifier' → damage = 0
+ * - Nếu player cầm item CÓ attribute 'combat_damage_modifier' → damage từ CombatDamageModifierHandler
+ * - Nếu player empty hand → damage = 0
  * 
  * Config (player.yaml):
  * - context: 'combat'
@@ -12,8 +15,9 @@
  */
 
 import { world, EntityHurtBeforeEvent, Player } from '@minecraft/server';
-import { getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { EntityAttributeStorage } from '../EntityAttributeStorage';
+import { AttributeResolver } from '../AttributeResolver';
+import { system } from '@minecraft/server';
 
 interface EmptyHandCombatConfig {
   context?: string;
@@ -45,7 +49,7 @@ export class EmptyHandCombatHandler {
    * Process lore placeholders for this attribute
    * Replaces: {damage}
    */
-  static processLorePlaceholders(entityId: string, line: string, entity?: any): string {
+  static processLorePlaceholders(_entityId: string, line: string, _entity?: any): string {
     // Get config from entity or use default
     const damage = this.config?.damage ?? 0;
     
@@ -121,9 +125,23 @@ export class EmptyHandCombatHandler {
       // Get held item in selected slot
       const heldItem = container.getItem(player.selectedSlotIndex);
       
-      // If player has empty hand (no item) AND has attribute, apply damage override
-      if (!heldItem && this.config.damage !== undefined) {
-        event.damage = this.config.damage;
+      // NEW LOGIC: Check if held item has combat_damage_modifier attribute
+      if (heldItem) {
+        // Item exists - check for combat_damage_modifier attribute
+        const combatDamageAttr = AttributeResolver.getAttribute(
+          heldItem, 
+          'combat_damage_modifier',
+          system.currentTick
+        );
+        
+        if (!combatDamageAttr) {
+          // Item KHÔNG có combat_damage_modifier → force damage = 0
+          event.damage = this.config.damage ?? 0;
+        }
+        // Nếu có combat_damage_modifier, CombatDamageModifierHandler sẽ xử lý
+      } else {
+        // Empty hand → force damage = 0
+        event.damage = this.config.damage ?? 0;
       }
       
     } catch (error) {

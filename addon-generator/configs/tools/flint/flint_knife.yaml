@@ -34,7 +34,7 @@ attributes:
     durability: 12
   combat_damage_modifier:
     context: combat
-    damage: 2
+    damage: 1
   breakable:
     context: mining
     value: 100
