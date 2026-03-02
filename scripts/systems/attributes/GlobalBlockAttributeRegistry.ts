@@ -17,6 +17,7 @@
  */
 
 import { world } from '@minecraft/server';
+import { GENERATED_ATTRIBUTES } from '../../data/GeneratedAttributes';
 
 interface BlockAttributeData {
   [blockId: string]: {
@@ -26,11 +27,13 @@ interface BlockAttributeData {
 
 export class GlobalBlockAttributeRegistry {
   private static readonly PROPERTY_KEY = 'apeirix:block_attributes';
+  private static readonly MIGRATION_FLAG_KEY = 'apeirix:block_attrs_migrated';
   private static data: BlockAttributeData = {};
   private static initialized = false;
 
   /**
    * Initialize registry - load from world storage
+   * Also performs one-time migration check (blocks don't have static attributes, so this is a no-op)
    */
   static initialize(): void {
     if (this.initialized) {
@@ -40,11 +43,65 @@ export class GlobalBlockAttributeRegistry {
 
     console.warn('[GlobalBlockAttributeRegistry] Initializing...');
     this.load();
+    
+    // Check if migration needed (blocks don't have static attributes, but we set flag for consistency)
+    this.performMigrationIfNeeded();
+    
     this.initialized = true;
     
     const blockCount = Object.keys(this.data).length;
     const attrCount = Object.values(this.data).reduce((sum, attrs) => sum + Object.keys(attrs).length, 0);
     console.warn(`[GlobalBlockAttributeRegistry] Loaded ${attrCount} attributes for ${blockCount} block types`);
+  }
+
+  /**
+   * Perform one-time migration check
+   * Migrates block-relevant attributes from YAML to registry
+   */
+  private static performMigrationIfNeeded(): void {
+    try {
+      // Check if already migrated
+      const migrated = world.getDynamicProperty(this.MIGRATION_FLAG_KEY);
+      if (migrated) {
+        console.warn('[GlobalBlockAttributeRegistry] Migration already completed, skipping...');
+        return;
+      }
+
+      console.warn('[GlobalBlockAttributeRegistry] Performing one-time migration from YAML...');
+      
+      let migratedCount = 0;
+      
+      // Migrate block-relevant attributes (requires_tool, etc.)
+      // GENERATED_ATTRIBUTES format: { attrId: [{ itemId, config }, ...] }
+      const blockRelevantAttributes = ['requires_tool']; // Add more as needed
+      
+      for (const attrId of blockRelevantAttributes) {
+        const items = GENERATED_ATTRIBUTES[attrId];
+        if (!items) continue;
+        
+        for (const item of items) {
+          const blockId = item.itemId; // Same ID for item and block
+          const config = item.config || {};
+          
+          if (!this.data[blockId]) {
+            this.data[blockId] = {};
+          }
+          
+          this.data[blockId][attrId] = config;
+          migratedCount++;
+        }
+      }
+      
+      // Save migrated data
+      this.save();
+      
+      // Set migration flag
+      world.setDynamicProperty(this.MIGRATION_FLAG_KEY, true);
+      
+      console.warn(`[GlobalBlockAttributeRegistry] Migration completed: ${migratedCount} block attributes migrated`);
+    } catch (error) {
+      console.warn(`[GlobalBlockAttributeRegistry] Migration failed:`, error);
+    }
   }
 
   /**
@@ -133,6 +190,16 @@ export class GlobalBlockAttributeRegistry {
    */
   static getBlockAttributes(blockId: string): string[] {
     return Object.keys(this.data[blockId] || {});
+  }
+
+  /**
+   * Get all attributes with configs for block type
+   * 
+   * @param blockId Block type ID
+   * @returns Record of attribute ID -> config
+   */
+  static getAllAttributesForBlock(blockId: string): Record<string, any> {
+    return this.data[blockId] || {};
   }
 
   /**

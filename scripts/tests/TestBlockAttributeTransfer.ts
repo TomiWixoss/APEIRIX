@@ -9,7 +9,7 @@
  * 5. Try mining dirt without axe → Should work
  */
 
-import { world, system, Player } from '@minecraft/server';
+import { world, system, Player, ItemStack } from '@minecraft/server';
 import { AttributeAPI } from '../systems/attributes/AttributeAPI';
 import { GlobalBlockAttributeRegistry } from '../systems/attributes/GlobalBlockAttributeRegistry';
 
@@ -44,7 +44,7 @@ export class TestBlockAttributeTransfer {
           
           if (success) {
             player.sendMessage('§aSuccess! Dirt now requires axe to mine');
-            player.sendMessage('§7Try mining dirt without axe');
+            player.sendMessage('§7Pickup dirt item to see lore auto-apply');
             
             // Update item in inventory
             inventory.container?.setItem(player.selectedSlotIndex, item);

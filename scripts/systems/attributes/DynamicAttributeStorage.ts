@@ -1,56 +1,56 @@
 /**
- * DynamicAttributeStorage - Store and load dynamic attributes from ItemStack
+ * DynamicAttributeStorage - Store and load dynamic attributes from ItemStack.dynamicProperties
  * 
- * Attributes được lưu trong ItemStack.dynamicProperties với format:
+ * PURE DYNAMIC SYSTEM:
+ * - Only for NON-STACKABLE items (tools, armor)
+ * - Stackable items use GlobalItemAttributeRegistry instead
+ * - Simple key-value storage: attrId → config
+ * 
+ * Storage format in dynamicProperties:
  * {
- *   added: { attrId: config },      // Attributes được thêm vào
- *   modified: { attrId: config },   // Attributes bị modify config
- *   disabled: ['attrId'],           // Attributes bị disable
+ *   attrId: config,
+ *   attrId2: config2,
+ *   ...
  * }
- * 
- * Similar to durability system - attributes persist qua save/load
  */
 
 import { ItemStack } from '@minecraft/server';
 
-export interface DynamicAttributeData {
-  added?: Record<string, any>;      // Attributes thêm vào runtime
-  modified?: Record<string, any>;   // Config overrides cho static attributes
-  disabled?: string[];              // Attributes bị disable
-}
+export type DynamicAttributeData = Record<string, any>; // attrId → config
 
 export class DynamicAttributeStorage {
   private static readonly PROPERTY_KEY = 'apeirix:attributes';
   
   /**
-   * Load dynamic attribute data từ ItemStack
+   * Load dynamic attributes from ItemStack.dynamicProperties
+   * Only works for non-stackable items
    */
   static load(itemStack: ItemStack): DynamicAttributeData {
     try {
       const json = itemStack.getDynamicProperty(this.PROPERTY_KEY) as string;
-      return json ? JSON.parse(json) : {};
+      if (json) {
+        return JSON.parse(json);
+      }
     } catch (error) {
-      console.warn(`[DynamicAttributeStorage] Failed to load attributes:`, error);
-      return {};
+      // Ignore - return empty
     }
+    
+    return {};
   }
   
   /**
-   * Save dynamic attribute data vào ItemStack
+   * Save dynamic attributes to ItemStack.dynamicProperties
+   * Only works for non-stackable items
    */
   static save(itemStack: ItemStack, data: DynamicAttributeData): void {
     try {
-      // Clean up empty objects/arrays
-      const cleaned = this.cleanup(data);
-      
-      if (Object.keys(cleaned).length === 0) {
-        // No dynamic data - remove property
+      if (Object.keys(data).length === 0) {
         itemStack.setDynamicProperty(this.PROPERTY_KEY, undefined);
       } else {
-        itemStack.setDynamicProperty(this.PROPERTY_KEY, JSON.stringify(cleaned));
+        itemStack.setDynamicProperty(this.PROPERTY_KEY, JSON.stringify(data));
       }
     } catch (error) {
-      console.warn(`[DynamicAttributeStorage] Failed to save attributes:`, error);
+      console.warn(`[DynamicAttributeStorage] Failed to save (probably stackable item):`, error);
     }
   }
   
@@ -59,37 +59,17 @@ export class DynamicAttributeStorage {
    */
   static hasDynamicAttributes(itemStack: ItemStack): boolean {
     const data = this.load(itemStack);
-    const hasAdded = !!(data.added && Object.keys(data.added).length > 0);
-    const hasModified = !!(data.modified && Object.keys(data.modified).length > 0);
-    const hasDisabled = !!(data.disabled && data.disabled.length > 0);
-    return hasAdded || hasModified || hasDisabled;
+    return Object.keys(data).length > 0;
   }
   
   /**
    * Clear all dynamic attributes
    */
   static clear(itemStack: ItemStack): void {
-    itemStack.setDynamicProperty(this.PROPERTY_KEY, undefined);
-  }
-  
-  /**
-   * Cleanup empty objects/arrays
-   */
-  private static cleanup(data: DynamicAttributeData): DynamicAttributeData {
-    const cleaned: DynamicAttributeData = {};
-    
-    if (data.added && Object.keys(data.added).length > 0) {
-      cleaned.added = data.added;
+    try {
+      itemStack.setDynamicProperty(this.PROPERTY_KEY, undefined);
+    } catch (error) {
+      // Ignore
     }
-    
-    if (data.modified && Object.keys(data.modified).length > 0) {
-      cleaned.modified = data.modified;
-    }
-    
-    if (data.disabled && data.disabled.length > 0) {
-      cleaned.disabled = data.disabled;
-    }
-    
-    return cleaned;
   }
 }

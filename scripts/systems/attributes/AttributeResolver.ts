@@ -1,25 +1,26 @@
 /**
- * AttributeResolver - Resolve static + dynamic attributes
+ * AttributeResolver - Resolve attributes from multiple sources
  * 
- * Merge attributes từ 2 sources:
- * 1. Static (GeneratedAttributes.ts) - default attributes từ YAML
- * 2. Dynamic (ItemStack properties) - runtime modifications
+ * NEW ARCHITECTURE: Pure dynamic, no static attributes
  * 
- * Priority: Dynamic > Static
- * - Dynamic.disabled → disable static attribute
- * - Dynamic.modified → override static config
- * - Dynamic.added → add new attribute
+ * Sources for ITEMS (priority order):
+ * 1. ItemStack.dynamicProperties (non-stackable items, per-instance)
+ * 2. GlobalItemAttributeRegistry (stackable items, per-type)
+ * 
+ * NOTE: GlobalBlockAttributeRegistry is NOT checked here
+ * - Block attributes are for mining checks only (RequiresToolHandler)
+ * - Items should NOT show block attributes in lore
+ * - Separation: Item attributes (lore) vs Block attributes (mining)
  */
 
 import { ItemStack } from '@minecraft/server';
-import { getItemAttributes, getAttributeConfig } from '../../data/GeneratedAttributes';
-import { DynamicAttributeStorage, DynamicAttributeData } from './DynamicAttributeStorage';
+import { DynamicAttributeStorage } from './DynamicAttributeStorage';
+import { GlobalItemAttributeRegistry } from './GlobalItemAttributeRegistry';
 
 export interface ResolvedAttribute {
   id: string;
-  source: 'static' | 'dynamic' | 'modified';
+  source: 'item_instance' | 'item_type' | 'block_type';
   config: any;
-  enabled: boolean;
 }
 
 export class AttributeResolver {
@@ -30,7 +31,13 @@ export class AttributeResolver {
   }>();
   
   /**
-   * Resolve ALL attributes (static + dynamic) cho ItemStack
+   * Resolve ALL attributes for ItemStack
+   * 
+   * Priority:
+   * 1. ItemStack.dynamicProperties (non-stackable items, per-instance)
+   * 2. GlobalItemAttributeRegistry (stackable items, per-type)
+   * 
+   * NOTE: Does NOT check GlobalBlockAttributeRegistry - block attributes are for mining only, not lore
    * 
    * @param itemStack ItemStack to resolve attributes for
    * @param currentTick Current game tick (for cache invalidation)
@@ -48,36 +55,42 @@ export class AttributeResolver {
     const resolved: ResolvedAttribute[] = [];
     const itemId = itemStack.typeId;
     
-    // 1. Load static attributes (from GeneratedAttributes)
-    const staticAttrs = getItemAttributes(itemId);
-    for (const attrId of staticAttrs) {
-      const config = getAttributeConfig(itemId, attrId);
+    // 1. Try ItemStack.dynamicProperties (non-stackable items)
+    const dynamicData = DynamicAttributeStorage.load(itemStack);
+    for (const [attrId, config] of Object.entries(dynamicData)) {
       resolved.push({
         id: attrId,
-        source: 'static',
-        config: config || {},
-        enabled: true
+        source: 'item_instance',
+        config: config || {}
       });
     }
     
-    // 2. Load dynamic data
-    const dynamicData = DynamicAttributeStorage.load(itemStack);
+    // 2. Check GlobalItemAttributeRegistry (stackable items, per-type)
+    const itemTypeAttrs = GlobalItemAttributeRegistry.getAllAttributesForItem(itemId);
+    for (const [attrId, config] of Object.entries(itemTypeAttrs)) {
+      // Skip if already in resolved (instance takes priority)
+      if (resolved.some(a => a.id === attrId)) continue;
+      
+      resolved.push({
+        id: attrId,
+        source: 'item_type',
+        config: config || {}
+      });
+    }
     
-    // 3. Apply dynamic modifications
-    this.applyDynamicData(resolved, dynamicData);
-    
-    // 4. Filter disabled attributes
-    const filtered = resolved.filter(a => a.enabled);
+    // NOTE: We do NOT check GlobalBlockAttributeRegistry here
+    // Block attributes are for mining checks only, not for item lore
+    // RequiresToolHandler checks GlobalBlockAttributeRegistry directly when mining
     
     // Cache result
     if (currentTick !== undefined) {
       this.cache.set(itemStack, {
         tick: currentTick,
-        attributes: filtered
+        attributes: resolved
       });
     }
     
-    return filtered;
+    return resolved;
   }
   
   /**
@@ -100,49 +113,6 @@ export class AttributeResolver {
    */
   static getAttributeIds(itemStack: ItemStack, currentTick?: number): string[] {
     return this.resolve(itemStack, currentTick).map(a => a.id);
-  }
-  
-  /**
-   * Apply dynamic data to resolved attributes
-   */
-  private static applyDynamicData(resolved: ResolvedAttribute[], dynamicData: DynamicAttributeData): void {
-    // 2a. Disable attributes
-    if (dynamicData.disabled) {
-      for (const attrId of dynamicData.disabled) {
-        const existing = resolved.find(a => a.id === attrId);
-        if (existing) {
-          existing.enabled = false;
-        }
-      }
-    }
-    
-    // 2b. Modify existing attributes
-    if (dynamicData.modified) {
-      for (const [attrId, configPatch] of Object.entries(dynamicData.modified)) {
-        const existing = resolved.find(a => a.id === attrId);
-        if (existing) {
-          existing.config = { ...existing.config, ...configPatch };
-          existing.source = 'modified';
-        }
-      }
-    }
-    
-    // 2c. Add new attributes
-    if (dynamicData.added) {
-      for (const [attrId, config] of Object.entries(dynamicData.added)) {
-        // Skip if already exists (shouldn't happen, but safety check)
-        if (resolved.some(a => a.id === attrId)) {
-          continue;
-        }
-        
-        resolved.push({
-          id: attrId,
-          source: 'dynamic',
-          config: config || {},
-          enabled: true
-        });
-      }
-    }
   }
   
   /**

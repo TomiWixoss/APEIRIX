@@ -9,4 +9,3 @@ wikiDescription: lang:wiki.blocks.mangrove_log
 attributes:
   requires_tool:
     toolType: axe
-    

@@ -9,8 +9,8 @@
  * ```
  */
 
-import { world, Player, Block, ItemStack, system } from '@minecraft/server';
-import { hasAttribute, getAttributeConfig } from '../../../data/GeneratedAttributes';
+import { world, ItemStack, system } from '@minecraft/server';
+import { getAttributeConfig } from '../../../data/GeneratedAttributes';
 import { LangManager } from '../../../lang/LangManager';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 import { AttributeResolver } from '../AttributeResolver';
@@ -31,12 +31,16 @@ export class RequiresToolHandler {
    * Process lore placeholders
    * 
    * DYNAMIC: Uses AttributeResolver to get resolved config (static + dynamic)
+   * Also checks _attributeConfig injected by PlaceholderRegistry for block-type attributes
    */
-  static processLorePlaceholders(itemId: string, line: string, itemStack?: ItemStack): string {
+  static processLorePlaceholders(itemId: string, line: string, itemStack?: any): string {
     let config: any;
     
-    // If itemStack provided, resolve dynamic attributes
-    if (itemStack) {
+    // Check if config was injected by PlaceholderRegistry (for block-type attributes)
+    if (itemStack?._attributeConfig) {
+      config = itemStack._attributeConfig;
+    } else if (itemStack) {
+      // If itemStack provided, resolve dynamic attributes
       const resolved = AttributeResolver.getAttribute(itemStack, this.ATTRIBUTE_ID, system.currentTick);
       config = resolved?.config;
     } else {
@@ -80,21 +84,13 @@ export class RequiresToolHandler {
     // Get block type ID
     const blockTypeId = block.typeId;
     
-    // Check dynamic attributes FIRST (priority: Dynamic > Static)
-    let config: any;
-    let hasRequiresTool = false;
-    
-    if (GlobalBlockAttributeRegistry.hasBlockAttribute(blockTypeId, this.ATTRIBUTE_ID)) {
-      // Dynamic attribute from registry
-      config = GlobalBlockAttributeRegistry.getBlockAttribute(blockTypeId, this.ATTRIBUTE_ID);
-      hasRequiresTool = true;
-    } else if (hasAttribute(blockTypeId, this.ATTRIBUTE_ID)) {
-      // Static attribute from YAML
-      config = getAttributeConfig(blockTypeId, this.ATTRIBUTE_ID);
-      hasRequiresTool = true;
+    // PURE DYNAMIC: Only check GlobalBlockAttributeRegistry (no static attributes)
+    if (!GlobalBlockAttributeRegistry.hasBlockAttribute(blockTypeId, this.ATTRIBUTE_ID)) {
+      return;
     }
     
-    if (!hasRequiresTool || !config) {
+    const config = GlobalBlockAttributeRegistry.getBlockAttribute(blockTypeId, this.ATTRIBUTE_ID);
+    if (!config) {
       return;
     }
 

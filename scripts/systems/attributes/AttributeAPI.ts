@@ -4,23 +4,27 @@
  * Provides high-level operations:
  * - addAttribute() - Add new attribute to item
  * - removeAttribute() - Remove attribute from item
- * - modifyAttribute() - Modify attribute config
  * - transferAttribute() - Transfer attribute between items
- * - resetAttributes() - Reset to static defaults
+ * - transferAttributeToBlockType() - Transfer attribute from item to block type
+ * - transferAttributeBetweenBlockTypes() - Transfer attribute between block types
+ * - transferAttributeFromBlockType() - Transfer attribute from block type to item
  * 
  * All operations trigger lore refresh automatically
  */
 
-import { ItemStack, Player } from '@minecraft/server';
+import { ItemStack } from '@minecraft/server';
 import { DynamicAttributeStorage } from './DynamicAttributeStorage';
 import { AttributeResolver } from './AttributeResolver';
-import { hasAttribute as hasStaticAttribute } from '../../data/GeneratedAttributes';
-import { LoreRefreshSystem } from '../lore/LoreRefreshSystem';
+import { LoreSystem } from '../lore/LoreSystem';
 import { GlobalBlockAttributeRegistry } from './GlobalBlockAttributeRegistry';
+import { GlobalItemAttributeRegistry } from './GlobalItemAttributeRegistry';
 
 export class AttributeAPI {
   /**
    * Add attribute to ItemStack
+   * 
+   * For stackable items: Adds to GlobalItemAttributeRegistry (affects all items of that type)
+   * For non-stackable items: Adds to ItemStack.dynamicProperties (per-instance)
    * 
    * @param itemStack Target item
    * @param attrId Attribute ID (e.g., 'hammer_mining')
@@ -35,21 +39,24 @@ export class AttributeAPI {
         return false;
       }
       
-      // Load dynamic data
-      const data = DynamicAttributeStorage.load(itemStack);
+      // Check if stackable (maxAmount > 1)
+      const isStackable = itemStack.maxAmount > 1;
       
-      // Add to added list
-      data.added = data.added || {};
-      data.added[attrId] = config;
-      
-      // Save
-      DynamicAttributeStorage.save(itemStack, data);
-      
-      // Trigger lore refresh
-      this.triggerLoreRefresh(itemStack);
-      
-      console.warn(`[AttributeAPI] Added attribute '${attrId}' to ${itemStack.typeId}`);
-      return true;
+      if (isStackable) {
+        // Add to GlobalItemAttributeRegistry (affects all items of this type)
+        return GlobalItemAttributeRegistry.addItemAttribute(itemStack.typeId, attrId, config);
+      } else {
+        // Add to ItemStack.dynamicProperties (per-instance)
+        const data = DynamicAttributeStorage.load(itemStack);
+        data[attrId] = config;
+        DynamicAttributeStorage.save(itemStack, data);
+        
+        // Trigger lore refresh
+        this.triggerLoreRefresh(itemStack);
+        
+        console.warn(`[AttributeAPI] Added attribute '${attrId}' to ${itemStack.typeId}`);
+        return true;
+      }
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to add attribute:`, error);
       return false;
@@ -66,91 +73,33 @@ export class AttributeAPI {
   static removeAttribute(itemStack: ItemStack, attrId: string): boolean {
     try {
       // Check if has attribute
-      if (!AttributeResolver.hasAttribute(itemStack, attrId)) {
+      const attr = AttributeResolver.getAttribute(itemStack, attrId);
+      if (!attr) {
         console.warn(`[AttributeAPI] Item doesn't have attribute: ${attrId}`);
         return false;
       }
       
-      // Load dynamic data
-      const data = DynamicAttributeStorage.load(itemStack);
-      
-      // If static attribute, add to disabled list
-      if (hasStaticAttribute(itemStack.typeId, attrId)) {
-        data.disabled = data.disabled || [];
-        if (!data.disabled.includes(attrId)) {
-          data.disabled.push(attrId);
-        }
+      // Handle based on source
+      if (attr.source === 'item_type') {
+        // Remove from GlobalItemAttributeRegistry (stackable items)
+        return GlobalItemAttributeRegistry.removeItemAttribute(itemStack.typeId, attrId);
+      } else if (attr.source === 'item_instance') {
+        // Remove from ItemStack.dynamicProperties (non-stackable items)
+        const data = DynamicAttributeStorage.load(itemStack);
+        delete data[attrId];
+        DynamicAttributeStorage.save(itemStack, data);
+        
+        // Trigger lore refresh
+        this.triggerLoreRefresh(itemStack);
+        
+        console.warn(`[AttributeAPI] Removed attribute '${attrId}' from ${itemStack.typeId}`);
+        return true;
+      } else {
+        console.warn(`[AttributeAPI] Cannot remove attribute from source: ${attr.source}`);
+        return false;
       }
-      
-      // If dynamic attribute, remove from added
-      if (data.added?.[attrId]) {
-        delete data.added[attrId];
-      }
-      
-      // Remove from modified (if exists)
-      if (data.modified?.[attrId]) {
-        delete data.modified[attrId];
-      }
-      
-      // Save
-      DynamicAttributeStorage.save(itemStack, data);
-      
-      // Trigger lore refresh
-      this.triggerLoreRefresh(itemStack);
-      
-      console.warn(`[AttributeAPI] Removed attribute '${attrId}' from ${itemStack.typeId}`);
-      return true;
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to remove attribute:`, error);
-      return false;
-    }
-  }
-  
-  /**
-   * Modify attribute config
-   * 
-   * @param itemStack Target item
-   * @param attrId Attribute ID to modify
-   * @param configPatch Config changes (merged with existing)
-   * @returns Success status
-   */
-  static modifyAttribute(itemStack: ItemStack, attrId: string, configPatch: any): boolean {
-    try {
-      // Check if has attribute
-      if (!AttributeResolver.hasAttribute(itemStack, attrId)) {
-        console.warn(`[AttributeAPI] Item doesn't have attribute: ${attrId}`);
-        return false;
-      }
-      
-      // Load dynamic data
-      const data = DynamicAttributeStorage.load(itemStack);
-      
-      // Get current config
-      const current = AttributeResolver.getAttribute(itemStack, attrId);
-      if (!current) return false;
-      
-      // Merge config
-      const newConfig = { ...current.config, ...configPatch };
-      
-      // If dynamic attribute, update added
-      if (data.added?.[attrId]) {
-        data.added[attrId] = newConfig;
-      } else {
-        // Static attribute, add to modified
-        data.modified = data.modified || {};
-        data.modified[attrId] = newConfig;
-      }
-      
-      // Save
-      DynamicAttributeStorage.save(itemStack, data);
-      
-      // Trigger lore refresh
-      this.triggerLoreRefresh(itemStack);
-      
-      console.warn(`[AttributeAPI] Modified attribute '${attrId}' on ${itemStack.typeId}`);
-      return true;
-    } catch (error) {
-      console.warn(`[AttributeAPI] Failed to modify attribute:`, error);
       return false;
     }
   }
@@ -199,27 +148,6 @@ export class AttributeAPI {
   }
   
   /**
-   * Reset item to static attributes (remove all dynamic modifications)
-   * 
-   * @param itemStack Target item
-   * @returns Success status
-   */
-  static resetAttributes(itemStack: ItemStack): boolean {
-    try {
-      DynamicAttributeStorage.clear(itemStack);
-      
-      // Trigger lore refresh
-      this.triggerLoreRefresh(itemStack);
-      
-      console.warn(`[AttributeAPI] Reset attributes for ${itemStack.typeId}`);
-      return true;
-    } catch (error) {
-      console.warn(`[AttributeAPI] Failed to reset attributes:`, error);
-      return false;
-    }
-  }
-  
-  /**
    * Get all attributes (resolved) for display/debugging
    */
   static getAttributes(itemStack: ItemStack): Array<{ id: string; config: any; source: string }> {
@@ -233,6 +161,7 @@ export class AttributeAPI {
   
   /**
    * Transfer attribute from item to block type
+   * Transfers BOTH item attributes (for lore) AND block attributes (for mining)
    * 
    * @param itemStack Source item
    * @param attrId Attribute ID to transfer
@@ -248,25 +177,28 @@ export class AttributeAPI {
         return false;
       }
       
-      // Check target doesn't have attribute (static or dynamic)
-      if (GlobalBlockAttributeRegistry.hasBlockAttribute(targetBlockId, attrId)) {
-        console.warn(`[AttributeAPI] Target block type already has dynamic attribute: ${attrId}`);
-        return false;
+      const sourceItemId = itemStack.typeId;
+      const config = attr.config;
+      
+      // Transfer item attributes (for lore)
+      // 1. Remove from source item type
+      if (GlobalItemAttributeRegistry.hasItemAttribute(sourceItemId, attrId)) {
+        GlobalItemAttributeRegistry.removeItemAttribute(sourceItemId, attrId);
       }
       
-      // Add to target block type
-      if (!GlobalBlockAttributeRegistry.addBlockAttribute(targetBlockId, attrId, attr.config)) {
-        return false;
+      // 2. Add to target item type
+      GlobalItemAttributeRegistry.addItemAttribute(targetBlockId, attrId, config);
+      
+      // Transfer block attributes (for mining)
+      // 3. Remove from source block type
+      if (GlobalBlockAttributeRegistry.hasBlockAttribute(sourceItemId, attrId)) {
+        GlobalBlockAttributeRegistry.removeBlockAttribute(sourceItemId, attrId);
       }
       
-      // Remove from source item
-      if (!this.removeAttribute(itemStack, attrId)) {
-        // Rollback target
-        GlobalBlockAttributeRegistry.removeBlockAttribute(targetBlockId, attrId);
-        return false;
-      }
+      // 4. Add to target block type
+      GlobalBlockAttributeRegistry.addBlockAttribute(targetBlockId, attrId, config);
       
-      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from ${itemStack.typeId} to block type ${targetBlockId}`);
+      console.warn(`[AttributeAPI] Transferred attribute '${attrId}' from ${sourceItemId} to ${targetBlockId} (both item and block)`);
       return true;
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to transfer attribute to block type:`, error);
@@ -364,10 +296,11 @@ export class AttributeAPI {
   
   /**
    * Trigger lore refresh for ItemStack
+   * Uses unified dynamic lore system
    */
   private static triggerLoreRefresh(itemStack: ItemStack): void {
     try {
-      LoreRefreshSystem.refresh(itemStack);
+      LoreSystem.applyLore(itemStack);
     } catch (error) {
       console.warn(`[AttributeAPI] Failed to refresh lore:`, error);
     }
