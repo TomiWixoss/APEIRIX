@@ -27,6 +27,7 @@ import { ProcessingRecipeRegistry } from "../data/processing/ProcessingRecipeReg
 import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes";
 import { TestBlockAttributeTransfer } from "../tests/TestBlockAttributeTransfer";
 import { TestEntityAttributeTransfer } from "../tests/TestEntityAttributeTransfer";
+import { TestPlayerAttributeTransfer } from "../tests/TestPlayerAttributeTransfer";
 import { EntitySystem } from "../systems/entities/EntitySystem";
 
 // Import achievements - Metallurgy
@@ -221,6 +222,7 @@ export class GameManager {
         // Initialize test commands (development only)
         TestBlockAttributeTransfer.initialize();
         TestEntityAttributeTransfer.initialize();
+        TestPlayerAttributeTransfer.initialize();
     }
 
     private static setupEventListeners(): void {

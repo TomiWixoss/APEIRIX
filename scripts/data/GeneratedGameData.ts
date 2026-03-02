@@ -2247,11 +2247,6 @@ export const GENERATED_WIKI_ITEMS = [
     ],
   },
   {
-    id: "minecraft:player",
-    category: "materials",
-    name: "minecraft:player",
-  },
-  {
     id: "minecraft:oak_log",
     category: "materials",
     name: "minecraft:oak_log",
@@ -6036,6 +6031,12 @@ export const GENERATED_ARMORS = [
  * Used by EntitySystem to auto-apply attributes on spawn
  */
 export const GENERATED_ENTITIES = [
+  {
+    entityId: "minecraft:player",
+    attributes: [
+      { id: "empty_hand_combat", config: {"context":"combat","damage":0} }
+    ]
+  },
   {
     entityId: "minecraft:zombie",
     attributes: [

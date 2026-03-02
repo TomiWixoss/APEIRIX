@@ -50,9 +50,15 @@ export class EmptyHandCombatHandler {
   }
 
   private static loadConfig(): void {
-    const config = getAttributeConfig(this.ENTITY_ID, this.ATTRIBUTE_ID);
-    if (config) {
-      this.config = config as EmptyHandCombatConfig;
+    // Load from GENERATED_ENTITIES (entity attributes)
+    const { GENERATED_ENTITIES } = require('../../../data/GeneratedGameData');
+    const playerEntity = GENERATED_ENTITIES.find((e: any) => e.entityId === this.ENTITY_ID);
+    
+    if (playerEntity) {
+      const attr = playerEntity.attributes.find((a: any) => a.id === this.ATTRIBUTE_ID);
+      if (attr) {
+        this.config = attr.config as EmptyHandCombatConfig;
+      }
     }
   }
 

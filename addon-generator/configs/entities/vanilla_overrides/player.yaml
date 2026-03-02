@@ -6,7 +6,7 @@ id: minecraft:player
 
 # Attributes để modify player behavior
 attributes:
-  # Player đánh bằng tay không (empty hand) gây 0 damage
-  empty_hand_combat:
-    context: combat
-    damage: 0
+  - id: empty_hand_combat
+    config:
+      context: combat
+      damage: 0

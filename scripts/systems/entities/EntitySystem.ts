@@ -69,6 +69,27 @@ export class EntitySystem {
         console.warn('[EntitySystem] Error in spawn handler:', error);
       }
     });
+    
+    // Listen to player spawn events (for player entity attributes)
+    world.afterEvents.playerSpawn.subscribe((event) => {
+      try {
+        const { player, initialSpawn } = event;
+        
+        // Only apply on initial spawn (first join)
+        if (!initialSpawn) return;
+        
+        // Skip if already processed
+        if (this.processedEntities.has(player)) return;
+        
+        // Apply attributes if config exists
+        this.applyAttributesToEntity(player);
+        
+        // Mark as processed
+        this.processedEntities.add(player);
+      } catch (error) {
+        console.warn('[EntitySystem] Error in player spawn handler:', error);
+      }
+    });
   }
 
   private static checkExistingEntities(): void {

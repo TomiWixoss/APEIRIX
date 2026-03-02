@@ -3,6 +3,7 @@
  * - Normal use: Show items (no blocks)
  * - Use on block: Show block info
  * - Use on entity: Show entity info (including vanilla entities with attributes)
+ * - Sneak + Use (no target): Show self player attributes
  */
 
 import { Player, Block, Entity } from "@minecraft/server";
@@ -18,6 +19,23 @@ export class WikiBookHandler {
      * @param entity - Entity being interacted with (if any)
      */
     static handle(player: Player, block?: Block, entity?: Entity): void {
+        // Special case: Sneak + Use (no entity/block target) = Show self attributes
+        // Check sneak BEFORE opening UI (UI will cancel sneak)
+        const wasSneaking = player.isSneaking;
+        
+        if (!entity && !block && wasSneaking) {
+            // Check if player has any attributes (static from GENERATED_ENTITIES or dynamic)
+            const dynamicAttrs = AttributeAPI.getEntityAttributes(player);
+            const staticEntity = GENERATED_ENTITIES.find(e => e.entityId === player.typeId);
+            
+            if (dynamicAttrs.length > 0 || staticEntity) {
+                // Player has attributes, show wiki for self
+                WikiUI.showEntity(player, player.typeId, player);
+                return;
+            }
+            // No attributes, fall through to normal wiki
+        }
+        
         if (entity) {
             // Player is interacting with an entity while holding wiki
             const entityId = entity.typeId;

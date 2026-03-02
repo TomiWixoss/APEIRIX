@@ -12,7 +12,7 @@
  * - amplifier: 0 (level 1)
  */
 
-import { world, Entity, EffectTypes } from '@minecraft/server';
+import { world, Entity } from '@minecraft/server';
 import { EntityAttributeResolver } from '../EntityAttributeResolver';
 import { PlaceholderRegistry } from '../../lore/placeholders/PlaceholderRegistry';
 
@@ -78,8 +78,8 @@ export class HungerInflictionHandler {
       this.processLorePlaceholders.bind(this)
     );
     
-    // Subscribe to entity hurt events
-    world.beforeEvents.entityHurt.subscribe((event) => {
+    // Subscribe to entity hurt events (use afterEvents to avoid restricted execution)
+    world.afterEvents.entityHurt.subscribe((event) => {
       this.handleEntityHurt(event);
     });
     
@@ -108,7 +108,7 @@ export class HungerInflictionHandler {
       
       // Apply hunger effect to hurt entity
       try {
-        hurtEntity.addEffect(EffectTypes.get('hunger')!, duration, {
+        hurtEntity.addEffect('hunger', duration, {
           amplifier: amplifier,
           showParticles: true
         });

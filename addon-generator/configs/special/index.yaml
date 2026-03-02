@@ -8,7 +8,6 @@ import:
   - vanilla_overrides/wooden_hoe.yaml
   - vanilla_overrides/wooden_sword.yaml
   - vanilla_overrides/wooden_spear.yaml
-  - vanilla_overrides/player.yaml
   # Vanilla Log Overrides
   - vanilla_overrides/oak_log.yaml
   - vanilla_overrides/birch_log.yaml

@@ -160,6 +160,7 @@ export const LANG_VI = {
         "combat_damage_modifier_template": "{attr:combat_damage}: §f{combat_damage}",
         "undead_slayer_template": "{attr:damage_multiplier}: §f+{damageMultiplier}%",
         "hammer_mining_template": "{attr:hammer_mining}: §aĐập block ra bụi",
-        "rust_mite_edible_template": "{attr:rust_mite_edible}: §cBị Rust Mite thu hút"
+        "rust_mite_edible_template": "{attr:rust_mite_edible}: §cBị Rust Mite thu hút",
+        "empty_hand_combat_template": "{attr:empty_hand_combat}: §fSát thương tay không: {damage}"
     }
 };

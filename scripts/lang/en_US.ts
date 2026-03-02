@@ -160,6 +160,7 @@ export const LANG_EN = {
         "combat_damage_modifier_template": "{attr:combat_damage}: §f{combat_damage}",
         "undead_slayer_template": "{attr:damage_multiplier}: §f+{damageMultiplier}%",
         "hammer_mining_template": "{attr:hammer_mining}: §aBreaks blocks into dust",
-        "rust_mite_edible_template": "{attr:rust_mite_edible}: §cAttracts Rust Mites"
+        "rust_mite_edible_template": "{attr:rust_mite_edible}: §cAttracts Rust Mites",
+        "empty_hand_combat_template": "{attr:empty_hand_combat}: §fEmpty Hand Damage: {damage}"
     }
 };
