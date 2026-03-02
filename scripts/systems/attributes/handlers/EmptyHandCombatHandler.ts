@@ -13,6 +13,7 @@
 
 import { world, EntityHurtBeforeEvent, Player } from '@minecraft/server';
 import { getAttributeConfig } from '../../../data/GeneratedAttributes';
+import { EntityAttributeStorage } from '../EntityAttributeStorage';
 
 interface EmptyHandCombatConfig {
   context?: string;
@@ -25,8 +26,32 @@ export class EmptyHandCombatHandler {
   // ============================================
   static readonly ATTRIBUTE_ID = 'empty_hand_combat';
   static readonly ENTITY_ID = 'minecraft:player';
+  static readonly TEMPLATE_KEY = 'empty_hand_combat_template';
   
   private static config: EmptyHandCombatConfig | null = null;
+  
+  // ============================================
+  // LORE GENERATION (for when transferred to items)
+  // ============================================
+  
+  /**
+   * Get lore template key for auto-generation
+   */
+  static getLoreTemplateKey(): string {
+    return this.TEMPLATE_KEY;
+  }
+  
+  /**
+   * Process lore placeholders for this attribute
+   * Replaces: {damage}
+   */
+  static processLorePlaceholders(entityId: string, line: string, entity?: any): string {
+    // Get config from entity or use default
+    const damage = this.config?.damage ?? 0;
+    
+    return line
+      .replace('{damage}', String(damage));
+  }
 
   static initialize(): void {
     console.warn('[EmptyHandCombatHandler] Initializing...');
@@ -76,6 +101,16 @@ export class EmptyHandCombatHandler {
       
       const player = attacker as Player;
       
+      // CRITICAL: Check if player HAS the empty_hand_combat attribute
+      // If attribute was transferred to item, player no longer has it → normal damage
+      const playerAttributeData = EntityAttributeStorage.load(player);
+      const hasAttribute = this.ATTRIBUTE_ID in playerAttributeData;
+      
+      if (!hasAttribute) {
+        // Player doesn't have attribute → normal damage
+        return;
+      }
+      
       // Get player's inventory
       const inventory = player.getComponent('minecraft:inventory');
       if (!inventory) return;
@@ -86,7 +121,7 @@ export class EmptyHandCombatHandler {
       // Get held item in selected slot
       const heldItem = container.getItem(player.selectedSlotIndex);
       
-      // If player has empty hand (no item), apply damage override
+      // If player has empty hand (no item) AND has attribute, apply damage override
       if (!heldItem && this.config.damage !== undefined) {
         event.damage = this.config.damage;
       }

@@ -8,6 +8,7 @@ hammer_mining: "§6Đập Búa"
 rust_mite_edible: "§cRust Mite"
 requires_tool: "§eYêu cầu"
 hunger_infliction: "§cGây Đói"
+empty_hand_combat: "§8Tay Không"
 
 # Attribute templates
 requires_tool_template: "§eYêu cầu: §f{tool_type}"

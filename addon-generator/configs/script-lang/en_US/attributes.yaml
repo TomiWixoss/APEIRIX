@@ -8,6 +8,7 @@ hammer_mining: "§6Hammer Mining"
 rust_mite_edible: "§cRust Mite Food"
 requires_tool: "§eRequires"
 hunger_infliction: "§cHunger Infliction"
+empty_hand_combat: "§8Empty Hand"
 
 # Attribute templates
 requires_tool_template: "§eRequires: §f{tool_type}"

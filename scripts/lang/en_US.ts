@@ -152,6 +152,7 @@ export const LANG_EN = {
         "rust_mite_edible": "§cRust Mite Food",
         "requires_tool": "§eRequires",
         "hunger_infliction": "§cHunger Infliction",
+        "empty_hand_combat": "§8Empty Hand",
         "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
         "hunger_infliction_template": "§cInflicts Hunger ({duration}s)",
         "vanilla_override_warning": "§e⚠ Stats have been modified§r",
@@ -161,6 +162,6 @@ export const LANG_EN = {
         "undead_slayer_template": "{attr:damage_multiplier}: §f+{damageMultiplier}%",
         "hammer_mining_template": "{attr:hammer_mining}: §aBreaks blocks into dust",
         "rust_mite_edible_template": "{attr:rust_mite_edible}: §cAttracts Rust Mites",
-        "empty_hand_combat_template": "{attr:empty_hand_combat}: §fEmpty Hand Damage: {damage}"
+        "empty_hand_combat_template": "{attr:empty_hand_combat}: §7Empty Hand Damage: §c{damage}"
     }
 };
