@@ -14,6 +14,7 @@ interface EntityAttributeConfig {
   attributes: Array<{
     id: string;
     config: any;
+    probability: number; // 0-100
   }>;
 }
 
@@ -127,12 +128,21 @@ export class EntitySystem {
       return;
     }
     
-    // Apply each attribute from config
+    // Apply each attribute based on probability
+    let appliedCount = 0;
     for (const attr of config.attributes) {
-      EntityAttributeStorage.setAttribute(entity, attr.id, attr.config);
+      const probability = attr.probability ?? 100; // Default 100%
+      const roll = Math.random() * 100; // 0-100
+      
+      if (roll < probability) {
+        EntityAttributeStorage.setAttribute(entity, attr.id, attr.config);
+        appliedCount++;
+      }
     }
     
-    console.warn(`[EntitySystem] Applied ${config.attributes.length} attributes to ${entity.typeId}`);
+    if (appliedCount > 0) {
+      console.warn(`[EntitySystem] Applied ${appliedCount}/${config.attributes.length} attributes to ${entity.typeId} (probability-based)`);
+    }
   }
 
   /**

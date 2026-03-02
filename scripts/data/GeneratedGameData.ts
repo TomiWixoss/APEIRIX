@@ -6073,13 +6073,14 @@ export const GENERATED_ENTITIES = [
   {
     entityId: "minecraft:player",
     attributes: [
-      { id: "empty_hand_combat", config: {"context":"combat","damage":0} }
+      { id: "empty_hand_combat", config: {"context":"combat","damage":0}, probability: 100 }
     ]
   },
   {
     entityId: "minecraft:zombie",
     attributes: [
-      { id: "hunger_infliction", config: {"duration":100,"amplifier":0} }
+      { id: "hunger_infliction", config: {"duration":100,"amplifier":0}, probability: 30 },
+      { id: "combat_damage_modifier", config: {"context":"combat","damage":2}, probability: 20 }
     ]
   }
 ];

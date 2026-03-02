@@ -29,6 +29,7 @@ import { GENERATED_PROCESSING_RECIPES } from "../data/GeneratedProcessingRecipes
 import { TestBlockAttributeTransfer } from "../tests/TestBlockAttributeTransfer";
 import { TestEntityAttributeTransfer } from "../tests/TestEntityAttributeTransfer";
 import { TestPlayerAttributeTransfer } from "../tests/TestPlayerAttributeTransfer";
+import "../tests/TestEntityProbability"; // Auto-registers on import
 import { EntitySystem } from "../systems/entities/EntitySystem";
 
 // Import achievements - Metallurgy

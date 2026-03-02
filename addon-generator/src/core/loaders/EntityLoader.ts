@@ -9,6 +9,7 @@ export interface EntityConfig {
   attributes?: Array<{
     id: string;
     config?: any;
+    probability?: number; // 0-100, default 100
   }>;
 }
 
@@ -17,6 +18,7 @@ export interface EntityAttributeData {
   attributes: Array<{
     id: string;
     config: any;
+    probability: number; // 0-100
   }>;
 }
 
@@ -101,7 +103,8 @@ export class EntityLoader {
               entityId: config.id,
               attributes: config.attributes.map(attr => ({
                 id: attr.id,
-                config: attr.config || {}
+                config: attr.config || {},
+                probability: attr.probability ?? 100 // Default 100%
               }))
             });
             

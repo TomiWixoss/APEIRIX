@@ -68,6 +68,7 @@ export interface EntityAttributeData {
   attributes: Array<{
     id: string;
     config: any;
+    probability: number; // 0-100
   }>;
 }
 
@@ -464,7 +465,7 @@ ${this.generateEntityData(entities)}
       entity.attributes.forEach((attr, index) => {
         const isLast = index === entity.attributes.length - 1;
         const configStr = JSON.stringify(attr.config);
-        lines.push(`      { id: "${attr.id}", config: ${configStr} }${isLast ? '' : ','}`);
+        lines.push(`      { id: "${attr.id}", config: ${configStr}, probability: ${attr.probability} }${isLast ? '' : ','}`);
       });
       
       lines.push(`    ]`);

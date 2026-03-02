@@ -145,7 +145,9 @@ export const LANG_VI = {
     "attributes": {
         "breakable": "§cGẫy",
         "durability": "§6Độ bền",
+        "durability_modifier": "§6Độ bền",
         "combat_damage": "§6Sát thương",
+        "combat_damage_modifier": "§6Sát thương",
         "damage_multiplier": "§6Sát thương tăng",
         "mining_speed": "§6Tốc độ đào",
         "hammer_mining": "§6Đập Búa",
@@ -153,6 +155,7 @@ export const LANG_VI = {
         "requires_tool": "§eYêu cầu",
         "hunger_infliction": "§cGây Đói",
         "empty_hand_combat": "§8Tay Không",
+        "undead_slayer": "§6Diệt Undead",
         "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
         "hunger_infliction_template": "§cGây hiệu ứng đói ({duration}s)",
         "vanilla_override_warning": "§e⚠ Thuộc tính đã được điều chỉnh§r",

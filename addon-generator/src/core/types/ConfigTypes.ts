@@ -269,6 +269,13 @@ export interface EntityConfig {
   isSummonable?: boolean;
   renderScale?: number; // For invisible markers
   
+  // Entity attributes with probability
+  attributes?: Array<{
+    id: string;
+    config?: any;
+    probability?: number; // 0-100, default 100 (always apply)
+  }>;
+  
   // NEW: 1.21.130+ Components
   rotationLockedToVehicle?: boolean;
   burnsInDaylight?: {

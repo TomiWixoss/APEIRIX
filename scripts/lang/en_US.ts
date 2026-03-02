@@ -145,7 +145,9 @@ export const LANG_EN = {
     "attributes": {
         "breakable": "§cBreakable",
         "durability": "§6Durability",
+        "durability_modifier": "§6Durability",
         "combat_damage": "§6Damage",
+        "combat_damage_modifier": "§6Damage",
         "damage_multiplier": "§6Damage Bonus",
         "mining_speed": "§6Mining Speed",
         "hammer_mining": "§6Hammer Mining",
@@ -153,6 +155,7 @@ export const LANG_EN = {
         "requires_tool": "§eRequires",
         "hunger_infliction": "§cHunger Infliction",
         "empty_hand_combat": "§8Empty Hand",
+        "undead_slayer": "§6Undead Slayer",
         "requires_tool_template": "{attr:requires_tool}: §f{tool_type}",
         "hunger_infliction_template": "§cInflicts Hunger ({duration}s)",
         "vanilla_override_warning": "§e⚠ Stats have been modified§r",

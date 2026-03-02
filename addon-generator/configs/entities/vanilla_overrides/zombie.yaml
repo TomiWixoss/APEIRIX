@@ -1,9 +1,22 @@
-# Zombie with hunger_infliction attribute
+# Zombie with multiple attributes (probability-based)
 # This is a vanilla override - adds attributes to minecraft:zombie
 
 id: minecraft:zombie
 attributes:
+  # 30% chance to inflict hunger on hit
   - id: hunger_infliction
+    probability: 30
     config:
       duration: 100 # 5 seconds
       amplifier: 0 # Level 1
+
+  # 20% chance to have increased damage
+  - id: combat_damage_modifier
+    probability: 20
+    config:
+      context: combat
+      damage: 2 # +2 damage
+
+
+  # 10% chance to be "elite" zombie with both attributes
+  # (This will be rolled independently, so ~3% chance for both)
