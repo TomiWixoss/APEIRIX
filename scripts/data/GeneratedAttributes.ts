@@ -7,9 +7,9 @@
  * 2. Run: bun run dev compile configs/addon.yaml
  * 3. File này sẽ được regenerate tự động
  * 
- * Generated: 2026-03-02T14:28:22.689Z
+ * Generated: 2026-03-03T14:31:33.422Z
  * Total attributes: 8
- * Total items with attributes: 154
+ * Total items with attributes: 169
  */
 
 // Attribute data for each item
@@ -40,6 +40,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'minecraft:wooden_spear', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
+    { itemId: 'minecraft:stone_pickaxe', config: {"context":"mining","value":100,"mode":"whitelist","conditions":{"blockIds":["minecraft:coal_ore","minecraft:deepslate_coal_ore","minecraft:copper_ore","minecraft:deepslate_copper_ore","minecraft:stone","minecraft:cobblestone","minecraft:deepslate"]}} },
+    { itemId: 'minecraft:stone_axe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} },
+    { itemId: 'minecraft:stone_shovel', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} },
+    { itemId: 'minecraft:stone_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} },
+    { itemId: 'minecraft:stone_sword', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore"]}} },
     { itemId: 'apeirix:flint_axe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'apeirix:flint_hoe', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
     { itemId: 'apeirix:flint_knife', config: {"context":"mining","value":100,"conditions":{"blockTags":["ore","stone"]}} },
@@ -54,6 +59,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"context":"combat","damage":0} },
     { itemId: 'minecraft:wooden_sword', config: {"context":"combat","damage":0.5} },
     { itemId: 'minecraft:wooden_spear', config: {"context":"combat","damage":0.5} },
+    { itemId: 'minecraft:stone_pickaxe', config: {"context":"combat","damage":1} },
+    { itemId: 'minecraft:stone_axe', config: {"context":"combat","damage":1} },
+    { itemId: 'minecraft:stone_shovel', config: {"context":"combat","damage":1} },
+    { itemId: 'minecraft:stone_hoe', config: {"context":"combat","damage":1} },
+    { itemId: 'minecraft:stone_sword', config: {"context":"combat","damage":2} },
     { itemId: 'apeirix:flint_axe', config: {"context":"combat","damage":0.5} },
     { itemId: 'apeirix:flint_hoe', config: {"context":"combat","damage":0.5} },
     { itemId: 'apeirix:flint_knife', config: {"context":"combat","damage":1} },
@@ -68,6 +78,11 @@ export const GENERATED_ATTRIBUTES: Record<string, AttributeItemData[]> = {
     { itemId: 'minecraft:wooden_hoe', config: {"durability":4} },
     { itemId: 'minecraft:wooden_sword', config: {"durability":4} },
     { itemId: 'minecraft:wooden_spear', config: {"durability":4} },
+    { itemId: 'minecraft:stone_pickaxe', config: {"durability":8} },
+    { itemId: 'minecraft:stone_axe', config: {"durability":8} },
+    { itemId: 'minecraft:stone_shovel', config: {"durability":8} },
+    { itemId: 'minecraft:stone_hoe', config: {"durability":8} },
+    { itemId: 'minecraft:stone_sword', config: {"durability":8} },
     { itemId: 'minecraft:copper_helmet', config: {"durability":4} },
     { itemId: 'minecraft:copper_chestplate', config: {"durability":4} },
     { itemId: 'minecraft:copper_leggings', config: {"durability":4} },

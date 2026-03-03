@@ -5,6 +5,13 @@
 # Swords - Undead Slayer attribute
 silver_sword: "§c§lSát Thủ Undead§r|§7Gây §f+{damageMultiplier}%§7 sát thương lên quái vật undead|§7(Zombie, Skeleton, Wither, Phantom...)"
 
+# Vanilla Stone Tools - Basic tier
+stone_pickaxe: "§7Cuốc đá cơ bản|§6Sát thương: §f1|§6Độ bền: §f8|§8Chỉ đào được đồng và than"
+stone_axe: "§7Rìu đá cơ bản|§6Sát thương: §f1|§6Độ bền: §f8|§cGẫy khi đào quặng/đá"
+stone_shovel: "§7Xẻng đá cơ bản|§6Sát thương: §f1|§6Độ bền: §f8|§cGẫy khi đào quặng"
+stone_hoe: "§7Cuốc đá cơ bản|§6Sát thương: §f1|§6Độ bền: §f8|§cGẫy khi đào quặng"
+stone_sword: "§7Kiếm đá cơ bản|§6Sát thương: §f2|§6Độ bền: §f8|§cGẫy khi đào quặng"
+
 # Flint Tools - Primitive tier
 flint_knife: "§7Dao đá lửa thô sơ|§6Sát thương: §f2|§6Độ bền: §f12"
 flint_pickaxe: "§7Cúp đá lửa thô sơ|§6Sát thương: §f1|§6Độ bền: §f12|§8Chỉ đào được than và đá"

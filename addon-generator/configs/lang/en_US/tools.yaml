@@ -7,6 +7,11 @@ tools:
   wooden_hoe: Wooden Hoe
   wooden_sword: Wooden Sword
   wooden_spear: Wooden Spear
+  stone_pickaxe: Stone Pickaxe
+  stone_axe: Stone Axe
+  stone_shovel: Stone Shovel
+  stone_hoe: Stone Hoe
+  stone_sword: Stone Sword
 
   bronze_pickaxe: Bronze Pickaxe
   bronze_axe: Bronze Axe

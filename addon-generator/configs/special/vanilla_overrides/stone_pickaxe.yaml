@@ -1,0 +1,33 @@
+# Vanilla Override: Stone Pickaxe
+# Override vanilla stone pickaxe với custom attributes
+
+id: minecraft:stone_pickaxe
+name: lang:tools.stone_pickaxe
+lore: lang:lore.auto # Auto-generate lore từ attributes
+wikiDescription: lang:wiki.tools.stone_pickaxe
+
+# Attributes để modify behavior
+attributes:
+  # Chỉ đào được copper, coal và stone (whitelist mode)
+  breakable:
+    context: mining
+    value: 100
+    mode: whitelist
+    conditions:
+      blockIds:
+        - minecraft:coal_ore
+        - minecraft:deepslate_coal_ore
+        - minecraft:copper_ore
+        - minecraft:deepslate_copper_ore
+        - minecraft:stone
+        - minecraft:cobblestone
+        - minecraft:deepslate
+
+  # 8 lần dùng (giữa wooden 4 và flint 12)
+  durability_modifier:
+    durability: 8
+
+  # 1 damage khi combat
+  combat_damage_modifier:
+    context: combat
+    damage: 1

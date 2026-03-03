@@ -2322,6 +2322,66 @@ export const GENERATED_WIKI_ITEMS = [
     ],
   },
   {
+    id: "minecraft:stone_pickaxe",
+    category: "materials",
+    name: "Cuốc Đá",
+    description: "Cuốc Đá. Bền hơn gỗ (8 lần dùng), chỉ đào được quặng đồng và than. Các quặng khác sẽ làm vỡ công cụ. Gây 1 sát thương.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:stone_axe",
+    category: "materials",
+    name: "Rìu Đá",
+    description: "Rìu Đá. Bền hơn gỗ (8 lần dùng), vỡ khi đập vào đá hoặc quặng. Gây 1 sát thương.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:stone_shovel",
+    category: "materials",
+    name: "Xẻng Đá",
+    description: "Xẻng Đá. Bền hơn gỗ (8 lần dùng), vỡ khi đào quặng. Gây 1 sát thương.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:stone_hoe",
+    category: "materials",
+    name: "Cuốc Đá",
+    description: "Cuốc Đá. Bền hơn gỗ (8 lần dùng), vỡ khi đập vào quặng. Gây 1 sát thương.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
+    id: "minecraft:stone_sword",
+    category: "materials",
+    name: "Kiếm Đá",
+    description: "Kiếm Đá. Bền hơn gỗ (8 lần dùng), gây 2 sát thương. Vỡ khi đào quặng.",
+    lore: [
+      "§e⚠ Thuộc tính đã được điều chỉnh§r",
+      "{attr:breakable}: §f{breakable_value}% §7({breakable_condition})",
+      "{attr:durability}: §f{current_durability}/{max_durability} lần dùng",
+      "{attr:combat_damage}: §f{combat_damage}"
+    ],
+  },
+  {
     id: "minecraft:copper_helmet",
     category: "materials",
     name: "Mũ Đồng",

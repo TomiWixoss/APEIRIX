@@ -1,0 +1,26 @@
+# Vanilla Override: Stone Shovel
+# Override vanilla stone shovel với custom attributes
+
+id: minecraft:stone_shovel
+name: lang:tools.stone_shovel
+lore: lang:lore.auto # Auto-generate lore từ attributes
+wikiDescription: lang:wiki.tools.stone_shovel
+
+# Attributes để modify behavior
+attributes:
+  # 100% breakable khi đào quặng
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+
+  # 8 lần dùng (giữa wooden 4 và flint 12)
+  durability_modifier:
+    durability: 8
+
+  # 1 damage khi combat
+  combat_damage_modifier:
+    context: combat
+    damage: 1

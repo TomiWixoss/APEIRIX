@@ -5,6 +5,13 @@
 # Swords - Undead Slayer attribute
 silver_sword: "§c§lUndead Slayer§r|§7Deals §f+{damageMultiplier}%§7 damage to undead mobs|§7(Zombie, Skeleton, Wither, Phantom...)"
 
+# Vanilla Stone Tools - Basic tier
+stone_pickaxe: "§7Basic stone pickaxe|§6Damage: §f1|§6Durability: §f8|§8Only mines copper and coal"
+stone_axe: "§7Basic stone axe|§6Damage: §f1|§6Durability: §f8|§cBreaks when mining ore/stone"
+stone_shovel: "§7Basic stone shovel|§6Damage: §f1|§6Durability: §f8|§cBreaks when mining ore"
+stone_hoe: "§7Basic stone hoe|§6Damage: §f1|§6Durability: §f8|§cBreaks when mining ore"
+stone_sword: "§7Basic stone sword|§6Damage: §f2|§6Durability: §f8|§cBreaks when mining ore"
+
 # Flint Tools - Primitive tier
 flint_knife: "§7Primitive flint knife|§6Damage: §f2|§6Durability: §f12"
 flint_pickaxe: "§7Primitive flint pickaxe|§6Damage: §f1|§6Durability: §f12|§8Only mines coal and stone"

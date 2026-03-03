@@ -1,0 +1,26 @@
+# Vanilla Override: Stone Sword
+# Override vanilla stone sword với custom attributes
+
+id: minecraft:stone_sword
+name: lang:tools.stone_sword
+lore: lang:lore.auto # Auto-generate lore từ attributes
+wikiDescription: lang:wiki.tools.stone_sword
+
+# Attributes để modify behavior
+attributes:
+  # 100% breakable khi đào quặng (nếu dùng sword để đào)
+  breakable:
+    context: mining
+    value: 100
+    conditions:
+      blockTags:
+        - ore
+
+  # 8 lần dùng (giữa wooden 4 và flint 12)
+  durability_modifier:
+    durability: 8
+
+  # 2 damage khi combat (sword nên cao hơn các tool khác)
+  combat_damage_modifier:
+    context: combat
+    damage: 2

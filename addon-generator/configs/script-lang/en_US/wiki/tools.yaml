@@ -9,6 +9,12 @@ wooden_hoe: "Wooden Hoe. Fragile tool that breaks when used on stone or ore."
 wooden_sword: "Wooden Sword. Barely deals any damage (0.5); breaks when hitting stone or ore."
 wooden_spear: "Wooden Spear. Extended reach but weak (0.5 damage); breaks when hitting stone or ore."
 
+stone_pickaxe: "Stone Pickaxe. More durable than wood (8 uses), only mines copper and coal ore. Other ores will break the tool. Deals 1 damage."
+stone_axe: "Stone Axe. More durable than wood (8 uses), breaks on stone or ore. Deals 1 damage."
+stone_shovel: "Stone Shovel. More durable than wood (8 uses), breaks when mining ore. Deals 1 damage."
+stone_hoe: "Stone Hoe. More durable than wood (8 uses), breaks on ore. Deals 1 damage."
+stone_sword: "Stone Sword. More durable than wood (8 uses), deals 2 damage. Breaks when mining ore."
+
 # Pickaxes
 bronze_pickaxe: "Bronze pickaxe used for mining stone and ores. Equivalent to iron pickaxe."
 
