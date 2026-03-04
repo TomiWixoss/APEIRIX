@@ -197,17 +197,26 @@ export class Compiler {
   private async generateManifests(config: AddonConfig): Promise<void> {
     Logger.log('📋 Generating manifests...');
 
+    const configDir = path.dirname(this.configPath);
+
+    // Resolve name from lang if it starts with "lang:"
+    let addonName = config.addon.name;
+    if (addonName && addonName.startsWith('lang:')) {
+      const langKey = addonName.substring(5); // Remove "lang:" prefix
+      addonName = langLoader.get(langKey, configDir, addonName);
+      Logger.log(`[Compiler] Resolved name: ${langKey} -> ${addonName}`);
+    }
+
     // Resolve description from lang if it starts with "lang:"
     let description = config.addon.description;
     if (description && description.startsWith('lang:')) {
       const langKey = description.substring(5); // Remove "lang:" prefix
-      const configDir = path.dirname(this.configPath);
       description = langLoader.get(langKey, configDir, description);
       Logger.log(`[Compiler] Resolved description: ${langKey} -> ${description}`);
     }
 
     const metadata: AddonMetadata = {
-      name: config.addon.name,
+      name: addonName,
       description: description,
       version: config.addon.version || [1, 0, 0],
       minEngineVersion: config.addon.minEngineVersion || [1, 21, 0],
