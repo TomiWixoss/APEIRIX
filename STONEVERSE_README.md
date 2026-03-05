@@ -1,11 +1,8 @@
-# Void Factory BE - Minecraft Bedrock Addon
+# StoneVerse BE - Minecraft Bedrock Addon
 
 ## Project Status
-Branch: `void-factory-be`
+Branch: `stoneverse-be`
 Started: 2026-03-05
-
-## Concept
-Void Factory - A tech-focused addon centered around void energy manipulation and automated production systems.
 
 ## Architecture
 This addon uses the same generator framework as APEIRIX:
@@ -24,11 +21,7 @@ This addon uses the same generator framework as APEIRIX:
 4. Build: `.\build-and-deploy.ps1`
 
 ## Namespace
-`voidfactory:` - Will be defined in `configs/addon.yaml`
+TBD - Will be defined in `configs/addon.yaml`
 
-## Core Features Planned
-- Void Energy system
-- Automated factories and production chains
-- Tech progression tree
-- Custom machines and automation
-- Resource processing and transformation
+## Features Planned
+TBD
