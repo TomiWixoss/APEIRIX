@@ -4,11 +4,12 @@
  * Supports localized names from resource packs (e.g., Vietnamese)
  */
 
-import { Block, ItemStack } from '@minecraft/server';
+import { Block } from '@minecraft/server';
 
 export interface BlockInfo {
   displayName: string;
   blockType: string;
+  localizationKey: string | null; // Key để translate theo ngôn ngữ player
 }
 
 export class BlockInfoProvider {
@@ -16,33 +17,36 @@ export class BlockInfoProvider {
    * Lấy thông tin về block - hiển thị tên đã được localize
    */
   static getBlockInfo(block: Block): BlockInfo {
-    // Lấy tên đã được localize từ game (hỗ trợ resource pack tiếng Việt)
-    const displayName = this.getLocalizedBlockName(block);
+    // Lấy localization key để Minecraft tự translate
+    const localizationKey = this.getBlockLocalizationKey(block);
+    
+    // Fallback name nếu không có localization key (format từ block ID)
+    const displayName = this.formatBlockName(block.typeId);
     
     return {
       displayName,
-      blockType: 'block'
+      blockType: 'block',
+      localizationKey
     };
   }
 
   /**
-   * Lấy tên block đã được localize từ game
-   * Hỗ trợ resource pack ngôn ngữ (Vietnamese, etc.)
+   * Lấy localization key của block
+   * Trả về key để Minecraft client tự translate theo ngôn ngữ của player
    */
-  private static getLocalizedBlockName(block: Block): string {
+  private static getBlockLocalizationKey(block: Block): string | null {
     try {
-      // Tạo ItemStack từ block để lấy nameTag (localized)
+      // Tạo ItemStack từ block để lấy localizationKey
       const itemStack = block.getItemStack(1);
       
-      if (itemStack && itemStack.nameTag) {
-        return itemStack.nameTag;
+      if (itemStack && itemStack.localizationKey) {
+        return itemStack.localizationKey;
       }
     } catch (error) {
       // Một số blocks không thể convert thành ItemStack
     }
     
-    // Fallback: Format từ block ID
-    return this.formatBlockName(block.typeId);
+    return null;
   }
 
   /**

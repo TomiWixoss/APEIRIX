@@ -6,9 +6,13 @@
  * - Chỉ hiển thị khi player nhìn vào block (raycast)
  * - Update mỗi 10 ticks (0.5s)
  * - Tự động clear khi không nhìn vào block
+ * 
+ * Localization:
+ * - Sử dụng RawMessage với translate để hiển thị theo ngôn ngữ của player
+ * - Hỗ trợ resource pack tiếng Việt và các ngôn ngữ khác
  */
 
-import { world, system } from '@minecraft/server';
+import { world, system, RawMessage } from '@minecraft/server';
 import { BlockInfoProvider } from './BlockInfoProvider';
 
 export class DisplayHandler {
@@ -57,8 +61,17 @@ export class DisplayHandler {
         const blockInfo = BlockInfoProvider.getBlockInfo(block);
         
         // Hiển thị tên block với màu sắc
-        const displayText = `§b${blockInfo.displayName}`;
-        player.onScreenDisplay.setActionBar(displayText);
+        // Nếu có localization key, dùng RawMessage để Minecraft tự translate
+        if (blockInfo.localizationKey) {
+          const rawMessage: RawMessage = {
+            translate: blockInfo.localizationKey
+          };
+          player.onScreenDisplay.setActionBar(rawMessage);
+        } else {
+          // Fallback: Hiển thị tên đã format
+          const displayText = `§b${blockInfo.displayName}`;
+          player.onScreenDisplay.setActionBar(displayText);
+        }
         
       } catch (error) {
         // Player có thể đã disconnect
