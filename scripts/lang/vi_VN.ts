@@ -8,7 +8,8 @@ export const LANG_VI = {
     "ui": {
         "void": {
             "teleport": "§b§lVOID TELEPORT §r§7- Bạn đã được đưa trở lại bầu trời!",
-            "message": "§7[§bBetter SB§7] §fBạn đã rơi vào void và được teleport về!"
+            "message": "§7[§bBetter SB§7] §fBạn đã rơi vào void và được teleport về!",
+            "protection": "§c§lVoid Protection! §7Bạn đã được cứu khỏi cái chết!"
         },
         "display": {
             "tool": {

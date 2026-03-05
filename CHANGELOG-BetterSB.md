@@ -10,6 +10,10 @@
 
 #### Hệ Thống Sky Factory 4
 - **Bảo Vệ Void**: Tự động dịch chuyển về trời khi rơi xuống void (y < 0)
+- **Void Protection (Totem Style)**: Cứu mạng 1 lần trong 5 giây sau khi teleport từ void
+  - Cancel damage chết → Set HP = 1 (nửa tim)
+  - Gây hiệu ứng choáng: Slowness IV + Nausea (5s)
+  - Thông báo localized (vi_VN/en_US)
 - **Dịch Chuyển Lên Y=200**: Giống Sky Factory 4, spawn lại trên trời
 - **Cooldown 2 Giây**: Tránh spam teleport
 - **Âm Thanh & Thông Báo**: Hiệu ứng enderman portal + thông báo
