@@ -7,7 +7,8 @@ import { LangGenerator } from '../../generators/LangGenerator.js';
  */
 export class LangBPGenerator {
   static async generate(config: any, outputDir: string, configDir: string = ''): Promise<number> {
-    const generator = new LangGenerator(outputDir, configDir);
+    const language = config.addon?.language || config.language || 'en_US';
+    const generator = new LangGenerator(outputDir, configDir, language);
     const entries: Record<string, string> = {};
 
     // Collect all lang entries
@@ -65,22 +66,34 @@ export class LangBPGenerator {
       }
     }
 
-    // Generate lang file
-    generator.generate(entries, 'BP');
+    // Resolve pack name and description from lang
+    let packName: string | undefined;
+    let packDescription: string | undefined;
+    
+    if (config.addon?.name) {
+      packName = generator.resolveName(config.addon.name);
+    }
+    if (config.addon?.description) {
+      packDescription = generator.resolveName(config.addon.description);
+    }
+
+    // Generate lang file with pack metadata
+    const version = config.addon?.version as [number, number, number] | undefined;
+    generator.generate(entries, 'BP', packName, packDescription, version);
 
     // Generate languages.json
-    this.generateLanguagesJson(outputDir);
+    this.generateLanguagesJson(outputDir, language);
 
     return Object.keys(entries).length;
   }
 
-  private static generateLanguagesJson(outputDir: string): void {
+  private static generateLanguagesJson(outputDir: string, language: string = 'en_US'): void {
     const textsDir = path.join(outputDir, 'texts');
     if (!existsSync(textsDir)) {
       mkdirSync(textsDir, { recursive: true });
     }
 
-    const languagesJson = ['en_US'];
+    const languagesJson = [language];
     const languagesPath = path.join(textsDir, 'languages.json');
     writeFileSync(languagesPath, JSON.stringify(languagesJson, null, 2));
   }

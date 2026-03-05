@@ -38,13 +38,9 @@ export class ManifestGenerator {
     const templatePath = path.join(__dirname, '../templates/bp-manifest.json');
     const template = readFileSync(templatePath, 'utf-8');
 
-    // Thêm version vào tên pack
-    const versionString = metadata.version.join('.');
-    const packName = `${metadata.name} v${versionString}`;
-
     const manifest = template
-      .replace('{{name}}', packName)
-      .replace('{{description}}', metadata.description)
+      .replace('{{name}}', 'pack.name') // Use lang key instead of resolved name
+      .replace('{{description}}', 'pack.description') // Use lang key instead of resolved description
       .replace('{{uuid}}', uuids.bp)
       .replace('{{moduleUuid}}', uuids.bpModule)
       .replace('{{scriptUuid}}', uuids.bpScript)
@@ -96,13 +92,9 @@ export class ManifestGenerator {
     const templatePath = path.join(__dirname, '../templates/rp-manifest.json');
     const template = readFileSync(templatePath, 'utf-8');
 
-    // Thêm version vào tên pack
-    const versionString = metadata.version.join('.');
-    const packName = `${metadata.name} v${versionString}`;
-
     const manifest = template
-      .replace('{{name}}', packName)
-      .replace('{{description}}', metadata.description)
+      .replace('{{name}}', 'pack.name') // Use lang key instead of resolved name
+      .replace('{{description}}', 'pack.description') // Use lang key instead of resolved description
       .replace('{{uuid}}', uuids.rp)
       .replace('{{moduleUuid}}', uuids.rpModule)
       .replace('{{bpUuid}}', uuids.bp)

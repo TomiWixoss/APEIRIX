@@ -1,7 +1,7 @@
 {
   "format_version": 2,
   "header": {
-    "name": "{{name}} [RP]",
+    "name": "{{name}}",
     "description": "{{description}}",
     "uuid": "{{uuid}}",
     "version": [1, 0, 0],

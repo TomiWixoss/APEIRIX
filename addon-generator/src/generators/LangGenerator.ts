@@ -4,10 +4,14 @@ import { langLoader } from '../core/loaders/LangLoader.js';
 import { Logger } from '../utils/Logger.js';
 
 /**
- * Generator cho Language files - update en_US.lang
+ * Generator cho Language files - supports vi_VN and en_US
  */
 export class LangGenerator {
-  constructor(private projectRoot: string, private configDir: string = '') {}
+  private language: string;
+
+  constructor(private projectRoot: string, private configDir: string = '', language: string = 'en_US') {
+    this.language = language;
+  }
 
   /**
    * Resolve display name from lang key or return as-is
@@ -22,7 +26,7 @@ export class LangGenerator {
   }
 
   updateLangFile(itemId: string, displayName: string, packType: 'BP' | 'RP', prefix: 'item' | 'tile' = 'item'): void {
-    const filePath = join(this.projectRoot, `texts/en_US.lang`);
+    const filePath = join(this.projectRoot, `texts/${this.language}.lang`);
     const lines = FileManager.readLines(filePath);
     
     const langKey = `${prefix}.apeirix.${itemId}.name=${displayName}`;
@@ -44,22 +48,41 @@ export class LangGenerator {
       
       lines.splice(insertIndex, 0, langKey);
       FileManager.writeLines(filePath, lines);
-      Logger.log(`✅ Đã thêm "${displayName}" vào ${packType}/texts/en_US.lang`);
+      Logger.log(`✅ Đã thêm "${displayName}" vào ${packType}/texts/${this.language}.lang`);
     } else {
-      Logger.log(`⚠️  ${prefix === 'item' ? 'Item' : 'Block'} "${itemId}" đã tồn tại trong ${packType}/texts/en_US.lang`);
+      Logger.log(`⚠️  ${prefix === 'item' ? 'Item' : 'Block'} "${itemId}" đã tồn tại trong ${packType}/texts/${this.language}.lang`);
     }
   }
 
   /**
    * Generate complete lang file from entries
    */
-  generate(entries: Record<string, string>, packType: 'BP' | 'RP'): void {
-    const filePath = join(this.projectRoot, `texts/en_US.lang`);
+  generate(entries: Record<string, string>, packType: 'BP' | 'RP', packName?: string, packDescription?: string, version?: [number, number, number]): void {
+    const filePath = join(this.projectRoot, `texts/${this.language}.lang`);
     const lines: string[] = [];
 
     // Header
     lines.push(`## APEIRIX Addon - Language File (${packType})`);
     lines.push('');
+
+    // Pack metadata section (if provided)
+    if (packName || packDescription) {
+      lines.push('## Pack Metadata');
+      if (packName) {
+        // Add version and pack type suffix
+        let fullPackName = packName;
+        if (version) {
+          const versionString = version.join('.');
+          fullPackName = `${packName} v${versionString}`;
+        }
+        fullPackName = `${fullPackName} [${packType}]`;
+        lines.push(`pack.name=${fullPackName}`);
+      }
+      if (packDescription) {
+        lines.push(`pack.description=${packDescription}`);
+      }
+      lines.push('');
+    }
 
     // Separate items and blocks
     const itemEntries: string[] = [];
@@ -88,7 +111,7 @@ export class LangGenerator {
     }
 
     FileManager.writeLines(filePath, lines);
-    Logger.log(`✅ Đã tạo ${packType}/texts/en_US.lang với ${Object.keys(entries).length} entries`);
+    Logger.log(`✅ Đã tạo ${packType}/texts/${this.language}.lang với ${Object.keys(entries).length} entries`);
   }
 
   /**
@@ -96,7 +119,7 @@ export class LangGenerator {
    */
   generateLanguagesJson(packType: 'BP' | 'RP'): void {
     const filePath = join(this.projectRoot, `texts/languages.json`);
-    const languages = ['en_US'];
+    const languages = [this.language];
     FileManager.writeJSON(filePath, languages);
   }
 }

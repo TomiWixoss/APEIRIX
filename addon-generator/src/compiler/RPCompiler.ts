@@ -7,6 +7,12 @@ import { FlipbookGenerator } from '../generators/FlipbookGenerator.js';
 import { Logger } from '../utils/Logger.js';
 
 export interface RPConfig {
+  addon?: {
+    language?: string;
+    name?: string;
+    description?: string;
+    version?: [number, number, number];
+  };
   items?: any[];
   blocks?: any[];
   ores?: any[];
@@ -59,7 +65,8 @@ export class RPCompiler {
     stats.langEntries = await this.generateLangFile(config, rpPath, configDir);
 
     // Generate languages.json
-    this.generateLanguagesJson(rpPath);
+    const language = config.addon?.language || (config as any).language || 'en_US';
+    this.generateLanguagesJson(rpPath, language);
 
     // Copy UI files (if enabled)
     if (config.enableJsonUI) {
@@ -207,7 +214,8 @@ export class RPCompiler {
    * Generate lang file using LangGenerator
    */
   private static async generateLangFile(config: RPConfig, rpPath: string, configDir: string = ''): Promise<number> {
-    const generator = new LangGenerator(rpPath, configDir);
+    const language = config.addon?.language || (config as any).language || 'en_US';
+    const generator = new LangGenerator(rpPath, configDir, language);
     const entries: Record<string, string> = {};
 
     // Collect all lang entries (resolve lang: prefix)
@@ -292,8 +300,20 @@ export class RPCompiler {
       }
     }
 
-    // Generate lang file
-    generator.generate(entries, 'RP');
+    // Resolve pack name and description from lang
+    let packName: string | undefined;
+    let packDescription: string | undefined;
+    
+    if ((config as any).addon?.name) {
+      packName = generator.resolveName((config as any).addon.name);
+    }
+    if ((config as any).addon?.description) {
+      packDescription = generator.resolveName((config as any).addon.description);
+    }
+
+    // Generate lang file with pack metadata
+    const version = (config as any).addon?.version as [number, number, number] | undefined;
+    generator.generate(entries, 'RP', packName, packDescription, version);
 
     return Object.keys(entries).length;
   }
@@ -301,8 +321,8 @@ export class RPCompiler {
   /**
    * Generate languages.json
    */
-  private static generateLanguagesJson(rpPath: string): void {
-    const generator = new LangGenerator(rpPath);
+  private static generateLanguagesJson(rpPath: string, language: string = 'en_US'): void {
+    const generator = new LangGenerator(rpPath, '', language);
     generator.generateLanguagesJson('RP');
   }
 

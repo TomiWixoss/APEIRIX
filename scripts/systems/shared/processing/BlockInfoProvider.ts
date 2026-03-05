@@ -1,9 +1,10 @@
 /**
  * Block Info Provider - Cung cấp thông tin về blocks
  * Better SB - Simplified version (no machines yet)
+ * Supports localized names from resource packs (e.g., Vietnamese)
  */
 
-import { Block } from '@minecraft/server';
+import { Block, ItemStack } from '@minecraft/server';
 
 export interface BlockInfo {
   displayName: string;
@@ -12,13 +13,11 @@ export interface BlockInfo {
 
 export class BlockInfoProvider {
   /**
-   * Lấy thông tin về block - hiển thị tên cho MỌI blocks
+   * Lấy thông tin về block - hiển thị tên đã được localize
    */
   static getBlockInfo(block: Block): BlockInfo {
-    const blockId = block.typeId;
-    
-    // Format tên: minecraft:stone -> Stone
-    const displayName = this.formatBlockName(blockId);
+    // Lấy tên đã được localize từ game (hỗ trợ resource pack tiếng Việt)
+    const displayName = this.getLocalizedBlockName(block);
     
     return {
       displayName,
@@ -27,7 +26,27 @@ export class BlockInfoProvider {
   }
 
   /**
-   * Format block ID thành tên hiển thị
+   * Lấy tên block đã được localize từ game
+   * Hỗ trợ resource pack ngôn ngữ (Vietnamese, etc.)
+   */
+  private static getLocalizedBlockName(block: Block): string {
+    try {
+      // Tạo ItemStack từ block để lấy nameTag (localized)
+      const itemStack = block.getItemStack(1);
+      
+      if (itemStack && itemStack.nameTag) {
+        return itemStack.nameTag;
+      }
+    } catch (error) {
+      // Một số blocks không thể convert thành ItemStack
+    }
+    
+    // Fallback: Format từ block ID
+    return this.formatBlockName(block.typeId);
+  }
+
+  /**
+   * Fallback: Format block ID thành tên hiển thị
    */
   private static formatBlockName(blockId: string): string {
     // Remove namespace (minecraft:, apeirix:, etc.)
