@@ -5,11 +5,14 @@
  */
 
 import { Block } from '@minecraft/server';
+import { getToolRequirement } from './BlockToolRequirements';
 
 export interface BlockInfo {
   displayName: string;
   blockType: string;
   localizationKey: string | null; // Key để translate theo ngôn ngữ player
+  toolRequired: string | null; // Tool requirement: 'hand', 'pickaxe', 'axe', 'shovel', etc.
+  toolTier: string | null; // Tool tier: 'wooden', 'stone', 'iron', 'diamond', 'netherite'
 }
 
 export class BlockInfoProvider {
@@ -20,14 +23,44 @@ export class BlockInfoProvider {
     // Lấy localization key để Minecraft tự translate
     const localizationKey = this.getBlockLocalizationKey(block);
     
-    // Fallback name nếu không có localization key (format từ block ID)
-    const displayName = this.formatBlockName(block.typeId);
+    // Lấy tên đã localized từ ItemStack (ưu tiên) hoặc fallback
+    const displayName = this.getLocalizedBlockName(block);
+    
+    // Lấy tool requirement từ comprehensive mapping
+    const requirement = getToolRequirement(block.typeId);
     
     return {
       displayName,
       blockType: 'block',
-      localizationKey
+      localizationKey,
+      toolRequired: requirement.tool,
+      toolTier: requirement.tier
     };
+  }
+
+  /**
+   * Lấy tên block đã được localize từ game
+   * Ưu tiên: ItemStack nameTag > formatted name
+   */
+  private static getLocalizedBlockName(block: Block): string {
+    try {
+      // Tạo ItemStack từ block để lấy tên đã localize
+      const itemStack = block.getItemStack(1);
+      
+      if (itemStack) {
+        // ItemStack.nameTag chứa tên đã localize từ resource pack
+        // Note: Đây KHÔNG phải custom name, mà là tên mặc định đã translate
+        const name = itemStack.nameTag;
+        if (name && name.trim().length > 0) {
+          return name;
+        }
+      }
+    } catch (error) {
+      // Một số blocks không thể convert thành ItemStack
+    }
+    
+    // Fallback: Format từ block ID
+    return this.formatBlockName(block.typeId);
   }
 
   /**

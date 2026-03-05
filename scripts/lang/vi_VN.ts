@@ -9,6 +9,28 @@ export const LANG_VI = {
         "void": {
             "teleport": "§b§lVOID TELEPORT §r§7- Bạn đã được đưa trở lại bầu trời!",
             "message": "§7[§bBetter SB§7] §fBạn đã rơi vào void và được teleport về!"
+        },
+        "display": {
+            "tool": {
+                "hand": "Tay",
+                "pickaxe": "Cuốc",
+                "axe": "Rìu",
+                "shovel": "Xẻng",
+                "hoe": "Cuốc xới",
+                "shears": "Kéo",
+                "sword": "Kiếm"
+            },
+            "tier": {
+                "wooden": "Gỗ",
+                "stone": "Đá",
+                "iron": "Sắt",
+                "gold": "Vàng",
+                "diamond": "Kim Cương",
+                "netherite": "Netherite"
+            },
+            "entity": {
+                "health": "Máu"
+            }
         }
     }
 };

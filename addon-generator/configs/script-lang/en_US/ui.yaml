@@ -5,3 +5,27 @@ ui:
   void:
     teleport: "§b§lVOID TELEPORT §r§7- You have been returned to the sky!"
     message: "§7[§bBetter SB§7] §fYou fell into the void and were teleported back!"
+
+  display:
+    # Tool names
+    tool:
+      hand: "Hand"
+      pickaxe: "Pickaxe"
+      axe: "Axe"
+      shovel: "Shovel"
+      hoe: "Hoe"
+      shears: "Shears"
+      sword: "Sword"
+
+    # Tool tiers
+    tier:
+      wooden: "Wooden"
+      stone: "Stone"
+      iron: "Iron"
+      gold: "Gold"
+      diamond: "Diamond"
+      netherite: "Netherite"
+
+    # Entity info
+    entity:
+      health: "Health"

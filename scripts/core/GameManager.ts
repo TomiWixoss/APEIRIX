@@ -7,7 +7,7 @@ import { world, system } from "@minecraft/server";
 import { EventBus } from "./EventBus";
 import { GameData } from "../data/GameData";
 import { LangManager } from "../lang/LangManager";
-import { DisplayHandler } from "../systems/shared/processing/DisplayHandler";
+import { DisplayHandler } from "../systems/display/DisplayHandler";
 import { VoidTeleportSystem } from "../systems/void/VoidTeleportSystem";
 
 export class GameManager {
