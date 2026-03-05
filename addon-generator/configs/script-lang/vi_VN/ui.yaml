@@ -1,0 +1,7 @@
+# Vietnamese UI Language for Scripts
+# Better SB
+
+ui:
+  void:
+    teleport: "§b§lVOID TELEPORT §r§7- Bạn đã được đưa trở lại bầu trời!"
+    message: "§7[§bBetter SB§7] §fBạn đã rơi vào void và được teleport về!"
